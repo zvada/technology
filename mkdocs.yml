@@ -1,0 +1,17 @@
+site_name: OSG Technology Area
+site_url: https://opensciencegrid.github.io/technology
+repo_url: htpss://github.com/opensciencegrid/technology
+theme: readthedocs
+theme_dir: osgthedocs
+
+extra_css:
+  - css/extra.css
+
+pages:
+  - Home: 'index.md'
+  - Meeting Notes: 'meetings.md'
+  - hidden: 'meetings/TechArea20170227.md'
+
+markdown_extensions:
+  - admonition
+  # - osg_markdown.colors
