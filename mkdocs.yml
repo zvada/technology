@@ -1,6 +1,6 @@
 site_name: OSG Technology Area
 site_url: https://opensciencegrid.github.io/technology
-repo_url: htpss://github.com/opensciencegrid/technology
+repo_url: https://github.com/opensciencegrid/technology
 theme: readthedocs
 theme_dir: osgthedocs
 
