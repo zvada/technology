@@ -9,6 +9,7 @@ extra_css:
 
 pages:
   - Home: 'index.md'
+  - Contact Us: 'contact.md'
   - Meeting Notes: 'meetings.md'
   - February 27, 2017: 'meetings/TechArea20170227.md'
 
