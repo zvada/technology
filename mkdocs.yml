@@ -11,7 +11,7 @@ pages:
   - Home: 'index.md'
   - Contact Us: 'contact.md'
   - Meeting Notes: 'meetings.md'
-  - February 27, 2017: 'meetings/TechArea20170227.md'
+  - February 27, 2017: 'meetings/2017/TechArea20170227.md'
 
 markdown_extensions:
   - admonition
