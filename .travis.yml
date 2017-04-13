@@ -1,19 +1,12 @@
-env:
-  global:
-  - GIT_NAME: "'Markdown autodeploy'"
-  - GIT_EMAIL: blin@cs.wisc.edu
-  - GH_REF: git@github.com:opensciencegrid/technology.git
 language: python
-before_script:
+install:
 - pip install mkdocs
-- pip install MarkdownHighlight
 script:
-- openssl aes-256-cbc -K $encrypted_8bf0fadbb437_key -iv $encrypted_8bf0fadbb437_iv -in deploy-key.enc -out deploy-key -d
-- chmod 600 deploy-key
-- eval `ssh-agent -s`
-- ssh-add deploy-key
-- git config user.name "Automatic Publish"
-- git config user.email "blin@cs.wisc.edu"
-- git remote add gh-token "${GH_REF}";
-- git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "Pushing to github"; PYTHONPATH=src/ mkdocs gh-deploy -v --clean --remote-name gh-token; git push gh-token gh-pages; fi;
+- mkdocs build --verbose --clean --strict
+deploy:
+ provider: pages
+ skip_cleanup: true
+ github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+ local_dir: site
+ on:
+   branch: master
