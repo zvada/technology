@@ -5,7 +5,7 @@
 
 # Recent Notes
 
-  * [27 February 2017](meetings/TechArea20170227.md)
+  * [27 February 2017](meetings/2017/TechArea20170227.md)
 
 # Old meeting notes
 
