@@ -127,7 +127,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170417/", 
-            "text": "OSG Technology Area Meeting, 17 April 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Suchandra\n\n\nNext week: Mat\n\n\n5 (+1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n166\n\n\n(+14)\n\n\nOpen\n\n\n\n\n\n\n17\n\n\n(+1)\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n(0)\n\n\nReady for Testing\n\n\n\n\n\n\n15\n\n\n(\n15)\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nDev freeze next week but limited testing time due to HTCondor week and Suchandra's vacation\n\n\nXRootD 4.6.1 release candidate testing at UNL\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nBNL (BrianL/Derek) - Worked with Xin to investigate missing CE ScheddAd from central collector caused by \nthis\n bug\n\n\n\n\nOSG Release Team\n\n\n\n\n\n\n\n\n3.3.24\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n17\n\n\n(+17)\n\n\nOpen\n\n\n\n\n\n\n6\n\n\n(+6)\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n(0)\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n(0)\n\n\nReady for Release\n\n\n\n\n\n\n23\n\n\n(+23)\n\n\nTotal\n\n\n\n\n\n\n\n\nOSG 3.3.24\n\n\n\n\nReady for Testing  \n\n\nNone yet\n\n\n\n\n\n\nReady for Release  \n\n\nNone yet\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC operations transition\n\n\nXRootD bugs in caching and HTTPS connections. Seems to be fixed.\n\n\nBlahp merge work continues.  Now on to getting binaries in the correct areas.\n\n\n\n\nThis Week\n\n\n\n\nMore GRACC Operations transition\n\n\nMore BLAHP merge\n\n\nmove \n*.osgstorage.org\n CVMFS repos to new host\n\n\n\n\nOngoing\n\n\n\n\nGratia V2: Derek will be working on this.  Jira project: \nGRACC\n.  Project documentation located at \nhttps://opensciencegrid.github.io/gracc\n.\n\n\nNew StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.", 
+            "text": "OSG Technology Area Meeting, 17 April 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Suchandra\n\n\nNext week: Mat\n\n\n5 (+1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n166\n\n\n+14\n\n\nOpen\n\n\n\n\n\n\n17\n\n\n+1\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n0\n\n\nReady for Testing\n\n\n\n\n\n\n15\n\n\n15\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nDev freeze next week but limited testing time due to HTCondor week and Suchandra's vacation\n\n\nXRootD 4.6.1 release candidate testing at UNL\n\n\n\n\nDiscussions\n\n\n\n\nMarian will speak with Mat about proper XRootD release candidate versioning name\n\n\nBrianL will look into system dashboard solution for missing project summary page\n\n\nFor testing gratia-probe/GRACC interaction, there is a GRACC testing interface that doesn't store the records but provides the proper responses to the probes\n\n\nUPITT (Marian) - XRootD assistance (\nhttps://ticket.grid.iu.edu/32605\n)\n\n\n\n\nSupport Update\n\n\n\n\nBNL (BrianL/Derek) - Worked with Xin to investigate missing CE ScheddAd from central collector caused by \nthis\n bug\n\n\n\n\nOSG Release Team\n\n\n\n\n\n\n\n\n3.3.24\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n17\n\n\n+17\n\n\nOpen\n\n\n\n\n\n\n6\n\n\n+6\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n0\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n0\n\n\nReady for Release\n\n\n\n\n\n\n23\n\n\n+23\n\n\nTotal\n\n\n\n\n\n\n\n\nOSG 3.3.24\n\n\n\n\nReady for Testing  \n\n\nNone yet\n\n\n\n\n\n\nReady for Release  \n\n\nNone yet\n\n\n\n\n\n\n\n\nDiscussions\n\n\nIf XRootD 4.6.1 isn't ready by the package freeze, we will revisit the stability of the release candidates\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC operations transition\n\n\nXRootD bugs in caching and HTTPS connections. Seems to be fixed.\n\n\nBlahp merge work continues.  Now on to getting binaries in the correct areas.\n\n\n\n\nThis Week\n\n\n\n\nMore GRACC Operations transition\n\n\nMore BLAHP merge\n\n\nmove \n*.osgstorage.org\n CVMFS repos to new host\n\n\n\n\nOngoing\n\n\n\n\nGratia V2: Derek will be working on this.  Jira project: \nGRACC\n.  Project documentation located at \nhttps://opensciencegrid.github.io/gracc\n.\n\n\nNew StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.", 
             "title": "April 17, 2017"
         }, 
         {
@@ -147,7 +147,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170417/#jira", 
-            "text": "# of tickets   State      166  (+14)  Open    17  (+1)  In Progress    0  (0)  Ready for Testing    15  ( 15)  Ready for Release", 
+            "text": "# of tickets   State      166  +14  Open    17  +1  In Progress    0  0  Ready for Testing    15  15  Ready for Release", 
             "title": "JIRA"
         }, 
         {
@@ -162,7 +162,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170417/#discussions", 
-            "text": "None this week", 
+            "text": "Marian will speak with Mat about proper XRootD release candidate versioning name  BrianL will look into system dashboard solution for missing project summary page  For testing gratia-probe/GRACC interaction, there is a GRACC testing interface that doesn't store the records but provides the proper responses to the probes  UPITT (Marian) - XRootD assistance ( https://ticket.grid.iu.edu/32605 )", 
             "title": "Discussions"
         }, 
         {
@@ -172,7 +172,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170417/#osg-release-team", 
-            "text": "3.3.24   Status      17  (+17)  Open    6  (+6)  In Progress    0  (0)  Ready for Testing    0  (0)  Ready for Release    23  (+23)  Total", 
+            "text": "3.3.24   Status      17  +17  Open    6  +6  In Progress    0  0  Ready for Testing    0  0  Ready for Release    23  +23  Total", 
             "title": "OSG Release Team"
         }, 
         {
@@ -182,7 +182,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170417/#discussions_1", 
-            "text": "None this week", 
+            "text": "If XRootD 4.6.1 isn't ready by the package freeze, we will revisit the stability of the release candidates", 
             "title": "Discussions"
         }, 
         {
