@@ -8,12 +8,4 @@ before_script:
 - pip install mkdocs
 - pip install MarkdownHighlight
 script:
-- 
-- openssl aes-256-cbc -K $encrypted_8bf0fadbb437_key -iv $encrypted_8bf0fadbb437_iv -in deploy-key.enc -out deploy-key -d
-- chmod 600 deploy-key
-- eval `ssh-agent -s`
-- ssh-add deploy-key
-- git config user.name "Automatic Publish"
-- git config user.email "blin@cs.wisc.edu"
-- git remote add gh-token "${GH_REF}";
-- git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
+- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then ./travis/run_on_non_pull_requests.sh; else ./travis/run_on_pull_requests.sh; fi
