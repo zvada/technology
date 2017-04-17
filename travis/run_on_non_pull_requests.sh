@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 openssl aes-256-cbc -K $encrypted_8bf0fadbb437_key -iv $encrypted_8bf0fadbb437_iv -in deploy-key.enc -out deploy-key -d
 chmod 600 deploy-key
