@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/</loc>
+     <lastmod>2017-04-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/contact/</loc>
+     <lastmod>2017-04-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/meetings/</loc>
+     <lastmod>2017-04-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/meetings/2017/TechArea20170227/</loc>
+     <lastmod>2017-04-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/meetings/2017/TechArea20170417/</loc>
+     <lastmod>2017-04-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>

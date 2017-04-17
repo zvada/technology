@@ -1,0 +1,209 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "OSG Technology Area\n\n\nWelcome to the OSG Technology Area! Currently this page only contains the Technology Area \nmeeting minutes\n. If you are looking for our full documentation, please visit the \nTWiki\n.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#osg-technology-area", 
+            "text": "Welcome to the OSG Technology Area! Currently this page only contains the Technology Area  meeting minutes . If you are looking for our full documentation, please visit the  TWiki .", 
+            "title": "OSG Technology Area"
+        }, 
+        {
+            "location": "/contact/", 
+            "text": "Chat Rooms\n\n\nProtocol:\n Slack  \n\n\nRoom name:\n \nosg-software\n  \n\n\nSite:\n \nhttps://opensciencegrid.slack.com/\n\n\nMailing Lists\n\n\nosg-software@opensciencegrid.org\n - General discussion amongst team members  \n\n\nosg-commits@cs.wisc.edu\n - Broadcast of all source code repo commits", 
+            "title": "Contact Us"
+        }, 
+        {
+            "location": "/contact/#chat-rooms", 
+            "text": "Protocol:  Slack    Room name:   osg-software     Site:   https://opensciencegrid.slack.com/", 
+            "title": "Chat Rooms"
+        }, 
+        {
+            "location": "/contact/#mailing-lists", 
+            "text": "osg-software@opensciencegrid.org  - General discussion amongst team members    osg-commits@cs.wisc.edu  - Broadcast of all source code repo commits", 
+            "title": "Mailing Lists"
+        }, 
+        {
+            "location": "/meetings/", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 857-216-4999, PIN #32390, \nUber Conference\n \n\n\nRecent Notes\n\n\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "title": "Meeting Notes"
+        }, 
+        {
+            "location": "/meetings/#coordinates", 
+            "text": "When:  Every Monday, 11:00 a.m. (U.S. Central)    Where:  +1 857-216-4999, PIN #32390,  Uber Conference", 
+            "title": "Coordinates"
+        }, 
+        {
+            "location": "/meetings/#recent-notes", 
+            "text": "17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "title": "Recent Notes"
+        }, 
+        {
+            "location": "/meetings/#old-meeting-notes", 
+            "text": "https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "title": "Old meeting notes"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/", 
+            "text": "OSG Technology Area Meeting, 27 February 2017\n\n\nCoordinates:\n Conference: 857-216-4999, PIN: 32390; \nhttps://www.uberconference.com/osgcat\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\n\n\nNo meeting next week, OSG All Hands\n\n\n\n\nTriage Duty\n\n\n\n\nThis week: Mat\n\n\nNext week: Suchandra\n\n\n6 (0) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n141\n\n\n(\n17)\n\n\nOpen\n\n\n\n\n\n\n33\n\n\n(+9)\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n(+2)\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n(\n12)\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.22\n\n\n2017-02-27\n\n\n2017-03-06\n\n\n2017-03-14\n\n\n\n\n\n\n\n\n3.3.23\n\n\n2017-03-27\n\n\n2017-04-03\n\n\n2017-04-11\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\nDiscussions\n\n\nSoftware freeze today  \n\n\n\n\n\n\n\n\nAssignee\n\n\nTickets Not RFT\n\n\n\n\n\n\n\n\n\n\nBrianL\n\n\n7\n\n\n\n\n\n\nMat\n\n\n7\n\n\n\n\n\n\nCarl\n\n\n4\n\n\n\n\n\n\nEdgar\n\n\n2\n\n\n\n\n\n\nDerek\n\n\n2\n\n\n\n\n\n\nMarian\n\n\n1\n\n\n\n\n\n\n\n\nSupport Update\n\n\n\n\nBaylor (BrianL) - CE installation help, troubleshooting mapping and blahp issues\n\n\nClemson (BrianL) - blahp segfault, held jobs due to bad folder ownership\n\n\nGeorgia Tech (BrianL) - accounting records reporting start date as 1/1/1970\n\n\n\n\nOSG Release Team\n\n\n\n\nMarch 11th Release - OSG 3.3.22  \n\n\nDevelopment Freeze 2/27\n\n\n\n\n\n\nData Release - IGTF 1.80\n\n\n\n\n\n\n\n\n\n\n3.3.22\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n15\n\n\n(+15)\n\n\nOpen\n\n\n\n\n\n\n11\n\n\n(+11)\n\n\nIn Progress\n\n\n\n\n\n\n2\n\n\n(\n2)\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n(\n3)\n\n\nReady for Release\n\n\n\n\n\n\n28\n\n\n(+16)\n\n\nTotal\n\n\n\n\n\n\n\n\nOSG 3.3.22\n\n\n\n\nTesting  \n\n\nXRootD 4.6.0\n\n\nfrontier-squid 3.5.24-1.1 in Upcoming\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC Transfer Summaries\n\n\nSyracuse StashCache running now.\n\n\nPackaged Auth StashCache is coming from Marian.\n\n\n\n\nThis Week\n\n\n\n\nFinish GRACC Tickets\n\n\nBlahp Merge\n\n\nBegin PEARC paper\n\n\n\n\nOngoing\n\n\n\n\nGratia V2: Derek will be working on this.  Jira project: \nGRACC\n.  Project documentation located at \nhttps://opensciencegrid.github.io/gracc\n.\n\n\nNew StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.\n\n\nUNL setting up authenticated StashCache as well\n\n\nSee Support Update section - StashCache troubleshooting at BNL, host migration to el7 caused some odd xrootd behavior, investigating", 
+            "title": "February 27, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#osg-technology-area-meeting-27-february-2017", 
+            "text": "Coordinates:  Conference: 857-216-4999, PIN: 32390;  https://www.uberconference.com/osgcat     Attending:", 
+            "title": "OSG Technology Area Meeting, 27 February 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#announcements", 
+            "text": "No meeting next week, OSG All Hands", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#triage-duty", 
+            "text": "This week: Mat  Next week: Suchandra  6 (0) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#jira", 
+            "text": "# of tickets   State      141  ( 17)  Open    33  (+9)  In Progress    4  (+2)  Ready for Testing    0  ( 12)  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.3.22  2017-02-27  2017-03-06  2017-03-14     3.3.23  2017-03-27  2017-04-03  2017-04-11     3.3.24  2017-04-25  2017-05-01  2017-05-09      Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#osg-software-team", 
+            "text": "", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#discussions", 
+            "text": "Software freeze today       Assignee  Tickets Not RFT      BrianL  7    Mat  7    Carl  4    Edgar  2    Derek  2    Marian  1", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#support-update", 
+            "text": "Baylor (BrianL) - CE installation help, troubleshooting mapping and blahp issues  Clemson (BrianL) - blahp segfault, held jobs due to bad folder ownership  Georgia Tech (BrianL) - accounting records reporting start date as 1/1/1970", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#osg-release-team", 
+            "text": "March 11th Release - OSG 3.3.22    Development Freeze 2/27    Data Release - IGTF 1.80      3.3.22   Status      15  (+15)  Open    11  (+11)  In Progress    2  ( 2)  Ready for Testing    0  ( 3)  Ready for Release    28  (+16)  Total", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#osg-3322", 
+            "text": "Testing    XRootD 4.6.0  frontier-squid 3.5.24-1.1 in Upcoming", 
+            "title": "OSG 3.3.22"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#last-week", 
+            "text": "GRACC Transfer Summaries  Syracuse StashCache running now.  Packaged Auth StashCache is coming from Marian.", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#this-week", 
+            "text": "Finish GRACC Tickets  Blahp Merge  Begin PEARC paper", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170227/#ongoing", 
+            "text": "Gratia V2: Derek will be working on this.  Jira project:  GRACC .  Project documentation located at  https://opensciencegrid.github.io/gracc .  New StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.  UNL setting up authenticated StashCache as well  See Support Update section - StashCache troubleshooting at BNL, host migration to el7 caused some odd xrootd behavior, investigating", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/", 
+            "text": "OSG Technology Area Meeting, 17 April 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Suchandra\n\n\nNext week: Mat\n\n\n5 (+1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n166\n\n\n(+14)\n\n\nOpen\n\n\n\n\n\n\n17\n\n\n(+1)\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n(0)\n\n\nReady for Testing\n\n\n\n\n\n\n15\n\n\n(\n15)\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nDev freeze next week but limited testing time due to HTCondor week and Suchandra's vacation\n\n\nXRootD 4.6.1 release candidate testing at UNL\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nBNL (BrianL/Derek) - Worked with Xin to investigate missing CE ScheddAd from central collector caused by \nthis\n bug\n\n\n\n\nOSG Release Team\n\n\n\n\n\n\n\n\n3.3.24\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n17\n\n\n(+17)\n\n\nOpen\n\n\n\n\n\n\n6\n\n\n(+6)\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n(0)\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n(0)\n\n\nReady for Release\n\n\n\n\n\n\n23\n\n\n(+23)\n\n\nTotal\n\n\n\n\n\n\n\n\nOSG 3.3.24\n\n\n\n\nReady for Testing  \n\n\nNone yet\n\n\n\n\n\n\nReady for Release  \n\n\nNone yet\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC operations transition\n\n\nXRootD bugs in caching and HTTPS connections. Seems to be fixed.\n\n\nBlahp merge work continues.  Now on to getting binaries in the correct areas.\n\n\n\n\nThis Week\n\n\n\n\nMore GRACC Operations transition\n\n\nMore BLAHP merge\n\n\nmove \n*.osgstorage.org\n CVMFS repos to new host\n\n\n\n\nOngoing\n\n\n\n\nGratia V2: Derek will be working on this.  Jira project: \nGRACC\n.  Project documentation located at \nhttps://opensciencegrid.github.io/gracc\n.\n\n\nNew StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.", 
+            "title": "April 17, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#osg-technology-area-meeting-17-april-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "title": "OSG Technology Area Meeting, 17 April 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#announcements", 
+            "text": "", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#triage-duty", 
+            "text": "This week: Suchandra  Next week: Mat  5 (+1) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#jira", 
+            "text": "# of tickets   State      166  (+14)  Open    17  (+1)  In Progress    0  (0)  Ready for Testing    15  ( 15)  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.3.24  2017-04-25  2017-05-01  2017-05-09     3.3.25  2017-05-30  2017-06-05  2017-06-13  5 week cycle     Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#osg-software-team", 
+            "text": "Dev freeze next week but limited testing time due to HTCondor week and Suchandra's vacation  XRootD 4.6.1 release candidate testing at UNL", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#discussions", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#support-update", 
+            "text": "BNL (BrianL/Derek) - Worked with Xin to investigate missing CE ScheddAd from central collector caused by  this  bug", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#osg-release-team", 
+            "text": "3.3.24   Status      17  (+17)  Open    6  (+6)  In Progress    0  (0)  Ready for Testing    0  (0)  Ready for Release    23  (+23)  Total", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#osg-3324", 
+            "text": "Ready for Testing    None yet    Ready for Release    None yet", 
+            "title": "OSG 3.3.24"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#last-week", 
+            "text": "GRACC operations transition  XRootD bugs in caching and HTTPS connections. Seems to be fixed.  Blahp merge work continues.  Now on to getting binaries in the correct areas.", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#this-week", 
+            "text": "More GRACC Operations transition  More BLAHP merge  move  *.osgstorage.org  CVMFS repos to new host", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170417/#ongoing", 
+            "text": "Gratia V2: Derek will be working on this.  Jira project:  GRACC .  Project documentation located at  https://opensciencegrid.github.io/gracc .  New StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.", 
+            "title": "Ongoing"
+        }
+    ]
+}
