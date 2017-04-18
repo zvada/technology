@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>VOMS Admin Retirement - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "VOMS Admin Retirement";
+    var mkdocs_page_input_path = "policy/voms-admin-retire.md";
+    var mkdocs_page_url = "/policy/voms-admin-retire/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class=" current">
+          
+  
+    <a class="current" href="./">VOMS Admin Retirement</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#voms-admin-retirement">VOMS-Admin Retirement</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#introduction">Introduction</a></li>
+        
+            <li><a class="toctree-l4" href="#site-transition-plans">Site Transition Plans</a></li>
+        
+            <li><a class="toctree-l4" href="#vo-transition-plans">VO Transition Plans</a></li>
+        
+            <li><a class="toctree-l4" href="#timeline">Timeline</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Policy &raquo;</li>
+        
+      
+    
+    <li>VOMS Admin Retirement</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/voms-admin-retire.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="voms-admin-retirement">VOMS-Admin Retirement</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This document provides an overview of the planned retirement of support for VOMS-Admin
+in the OSG Software Stack.</p>
+<p>Support for the VOMS infrastructure has three major components:
+1.  <em>VOMS-Admin</em>: A web interface for maintaining the list of authorized users in
+    a VO and their various authorizations (group membership, roles, attributes, etc).
+2.  <em>VOMS-Server</em>: A TCP service which signs a cryptographic extension on an X509
+    proxy certificate asserting the authorizations available to the authenticated user.
+3.  <em>VOMS Client</em>: Software for extracting and validating the signed VOMS extension from
+    an X509 proxy.  The validation is meant to be distributed: the VOMS client does not
+    need to contact the VOMS-Admin server.  However, OSG has historically used software
+    such as GUMS or <code>edg-mkgridmap</code> to cache a list of authorizations from the VOMS-Admin
+    interface, creating a dependency between VOMS client and VOMS-Admin.</p>
+<p>VOMS-Admin is a large, complex Java web application.  Over the last
+few years, upstream support has tailed off - particularly as OSG has been unable
+to update to VOMS-Admin version 3.  As a result, the maintenance burden has largely
+fallen on the OSG Software team.</p>
+<p>Given that VOMS-Admin is deeply tied to X509 security infrastructure - and is
+maintenance-only from OSG Software - there is no path forward to eliminate the use
+of X509 certificates in the web browser, a high-priority goal</p>
+<p>In discussions with the OSG community, we have found very few VOs utilize VOMS-Admin
+to manage their VO users.  Instead, the majority use VOMS-Admin to whitelist a pilot
+certificate: this can be done without a VOMS-Admin endpoint.</p>
+<p>OSG's plans to retire VOMS-Admin has three major components:
+<em> (Sites) Enable distributed validation of VOMS extensions in the VOMS client.
+</em> (VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing
+  of VOMS proxies.
+* (VOs) Migrate remaining VOs to a central <code>comanage</code> instance for managing user
+  authorizations; maintain a plugin to enable direct callouts from VOMS-Server
+  to <code>comanage</code> for authorization lookups.</p>
+<h2 id="site-transition-plans">Site Transition Plans</h2>
+<p>We will release a configuration of the LCMAPS authorization framework that performs
+distributed verification of VOMS extensions; this verification eludes the need to
+contact the VOMS-Admin interface for a list of authorizations.</p>
+<p>In 2015/2016, LCMAPS and GUMS were upgraded so GUMS skips the VOMS-Admin lookup when
+LCMAPS asserts the validation was performed.  Hence, when GUMS sites update clients to the
+latest (April 2017) LCMAPS and HTCondor-CE releases, the callout to VOMS-Admin is no longer
+needed.  <em>Note</em>: In parallel to the VOMS-Admin transition, OSG Software plans to retire GUMS.
+There is no need to complete one transition before the other.</p>
+<p>Sites using <code>edg-mkgridmap</code> will need to use its replacement, <code>lcmaps-plugins-voms</code> (this
+process is documented elsewhere).</p>
+<h2 id="vo-transition-plans">VO Transition Plans</h2>
+<p>Based on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain
+a list of authorized pilots.  For these VOs, we will help convert invocations of <code>voms-proxy-init</code>:</p>
+<pre><code>voms-proxy-init -voms hcc:/hcc/Role=pilot
+</code></pre>
+
+<p>to an equivalent call to <code>voms-proxy-fake</code>:</p>
+<pre><code>voms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \
+                -hostkey /etc/grid-security/voms/vomskey.pem \
+                -fqan /hcc/Role=pilot \
+                -voms hcc -uri hcc-voms.unl.edu:15000
+</code></pre>
+
+<p>The latter command would typically be run on the VO's glideinWMS frontend host, requiring the service certificate
+currently on the VOMS-Admin server to be kept on the frontend host.  The frontend's account may also need access
+to the certificate.</p>
+<p>We plan to transition more complex VOs - those using VOMS-Admin to track membership in a VO - to <code>comanage</code>.  It is
+not clear there are any such VOs that need support from OSG.  If there are, a hosted version of <code>comanage</code> is expected
+to be available in summer 2017 from the CILogon 2.0 project.  If you feel your VO is affected, please contact the
+OSG and we will build a custom timeline.  If there are no such VOs, we will not need to adopt <code>comanage</code> for this
+use case (other uses of <code>comanage</code> are expected to proceed regardless).</p>
+<h2 id="timeline">Timeline</h2>
+<ul>
+<li>April 2017 (completed): <code>lcmaps-plugins-voms</code> shipped and supported by OSG.</li>
+<li>May 2017: <code>osg-configure</code> and documentation necessary for using <code>lcmaps-plugins-voms</code> is shipped.</li>
+<li>June 2017: OSG 3.4.0 is released without VOMS-Admin, <code>edg-mkgridmap</code>, or GUMS.  Sites begin transition
+  to validating VOMS extensions.</li>
+<li>Summer 2017: As necessary, VOs are given access to a hosted <code>comanage</code> instance.</li>
+<li>Winter 2017: First VOs begin to retire VOMS-Admin.</li>
+<li>June 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../meetings/2017/TechArea20170417/" class="btn btn-neutral" title="April 17, 2017"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../meetings/2017/TechArea20170417/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
