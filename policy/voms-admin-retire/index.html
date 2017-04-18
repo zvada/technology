@@ -153,16 +153,18 @@
 <h2 id="introduction">Introduction</h2>
 <p>This document provides an overview of the planned retirement of support for VOMS-Admin
 in the OSG Software Stack.</p>
-<p>Support for the VOMS infrastructure has three major components:
-1.  <em>VOMS-Admin</em>: A web interface for maintaining the list of authorized users in
-    a VO and their various authorizations (group membership, roles, attributes, etc).
-2.  <em>VOMS-Server</em>: A TCP service which signs a cryptographic extension on an X509
-    proxy certificate asserting the authorizations available to the authenticated user.
-3.  <em>VOMS Client</em>: Software for extracting and validating the signed VOMS extension from
+<p>Support for the VOMS infrastructure has three major components:</p>
+<ol>
+<li><em>VOMS-Admin</em>: A web interface for maintaining the list of authorized users in
+    a VO and their various authorizations (group membership, roles, attributes, etc).</li>
+<li><em>VOMS-Server</em>: A TCP service which signs a cryptographic extension on an X509
+    proxy certificate asserting the authorizations available to the authenticated user.</li>
+<li><em>VOMS Client</em>: Software for extracting and validating the signed VOMS extension from
     an X509 proxy.  The validation is meant to be distributed: the VOMS client does not
     need to contact the VOMS-Admin server.  However, OSG has historically used software
     such as GUMS or <code>edg-mkgridmap</code> to cache a list of authorizations from the VOMS-Admin
-    interface, creating a dependency between VOMS client and VOMS-Admin.</p>
+    interface, creating a dependency between VOMS client and VOMS-Admin.</li>
+</ol>
 <p>VOMS-Admin is a large, complex Java web application.  Over the last
 few years, upstream support has tailed off - particularly as OSG has been unable
 to update to VOMS-Admin version 3.  As a result, the maintenance burden has largely
@@ -173,13 +175,15 @@ of X509 certificates in the web browser, a high-priority goal</p>
 <p>In discussions with the OSG community, we have found very few VOs utilize VOMS-Admin
 to manage their VO users.  Instead, the majority use VOMS-Admin to whitelist a pilot
 certificate: this can be done without a VOMS-Admin endpoint.</p>
-<p>OSG's plans to retire VOMS-Admin has three major components:
-<em> (Sites) Enable distributed validation of VOMS extensions in the VOMS client.
-</em> (VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing
-  of VOMS proxies.
-* (VOs) Migrate remaining VOs to a central <code>comanage</code> instance for managing user
+<p>OSG's plans to retire VOMS-Admin has three major components:</p>
+<ul>
+<li>(Sites) Enable distributed validation of VOMS extensions in the VOMS client.</li>
+<li>(VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing
+  of VOMS proxies.</li>
+<li>(VOs) Migrate remaining VOs to a central <code>comanage</code> instance for managing user
   authorizations; maintain a plugin to enable direct callouts from VOMS-Server
-  to <code>comanage</code> for authorization lookups.</p>
+  to <code>comanage</code> for authorization lookups.</li>
+</ul>
 <h2 id="site-transition-plans">Site Transition Plans</h2>
 <p>We will release a configuration of the LCMAPS authorization framework that performs
 distributed verification of VOMS extensions; this verification eludes the need to
