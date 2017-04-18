@@ -9,6 +9,7 @@ This document provides an overview of the planned retirement of support for VOMS
 in the OSG Software Stack.
 
 Support for the VOMS infrastructure has three major components:
+
 1.  *VOMS-Admin*: A web interface for maintaining the list of authorized users in
     a VO and their various authorizations (group membership, roles, attributes, etc).
 2.  *VOMS-Server*: A TCP service which signs a cryptographic extension on an X509
@@ -33,10 +34,11 @@ to manage their VO users.  Instead, the majority use VOMS-Admin to whitelist a p
 certificate: this can be done without a VOMS-Admin endpoint.
 
 OSG's plans to retire VOMS-Admin has three major components:
-* (Sites) Enable distributed validation of VOMS extensions in the VOMS client.
-* (VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing
+
+- (Sites) Enable distributed validation of VOMS extensions in the VOMS client.
+- (VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing
   of VOMS proxies.
-* (VOs) Migrate remaining VOs to a central `comanage` instance for managing user
+- (VOs) Migrate remaining VOs to a central `comanage` instance for managing user
   authorizations; maintain a plugin to enable direct callouts from VOMS-Server
   to `comanage` for authorization lookups.
 
