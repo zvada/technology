@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 857-216-4999, PIN #32390, \nUber Conference\n \n\n\nRecent Notes\n\n\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 857-216-4999, PIN #32390, \nUber Conference\n \n\n\nRecent Notes\n\n\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
@@ -37,13 +37,43 @@
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
             "location": "/meetings/#old-meeting-notes", 
             "text": "https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Old meeting notes"
+        }, 
+        {
+            "location": "/policy/voms-admin-retire/", 
+            "text": "VOMS-Admin Retirement\n\n\nIntroduction\n\n\nThis document provides an overview of the planned retirement of support for VOMS-Admin\nin the OSG Software Stack.\n\n\nSupport for the VOMS infrastructure has three major components:\n\n\n\n\nVOMS-Admin\n: A web interface for maintaining the list of authorized users in\n    a VO and their various authorizations (group membership, roles, attributes, etc).\n\n\nVOMS-Server\n: A TCP service which signs a cryptographic extension on an X509\n    proxy certificate asserting the authorizations available to the authenticated user.\n\n\nVOMS Client\n: Software for extracting and validating the signed VOMS extension from\n    an X509 proxy.  The validation is meant to be distributed: the VOMS client does not\n    need to contact the VOMS-Admin server.  However, OSG has historically used software\n    such as GUMS or \nedg-mkgridmap\n to cache a list of authorizations from the VOMS-Admin\n    interface, creating a dependency between VOMS client and VOMS-Admin.\n\n\n\n\nVOMS-Admin is a large, complex Java web application.  Over the last\nfew years, upstream support has tailed off - particularly as OSG has been unable\nto update to VOMS-Admin version 3.  As a result, the maintenance burden has largely\nfallen on the OSG Software team.\n\n\nGiven that VOMS-Admin is deeply tied to X509 security infrastructure - and is\nmaintenance-only from OSG Software - there is no path forward to eliminate the use\nof X509 certificates in the web browser, a high-priority goal\n\n\nIn discussions with the OSG community, we have found very few VOs utilize VOMS-Admin\nto manage their VO users.  Instead, the majority use VOMS-Admin to whitelist a pilot\ncertificate: this can be done without a VOMS-Admin endpoint.\n\n\nOSG's plans to retire VOMS-Admin has three major components:\n\n\n\n\n(Sites) Enable distributed validation of VOMS extensions in the VOMS client.\n\n\n(VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing\n  of VOMS proxies.\n\n\n(VOs) Migrate remaining VOs to a central \ncomanage\n instance for managing user\n  authorizations; maintain a plugin to enable direct callouts from VOMS-Server\n  to \ncomanage\n for authorization lookups.\n\n\n\n\nSite Transition Plans\n\n\nWe will release a configuration of the LCMAPS authorization framework that performs\ndistributed verification of VOMS extensions; this verification eludes the need to\ncontact the VOMS-Admin interface for a list of authorizations.\n\n\nIn 2015/2016, LCMAPS and GUMS were upgraded so GUMS skips the VOMS-Admin lookup when\nLCMAPS asserts the validation was performed.  Hence, when GUMS sites update clients to the\nlatest (April 2017) LCMAPS and HTCondor-CE releases, the callout to VOMS-Admin is no longer\nneeded.  \nNote\n: In parallel to the VOMS-Admin transition, OSG Software plans to retire GUMS.\nThere is no need to complete one transition before the other.\n\n\nSites using \nedg-mkgridmap\n will need to use its replacement, \nlcmaps-plugins-voms\n (this\nprocess is documented elsewhere).\n\n\nVO Transition Plans\n\n\nBased on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain\na list of authorized pilots.  For these VOs, we will help convert invocations of \nvoms-proxy-init\n:\n\n\nvoms-proxy-init -voms hcc:/hcc/Role=pilot\n\n\n\n\nto an equivalent call to \nvoms-proxy-fake\n:\n\n\nvoms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \\\n                -hostkey /etc/grid-security/voms/vomskey.pem \\\n                -fqan /hcc/Role=pilot \\\n                -voms hcc -uri hcc-voms.unl.edu:15000\n\n\n\n\nThe latter command would typically be run on the VO's glideinWMS frontend host, requiring the service certificate\ncurrently on the VOMS-Admin server to be kept on the frontend host.  The frontend's account may also need access\nto the certificate.\n\n\nWe plan to transition more complex VOs - those using VOMS-Admin to track membership in a VO - to \ncomanage\n.  It is\nnot clear there are any such VOs that need support from OSG.  If there are, a hosted version of \ncomanage\n is expected\nto be available in summer 2017 from the CILogon 2.0 project.  If you feel your VO is affected, please contact the\nOSG and we will build a custom timeline.  If there are no such VOs, we will not need to adopt \ncomanage\n for this\nuse case (other uses of \ncomanage\n are expected to proceed regardless).\n\n\nTimeline\n\n\n\n\nApril 2017 (completed): \nlcmaps-plugins-voms\n shipped and supported by OSG.\n\n\nMay 2017: \nosg-configure\n and documentation necessary for using \nlcmaps-plugins-voms\n is shipped.\n\n\nJune 2017: OSG 3.4.0 is released without VOMS-Admin, \nedg-mkgridmap\n, or GUMS.  Sites begin transition\n  to validating VOMS extensions.\n\n\nSummer 2017: As necessary, VOs are given access to a hosted \ncomanage\n instance.\n\n\nWinter 2017: First VOs begin to retire VOMS-Admin.\n\n\nJune 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.", 
+            "title": "VOMS Admin Retirement"
+        }, 
+        {
+            "location": "/policy/voms-admin-retire/#voms-admin-retirement", 
+            "text": "", 
+            "title": "VOMS-Admin Retirement"
+        }, 
+        {
+            "location": "/policy/voms-admin-retire/#introduction", 
+            "text": "This document provides an overview of the planned retirement of support for VOMS-Admin\nin the OSG Software Stack.  Support for the VOMS infrastructure has three major components:   VOMS-Admin : A web interface for maintaining the list of authorized users in\n    a VO and their various authorizations (group membership, roles, attributes, etc).  VOMS-Server : A TCP service which signs a cryptographic extension on an X509\n    proxy certificate asserting the authorizations available to the authenticated user.  VOMS Client : Software for extracting and validating the signed VOMS extension from\n    an X509 proxy.  The validation is meant to be distributed: the VOMS client does not\n    need to contact the VOMS-Admin server.  However, OSG has historically used software\n    such as GUMS or  edg-mkgridmap  to cache a list of authorizations from the VOMS-Admin\n    interface, creating a dependency between VOMS client and VOMS-Admin.   VOMS-Admin is a large, complex Java web application.  Over the last\nfew years, upstream support has tailed off - particularly as OSG has been unable\nto update to VOMS-Admin version 3.  As a result, the maintenance burden has largely\nfallen on the OSG Software team.  Given that VOMS-Admin is deeply tied to X509 security infrastructure - and is\nmaintenance-only from OSG Software - there is no path forward to eliminate the use\nof X509 certificates in the web browser, a high-priority goal  In discussions with the OSG community, we have found very few VOs utilize VOMS-Admin\nto manage their VO users.  Instead, the majority use VOMS-Admin to whitelist a pilot\ncertificate: this can be done without a VOMS-Admin endpoint.  OSG's plans to retire VOMS-Admin has three major components:   (Sites) Enable distributed validation of VOMS extensions in the VOMS client.  (VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing\n  of VOMS proxies.  (VOs) Migrate remaining VOs to a central  comanage  instance for managing user\n  authorizations; maintain a plugin to enable direct callouts from VOMS-Server\n  to  comanage  for authorization lookups.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/policy/voms-admin-retire/#site-transition-plans", 
+            "text": "We will release a configuration of the LCMAPS authorization framework that performs\ndistributed verification of VOMS extensions; this verification eludes the need to\ncontact the VOMS-Admin interface for a list of authorizations.  In 2015/2016, LCMAPS and GUMS were upgraded so GUMS skips the VOMS-Admin lookup when\nLCMAPS asserts the validation was performed.  Hence, when GUMS sites update clients to the\nlatest (April 2017) LCMAPS and HTCondor-CE releases, the callout to VOMS-Admin is no longer\nneeded.   Note : In parallel to the VOMS-Admin transition, OSG Software plans to retire GUMS.\nThere is no need to complete one transition before the other.  Sites using  edg-mkgridmap  will need to use its replacement,  lcmaps-plugins-voms  (this\nprocess is documented elsewhere).", 
+            "title": "Site Transition Plans"
+        }, 
+        {
+            "location": "/policy/voms-admin-retire/#vo-transition-plans", 
+            "text": "Based on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain\na list of authorized pilots.  For these VOs, we will help convert invocations of  voms-proxy-init :  voms-proxy-init -voms hcc:/hcc/Role=pilot  to an equivalent call to  voms-proxy-fake :  voms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \\\n                -hostkey /etc/grid-security/voms/vomskey.pem \\\n                -fqan /hcc/Role=pilot \\\n                -voms hcc -uri hcc-voms.unl.edu:15000  The latter command would typically be run on the VO's glideinWMS frontend host, requiring the service certificate\ncurrently on the VOMS-Admin server to be kept on the frontend host.  The frontend's account may also need access\nto the certificate.  We plan to transition more complex VOs - those using VOMS-Admin to track membership in a VO - to  comanage .  It is\nnot clear there are any such VOs that need support from OSG.  If there are, a hosted version of  comanage  is expected\nto be available in summer 2017 from the CILogon 2.0 project.  If you feel your VO is affected, please contact the\nOSG and we will build a custom timeline.  If there are no such VOs, we will not need to adopt  comanage  for this\nuse case (other uses of  comanage  are expected to proceed regardless).", 
+            "title": "VO Transition Plans"
+        }, 
+        {
+            "location": "/policy/voms-admin-retire/#timeline", 
+            "text": "April 2017 (completed):  lcmaps-plugins-voms  shipped and supported by OSG.  May 2017:  osg-configure  and documentation necessary for using  lcmaps-plugins-voms  is shipped.  June 2017: OSG 3.4.0 is released without VOMS-Admin,  edg-mkgridmap , or GUMS.  Sites begin transition\n  to validating VOMS extensions.  Summer 2017: As necessary, VOs are given access to a hosted  comanage  instance.  Winter 2017: First VOs begin to retire VOMS-Admin.  June 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.", 
+            "title": "Timeline"
         }, 
         {
             "location": "/meetings/2017/TechArea20170227/", 
@@ -206,34 +236,84 @@
             "title": "Ongoing"
         }, 
         {
-            "location": "/policy/voms-admin-retire/", 
-            "text": "VOMS-Admin Retirement\n\n\nIntroduction\n\n\nThis document provides an overview of the planned retirement of support for VOMS-Admin\nin the OSG Software Stack.\n\n\nSupport for the VOMS infrastructure has three major components:\n\n\n\n\nVOMS-Admin\n: A web interface for maintaining the list of authorized users in\n    a VO and their various authorizations (group membership, roles, attributes, etc).\n\n\nVOMS-Server\n: A TCP service which signs a cryptographic extension on an X509\n    proxy certificate asserting the authorizations available to the authenticated user.\n\n\nVOMS Client\n: Software for extracting and validating the signed VOMS extension from\n    an X509 proxy.  The validation is meant to be distributed: the VOMS client does not\n    need to contact the VOMS-Admin server.  However, OSG has historically used software\n    such as GUMS or \nedg-mkgridmap\n to cache a list of authorizations from the VOMS-Admin\n    interface, creating a dependency between VOMS client and VOMS-Admin.\n\n\n\n\nVOMS-Admin is a large, complex Java web application.  Over the last\nfew years, upstream support has tailed off - particularly as OSG has been unable\nto update to VOMS-Admin version 3.  As a result, the maintenance burden has largely\nfallen on the OSG Software team.\n\n\nGiven that VOMS-Admin is deeply tied to X509 security infrastructure - and is\nmaintenance-only from OSG Software - there is no path forward to eliminate the use\nof X509 certificates in the web browser, a high-priority goal\n\n\nIn discussions with the OSG community, we have found very few VOs utilize VOMS-Admin\nto manage their VO users.  Instead, the majority use VOMS-Admin to whitelist a pilot\ncertificate: this can be done without a VOMS-Admin endpoint.\n\n\nOSG's plans to retire VOMS-Admin has three major components:\n\n\n\n\n(Sites) Enable distributed validation of VOMS extensions in the VOMS client.\n\n\n(VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing\n  of VOMS proxies.\n\n\n(VOs) Migrate remaining VOs to a central \ncomanage\n instance for managing user\n  authorizations; maintain a plugin to enable direct callouts from VOMS-Server\n  to \ncomanage\n for authorization lookups.\n\n\n\n\nSite Transition Plans\n\n\nWe will release a configuration of the LCMAPS authorization framework that performs\ndistributed verification of VOMS extensions; this verification eludes the need to\ncontact the VOMS-Admin interface for a list of authorizations.\n\n\nIn 2015/2016, LCMAPS and GUMS were upgraded so GUMS skips the VOMS-Admin lookup when\nLCMAPS asserts the validation was performed.  Hence, when GUMS sites update clients to the\nlatest (April 2017) LCMAPS and HTCondor-CE releases, the callout to VOMS-Admin is no longer\nneeded.  \nNote\n: In parallel to the VOMS-Admin transition, OSG Software plans to retire GUMS.\nThere is no need to complete one transition before the other.\n\n\nSites using \nedg-mkgridmap\n will need to use its replacement, \nlcmaps-plugins-voms\n (this\nprocess is documented elsewhere).\n\n\nVO Transition Plans\n\n\nBased on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain\na list of authorized pilots.  For these VOs, we will help convert invocations of \nvoms-proxy-init\n:\n\n\nvoms-proxy-init -voms hcc:/hcc/Role=pilot\n\n\n\n\nto an equivalent call to \nvoms-proxy-fake\n:\n\n\nvoms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \\\n                -hostkey /etc/grid-security/voms/vomskey.pem \\\n                -fqan /hcc/Role=pilot \\\n                -voms hcc -uri hcc-voms.unl.edu:15000\n\n\n\n\nThe latter command would typically be run on the VO's glideinWMS frontend host, requiring the service certificate\ncurrently on the VOMS-Admin server to be kept on the frontend host.  The frontend's account may also need access\nto the certificate.\n\n\nWe plan to transition more complex VOs - those using VOMS-Admin to track membership in a VO - to \ncomanage\n.  It is\nnot clear there are any such VOs that need support from OSG.  If there are, a hosted version of \ncomanage\n is expected\nto be available in summer 2017 from the CILogon 2.0 project.  If you feel your VO is affected, please contact the\nOSG and we will build a custom timeline.  If there are no such VOs, we will not need to adopt \ncomanage\n for this\nuse case (other uses of \ncomanage\n are expected to proceed regardless).\n\n\nTimeline\n\n\n\n\nApril 2017 (completed): \nlcmaps-plugins-voms\n shipped and supported by OSG.\n\n\nMay 2017: \nosg-configure\n and documentation necessary for using \nlcmaps-plugins-voms\n is shipped.\n\n\nJune 2017: OSG 3.4.0 is released without VOMS-Admin, \nedg-mkgridmap\n, or GUMS.  Sites begin transition\n  to validating VOMS extensions.\n\n\nSummer 2017: As necessary, VOs are given access to a hosted \ncomanage\n instance.\n\n\nWinter 2017: First VOs begin to retire VOMS-Admin.\n\n\nJune 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.", 
-            "title": "VOMS Admin Retirement"
+            "location": "/meetings/2017/TechArea20170424/", 
+            "text": "OSG Technology Area Meeting, 24 April 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\n\n\nBrianL on vacation Wed-Thurs\n\n\nSuchandra on vacation until 5/5\n\n\nCondor week starts next Tuesday, 5/2\n\n\n\n\nTriage Duty\n\n\n\n\nThis week: Mat\n\n\nNext week: TimT\n\n\n4 (\n1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n171\n\n\n+5\n\n\nOpen\n\n\n\n\n\n\n23\n\n\n+6\n\n\nIn Progress\n\n\n\n\n\n\n3\n\n\n+3\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n0\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\n\n\nDev freeze today, tickets not RFT by owner:  \n\n\n\n\n\n\n\n\nDeveloper\n\n\n#\n\n\n\n\n\n\n\n\n\n\nMat\n\n\n12\n\n\n\n\n\n\nMarian\n\n\n2\n\n\n\n\n\n\nBrianL\n\n\n1\n\n\n\n\n\n\nCarl\n\n\n1\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nUMich (BrianL/Jeff/Marian) - Bob Ball's rebuilt CE is experiencing security handshake timeouts. Also had an issue where pilots were running even though his site was in downtime\n\n\n\n\nOSG Release Team\n\n\n\n\n\n\n\n\n3.3.24\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n17\n\n\n+17\n\n\nOpen\n\n\n\n\n\n\n6\n\n\n+6\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n0\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n0\n\n\nReady for Release\n\n\n\n\n\n\n23\n\n\n+23\n\n\nTotal\n\n\n\n\n\n\n\n\nOSG 3.3.24\n\n\n\n\nReady for Testing  \n\n\nNone yet\n\n\n\n\n\n\nReady for Release  \n\n\nNone yet\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC Archiver - Deployed\n\n\nGRACC operations transition\n\n\nBlahp merge work continues. Now on to getting binaries in the correct areas.\n\n\n\n\nThis Week\n\n\n\n\nMore GRACC Operations transition\n\n\nMore BLAHP merge\n\n\nmove \n*.osgstorage.org\n CVMFS repos to new host\n\n\n\n\nOngoing\n\n\n\n\nGratia V2: Derek will be working on this.  Jira project: \nGRACC\n.  Project documentation located at \nhttps://opensciencegrid.github.io/gracc\n.\n\n\nNew StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.", 
+            "title": "April 24, 2017"
         }, 
         {
-            "location": "/policy/voms-admin-retire/#voms-admin-retirement", 
+            "location": "/meetings/2017/TechArea20170424/#osg-technology-area-meeting-24-april-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "title": "OSG Technology Area Meeting, 24 April 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#announcements", 
+            "text": "BrianL on vacation Wed-Thurs  Suchandra on vacation until 5/5  Condor week starts next Tuesday, 5/2", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#triage-duty", 
+            "text": "This week: Mat  Next week: TimT  4 ( 1) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#jira", 
+            "text": "# of tickets   State      171  +5  Open    23  +6  In Progress    3  +3  Ready for Testing    0  0  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.3.24  2017-04-25  2017-05-01  2017-05-09     3.3.25  2017-05-30  2017-06-05  2017-06-13  5 week cycle    3.3.26  2017-06-26  2017-07-03  2017-07-11  Independence Day     Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#osg-software-team", 
+            "text": "Dev freeze today, tickets not RFT by owner:       Developer  #      Mat  12    Marian  2    BrianL  1    Carl  1", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#discussions", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#support-update", 
+            "text": "UMich (BrianL/Jeff/Marian) - Bob Ball's rebuilt CE is experiencing security handshake timeouts. Also had an issue where pilots were running even though his site was in downtime", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#osg-release-team", 
+            "text": "3.3.24   Status      17  +17  Open    6  +6  In Progress    0  0  Ready for Testing    0  0  Ready for Release    23  +23  Total", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#osg-3324", 
+            "text": "Ready for Testing    None yet    Ready for Release    None yet", 
+            "title": "OSG 3.3.24"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170424/#osg-investigations-team", 
             "text": "", 
-            "title": "VOMS-Admin Retirement"
+            "title": "OSG Investigations Team"
         }, 
         {
-            "location": "/policy/voms-admin-retire/#introduction", 
-            "text": "This document provides an overview of the planned retirement of support for VOMS-Admin\nin the OSG Software Stack.  Support for the VOMS infrastructure has three major components:   VOMS-Admin : A web interface for maintaining the list of authorized users in\n    a VO and their various authorizations (group membership, roles, attributes, etc).  VOMS-Server : A TCP service which signs a cryptographic extension on an X509\n    proxy certificate asserting the authorizations available to the authenticated user.  VOMS Client : Software for extracting and validating the signed VOMS extension from\n    an X509 proxy.  The validation is meant to be distributed: the VOMS client does not\n    need to contact the VOMS-Admin server.  However, OSG has historically used software\n    such as GUMS or  edg-mkgridmap  to cache a list of authorizations from the VOMS-Admin\n    interface, creating a dependency between VOMS client and VOMS-Admin.   VOMS-Admin is a large, complex Java web application.  Over the last\nfew years, upstream support has tailed off - particularly as OSG has been unable\nto update to VOMS-Admin version 3.  As a result, the maintenance burden has largely\nfallen on the OSG Software team.  Given that VOMS-Admin is deeply tied to X509 security infrastructure - and is\nmaintenance-only from OSG Software - there is no path forward to eliminate the use\nof X509 certificates in the web browser, a high-priority goal  In discussions with the OSG community, we have found very few VOs utilize VOMS-Admin\nto manage their VO users.  Instead, the majority use VOMS-Admin to whitelist a pilot\ncertificate: this can be done without a VOMS-Admin endpoint.  OSG's plans to retire VOMS-Admin has three major components:   (Sites) Enable distributed validation of VOMS extensions in the VOMS client.  (VOs) Migrate VOs that use VOMS only for pilot certificates to direct signing\n  of VOMS proxies.  (VOs) Migrate remaining VOs to a central  comanage  instance for managing user\n  authorizations; maintain a plugin to enable direct callouts from VOMS-Server\n  to  comanage  for authorization lookups.", 
-            "title": "Introduction"
+            "location": "/meetings/2017/TechArea20170424/#last-week", 
+            "text": "GRACC Archiver - Deployed  GRACC operations transition  Blahp merge work continues. Now on to getting binaries in the correct areas.", 
+            "title": "Last Week"
         }, 
         {
-            "location": "/policy/voms-admin-retire/#site-transition-plans", 
-            "text": "We will release a configuration of the LCMAPS authorization framework that performs\ndistributed verification of VOMS extensions; this verification eludes the need to\ncontact the VOMS-Admin interface for a list of authorizations.  In 2015/2016, LCMAPS and GUMS were upgraded so GUMS skips the VOMS-Admin lookup when\nLCMAPS asserts the validation was performed.  Hence, when GUMS sites update clients to the\nlatest (April 2017) LCMAPS and HTCondor-CE releases, the callout to VOMS-Admin is no longer\nneeded.   Note : In parallel to the VOMS-Admin transition, OSG Software plans to retire GUMS.\nThere is no need to complete one transition before the other.  Sites using  edg-mkgridmap  will need to use its replacement,  lcmaps-plugins-voms  (this\nprocess is documented elsewhere).", 
-            "title": "Site Transition Plans"
+            "location": "/meetings/2017/TechArea20170424/#this-week", 
+            "text": "More GRACC Operations transition  More BLAHP merge  move  *.osgstorage.org  CVMFS repos to new host", 
+            "title": "This Week"
         }, 
         {
-            "location": "/policy/voms-admin-retire/#vo-transition-plans", 
-            "text": "Based on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain\na list of authorized pilots.  For these VOs, we will help convert invocations of  voms-proxy-init :  voms-proxy-init -voms hcc:/hcc/Role=pilot  to an equivalent call to  voms-proxy-fake :  voms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \\\n                -hostkey /etc/grid-security/voms/vomskey.pem \\\n                -fqan /hcc/Role=pilot \\\n                -voms hcc -uri hcc-voms.unl.edu:15000  The latter command would typically be run on the VO's glideinWMS frontend host, requiring the service certificate\ncurrently on the VOMS-Admin server to be kept on the frontend host.  The frontend's account may also need access\nto the certificate.  We plan to transition more complex VOs - those using VOMS-Admin to track membership in a VO - to  comanage .  It is\nnot clear there are any such VOs that need support from OSG.  If there are, a hosted version of  comanage  is expected\nto be available in summer 2017 from the CILogon 2.0 project.  If you feel your VO is affected, please contact the\nOSG and we will build a custom timeline.  If there are no such VOs, we will not need to adopt  comanage  for this\nuse case (other uses of  comanage  are expected to proceed regardless).", 
-            "title": "VO Transition Plans"
-        }, 
-        {
-            "location": "/policy/voms-admin-retire/#timeline", 
-            "text": "April 2017 (completed):  lcmaps-plugins-voms  shipped and supported by OSG.  May 2017:  osg-configure  and documentation necessary for using  lcmaps-plugins-voms  is shipped.  June 2017: OSG 3.4.0 is released without VOMS-Admin,  edg-mkgridmap , or GUMS.  Sites begin transition\n  to validating VOMS extensions.  Summer 2017: As necessary, VOs are given access to a hosted  comanage  instance.  Winter 2017: First VOs begin to retire VOMS-Admin.  June 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.", 
-            "title": "Timeline"
+            "location": "/meetings/2017/TechArea20170424/#ongoing", 
+            "text": "Gratia V2: Derek will be working on this.  Jira project:  GRACC .  Project documentation located at  https://opensciencegrid.github.io/gracc .  New StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.", 
+            "title": "Ongoing"
         }
     ]
 }

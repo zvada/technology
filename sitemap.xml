@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://opensciencegrid.github.io/technology/</loc>
-     <lastmod>2017-04-18</lastmod>
+     <lastmod>2017-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>https://opensciencegrid.github.io/technology/contact/</loc>
-     <lastmod>2017-04-18</lastmod>
+     <lastmod>2017-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,23 +20,7 @@
     
     <url>
      <loc>https://opensciencegrid.github.io/technology/meetings/</loc>
-     <lastmod>2017-04-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>https://opensciencegrid.github.io/technology/meetings/2017/TechArea20170227/</loc>
-     <lastmod>2017-04-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>https://opensciencegrid.github.io/technology/meetings/2017/TechArea20170417/</loc>
-     <lastmod>2017-04-18</lastmod>
+     <lastmod>2017-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -45,10 +29,34 @@
         
     <url>
      <loc>https://opensciencegrid.github.io/technology/policy/voms-admin-retire/</loc>
-     <lastmod>2017-04-18</lastmod>
+     <lastmod>2017-04-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/meetings/2017/TechArea20170227/</loc>
+     <lastmod>2017-04-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/meetings/2017/TechArea20170417/</loc>
+     <lastmod>2017-04-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/meetings/2017/TechArea20170424/</loc>
+     <lastmod>2017-04-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
 </urlset>
