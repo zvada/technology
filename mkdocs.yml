@@ -19,4 +19,4 @@ pages:
 
 markdown_extensions:
   - admonition
-  - osg_markdown.colors
+
