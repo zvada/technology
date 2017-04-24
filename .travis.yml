@@ -8,4 +8,4 @@ before_script:
 - pip install mkdocs
 - pip install MarkdownHighlight
 script:
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then ./travis/run_on_non_pull_requests.sh; else ./travis/run_on_pull_requests.sh; fi
+- if [ "${TRAVIS_PULL_REQUEST}" == "false" ] && [ "${TRAVIS_BRANCH}" == "master" ]; then ./travis/run_on_non_pull_requests.sh; else ./travis/run_on_pull_requests.sh; fi
