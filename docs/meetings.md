@@ -1,10 +1,11 @@
 # Coordinates
 
 **When:** Every Monday, 11:00 a.m. (U.S. Central)    
-**Where:** +1 857-216-4999, PIN #32390, [Uber Conference](https://www.uberconference.com/osgcat) 
+**Where:** +1 719-284-5267, PIN #57363 [Uber Conference](https://www.uberconference.com/osgblin)
 
 # Recent Notes
 
+  * [1 May 2017](meetings/2017/TechArea20170424.md)
   * [24 April 2017](meetings/2017/TechArea20170424.md)
   * [17 April 2017](meetings/2017/TechArea20170417.md)
   * [10 April 2017](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/TechAreaMeeting20170410)
