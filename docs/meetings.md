@@ -5,6 +5,7 @@
 
 # Recent Notes
 
+  * [1 May 2017](meetings/2017/TechArea20170424.md)
   * [24 April 2017](meetings/2017/TechArea20170424.md)
   * [17 April 2017](meetings/2017/TechArea20170417.md)
   * [10 April 2017](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/TechAreaMeeting20170410)
