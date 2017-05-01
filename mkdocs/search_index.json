@@ -27,17 +27,17 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 857-216-4999, PIN #32390, \nUber Conference\n \n\n\nRecent Notes\n\n\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
             "location": "/meetings/#coordinates", 
-            "text": "When:  Every Monday, 11:00 a.m. (U.S. Central)    Where:  +1 857-216-4999, PIN #32390,  Uber Conference", 
+            "text": "When:  Every Monday, 11:00 a.m. (U.S. Central)    Where:  +1 719-284-5267, PIN #57363  Uber Conference", 
             "title": "Coordinates"
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
@@ -313,6 +313,81 @@
         {
             "location": "/meetings/2017/TechArea20170424/#ongoing", 
             "text": "Gratia V2: Derek will be working on this.  Jira project:  GRACC .  Project documentation located at  https://opensciencegrid.github.io/gracc .  New StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated StashCache Package incoming after papers completed.", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/", 
+            "text": "OSG Technology Area Meeting,  1 May 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\n\n\nHTCondor Week Tuesday - Wednesday\n\n\nSuchandra on vacation until 5/5\n\n\n\n\nTriage Duty\n\n\n\n\nThis week: TimT\n\n\nNext week:\n\n\n10 (+6) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n171\n\n\n4\n\n\nOpen\n\n\n\n\n\n\n18\n\n\n5\n\n\nIn Progress\n\n\n\n\n\n\n18\n\n\n+15\n\n\nReady for Testing\n\n\n\n\n\n\n1\n\n\n+1\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nPackage freeze today\n\n\nUtilizing JIRA ticket type and dropping unused types:\n\n\nAccess\n\n\nChange\n\n\nFault\n\n\nIT Help\n\n\nOngoing\n\n\nPurchase\n\n\nRequest\n\n\nStory\n\n\nSub-task-ongoing\n\n\nTechnical task\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this sweek  \n\n\nSupport Update\n\n\n\n\nUMich (BrianL) - Bob Ball's security handshakes were due to a local network issue\n\n\n\n\nOSG Release Team\n\n\nDiscussions\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\nThis Week\n\n\nOngoing", 
+            "title": "May 1, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#osg-technology-area-meeting-1-may-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "title": "OSG Technology Area Meeting,  1 May 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#announcements", 
+            "text": "HTCondor Week Tuesday - Wednesday  Suchandra on vacation until 5/5", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#triage-duty", 
+            "text": "This week: TimT  Next week:  10 (+6) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#jira", 
+            "text": "# of tickets   State      171  4  Open    18  5  In Progress    18  +15  Ready for Testing    1  +1  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.3.24  2017-04-25  2017-05-01  2017-05-09     3.3.25  2017-05-30  2017-06-05  2017-06-13  5 week cycle    3.3.26  2017-06-26  2017-07-03  2017-07-11  Independence Day     Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#osg-software-team", 
+            "text": "Package freeze today  Utilizing JIRA ticket type and dropping unused types:  Access  Change  Fault  IT Help  Ongoing  Purchase  Request  Story  Sub-task-ongoing  Technical task", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#discussions", 
+            "text": "None this sweek", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#support-update", 
+            "text": "UMich (BrianL) - Bob Ball's security handshakes were due to a local network issue", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#osg-release-team", 
+            "text": "", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#discussions_1", 
+            "text": "", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#last-week", 
+            "text": "", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#this-week", 
+            "text": "", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170501/#ongoing", 
+            "text": "", 
             "title": "Ongoing"
         }
     ]
