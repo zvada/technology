@@ -254,6 +254,74 @@
 <li>UW-Madison (Carl) - Working on discrepancies with APEL reporting</li>
 </ul>
 <h2 id="osg-release-team">OSG Release Team</h2>
+<ul>
+<li>Tim Theisen is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%20%3D%20SOFTWARE%20AND%20labels%20%3D%203.3.24%20ORDER%20BY%20status%20ASC%2C%20priority%20DESC%2C%20assignee%20ASC">May 9th</a> release</li>
+<li>Release tomorrow</li>
+<li>VO Package v73 - release this week (Wednesday or Thursday)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>3.3.24</th>
+<th>&Delta;</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>-2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>0</td>
+<td>-3</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>0</td>
+<td>-14</td>
+<td>Ready for Testing</td>
+</tr>
+<tr>
+<td>17</td>
+<td>+16</td>
+<td>Ready for Release</td>
+</tr>
+<tr>
+<td>17</td>
+<td>-3</td>
+<td>Total</td>
+</tr>
+</tbody>
+</table>
+<h3 id="osg-3324">OSG 3.3.24</h3>
+<ul>
+<li>Ready for Release  <ul>
+<li>osg-configure 1.7.0<ul>
+<li>Edit lcmaps.db to use the VOMS plugin<ul>
+<li>Add template lcmaps.db files</li>
+</ul>
+</li>
+<li>Make all attributes relating to the defunct BDII service optional</li>
+<li>Don't error out if user-vo-map missing, issue warning with suggestion</li>
+</ul>
+</li>
+<li>CVMFS X.509 helper - fix for running inside a container</li>
+<li>gsissh in tarballs</li>
+<li>Fix HTCondor Gratia probe to not call .eval() if not present</li>
+<li>osg-build 1.9.0<ul>
+<li>Split osg-build into subpackages</li>
+<li>add supprt for git repos in .source files (for HCC)</li>
+<li>osg-build notes default options</li>
+<li>add support for 3.4   </li>
+</ul>
+</li>
+<li>Upcoming: HTCondor 8.6.2</li>
+<li>Upcoming: GlideinWMS 3.3.2</li>
+</ul>
+</li>
+</ul>
 <h3 id="discussions_1">Discussions</h3>
 <pre><code>None this week
 </code></pre>
