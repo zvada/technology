@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
@@ -37,7 +37,7 @@
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
@@ -393,6 +393,81 @@
         {
             "location": "/meetings/2017/TechArea20170501/#ongoing", 
             "text": "GRACC Project", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/", 
+            "text": "OSG Technology Area Meeting,  8 May 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: BrianL\n\n\nNext week: Carl\n\n\n7 (\n3) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n161\n\n\n3\n\n\nOpen\n\n\n\n\n\n\n20\n\n\n+2\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n14\n\n\nReady for Testing\n\n\n\n\n\n\n16\n\n\n+15\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nDropped unused JIRA ticket types; still need to summarize remaining types\n\n\nOSG 3.4 preparation in full force\n\n\nTWiki -\n GH doc transition needs to begin\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nCHTC (BrianL/Jeff) - Asssisted Moate with bringing their frontend back up; turned out to just be a dead httpd service\n\n\nUW-Madison (Carl) - Working on discrepancies with APEL reporting\n\n\n\n\nOSG Release Team\n\n\nDiscussions\n\n\nNone this week\n\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\nThis Week\n\n\nOngoing", 
+            "title": "May 8, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#osg-technology-area-meeting-8-may-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "title": "OSG Technology Area Meeting,  8 May 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#announcements", 
+            "text": "", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#triage-duty", 
+            "text": "This week: BrianL  Next week: Carl  7 ( 3) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#jira", 
+            "text": "# of tickets   State      161  3  Open    20  +2  In Progress    4  14  Ready for Testing    16  +15  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.3.24  2017-04-25  2017-05-01  2017-05-09     3.3.25  2017-05-30  2017-06-05  2017-06-13  5 week cycle    3.3.26  2017-06-26  2017-07-03  2017-07-11  Independence Day     Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#osg-software-team", 
+            "text": "Dropped unused JIRA ticket types; still need to summarize remaining types  OSG 3.4 preparation in full force  TWiki -  GH doc transition needs to begin", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#discussions", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#support-update", 
+            "text": "CHTC (BrianL/Jeff) - Asssisted Moate with bringing their frontend back up; turned out to just be a dead httpd service  UW-Madison (Carl) - Working on discrepancies with APEL reporting", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#osg-release-team", 
+            "text": "", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#last-week", 
+            "text": "", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#this-week", 
+            "text": "", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170508/#ongoing", 
+            "text": "", 
             "title": "Ongoing"
         }
     ]
