@@ -235,6 +235,13 @@
 <td>2017-07-11</td>
 <td>Independence Day</td>
 </tr>
+<tr>
+<td>3.3.27</td>
+<td>2017-07-24</td>
+<td>2017-07-31</td>
+<td>2017-08-08</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <p>Notes: Additional “urgent” releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  </p>
@@ -248,72 +255,99 @@
 <p>None last week  </p>
 <h2 id="osg-release-team">OSG Release Team</h2>
 <ul>
-<li>Tim Theisen is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%2520%253D%2520SOFTWARE%2520AND%2520labels%2520%253D%25203.3.24%2520ORDER%2520BY%2520status%2520ASC%252C%2520priority%2520DESC%252C%2520assignee%2520ASC">May 9th</a> release</li>
-<li>Release tomorrow</li>
+<li>Suchandra Thapa is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%20%3D%20SOFTWARE%20AND%20labels%20in%20(3.3.25%2C%203.4.0)%20ORDER%20BY%20status%20ASC%2C%20priority%20DESC%2C%20assignee%20ASC">June 13th</a> release</li>
+<li>Development Release in two weeks</li>
 <li>
-<p>VO Package v73 - release this week (Wednesday or Thursday)  </p>
+<p>VO Package v73 - release tomorrow</p>
 <table>
 <thead>
 <tr>
-<th>3.3.24</th>
+<th>3.3.25</th>
+<th>&Delta;</th>
+<th>Both</th>
+<th>&Delta;</th>
+<th>3.4.0</th>
+<th>&Delta;</th>
+<th>Total</th>
 <th>&Delta;</th>
 <th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
-<td>&minus;2</td>
+<td>20</td>
+<td>&plus;20</td>
+<td>1</td>
+<td>&plus;1</td>
+<td>11</td>
+<td>&plus;11</td>
+<td>32</td>
+<td>&plus;32</td>
 <td>Open</td>
 </tr>
 <tr>
+<td>7</td>
+<td>&plus;7</td>
 <td>0</td>
-<td>&minus;3</td>
+<td>&plus;0</td>
+<td>6</td>
+<td>&plus;6</td>
+<td>13</td>
+<td>&plus;13</td>
 <td>In Progress</td>
 </tr>
 <tr>
+<td>1</td>
+<td>&plus;1</td>
 <td>0</td>
-<td>&minus;14</td>
+<td>&plus;0</td>
+<td>0</td>
+<td>&plus;0</td>
+<td>1</td>
+<td>&plus;1</td>
 <td>Ready for Testing</td>
 </tr>
 <tr>
-<td>17</td>
-<td>+16</td>
+<td>0</td>
+<td>&plus;0</td>
+<td>0</td>
+<td>&plus;0</td>
+<td>0</td>
+<td>&plus;0</td>
+<td>0</td>
+<td>&plus;0</td>
 <td>Ready for Release</td>
 </tr>
 <tr>
+<td>1</td>
+<td>&plus;1</td>
+<td>0</td>
+<td>&plus;0</td>
+<td>0</td>
+<td>&plus;0</td>
+<td>1</td>
+<td>&plus;1</td>
+<td>Closed</td>
+</tr>
+<tr>
+<td>29</td>
+<td>&plus;29</td>
+<td>1</td>
+<td>&plus;1</td>
 <td>17</td>
-<td>&minus;3</td>
+<td>&plus;17</td>
+<td>47</td>
+<td>&plus;47</td>
 <td>Total</td>
 </tr>
 </tbody>
 </table>
 </li>
 </ul>
-<h3 id="osg-3324">OSG 3.3.24</h3>
+<h3 id="osg-3325">OSG 3.3.25</h3>
 <ul>
-<li>Ready for Release  <ul>
-<li>osg-configure 1.7.0  <ul>
-<li>Edit lcmaps.db to use the VOMS plugin  <ul>
-<li>Add template lcmaps.db files</li>
-</ul>
-</li>
-<li>Make all attributes relating to the defunct BDII service optional</li>
-<li>Don't error out if user-vo-map missing, issue warning with suggestion</li>
-</ul>
-</li>
-<li>CVMFS X.509 helper - fix for running inside a container</li>
-<li>gsissh in tarballs</li>
-<li>Fix HTCondor Gratia probe to not call .eval() if not present</li>
-<li>osg-build 1.9.0  <ul>
-<li>Split osg-build into subpackages</li>
-<li>add supprt for git repos in .source files (for HCC)</li>
-<li>osg-build notes default options</li>
-<li>add support for 3.4</li>
-</ul>
-</li>
-<li>Upcoming: 8.6.2</li>
-<li>Upcoming: GlideinWMS 3.3.2</li>
+<li>Ready for Testing<ul>
+<li>Upcoming: HTCondor 8.6.3</li>
 </ul>
 </li>
 </ul>
