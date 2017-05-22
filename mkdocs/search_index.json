@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
@@ -37,7 +37,7 @@
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
@@ -479,6 +479,86 @@
             "location": "/meetings/2017/TechArea20170515/", 
             "text": "OSG Technology Area Meeting, 15 May 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n BrianL, Carl, Derek, Edgar, Marian, Mat, Suchandra, TimC, TimT  \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Carl\n\n\nNext week: Derek\n\n\n6 (\n1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n163\n\n\n+2\n\n\nOpen\n\n\n\n\n\n\n26\n\n\n+6\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n0\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n16\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nOSG 3.4 targeted for June, will revisit progress at Software Freeze\n\n\n\n\nDiscussions\n\n\n\n\n3.4.0 testing strategy: mostly automated testing with strategic manual testing, particularly with Globus-dependent software\n\n\nEdgar training new UCSD staff on OSG basics this week\n\n\n\n\nSupport Update\n\n\n\n\nOU (Derek) - slurm gratia-probe not reporting for a few days.  Then suddenly re-appeared.  Going to take some slurm magic to figure it out.  But it's working now.\n\n\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nJune 13th\n release\n\n\nDevelopment Release in two weeks\n\n\n\n\nVO Package v73 - release tomorrow\n\n\n\n\n\n\n\n\n3.3.25\n\n\n\n\nBoth\n\n\n\n\n3.4.0\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n20\n\n\n20\n\n\n1\n\n\n1\n\n\n11\n\n\n11\n\n\n32\n\n\n32\n\n\nOpen\n\n\n\n\n\n\n7\n\n\n7\n\n\n0\n\n\n0\n\n\n6\n\n\n6\n\n\n13\n\n\n13\n\n\nIn Progress\n\n\n\n\n\n\n1\n\n\n1\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n1\n\n\n1\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\nReady for Release\n\n\n\n\n\n\n1\n\n\n1\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n1\n\n\n1\n\n\nClosed\n\n\n\n\n\n\n29\n\n\n29\n\n\n1\n\n\n1\n\n\n17\n\n\n17\n\n\n47\n\n\n47\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\n\n\nOSG 3.3.25\n\n\n\n\nReady for Testing\n\n\nUpcoming: HTCondor 8.6.3\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nWeek 2 of StashCache focus.  Investigations team is taking a week or 2 of intense effort towards packaging StashCache Authenticated Server.  \n\n\nLast Week\n\n\n\n\nSetup GRACC-ITB instance - Ongoing\n\n\nBetter monitoring for CVMFS StashCache\n\n\nStashCache documentation for admins of caches \n origins \nhttps://opensciencegrid.github.io/StashCache/\n\n\n\n\nThis Week\n\n\n\n\nImprove docs even more through feedback from sites.\n\n\nLots of StashCache authenticated packaging.\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
             "title": "May 15, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#osg-technology-area-meeting-15-may-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:  BrianL, Carl, Derek, Edgar, Marian, Mat, Suchandra, TimC, TimT", 
+            "title": "OSG Technology Area Meeting, 15 May 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#announcements", 
+            "text": "", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#triage-duty", 
+            "text": "This week: Carl  Next week: Derek  6 ( 1) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#jira", 
+            "text": "# of tickets   State      163  +2  Open    26  +6  In Progress    4  0  Ready for Testing    0  16  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.3.25  2017-05-30  2017-06-05  2017-06-13  5 week cycle    3.3.26  2017-06-26  2017-07-03  2017-07-11  Independence Day    3.3.27  2017-07-24  2017-07-31  2017-08-08      Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#osg-software-team", 
+            "text": "OSG 3.4 targeted for June, will revisit progress at Software Freeze", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#discussions", 
+            "text": "3.4.0 testing strategy: mostly automated testing with strategic manual testing, particularly with Globus-dependent software  Edgar training new UCSD staff on OSG basics this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#support-update", 
+            "text": "OU (Derek) - slurm gratia-probe not reporting for a few days.  Then suddenly re-appeared.  Going to take some slurm magic to figure it out.  But it's working now.", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#osg-release-team", 
+            "text": "Suchandra Thapa is handling the  June 13th  release  Development Release in two weeks   VO Package v73 - release tomorrow     3.3.25   Both   3.4.0   Total   Status      20  20  1  1  11  11  32  32  Open    7  7  0  0  6  6  13  13  In Progress    1  1  0  0  0  0  1  1  Ready for Testing    0  0  0  0  0  0  0  0  Ready for Release    1  1  0  0  0  0  1  1  Closed    29  29  1  1  17  17  47  47  Total", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#osg-3325", 
+            "text": "Ready for Testing  Upcoming: HTCondor 8.6.3", 
+            "title": "OSG 3.3.25"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#osg-investigations-team", 
+            "text": "Week 2 of StashCache focus.  Investigations team is taking a week or 2 of intense effort towards packaging StashCache Authenticated Server.", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#last-week", 
+            "text": "Setup GRACC-ITB instance - Ongoing  Better monitoring for CVMFS StashCache  StashCache documentation for admins of caches   origins  https://opensciencegrid.github.io/StashCache/", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#this-week", 
+            "text": "Improve docs even more through feedback from sites.  Lots of StashCache authenticated packaging.", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170515/", 
+            "text": "OSG Technology Area Meeting, 15 May 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n BrianL, Carl, Derek, Edgar, Marian, Mat, Suchandra, TimC, TimT  \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Carl\n\n\nNext week: Derek\n\n\n6 (\n1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n163\n\n\n+2\n\n\nOpen\n\n\n\n\n\n\n26\n\n\n+6\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n0\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n16\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nOSG 3.4 targeted for June, will revisit progress at Software Freeze\n\n\n\n\nDiscussions\n\n\n\n\n3.4.0 testing strategy: mostly automated testing with strategic manual testing, particularly with Globus-dependent software\n\n\nEdgar training new UCSD staff on OSG basics this week\n\n\n\n\nSupport Update\n\n\n\n\nOU (Derek) - slurm gratia-probe not reporting for a few days.  Then suddenly re-appeared.  Going to take some slurm magic to figure it out.  But it's working now.\n\n\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nJune 13th\n release\n\n\nDevelopment Release in two weeks\n\n\n\n\nVO Package v73 - release tomorrow\n\n\n\n\n\n\n\n\n3.3.25\n\n\n\n\nBoth\n\n\n\n\n3.4.0\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n20\n\n\n20\n\n\n1\n\n\n1\n\n\n11\n\n\n11\n\n\n32\n\n\n32\n\n\nOpen\n\n\n\n\n\n\n7\n\n\n7\n\n\n0\n\n\n0\n\n\n6\n\n\n6\n\n\n13\n\n\n13\n\n\nIn Progress\n\n\n\n\n\n\n1\n\n\n1\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n1\n\n\n1\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\nReady for Release\n\n\n\n\n\n\n1\n\n\n1\n\n\n0\n\n\n0\n\n\n0\n\n\n0\n\n\n1\n\n\n1\n\n\nClosed\n\n\n\n\n\n\n29\n\n\n29\n\n\n1\n\n\n1\n\n\n17\n\n\n17\n\n\n47\n\n\n47\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\n\n\nOSG 3.3.25\n\n\n\n\nReady for Testing\n\n\nUpcoming: HTCondor 8.6.3\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nWeek 2 of StashCache focus.  Investigations team is taking a week or 2 of intense effort towards packaging StashCache Authenticated Server.  \n\n\nLast Week\n\n\n\n\nSetup GRACC-ITB instance - Ongoing\n\n\nBetter monitoring for CVMFS StashCache\n\n\nStashCache documentation for admins of caches \n origins \nhttps://opensciencegrid.github.io/StashCache/\n\n\n\n\nThis Week\n\n\n\n\nImprove docs even more through feedback from sites.\n\n\nLots of StashCache authenticated packaging.\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
+            "title": "May 22, 2017"
         }, 
         {
             "location": "/meetings/2017/TechArea20170515/#osg-technology-area-meeting-15-may-2017", 
