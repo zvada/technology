@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>May 15, 2017 - OSG Technology Area</title>
+  <title>May 22, 2017 - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "May 15, 2017";
-    var mkdocs_page_input_path = "meetings/2017/TechArea20170515.md";
-    var mkdocs_page_url = "/meetings/2017/TechArea20170515/";
+    var mkdocs_page_name = "May 22, 2017";
+    var mkdocs_page_input_path = "meetings/2017/TechArea20170522.md";
+    var mkdocs_page_url = "/meetings/2017/TechArea20170522/";
   </script>
   
   <script src="../../../js/jquery-2.1.1.min.js"></script>
@@ -107,14 +107,19 @@
   
 	    </li>
           
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
             <li class="toctree-l1 current">
 		
   
-    <a class="current" href="./">May 15, 2017</a>
+    <a class="current" href="./">May 22, 2017</a>
   
   <ul class="subnav">
       
-    <li class="toctree-l2"><a href="#osg-technology-area-meeting-15-may-2017">OSG Technology Area Meeting, 15 May 2017</a></li>
+    <li class="toctree-l2"><a href="#osg-technology-area-meeting-22-may-2017">OSG Technology Area Meeting, 22 May 2017</a></li>
     
         <ul>
         
@@ -130,11 +135,6 @@
     
 
   </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-  
 	    </li>
           
         </ul>
@@ -159,10 +159,10 @@
     
       
     
-    <li>May 15, 2017</li>
+    <li>May 22, 2017</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/meetings/2017/TechArea20170515.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/meetings/2017/TechArea20170522.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -172,15 +172,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="osg-technology-area-meeting-15-may-2017">OSG Technology Area Meeting, 15 May 2017</h1>
+                <h1 id="osg-technology-area-meeting-22-may-2017">OSG Technology Area Meeting, 22 May 2017</h1>
 <p><strong>Coordinates:</strong> Conference: 719-284-5267, PIN: 57363; <a href="https://www.uberconference.com/osgblin">https://www.uberconference.com/osgblin</a>  </p>
-<p><strong>Attending:</strong> BrianL, Carl, Derek, Edgar, Marian, Mat, Suchandra, TimC, TimT  </p>
+<p><strong>Attending:</strong> BrianL, Derek, Edgar, Marian, Mat, Suchandra, TimC, TimT  </p>
 <h2 id="announcements">Announcements</h2>
+<p>Memorial day next Monday, meeting on Tuesday instead.</p>
 <h3 id="triage-duty">Triage Duty</h3>
 <ul>
-<li>This week: Carl</li>
-<li>Next week: Derek</li>
-<li>6 (&minus;1) open tickets</li>
+<li>This week: Derek</li>
+<li>Next week: Edgar</li>
+<li>6 (0) open tickets</li>
 </ul>
 <h3 id="jira">JIRA</h3>
 <table>
@@ -193,12 +194,12 @@
 </thead>
 <tbody>
 <tr>
-<td>163</td>
-<td>+2</td>
+<td>156</td>
+<td>&minus;7</td>
 <td>Open</td>
 </tr>
 <tr>
-<td>26</td>
+<td>32</td>
 <td>+6</td>
 <td>In Progress</td>
 </tr>
@@ -209,7 +210,7 @@
 </tr>
 <tr>
 <td>0</td>
-<td>&minus;16</td>
+<td>0</td>
 <td>Ready for Release</td>
 </tr>
 </tbody>
@@ -251,24 +252,19 @@
 </table>
 <p>Notes: Additional “urgent” releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  </p>
 <h2 id="osg-software-team">OSG Software Team</h2>
-<ul>
-<li>OSG 3.4 targeted for June, will revisit progress at Software Freeze</li>
-</ul>
+<p>OSG 3.4.0 targeted for June</p>
 <h3 id="discussions">Discussions</h3>
-<ul>
-<li>3.4.0 testing strategy: mostly automated testing with strategic manual testing, particularly with Globus-dependent software</li>
-<li>Edgar training new UCSD staff on OSG basics this week</li>
-</ul>
+<p>Singularity may be updated in EPEL, Derek will test it this week and if successful, this may be able to be dropped from 3.4.</p>
 <h3 id="support-update">Support Update</h3>
 <ul>
-<li>OU (Derek) - slurm gratia-probe not reporting for a few days.  Then suddenly re-appeared.  Going to take some slurm magic to figure it out.  But it's working now.</li>
+<li>FIT (BrianL) - Assisting with GRAM -&gt; HTCondor-CE transition</li>
+<li>MIT (BrianL) - Investigating multiple GridFTP processes spawning on the real server when starting keepalived on the load balancing node</li>
 </ul>
 <h2 id="osg-release-team">OSG Release Team</h2>
 <ul>
 <li>Suchandra Thapa is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%20%3D%20SOFTWARE%20AND%20labels%20in%20(3.3.25%2C%203.4.0)%20ORDER%20BY%20status%20ASC%2C%20priority%20DESC%2C%20assignee%20ASC">June 13th</a> release</li>
-<li>Development Release in two weeks</li>
 <li>
-<p>VO Package v73 - release tomorrow</p>
+<p>Development Freeze next Tuesday</p>
 <table>
 <thead>
 <tr>
@@ -285,36 +281,36 @@
 </thead>
 <tbody>
 <tr>
-<td>20</td>
-<td>&plus;20</td>
-<td>1</td>
-<td>&plus;1</td>
-<td>11</td>
-<td>&plus;11</td>
-<td>32</td>
-<td>&plus;32</td>
+<td>2</td>
+<td>&minus;18</td>
+<td>16</td>
+<td>&plus;15</td>
+<td>7</td>
+<td>&minus;4</td>
+<td>25</td>
+<td>&minus;7</td>
 <td>Open</td>
 </tr>
 <tr>
-<td>7</td>
+<td>1</td>
+<td>&minus;6</td>
+<td>9</td>
+<td>&plus;9</td>
+<td>10</td>
+<td>&plus;4</td>
+<td>20</td>
 <td>&plus;7</td>
-<td>0</td>
-<td>&plus;0</td>
-<td>6</td>
-<td>&plus;6</td>
-<td>13</td>
-<td>&plus;13</td>
 <td>In Progress</td>
 </tr>
 <tr>
 <td>1</td>
-<td>&plus;1</td>
+<td>&plus;0</td>
+<td>3</td>
+<td>&plus;3</td>
 <td>0</td>
 <td>&plus;0</td>
-<td>0</td>
-<td>&plus;0</td>
-<td>1</td>
-<td>&plus;1</td>
+<td>4</td>
+<td>&plus;3</td>
 <td>Ready for Testing</td>
 </tr>
 <tr>
@@ -329,52 +325,66 @@
 <td>Ready for Release</td>
 </tr>
 <tr>
+<td>0</td>
+<td>&minus;1</td>
 <td>1</td>
 <td>&plus;1</td>
 <td>0</td>
 <td>&plus;0</td>
-<td>0</td>
-<td>&plus;0</td>
 <td>1</td>
-<td>&plus;1</td>
+<td>&plus;0</td>
 <td>Closed</td>
 </tr>
 <tr>
+<td>4</td>
+<td>&minus;25</td>
 <td>29</td>
-<td>&plus;29</td>
-<td>1</td>
-<td>&plus;1</td>
+<td>&plus;28</td>
 <td>17</td>
-<td>&plus;17</td>
-<td>47</td>
-<td>&plus;47</td>
+<td>&plus;0</td>
+<td>50</td>
+<td>&plus;3</td>
 <td>Total</td>
 </tr>
 </tbody>
 </table>
 </li>
-</ul>
-<h3 id="osg-3325">OSG 3.3.25</h3>
+<li>
+<p>Ready for Testing</p>
 <ul>
-<li>Ready for Testing<ul>
-<li>Upcoming: HTCondor 8.6.3</li>
+<li>OSG 3.3.25<ul>
+<li>Drop timeout_close.patch in globus-xio</li>
+</ul>
+</li>
+<li>Both<ul>
+<li>osg-update-vos: clean yum cache before downloading vo-client</li>
+<li>Update to rsv-perfsonar 1.3.1+</li>
+</ul>
+</li>
+<li>OSG 3.4.0</li>
+<li>Upcoming<ul>
+<li>Update to HTCondor 8.6.3+ in Upcoming</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="discussions_1">Discussions</h3>
 <p>None this week  </p>
 <h2 id="osg-investigations-team">OSG Investigations Team</h2>
-<p>Week 2 of StashCache focus.  Investigations team is taking a week or 2 of intense effort towards packaging StashCache Authenticated Server.  </p>
+<p>Week 3 of StashCache focus.  Effort decreasing...  Investigations team is taking a week or 2 of intense effort towards packaging StashCache Authenticated Server.  </p>
 <h3 id="last-week">Last Week</h3>
 <ul>
 <li>Setup GRACC-ITB instance - Ongoing</li>
-<li>Better monitoring for CVMFS StashCache</li>
-<li>StashCache documentation for admins of caches &amp; origins <a href="https://opensciencegrid.github.io/StashCache/">https://opensciencegrid.github.io/StashCache/</a></li>
+<li>Better GRACC Alerting</li>
+<li>Better StashCache Cache Alerting</li>
 </ul>
 <h3 id="this-week">This Week</h3>
 <ul>
-<li>Improve docs even more through feedback from sites.</li>
-<li>Lots of StashCache authenticated packaging.</li>
+<li>Continue to improve StashCache alerting</li>
+<li>Help debug HTTP stalls on XrootD</li>
+<li>Improve StashCache docs even more through feedback from sites. (hopefully we get some)</li>
+<li>GRACC improvements to some memory leaky daemons</li>
 </ul>
 <h3 id="ongoing">Ongoing</h3>
 <ul>
@@ -388,10 +398,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../TechArea20170522/" class="btn btn-neutral float-right" title="May 22, 2017">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../TechArea20170508/" class="btn btn-neutral" title="May 8, 2017"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../TechArea20170515/" class="btn btn-neutral" title="May 15, 2017"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -419,10 +427,8 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../TechArea20170508/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../TechArea20170515/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../TechArea20170522/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
