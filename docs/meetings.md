@@ -5,6 +5,7 @@
 
 # Recent Notes
 
+  * [30 May 2017](meetings/2017/TechArea20170530.md) &mdash; (Memorial Day)
   * [22 May 2017](meetings/2017/TechArea20170522.md)
   * [15 May 2017](meetings/2017/TechArea20170515.md)
   * [8 May 2017](meetings/2017/TechArea20170508.md)
