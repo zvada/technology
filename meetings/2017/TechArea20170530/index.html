@@ -307,6 +307,8 @@
 <ul>
 <li>MIT (BrianL) - Investigated open UDP ports for GridFTP: turned out to be an old version of GridFTP</li>
 <li>UFL (BrianL) - Assisted Bockjoo with Slurm timeout issues</li>
+<li>Purdue (Derek) - Assist in configuration of OSG_WN_TMP for their cluster.</li>
+<li>ALICE (Derek) - Alice VO had issues with submitting usage to GRACC.  So far, seems like it's the probe.</li>
 <li>Fermilab (Suchandra) - disabling SSLv2/SSLv3 for BeStMan, BrianB to speak to them about transitioning them to another storage solution</li>
 </ul>
 <h2 id="osg-release-team">OSG Release Team</h2>
@@ -432,19 +434,24 @@
 <h3 id="discussions_1">Discussions</h3>
 <p>None this week</p>
 <h2 id="osg-investigations-team">OSG Investigations Team</h2>
-<p>Week 3 of StashCache focus.  Effort decreasing&#x2026;  Investigations team is taking a week or 2 of intense effort towards packaging StashCache Authenticated Server.  </p>
+<p>Focused StashCache effort is over.</p>
 <h3 id="last-week">Last Week</h3>
 <ul>
 <li>Setup GRACC-ITB instance - Ongoing</li>
-<li>Better GRACC Alerting</li>
-<li>Better StashCache Cache Alerting</li>
+<li>Better GRACC Alerting - Now alert on all the things!</li>
+<li>Better StashCache Cache Alerting - HTTP Accesses</li>
+<li>GRACC daemons no longer leak memory like it's their job<ul>
+<li>Python tar file objects keep the metadata for every object added to the tar file, be sure to clear it!</li>
+</ul>
+</li>
+<li>CVMFS syncing with Stash now works, increased time out.</li>
+<li>Packaging of GRACC Agent daemons in Docker</li>
 </ul>
 <h3 id="this-week">This Week</h3>
 <ul>
-<li>Continue to improve StashCache alerting</li>
+<li>Complete packaging of GRACC agents in docker.</li>
 <li>Help debug HTTP stalls on XrootD</li>
 <li>Improve StashCache docs even more through feedback from sites. (hopefully we get some)</li>
-<li>GRACC improvements to some memory leaky daemons</li>
 </ul>
 <h3 id="ongoing">Ongoing</h3>
 <ul>
