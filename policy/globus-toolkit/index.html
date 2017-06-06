@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Release Series Support - OSG Technology Area</title>
+  <title>Globus Toolkit Support - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Release Series Support";
-    var mkdocs_page_input_path = "policy/release-series.md";
-    var mkdocs_page_url = "/policy/release-series/";
+    var mkdocs_page_name = "Globus Toolkit Support";
+    var mkdocs_page_input_path = "policy/globus-toolkit.md";
+    var mkdocs_page_url = "/policy/globus-toolkit/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -79,23 +79,23 @@
     <a class="" href="../voms-admin-retire/">VOMS Admin Retirement</a>
   
         </li>
-        <li class=" current">
-          
-  
-    <a class="current" href="./">Release Series Support</a>
-  
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#osg-software-release-series-support-policy">OSG Software Release Series Support Policy</a></li>
-    
-
-  </ul>
-        </li>
         <li class="">
           
   
-    <a class="" href="../globus-toolkit/">Globus Toolkit Support</a>
+    <a class="" href="../release-series/">Release Series Support</a>
   
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Globus Toolkit Support</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#osg-support-of-the-globus-toolkit-draft">OSG Support of the Globus Toolkit (DRAFT)</a></li>
+    
+
+  </ul>
         </li>
   </ul>
 	    </li>
@@ -171,10 +171,10 @@
         
       
     
-    <li>Release Series Support</li>
+    <li>Globus Toolkit Support</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/release-series.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/globus-toolkit.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -184,11 +184,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="osg-software-release-series-support-policy">OSG Software Release Series Support Policy</h1>
-<p>This document describes the OSG policy for managing its software releases. Use this policy to help plan when to perform major OSG software updates at your site.</p>
-<p>OSG software releases are organized into <strong>release series</strong>, with the intent that software updates within a series do not take long to perform, cause significant downtime, or break dependent software. New series can be more disruptive, allowing OSG to add, substantially change, and remove software components. Releases are assigned versions, such as "OSG 3.2.1", where the first two numbers designate the release series and the third number increments within the series. Changes to the first number are infrequent and indicate sweeping changes to the way in which OSG software is distributed.</p>
-<p>OSG supports at most two concurrent release series, <strong>current</strong> and <strong>previous</strong>, where the goal is to begin a new release series about every 18 months. Once a new series starts, OSG will support the previous series for at least 12 months and will announce its end-of-life date at least 6 months in advance. During the first 6 months of a series, OSG will endeavor to apply backward-compatible changes to the previous series as well; afterward, OSG will apply only critical bug and security fixes. When support ends for a release series, it means that OSG no longer updates the software, fixes issues, or troubleshoots installations for releases within the series. The plan is to maintain interoperability between supported series, but there is no guarantee that unsupported series will continue to function in OSG.</p>
-<p>OSG Operations will handle deviations from this policy, in consultation with OSG Technology and stakeholders.</p>
+                <h1 id="osg-support-of-the-globus-toolkit-draft">OSG Support of the Globus Toolkit (DRAFT)</h1>
+<p>6 June 2017</p>
+<p>Many in the OSG community have heard the news about the end of support for the open-source Globus Toolkit (https://github.com/globus/globus-toolkit/blob/globus_6_branch/support-changes.md).</p>
+<p>What does this imply for the OSG Software stack?  In the short-term, not much: OSG support for the Globus Toolkit will continue for as long as stakeholders need it.</p>
+<p>The OSG Software team provides a support guarantee for all software in our stack.  This includes all phases of the software lifecycle, including end-of-life. When a software component is abandoned by its original developers, the OSG will assist its stakeholders in managing the transition.  This assistance comes in many forms, such as finding an equivalent replacement, adapting code to avoid the dependency, or helping research and develop a transition to new technology.  During the transition period, the OSG Software team will often take on the traditional upstream maintenance duties such as patching and support.</p>
+<p>OSG is committed to keep the software secure during the transition period. </p>
+<p>This model has been successfully demonstrated throughout the lifetime of OSG; Globus Toolkit will not be an exception.  The primary difference is how long Globus has been in our software stack: this is both a disadvantage (larger number of dependencies) and an advantage (significant in-house expertise on the codebase).</p>
+<p>Over the next weeks and months, we will be in contact with our stakeholder VOs, sites, and software providers for transition planning.  The OSG hopes to utilize this opportunity to modernize our software stack and transfer service.  With your collaboration, we look forward to future progress!</p>
+<p>Please reach out to goc@opensciencegrid.org with your questions, comments, and concerns.</p>
+<p>A copy of this statement can be found at https://opensciencegrid.github.io/technology/policy/globus-support.</p>
               
             </div>
           </div>
@@ -196,10 +201,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../globus-toolkit/" class="btn btn-neutral float-right" title="Globus Toolkit Support">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../meetings/2017/TechArea20170227/" class="btn btn-neutral float-right" title="February 27, 2017">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../voms-admin-retire/" class="btn btn-neutral" title="VOMS Admin Retirement"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../release-series/" class="btn btn-neutral" title="Release Series Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -227,10 +232,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../voms-admin-retire/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../release-series/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../globus-toolkit/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../meetings/2017/TechArea20170227/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
