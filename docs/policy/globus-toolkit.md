@@ -1,5 +1,5 @@
 
-OSG Support of the Globus Toolkit (DRAFT)
+OSG Support of the Globus Toolkit
 =================================
 6 June 2017
 
@@ -17,5 +17,5 @@ Over the next weeks and months, we will be in contact with our stakeholder VOs, 
 
 Please reach out to [goc@opensciencegrid.org](mailto:goc@opensciencegrid.org) with your questions, comments, and concerns.
 
-A copy of this statement can be found at [https://opensciencegrid.github.io/technology/policy/globus-support](https://opensciencegrid.github.io/technology/policy/globus-support).
+A copy of this statement can be found at [https://opensciencegrid.github.io/technology/policy/globus-toolkit](https://opensciencegrid.github.io/technology/policy/globus-toolkit).
 
