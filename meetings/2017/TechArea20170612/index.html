@@ -301,8 +301,8 @@
 <h2 id="osg-release-team">OSG Release Team</h2>
 <ul>
 <li>Tim Theisen is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%2520%253D%2520SOFTWARE%2520AND%2520labels%2520in%2520(3.3.25%252C%25203.4.0)%2520ORDER%2520BY%2520status%2520ASC%252C%2520priority%2520DESC%252C%2520assignee%2520ASC">June 13th</a> release</li>
-<li>Development Freeze today</li>
-<li>Data Release Coming: IGTF Update, VO Package??</li>
+<li>Software Release tomorrow</li>
+<li>Data Release Coming: IGTF Update, VO Package</li>
 </ul>
 <table>
 <thead>
@@ -322,96 +322,105 @@
 <tr>
 <td>0</td>
 <td>+0</td>
-<td>2</td>
-<td>&minus;2</td>
 <td>0</td>
-<td>&minus;1</td>
-<td>2</td>
-<td>&minus;3</td>
+<td>-2</td>
+<td>0</td>
+<td>+0</td>
+<td>0</td>
+<td>-2</td>
 <td>Open</td>
 </tr>
 <tr>
 <td>0</td>
-<td>&minus;3</td>
-<td>2</td>
-<td>&minus;6</td>
+<td>+0</td>
 <td>1</td>
-<td>&minus;15</td>
-<td>3</td>
-<td>&minus;24</td>
+<td>-1</td>
+<td>0</td>
+<td>-1</td>
+<td>1</td>
+<td>-2</td>
 <td>In Progress</td>
 </tr>
 <tr>
-<td>4</td>
-<td>+3</td>
-<td>10</td>
-<td>+7</td>
-<td>19</td>
-<td>+17</td>
-<td>33</td>
-<td>+27</td>
+<td>0</td>
+<td>-4</td>
+<td>0</td>
+<td>-10</td>
+<td>0</td>
+<td>-19</td>
+<td>0</td>
+<td>-33</td>
 <td>Ready for Testing</td>
 </tr>
 <tr>
-<td>0</td>
-<td>+0</td>
-<td>1</td>
-<td>+0</td>
-<td>0</td>
-<td>+0</td>
-<td>1</td>
-<td>+0</td>
+<td>4</td>
+<td>+4</td>
+<td>15</td>
+<td>+14</td>
+<td>22</td>
+<td>+22</td>
+<td>41</td>
+<td>+40</td>
 <td>Ready for Release</td>
 </tr>
 <tr>
 <td>0</td>
 <td>+0</td>
+<td>1</td>
+<td>+1</td>
 <td>0</td>
 <td>+0</td>
-<td>0</td>
-<td>+0</td>
-<td>0</td>
-<td>+0</td>
+<td>1</td>
+<td>+1</td>
 <td>Closed</td>
 </tr>
 <tr>
 <td>4</td>
 <td>+0</td>
-<td>15</td>
-<td>&minus;1</td>
-<td>20</td>
-<td>+1</td>
-<td>39</td>
-<td>+0</td>
+<td>17</td>
+<td>+2</td>
+<td>22</td>
+<td>+2</td>
+<td>43</td>
+<td>+4</td>
 <td>Total</td>
 </tr>
 </tbody>
 </table>
-<h3 id="ready-for-testing">Ready for Testing</h3>
+<h3 id="late-breaking-update">Late breaking update</h3>
 <ul>
-<li>OSG 3.3.25  <ul>
-<li>Drop timeout\<sub>close.patch</sub> in globus-xio</li>
+<li>lcmaps-plugins-voms maps all FQANs</li>
+</ul>
+<h3 id="ready-for-release">Ready for Release</h3>
+<ul>
+<li>OSG 3.3.25<ul>
+<li>Drop timeout_close.patch in globus-xio</li>
 <li>Release voms-admin-server-2.7.0-1.22+</li>
 <li>Release osg-configure 1.8.1</li>
 <li>Enable JSP implementation for tomcat webapps</li>
 </ul>
 </li>
-<li>Both  <ul>
+<li>Both<ul>
 <li>osg-update-vos: clean yum cache before downloading vo-client</li>
 <li>Change software.grid.iu.edu to repo.grid.iu.edu in osg-ca-scripts</li>
 <li>Add ability to request whole node jobs</li>
-<li>osg-configure: reject empty allowed\<sub>vos</sub> in subclusters</li>
-<li>unnecessary check for OSG\<sub>APP</sub> and OSG\<sub>DATA</sub> in osg-configure</li>
-<li>xrootd-lcmaps-1.3.2-2 build fails for EL6</li>
+<li>osg-configure: reject empty allowed_vos in subclusters</li>
+<li>unnecessary check for OSG_APP and OSG_DATA in osg-configure</li>
+<li>Release xrootd-lcmaps-1.3.2-2 +</li>
 <li>Update to XRootD to 4.6.1</li>
 <li>Release StashCache metapackage 0.7+</li>
-<li>osg-configure: Get default allowed\<sub>vos</sub> with lcmaps voms plugin</li>
+<li>osg-configure: Get default allowed_vos with lcmaps voms plugin</li>
 <li>Add OSG VOMS mapfile to osg-ce</li>
+<li>lcmaps-plugins-voms maps all FQANs</li>
+<li>Document configuration of lcmaps-voms-plugin</li>
+<li>Release Glideinwms v3.2.19+</li>
+<li>Release osg-build 1.10.0</li>
+<li>osg-build: drop vdt-build</li>
+<li>osg-build: drop ~/.osg-build.ini</li>
+<li>Add vo-client-lcmaps-voms dependency to osg-gridftp</li>
 </ul>
 </li>
-<li>
-<p>OSG 3.4.0  </p>
-<ul>
+<li>OSG 3.4.0<ul>
 <li>Drop conflicts from cvmfs-config-osg</li>
 <li>Update to HTCondor 8.6.3+ in OSG 3.4</li>
 <li>Release osg-ce-3.4-1+</li>
@@ -430,30 +439,15 @@
 <li>osg-configure: Disable GRAM configuration (2.0.0)</li>
 <li>osg-configure: Drop 'rsv is not installed' warning</li>
 <li>Drop glexec and java from osg-wn-client</li>
-<li>
-<p>osg-configure: Remove "configure-osg" alias</p>
-</li>
-<li>
-<p>Upcoming  </p>
-<ul>
-<li>Nothing</li>
+<li>osg-configure: Remove "configure-osg" alias</li>
+<li>Drop edg-mkgridmap from OSG 3.4</li>
+<li>Drop bestman2 from OSG 3.4</li>
+<li>Drop GUMS from 3.4</li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-<h3 id="ready-for-release">Ready for Release</h3>
-<ul>
-<li>OSG 3.3.25</li>
-<li>Both  <ul>
-<li>Update to rsv-perfsonar 1.3.1+</li>
-</ul>
-</li>
-<li>OSG 3.4.0</li>
-<li>Upcoming</li>
 </ul>
 <h3 id="discussions_1">Discussions</h3>
-<p>None this week  </p>
+<p>None this week</p>
 <h2 id="osg-investigations-team">OSG Investigations Team</h2>
 <h3 id="last-week">Last Week</h3>
 <ul>
