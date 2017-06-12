@@ -284,7 +284,8 @@
 <h2 id="osg-software-team">OSG Software Team</h2>
 <ul>
 <li><a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2771">LCMAPS VOMS plugin bug</a>: all FQANs are considered instead of the first one. Blocker for June release.</li>
-<li>Pre-release tests failed due to install/update failures.</li>
+<li>Pre-release tests failed due to install/update failures &#x2013; required <code>osg-koji regen-repo osg-3.4-el{6,7}-prerelease</code></li>
+<li>Need to start transitioning hosted CEs to LCMAPS VOMS plugin this week, after the release</li>
 <li>RHEL VMU tests working for the time being even though our RHEL subscription ended. Erin rebuilt RHEL7 exec node, working on building RHEL7 VM image using Aaron's subscription</li>
 <li>Horst completed the edg-mkgridmap -&gt; LCMAPS VOMS transition successfully last week</li>
 <li>Hadoop + Ganglia and GridFTP + umask questions sitting in osg-software list</li>
