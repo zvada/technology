@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>June 6, 2017 - OSG Technology Area</title>
+  <title>June 12, 2017 - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "June 6, 2017";
-    var mkdocs_page_input_path = "meetings/2017/TechArea20170605.md";
-    var mkdocs_page_url = "/meetings/2017/TechArea20170605/";
+    var mkdocs_page_name = "June 12, 2017";
+    var mkdocs_page_input_path = "meetings/2017/TechArea20170612.md";
+    var mkdocs_page_url = "/meetings/2017/TechArea20170612/";
   </script>
   
   <script src="../../../js/jquery-2.1.1.min.js"></script>
@@ -134,14 +134,19 @@
   
 	    </li>
           
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
             <li class="toctree-l1 current">
 		
   
-    <a class="current" href="./">June 6, 2017</a>
+    <a class="current" href="./">June 12, 2017</a>
   
   <ul class="subnav">
       
-    <li class="toctree-l2"><a href="#osg-technology-area-meeting-5-june-2017">OSG Technology Area Meeting,  5 June 2017</a></li>
+    <li class="toctree-l2"><a href="#osg-technology-area-meeting-12-june-2017">OSG Technology Area Meeting, 12 June 2017</a></li>
     
         <ul>
         
@@ -157,11 +162,6 @@
     
 
   </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-  
 	    </li>
           
         </ul>
@@ -186,10 +186,10 @@
     
       
     
-    <li>June 6, 2017</li>
+    <li>June 12, 2017</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/meetings/2017/TechArea20170605.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/meetings/2017/TechArea20170612.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -199,15 +199,19 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="osg-technology-area-meeting-5-june-2017">OSG Technology Area Meeting,  5 June 2017</h1>
+                <h1 id="osg-technology-area-meeting-12-june-2017">OSG Technology Area Meeting, 12 June 2017</h1>
 <p><strong>Coordinates:</strong> Conference: 719-284-5267, PIN: 57363; <a href="https://www.uberconference.com/osgblin">https://www.uberconference.com/osgblin</a>  </p>
-<p><strong>Attending:</strong> BrianL, Derek, Edgar, Marian, Mat, Suchandra, TimC, TimT, Vaibhav  </p>
+<p><strong>Attending:</strong>   </p>
 <h2 id="announcements">Announcements</h2>
+<ul>
+<li>Vaibhav at UW Madison this week</li>
+<li>Mat out this week</li>
+</ul>
 <h3 id="triage-duty">Triage Duty</h3>
 <ul>
-<li>This week: Mat</li>
-<li>Next week: Suchandra</li>
-<li>8 (&minus;1) open tickets</li>
+<li>This week: Suchandra</li>
+<li>Next week: TimT</li>
+<li>9 (+) open tickets</li>
 </ul>
 <h3 id="jira">JIRA</h3>
 <table>
@@ -220,23 +224,23 @@
 </thead>
 <tbody>
 <tr>
-<td>165</td>
-<td>+5</td>
+<td>157</td>
+<td>&minus;8</td>
 <td>Open</td>
 </tr>
 <tr>
-<td>14</td>
-<td>&minus;23</td>
+<td>18</td>
+<td>+4</td>
 <td>In Progress</td>
 </tr>
 <tr>
-<td>33</td>
-<td>+27</td>
+<td>14</td>
+<td>&minus;29</td>
 <td>Ready for Testing</td>
 </tr>
 <tr>
-<td>1</td>
-<td>+0</td>
+<td>42</td>
+<td>+1</td>
 <td>Ready for Release</td>
 </tr>
 </tbody>
@@ -279,32 +283,24 @@
 <p>Notes: Additional “urgent” releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  </p>
 <h2 id="osg-software-team">OSG Software Team</h2>
 <ul>
-<li><a href="https://bodhi.fedoraproject.org/updates/singularity-2.2.1-3.el7">Singularity build</a> in EPEL stable so we can exclude it from OSG 3.4.0</li>
-<li>Bob Ball completed GUMS -&gt; LCMAPS VOMS transition on one host last week, Horst will start the edg-mkgridmap -&gt; LCMAPS VOMS transition this week</li>
-<li>GridFTP/XRootD docs need updating for us with the LCMAPS VOMS plugin, any ideas on how to track down TWiki section usage?</li>
-<li>RHEL VMU tests working for the being even though our RHEL subscription ended. Moate working on a RHEL7 VM exec host using his developer license.</li>
+<li><a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2771">LCMAPS VOMS plugin bug</a>: all FQANs are considered instead of the first one. Blocker for June release.</li>
+<li>Pre-release tests failed due to install/update failures.</li>
+<li>RHEL VMU tests working for the time being even though our RHEL subscription ended. Erin rebuilt RHEL7 exec node, working on building RHEL7 VM image using Aaron's subscription</li>
+<li>Horst completed the edg-mkgridmap -&gt; LCMAPS VOMS transition successfully last week</li>
 <li>Hadoop + Ganglia and GridFTP + umask questions sitting in osg-software list</li>
 </ul>
 <h3 id="discussions">Discussions</h3>
-<ul>
-<li>OSG 3.4 singularity policy needs to be clear and set</li>
-<li>Docs need to specify that the LCMAPS VOMS plugin is the preferred authentication method</li>
-<li>Kyle should be able to help search for TWiki %STARTSECTION% usage</li>
-<li>Mat will follow up with AGLT2 about a bug with the testing version of osg-configure that affects CEs</li>
-<li>BrianL will find other edg-mkgridmap sites and coordinate with Suchandra to transition hosted CEs to LCMAPS VOMS plugin</li>
-<li>BrianL will find owners for software mailing list issues</li>
-<li>TimC and BrianL to discuss the future of the many OSG Software mailing lists</li>
-</ul>
+<p>None this week  </p>
 <h3 id="support-update">Support Update</h3>
 <ul>
-<li>Purdue used OSG_WN_TMP configuration in osg-configure to set it to condor's scratch directory (execute directory?) (Derek)</li>
-<li>Utah renewed certificate, and is now working (Derek).</li>
-<li>APEL update from ALICE usage (Derek).</li>
+<li>FIT (BrianL) - Investing CE that doesn't appear to be running</li>
+<li>TAMU (BrianL) - SAM tests failing intermittently due to transient issues submitting to the CE</li>
+<li>UFL (BrianL) - Bockjoo found a blahp bug that resulted in incorrect multicore job requests</li>
 </ul>
 <h2 id="osg-release-team">OSG Release Team</h2>
 <ul>
 <li>Tim Theisen is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%2520%253D%2520SOFTWARE%2520AND%2520labels%2520in%2520(3.3.25%252C%25203.4.0)%2520ORDER%2520BY%2520status%2520ASC%252C%2520priority%2520DESC%252C%2520assignee%2520ASC">June 13th</a> release</li>
-<li>Package Freeze today</li>
+<li>Development Freeze today</li>
 <li>Data Release Coming: IGTF Update, VO Package??</li>
 </ul>
 <table>
@@ -326,22 +322,22 @@
 <td>0</td>
 <td>+0</td>
 <td>2</td>
-<td>-2</td>
+<td>&minus;2</td>
 <td>0</td>
-<td>-1</td>
+<td>&minus;1</td>
 <td>2</td>
-<td>-3</td>
+<td>&minus;3</td>
 <td>Open</td>
 </tr>
 <tr>
 <td>0</td>
-<td>-3</td>
+<td>&minus;3</td>
 <td>2</td>
-<td>-6</td>
+<td>&minus;6</td>
 <td>1</td>
-<td>-15</td>
+<td>&minus;15</td>
 <td>3</td>
-<td>-24</td>
+<td>&minus;24</td>
 <td>In Progress</td>
 </tr>
 <tr>
@@ -381,7 +377,7 @@
 <td>4</td>
 <td>+0</td>
 <td>15</td>
-<td>-1</td>
+<td>&minus;1</td>
 <td>20</td>
 <td>+1</td>
 <td>39</td>
@@ -392,27 +388,29 @@
 </table>
 <h3 id="ready-for-testing">Ready for Testing</h3>
 <ul>
-<li>OSG 3.3.25<ul>
-<li>Drop timeout_close.patch in globus-xio</li>
+<li>OSG 3.3.25  <ul>
+<li>Drop timeout\<sub>close.patch</sub> in globus-xio</li>
 <li>Release voms-admin-server-2.7.0-1.22+</li>
 <li>Release osg-configure 1.8.1</li>
 <li>Enable JSP implementation for tomcat webapps</li>
 </ul>
 </li>
-<li>Both<ul>
+<li>Both  <ul>
 <li>osg-update-vos: clean yum cache before downloading vo-client</li>
 <li>Change software.grid.iu.edu to repo.grid.iu.edu in osg-ca-scripts</li>
 <li>Add ability to request whole node jobs</li>
-<li>osg-configure: reject empty allowed_vos in subclusters</li>
-<li>unnecessary check for OSG_APP and OSG_DATA in osg-configure</li>
+<li>osg-configure: reject empty allowed\<sub>vos</sub> in subclusters</li>
+<li>unnecessary check for OSG\<sub>APP</sub> and OSG\<sub>DATA</sub> in osg-configure</li>
 <li>xrootd-lcmaps-1.3.2-2 build fails for EL6</li>
 <li>Update to XRootD to 4.6.1</li>
 <li>Release StashCache metapackage 0.7+</li>
-<li>osg-configure: Get default allowed_vos with lcmaps voms plugin</li>
+<li>osg-configure: Get default allowed\<sub>vos</sub> with lcmaps voms plugin</li>
 <li>Add OSG VOMS mapfile to osg-ce</li>
 </ul>
 </li>
-<li>OSG 3.4.0<ul>
+<li>
+<p>OSG 3.4.0  </p>
+<ul>
 <li>Drop conflicts from cvmfs-config-osg</li>
 <li>Update to HTCondor 8.6.3+ in OSG 3.4</li>
 <li>Release osg-ce-3.4-1+</li>
@@ -431,18 +429,22 @@
 <li>osg-configure: Disable GRAM configuration (2.0.0)</li>
 <li>osg-configure: Drop 'rsv is not installed' warning</li>
 <li>Drop glexec and java from osg-wn-client</li>
-<li>osg-configure: Remove "configure-osg" alias</li>
+<li>
+<p>osg-configure: Remove "configure-osg" alias</p>
+</li>
+<li>
+<p>Upcoming  </p>
+<ul>
+<li>Nothing</li>
 </ul>
 </li>
-<li>Upcoming<ul>
-<li>Nothing</li>
 </ul>
 </li>
 </ul>
 <h3 id="ready-for-release">Ready for Release</h3>
 <ul>
 <li>OSG 3.3.25</li>
-<li>Both<ul>
+<li>Both  <ul>
 <li>Update to rsv-perfsonar 1.3.1+</li>
 </ul>
 </li>
@@ -450,7 +452,7 @@
 <li>Upcoming</li>
 </ul>
 <h3 id="discussions_1">Discussions</h3>
-<p>None this week</p>
+<p>None this week  </p>
 <h2 id="osg-investigations-team">OSG Investigations Team</h2>
 <h3 id="last-week">Last Week</h3>
 <ul>
@@ -478,10 +480,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../TechArea20170612/" class="btn btn-neutral float-right" title="June 12, 2017">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../TechArea20170530/" class="btn btn-neutral" title="May 30, 2017"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../TechArea20170605/" class="btn btn-neutral" title="June 6, 2017"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -509,10 +509,8 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../TechArea20170530/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../TechArea20170605/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../TechArea20170612/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
