@@ -12,6 +12,7 @@ pages:
   - Contact Us: 'contact.md'
   - Meeting Notes: 'meetings.md'
   - Policy:
+    - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
