@@ -5,15 +5,13 @@ OSG Support of the Globus Toolkit
 
 Many in the OSG community have heard the news about the [end of support for the open-source Globus Toolkit](https://github.com/globus/globus-toolkit/blob/globus_6_branch/support-changes.md).
 
-What does this imply for the OSG Software stack?  Not much: OSG support for the Globus Toolkit (e.g., GridFTP and GSI) will continue for as long as stakeholders need it.
+What does this imply for the OSG Software stack?  Not much: OSG support for the Globus Toolkit (e.g., GridFTP and GSI) will continue for as long as stakeholders need it. Period.
 
-The OSG Software team provides a support guarantee for all software in our stack.  When a software component reaches end-of-life, the OSG will assist its stakeholders in managing the transition.  This assistance comes in many forms, such as finding an equivalent replacement, adapting code to avoid the dependency, or helping research and develop a transition to new technology.  During the transition period, OSG will take on traditional maintenance duties (i.e., patching, bug fixes and support).  OSG is committed to keep the software secure during the transition period.
+Note the OSG Software team provides a support guarantee for all the software in its stack. When a software component reaches end-of-life, the OSG assists its stakeholders in managing the transition to new software to replace or extend those capabilities. This assistance comes in many forms, such as finding an equivalent replacement, adapting code to avoid the dependency, or helping research and develop a transition to new technology.  During such transition periods, OSG takes on traditional maintenance duties (i.e., patching, bug fixes and support) of the end-of-life software.  The OSG is committed to keep the software secure until its stakeholders have successfully transitioned to new software. 
 
-This model has been successfully demonstrated throughout the lifetime of OSG; Globus Toolkit will not be an exception.
+This model has been successfully demonstrated throughout the lifetime of OSG, including for example the five year transition period for the BestMan storage resource manager. The Globus Toolkit will not be an exception.  Indeed, OSG has accumulated more than a decade of experience with this software and has often provided patches back to Globus. 
 
-The primary difference is how long Globus has been in our software stack: this is both a disadvantage (larger number of dependencies) and an advantage (significant in-house expertise on the codebase).
-
-Over the next weeks and months, we will be in contact with our stakeholder VOs, sites, and software providers for transition planning.  The OSG hopes to utilize this opportunity to modernize our software stack and transfer service.  With your collaboration, we look forward to future progress!
+Over the next weeks and months, we will be in contact with our stakeholder VOs, sites, and software providers to discuss their requirements and timelines with regard to GridFTP and GSI.  
 
 Please reach out to [goc@opensciencegrid.org](mailto:goc@opensciencegrid.org) with your questions, comments, and concerns.
 
