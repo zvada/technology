@@ -55,7 +55,7 @@ needed.  _Note_: In parallel to the VOMS-Admin transition, OSG Software plans to
 There is no need to complete one transition before the other.
 
 Sites using `edg-mkgridmap` will need to use its replacement, `lcmaps-plugins-voms` (this
-process is documented elsewhere).
+process is documented [here](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGReleaseSeries#Migrating_from_edg_mkgridmap_to)).
 
 VO Transition Plans
 -------------------
