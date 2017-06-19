@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
@@ -37,7 +37,7 @@
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "19 June 2017  12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
@@ -907,6 +907,91 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170612/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/", 
+            "text": "OSG Technology Area Meeting, 19 June 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: TimT\n\n\nNext week: BrianL\n\n\n8 (\n1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n156\n\n\n8\n\n\nOpen\n\n\n\n\n\n\n13\n\n\n5\n\n\nIn Progress\n\n\n\n\n\n\n3\n\n\n1\n\n\nReady for Testing\n\n\n\n\n\n\n1\n\n\n41\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.4.0 / 3.3.25\n\n\n2017-05-30\n\n\n2017-06-05\n\n\n2017-06-13\n\n\n5 week cycle\n\n\n\n\n\n\n3.4.1 / 3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n3.4.2 / 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nStarted transitioning hosted CEs to LCMAPS VOMS plugin last week\n\n\nRHEL VMU tests working for the time being even though our RHEL subscription ended. Erin rebuilt RHEL7 exec node, working on building RHEL7 VM image using Aaron's subscription\n\n\nxrootd-cmstfc\n (contrib) fails to build for EL7, need help with CMake to place libs in \n/usr/lib64\n rather than \n/usr/lib/\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nCTSC (BrianL) - Provided rough size estimate of OSG CE packaging\n\n\nFIT (BrianL) - Assisting transition from GRAM to HTCondor-CE\n\n\nTAMU (BrianL) - SAM tests are still getting held with \"Job not found\"\n\n\n\n\nOSG Release Team\n\n\n\n\nTim Theisen is handling the \nJune 13th\n release\n\n\nSoftware Release tomorrow\n\n\nData Release Coming: IGTF Update, VO Package\n\n\n\n\n\n\n\n\n\n\n3.3.25\n\n\n\n\nBoth\n\n\n\n\n3.4.0\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n2\n\n\n0\n\n\n+0\n\n\n0\n\n\n2\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n1\n\n\n0\n\n\n1\n\n\n1\n\n\n24\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n4\n\n\n0\n\n\n10\n\n\n0\n\n\n19\n\n\n0\n\n\n33\n\n\nReady for Testing\n\n\n\n\n\n\n4\n\n\n+4\n\n\n15\n\n\n+14\n\n\n22\n\n\n+22\n\n\n41\n\n\n+40\n\n\nReady for Release\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n+1\n\n\n0\n\n\n+0\n\n\n1\n\n\n+1\n\n\nClosed\n\n\n\n\n\n\n4\n\n\n+0\n\n\n17\n\n\n+2\n\n\n22\n\n\n+2\n\n\n43\n\n\n+4\n\n\nTotal\n\n\n\n\n\n\n\n\nLate breaking update\n\n\nlcmaps-plugins-voms maps all FQANs  \n\n\nReady for Release\n\n\n\n\nOSG 3.3.25  \n\n\nDrop timeout\nclose.patch\n in globus-xio\n\n\nRelease voms-admin-server-2.7.0-1.22+\n\n\nRelease osg-configure 1.8.1\n\n\nEnable JSP implementation for tomcat webapps\n\n\n\n\n\n\nBoth  \n\n\nosg-update-vos: clean yum cache before downloading vo-client\n\n\nChange software.grid.iu.edu to repo.grid.iu.edu in osg-ca-scripts\n\n\nAdd ability to request whole node jobs\n\n\nosg-configure: reject empty allowed\\\nvos\n in subclusters\n\n\nunnecessary check for OSG\\\nAPP\n and OSG\\\nDATA\n in osg-configure\n\n\nRelease xrootd-lcmaps-1.3.2-2 +\n\n\nUpdate to XRootD to 4.6.1\n\n\nRelease StashCache metapackage 0.7+\n\n\nosg-configure: Get default allowed\\\nvos\n with lcmaps voms plugin\n\n\nAdd OSG VOMS mapfile to osg-ce\n\n\nlcmaps-plugins-voms maps all FQANs\n\n\nDocument configuration of lcmaps-voms-plugin\n\n\nRelease Glideinwms v3.2.19+\n\n\nRelease osg-build 1.10.0\n\n\nosg-build: drop vdt-build\n\n\nosg-build: drop ~/.osg-build.ini\n\n\nAdd vo-client-lcmaps-voms dependency to osg-gridftp\n\n\n\n\n\n\nOSG 3.4.0  \n\n\nDrop conflicts from cvmfs-config-osg\n\n\nUpdate to HTCondor 8.6.3+ in OSG 3.4\n\n\nRelease osg-ce-3.4-1+\n\n\nDrop conflicts from globus-gridftp-osg-extensions\n\n\nRemove requirements for packages dropped in 3.4 in osg-tested-internal\n\n\nosg-configure: Drop glexec support for 3.4\n\n\nRelease osg-configure 2.0.0\n\n\nPrepare lcmaps for 3.4\n\n\nDrop conflicts from HTCondor-CE packaging\n\n\nDrop bestman2 and globus\\*run RSV metrics\n\n\nosg-configure: Drop managedfork and network config from 2.0.0\n\n\nRemove gridftp from the CE metapackages\n\n\nosg-configure: Drop osg-cleanup options from 10-misc.ini\n\n\nosg-configure: Deprecate GUMS support\n\n\nDrop client tools from osg-ce metapackages\n\n\nosg-configure: Disable GRAM configuration (2.0.0)\n\n\nosg-configure: Drop 'rsv is not installed' warning\n\n\nDrop glexec and java from osg-wn-client\n\n\nosg-configure: Remove \"configure-osg\" alias\n\n\nDrop edg-mkgridmap from OSG 3.4\n\n\nDrop bestman2 from OSG 3.4\n\n\nDrop GUMS from 3.4\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLots of vacation from Investigations team this week.  Not much to update.  \n\n\nLast Week\n\n\n\n\nSetup GRACC-ITB instance - Ongoing\n\n\nBetter StashCache Cache Alerting\n\n\nDocker'ification of GRACC Agents\n\n\n\n\nThis Week\n\n\n\n\nContinue to dockerify GRACC agents and services.  Next on the list is gracc-summary.\n\n\nImprove StashCache docs even more through feedback from sites. (hopefully we get some)\n\n\nWrite StashCache article for user support team.\n\n\nSome BLAHP work.\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
+            "title": "June 19, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#osg-technology-area-meeting-19-june-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "title": "OSG Technology Area Meeting, 19 June 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#announcements", 
+            "text": "", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#triage-duty", 
+            "text": "This week: TimT  Next week: BrianL  8 ( 1) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#jira", 
+            "text": "# of tickets   State      156  8  Open    13  5  In Progress    3  1  Ready for Testing    1  41  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.4.0 / 3.3.25  2017-05-30  2017-06-05  2017-06-13  5 week cycle    3.4.1 / 3.3.26  2017-06-26  2017-07-03  2017-07-11  Independence Day    3.4.2 / 3.3.27  2017-07-24  2017-07-31  2017-08-08      Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#osg-software-team", 
+            "text": "Started transitioning hosted CEs to LCMAPS VOMS plugin last week  RHEL VMU tests working for the time being even though our RHEL subscription ended. Erin rebuilt RHEL7 exec node, working on building RHEL7 VM image using Aaron's subscription  xrootd-cmstfc  (contrib) fails to build for EL7, need help with CMake to place libs in  /usr/lib64  rather than  /usr/lib/", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#discussions", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#support-update", 
+            "text": "CTSC (BrianL) - Provided rough size estimate of OSG CE packaging  FIT (BrianL) - Assisting transition from GRAM to HTCondor-CE  TAMU (BrianL) - SAM tests are still getting held with \"Job not found\"", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#osg-release-team", 
+            "text": "Tim Theisen is handling the  June 13th  release  Software Release tomorrow  Data Release Coming: IGTF Update, VO Package      3.3.25   Both   3.4.0   Total   Status      0  +0  0  2  0  +0  0  2  Open    0  +0  1  1  0  1  1  24  In Progress    0  4  0  10  0  19  0  33  Ready for Testing    4  +4  15  +14  22  +22  41  +40  Ready for Release    0  +0  1  +1  0  +0  1  +1  Closed    4  +0  17  +2  22  +2  43  +4  Total", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#late-breaking-update", 
+            "text": "lcmaps-plugins-voms maps all FQANs", 
+            "title": "Late breaking update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#ready-for-release", 
+            "text": "OSG 3.3.25    Drop timeout close.patch  in globus-xio  Release voms-admin-server-2.7.0-1.22+  Release osg-configure 1.8.1  Enable JSP implementation for tomcat webapps    Both    osg-update-vos: clean yum cache before downloading vo-client  Change software.grid.iu.edu to repo.grid.iu.edu in osg-ca-scripts  Add ability to request whole node jobs  osg-configure: reject empty allowed\\ vos  in subclusters  unnecessary check for OSG\\ APP  and OSG\\ DATA  in osg-configure  Release xrootd-lcmaps-1.3.2-2 +  Update to XRootD to 4.6.1  Release StashCache metapackage 0.7+  osg-configure: Get default allowed\\ vos  with lcmaps voms plugin  Add OSG VOMS mapfile to osg-ce  lcmaps-plugins-voms maps all FQANs  Document configuration of lcmaps-voms-plugin  Release Glideinwms v3.2.19+  Release osg-build 1.10.0  osg-build: drop vdt-build  osg-build: drop ~/.osg-build.ini  Add vo-client-lcmaps-voms dependency to osg-gridftp    OSG 3.4.0    Drop conflicts from cvmfs-config-osg  Update to HTCondor 8.6.3+ in OSG 3.4  Release osg-ce-3.4-1+  Drop conflicts from globus-gridftp-osg-extensions  Remove requirements for packages dropped in 3.4 in osg-tested-internal  osg-configure: Drop glexec support for 3.4  Release osg-configure 2.0.0  Prepare lcmaps for 3.4  Drop conflicts from HTCondor-CE packaging  Drop bestman2 and globus\\*run RSV metrics  osg-configure: Drop managedfork and network config from 2.0.0  Remove gridftp from the CE metapackages  osg-configure: Drop osg-cleanup options from 10-misc.ini  osg-configure: Deprecate GUMS support  Drop client tools from osg-ce metapackages  osg-configure: Disable GRAM configuration (2.0.0)  osg-configure: Drop 'rsv is not installed' warning  Drop glexec and java from osg-wn-client  osg-configure: Remove \"configure-osg\" alias  Drop edg-mkgridmap from OSG 3.4  Drop bestman2 from OSG 3.4  Drop GUMS from 3.4", 
+            "title": "Ready for Release"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#osg-investigations-team", 
+            "text": "Lots of vacation from Investigations team this week.  Not much to update.", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#last-week", 
+            "text": "Setup GRACC-ITB instance - Ongoing  Better StashCache Cache Alerting  Docker'ification of GRACC Agents", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#this-week", 
+            "text": "Continue to dockerify GRACC agents and services.  Next on the list is gracc-summary.  Improve StashCache docs even more through feedback from sites. (hopefully we get some)  Write StashCache article for user support team.  Some BLAHP work.", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170619/#ongoing", 
             "text": "GRACC Project  StashCache Project (New URL!)", 
             "title": "Ongoing"
         }
