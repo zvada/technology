@@ -289,6 +289,9 @@
 <li>CTSC (BrianL) - Provided rough size estimate of OSG CE packaging</li>
 <li>FIT (BrianL) - Assisting transition from GRAM to HTCondor-CE</li>
 <li>TAMU (BrianL) - SAM tests are still getting held with "Job not found"</li>
+<li>Syracuse (Derek) - Implemented GPU submission on their HTCondor-CE.  Fermilab is creating an entry on the ITB GlideinWMS factories to utilize and test this new GPU capability.  OSG will follow suite once singularity configuration is developed.</li>
+<li>UCSD (Derek) - Gave some assistance to job route configuration for GPUs.</li>
+<li>Nebraska (Derek) - Assisted in debugging missing hours in WLCG report.  Turns out that removed jobs were not being accounted correctly.  Also, Multi-CPU jobs and whole node jobs where not being accounted.</li>
 </ul>
 <h2 id="osg-release-team">OSG Release Team</h2>
 <ul>
@@ -390,16 +393,16 @@
 <p>Lots of vacation from Investigations team this week.  Not much to update.  </p>
 <h3 id="last-week">Last Week</h3>
 <ul>
-<li>Setup GRACC-ITB instance - Ongoing</li>
-<li>Better StashCache Cache Alerting</li>
-<li>Docker'ification of GRACC Agents</li>
+<li>GRACC debugging of Underreported sites</li>
+<li>Debug Nova CVMFS repo, will need to redo repo with chunking.</li>
+<li>Blog post on StashCache: https://djw8605.github.io/2017/06/14/stashcache/ and on Planet OSG http://blogs.grid.iu.edu/</li>
 </ul>
 <h3 id="this-week">This Week</h3>
 <ul>
-<li>Continue to dockerify GRACC agents and services.  Next on the list is gracc-summary.</li>
-<li>Improve StashCache docs even more through feedback from sites. (hopefully we get some)</li>
-<li>Write StashCache article for user support team.</li>
-<li>Some BLAHP work.</li>
+<li>Reprocess underreported sites and upload new APEL report to WLCG</li>
+<li>Docker'ification of GRACC Agents</li>
+<li>Packaging of CVMFS-Sync and configurations.</li>
+<li>Investigate backups of GRACC peripheral services</li>
 </ul>
 <h3 id="ongoing">Ongoing</h3>
 <ul>
