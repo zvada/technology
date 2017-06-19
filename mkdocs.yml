@@ -25,6 +25,7 @@ pages:
   - May 30, 2017: 'meetings/2017/TechArea20170530.md'
   - June 6, 2017: 'meetings/2017/TechArea20170605.md'
   - June 12, 2017: 'meetings/2017/TechArea20170612.md'
+  - June 19, 2017: 'meetings/2017/TechArea20170619.md'
 
 markdown_extensions:
   - admonition
