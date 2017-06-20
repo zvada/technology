@@ -51,11 +51,11 @@ contact the VOMS-Admin interface for a list of authorizations.
 In 2015/2016, LCMAPS and GUMS were upgraded so GUMS skips the VOMS-Admin lookup when
 LCMAPS asserts the validation was performed.  Hence, when GUMS sites update clients to the
 latest (April 2017) LCMAPS and HTCondor-CE releases, the callout to VOMS-Admin is no longer
-needed.  _Note_: In parallel to the VOMS-Admin transition, OSG Software plans to retire GUMS.
+needed. _Note_: In parallel to the VOMS-Admin transition, OSG Software plans to [retire GUMS](gums-retire.md).
 There is no need to complete one transition before the other.
 
 Sites using `edg-mkgridmap` will need to use its replacement, `lcmaps-plugins-voms` (this
-process is documented elsewhere).
+process is documented [here](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGReleaseSeries#Migrating_from_edg_mkgridmap_to)).
 
 VO Transition Plans
 -------------------
@@ -90,8 +90,8 @@ Timeline
 --------
 
 - April 2017 (completed): `lcmaps-plugins-voms` shipped and supported by OSG.
-- May 2017: `osg-configure` and documentation necessary for using `lcmaps-plugins-voms` is shipped.
-- June 2017: OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.  Sites begin transition
+- May 2017 (completed): `osg-configure` and documentation necessary for using `lcmaps-plugins-voms` is shipped.
+- June 2017 (completed): OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.  Sites begin transition
   to validating VOMS extensions.
 - Summer 2017: As necessary, VOs are given access to a hosted `comanage` instance.
 - Winter 2017: First VOs begin to retire VOMS-Admin.
