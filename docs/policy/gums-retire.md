@@ -46,7 +46,7 @@ Timeline
 
 - April 2017 (completed): `lcmaps-plugins-voms` shipped and supported by OSG.
 - May 2017 (completed): `osg-configure` and documentation necessary for using `lcmaps-plugins-voms` is shipped.
-- June 2017: OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.
+- June 2017 (completed): OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.
 - July 2017: OSG 3.4 CEs can be configured with 3.3 GUMS hosts
   ([SOFTWARE-2482](https://jira.opensciencegrid.org/browse/SOFTWARE-2482))
 - September 2017?: Complete transition for sites using default GUMS configurations
