@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Globus Toolkit Support - OSG Technology Area</title>
+  <title>BeStMan2 Retirement - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Globus Toolkit Support";
-    var mkdocs_page_input_path = "policy/globus-toolkit.md";
-    var mkdocs_page_url = "/policy/globus-toolkit/";
+    var mkdocs_page_name = "BeStMan2 Retirement";
+    var mkdocs_page_input_path = "policy/bestman2-retire.md";
+    var mkdocs_page_url = "/policy/bestman2-retire/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -79,11 +79,27 @@
     <a class="" href="../gums-retire/">GUMS Retirement</a>
   
         </li>
-        <li class="">
+        <li class=" current">
           
   
-    <a class="" href="../bestman2-retire/">BeStMan2 Retirement</a>
+    <a class="current" href="./">BeStMan2 Retirement</a>
   
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#bestman2-retirement">BeStMan2 Retirement</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#introduction">Introduction</a></li>
+        
+            <li><a class="toctree-l4" href="#site-transition-plans">Site Transition Plans</a></li>
+        
+            <li><a class="toctree-l4" href="#timeline">Timeline</a></li>
+        
+        </ul>
+    
+
+  </ul>
         </li>
         <li class="">
           
@@ -97,17 +113,11 @@
     <a class="" href="../release-series/">Release Series Support</a>
   
         </li>
-        <li class=" current">
+        <li class="">
           
   
-    <a class="current" href="./">Globus Toolkit Support</a>
+    <a class="" href="../globus-toolkit/">Globus Toolkit Support</a>
   
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#osg-support-of-the-globus-toolkit">OSG Support of the Globus Toolkit</a></li>
-    
-
-  </ul>
         </li>
   </ul>
 	    </li>
@@ -193,10 +203,10 @@
         
       
     
-    <li>Globus Toolkit Support</li>
+    <li>BeStMan2 Retirement</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/globus-toolkit.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/bestman2-retire.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -206,15 +216,26 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="osg-support-of-the-globus-toolkit">OSG Support of the Globus Toolkit</h1>
-<p>6 June 2017</p>
-<p>Many in the OSG community have heard the news about the <a href="https://github.com/globus/globus-toolkit/blob/globus_6_branch/support-changes.md">end of support for the open-source Globus Toolkit</a>.</p>
-<p>What does this imply for the OSG Software stack?  Not much: OSG support for the Globus Toolkit (e.g., GridFTP and GSI) will continue for as long as stakeholders need it. Period.</p>
-<p>Note the OSG Software team provides a support guarantee for all the software in its stack. When a software component reaches end-of-life, the OSG assists its stakeholders in managing the transition to new software to replace or extend those capabilities. This assistance comes in many forms, such as finding an equivalent replacement, adapting code to avoid the dependency, or helping research and develop a transition to new technology.  During such transition periods, OSG takes on traditional maintenance duties (i.e., patching, bug fixes and support) of the end-of-life software.  The OSG is committed to keep the software secure until its stakeholders have successfully transitioned to new software. </p>
-<p>This model has been successfully demonstrated throughout the lifetime of OSG, including for example the five year transition period for the BestMan storage resource manager. The Globus Toolkit will not be an exception.  Indeed, OSG has accumulated more than a decade of experience with this software and has often provided patches back to Globus. </p>
-<p>Over the next weeks and months, we will be in contact with our stakeholder VOs, sites, and software providers to discuss their requirements and timelines with regard to GridFTP and GSI.  </p>
-<p>Please reach out to <a href="mailto:goc@opensciencegrid.org">goc@opensciencegrid.org</a> with your questions, comments, and concerns.</p>
-<p>A copy of this statement can be found at <a href="https://opensciencegrid.github.io/technology/policy/globus-toolkit">https://opensciencegrid.github.io/technology/policy/globus-toolkit</a>.</p>
+                <h1 id="bestman2-retirement">BeStMan2 Retirement</h1>
+<p>This document provides an overview of the planned retirement of support for BeStMan in the OSG Software Stack.</p>
+<h2 id="introduction">Introduction</h2>
+<p>BeStMan2 is a standalone implementation of a subset of the Storage Resource Manager v2 (SRMv2) protocol.  SRM was meant to be a high-level management protocol for site storage resources, allowing administrators to manage storage offerings using the abstraction of "storage tokens."  Additionally, SRM can be used to mediate transfer protocol selection.</p>
+<p>OSG currently supports BeStMan2 in "gateway mode" -- in this mode, SRM is only used for metadata operations (listing directory contents), listing total space used, and load-balancing GridFTP servers.  This functionality is redundant to what can be accomplished with GridFTP alone.</p>
+<p>BeStMan2 has not received upstream support for approximately five years; the existing code base (about 150,000 lines of Java - similar in size to Globus GridFTP) and its extensive set of dependencies (such as JGlobus) are now quite outdated and would require significant investment to modernize.  OSG has worked at length with our stakeholders to replace SRM-specific use cases with other equivalents.  We believe none of our stakeholders require sites to have an SRM endpoint: this document describes the site transition plan.</p>
+<h2 id="site-transition-plans">Site Transition Plans</h2>
+<p>We have released <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/LoadBalancedGridFTP">documentation</a>
+for a configuration of GridFTP that takes advantage of Linux Virtual Server (LVS) for load balancing between multiple
+GridFTP endpoints.</p>
+<p>Sites should work with their supported VOs (typically, CMS or ATLAS) to identify any VO-specific usage and replacement plans for BeStMan2.</p>
+<h2 id="timeline">Timeline</h2>
+<ul>
+<li>March 2017 (completed):
+  Release <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/LoadBalancedGridFTP">load balanced GridFTP</a>
+  documentation</li>
+<li>June 2017: OSG 3.4.0 is released without BeStMan</li>
+<li>December 2018: Security-only support for OSG 3.3 series and BeStMan is provided</li>
+<li>June 2018: Support is dropped for OSG 3.3 series; no further support for BeStMan is provided.</li>
+</ul>
               
             </div>
           </div>
@@ -222,10 +243,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../meetings/2017/TechArea20170227/" class="btn btn-neutral float-right" title="February 27, 2017">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../voms-admin-retire/" class="btn btn-neutral float-right" title="VOMS Admin Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../release-series/" class="btn btn-neutral" title="Release Series Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../gums-retire/" class="btn btn-neutral" title="GUMS Retirement"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -253,10 +274,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../release-series/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../gums-retire/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../meetings/2017/TechArea20170227/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../voms-admin-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

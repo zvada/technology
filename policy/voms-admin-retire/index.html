@@ -73,6 +73,18 @@
 		
   <span class="caption-text">Policy</span>
   <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
         <li class=" current">
           
   
@@ -248,10 +260,10 @@ contact the VOMS-Admin interface for a list of authorizations.</p>
 <p>In 2015/2016, LCMAPS and GUMS were upgraded so GUMS skips the VOMS-Admin lookup when
 LCMAPS asserts the validation was performed.  Hence, when GUMS sites update clients to the
 latest (April 2017) LCMAPS and HTCondor-CE releases, the callout to VOMS-Admin is no longer
-needed.  <em>Note</em>: In parallel to the VOMS-Admin transition, OSG Software plans to retire GUMS.
+needed. <em>Note</em>: In parallel to the VOMS-Admin transition, OSG Software plans to <a href="../gums-retire/">retire GUMS</a>.
 There is no need to complete one transition before the other.</p>
 <p>Sites using <code>edg-mkgridmap</code> will need to use its replacement, <code>lcmaps-plugins-voms</code> (this
-process is documented elsewhere).</p>
+process is documented <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGReleaseSeries#Migrating_from_edg_mkgridmap_to">here</a>).</p>
 <h2 id="vo-transition-plans">VO Transition Plans</h2>
 <p>Based on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain
 a list of authorized pilots.  For these VOs, we will help convert invocations of <code>voms-proxy-init</code>:</p>
@@ -276,8 +288,8 @@ use case (other uses of <code>comanage</code> are expected to proceed regardless
 <h2 id="timeline">Timeline</h2>
 <ul>
 <li>April 2017 (completed): <code>lcmaps-plugins-voms</code> shipped and supported by OSG.</li>
-<li>May 2017: <code>osg-configure</code> and documentation necessary for using <code>lcmaps-plugins-voms</code> is shipped.</li>
-<li>June 2017: OSG 3.4.0 is released without VOMS-Admin, <code>edg-mkgridmap</code>, or GUMS.  Sites begin transition
+<li>May 2017 (completed): <code>osg-configure</code> and documentation necessary for using <code>lcmaps-plugins-voms</code> is shipped.</li>
+<li>June 2017 (completed): OSG 3.4.0 is released without VOMS-Admin, <code>edg-mkgridmap</code>, or GUMS.  Sites begin transition
   to validating VOMS extensions.</li>
 <li>Summer 2017: As necessary, VOs are given access to a hosted <code>comanage</code> instance.</li>
 <li>Winter 2017: First VOs begin to retire VOMS-Admin.</li>
@@ -293,7 +305,7 @@ use case (other uses of <code>comanage</code> are expected to proceed regardless
         <a href="../release-series/" class="btn btn-neutral float-right" title="Release Series Support">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../meetings/" class="btn btn-neutral" title="Meeting Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bestman2-retire/" class="btn btn-neutral" title="BeStMan2 Retirement"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -321,7 +333,7 @@ use case (other uses of <code>comanage</code> are expected to proceed regardless
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../meetings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../bestman2-retire/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../release-series/" style="color: #fcfcfc">Next &raquo;</a></span>
