@@ -90,8 +90,8 @@ Timeline
 --------
 
 - April 2017 (completed): `lcmaps-plugins-voms` shipped and supported by OSG.
-- May 2017: `osg-configure` and documentation necessary for using `lcmaps-plugins-voms` is shipped.
-- June 2017: OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.  Sites begin transition
+- May 2017 (completed): `osg-configure` and documentation necessary for using `lcmaps-plugins-voms` is shipped.
+- June 2017 (completed): OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.  Sites begin transition
   to validating VOMS extensions.
 - Summer 2017: As necessary, VOs are given access to a hosted `comanage` instance.
 - Winter 2017: First VOs begin to retire VOMS-Admin.
