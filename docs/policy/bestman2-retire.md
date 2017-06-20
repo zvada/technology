@@ -7,7 +7,11 @@ This document provides an overview of the planned retirement of support for BeSt
 Introduction
 ------------
 
-_In Progress..._
+BeStMan2 is a standalone implementation of a subset of the Storage Resource Manager v2 (SRMv2) protocol.  SRM was meant to be a high-level management protocol for site storage resources, allowing administrators to manage storage offerings using the abstraction of "storage tokens."  Additionally, SRM can be used to mediate transfer protocol selection.
+
+OSG currently supports BeStMan2 in "gateway mode" -- in this mode, SRM is only used for metadata operations (listing directory contents), listing total space used, and load-balancing GridFTP servers.  This functionality is redundant to what can be accomplished with GridFTP alone.
+
+BeStMan2 has not received upstream support for approximately five years; the existing code base (about 150,000 lines of Java - similar in size to Globus GridFTP) and its extensive set of dependencies (such as JGlobus) are now quite outdated and would require significant investment to modernize.  OSG has worked at length with our stakeholders to replace SRM-specific use cases with other equivalents.  We believe none of our stakeholders require sites to have an SRM endpoint: this document describes the site transition plan.
 
 Site Transition Plans
 ---------------------
@@ -15,6 +19,8 @@ Site Transition Plans
 We have released [documentation](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/LoadBalancedGridFTP)
 for a configuration of GridFTP that takes advantage of Linux Virtual Server (LVS) for load balancing between multiple
 GridFTP endpoints.
+
+Sites should work with their supported VOs (typically, CMS or ATLAS) to identify any VO-specific usage and replacement plans for BeStMan2.
 
 Timeline
 --------
