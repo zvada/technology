@@ -30,4 +30,4 @@ Timeline
   documentation
 - June 2017 (completed): OSG 3.4.0 is released without BeStMan
 - December 2018: Security-only support for OSG 3.3 series and BeStMan is provided
-- June 2018: Support is dropped for OSG 3.3 series; no further support for BeStMan is provided.
+- May 2018: Support is dropped for OSG 3.3 series; no further support for BeStMan is provided.
