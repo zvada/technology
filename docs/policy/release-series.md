@@ -10,3 +10,12 @@ OSG supports at most two concurrent release series, __current__ and __previous__
 
 OSG Operations will handle deviations from this policy, in consultation with OSG Technology and stakeholders.
 
+Life-cycle Dates
+----------------
+
+| Release Series | Initial Release | End of Regular Support | End of Critical Bug/Security Support |
+| :------------: | --------------- | ---------------------- | ------------------------------------ |
+| 3.4            | June 2017       | Not set                | Not set                              |
+| 3.3            | August 2015     | December 2017          | May 2018                             |
+| 3.2            | November 2013   | February 2016          | August 2016                          |
+| 3.1            | April 2012      | October 2014           | April 2015                           |
