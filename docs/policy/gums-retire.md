@@ -51,4 +51,4 @@ Timeline
   ([SOFTWARE-2482](https://jira.opensciencegrid.org/browse/SOFTWARE-2482))
 - September 2017?: Complete transition for sites using default GUMS configurations
 - December 2017?: Complete transition for sites not using pool accounts
-- June 2018: Support is dropped for OSG 3.3 series; no further support for GUMS is provided.
+- May 2018: Support is dropped for OSG 3.3 series; no further support for GUMS is provided.

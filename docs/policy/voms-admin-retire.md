@@ -95,5 +95,5 @@ Timeline
   to validating VOMS extensions.
 - Summer 2017: As necessary, VOs are given access to a hosted `comanage` instance.
 - Winter 2017: First VOs begin to retire VOMS-Admin.
-- June 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.
+- May 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.
 
