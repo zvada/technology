@@ -355,8 +355,12 @@
 <li>Hosted CE LCMAPS VOMS transition complete</li>
 </ul>
 <h3 id="support-update">Support Update</h3>
-<p>FIT (BrianL) - Jobs held, passed on troubleshooting doc<br />
-TAMU (BrianL) - SAM tests are better with updates to their scheduler config. Jobs submitted to their backend condor are being held with "job not found"  </p>
+<ul>
+<li>FIT (BrianL) - Jobs held, passed on troubleshooting doc  </li>
+<li>TAMU (BrianL) - SAM tests are better with updates to their scheduler config. Jobs submitted to their backend condor are being held with "job not found"</li>
+<li>UNL (Derek) - Reprocessed Accounting records for whole node jobs.  Pull request for HTCondor-CE (https://github.com/opensciencegrid/htcondor-ce/pull/151) and Gratia-Probes (https://github.com/opensciencegrid/gratia-probe/pull/18)</li>
+<li>Syracuse &amp; UCSD (Derek) - GPU nodes are starting up.  Small amount of support last week, but this week I expect production use to start, so possibly some user support.</li>
+</ul>
 <h2 id="osg-release-team">OSG Release Team</h2>
 <ul>
 <li>Tim Theisen is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%2520%253D%2520SOFTWARE%2520AND%2520labels%2520in%2520(3.3.26%252C%25203.4.1)%2520ORDER%2520BY%2520status%2520ASC%252C%2520priority%2520DESC%252C%2520assignee%2520ASC">July 11th</a> release</li>
@@ -461,16 +465,16 @@ TAMU (BrianL) - SAM tests are better with updates to their scheduler config. Job
 <p>Lots of vacation from Investigations team this week.  Not much to update.  </p>
 <h3 id="last-week">Last Week</h3>
 <ul>
-<li>GRACC debugging of Underreported sites</li>
+<li>Reprocess underreported sites and upload new APEL report to WLCG</li>
 <li>Debug Nova CVMFS repo, will need to redo repo with chunking.</li>
-<li>Blog post on StashCache: <a href="https://djw8605.github.io/2017/06/14/stashcache/">https://djw8605.github.io/2017/06/14/stashcache/</a> and on Planet OSG <a href="http://blogs.grid.iu.edu/">http://blogs.grid.iu.edu/</a></li>
+<li>Packaging of CVMFS-Sync and configurations. https://github.com/bbockelm/cvmfs-sync/pull/1</li>
+<li>Investigate backups of GRACC peripheral services</li>
 </ul>
 <h3 id="this-week">This Week</h3>
 <ul>
-<li>Reprocess underreported sites and upload new APEL report to WLCG</li>
+<li>Will need to redo nova repo with chunking.</li>
 <li>Docker'ification of GRACC Agents</li>
-<li>Packaging of CVMFS-Sync and configurations.</li>
-<li>Investigate backups of GRACC peripheral services</li>
+<li>Start backups of grafana configurations (dashboards and datasources)</li>
 </ul>
 <h3 id="ongoing">Ongoing</h3>
 <ul>
