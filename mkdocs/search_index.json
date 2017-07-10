@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
@@ -37,7 +37,7 @@
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
@@ -1187,6 +1187,81 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170703/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/", 
+            "text": "OSG Technology Area Meeting, 10 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nOSG User School next week  \n\n\nTriage Duty\n\n\n\n\nThis week: Derek\n\n\nNext week: Edgar\n\n\n5 (\n1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n156\n\n\n+7\n\n\nOpen\n\n\n\n\n\n\n11\n\n\n+0\n\n\nIn Progress\n\n\n\n\n\n\n2\n\n\n21\n\n\nReady for Testing\n\n\n\n\n\n\n25\n\n\n+23\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.4.1 / 3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n3.4.2 / 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nMajor LCMAPS VOMS plugin issues plaguing multiple sites, causing extensive downtime\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nClemson, IIT, UConn (BrianL) - LCMAPS VOMS plugin issue above\n\n\n\n\nOSG Release Team\n\n\n\n\nTim Theisen is handling the \nJuly 11th\n release\n\n\n\n\n\n\n\n\n\n\n3.3.26\n\n\n\n\nBoth\n\n\n\n\n3.4.1\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n1\n\n\n0\n\n\n+0\n\n\n0\n\n\n1\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+4\n\n\n0\n\n\n+0\n\n\n0\n\n\n6\n\n\nIn Progress\n\n\n\n\n\n\n2\n\n\n+1\n\n\n18\n\n\n+12\n\n\n3\n\n\n+0\n\n\n23\n\n\n+13\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n+0\n\n\n0\n\n\n+0\n\n\n1\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nClosed\n\n\n\n\n\n\n2\n\n\n+1\n\n\n19\n\n\n+6\n\n\n3\n\n\n+0\n\n\n24\n\n\n+7\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\nShort testing week due to holiday\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nOSG-Connect wanted some project renames, done, but waiting on verification.\n\n\n\n\nThis Week\n\n\n\n\nGRACC host cert expired, but that only affects backups so everything is still online\n\n\nWCLG wants some info on missing accounting, but they are slow on finalizing their own accounting.  But it looks like it is now finished.\n\n\nDerek will be at PEARC next week and will be presenting\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
+            "title": "July 10, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#osg-technology-area-meeting-10-july-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "title": "OSG Technology Area Meeting, 10 July 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#announcements", 
+            "text": "OSG User School next week", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#triage-duty", 
+            "text": "This week: Derek  Next week: Edgar  5 ( 1) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#jira", 
+            "text": "# of tickets   State      156  +7  Open    11  +0  In Progress    2  21  Ready for Testing    25  +23  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#release-schedule", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.4.1 / 3.3.26  2017-06-26  2017-07-03  2017-07-11  Independence Day    3.4.2 / 3.3.27  2017-07-24  2017-07-31  2017-08-08      Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#osg-software-team", 
+            "text": "Major LCMAPS VOMS plugin issues plaguing multiple sites, causing extensive downtime", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#discussions", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#support-update", 
+            "text": "Clemson, IIT, UConn (BrianL) - LCMAPS VOMS plugin issue above", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#osg-release-team", 
+            "text": "Tim Theisen is handling the  July 11th  release      3.3.26   Both   3.4.1   Total   Status      0  +0  1  1  0  +0  0  1  Open    0  +0  0  +4  0  +0  0  6  In Progress    2  +1  18  +12  3  +0  23  +13  Ready for Testing    0  +0  1  +0  0  +0  1  +0  Ready for Release    0  +0  0  +0  0  +0  0  +0  Closed    2  +1  19  +6  3  +0  24  +7  Total      Short testing week due to holiday", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#last-week", 
+            "text": "OSG-Connect wanted some project renames, done, but waiting on verification.", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#this-week", 
+            "text": "GRACC host cert expired, but that only affects backups so everything is still online  WCLG wants some info on missing accounting, but they are slow on finalizing their own accounting.  But it looks like it is now finished.  Derek will be at PEARC next week and will be presenting", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170710/#ongoing", 
             "text": "GRACC Project  StashCache Project (New URL!)", 
             "title": "Ongoing"
         }
