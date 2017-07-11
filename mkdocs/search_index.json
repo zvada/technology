@@ -1192,12 +1192,12 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170710/", 
-            "text": "OSG Technology Area Meeting, 10 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nOSG User School next week  \n\n\nTriage Duty\n\n\n\n\nThis week: Derek\n\n\nNext week: Edgar\n\n\n5 (\n1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n156\n\n\n+7\n\n\nOpen\n\n\n\n\n\n\n11\n\n\n+0\n\n\nIn Progress\n\n\n\n\n\n\n2\n\n\n21\n\n\nReady for Testing\n\n\n\n\n\n\n25\n\n\n+23\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.4.1 / 3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n3.4.2 / 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nMajor LCMAPS VOMS plugin issues plaguing multiple sites, causing extensive downtime\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nClemson, IIT, UConn (BrianL) - LCMAPS VOMS plugin issue above\n\n\n\n\nOSG Release Team\n\n\n\n\nTim Theisen is handling the \nJuly 11th\n release\n\n\nRelease tomorrow\n\n\n\n\n\n\n\n\n\n\n3.3.26\n\n\n\n\nBoth\n\n\n\n\n3.4.1\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n-2\n\n\n18\n\n\n-18\n\n\n0\n\n\n-3\n\n\n0\n\n\n-23\n\n\nReady for Testing\n\n\n\n\n\n\n2\n\n\n+2\n\n\n19\n\n\n+18\n\n\n4\n\n\n+4\n\n\n25\n\n\n+24\n\n\nReady for Release\n\n\n\n\n\n\n2\n\n\n+0\n\n\n19\n\n\n+0\n\n\n4\n\n\n+1\n\n\n25\n\n\n+1\n\n\nTotal\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nOSG-Connect wanted some project renames, done, but waiting on verification.\n\n\n\n\nThis Week\n\n\n\n\nGRACC host cert expired, but that only affects backups so everything is still online\n\n\nWCLG wants some info on missing accounting, but they are slow on finalizing their own accounting.  But it looks like it is now finished.\n\n\nDerek will be at PEARC next week and will be presenting\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
+            "text": "OSG Technology Area Meeting, 10 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n BrianB, BrianL, Carl, Edgar, Marian, Mat, TimT, Vaibhav\n\n\nAnnouncements\n\n\nOSG User School next week  \n\n\nTriage Duty\n\n\n\n\nThis week: Derek\n\n\nNext week: Edgar\n\n\n5 (\n1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n156\n\n\n+7\n\n\nOpen\n\n\n\n\n\n\n11\n\n\n+0\n\n\nIn Progress\n\n\n\n\n\n\n2\n\n\n21\n\n\nReady for Testing\n\n\n\n\n\n\n25\n\n\n+23\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.4.1 / 3.3.26\n\n\n2017-06-26\n\n\n2017-07-03\n\n\n2017-07-11\n\n\nIndependence Day\n\n\n\n\n\n\n3.4.2 / 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nTwo weeks until August development freeze\n\n\nMajor LCMAPS VOMS plugin issues plaguing multiple sites, causing extensive downtime\n\n\n\n\nDiscussions\n\n\n\n\nThe root cause of the LCMAPS VOMS segfaults appear to be due to memory issues in the proxy verification module. BrianB hopes to have a fix by the end of the day.\n\n\n\n\nSupport Update\n\n\n\n\nClemson, IIT, UConn (BrianL) - LCMAPS VOMS plugin issue above\n\n\n\n\nOSG Release Team\n\n\n\n\nTim Theisen is handling the \nJuly 11th\n release\n\n\nRelease tomorrow\n\n\n\n\n\n\n\n\n\n\n3.3.26\n\n\n\n\nBoth\n\n\n\n\n3.4.1\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n-2\n\n\n18\n\n\n-18\n\n\n0\n\n\n-3\n\n\n0\n\n\n-23\n\n\nReady for Testing\n\n\n\n\n\n\n2\n\n\n+2\n\n\n19\n\n\n+18\n\n\n4\n\n\n+4\n\n\n25\n\n\n+24\n\n\nReady for Release\n\n\n\n\n\n\n2\n\n\n+0\n\n\n19\n\n\n+0\n\n\n4\n\n\n+1\n\n\n25\n\n\n+1\n\n\nTotal\n\n\n\n\n\n\n\n\nDiscussions\n\n\n\n\nOperations will be adopting a more flexible release schedule, at least for changes transparent to the user\n\n\nCert update incoming; Edgar will help test it while Suchandra is at PEARC. In the future, it may make more sense to test cert packages in an automated fashion \\minus; perhaps with \nrpmdiff\n.\n\n\n\n\nOSG Investigations Team\n\n\nThis Week\n\n\n\n\nDerek at PEARC this week and the OSG User School next week\n\n\nContributing to CVMFS and looking at he LIGO use case again\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
             "title": "July 10, 2017"
         }, 
         {
             "location": "/meetings/2017/TechArea20170710/#osg-technology-area-meeting-10-july-2017", 
-            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:  BrianB, BrianL, Carl, Edgar, Marian, Mat, TimT, Vaibhav", 
             "title": "OSG Technology Area Meeting, 10 July 2017"
         }, 
         {
@@ -1222,12 +1222,12 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170710/#osg-software-team", 
-            "text": "Major LCMAPS VOMS plugin issues plaguing multiple sites, causing extensive downtime", 
+            "text": "Two weeks until August development freeze  Major LCMAPS VOMS plugin issues plaguing multiple sites, causing extensive downtime", 
             "title": "OSG Software Team"
         }, 
         {
             "location": "/meetings/2017/TechArea20170710/#discussions", 
-            "text": "None this week", 
+            "text": "The root cause of the LCMAPS VOMS segfaults appear to be due to memory issues in the proxy verification module. BrianB hopes to have a fix by the end of the day.", 
             "title": "Discussions"
         }, 
         {
@@ -1242,7 +1242,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170710/#discussions_1", 
-            "text": "None this week", 
+            "text": "Operations will be adopting a more flexible release schedule, at least for changes transparent to the user  Cert update incoming; Edgar will help test it while Suchandra is at PEARC. In the future, it may make more sense to test cert packages in an automated fashion \\minus; perhaps with  rpmdiff .", 
             "title": "Discussions"
         }, 
         {
@@ -1251,13 +1251,8 @@
             "title": "OSG Investigations Team"
         }, 
         {
-            "location": "/meetings/2017/TechArea20170710/#last-week", 
-            "text": "OSG-Connect wanted some project renames, done, but waiting on verification.", 
-            "title": "Last Week"
-        }, 
-        {
             "location": "/meetings/2017/TechArea20170710/#this-week", 
-            "text": "GRACC host cert expired, but that only affects backups so everything is still online  WCLG wants some info on missing accounting, but they are slow on finalizing their own accounting.  But it looks like it is now finished.  Derek will be at PEARC next week and will be presenting", 
+            "text": "Derek at PEARC this week and the OSG User School next week  Contributing to CVMFS and looking at he LIGO use case again", 
             "title": "This Week"
         }, 
         {

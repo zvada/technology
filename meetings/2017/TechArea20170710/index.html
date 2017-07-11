@@ -233,7 +233,7 @@
               
                 <h1 id="osg-technology-area-meeting-10-july-2017">OSG Technology Area Meeting, 10 July 2017</h1>
 <p><strong>Coordinates:</strong> Conference: 719-284-5267, PIN: 57363; <a href="https://www.uberconference.com/osgblin">https://www.uberconference.com/osgblin</a>  </p>
-<p><strong>Attending:</strong>   </p>
+<p><strong>Attending:</strong> BrianB, BrianL, Carl, Edgar, Marian, Mat, TimT, Vaibhav</p>
 <h2 id="announcements">Announcements</h2>
 <p>OSG User School next week  </p>
 <h3 id="triage-duty">Triage Duty</h3>
@@ -305,10 +305,13 @@
 <p>Notes: Additional “urgent” releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  </p>
 <h2 id="osg-software-team">OSG Software Team</h2>
 <ul>
+<li>Two weeks until August development freeze</li>
 <li>Major LCMAPS VOMS plugin issues plaguing multiple sites, causing extensive downtime</li>
 </ul>
 <h3 id="discussions">Discussions</h3>
-<p>None this week  </p>
+<ul>
+<li>The root cause of the LCMAPS VOMS segfaults appear to be due to memory issues in the proxy verification module. BrianB hopes to have a fix by the end of the day.</li>
+</ul>
 <h3 id="support-update">Support Update</h3>
 <ul>
 <li>Clemson, IIT, UConn (BrianL) - LCMAPS VOMS plugin issue above</li>
@@ -391,17 +394,15 @@
 </tbody>
 </table>
 <h3 id="discussions_1">Discussions</h3>
-<p>None this week  </p>
-<h2 id="osg-investigations-team">OSG Investigations Team</h2>
-<h3 id="last-week">Last Week</h3>
 <ul>
-<li>OSG-Connect wanted some project renames, done, but waiting on verification.</li>
+<li>Operations will be adopting a more flexible release schedule, at least for changes transparent to the user</li>
+<li>Cert update incoming; Edgar will help test it while Suchandra is at PEARC. In the future, it may make more sense to test cert packages in an automated fashion \minus; perhaps with <code>rpmdiff</code>.</li>
 </ul>
+<h2 id="osg-investigations-team">OSG Investigations Team</h2>
 <h3 id="this-week">This Week</h3>
 <ul>
-<li>GRACC host cert expired, but that only affects backups so everything is still online</li>
-<li>WCLG wants some info on missing accounting, but they are slow on finalizing their own accounting.  But it looks like it is now finished.</li>
-<li>Derek will be at PEARC next week and will be presenting</li>
+<li>Derek at PEARC this week and the OSG User School next week</li>
+<li>Contributing to CVMFS and looking at he LIGO use case again</li>
 </ul>
 <h3 id="ongoing">Ongoing</h3>
 <ul>
