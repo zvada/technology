@@ -5,6 +5,7 @@
 
 # Recent Notes
 
+  * [17 July 2017](meetings/2017/TechArea20170717.md)
   * [10 July 2017](meetings/2017/TechArea20170710.md)
   * [3 July 2017](meetings/2017/TechArea20170703.md)
   * [26 June 2017](meetings/2017/TechArea20170626.md)
