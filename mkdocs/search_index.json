@@ -1262,7 +1262,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/", 
-            "text": "OSG Technology Area Meeting, 17 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week:\n\n\nNext week:\n\n\n (\n) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n141\n\n\n(\n17)\n\n\nOpen\n\n\n\n\n\n\n33\n\n\n(+9)\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n(+2)\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n(\n12)\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.3.22\n\n\n2017-02-27\n\n\n2017-03-06\n\n\n2017-03-14\n\n\n\n\n\n\n\n\n3.3.23\n\n\n2017-03-27\n\n\n2017-04-03\n\n\n2017-04-11\n\n\n\n\n\n\n\n\n3.3.24\n\n\n2017-04-25\n\n\n2017-05-01\n\n\n2017-05-09\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\nDiscussions\n\n\nSupport Update\n\n\nOSG Release Team\n\n\nDiscussions\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\nThis Week\n\n\nOngoing", 
+            "text": "OSG Technology Area Meeting, 17 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nOSG User School this week  \n\n\nTriage Duty\n\n\n\n\nThis week: Edgar\n\n\nNext week: Mat\n\n\n11 (+6) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n155\n\n\n1\n\n\nOpen\n\n\n\n\n\n\n23\n\n\n+12\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n2\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n25\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\n3.4.2 / 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\nDiscussions\n\n\nSupport Update\n\n\nOSG Release Team\n\n\nDiscussions\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\nThis Week\n\n\nOngoing", 
             "title": "July 17, 2017"
         }, 
         {
@@ -1272,22 +1272,22 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#announcements", 
-            "text": "", 
+            "text": "OSG User School this week", 
             "title": "Announcements"
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#triage-duty", 
-            "text": "This week:  Next week:   ( ) open tickets", 
+            "text": "This week: Edgar  Next week: Mat  11 (+6) open tickets", 
             "title": "Triage Duty"
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#jira", 
-            "text": "# of tickets   State      141  ( 17)  Open    33  (+9)  In Progress    4  (+2)  Ready for Testing    0  ( 12)  Ready for Release", 
+            "text": "# of tickets   State      155  1  Open    23  +12  In Progress    4  2  Ready for Testing    0  25  Ready for Release", 
             "title": "JIRA"
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#release-schedule", 
-            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.3.22  2017-02-27  2017-03-06  2017-03-14     3.3.23  2017-03-27  2017-04-03  2017-04-11     3.3.24  2017-04-25  2017-05-01  2017-05-09      Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "text": "Version  Development Freeze  Package Freeze  Release  Notes      3.4.2 / 3.3.27  2017-07-24  2017-07-31  2017-08-08      Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
             "title": "Release Schedule"
         }, 
         {
