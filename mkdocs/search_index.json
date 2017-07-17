@@ -1262,12 +1262,12 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/", 
-            "text": "OSG Technology Area Meeting, 17 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n  \n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nOSG User School this week  \n\n\nTriage Duty\n\n\n\n\nThis week: Edgar\n\n\nNext week: Mat\n\n\n11 (+6) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n155\n\n\n1\n\n\nOpen\n\n\n\n\n\n\n23\n\n\n+12\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n2\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n25\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nName\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nAugust\n\n\n3.4.2, 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\nSeptember\n\n\n3.4.3, 3.3.28\n\n\n2017-08-28\n\n\n2017-09-05\n\n\n2017-09-12\n\n\n5 week cycle\n\n\n\n\n\n\nOctober\n\n\n3.4.4, 3.3.29\n\n\n2017-09-25\n\n\n2017-10-02\n\n\n2017-10-10\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\nDiscussions\n\n\nSupport Update\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nAugust 8th\n release\n\n\nDevelopment Freeze next week\n\n\n\n\n\n\n\n\n\n\n3.3.27\n\n\n\n\nBoth\n\n\n\n\n3.4.2\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n1\n\n\n+0\n\n\n4\n\n\n+0\n\n\n2\n\n\n+0\n\n\n7\n\n\n+0\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n+0\n\n\n10\n\n\n+0\n\n\n4\n\n\n+0\n\n\n14\n\n\n+0\n\n\nIn Progress\n\n\n\n\n\n\n2\n\n\n+0\n\n\n1\n\n\n+0\n\n\n1\n\n\n+0\n\n\n4\n\n\n+0\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n3\n\n\n+0\n\n\n15\n\n\n+0\n\n\n7\n\n\n+0\n\n\n25\n\n\n+0\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\nReady for Testing\n\n\nBoth\n\n\nUpdate gsi-openssh-server\n\n\n\n\n\n\n3.4.2\n\n\nMerge osg-ce packages\n\n\n\n\n\n\nBoth\n\n\nUpdate to HTCondor 8.4.12 in OSG 3.3\n\n\nJGlobus incorrectly refuses proxies with key usage\n\n\n\n\n\n\n\n\nDiscussions\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\nThis Week\n\n\nOngoing", 
+            "text": "OSG Technology Area Meeting, 17 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n\n\nAttending:\n\nCarl, Edgar, Marian, Mat, Suchandra, Tim T\n\n\nAnnouncements\n\n\nOSG User School this week\n\n\nTriage Duty\n\n\n\n\nThis week: Edgar\n\n\nNext week: Mat\n\n\n11 (+6) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n155\n\n\n1\n\n\nOpen\n\n\n\n\n\n\n23\n\n\n+12\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n2\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n25\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nName\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nAugust\n\n\n3.4.2, 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\nSeptember\n\n\n3.4.3, 3.3.28\n\n\n2017-08-28\n\n\n2017-09-05\n\n\n2017-09-12\n\n\n5 week cycle\n\n\n\n\n\n\nOctober\n\n\n3.4.4, 3.3.29\n\n\n2017-09-25\n\n\n2017-10-02\n\n\n2017-10-10\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.\n\n\nOSG Software Team\n\n\nDiscussions\n\n\n\n\nNew GFAL tools issue causing problems for XENON1T, on CVMFS. -- need to check if it's a 3.4 issue only\n\n\nNew Condor 8.6.5 release this week to fix IPv6 bugs, but the new release breaks Dave Dykstra's Python modules so we're debugging that\n\n\n\n\nSupport Update\n\n\nnone\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nAugust 8th\n release\n\n\nDevelopment Freeze next week\n\n\n\n\n\n\n\n\n\n\n3.3.27\n\n\n\n\nBoth\n\n\n\n\n3.4.2\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n1\n\n\n+0\n\n\n4\n\n\n+0\n\n\n2\n\n\n+0\n\n\n7\n\n\n+0\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n+0\n\n\n10\n\n\n+0\n\n\n4\n\n\n+0\n\n\n14\n\n\n+0\n\n\nIn Progress\n\n\n\n\n\n\n2\n\n\n+0\n\n\n1\n\n\n+0\n\n\n1\n\n\n+0\n\n\n4\n\n\n+0\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n3\n\n\n+0\n\n\n15\n\n\n+0\n\n\n7\n\n\n+0\n\n\n25\n\n\n+0\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\nReady for Testing\n\n\nBoth\n\n\nUpdate gsi-openssh-server\n\n\n\n\n\n\n3.4.2\n\n\nMerge osg-ce packages\n\n\n\n\n\n\nBoth\n\n\nUpdate to HTCondor 8.4.12 in OSG 3.3\n\n\nJGlobus incorrectly refuses proxies with key usage\n\n\n\n\n\n\n\n\nDiscussions\n\n\nnone\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nDerek at PEARC\n\n\n\n\nThis Week\n\n\n\n\nDerek at OSG school\n\n\nStash origin maintenance at UChicago over the weekend so StashCache inaccessible over the weekend\n\n\nGRACC accounting issue with Florida revealed that Florida wasn't correctly running Gratia probes\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
             "title": "July 17, 2017"
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#osg-technology-area-meeting-17-july-2017", 
-            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin     Attending:", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin  Attending: \nCarl, Edgar, Marian, Mat, Suchandra, Tim T", 
             "title": "OSG Technology Area Meeting, 17 July 2017"
         }, 
         {
@@ -1297,12 +1297,12 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#discussions", 
-            "text": "", 
+            "text": "New GFAL tools issue causing problems for XENON1T, on CVMFS. -- need to check if it's a 3.4 issue only  New Condor 8.6.5 release this week to fix IPv6 bugs, but the new release breaks Dave Dykstra's Python modules so we're debugging that", 
             "title": "Discussions"
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#support-update", 
-            "text": "", 
+            "text": "none", 
             "title": "Support Update"
         }, 
         {
@@ -1312,7 +1312,7 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#discussions_1", 
-            "text": "", 
+            "text": "none", 
             "title": "Discussions"
         }, 
         {
@@ -1322,17 +1322,17 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#last-week", 
-            "text": "", 
+            "text": "Derek at PEARC", 
             "title": "Last Week"
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#this-week", 
-            "text": "", 
+            "text": "Derek at OSG school  Stash origin maintenance at UChicago over the weekend so StashCache inaccessible over the weekend  GRACC accounting issue with Florida revealed that Florida wasn't correctly running Gratia probes", 
             "title": "This Week"
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#ongoing", 
-            "text": "", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
             "title": "Ongoing"
         }
     ]
