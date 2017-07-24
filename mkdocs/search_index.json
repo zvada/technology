@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n24 July 2017\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
@@ -37,7 +37,7 @@
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "24 July 2017  17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
@@ -1332,6 +1332,76 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170717/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/", 
+            "text": "OSG Technology Area Meeting, 24 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n\n\nAttending:\n   \n\n\nAnnouncements\n\n\n\n\nVaibhav no longer with UCSD\n\n\nOSG Annual Planning Retreat Tue - Wed\n\n\n\n\nTriage Duty\n\n\n\n\nThis week: Mat\n\n\nNext week: Suchandra\n\n\n12 (+1) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n161\n\n\n+6\n\n\nOpen\n\n\n\n\n\n\n15\n\n\n-8\n\n\nIn Progress\n\n\n\n\n\n\n17\n\n\n+13\n\n\nReady for Testing\n\n\n\n\n\n\n1\n\n\n+1\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nName\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nAugust\n\n\n3.4.2, 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\nSeptember\n\n\n3.4.3, 3.3.28\n\n\n2017-08-28\n\n\n2017-09-05\n\n\n2017-09-12\n\n\n5 week cycle\n\n\n\n\n\n\nOctober\n\n\n3.4.4, 3.3.29\n\n\n2017-09-25\n\n\n2017-10-02\n\n\n2017-10-10\n\n\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\nOpen tickets:\n\n\n\n\n\n\n\n\n\n\nDeveloper\n\n\n# non-RFT\n\n\n\n\n\n\n\n\n\n\nBrian L\n\n\n8\n\n\n\n\n\n\nDave D\n\n\n2\n\n\n\n\n\n\nMat S\n\n\n1\n\n\n\n\n\n\n\n\n\n\nNeed volunteers for building HTCondor 8.6.5 and developer test Singularity 2.3\n\n\nVMU tests are unavailable due to Gluster maintenance. Expected to be functional by EOB Tuesday  \n\n\nIn the meantime, use \nTravis-CI\n\n\n\n\n\n\nMysterious gsi-openssh-server failures in the nightlies on EL7, 3.3. testing\n\n\n\n\nDiscussions\n\n\nSupport Update\n\n\n\n\nFIT (BrianL): CE can't contact backend schedd/pool\n\n\nUConn (BrianL): CE auth issues likely an internal OSG issue at this point\n\n\nUWash (BrianL): jobs held due to \"non-existent route or job route limit\"\n\n\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nAugust 8th\n release\n\n\nDev freeze today\n\n\n\n\n\n\n\n\n\n\n3.3.27\n\n\n\n\nBoth\n\n\n\n\n3.4.2\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n+1\n\n\n2\n\n\n+2\n\n\n3\n\n\n+3\n\n\nOpen\n\n\n\n\n\n\n1\n\n\n+1\n\n\n5\n\n\n+5\n\n\n2\n\n\n+2\n\n\n8\n\n\n+8\n\n\nIn Progress\n\n\n\n\n\n\n3\n\n\n+3\n\n\n9\n\n\n+9\n\n\n5\n\n\n+5\n\n\n17\n\n\n+17\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n4\n\n\n+4\n\n\n15\n\n\n+15\n\n\n9\n\n\n+9\n\n\n28\n\n\n+28\n\n\nTotal\n\n\n\n\n\n\n\n\nDiscussions\n\n\nOSG Investigations Team\n\n\nThis Week\n\n\n\n\nDerek at PEARC this week and the OSG User School next week\n\n\nContributing to CVMFS and looking at he LIGO use case again\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
+            "title": "July 24, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#osg-technology-area-meeting-24-july-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin  Attending:", 
+            "title": "OSG Technology Area Meeting, 24 July 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#announcements", 
+            "text": "Vaibhav no longer with UCSD  OSG Annual Planning Retreat Tue - Wed", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#triage-duty", 
+            "text": "This week: Mat  Next week: Suchandra  12 (+1) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#jira", 
+            "text": "# of tickets   State      161  +6  Open    15  -8  In Progress    17  +13  Ready for Testing    1  +1  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#release-schedule", 
+            "text": "Name  Version  Development Freeze  Package Freeze  Release  Notes      August  3.4.2, 3.3.27  2017-07-24  2017-07-31  2017-08-08     September  3.4.3, 3.3.28  2017-08-28  2017-09-05  2017-09-12  5 week cycle    October  3.4.4, 3.3.29  2017-09-25  2017-10-02  2017-10-10      Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#osg-software-team", 
+            "text": "Open tickets:      Developer  # non-RFT      Brian L  8    Dave D  2    Mat S  1      Need volunteers for building HTCondor 8.6.5 and developer test Singularity 2.3  VMU tests are unavailable due to Gluster maintenance. Expected to be functional by EOB Tuesday    In the meantime, use  Travis-CI    Mysterious gsi-openssh-server failures in the nightlies on EL7, 3.3. testing", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#discussions", 
+            "text": "", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#support-update", 
+            "text": "FIT (BrianL): CE can't contact backend schedd/pool  UConn (BrianL): CE auth issues likely an internal OSG issue at this point  UWash (BrianL): jobs held due to \"non-existent route or job route limit\"", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#osg-release-team", 
+            "text": "Suchandra Thapa is handling the  August 8th  release  Dev freeze today      3.3.27   Both   3.4.2   Total   Status      0  +0  1  +1  2  +2  3  +3  Open    1  +1  5  +5  2  +2  8  +8  In Progress    3  +3  9  +9  5  +5  17  +17  Ready for Testing    0  +0  0  +0  0  +0  0  +0  Ready for Release    4  +4  15  +15  9  +9  28  +28  Total", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#discussions_1", 
+            "text": "", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#this-week", 
+            "text": "Derek at PEARC this week and the OSG User School next week  Contributing to CVMFS and looking at he LIGO use case again", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170724/#ongoing", 
             "text": "GRACC Project  StashCache Project (New URL!)", 
             "title": "Ongoing"
         }
