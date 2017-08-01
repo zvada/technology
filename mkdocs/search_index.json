@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/meetings/", 
-            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n24 July 2017\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
+            "text": "Coordinates\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363 \nUber Conference\n\n\nRecent Notes\n\n\n\n\n31 July 2017\n\n\n24 July 2017\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n \n Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nOld meeting notes\n\n\nhttps://twiki.opensciencegrid.org/bin/view/SoftwareTeam/Meetings", 
             "title": "Meeting Notes"
         }, 
         {
@@ -37,7 +37,7 @@
         }, 
         {
             "location": "/meetings/#recent-notes", 
-            "text": "24 July 2017  17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
+            "text": "31 July 2017  24 July 2017  17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017    Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017", 
             "title": "Recent Notes"
         }, 
         {
@@ -1407,6 +1407,81 @@
         }, 
         {
             "location": "/meetings/2017/TechArea20170724/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/", 
+            "text": "OSG Technology Area Meeting, 31 July 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n\n\nAttending:\n Derek, Edgar, Marian, Mat, Suchandra, TimT\n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Suchandra\n\n\nNext week: TimT\n\n\n12 (+0) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n158\n\n\n-3\n\n\nOpen\n\n\n\n\n\n\n14\n\n\n-1\n\n\nIn Progress\n\n\n\n\n\n\n25\n\n\n+8\n\n\nReady for Testing\n\n\n\n\n\n\n1\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nName\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nAugust\n\n\n3.4.2, 3.3.27\n\n\n2017-07-24\n\n\n2017-07-31\n\n\n2017-08-08\n\n\n\n\n\n\n\n\nSeptember\n\n\n3.4.3, 3.3.28\n\n\n2017-08-28\n\n\n2017-09-05\n\n\n2017-09-12\n\n\n5 week cycle\n\n\n\n\n\n\nOctober\n\n\n3.4.4, 3.3.29\n\n\n2017-09-25\n\n\n2017-10-02\n\n\n2017-10-10\n\n\n\n\n\n\n\n\n\n\nOSG Software Team\n\n\n\n\nhtcondor collector python plugin broken in 8.6.4; fixed in 8.6.5 \n(SOFTWARE-2816)\n which will be released tomorrow morning\n\n\n\n\nDiscussions\n\n\n\n\nAlejandro at CERN wants a new fix for JGlobus to add the SSL option DontInsertEmptyFragments to fix a Bestman issue; Mat will take a look\n\n\n\n\nSupport Update\n\n\n\n\nFIT (BrianL): CE can't contact backend schedd/pool\n\n\nUConn (BrianL): CE auth issues likely an internal OSG issue at this point\n\n\nUWash (BrianL): jobs held due to \"non-existent route or job route limit\"\n\n\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nAugust 8th\n release\n\n\nPackage freeze today\n\n\nNeed testing help\n\n\n\n\n\n\n\n\n\n\n3.3.27\n\n\n\n\nBoth\n\n\n\n\n3.4.2\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n+0\n\n\n0\n\n\n-2\n\n\n1\n\n\n-2\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n-1\n\n\n0\n\n\n-5\n\n\n2\n\n\n+0\n\n\n2\n\n\n-6\n\n\nIn Progress\n\n\n\n\n\n\n4\n\n\n+1\n\n\n13\n\n\n+4\n\n\n8\n\n\n+3\n\n\n25\n\n\n+8\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n4\n\n\n+0\n\n\n14\n\n\n-1\n\n\n10\n\n\n+1\n\n\n28\n\n\n+0\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\nBoth\n\n\nFix selinux issues with GSI OpenSSH in EL7 nightly tests\n\n\nUpdate gsi-openssh-server\n\n\nAdd gsi-openssh packages to osg-tested-internal\n\n\nosg-configure does not warn/error in -v\n\n\ncondor-cron: disable gsi authz\n\n\nRelease condor-cron 1.1.3\n\n\ncondor-cron: add a way for users to override condor_ids\n\n\nosg-configure: Configure GUMS before running gums-host-cron\n\n\nosg-configure: Fix logging in ensure_valid_user_vo_file\n\n\nAdd blahp configuration to differentiate PBS flavors\n\n\nCEView VO tab throws 500 error on inital installation\n\n\nCondor-CE: Do not hold running jobs with expired proxy\n\n\nHTCondor-CE: only warn about configuration if osg-configure is present\n\n\nosg-configure: Make exception usage consistent\n\n\n3.4.2\n\n\nFix selinux issues with GSI OpenSSH in EL7 nightly tests\n\n\nUpdate gsi-openssh-server\n\n\nAdd gsi-openssh packages to osg-tested-internal\n\n\nosg-configure does not warn/error in -v\n\n\ncondor-cron: disable gsi authz\n\n\nRelease condor-cron 1.1.3\n\n\ncondor-cron: add a way for users to override condor_ids\n\n\nosg-configure: Configure GUMS before running gums-host-cron\n\n\nosg-configure: Fix logging in ensure_valid_user_vo_file\n\n\nAdd blahp configuration to differentiate PBS flavors\n\n\nCEView VO tab throws 500 error on inital installation\n\n\nCondor-CE: Do not hold running jobs with expired proxy\n\n\nHTCondor-CE: only warn about configuration if osg-configure is present\n\n\nosg-configure: Make exception usage consistent\n\n\n3.2.27\n\n\nJGlobus incorrectly refuses proxies with key usage\n\n\nRelease osg-configure 1.9.1 (OSG 3.3)\n\n\nUpdate to HTCondor 8.4.12 in OSG 3.3\n\n\nRelease htcondor-ce-2.2.2-1+\n\n\n\n\nDiscussions\n\n\n\n\n\n\nWill need software team's help testing\n\n\n\n\n\n\nFrom the planning retreat:\n\n\n\n\nRelease team might go to a \"community testing\" model where we will ask the stakeholders to test changes\n\n\nMaybe might go to a \"rolling release\" model instead of point releases; may be not until 3.5; Tim T to write proposal\n\n\n\n\n\n\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC-ITB moving forward\n\n\nSome GRACC support of a \nslurm_meter\n issue, still debugging.\n\n\n\n\nThis Week\n\n\n\n\nGRACC Backup reports\n\n\nCVMFS-Sync RPM across finish line.\n\n\nGRACC backup of Dashboards\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)", 
+            "title": "July 31, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#osg-technology-area-meeting-31-july-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin  Attending:  Derek, Edgar, Marian, Mat, Suchandra, TimT", 
+            "title": "OSG Technology Area Meeting, 31 July 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#announcements", 
+            "text": "", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#triage-duty", 
+            "text": "This week: Suchandra  Next week: TimT  12 (+0) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#jira", 
+            "text": "# of tickets   State      158  -3  Open    14  -1  In Progress    25  +8  Ready for Testing    1  +0  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#release-schedule", 
+            "text": "Name  Version  Development Freeze  Package Freeze  Release  Notes      August  3.4.2, 3.3.27  2017-07-24  2017-07-31  2017-08-08     September  3.4.3, 3.3.28  2017-08-28  2017-09-05  2017-09-12  5 week cycle    October  3.4.4, 3.3.29  2017-09-25  2017-10-02  2017-10-10", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#osg-software-team", 
+            "text": "htcondor collector python plugin broken in 8.6.4; fixed in 8.6.5  (SOFTWARE-2816)  which will be released tomorrow morning", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#discussions", 
+            "text": "Alejandro at CERN wants a new fix for JGlobus to add the SSL option DontInsertEmptyFragments to fix a Bestman issue; Mat will take a look", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#support-update", 
+            "text": "FIT (BrianL): CE can't contact backend schedd/pool  UConn (BrianL): CE auth issues likely an internal OSG issue at this point  UWash (BrianL): jobs held due to \"non-existent route or job route limit\"", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#osg-release-team", 
+            "text": "Suchandra Thapa is handling the  August 8th  release  Package freeze today  Need testing help      3.3.27   Both   3.4.2   Total   Status      0  +0  1  +0  0  -2  1  -2  Open    0  -1  0  -5  2  +0  2  -6  In Progress    4  +1  13  +4  8  +3  25  +8  Ready for Testing    0  +0  0  +0  0  +0  0  +0  Ready for Release    4  +0  14  -1  10  +1  28  +0  Total      Both  Fix selinux issues with GSI OpenSSH in EL7 nightly tests  Update gsi-openssh-server  Add gsi-openssh packages to osg-tested-internal  osg-configure does not warn/error in -v  condor-cron: disable gsi authz  Release condor-cron 1.1.3  condor-cron: add a way for users to override condor_ids  osg-configure: Configure GUMS before running gums-host-cron  osg-configure: Fix logging in ensure_valid_user_vo_file  Add blahp configuration to differentiate PBS flavors  CEView VO tab throws 500 error on inital installation  Condor-CE: Do not hold running jobs with expired proxy  HTCondor-CE: only warn about configuration if osg-configure is present  osg-configure: Make exception usage consistent  3.4.2  Fix selinux issues with GSI OpenSSH in EL7 nightly tests  Update gsi-openssh-server  Add gsi-openssh packages to osg-tested-internal  osg-configure does not warn/error in -v  condor-cron: disable gsi authz  Release condor-cron 1.1.3  condor-cron: add a way for users to override condor_ids  osg-configure: Configure GUMS before running gums-host-cron  osg-configure: Fix logging in ensure_valid_user_vo_file  Add blahp configuration to differentiate PBS flavors  CEView VO tab throws 500 error on inital installation  Condor-CE: Do not hold running jobs with expired proxy  HTCondor-CE: only warn about configuration if osg-configure is present  osg-configure: Make exception usage consistent  3.2.27  JGlobus incorrectly refuses proxies with key usage  Release osg-configure 1.9.1 (OSG 3.3)  Update to HTCondor 8.4.12 in OSG 3.3  Release htcondor-ce-2.2.2-1+", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#discussions_1", 
+            "text": "Will need software team's help testing    From the planning retreat:   Release team might go to a \"community testing\" model where we will ask the stakeholders to test changes  Maybe might go to a \"rolling release\" model instead of point releases; may be not until 3.5; Tim T to write proposal", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#last-week", 
+            "text": "GRACC-ITB moving forward  Some GRACC support of a  slurm_meter  issue, still debugging.", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#this-week", 
+            "text": "GRACC Backup reports  CVMFS-Sync RPM across finish line.  GRACC backup of Dashboards", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170731/#ongoing", 
             "text": "GRACC Project  StashCache Project (New URL!)", 
             "title": "Ongoing"
         }
