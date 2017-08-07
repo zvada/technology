@@ -252,8 +252,8 @@
             <div class="section">
               
                 <h1 id="osg-technology-area-meeting-7-august-2017">OSG Technology Area Meeting,  7 August 2017</h1>
-<p><strong>Coordinates:</strong> Conference: 719-284-5267, PIN: 57363; <a href="https://www.uberconference.com/osgblin">https://www.uberconference.com/osgblin</a><br />
-<strong>Attending:</strong> Derek, Edgar, Marian, Mat, Suchandra, TimT  </p>
+<p><strong>Coordinates:</strong> Conference: 719-284-5267, PIN: 57363; <a href="https://www.uberconference.com/osgblin">https://www.uberconference.com/osgblin</a>
+<strong>Attending:</strong> Derek, Edgar, Marian, Mat, Suchandra, TimT</p>
 <h2 id="announcements">Announcements</h2>
 <h3 id="triage-duty">Triage Duty</h3>
 <ul>
@@ -332,7 +332,7 @@
 </tr>
 </tbody>
 </table>
-<p>Notes: Additional “urgent” releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  </p>
+<p>Notes: Additional “urgent” releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.</p>
 <h2 id="osg-software-team">OSG Software Team</h2>
 <ul>
 <li>GUMS, Gratia, and GSI OpenSSH failures in the 3.3 nightlies</li>
@@ -349,7 +349,8 @@
 <h2 id="osg-release-team">OSG Release Team</h2>
 <ul>
 <li>Suchandra Thapa is handling the <a href="https://jira.opensciencegrid.org/issues/?filter=15254&amp;jql=project%252520%25253D%252520SOFTWARE%252520AND%252520labels%252520in%252520(3.3.26%25252C%2525203.4.1)%252520ORDER%252520BY%252520status%252520ASC%25252C%252520priority%252520DESC%25252C%252520assignee%252520ASC">August 8th</a> release</li>
-<li>Need testing help</li>
+<li>Release tomorrow</li>
+<li>Data Release this week (IGTF 1.85)</li>
 </ul>
 <table>
 <thead>
@@ -372,51 +373,51 @@
 <td>1</td>
 <td>+0</td>
 <td>0</td>
-<td>-2</td>
+<td>+0</td>
 <td>1</td>
-<td>-2</td>
+<td>+0</td>
 <td>Open</td>
 </tr>
 <tr>
 <td>0</td>
-<td>-1</td>
+<td>+0</td>
 <td>0</td>
-<td>-5</td>
-<td>2</td>
-<td>+2</td>
-<td>2</td>
-<td>-6</td>
+<td>+0</td>
+<td>0</td>
+<td>-2</td>
+<td>0</td>
+<td>-2</td>
 <td>In Progress</td>
 </tr>
 <tr>
-<td>4</td>
-<td>+1</td>
-<td>13</td>
-<td>+4</td>
-<td>8</td>
-<td>+3</td>
-<td>25</td>
-<td>+8</td>
+<td>0</td>
+<td>-4</td>
+<td>0</td>
+<td>-13</td>
+<td>0</td>
+<td>-8</td>
+<td>0</td>
+<td>-25</td>
 <td>Ready for Testing</td>
 </tr>
 <tr>
-<td>0</td>
-<td>+0</td>
-<td>0</td>
-<td>+0</td>
-<td>0</td>
-<td>+0</td>
-<td>0</td>
-<td>+0</td>
+<td>4</td>
+<td>+4</td>
+<td>13</td>
+<td>+13</td>
+<td>10</td>
+<td>+10</td>
+<td>27</td>
+<td>+27</td>
 <td>Ready for Release</td>
 </tr>
 <tr>
 <td>4</td>
 <td>+0</td>
 <td>14</td>
-<td>-1</td>
+<td>+0</td>
 <td>10</td>
-<td>+1</td>
+<td>+0</td>
 <td>28</td>
 <td>+0</td>
 <td>Total</td>
@@ -424,57 +425,39 @@
 </tbody>
 </table>
 <ul>
-<li>Both  <ul>
-<li>Fix selinux issues with GSI OpenSSH in EL7 nightly tests</li>
-<li>Update gsi-openssh-server</li>
-<li>Add gsi-openssh packages to osg-tested-internal</li>
+<li>Both</li>
+<li>Red Hat 7.4 update breaks HTCondor</li>
+<li>Condor-CE: Do not hold running jobs with expired proxy</li>
+<li>condor-cron: add a way for users to override condor_ids</li>
+<li>osg-configure: Fix logging in ensure_valid_user_vo_file</li>
 <li>osg-configure does not warn/error in -v</li>
+<li>CEView VO tab throws 500 error on inital installation</li>
+<li>HTCondor-CE: only warn about configuration if osg-configure is present</li>
+<li>osg-configure: Configure GUMS before running gums-host-cron</li>
+<li>Add blahp configuration to differentiate PBS flavors</li>
 <li>condor-cron: disable gsi authz</li>
 <li>Release condor-cron 1.1.3</li>
-<li>condor-cron: add a way for users to override condor<sub>ids</sub></li>
-<li>osg-configure: Configure GUMS before running gums-host-cron</li>
-<li>osg-configure: Fix logging in ensure<sub>valid</sub><sub>user</sub><sub>vo</sub><sub>file</sub></li>
-<li>Add blahp configuration to differentiate PBS flavors</li>
-<li>CEView VO tab throws 500 error on inital installation</li>
-<li>Condor-CE: Do not hold running jobs with expired proxy</li>
-<li>HTCondor-CE: only warn about configuration if osg-configure is present</li>
-<li>osg-configure: Make exception usage consistent</li>
-</ul>
-</li>
-<li>3.4.2  <ul>
-<li>Fix selinux issues with GSI OpenSSH in EL7 nightly tests</li>
-<li>Update gsi-openssh-server</li>
 <li>Add gsi-openssh packages to osg-tested-internal</li>
-<li>osg-configure does not warn/error in -v</li>
-<li>condor-cron: disable gsi authz</li>
-<li>Release condor-cron 1.1.3</li>
-<li>condor-cron: add a way for users to override condor<sub>ids</sub></li>
-<li>osg-configure: Configure GUMS before running gums-host-cron</li>
-<li>osg-configure: Fix logging in ensure<sub>valid</sub><sub>user</sub><sub>vo</sub><sub>file</sub></li>
-<li>Add blahp configuration to differentiate PBS flavors</li>
-<li>CEView VO tab throws 500 error on inital installation</li>
-<li>Condor-CE: Do not hold running jobs with expired proxy</li>
-<li>HTCondor-CE: only warn about configuration if osg-configure is present</li>
+<li>Fix selinux issues with GSI OpenSSH in EL7 nightly tests</li>
 <li>osg-configure: Make exception usage consistent</li>
-</ul>
-</li>
-<li>3.2.27  <ul>
+<li>3.4.2</li>
+<li>htcondor collector python plugin has undefined symbols</li>
+<li>Add pilot payload auditing</li>
+<li>Update to HTCondor 8.6.5 in OSG 3.4</li>
+<li>Merge osg-ce packages</li>
+<li>osg-configure: Remove unused test configs</li>
+<li>Release htcondor-ce-3.0.0-1+</li>
+<li>Add osg-gridftp back to osg-tested-internal</li>
+<li>Release osg-configure 2.1.1 (OSG 3.4)</li>
+<li>Release osg-tested-internal-3.4-3+</li>
+<li>Upcoming: Patch HTCondor 8.7.2 to work with Python Collector plugins</li>
+<li>3.3.27</li>
 <li>JGlobus incorrectly refuses proxies with key usage</li>
-<li>Release osg-configure 1.9.1 (OSG 3.3)</li>
 <li>Update to HTCondor 8.4.12 in OSG 3.3</li>
 <li>Release htcondor-ce-2.2.2-1+</li>
-</ul>
-</li>
+<li>Release osg-configure 1.9.1 (OSG 3.3)</li>
 </ul>
 <h3 id="discussions_1">Discussions</h3>
-<ul>
-<li>Will need software team's help testing</li>
-<li>From the planning retreat:  <ul>
-<li>Release team might go to a "community testing" model where we will ask the stakeholders to test changes</li>
-<li>Maybe might go to a "rolling release" model instead of point releases; may be not until 3.5; Tim T to write proposal</li>
-</ul>
-</li>
-</ul>
 <h2 id="osg-investigations-team">OSG Investigations Team</h2>
 <h3 id="last-week">Last Week</h3>
 <ul>
