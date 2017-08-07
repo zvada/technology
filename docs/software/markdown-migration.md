@@ -1,0 +1,148 @@
+Migrating to Markdown
+=====================
+
+As part of the TWiki retirement (target date of Oct 1, 2017), we will need to convert the OSG Software and Release3 docs from TWiki syntax to [Markdown](https://guides.github.com/features/mastering-markdown/). The following document outlines the conversion process and conventions.
+
+Initial conversion with Pandoc
+------------------------------
+
+[Pandoc](http://pandoc.org/) is a tool that's useful for automated conversion of markdown languages that is available via RPM. To convert TWiki to Markdown, run the following command:
+
+```bash
+pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
+```
+
+Where `<input-file>` is the path to initial document in raw TWiki and `output-file` is the path to the resulting document in GitHub Markdown.
+
+!!! note
+    If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.
+
+### Using docker ###
+
+If you cannot install `pandoc` but have access to docker, you can run the following command:
+
+```bash
+docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
+```
+
+Previewing your document(s) with Mkdocs
+---------------------------------------
+
+[Mkdocs](http://www.mkdocs.org/) has a development mode that can be used to preview documents as you work on them and is available via package manager or `pip`. Once installed, add your document(s) to the `pages` section of `mkdocs.yml` and launch the mkdocs server with the following command from the dir containing `mkdocs.yml`:
+
+```
+$ PYTHONPATH=src/ mkdocs serve
+```
+
+Access the server at `http://127.0.0.1:8000` and navigate to the document you're working on. It's useful to open the original TWiki doc in an adjacent tab or window to quickly compare the two.
+
+Things to watch out for
+-----------------------
+
+### Broken links ###
+
+Pandoc isn't aware of the entire TWiki structure so internal links using [WikiWords](http://twiki.org/cgi-bin/view/TWiki/WikiWord) result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival
+
+If the broken link is:
+
+1. For a document that has already been migrated to GitHub
+2. For a document that not been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access)
+   a. If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request
+   b. If the link is not targeted for archival, link directly to the TWiki page.
+
+### Broken command blocks and file snippets ###
+
+Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (\`\`\`):
+
+    ```
+    # stuff
+    ```
+
+Make sure to use the TWiki document as a reference when making fixes!
+
+#### Fixing root and user prompts ####
+
+| Find and replace...                                   | With...            |
+|:------------------------------------------------------|:-------------------|
+| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~]$` |
+| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `[user@client ~]$` |
+
+#### Highlighting user input  ####
+
+Within command blocks and file snippets, we've used `%RED%...%ENDCOLOR%`, `&lt;...&gt;`, etc. to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input:
+
+```
+<USER INPUT>
+```
+
+#### Ordered Lists ####
+
+Ordered lists are often broken up into multiple lists if there are command blocks/file snippets and/or additional text within one of the list items. To make sure the contents of an item are indented properly, use the following formatting:
+
+- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list.
+- For additional text (i.e. after a code block), insert `N*4` spaces at the beginning of each line, where N is the level of the item in the list.
+
+For example:
+
+```
+1. Foo
+    - Bar
+
+            COMMAND
+            BLOCK
+        text associated with Bar
+
+    text associated with Foo
+
+2. Baz
+
+        FILE
+        SNIPPET
+
+```
+
+There are 12 spaces and 8 spaces in front of the command block and text associated with `Bar`, respectively; 4 spaces in front of the text associated with `Foo`; and 8 spaces in front of the file snippet associated with `Baz`
+
+### Notes ###
+
+To catch the user's attention for important items or pitfalls, we used `%NOTE%` TWiki macros, these can be replaced with admonition-style notes:
+
+```
+!!! note
+    # things to note
+```
+
+### Obvious errors ###
+
+If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc *iff* the changes take less than ~15 minutes. This isn't a renovation project!
+
+Making the pull request
+-----------------------
+
+1. Create a branch based off of master
+2. Add page to [mkdocs.yml](../../mkdocs.yml) 
+3. Commit your changes and push to your GH repo
+4. Make PR containing the following tasks in the body body:
+
+        - [ ] Remaining TWiki link #1
+        - ...
+        - [ ] Remainng TWiki link #N
+        - [ ] Add migration header to TWiki document
+
+Adding a header to the TWiki document
+-------------------------------------
+
+After completing the migration of a document, replace the contents of TWiki document with the following header, linking to the location of the migrated document:
+
+```
+<div style="border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;">
+This is an archive, find the new version of this document [[LINK TO GITHUB DOCUMENT][here]].
+
+Background:
+
+At the end of year (2017), the TWiki will be retired in favor of !GitHub. You can find the various TWiki webs and their new !GitHub locations listed below:
+
+   * Release3: https://opensciencegrid.github.io/docs
+   * !SoftwareTeam: https://opensciencegrid.github.io/technology
+</div>
+```

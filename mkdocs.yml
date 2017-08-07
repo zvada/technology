@@ -11,6 +11,7 @@ pages:
   - Home: 'index.md'
   - Contact Us: 'contact.md'
   - Meeting Notes: 'meetings.md'
+  - Migrating documents to markdown: 'software/markdown-migration.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
