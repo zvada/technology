@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Migrating documents to markdown - OSG Technology Area</title>
+  <title>Migrating Documents to Markdown - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Migrating documents to markdown";
+    var mkdocs_page_name = "Migrating Documents to Markdown";
     var mkdocs_page_input_path = "software/markdown-migration.md";
     var mkdocs_page_url = "/software/markdown-migration/";
   </script>
@@ -72,13 +72,15 @@
             <li class="toctree-l1 current">
 		
   
-    <a class="current" href="./">Migrating documents to markdown</a>
+    <a class="current" href="./">Migrating Documents to Markdown</a>
   
   <ul class="subnav">
       
     <li class="toctree-l2"><a href="#migrating-to-markdown">Migrating to Markdown</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l3" href="#choosing-document-locations-and-names">Choosing document locations and names</a></li>
         
             <li><a class="toctree-l3" href="#initial-conversion-with-pandoc">Initial conversion with Pandoc</a></li>
         
@@ -245,7 +247,7 @@
     
       
     
-    <li>Migrating documents to markdown</li>
+    <li>Migrating Documents to Markdown</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/markdown-migration.md"
@@ -260,8 +262,10 @@
               
                 <h1 id="migrating-to-markdown">Migrating to Markdown</h1>
 <p>As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. The following document outlines the conversion process and conventions.</p>
+<h2 id="choosing-document-locations-and-names">Choosing document locations and names</h2>
+<p><code>SoftwareTeam</code> documents should go into the <a href="https://opensciencegrid.github.io/technology/">technology github repo</a> and <code>Release3</code> documents should go into the <a href="https://opensciencegrid.github.io/docs/">docs github repo</a>. Document file names should be lowercase, <code>-</code> delimited, and descriptive but concise, e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></p>
 <h2 id="initial-conversion-with-pandoc">Initial conversion with Pandoc</h2>
-<p><a href="http://pandoc.org/">Pandoc</a> is a tool that's useful for automated conversion of markdown languages that is available via RPM. To convert TWiki to Markdown, run the following command:</p>
+<p><a href="http://pandoc.org/">Pandoc</a> is a tool that's useful for automated conversion of markdown languages. <a href="http://pandoc.org/installing.html">Once installed</a> (alternatively, run pandoc <a href="#using-docker">via docker</a>), run the following command to convert TWiki to Markdown:</p>
 <pre><code class="bash">pandoc -f twiki -t markdown_github &lt;INPUT FILE&gt; &gt; &lt;OUTPUT FILE&gt;
 </code></pre>
 
@@ -277,7 +281,7 @@
 
 <p>We have found some cases where the Docker version of <code>pandoc</code> handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.</p>
 <h2 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs</h2>
-<p><a href="http://www.mkdocs.org/">Mkdocs</a> has a development mode that can be used to preview documents as you work on them and is available via package manager or <code>pip</code>. Once installed, add your document(s) to the <code>pages</code> section of <code>mkdocs.yml</code> and launch the mkdocs server with the following command from the dir containing <code>mkdocs.yml</code>:</p>
+<p><a href="http://www.mkdocs.org/">Mkdocs</a> has a development mode that can be used to preview documents as you work on them and is available via package manager or <code>pip</code>. <a href="http://www.mkdocs.org/#installation">Once installed</a>, add your document(s) to the <code>pages</code> section of <code>mkdocs.yml</code> and launch the mkdocs server with the following command from the dir containing <code>mkdocs.yml</code>:</p>
 <pre><code>$ PYTHONPATH=src/ mkdocs serve
 </code></pre>
 
@@ -358,7 +362,7 @@
 <h2 id="making-the-pull-request">Making the pull request</h2>
 <ol>
 <li>Create a branch based off of master</li>
-<li>Add page to <a href="../../../mkdocs.yml">mkdocs.yml</a> </li>
+<li>Add page to <a href="../../../mkdocs.yml">mkdocs.yml</a> in <a href="http://titlecase.com/">title case</a>, e.g. <code>Migrating Documents to Markdown</code></li>
 <li>Commit your changes and push to your GH repo</li>
 <li>Make PR containing the following tasks in the body body:<pre><code>- [ ] Remaining TWiki link #1
 - ...
