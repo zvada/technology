@@ -11,7 +11,7 @@ Choosing document locations and names
 Initial conversion with Pandoc
 ------------------------------
 
-[Pandoc](http://pandoc.org/) is a tool that's useful for automated conversion of markdown languages that is available via RPM. To convert TWiki to Markdown, run the following command:
+[Pandoc](http://pandoc.org/) is a tool that's useful for automated conversion of markdown languages. [Once installed](http://pandoc.org/installing.html) (alternatively, run pandoc [via docker](#using-docker)), run the following command to convert TWiki to Markdown:
 
 ```bash
 pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
@@ -35,7 +35,7 @@ We have found some cases where the Docker version of `pandoc` handles Twiki synt
 Previewing your document(s) with Mkdocs
 ---------------------------------------
 
-[Mkdocs](http://www.mkdocs.org/) has a development mode that can be used to preview documents as you work on them and is available via package manager or `pip`. Once installed, add your document(s) to the `pages` section of `mkdocs.yml` and launch the mkdocs server with the following command from the dir containing `mkdocs.yml`:
+[Mkdocs](http://www.mkdocs.org/) has a development mode that can be used to preview documents as you work on them and is available via package manager or `pip`. [Once installed](http://www.mkdocs.org/#installation), add your document(s) to the `pages` section of `mkdocs.yml` and launch the mkdocs server with the following command from the dir containing `mkdocs.yml`:
 
 ```
 $ PYTHONPATH=src/ mkdocs serve
