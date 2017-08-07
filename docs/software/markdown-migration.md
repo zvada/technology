@@ -3,6 +3,11 @@ Migrating to Markdown
 
 As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to [Markdown](https://guides.github.com/features/mastering-markdown/). The following document outlines the conversion process and conventions.
 
+Choosing document locations and names
+-------------------------------------
+
+`SoftwareTeam` documents should go into the [technology github repo](https://opensciencegrid.github.io/technology/) and `Release3` documents should go into the [docs github repo](https://opensciencegrid.github.io/docs/). Document file names should be lowercase, `-` delimited, and descriptive but concise, e.g. `markdown-migration.md` or `cutting-release.md`
+
 Initial conversion with Pandoc
 ------------------------------
 
@@ -122,7 +127,7 @@ Making the pull request
 -----------------------
 
 1. Create a branch based off of master
-2. Add page to [mkdocs.yml](../../mkdocs.yml) 
+2. Add page to [mkdocs.yml](../../mkdocs.yml) in [title case](http://titlecase.com/), e.g. `Migrating Documents to Markdown`
 3. Commit your changes and push to your GH repo
 4. Make PR containing the following tasks in the body body:
 
