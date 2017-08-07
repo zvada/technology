@@ -1,7 +1,7 @@
 Migrating to Markdown
 =====================
 
-As part of the TWiki retirement (target date of Oct 1, 2017), we will need to convert the OSG Software and Release3 docs from TWiki syntax to [Markdown](https://guides.github.com/features/mastering-markdown/). The following document outlines the conversion process and conventions.
+As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to [Markdown](https://guides.github.com/features/mastering-markdown/). The following document outlines the conversion process and conventions.
 
 Initial conversion with Pandoc
 ------------------------------
@@ -19,11 +19,13 @@ Where `<input-file>` is the path to initial document in raw TWiki and `output-fi
 
 ### Using docker ###
 
-If you cannot install `pandoc` but have access to docker, you can run the following command:
+The `pandoc` library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install `pandoc` but have access to docker, you can run the following command:
 
 ```bash
 docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
 ```
+
+We have found some cases where the Docker version of `pandoc` handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.
 
 Previewing your document(s) with Mkdocs
 ---------------------------------------
@@ -41,12 +43,12 @@ Things to watch out for
 
 ### Broken links ###
 
-Pandoc isn't aware of the entire TWiki structure so internal links using [WikiWords](http://twiki.org/cgi-bin/view/TWiki/WikiWord) result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival
+Pandoc isn't aware of the entire TWiki structure so internal links using [WikiWords](http://twiki.org/cgi-bin/view/TWiki/WikiWord) result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival.
 
 If the broken link is:
 
-1. For a document that has already been migrated to GitHub
-2. For a document that not been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access)
+1. For a document that has already been migrated to GitHub, update it to point at the new location.
+2. For a document that not been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access):
    a. If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request
    b. If the link is not targeted for archival, link directly to the TWiki page.
 
