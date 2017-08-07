@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Migrating documents to markdown - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Migrating documents to markdown";
+    var mkdocs_page_input_path = "software/markdown-migration.md";
+    var mkdocs_page_url = "/software/markdown-migration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+  
+    <a class="current" href="./">Migrating documents to markdown</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l2"><a href="#migrating-to-markdown">Migrating to Markdown</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#initial-conversion-with-pandoc">Initial conversion with Pandoc</a></li>
+        
+            <li><a class="toctree-l3" href="#previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs</a></li>
+        
+            <li><a class="toctree-l3" href="#things-to-watch-out-for">Things to watch out for</a></li>
+        
+            <li><a class="toctree-l3" href="#making-the-pull-request">Making the pull request</a></li>
+        
+            <li><a class="toctree-l3" href="#adding-a-header-to-the-twiki-document">Adding a header to the TWiki document</a></li>
+        
+        </ul>
+    
+
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Migrating documents to markdown</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/markdown-migration.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="migrating-to-markdown">Migrating to Markdown</h1>
+<p>As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. The following document outlines the conversion process and conventions.</p>
+<h2 id="initial-conversion-with-pandoc">Initial conversion with Pandoc</h2>
+<p><a href="http://pandoc.org/">Pandoc</a> is a tool that's useful for automated conversion of markdown languages that is available via RPM. To convert TWiki to Markdown, run the following command:</p>
+<pre><code class="bash">pandoc -f twiki -t markdown_github &lt;INPUT FILE&gt; &gt; &lt;OUTPUT FILE&gt;
+</code></pre>
+
+<p>Where <code>&lt;input-file&gt;</code> is the path to initial document in raw TWiki and <code>output-file</code> is the path to the resulting document in GitHub Markdown.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.</p>
+</div>
+<h3 id="using-docker">Using docker</h3>
+<p>The <code>pandoc</code> library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install <code>pandoc</code> but have access to docker, you can run the following command:</p>
+<pre><code class="bash">docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github &lt;INPUT FILE&gt; &gt; &lt;OUTPUT FILE&gt;
+</code></pre>
+
+<p>We have found some cases where the Docker version of <code>pandoc</code> handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.</p>
+<h2 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs</h2>
+<p><a href="http://www.mkdocs.org/">Mkdocs</a> has a development mode that can be used to preview documents as you work on them and is available via package manager or <code>pip</code>. Once installed, add your document(s) to the <code>pages</code> section of <code>mkdocs.yml</code> and launch the mkdocs server with the following command from the dir containing <code>mkdocs.yml</code>:</p>
+<pre><code>$ PYTHONPATH=src/ mkdocs serve
+</code></pre>
+
+<p>Access the server at <code>http://127.0.0.1:8000</code> and navigate to the document you're working on. It's useful to open the original TWiki doc in an adjacent tab or window to quickly compare the two.</p>
+<h2 id="things-to-watch-out-for">Things to watch out for</h2>
+<h3 id="broken-links">Broken links</h3>
+<p>Pandoc isn't aware of the entire TWiki structure so internal links using <a href="http://twiki.org/cgi-bin/view/TWiki/WikiWord">WikiWords</a> result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival.</p>
+<p>If the broken link is:</p>
+<ol>
+<li>For a document that has already been migrated to GitHub, update it to point at the new location.</li>
+<li>For a document that not been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access):
+   a. If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request
+   b. If the link is not targeted for archival, link directly to the TWiki page.</li>
+</ol>
+<h3 id="broken-command-blocks-and-file-snippets">Broken command blocks and file snippets</h3>
+<p>Pandoc doesn't do a good job of converting our <code>&lt;pre class=...</code> blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (```):</p>
+<pre><code>```
+# stuff
+```
+</code></pre>
+<p>Make sure to use the TWiki document as a reference when making fixes!</p>
+<h4 id="fixing-root-and-user-prompts">Fixing root and user prompts</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Find and replace...</th>
+<th align="left">With...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>&lt;span class="twiki-macro UCL\_PROMPT\_ROOT"&gt;&lt;/span&gt;</code></td>
+<td align="left"><code>[root@client ~]$</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;span class="twiki-macro UCL\_PROMPT"&gt;&lt;/span&gt;</code></td>
+<td align="left"><code>[user@client ~]$</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="highlighting-user-input">Highlighting user input</h4>
+<p>Within command blocks and file snippets, we've used <code>%RED%...%ENDCOLOR%</code>, <code>&amp;lt;...&amp;gt;</code>, etc. to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input:</p>
+<pre><code>[user@client ~]$ condor_ce_trace -d &lt;CE HOSTNAME&gt;
+</code></pre>
+
+<h4 id="ordered-lists">Ordered Lists</h4>
+<p>Ordered lists are often broken up into multiple lists if there are command blocks/file snippets and/or additional text within one of the list items. To make sure the contents of an item are indented properly, use the following formatting:</p>
+<ul>
+<li>For code blocks or file snippets, add an empty line after any regular text, then insert <code>(N+1)*4</code> spaces at the beginning of each line, where N is the level of the item in the list.</li>
+<li>For additional text (i.e. after a code block), insert <code>N*4</code> spaces at the beginning of each line, where N is the level of the item in the list.</li>
+</ul>
+<p>For example:</p>
+<pre><code>1. Foo
+    - Bar
+
+            COMMAND
+            BLOCK
+        text associated with Bar
+
+    text associated with Foo
+
+2. Baz
+
+        FILE
+        SNIPPET
+
+</code></pre>
+
+<p>There are 12 spaces and 8 spaces in front of the command block and text associated with <code>Bar</code>, respectively; 4 spaces in front of the text associated with <code>Foo</code>; and 8 spaces in front of the file snippet associated with <code>Baz</code></p>
+<h3 id="notes">Notes</h3>
+<p>To catch the user's attention for important items or pitfalls, we used <code>%NOTE%</code> TWiki macros, these can be replaced with admonition-style notes:</p>
+<pre><code>!!! note
+    # things to note
+</code></pre>
+
+<h3 id="obvious-errors">Obvious errors</h3>
+<p>If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc <em>iff</em> the changes take less than ~15 minutes. This isn't a renovation project!</p>
+<h2 id="making-the-pull-request">Making the pull request</h2>
+<ol>
+<li>Create a branch based off of master</li>
+<li>Add page to <a href="../../../mkdocs.yml">mkdocs.yml</a> </li>
+<li>Commit your changes and push to your GH repo</li>
+<li>Make PR containing the following tasks in the body body:<pre><code>- [ ] Remaining TWiki link #1
+- ...
+- [ ] Remainng TWiki link #N
+- [ ] Add migration header to TWiki document
+</code></pre>
+</li>
+</ol>
+<h2 id="adding-a-header-to-the-twiki-document">Adding a header to the TWiki document</h2>
+<p>After completing the migration of a document, replace the contents of TWiki document with the following header, linking to the location of the migrated document:</p>
+<pre><code>&lt;div style=&quot;border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;&quot;&gt;
+This is an archive, find the new version of this document [[LINK TO GITHUB DOCUMENT][here]].
+
+Background:
+
+At the end of year (2017), the TWiki will be retired in favor of !GitHub. You can find the various TWiki webs and their new !GitHub locations listed below:
+
+   * Release3: https://opensciencegrid.github.io/docs
+   * !SoftwareTeam: https://opensciencegrid.github.io/technology
+&lt;/div&gt;
+</code></pre>
+
+<p>Currently, we do not recommend changing backlinks (links on other twiki pages that refer to the Twiki page you are migrating) to point at the new GitHub URL.  This is to provide a simple reminder to users that the migration will occur, and also is likely low priority regardless as all pages will eventually migrate to GitHub.  This advice may change in the future as we gain experience with this transition.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../policy/gums-retire/" class="btn btn-neutral float-right" title="GUMS Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../meetings/" class="btn btn-neutral" title="Meeting Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../meetings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../policy/gums-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
