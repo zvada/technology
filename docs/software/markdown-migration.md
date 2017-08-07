@@ -74,7 +74,7 @@ Make sure to use the TWiki document as a reference when making fixes!
 Within command blocks and file snippets, we've used `%RED%...%ENDCOLOR%`, `&lt;...&gt;`, etc. to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input:
 
 ```
-<USER INPUT>
+[user@client ~]$ condor_ce_trace -d <CE HOSTNAME>
 ```
 
 #### Ordered Lists ####
