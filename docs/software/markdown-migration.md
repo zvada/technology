@@ -148,3 +148,5 @@ At the end of year (2017), the TWiki will be retired in favor of !GitHub. You ca
    * !SoftwareTeam: https://opensciencegrid.github.io/technology
 </div>
 ```
+
+Currently, we do not recommend changing backlinks (links on other twiki pages that refer to the Twiki page you are migrating) to point at the new GitHub URL.  This is to provide a simple reminder to users that the migration will occur, and also is likely low priority regardless as all pages will eventually migrate to GitHub.  This advice may change in the future as we gain experience with this transition.
