@@ -123,7 +123,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
             packages:
               - osg-tested-internal
               
-    If you are **note* releasing packages into `upcoming`, delete the `upcoming`-related lines in the `sources` section.
+    If you are not releasing packages into `upcoming`, delete the `upcoming`-related lines in the `sources` section.
 
 7.  `cd` back into the root directory of the test run (e.g. `cd ..`)
 8.  Submit the DAG:
@@ -157,7 +157,7 @@ You should get up to 8 tarballs for each version (excluding upcoming), 25-55 meg
 
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
 
-```console
+```bash
 dotest () {
     file=$dir/$client-$ver-1.$rhel.$arch.tar.gz
     mkdir -p $rhel-$arch
@@ -199,7 +199,7 @@ If you have time, try some of the binaries, such as grid-proxy-init.
 
 The UW keeps an install of the tarball client in `/p/vdt/workspace/tarball-client` on the UW's AFS. To update it, run the following commands:
 
-```console
+```bash
 for ver in <NON-UPCOMING VERSION(S)>; do
     /p/vdt/workspace/tarball-client/afs-install-tarball-client $ver
 done
@@ -232,7 +232,7 @@ Ask Tim Theisen, Brian Lin, or someone with privileges on the `grid.iu.edu` repo
 
 #### On a CS machine
 
-```console
+```bash
 for ver in <NON-UPCOMING VERSION(S)>; do
     major_ver=`sed 's/.[0-9]*$//' <<< $ver`
     cd /p/vdt/public/html/tarball-client
@@ -243,7 +243,7 @@ done
 
 #### On jump.grid.iu.edu
 
-```console
+```bash
 for ver in <NON-UPCOMING VERSION(S)>; do
     scp -pr /tmp/$ver repo1:/tmp/
     scp -pr /tmp/$ver repo2:/tmp/
@@ -259,7 +259,7 @@ You can ssh to repo1 and repo2 from jump.grid.iu.edu; you will need to do this p
 sudo su -
 ```
 
-```console
+```bash
 for ver in <NON-UPCOMING VERSION(S)>; do
     major_ver=`sed 's/.[0-9]*$//' <<< $ver`
     mv /tmp/$ver /usr/local/repo/tarball-install/$major_ver/
@@ -279,7 +279,7 @@ done
 
 Get the uploader script from Git and run it with `osgrun` from the UW AFS install of the tarball client you made earlier. On a UW CSL machine:
 
-```console
+```bash
 cd /tmp
 git clone --depth 1 file:///p/vdt/workspace/git/repo/tarball-client.git
 for ver in <NON-UPCOMING VERSION(S)>; do
