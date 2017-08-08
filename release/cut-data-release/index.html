@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>How to Cut a Data Release - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "How to Cut a Data Release";
+    var mkdocs_page_input_path = "release/cut-data-release.md";
+    var mkdocs_page_url = "/release/cut-data-release/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class=" current">
+          
+  
+    <a class="current" href="./">How to Cut a Data Release</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#how-to-cut-a-data-release">How to Cut a Data Release</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
+        
+            <li><a class="toctree-l4" href="#pick-the-version-and-revision-numbers">Pick the Version and Revision Numbers</a></li>
+        
+            <li><a class="toctree-l4" href="#day-0-generate-preliminary-release-list">Day 0: Generate Preliminary Release List</a></li>
+        
+            <li><a class="toctree-l4" href="#day-1-verify-pre-release">Day 1: Verify Pre-Release</a></li>
+        
+            <li><a class="toctree-l4" href="#day-2-pushing-the-release">Day 2: Pushing the Release</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Release &raquo;</li>
+        
+      
+    
+    <li>How to Cut a Data Release</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/cut-data-release.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are performing a software release, please follow the instructions <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/HowToCutRelease">here</a></p>
+</div>
+<h1 id="how-to-cut-a-data-release">How to Cut a Data Release</h1>
+<p>This document details the process for releasing new OSG Data Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/ReleasePolicy">here</a>.</p>
+<p>Due to the length of time that this process takes, it is recommended to do the release over three or more days to allow for errors to be corrected and tests to be run.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>User certificate registered with OSG's koji with build and release team privileges</li>
+<li>An account on UW CS machines (e.g. <code>library</code>, <code>ingwe</code>) to access UW's AFS</li>
+<li><code>release-tools</code> scripts in your <code>PATH</code> (<a href="https://github.com/opensciencegrid/release-tools">GitHub</a>)</li>
+<li><code>osg-build</code> scripts in your <code>PATH</code> (installed via OSG yum repos or <a href="https://github.com/opensciencegrid/osg-build">source</a>)</li>
+</ul>
+<h2 id="pick-the-version-and-revision-numbers">Pick the Version and Revision Numbers</h2>
+<p>The rest of this document makes references to <code>&lt;REVISION&gt;</code> and <code>&lt;VERSION(S)&gt;</code> , which refer to the OSG version and data revision, respectively (e.g. <code>3.3.12</code> and <code>2</code>, respectively). If you are unsure about either the version or revision, please consult the release manager.</p>
+<h2 id="day-0-generate-preliminary-release-list">Day 0: Generate Preliminary Release List</h2>
+<p>The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release. Run <code>0-generate-pkg-list</code> from a machine that has your koji-registered user certificate:</p>
+<pre><code class="console">[user@client ~] $ git clone https://github.com/opensciencegrid/release-tools.git
+[user@client ~] $ cd release-tools
+[user@client ~] $ 0-generate-pkg-list -d &lt;REVISION&gt; &lt;VERSION(S)&gt;
+</code></pre>
+
+<h2 id="day-1-verify-pre-release">Day 1: Verify Pre-Release</h2>
+<p>This section is to be performed 1-2 days before the release (as designated by the release manager) to perform last checks of the release.</p>
+<p>Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated <code>release-list</code> in git). To do this, run the <code>1-verify-prerelease</code> script from git:</p>
+<pre><code class="console">[user@client ~] $ 1-verify-prerelease &lt;VERSION(S)&gt;
+</code></pre>
+
+<p>If there are any discrepancies consult the release manager. You may have to tag packages with the <code>osg-koji</code> tool.</p>
+<h2 id="day-2-pushing-the-release">Day 2: Pushing the Release</h2>
+<p>For the second phase of the release, try to complete it earlier in the day rather than later. The GOC would like to send out the release announcement prior to 3 p.m. Eastern time.</p>
+<h3 id="step-1-push-from-pre-release-to-release">Step 1: Push from pre-release to release</h3>
+<p>This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces *release-note* files that should be used to update the TWiki release note pages. Clone it from the github repo and run the script:</p>
+<pre><code class="console">[user@client ~] $ 2-create-release -d &lt;REVISION&gt; &lt;VERSION(S)&gt;
+</code></pre>
+
+<ol>
+<li><code>*.txt</code> files are also created and it should be verified that they've been moved to <code>/p/vdt/public/html/release-info/</code> on UW's AFS.</li>
+<li>For each release version, use the <code>*release-note*</code> files to update the relevant sections of the release note pages.</li>
+</ol>
+<h3 id="step-2-update-the-docker-wn-client">Step 2: Update the Docker WN client</h3>
+<p>Update the GitHub repo at <a href="https://github.com/opensciencegrid/docker-osg-wn">opensciencegrid/docker-osg-wn</a> using the <code>update-all</code> script found in <a href="https://github.com/opensciencegrid/docker-osg-wn-scripts">opensciencegrid/docker-osg-wn-scripts</a>. This requires push access to the <code>opensciencegrid/docker-osg-wn</code> repo.</p>
+<p>Instructions for using the script:</p>
+<pre><code class="console">[user@client ~] $ git clone git@github.com:opensciencegrid/docker-osg-wn-scripts.git
+[user@client ~] $ git clone git@github.com:opensciencegrid/docker-osg-wn.git
+[user@client ~] $ docker-osg-wn-scripts/update-all docker-osg-wn
+[user@client ~] $ cd docker-osg-wn
+# Verify everything looks fine and run the 'git push' command
+# that 'update-all' should have printed
+</code></pre>
+
+<h3 id="step-3-verify-the-vo-package-andor-ca-certificates">Step 3: Verify the VO Package and/or CA certificates</h3>
+<p>Wait for the CA certificates to be propagated to the web server on <code>repo.grid.iu.edu</code>. The repository is checked every 10 minutes for update CA certificates. Then, run the following command to update the VO Package and/or CA certificates in the tarball installations and verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.</p>
+<pre><code class="console">[user@client ~] $ /p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
+[user@client ~] $ /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
+</code></pre>
+
+<h3 id="step-4-announce-the-release">Step 4: Announce the release</h3>
+<p>The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.</p>
+<ol>
+<li>
+<p>The release manager writes the release announcement and send it out. Here is a sample, replace <code>&lt;HIGHLIGHTED TEXT&gt;</code> with the appropriate values:</p>
+<pre><code> Subject: Announcing OSG Software version &lt;VERSION(S)&gt;
+
+ We are pleased to announce OSG Software version &lt;VERSION(S)&gt;!
+
+ This is the new OSG Software distributed via RPMs for:
+
+ * Scientific Linux 6 and 7
+ * CentOS 6 and 7
+ * Red Hat Enterprise Linux 6 and 7
+
+ This release affects the &lt;SET OF METAPACKAGES (client, compute element, etc...)&gt;. Changes include:
+
+ * Major change 1
+ * Major change 2
+ * Major change 3
+
+ Release notes and pointers to more documentation can be found at:
+
+ &lt;LINK TO RELEASE NOTES&gt;
+
+ Need help? Let us know:
+
+ https://www.opensciencegrid.org/bin/view/Documentation/Release3/HelpProcedure
+
+ We welcome feedback on this release
+</code></pre>
+</li>
+<li>
+<p>The release manager emails the announcement to <code>vdt-discuss@opensciencegrid.org</code></p>
+</li>
+<li>The release manager asks the GOC to distribute the announcement by <a href="https://ticket.grid.iu.edu/goc/other">opening a ticket</a></li>
+<li>The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"</li>
+<li>The release manager updates the recent/scheduled release tables on the Software/Release <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WebHome">homepage</a></li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../policy/gums-retire/" class="btn btn-neutral float-right" title="GUMS Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../software/markdown-migration/" class="btn btn-neutral" title="Migrating Documents to Markdown"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../software/markdown-migration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../policy/gums-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
