@@ -77,10 +77,10 @@ Make sure to use the TWiki document as a reference when making fixes!
 
 #### Fixing root and user prompts ####
 
-| Find and replace...                                   | With...            |
-|:------------------------------------------------------|:-------------------|
-| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~]$` |
-| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `[user@client ~]$` |
+| Find and replace...                                   | With...             |
+|:------------------------------------------------------|:--------------------|
+| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~] $` |
+| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `[user@client ~] $` |
 
 #### Highlighting user input  ####
 
