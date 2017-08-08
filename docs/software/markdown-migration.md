@@ -175,7 +175,7 @@ Currently, we do not recommend changing backlinks (links on other twiki pages th
 Reviewing pull requests
 -----------------------
 
-To review pull requests, `cd` into the dir containing your git repository, check out the requester's branch, and start a local `mkdocs` server. For example, here's an example checking out Brian's `cut-sw-release` branch of the technology repository:
+To review pull requests, `cd` into the dir containing your git repository, check out the requester's branch, and start a local `mkdocs` server. Here's an example checking out Brian's `cut-sw-release` branch of the technology repository:
 
 ```console
 # Add the requester's repo as a remote if you haven't already
