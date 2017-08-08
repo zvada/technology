@@ -18,6 +18,8 @@ pages:
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
+  - Historical Transitions:
+    - 'SHA-2 Support': 'projects/sha2-support.md'
   - February 27, 2017: 'meetings/2017/TechArea20170227.md'
   - April 17, 2017: 'meetings/2017/TechArea20170417.md'
   - April 24, 2017: 'meetings/2017/TechArea20170424.md'
