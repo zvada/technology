@@ -172,3 +172,17 @@ Once the header has been added, go back to your pull request and mark that task 
 
 Currently, we do not recommend changing backlinks (links on other twiki pages that refer to the Twiki page you are migrating) to point at the new GitHub URL.  This is to provide a simple reminder to users that the migration will occur, and also is likely low priority regardless as all pages will eventually migrate to GitHub.  This advice may change in the future as we gain experience with this transition.
 
+Reviewing pull requests
+-----------------------
+
+To review pull requests, `cd` into the dir containing your git repository, check out the requester's branch, and start a local `mkdocs` server. For example, here's an example checking out Brian's `cut-sw-release` branch of the technology repository:
+
+```console
+# Add the requester's repo as a remote if you haven't already
+[user@client ~ ] $ git remote add blin https://www.github.com/brianhlin/technology.git
+[user@client ~ ] $ git fetch --all
+[user@client ~ ] $ git checkout blin/cut-sw-release
+[user@client ~ ] $ PYTHONPATH=src/ mkdocs serve
+```
+
+Access the server at `http://127.0.0.1:8000` and navigate to the document in the request.
