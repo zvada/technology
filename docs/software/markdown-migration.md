@@ -17,7 +17,7 @@ Initial conversion with Pandoc
 pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
 ```
 
-Where `<input-file>` is the path to initial document in raw TWiki and `output-file` is the path to the resulting document in GitHub Markdown.
+Where `<INPUT FILE>` is the path to initial document in raw TWiki and `<OUTPUT FILE>` is the path to the resulting document in GitHub Markdown.
 
 !!! note
     If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.
@@ -30,7 +30,15 @@ The `pandoc` library is written in Haskell and is frequently updated, meaning it
 docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
 ```
 
-We have found some cases where the Docker version of `pandoc` handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.
+For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:
+
+```bash
+$ mkdir -p docs/archive docs/projects
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' > docs/archive/SHA2Compliance
+$ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance > docs/projects/sha2-support.md
+```
+
+We have found some cases where the Docker version of `pandoc` handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.
 
 Previewing your document(s) with Mkdocs
 ---------------------------------------
