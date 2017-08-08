@@ -269,7 +269,7 @@
 <pre><code class="bash">pandoc -f twiki -t markdown_github &lt;INPUT FILE&gt; &gt; &lt;OUTPUT FILE&gt;
 </code></pre>
 
-<p>Where <code>&lt;input-file&gt;</code> is the path to initial document in raw TWiki and <code>output-file</code> is the path to the resulting document in GitHub Markdown.</p>
+<p>Where <code>&lt;INPUT FILE&gt;</code> is the path to initial document in raw TWiki and <code>&lt;OUTPUT FILE&gt;</code> is the path to the resulting document in GitHub Markdown.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.</p>
@@ -279,7 +279,13 @@
 <pre><code class="bash">docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github &lt;INPUT FILE&gt; &gt; &lt;OUTPUT FILE&gt;
 </code></pre>
 
-<p>We have found some cases where the Docker version of <code>pandoc</code> handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.</p>
+<p>For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:</p>
+<pre><code class="bash">$ mkdir -p docs/archive docs/projects
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' &gt; docs/archive/SHA2Compliance
+$ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance &gt; docs/projects/sha2-support.md
+</code></pre>
+
+<p>We have found some cases where the Docker version of <code>pandoc</code> handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.</p>
 <h2 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs</h2>
 <p><a href="http://www.mkdocs.org/">Mkdocs</a> has a development mode that can be used to preview documents as you work on them and is available via package manager or <code>pip</code>. <a href="http://www.mkdocs.org/#installation">Once installed</a>, add your document(s) to the <code>pages</code> section of <code>mkdocs.yml</code> and launch the mkdocs server with the following command from the dir containing <code>mkdocs.yml</code>:</p>
 <pre><code>$ PYTHONPATH=src/ mkdocs serve
