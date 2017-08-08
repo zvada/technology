@@ -146,6 +146,8 @@ Making the pull request
         - ...
         - [ ] Remaining TWiki link #N
 
+See an example pull request [here](https://github.com/opensciencegrid/technology/pull/82).
+
 Adding a header to the TWiki document
 -------------------------------------
 
