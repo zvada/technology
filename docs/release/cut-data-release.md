@@ -26,10 +26,10 @@ Day 0: Generate Preliminary Release List
 
 The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release. Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
-```
-[user@client ~]$ git clone https://github.com/opensciencegrid/release-tools.git
-[user@client ~]$ cd release-tools
-[user@client ~]$ 0-generate-pkg-list -d <REVISION> <VERSION(S)>
+```console
+[user@client ~] $ git clone https://github.com/opensciencegrid/release-tools.git
+[user@client ~] $ cd release-tools
+[user@client ~] $ 0-generate-pkg-list -d <REVISION> <VERSION(S)>
 ```
 
 Day 1: Verify Pre-Release
@@ -39,8 +39,8 @@ This section is to be performed 1-2 days before the release (as designated by th
 
 Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated `release-list` in git). To do this, run the `1-verify-prerelease` script from git:
 
-```
-[user@client ~]$ 1-verify-prerelease <VERSION(S)>
+```console
+[user@client ~] $ 1-verify-prerelease <VERSION(S)>
 ```
 
 If there are any discrepancies consult the release manager. You may have to tag packages with the `osg-koji` tool.
@@ -54,8 +54,8 @@ For the second phase of the release, try to complete it earlier in the day rathe
 
 This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces \*release-note\* files that should be used to update the TWiki release note pages. Clone it from the github repo and run the script:
 
-```
-[user@client ~]$ 2-create-release -d <REVISION> <VERSION(S)>
+```console
+[user@client ~] $ 2-create-release -d <REVISION> <VERSION(S)>
 ```
 
 1.  `*.txt` files are also created and it should be verified that they've been moved to `/p/vdt/public/html/release-info/` on UW's AFS.
@@ -67,22 +67,22 @@ Update the GitHub repo at [opensciencegrid/docker-osg-wn](https://github.com/ope
 
 Instructions for using the script:
 
-```
-[user@client ~]$ git clone git@github.com:opensciencegrid/docker-osg-wn-scripts.git
-[user@client ~]$ git clone git@github.com:opensciencegrid/docker-osg-wn.git
-[user@client ~]$ docker-osg-wn-scripts/update-all docker-osg-wn
-[user@client ~]$ cd docker-osg-wn
+```console
+[user@client ~] $ git clone git@github.com:opensciencegrid/docker-osg-wn-scripts.git
+[user@client ~] $ git clone git@github.com:opensciencegrid/docker-osg-wn.git
+[user@client ~] $ docker-osg-wn-scripts/update-all docker-osg-wn
+[user@client ~] $ cd docker-osg-wn
 # Verify everything looks fine and run the 'git push' command
 # that 'update-all' should have printed
 ```
 
 ### Step 3: Verify the VO Package and/or CA certificates
 
-Wait for the CA certificates to be propagated to the web server on repo.grid.iu.edu. The repository is checked every 10 minutes for update CA certificates. Then, run the following command to update the VO Package and/or CA certificates in the tarball installations and verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
+Wait for the CA certificates to be propagated to the web server on `repo.grid.iu.edu`. The repository is checked every 10 minutes for update CA certificates. Then, run the following command to update the VO Package and/or CA certificates in the tarball installations and verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
 
-```
-[user@client ~]$ /p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
-[user@client ~]$ /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
+```console
+[user@client ~] $ /p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
+[user@client ~] $ /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
 ```
 
 ### Step 4: Announce the release
