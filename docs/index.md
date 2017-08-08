@@ -66,6 +66,7 @@ The following documents are a collection of OSG software and release team proces
 - [Promoting packages from upcoming to main](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/UpcomingToMain)
 - [Acceptance testing procedures](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/AcceptanceTestingHome)
 - [How to cut a new release](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/HowToCutRelease)
+- [How to cut a data release](release/cut-data-release.md)
 - [Manual testing recipes](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/TestingRecipes)
 
 ### Infrastructure

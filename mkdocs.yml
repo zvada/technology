@@ -11,7 +11,10 @@ pages:
   - Home: 'index.md'
   - Contact Us: 'contact.md'
   - Meeting Notes: 'meetings.md'
-  - Migrating Documents to Markdown: 'software/markdown-migration.md'
+  - Software:
+    - Migrating Documents to Markdown: 'software/markdown-migration.md'
+  - Release:
+    - How to Cut a Data Release: 'release/cut-data-release.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
