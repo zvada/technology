@@ -13,8 +13,8 @@ Initial conversion with Pandoc
 
 [Pandoc](http://pandoc.org/) is a tool that's useful for automated conversion of markdown languages. [Once installed](http://pandoc.org/installing.html) (alternatively, run pandoc [via docker](#using-docker)), run the following command to convert TWiki to Markdown:
 
-```bash
-pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
+```console
+$ pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
 ```
 
 Where `<INPUT FILE>` is the path to initial document in raw TWiki and `<OUTPUT FILE>` is the path to the resulting document in GitHub Markdown.
@@ -45,7 +45,7 @@ Previewing your document(s) with Mkdocs
 
 [Mkdocs](http://www.mkdocs.org/) has a development mode that can be used to preview documents as you work on them and is available via package manager or `pip`. [Once installed](http://www.mkdocs.org/#installation), add your document(s) to the `pages` section of `mkdocs.yml` and launch the mkdocs server with the following command from the dir containing `mkdocs.yml`:
 
-```
+```console
 $ PYTHONPATH=src/ mkdocs serve
 ```
 
@@ -86,8 +86,8 @@ Make sure to use the TWiki document as a reference when making fixes!
 
 Within command blocks and file snippets, we've used `%RED%...%ENDCOLOR%`, `&lt;...&gt;`, etc. to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input:
 
-```
-[user@client ~]$ condor_ce_trace -d <CE HOSTNAME>
+```console
+[root@client ~]# condor_ce_trace -d <CE HOSTNAME>
 ```
 
 #### Ordered Lists ####
@@ -99,7 +99,7 @@ Ordered lists are often broken up into multiple lists if there are command block
 
 For example:
 
-```
+```markdown
 1. Foo
     - Bar
 

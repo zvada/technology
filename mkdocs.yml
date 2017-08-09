@@ -44,4 +44,5 @@ pages:
 
 markdown_extensions:
   - admonition
+  - codehilite
 
