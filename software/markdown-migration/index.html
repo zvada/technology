@@ -86,6 +86,8 @@
         
             <li><a class="toctree-l4" href="#choosing-document-locations-and-names">Choosing document locations and names</a></li>
         
+            <li><a class="toctree-l4" href="#archiving-the-twiki-document">Archiving the TWiki document</a></li>
+        
             <li><a class="toctree-l4" href="#initial-conversion-with-pandoc">Initial conversion with Pandoc</a></li>
         
             <li><a class="toctree-l4" href="#previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs</a></li>
@@ -302,20 +304,31 @@
 <p>As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. The following document outlines the conversion process and conventions.</p>
 <h2 id="choosing-document-locations-and-names">Choosing document locations and names</h2>
 <p><code>SoftwareTeam</code> documents should go into the <a href="https://opensciencegrid.github.io/technology/">technology github repo</a> and <code>Release3</code> documents should go into the <a href="https://opensciencegrid.github.io/docs/">docs github repo</a>. Document file names should be lowercase, <code>-</code> delimited, and descriptive but concise, e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></p>
-<h2 id="initial-conversion-with-pandoc">Initial conversion with Pandoc</h2>
-<p><a href="http://pandoc.org/">Pandoc</a> is a tool that's useful for automated conversion of markdown languages. <a href="http://pandoc.org/installing.html">Once installed</a> (alternatively, run pandoc <a href="#using-docker">via docker</a>), run the following command to convert TWiki to Markdown:</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> pandoc -f twiki -t markdown_github &lt;INPUT FILE&gt; &gt; &lt;OUTPUT FILE&gt;
+<h2 id="archiving-the-twiki-document">Archiving the TWiki document</h2>
+<p>Save the raw TWiki file into the <code>docs/archive/</code> folder of your local git repository:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> curl <span class="s1">&#39;&lt;TWIKI URL&gt;?raw=text&#39;</span> &gt; docs/archive/&lt;TWIKI TITLE&gt;
 </pre></div>
 
 
-<p>Where <code>&lt;INPUT FILE&gt;</code> is the path to initial document in raw TWiki and <code>&lt;OUTPUT FILE&gt;</code> is the path to the resulting document in GitHub Markdown.</p>
+<p>For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> &gt; docs/archive/SHA2Compliance
+</pre></div>
+
+
+<h2 id="initial-conversion-with-pandoc">Initial conversion with Pandoc</h2>
+<p><a href="http://pandoc.org/">Pandoc</a> is a tool that's useful for automated conversion of markdown languages. <a href="http://pandoc.org/installing.html">Once installed</a> (alternatively, run pandoc <a href="#using-docker">via docker</a>), run the following command to convert TWiki to Markdown:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> pandoc -f twiki -t markdown_github &lt;TWIKI FILE&gt; &gt; &lt;MARKDOWN FILE&gt;
+</pre></div>
+
+
+<p>Where <code>&lt;TWIKI FILE&gt;</code> is the path to initial document in raw TWiki and <code>&lt;MARKDOWN FILE&gt;</code> is the path to the resulting document in GitHub Markdown.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.</p>
 </div>
 <h3 id="using-docker">Using docker</h3>
 <p>The <code>pandoc</code> library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install <code>pandoc</code> but have access to docker, you can run the following command:</p>
-<div class="codehilite"><pre><span></span>docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/source jagregory/pandoc -f twiki -t markdown_github &lt;INPUT FILE&gt; &gt; &lt;OUTPUT FILE&gt;
+<div class="codehilite"><pre><span></span>docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/source jagregory/pandoc -f twiki -t markdown_github &lt;TWIKI FILE&gt; &gt; &lt;MARKDOWN FILE&gt;
 </pre></div>
 
 
@@ -415,7 +428,8 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 <ol>
 <li>Create a branch based off of master</li>
 <li>Add page to <a href="../../../mkdocs.yml">mkdocs.yml</a> in <a href="http://titlecase.com/">title case</a>, e.g. <code>Migrating Documents to Markdown</code></li>
-<li>Commit your changes and push to your GH repo</li>
+<li><code>git add</code> the archived raw TWiki and the converted Markdown document(s)</li>
+<li><code>git commit</code> your changes and <code>git push</code> to your GH repo</li>
 <li>Make PR containing the following tasks in the body:<div class="codehilite"><pre><span></span>&lt;LINK TO TWIKI DOCUMENT&gt;
 
 - [ ] Add migration header to TWiki document
