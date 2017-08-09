@@ -341,15 +341,17 @@ process is documented <a href="https://twiki.opensciencegrid.org/bin/view/Docume
 <h2 id="vo-transition-plans">VO Transition Plans</h2>
 <p>Based on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain
 a list of authorized pilots.  For these VOs, we will help convert invocations of <code>voms-proxy-init</code>:</p>
-<pre><code>voms-proxy-init -voms hcc:/hcc/Role=pilot
-</code></pre>
+<div class="codehilite"><pre><span></span>voms-proxy-init -voms hcc:/hcc/Role=pilot
+</pre></div>
+
 
 <p>to an equivalent call to <code>voms-proxy-fake</code>:</p>
-<pre><code>voms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \
+<div class="codehilite"><pre><span></span>voms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \
                 -hostkey /etc/grid-security/voms/vomskey.pem \
                 -fqan /hcc/Role=pilot \
                 -voms hcc -uri hcc-voms.unl.edu:15000
-</code></pre>
+</pre></div>
+
 
 <p>The latter command would typically be run on the VO's glideinWMS frontend host, requiring the service certificate
 currently on the VOMS-Admin server to be kept on the frontend host.  The frontend's account may also need access
