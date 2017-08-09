@@ -8,16 +8,31 @@ Choosing document locations and names
 
 `SoftwareTeam` documents should go into the [technology github repo](https://opensciencegrid.github.io/technology/) and `Release3` documents should go into the [docs github repo](https://opensciencegrid.github.io/docs/). Document file names should be lowercase, `-` delimited, and descriptive but concise, e.g. `markdown-migration.md` or `cutting-release.md`
 
+Archiving the TWiki document
+----------------------------
+
+Save the raw TWiki file into the `docs/archive/` folder of your local git repository:
+
+```console
+[user@client ~] $ curl '<TWIKI URL>?raw=text' > docs/archive/<TWIKI TITLE>
+```
+
+For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:
+
+```console
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' > docs/archive/SHA2Compliance
+```
+
 Initial conversion with Pandoc
 ------------------------------
 
 [Pandoc](http://pandoc.org/) is a tool that's useful for automated conversion of markdown languages. [Once installed](http://pandoc.org/installing.html) (alternatively, run pandoc [via docker](#using-docker)), run the following command to convert TWiki to Markdown:
 
 ```console
-$ pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
+$ pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
 ```
 
-Where `<INPUT FILE>` is the path to initial document in raw TWiki and `<OUTPUT FILE>` is the path to the resulting document in GitHub Markdown.
+Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN FILE>` is the path to the resulting document in GitHub Markdown.
 
 !!! note
     If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.
@@ -27,7 +42,7 @@ Where `<INPUT FILE>` is the path to initial document in raw TWiki and `<OUTPUT F
 The `pandoc` library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install `pandoc` but have access to docker, you can run the following command:
 
 ```bash
-docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github <INPUT FILE> > <OUTPUT FILE>
+docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
 ```
 
 For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:
@@ -136,8 +151,9 @@ Making the pull request
 
 1. Create a branch based off of master
 2. Add page to [mkdocs.yml](../../mkdocs.yml) in [title case](http://titlecase.com/), e.g. `Migrating Documents to Markdown`
-3. Commit your changes and push to your GH repo
-4. Make PR containing the following tasks in the body:
+3. `git add` the archived raw TWiki and the converted Markdown document(s)
+4. `git commit` your changes and `git push` to your GH repo
+5. Make PR containing the following tasks in the body:
 
         <LINK TO TWIKI DOCUMENT>
 
