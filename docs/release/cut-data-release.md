@@ -1,5 +1,5 @@
 !!! note
-    If you are performing a software release, please follow the instructions [here](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/HowToCutRelease)
+    If you are performing a software release, please follow the instructions [here](cut-sw-release)
 
 How to Cut a Data Release
 =========================
@@ -19,7 +19,7 @@ Requirements
 Pick the Version and Revision Numbers
 -------------------------------------
 
-The rest of this document makes references to `<REVISION>` and `<VERSION(S)>` , which refer to the OSG version and data revision, respectively (e.g. `3.3.12` and `2`, respectively). If you are unsure about either the version or revision, please consult the release manager.
+The rest of this document makes references to `<REVISION>` and `<VERSION(S)>` , which refer to the space-delimited list of OSG version(s) and data revision, respectively (e.g. `3.3.28 3.4.3` and `2`, respectively). If you are unsure about either the version or revision, please consult the release manager.
 
 Day 0: Generate Preliminary Release List
 ----------------------------------------
@@ -52,7 +52,7 @@ For the second phase of the release, try to complete it earlier in the day rathe
 
 ### Step 1: Push from pre-release to release
 
-This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces \*release-note\* files that should be used to update the TWiki release note pages. Clone it from the github repo and run the script:
+This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
 
 ```console
 [user@client ~] $ 2-create-release -d <REVISION> <VERSION(S)>
