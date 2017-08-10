@@ -60,3 +60,7 @@
 .codehilite .vg { color: #bb60d5 } /* Name.Variable.Global */
 .codehilite .vi { color: #bb60d5 } /* Name.Variable.Instance */
 .codehilite .il { color: #40a070 } /* Literal.Number.Integer.Long */
+
+.wy-nav-content {
+    max-width: 90%;
+}
