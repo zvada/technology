@@ -1,3 +1,9 @@
+.codehilite{
+          width:100%;
+          height: auto;
+          overflow: auto;
+        }
+
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; }
 .codehilite .c { color: #60a0b0; font-style: italic } /* Comment */
