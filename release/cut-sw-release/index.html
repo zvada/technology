@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>How to Cut a Release - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "How to Cut a Release";
+    var mkdocs_page_input_path = "release/cut-sw-release.md";
+    var mkdocs_page_url = "/release/cut-sw-release/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class=" current">
+          
+  
+    <a class="current" href="./">How to Cut a Release</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#how-to-cut-a-software-release">How to Cut a Software Release</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
+        
+            <li><a class="toctree-l4" href="#pick-the-version-number">Pick the Version Number</a></li>
+        
+            <li><a class="toctree-l4" href="#day-0-generate-preliminary-release-list">Day 0: Generate Preliminary Release List</a></li>
+        
+            <li><a class="toctree-l4" href="#day-1-verify-pre-release-and-generate-tarballs">Day 1: Verify Pre-Release and Generate Tarballs</a></li>
+        
+            <li><a class="toctree-l4" href="#day-2-pushing-the-release">Day 2: Pushing the Release</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Release &raquo;</li>
+        
+      
+    
+    <li>How to Cut a Release</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/cut-sw-release.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are performing a data release, please follow the instructions <a href="../cut-data-release">here</a></p>
+</div>
+<h1 id="how-to-cut-a-software-release">How to Cut a Software Release</h1>
+<p>This document details the process for releasing new OSG Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/ReleasePolicy">here</a>.</p>
+<p>Due to the length of time that this process takes, it is recommended to do the release over three or more days to allow for errors to be corrected and tests to be run.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>User certificate registered with OSG's koji with build and release team privileges</li>
+<li>An account on UW CS machines (e.g. <code>library</code>, <code>ingwe</code>) to access UW's AFS</li>
+<li><code>release-tools</code> scripts in your <code>PATH</code> (<a href="https://github.com/opensciencegrid/release-tools">GitHub</a>)</li>
+<li><code>osg-build</code> scripts in your <code>PATH</code> (installed via OSG yum repos or <a href="https://github.com/opensciencegrid/osg-build">source</a>)</li>
+</ul>
+<h2 id="pick-the-version-number">Pick the Version Number</h2>
+<p>The rest of this document makes references to <code>&lt;VERSION(S)&gt;</code> and <code>&lt;NON-UPCOMING VERSIONS(S)&gt;</code>, which refer to a space-delimited list of OSG version(s) and that same list minus <code>upcoming</code> (e.g. <code>3.3.28 3.4.3 upcoming</code> and <code>3.3.28 3.4.3</code>). If you are unsure about either the version or revision, please consult the release manager.</p>
+<h2 id="day-0-generate-preliminary-release-list">Day 0: Generate Preliminary Release List</h2>
+<p>The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release.</p>
+<h3 id="step-1-update-the-osg-version-rpm">Step 1: Update the osg-version RPM</h3>
+<p>For each release (excluding upcoming), update the version number in the osg-version RPM's spec file and build it in koji:</p>
+<div class="codehilite"><pre><span></span><span class="gp">#</span> If building <span class="k">for</span> the latest release out of trunk
+<span class="gp">[user@client ~] $</span> osg-build koji osg-version
+<span class="gp">#</span> If building <span class="k">for</span> an older release out of a branch:
+<span class="gp">[user@client ~] $</span> osg-build koji --repo<span class="o">=</span>&lt;MAJOR VERSION&gt; osg-version
+</pre></div>
+
+
+<p>Where <code>&lt;MAJOR VERSION&gt;</code> is of the format <code>x.y</code> (e.g. <code>3.2</code>).</p>
+<h3 id="step-2-promote-osg-version-and-generate-the-release-list">Step 2: Promote osg-version and generate the release list</h3>
+<p>Run <code>0-generate-pkg-list</code> from a machine that has your koji-registered user certificate:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> git clone https://github.com/opensciencegrid/release-tools.git
+<span class="gp">[user@client ~] $</span> <span class="nb">cd</span> release-tools
+<span class="gp">[user@client ~] $</span> <span class="m">0</span>-generate-pkg-list &lt;VERSION<span class="o">(</span>S<span class="o">)</span>&gt;
+</pre></div>
+
+
+<h2 id="day-1-verify-pre-release-and-generate-tarballs">Day 1: Verify Pre-Release and Generate Tarballs</h2>
+<p>This section is to be performed 1-2 days before the release (as designated by the release manager) to perform last checks of the release and create the client tarballs.</p>
+<h3 id="step-1-verify-pre-release">Step 1: Verify Pre-Release</h3>
+<p>Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated <code>release-list</code> in git). To do this, run the <code>1-verify-prerelease</code> script from git:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> <span class="m">1</span>-verify-prerelease &lt;VERSION<span class="o">(</span>S<span class="o">)</span>&gt;
+</pre></div>
+
+
+<p>If there are any discrepancies consult the release manager. You may have to tag or untag packages with the <code>osg-koji</code> tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please verify that the <code>osg-version</code> RPM is in your set of packages for the release! Also verify that if there is a new version of the <code>osg-tested-internal</code> RPM, then it is included in the release as well!</p>
+</div>
+<h3 id="step-2-test-pre-release-in-vm-universe">Step 2: Test Pre-Release in VM Universe</h3>
+<p>To test pre-release, you will be kicking off a manual VM universe test run from <code>osghost.chtc.wisc.edu</code>.</p>
+<ol>
+<li>Ensure that you meet the <a href="https://github.com/opensciencegrid/vm-test-runs">pre-requisites</a> for submitting VM universe test runs</li>
+<li>
+<p>Prepare the test suite by running:</p>
+<div class="codehilite"><pre><span></span>[user@client ~] $ osg-run-tests &#39;Testing OSG pre-release&#39;
+</pre></div>
+
+
+</li>
+<li>
+<p><code>cd</code> into the directory specified in the output of the previous command</p>
+</li>
+<li><code>cd</code> into <code>parameters.d</code> and remove all files within it except for <code>osg33-el6.yaml</code> and <code>osg33-el7.yaml</code></li>
+<li>
+<p>Edit <code>osg33.yaml</code> so that it reads:</p>
+<div class="codehilite"><pre><span></span><span class="nt">platforms</span><span class="o">:</span>
+  <span class="nt">-</span> <span class="nt">centos_6_x86_64</span>
+  <span class="nt">-</span> <span class="nt">rhel_6_x86_64</span>
+  <span class="nt">-</span> <span class="nt">sl_6_x86_64</span>
+  <span class="nt">-</span> <span class="nt">centos_7_x86_64</span>
+  <span class="nt">-</span> <span class="nt">rhel_7_x86_64</span>
+  <span class="nt">-</span> <span class="nt">sl_7_x86_64</span>
+
+<span class="nt">sources</span><span class="o">:</span>
+  <span class="nt">-</span> <span class="nt">opensciencegrid</span><span class="p">:</span><span class="nd">master</span><span class="o">;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">3</span><span class="o">;</span> <span class="nt">osg-prerelease</span>
+  <span class="nt">-</span> <span class="nt">opensciencegrid</span><span class="p">:</span><span class="nd">master</span><span class="o">;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">3</span><span class="o">;</span> <span class="nt">osg</span> <span class="o">&gt;</span> <span class="nt">osg-prerelease</span>
+
+<span class="nt">package_sets</span><span class="o">:</span>
+  <span class="nt">-</span> <span class="nt">label</span><span class="o">:</span> <span class="nt">All</span> <span class="o">(</span><span class="nt">java</span><span class="o">)</span>
+    <span class="nt">selinux</span><span class="o">:</span> <span class="nt">True</span>
+    <span class="nt">osg_java</span><span class="o">:</span> <span class="nt">True</span>
+    <span class="nt">packages</span><span class="o">:</span>
+      <span class="nt">-</span> <span class="nt">osg-tested-internal</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Edit <code>osg34.yaml</code> so that it reads:</p>
+<div class="codehilite"><pre><span></span><span class="nt">platforms</span><span class="o">:</span>
+  <span class="nt">-</span> <span class="nt">centos_6_x86_64</span>
+  <span class="nt">-</span> <span class="nt">rhel_6_x86_64</span>
+  <span class="nt">-</span> <span class="nt">sl_6_x86_64</span>
+  <span class="nt">-</span> <span class="nt">centos_7_x86_64</span>
+  <span class="nt">-</span> <span class="nt">rhel_7_x86_64</span>
+  <span class="nt">-</span> <span class="nt">sl_7_x86_64</span>
+
+<span class="nt">sources</span><span class="o">:</span>
+  <span class="nt">-</span> <span class="nt">opensciencegrid</span><span class="p">:</span><span class="nd">master</span><span class="o">;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">4</span><span class="o">;</span> <span class="nt">osg-prerelease</span>
+  <span class="nt">-</span> <span class="nt">opensciencegrid</span><span class="p">:</span><span class="nd">master</span><span class="o">;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">4</span><span class="o">;</span> <span class="nt">osg</span> <span class="o">&gt;</span> <span class="nt">osg-prerelease</span>
+  <span class="nt">-</span> <span class="nt">opensciencegrid</span><span class="p">:</span><span class="nd">master</span><span class="o">;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">3</span><span class="o">;</span> <span class="nt">osg</span> <span class="o">&gt;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">4</span><span class="o">/</span><span class="nt">osg-prerelease</span>
+  <span class="nt">-</span> <span class="nt">opensciencegrid</span><span class="p">:</span><span class="nd">master</span><span class="o">;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">4</span><span class="o">;</span> <span class="nt">osg-prerelease</span><span class="o">,</span> <span class="nt">osg-upcoming-prerelease</span><span class="o">,</span> <span class="nt">osg-upcoming</span>
+  <span class="nt">-</span> <span class="nt">opensciencegrid</span><span class="p">:</span><span class="nd">master</span><span class="o">;</span> <span class="nt">3</span><span class="p">.</span><span class="nc">4</span><span class="o">;</span> <span class="nt">osg</span> <span class="o">&gt;</span> <span class="nt">osg-prerelease</span><span class="o">,</span> <span class="nt">osg-upcoming-prerelease</span><span class="o">,</span> <span class="nt">osg-upcoming</span><span class="err">&#39;</span>
+
+<span class="nt">package_sets</span><span class="o">:</span>
+  <span class="nt">-</span> <span class="nt">label</span><span class="o">:</span> <span class="nt">All</span>
+    <span class="nt">selinux</span><span class="o">:</span> <span class="nt">True</span>
+    <span class="nt">osg_java</span><span class="o">:</span> <span class="nt">False</span>
+    <span class="nt">packages</span><span class="o">:</span>
+      <span class="nt">-</span> <span class="nt">osg-tested-internal</span>
+</pre></div>
+
+
+<p>If you are not releasing packages into <code>upcoming</code>, delete the <code>upcoming</code>-related lines in the <code>sources</code> section.</p>
+</li>
+<li>
+<p><code>cd</code> back into the root directory of the test run (e.g. <code>cd ..</code>)</p>
+</li>
+<li>Submit the DAG:<div class="codehilite"><pre><span></span>condor_submit_dag master-run.dag
+</pre></div>
+
+
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there are failures, consult the release-manager before proceeding.</p>
+</div>
+<h3 id="step-3-regenerate-the-build-repositories">Step 3: Regenerate the build repositories</h3>
+<p>To avoid 404 errors when retrieving packages, it's necessary to regenerate the build repositories. Run the following script from a machine with your koji-registered user certificate:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> <span class="m">1</span>-regen-repos &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;
+</pre></div>
+
+
+<h3 id="step-4-create-the-client-tarballs">Step 4: Create the client tarballs</h3>
+<p>Create the client tarballs as root on an EL6 fermicloud machine using the relevant script from git:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@client ~] $</span> git clone https://github.com/opensciencegrid/release-tools.git
+<span class="gp">[root@client ~] $</span> <span class="nb">cd</span> release-tools
+<span class="gp">[root@client ~] $</span> <span class="m">1</span>-client-tarballs &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;
+</pre></div>
+
+
+<p>You should get up to 8 tarballs for each version (excluding upcoming), 25-55 megs each and they should all have the version number in the name.</p>
+<h3 id="step-5-briefly-test-the-client-tarballs">Step 5: Briefly test the client tarballs</h3>
+<p>As an <strong>unprivileged user</strong>, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure <code>osgrun osg-version</code> works by running the following tests, replacing <code>&lt;NON-UPCOMING VERSION(S)</code> with the appropriate version numbers:</p>
+<div class="codehilite"><pre><span></span>dotest <span class="o">()</span> <span class="o">{</span>
+    <span class="nv">file</span><span class="o">=</span><span class="nv">$dir</span>/<span class="nv">$client</span>-<span class="nv">$ver</span>-1.<span class="nv">$rhel</span>.<span class="nv">$arch</span>.tar.gz
+    mkdir -p <span class="nv">$rhel</span>-<span class="nv">$arch</span>
+    <span class="nb">pushd</span> <span class="nv">$rhel</span>-<span class="nv">$arch</span>
+    tar xzf ../<span class="nv">$file</span>
+    <span class="nv">$client</span>/osg/osg-post-install
+    <span class="nv">$client</span>/osgrun osg-version
+    <span class="nb">popd</span>
+    rm -rf <span class="nv">$rhel</span>-<span class="nv">$arch</span>
+<span class="o">}</span>
+
+<span class="nb">pushd</span> /tmp
+
+<span class="k">for</span> client in osg-afs-client osg-wn-client<span class="p">;</span> <span class="k">do</span>
+    <span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+        <span class="k">for</span> rhel in el6 el7<span class="p">;</span> <span class="k">do</span>
+            <span class="nv">arch</span><span class="o">=</span>x86_64
+            <span class="nv">dir</span><span class="o">=</span>tarballs/<span class="si">${</span><span class="nv">ver</span><span class="p">%.*</span><span class="si">}</span>/<span class="nv">$arch</span>
+            dotest
+        <span class="k">done</span>
+    <span class="k">done</span>
+<span class="k">done</span>
+
+<span class="nv">client</span><span class="o">=</span>osg-wn-client
+<span class="nv">arch</span><span class="o">=</span>i386
+<span class="nv">rhel</span><span class="o">=</span>el6
+<span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+    <span class="nv">dir</span><span class="o">=</span>tarballs/<span class="si">${</span><span class="nv">ver</span><span class="p">%.*</span><span class="si">}</span>/<span class="nv">$arch</span>
+    dotest
+<span class="k">done</span>
+</pre></div>
+
+
+<p>If you have time, try some of the binaries, such as grid-proxy-init.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We need to automate this and have it run on the proper architectures and version of RHEL.</p>
+</div>
+<h3 id="step-6-update-the-uw-afs-installation-of-the-tarball-client">Step 6: Update the UW AFS installation of the tarball client</h3>
+<p>The UW keeps an install of the tarball client in <code>/p/vdt/workspace/tarball-client</code> on the UW's AFS. To update it, run the following commands:</p>
+<div class="codehilite"><pre><span></span><span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+    /p/vdt/workspace/tarball-client/afs-install-tarball-client <span class="nv">$ver</span>
+<span class="k">done</span>
+</pre></div>
+
+
+<h3 id="step-7-wait">Step 7: Wait</h3>
+<p>Wait for clearance. The OSG Release Coordinator (in consultation with the Software Team and any testers) need to sign off on the update before it is released. If you are releasing things over two days, this is a good place to stop for the day.</p>
+<h2 id="day-2-pushing-the-release">Day 2: Pushing the Release</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the second phase of the release, try to complete it earlier in the day rather than later. The GOC would like to send out the release announcement prior to 3 p.m. Eastern time.</p>
+</div>
+<h3 id="step-1-push-from-pre-release-to-release">Step 1: Push from pre-release to release</h3>
+<p>This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces <code>*release-note*</code> files that should be used to update the release note pages. Clone it from the github repo and run the script:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> <span class="m">2</span>-create-release &lt;VERSION<span class="o">(</span>S<span class="o">)</span>&gt;
+</pre></div>
+
+
+<ol>
+<li><code>*.txt</code> files are also created and it should be verified that they've been moved to /p/vdt/public/html/release-info/ on UW's AFS.</li>
+<li>For each release version, use the <code>*release-note*</code> files to update the relevant sections of the release note pages.</li>
+</ol>
+<h3 id="step-2-upload-the-client-tarballs">Step 2: Upload the client tarballs</h3>
+<p>Ask Tim Theisen, Brian Lin, or someone with privileges on the <code>grid.iu.edu</code> repo servers to upload the tarballs with the following procedure:</p>
+<h4 id="on-a-cs-machine">On a CS machine</h4>
+<div class="codehilite"><pre><span></span><span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+    <span class="nv">major_ver</span><span class="o">=</span><span class="sb">`</span>sed <span class="s1">&#39;s/.[0-9]*$//&#39;</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">$ver</span><span class="sb">`</span>
+    <span class="nb">cd</span> /p/vdt/public/html/tarball-client
+    ssh jump.grid.iu.edu mkdir /tmp/<span class="nv">$ver</span>/
+    scp -p <span class="nv">$major_ver</span>/*/osg-wn-client-<span class="nv">$ver</span>*gz jump.grid.iu.edu:/tmp/<span class="nv">$ver</span>/
+<span class="k">done</span>
+</pre></div>
+
+
+<h4 id="on-jumpgridiuedu">On jump.grid.iu.edu</h4>
+<div class="codehilite"><pre><span></span><span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+    scp -pr /tmp/<span class="nv">$ver</span> repo1:/tmp/
+    scp -pr /tmp/<span class="nv">$ver</span> repo2:/tmp/
+    rm -rf /tmp/<span class="nv">$ver</span>
+<span class="k">done</span>
+</pre></div>
+
+
+<h4 id="on-repo1repo2-as-root">On repo1/repo2 (as root)</h4>
+<p>You can ssh to repo1 and repo2 from jump.grid.iu.edu; you will need to do this procedure on both systems.</p>
+<div class="codehilite"><pre><span></span><span class="go">sudo su -</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+    <span class="nv">major_ver</span><span class="o">=</span><span class="sb">`</span>sed <span class="s1">&#39;s/.[0-9]*$//&#39;</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">$ver</span><span class="sb">`</span>
+    mv /tmp/<span class="nv">$ver</span> /usr/local/repo/tarball-install/<span class="nv">$major_ver</span>/
+    rm -f /usr/local/repo/tarball-install/<span class="nv">$major_ver</span>/*latest*
+<span class="k">done</span>
+/root/mk-sims.sh
+<span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+    <span class="nv">major_ver</span><span class="o">=</span><span class="sb">`</span>sed <span class="s1">&#39;s/.[0-9]*$//&#39;</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">$ver</span><span class="sb">`</span>
+    ls -l /usr/local/repo/tarball-install/<span class="nv">$major_ver</span>/*latest* <span class="c1"># verify the symlinks are correct</span>
+<span class="k">done</span>
+</pre></div>
+
+
+<h3 id="step-3-install-the-tarballs-into-oasis">Step 3: Install the tarballs into OASIS</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must be an OASIS manager of the <code>mis</code> VO to do these steps. Known managers as of 2014-07-22: Mat, Tim C, Tim T, Brian L. </p>
+</div>
+<p>Get the uploader script from Git and run it with <code>osgrun</code> from the UW AFS install of the tarball client you made earlier. On a UW CSL machine:</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> /tmp
+git clone --depth <span class="m">1</span> file:///p/vdt/workspace/git/repo/tarball-client.git
+<span class="k">for</span> ver in &lt;NON-UPCOMING VERSION<span class="o">(</span>S<span class="o">)</span>&gt;<span class="p">;</span> <span class="k">do</span>
+    /p/vdt/workspace/tarball-client/current/sys/osgrun /tmp/tarball-client/upload-tarballs-to-oasis <span class="nv">$ver</span>
+<span class="k">done</span>
+</pre></div>
+
+
+<p>The script will automatically ssh you to oasis-login.opensciencegrid.org and give you instructions to complete the process.</p>
+<h3 id="step-4-remove-old-uw-afs-installations-of-the-tarball-client">Step 4: Remove old UW AFS installations of the tarball client</h3>
+<p>To keep space usage down, remove tarball client installations and symlinks under <code>/p/vdt/workspace/tarball-client</code> on UW's AFS that are more than 2 months old. The following command will remove them:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> find /p/vdt/workspace/tarball-client -maxdepth <span class="m">1</span> -mtime +60 -name <span class="m">3</span><span class="se">\*</span> -ls -exec rm -rf <span class="o">{}</span> <span class="se">\;</span>
+</pre></div>
+
+
+<h3 id="step-5-update-the-docker-wn-client">Step 5: Update the Docker WN client</h3>
+<p>Update the GitHub repo at <a href="https://github.com/opensciencegrid/docker-osg-wn">opensciencegrid/docker-osg-wn</a> using the <code>update-all</code> script found in <a href="https://github.com/opensciencegrid/docker-osg-wn-scripts">opensciencegrid/docker-osg-wn-scripts</a>. This requires push access to the <code>opensciencegrid/docker-osg-wn</code> repo.</p>
+<p>Instructions for using the script:</p>
+<div class="codehilite"><pre><span></span><span class="go">git clone git@github.com:opensciencegrid/docker-osg-wn-scripts.git</span>
+<span class="go">git clone git@github.com:opensciencegrid/docker-osg-wn.git</span>
+<span class="go">docker-osg-wn-scripts/update-all docker-osg-wn</span>
+<span class="go">cd docker-osg-wn</span>
+<span class="gp">#</span> Verify everything looks fine and run the <span class="s1">&#39;git push&#39;</span> <span class="nb">command</span>
+<span class="gp">#</span> that <span class="s1">&#39;update-all&#39;</span> should have printed
+</pre></div>
+
+
+<h3 id="step-6-announce-the-release">Step 6: Announce the release</h3>
+<p>The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.</p>
+<ol>
+<li>
+<p>The release manager writes the release announcement and send it out. Here is a sample, replace <code>&lt;HIGHLIGHTED TEXT&gt;</code> with the appropriate values:</p>
+<div class="codehilite"><pre><span></span> Subject: Announcing OSG Software version &lt;VERSION(S)&gt;
+
+ We are pleased to announce OSG Software version &lt;VERSION(S)&gt;!
+
+ This is the new OSG Software distributed via RPMs for:
+
+ * Scientific Linux 6 and 7
+ * CentOS 6 and 7
+ * Red Hat Enterprise Linux 6 and 7
+
+ This release affects the &lt;SET OF METAPACKAGES (client, compute element, etc...)&gt;. Changes include:
+
+ * Major change 1
+ * Major change 2
+ * Major change 3
+
+ Release notes and pointers to more documentation can be found at:
+
+ &lt;LINK TO RELEASE NOTES&gt;
+
+ Need help? Let us know:
+
+ https://www.opensciencegrid.org/bin/view/Documentation/Release3/HelpProcedure
+
+ We welcome feedback on this release
+</pre></div>
+
+
+</li>
+<li>
+<p>The release manager emails the announcement to <code>vdt-discuss@opensciencegrid.org</code></p>
+</li>
+<li>The release manager asks the GOC to distribute the announcement by <a href="https://ticket.grid.iu.edu/goc/other">opening a ticket</a></li>
+<li>The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"</li>
+<li>The release manager updates the recent/scheduled release tables on the Software/Release <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WebHome">homepage</a></li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cut-data-release/" class="btn btn-neutral float-right" title="How to Cut a Data Release">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../software/markdown-migration/" class="btn btn-neutral" title="Migrating Documents to Markdown"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../software/markdown-migration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cut-data-release/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

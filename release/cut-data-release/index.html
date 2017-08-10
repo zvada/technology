@@ -86,6 +86,12 @@
 		
   <span class="caption-text">Release</span>
   <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
         <li class=" current">
           
   
@@ -296,7 +302,7 @@
               
                 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are performing a software release, please follow the instructions <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/HowToCutRelease">here</a></p>
+<p>If you are performing a software release, please follow the instructions <a href="../cut-sw-release">here</a></p>
 </div>
 <h1 id="how-to-cut-a-data-release">How to Cut a Data Release</h1>
 <p>This document details the process for releasing new OSG Data Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/ReleasePolicy">here</a>.</p>
@@ -309,7 +315,7 @@
 <li><code>osg-build</code> scripts in your <code>PATH</code> (installed via OSG yum repos or <a href="https://github.com/opensciencegrid/osg-build">source</a>)</li>
 </ul>
 <h2 id="pick-the-version-and-revision-numbers">Pick the Version and Revision Numbers</h2>
-<p>The rest of this document makes references to <code>&lt;REVISION&gt;</code> and <code>&lt;VERSION(S)&gt;</code> , which refer to the OSG version and data revision, respectively (e.g. <code>3.3.12</code> and <code>2</code>, respectively). If you are unsure about either the version or revision, please consult the release manager.</p>
+<p>The rest of this document makes references to <code>&lt;REVISION&gt;</code> and <code>&lt;VERSION(S)&gt;</code> , which refer to the space-delimited list of OSG version(s) and data revision, respectively (e.g. <code>3.3.28 3.4.3</code> and <code>2</code>, respectively). If you are unsure about either the version or revision, please consult the release manager.</p>
 <h2 id="day-0-generate-preliminary-release-list">Day 0: Generate Preliminary Release List</h2>
 <p>The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release. Run <code>0-generate-pkg-list</code> from a machine that has your koji-registered user certificate:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> git clone https://github.com/opensciencegrid/release-tools.git
@@ -329,7 +335,7 @@
 <h2 id="day-2-pushing-the-release">Day 2: Pushing the Release</h2>
 <p>For the second phase of the release, try to complete it earlier in the day rather than later. The GOC would like to send out the release announcement prior to 3 p.m. Eastern time.</p>
 <h3 id="step-1-push-from-pre-release-to-release">Step 1: Push from pre-release to release</h3>
-<p>This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces *release-note* files that should be used to update the TWiki release note pages. Clone it from the github repo and run the script:</p>
+<p>This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces <code>*release-note*</code> files that should be used to update the release note pages. Clone it from the github repo and run the script:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> <span class="m">2</span>-create-release -d &lt;REVISION&gt; &lt;VERSION<span class="o">(</span>S<span class="o">)</span>&gt;
 </pre></div>
 
@@ -408,7 +414,7 @@
         <a href="../../policy/gums-retire/" class="btn btn-neutral float-right" title="GUMS Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../software/markdown-migration/" class="btn btn-neutral" title="Migrating Documents to Markdown"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cut-sw-release/" class="btn btn-neutral" title="How to Cut a Release"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -436,7 +442,7 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../software/markdown-migration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../cut-sw-release/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../../policy/gums-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
