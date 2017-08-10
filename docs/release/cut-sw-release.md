@@ -114,7 +114,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
           - opensciencegrid:master; 3.4; osg > osg-prerelease
           - opensciencegrid:master; 3.3; osg > 3.4/osg-prerelease
           - opensciencegrid:master; 3.4; osg-prerelease, osg-upcoming-prerelease, osg-upcoming
-          - opensciencegrid:master; 3.4; osg > osg-prerelease, osg-upcoming-prerelease, osg-upcoming'
+          - opensciencegrid:master; 3.4; osg > osg-prerelease, osg-upcoming-prerelease, osg-upcoming
 
         package_sets:
           - label: All
