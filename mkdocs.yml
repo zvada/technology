@@ -12,7 +12,6 @@ pages:
   - Contact Us: 'contact.md'
   - Meeting Notes: 'meetings.md'
   - Software:
-    - Koji-Hub Setup: 'software/koji-hub-setup.md'
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
@@ -23,6 +22,8 @@ pages:
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
+  - Infrastructure:
+    - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
   - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - February 27, 2017: 'meetings/2017/TechArea20170227.md'
