@@ -312,12 +312,12 @@
 <p><code>SoftwareTeam</code> documents should go into the <a href="https://opensciencegrid.github.io/technology/">technology github repo</a> and <code>Release3</code> documents should go into the <a href="https://opensciencegrid.github.io/docs/">docs github repo</a>. Document file names should be lowercase, <code>-</code> delimited, and descriptive but concise, e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></p>
 <h2 id="archiving-the-twiki-document">Archiving the TWiki document</h2>
 <p>Save the raw TWiki file into the <code>docs/archive/</code> folder of your local git repository:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> curl <span class="s1">&#39;&lt;TWIKI URL&gt;?raw=text&#39;</span> &gt; docs/archive/&lt;TWIKI TITLE&gt;
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> curl <span class="s1">&#39;&lt;TWIKI URL&gt;?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/&lt;TWIKI TITLE&gt;
 </pre></div>
 
 
 <p>For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> &gt; docs/archive/SHA2Compliance
+<div class="codehilite"><pre><span></span><span class="gp">$</span> curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/SHA2Compliance
 </pre></div>
 
 
@@ -340,7 +340,7 @@
 
 <p>For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:</p>
 <div class="codehilite"><pre><span></span>$ mkdir -p docs/archive docs/projects
-$ curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> &gt; docs/archive/SHA2Compliance
+$ curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/SHA2Compliance
 $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance &gt; docs/projects/sha2-support.md
 </pre></div>
 
