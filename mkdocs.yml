@@ -27,8 +27,10 @@ pages:
   - Infrastructure:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
+    - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
+  - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - February 27, 2017: 'meetings/2017/TechArea20170227.md'
   - April 17, 2017: 'meetings/2017/TechArea20170417.md'
