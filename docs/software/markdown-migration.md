@@ -82,9 +82,9 @@ If the broken link is:
 
 ### Broken command blocks and file snippets ###
 
-Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (\`\`\`):
+Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (\`\`\`) followed by an optional code highlighting format:
 
-    ```
+    ```python
     # stuff
     ```
 
@@ -109,7 +109,7 @@ Within command blocks and file snippets, we've used `%RED%...%ENDCOLOR%`, `&lt;.
 
 Ordered lists are often broken up into multiple lists if there are command blocks/file snippets and/or additional text within one of the list items. To make sure the contents of an item are indented properly, use the following formatting:
 
-- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list.
+- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code block with `:::<FORMAT>`; see [this page](http://squidfunk.github.io/mkdocs-material/extensions/codehilite/) for details, including possible highlighting formats.
 - For additional text (i.e. after a code block), insert `N*4` spaces at the beginning of each line, where N is the level of the item in the list.
 
 For example:
@@ -118,6 +118,7 @@ For example:
 1. Foo
     - Bar
 
+            :::console
             COMMAND
             BLOCK
         text associated with Bar
