@@ -46,4 +46,5 @@ pages:
 markdown_extensions:
   - admonition
   - codehilite
+  - toc(permalink=true)
 
