@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Koji-Hub Setup - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Koji-Hub Setup";
+    var mkdocs_page_input_path = "infrastructure/koji-hub-setup.md";
+    var mkdocs_page_url = "/infrastructure/koji-hub-setup/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Koji-Hub Setup</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#notes-on-koji-hub-setup">Notes on Koji-Hub Setup</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#tags">Tags</a></li>
+        
+            <li><a class="toctree-l4" href="#build-targets">Build Targets</a></li>
+        
+            <li><a class="toctree-l4" href="#signing-plugin">Signing plugin</a></li>
+        
+            <li><a class="toctree-l4" href="#tweaks">Tweaks</a></li>
+        
+            <li><a class="toctree-l4" href="#procedures">Procedures</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Infrastructure &raquo;</li>
+        
+      
+    
+    <li>Koji-Hub Setup</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/infrastructure/koji-hub-setup.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="notes-on-koji-hub-setup">Notes on Koji-Hub Setup<a class="headerlink" href="#notes-on-koji-hub-setup" title="Permanent link">&para;</a></h1>
+<p><a href="https://docs.pagure.org/koji/">Current Koji documentation</a> may be of use.</p>
+<h2 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
+<h3 id="base-tags">Base tags<a class="headerlink" href="#base-tags" title="Permanent link">&para;</a></h3>
+<h4 id="dist-el9156793-build">dist-el[567]-build<a class="headerlink" href="#dist-el9156793-build" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=dist-el%3F-build">Tag list</a></p>
+<p>These tags contains 3 external repos each, hosted locally under <a href="http://mirror.batlab.org/pub/linux">http://mirror.batlab.org/pub/linux</a>:</p>
+<ul>
+<li><code>dist-el[567]-epel</code>: A mirror of the EPEL 5/6/7 repositories</li>
+<li><code>dist-el[567]-centos*</code>: A mirror of the base CentOS repositories</li>
+<li><code>dist-el[567]-centos-updates</code>: A mirror of the CentOS Updates repositories</li>
+</ul>
+<p>We don't put any packages in them (except for ones required for building, like <code>buildsys-macros</code> and <code>fetch-sources</code>), and generally don't build from them directly, but use tag inheritance.</p>
+<h4 id="osg-el9156793">osg-el[567]<a class="headerlink" href="#osg-el9156793" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-el%3F">Tag list</a></p>
+<p>These tags contains all the <em>package names</em> that we put into OSG; <code>koji add-pkg</code> adds to them. <code>osg-build</code> does this automatically. The tags do not actually contain any builds (i.e. packages with version-release). All the other <code>osg-*</code> tags inherit from these (either directly or indirectly). The purpose of this is to make promoting builds easier, since it keeps you from having to run <code>add-pkg</code> when you promote.</p>
+<h4 id="kojira-fake">kojira-fake<a class="headerlink" href="#kojira-fake" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/taginfo?tagID=10">Tag</a></p>
+<p>This tag (and targets building to it) were created because <code>kojira</code> does not automatically regenerate a repo unless it's the source of another repo. Without this, the osg-development tags (for example) wouldn't get regenerated automatically after a build.</p>
+<h3 id="main-osg-tags">Main OSG tags<a class="headerlink" href="#main-osg-tags" title="Permanent link">&para;</a></h3>
+<h4 id="osg-39112393-el9156793-build">osg-3.[123]-el[567]-build<a class="headerlink" href="#osg-39112393-el9156793-build" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-3.%3F-el%3F-build">Tag list</a></p>
+<p>These are used to initialize the buildroot of most packages we make. They inherit from their respective dist-build and osg-development tags. The EL5 and EL6 tags also contain the <code>jpackage[56]-bin</code> external repos under <a href="http://mirror.batlab.org/pub/jpackage/">http://mirror.batlab.org/pub/jpackage/</a> since we use those for some builds.</p>
+<p><strong>Note</strong> that the JPackage external repos must have a better priority than the OS and EPEL external repos to avoid build problems for Java packages.</p>
+<h4 id="osg-upcoming-el9156793-build">osg-upcoming-el[567]-build<a class="headerlink" href="#osg-upcoming-el9156793-build" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-upcoming-el%3F-build">Tag list</a></p>
+<p>These tags are special in that they also need to inherit from the latest mainline osg-build repo (that is, if trunk is 3.3, then <code>osg-upcoming-el6-build</code> should inherit from <code>osg-3.3-el6-build</code>).</p>
+<h4 id="osg-42-el9156793-development">osg-*-el[567]-development<a class="headerlink" href="#osg-42-el9156793-development" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-*-el%3F-development">Tag list</a></p>
+<p>These contain the builds in the <code>osg-minefield</code> repos. The <code>osg-development</code> repos hosted by the GOC take packages from this, so <code>osg-development</code> is pretty much <code>osg-minefield</code> after a 1-hour delay. They inherit from osg-testing (and occasionally from the more specialized branches like el5-gt52-experimental, though that is now discouraged). Builds that are made using the <code>osg-el[567]</code> targets (default if you're using <code>osg-build</code>) get their buildroots from the newest osg-build tags and put their results in the newest osg-development tags.</p>
+<h4 id="osg-42-el9156793-testing">osg-*-el[567]-testing<a class="headerlink" href="#osg-42-el9156793-testing" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-*-el%3F-testing">Tag list</a></p>
+<p>These contain the builds in the <code>osg-testing</code> repos. They inherit from the respective <code>osg-release</code> tags.</p>
+<h4 id="osg-42-el9156793-prerelease">osg-*-el[567]-prerelease<a class="headerlink" href="#osg-42-el9156793-prerelease" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-*-el%3F-prerelease">Tag list</a></p>
+<p>These are a staging are for packages that we are <em>certain</em> will be released in the next release. They are otherwise empty. These are used for testing and for building the tarball clients.</p>
+<h4 id="osg-42-el9156793-release">osg-*-el[567]-release<a class="headerlink" href="#osg-42-el9156793-release" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-*-el%3F-release">Tag list</a></p>
+<p>These contain the builds in the <code>osg-release</code> repos. They should be locked except for when moving packages from the <code>osg-prerelease</code> repos to the <code>osg-release</code> repos. They inherit from <code>osg-el[567]</code>.</p>
+<h4 id="osg-39112393-el9156793-release-build">osg-3.[123]-el[567]-release-build<a class="headerlink" href="#osg-39112393-el9156793-release-build" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-3.%3F-el%3F-release-build">Tag list</a></p>
+<p>These inherit the <code>dist-*-build</code> tags and the <code>osg-*-release</code> tags, putting a base OS along with OSG packages in a single repo, without the need for yum priorities. It is used, along with <code>osg-*-prerelease</code>, for building the tarball client. Note that there are no <code>release-build</code> repos for upcoming.</p>
+<h4 id="osg-39112393-el9156793-contrib">osg-3.[123]-el[567]-contrib<a class="headerlink" href="#osg-39112393-el9156793-contrib" title="Permanent link">&para;</a></h4>
+<p><a href="https://koji.chtc.wisc.edu/koji/search?match=glob&amp;type=tag&amp;terms=osg-*-contrib">Tag list</a></p>
+<p>These contain the builds in the <code>osg-contrib</code> repos. Note that there are no <code>osg-upcoming-contrib</code> repos.</p>
+<h3 id="specialized-tags">Specialized tags<a class="headerlink" href="#specialized-tags" title="Permanent link">&para;</a></h3>
+<p>These tags are generally made for long projects which may be in an unstable state and should not interfere with the main development of OSG packages. An example is a full-scale Globus update, where many packages have to be built, using each other as dependencies, and the whole system is not considered usable until all the updates are done. They should generally be removed after the work is done.</p>
+<h4 id="el5-pegasus-and-el5-pegasus-build">el5-pegasus and el5-pegasus-build<a class="headerlink" href="#el5-pegasus-and-el5-pegasus-build" title="Permanent link">&para;</a></h4>
+<p>These tags were made for Mats Rynge of the Pegasus project to build into.</p>
+<h4 id="el5-lcmaps-upgrade-and-el5-lcmaps-upgrade-build">el5-lcmaps-upgrade and el5-lcmaps-upgrade-build<a class="headerlink" href="#el5-lcmaps-upgrade-and-el5-lcmaps-upgrade-build" title="Permanent link">&para;</a></h4>
+<p>These tags were made for Dave Dykstra to build into.</p>
+<h4 id="el915693-condor-unified-development-and-el915693-condor-unified-development-build">el[56]-condor-unified-development and el[56]-condor-unified-development-build<a class="headerlink" href="#el915693-condor-unified-development-and-el915693-condor-unified-development-build" title="Permanent link">&para;</a></h4>
+<p>These tags were made for Carl Edquist's work on the unified HTCondor RPM.</p>
+<h3 id="collaborator-tags">Collaborator Tags<a class="headerlink" href="#collaborator-tags" title="Permanent link">&para;</a></h3>
+<h4 id="hcc-42">hcc-*<a class="headerlink" href="#hcc-42" title="Permanent link">&para;</a></h4>
+<p>For use by the Holland Computing Center at UNL.</p>
+<h4 id="uscms-42">uscms-*<a class="headerlink" href="#uscms-42" title="Permanent link">&para;</a></h4>
+<p>For use by US CMS.</p>
+<h2 id="build-targets">Build Targets<a class="headerlink" href="#build-targets" title="Permanent link">&para;</a></h2>
+<p>A koji <em>target</em> pairs a build tag (which contains packages needed to build software) and a destination tag (which the software will be tagged into once it is built).</p>
+<h3 id="osg-el9156793_1">osg-el[567]<a class="headerlink" href="#osg-el9156793_1" title="Permanent link">&para;</a></h3>
+<p>These build from the osg-*-el[567]-build tags for the current release series into the osg-*-el[567]-development tags and are the primary targets used for building OSG software.</p>
+<h3 id="osg-39112393-el9156793">osg-3.[123]-el[567]<a class="headerlink" href="#osg-39112393-el9156793" title="Permanent link">&para;</a></h3>
+<p>These build from the osg-*-el[567]-build tags into the osg-*-el[567]-development tags and are used for building to releases other than the current one.</p>
+<h3 id="osg-upcoming-el9156793">osg-upcoming-el[567]<a class="headerlink" href="#osg-upcoming-el9156793" title="Permanent link">&para;</a></h3>
+<p>These build from the osg-upcoming-el[567]-build tags into the osg-upcoming-el[567]-development tags and are used for building to upcoming.</p>
+<h3 id="dist-el9156793-build_1">dist-el[567]-build<a class="headerlink" href="#dist-el9156793-build_1" title="Permanent link">&para;</a></h3>
+<p>These build from the <code>dist-el*-build</code> tag directly into the <code>dist-el*-build</code> tag. It is used for making builds that should be in every buildroot.</p>
+<h3 id="kojira-fake-42">kojira-fake-*<a class="headerlink" href="#kojira-fake-42" title="Permanent link">&para;</a></h3>
+<p>These fool kojira into regenerating their build tags as repos we can yum install from. Without this, the osg-development tags (for example) wouldn't get regenerated and osg-minefield wouldn't work.</p>
+<h3 id="hcc-el9156793-perfsonar-el915693-uscms-el915693-panda-el6">hcc-el[567], perfsonar-el[56], uscms-el[56], panda-el6<a class="headerlink" href="#hcc-el9156793-perfsonar-el915693-uscms-el915693-panda-el6" title="Permanent link">&para;</a></h3>
+<p>These were made for builds made for our collaborators to build into their tags.</p>
+<h2 id="signing-plugin">Signing plugin<a class="headerlink" href="#signing-plugin" title="Permanent link">&para;</a></h2>
+<p>The signing plugin is used to sign packages right after they are built. We give it a GPG signing key and corresponding passphrase. It is configured per build tag. The current default is to use the OSG key to sign if a configuration is not specified. This is because it's very difficult to sign packages after the fact, so it's better to erroneously sign some of them with the wrong key than to not sign them.</p>
+<p>It is therefore important that whenever a new build tag is created, a corresponding config section for the signing plugin is added, too.</p>
+<p>This comes from the package <code>koji-plugin-sign</code> and has configs in <code>/etc/koji-sign-plugin</code> and <code>/etc/koji-hub/plugins</code>. There is a script called <code>fix-permissions</code> in both directories that will make sure the plugin can read the config.</p>
+<h2 id="tweaks">Tweaks<a class="headerlink" href="#tweaks" title="Permanent link">&para;</a></h2>
+<p>These are local config changes we needed to make to get certain features to work.</p>
+<h3 id="using-proxy-certs">Using proxy certs<a class="headerlink" href="#using-proxy-certs" title="Permanent link">&para;</a></h3>
+<p><code>/etc/sysconfig/httpd</code> needed to be changed to include the following lines:</p>
+<div class="codehilite"><pre><span></span>OPENSSL_ALLOW_PROXY=1
+OPENSSL_ALLOW_PROXY_CERTS=1
+
+export OPENSSL_ALLOW_PROXY
+export OPENSSL_ALLOW_PROXY_CERTS
+</pre></div>
+
+
+<p>The user must use RFC proxies and must have a version of the koji client of 1.6.0-6.osg or newer.</p>
+<h2 id="procedures">Procedures<a class="headerlink" href="#procedures" title="Permanent link">&para;</a></h2>
+<h3 id="user-cert-switch">User cert switch<a class="headerlink" href="#user-cert-switch" title="Permanent link">&para;</a></h3>
+<p>The following steps need to be taken for someone replacing their user cert:</p>
+<ul>
+<li>An admin should log in to the database and update the <code>users</code> table with their new CN.</li>
+<li>The user should import their new cert into their browser and rerun <code>osg-koji setup</code> to fix their <code>client.crt</code>.</li>
+<li>If the user gets a Python stack trace when connecting to <code>koji.chtc.wisc.edu</code> via their browser, they should clear their cookies.</li>
+</ul>
+<h3 id="adding-cas-for-user-authentication">Adding CAs for user authentication<a class="headerlink" href="#adding-cas-for-user-authentication" title="Permanent link">&para;</a></h3>
+<p>Since our Koji instance uses certs for auth, we specify which CAs we trust for signing user certs. The CA certs for user auth are concatenated together in the file <code>/etc/pki/tls/certs/allowed-cas-for-users.crt</code>. A comment line before the <code>BEGIN CERTIFICATE</code> line is used to name the file the cert comes from. We take the certs from the <code>osg-ca-certs</code> repository.</p>
+<p>For example, when I added the CERN CAs to the bundle, I installed osg-ca-certs onto a Fermicloud VM, copied <code>/etc/grid-security/certificates/CERN-TCA.pem</code> (which signed user certs) and <code>CERN-Root.pem</code> (which signed <code>CERN-TCA.pem</code>) to <code>koji.chtc.wisc.edu</code>, catted them to the end of the <code>allowed-cas-for-users.crt</code> file, edited the file to add comments before the certs, and restarted <code>httpd</code>.</p>
+<p>A few tidbits of knowledge for administrators of our Koji server:</p>
+<ul>
+<li>Three services need to be running for koji-hub to be functioning: kojira, kojid, and the Apache web server. To restart these:<ul>
+<li>service kojid restart</li>
+<li>service kojira restart</li>
+<li>service httpd restart</li>
+</ul>
+</li>
+<li>Logfiles can be found here:<ul>
+<li>/var/log/kojid.log</li>
+<li>/var/log/kojira.log</li>
+<li>/var/log/messages</li>
+</ul>
+</li>
+<li>kojid is configured to stop starting new tasks if it has less than 8GB free.</li>
+<li>Failed build roots are kept for 4 hours, and each build root is about 1GB currently. Hence, if too many tasks fail, the kojid might stop accepting new tasks for 4 hours.<ul>
+<li>Manually clean these out.</li>
+</ul>
+</li>
+</ul>
+<h3 id="koji-permissions">Koji Permissions<a class="headerlink" href="#koji-permissions" title="Permanent link">&para;</a></h3>
+<p>To add a new user to Koji for someone with a given DN, first extract the CN. For example, Alain has the DN <code>/DC=org/DC=doegrids/OU=People/CN=Alain Roy 424511</code>, and the CN is just <code>Alain Roy 424511</code>. The commands below use just the CN.</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@client ~]$</span> osg-koji add-user <span class="s2">&quot;&lt;CN&gt;&quot;</span>
+<span class="gp">[you@client ~]$</span> osg-koji grant-permission build <span class="s2">&quot;&lt;CN&gt;&quot;</span>
+<span class="gp">[you@client ~]$</span> osg-koji grant-permission repo <span class="s2">&quot;&lt;CN&gt;&quot;</span>
+</pre></div>
+
+
+<p>If you want to see the set of possible permissions:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@client ~]$</span> koji list-permissions 
+<span class="go">Enter PEM pass phrase: </span>
+<span class="go">admin</span>
+<span class="go">build</span>
+<span class="go">repo</span>
+<span class="go">livecd</span>
+<span class="go">maven-import</span>
+<span class="go">win-import</span>
+<span class="go">win-admin</span>
+<span class="go">appliance</span>
+</pre></div>
+
+
+<p>If you want to see someone's permissions:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@client ~]$</span> koji list-permissions --user <span class="s2">&quot;Alain Roy 424511&quot;</span>
+<span class="go">Enter PEM pass phrase: </span>
+<span class="go">admin</span>
+</pre></div>
+
+
+<p>If you want to see your own permissions:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@client ~]$</span> koji list-permissions --mine
+<span class="go">Enter PEM pass phrase: </span>
+<span class="go">admin</span>
+</pre></div>
+
+
+<p>To see the list of users, go to the <a href="https://koji.chtc.wisc.edu/koji/users">Koji web site</a>.</p>
+<h3 id="renewing-host-and-service-certs">Renewing host and service certs<a class="headerlink" href="#renewing-host-and-service-certs" title="Permanent link">&para;</a></h3>
+<p>Certs and keys are stored in <code>/p/condor/home/certificates/...</code></p>
+<p>To obtain renewed certificates, use <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGPKICommandlineClients">the OSG PKI commandline clients</a> or the web interface at <a href="https://oim.grid.iu.edu/oim/certificaterequesthost">https://oim.grid.iu.edu/oim/certificaterequesthost</a>.</p>
+<p>The following cert files are necessary:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hostcert.pem</code></td>
+<td>koji.chtc host cert (<code>CN=koji.chtc.wisc.edu</code>)</td>
+</tr>
+<tr>
+<td><code>hostkey.pem</code></td>
+<td>koji.chtc host key</td>
+</tr>
+<tr>
+<td><code>kojiracert.pem</code></td>
+<td>koji.chtc/kojira service cert (<code>CN=koji.chtc.wisc.edu/kojira</code>)</td>
+</tr>
+<tr>
+<td><code>kojirakey.pem</code></td>
+<td>koji.chtc/kojira service key</td>
+</tr>
+<tr>
+<td><code>kojiweb.pem</code></td>
+<td>Concatenation of <code>hostcert.pem</code> and <code>hostkey.pem</code></td>
+</tr>
+<tr>
+<td><code>kojira.pem</code></td>
+<td>Concatenation of <code>kojiracert.pem</code> and <code>kojirakey.pem</code></td>
+</tr>
+</tbody>
+</table>
+<p>To create <code>kojiweb.pem</code> and <code>kojira.pem</code> from their respective cert/key files, do:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@koji ~]#</span> <span class="o">(</span>dos2unix &lt; hostcert.pem<span class="p">;</span> echo<span class="p">;</span> dos2unix &lt; hostkey.pem<span class="o">)</span> &gt; kojiweb.pem
+<span class="gp">[root@koji ~]#</span> chmod <span class="m">0600</span> kojiweb.pem
+<span class="gp">[root@koji ~]#</span> <span class="o">(</span>dos2unix &lt; kojiracert.pem<span class="p">;</span> echo<span class="p">;</span> dos2unix &lt; kojirakey.pem<span class="o">)</span> &gt; kojira.pem
+<span class="gp">[root@koji ~]#</span> chmod <span class="m">0600</span> kojira.pem
+</pre></div>
+
+
+<p>As <code>root</code> in <code>/etc</code> on <code>koji.chtc.wisc.edu</code>:</p>
+<ol>
+<li>Run <code>git status</code>.</li>
+<li>Run <code>etckeeper commit</code> to commit any uncommited changes (including unversioned files).</li>
+</ol>
+<p>Put the files onto <code>koji.chtc.wisc.edu</code> as follows:</p>
+<table>
+<thead>
+<tr>
+<th align="left">File</th>
+<th align="left">Location</th>
+<th align="left">chown</th>
+<th align="left">chmod</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>hostcert.pem</code></td>
+<td align="left"><code>/etc/pki/tls/certs/hostcert.pem</code></td>
+<td align="left"><code>root:root</code></td>
+<td align="left"><code>0644</code></td>
+</tr>
+<tr>
+<td align="left"><code>hostkey.pem</code></td>
+<td align="left"><code>/etc/pki/tls/private/hostkey.pem</code></td>
+<td align="left"><code>root:root</code></td>
+<td align="left"><code>0600</code></td>
+</tr>
+<tr>
+<td align="left"><code>kojiweb.pem</code></td>
+<td align="left"><code>/etc/pki/tls/private/kojiweb.pem</code></td>
+<td align="left"><code>apache:apache</code></td>
+<td align="left"><code>0600</code></td>
+</tr>
+<tr>
+<td align="left"><code>kojira.pem</code></td>
+<td align="left"><code>/etc/pki/tls/private/kojira.pem</code></td>
+<td align="left"><code>root:root</code></td>
+<td align="left"><code>0600</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Shut down <code>kojira</code> and <code>kojid</code>.</li>
+<li>Restart <code>httpd</code>.</li>
+<li>Log in via your own cert to the web interface to verify that it is working.</li>
+<li>Run <code>osg-koji list-permissions --mine</code> to verify command-line access is working.</li>
+<li>Run <code>etckeeper commit</code> to commit your changes in <code>/etc</code>.</li>
+<li>Start up <code>kojira</code> and <code>kojid</code>.</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../projects/sha2-support/" class="btn btn-neutral float-right" title="SHA-2 Support">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../policy/globus-toolkit/" class="btn btn-neutral" title="Globus Toolkit Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../policy/globus-toolkit/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../projects/sha2-support/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

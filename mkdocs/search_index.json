@@ -456,6 +456,196 @@
             "title": "OSG Support of the Globus Toolkit"
         }, 
         {
+            "location": "/infrastructure/koji-hub-setup/", 
+            "text": "Notes on Koji-Hub Setup\n\n\nCurrent Koji documentation\n may be of use.\n\n\nTags\n\n\nBase tags\n\n\ndist-el[567]-build\n\n\nTag list\n\n\nThese tags contains 3 external repos each, hosted locally under \nhttp://mirror.batlab.org/pub/linux\n:\n\n\n\n\ndist-el[567]-epel\n: A mirror of the EPEL 5/6/7 repositories\n\n\ndist-el[567]-centos*\n: A mirror of the base CentOS repositories\n\n\ndist-el[567]-centos-updates\n: A mirror of the CentOS Updates repositories\n\n\n\n\nWe don't put any packages in them (except for ones required for building, like \nbuildsys-macros\n and \nfetch-sources\n), and generally don't build from them directly, but use tag inheritance.\n\n\nosg-el[567]\n\n\nTag list\n\n\nThese tags contains all the \npackage names\n that we put into OSG; \nkoji add-pkg\n adds to them. \nosg-build\n does this automatically. The tags do not actually contain any builds (i.e. packages with version-release). All the other \nosg-*\n tags inherit from these (either directly or indirectly). The purpose of this is to make promoting builds easier, since it keeps you from having to run \nadd-pkg\n when you promote.\n\n\nkojira-fake\n\n\nTag\n\n\nThis tag (and targets building to it) were created because \nkojira\n does not automatically regenerate a repo unless it's the source of another repo. Without this, the osg-development tags (for example) wouldn't get regenerated automatically after a build.\n\n\nMain OSG tags\n\n\nosg-3.[123]-el[567]-build\n\n\nTag list\n\n\nThese are used to initialize the buildroot of most packages we make. They inherit from their respective dist-build and osg-development tags. The EL5 and EL6 tags also contain the \njpackage[56]-bin\n external repos under \nhttp://mirror.batlab.org/pub/jpackage/\n since we use those for some builds.\n\n\nNote\n that the JPackage external repos must have a better priority than the OS and EPEL external repos to avoid build problems for Java packages.\n\n\nosg-upcoming-el[567]-build\n\n\nTag list\n\n\nThese tags are special in that they also need to inherit from the latest mainline osg-build repo (that is, if trunk is 3.3, then \nosg-upcoming-el6-build\n should inherit from \nosg-3.3-el6-build\n).\n\n\nosg-*-el[567]-development\n\n\nTag list\n\n\nThese contain the builds in the \nosg-minefield\n repos. The \nosg-development\n repos hosted by the GOC take packages from this, so \nosg-development\n is pretty much \nosg-minefield\n after a 1-hour delay. They inherit from osg-testing (and occasionally from the more specialized branches like el5-gt52-experimental, though that is now discouraged). Builds that are made using the \nosg-el[567]\n targets (default if you're using \nosg-build\n) get their buildroots from the newest osg-build tags and put their results in the newest osg-development tags.\n\n\nosg-*-el[567]-testing\n\n\nTag list\n\n\nThese contain the builds in the \nosg-testing\n repos. They inherit from the respective \nosg-release\n tags.\n\n\nosg-*-el[567]-prerelease\n\n\nTag list\n\n\nThese are a staging are for packages that we are \ncertain\n will be released in the next release. They are otherwise empty. These are used for testing and for building the tarball clients.\n\n\nosg-*-el[567]-release\n\n\nTag list\n\n\nThese contain the builds in the \nosg-release\n repos. They should be locked except for when moving packages from the \nosg-prerelease\n repos to the \nosg-release\n repos. They inherit from \nosg-el[567]\n.\n\n\nosg-3.[123]-el[567]-release-build\n\n\nTag list\n\n\nThese inherit the \ndist-*-build\n tags and the \nosg-*-release\n tags, putting a base OS along with OSG packages in a single repo, without the need for yum priorities. It is used, along with \nosg-*-prerelease\n, for building the tarball client. Note that there are no \nrelease-build\n repos for upcoming.\n\n\nosg-3.[123]-el[567]-contrib\n\n\nTag list\n\n\nThese contain the builds in the \nosg-contrib\n repos. Note that there are no \nosg-upcoming-contrib\n repos.\n\n\nSpecialized tags\n\n\nThese tags are generally made for long projects which may be in an unstable state and should not interfere with the main development of OSG packages. An example is a full-scale Globus update, where many packages have to be built, using each other as dependencies, and the whole system is not considered usable until all the updates are done. They should generally be removed after the work is done.\n\n\nel5-pegasus and el5-pegasus-build\n\n\nThese tags were made for Mats Rynge of the Pegasus project to build into.\n\n\nel5-lcmaps-upgrade and el5-lcmaps-upgrade-build\n\n\nThese tags were made for Dave Dykstra to build into.\n\n\nel[56]-condor-unified-development and el[56]-condor-unified-development-build\n\n\nThese tags were made for Carl Edquist's work on the unified HTCondor RPM.\n\n\nCollaborator Tags\n\n\nhcc-*\n\n\nFor use by the Holland Computing Center at UNL.\n\n\nuscms-*\n\n\nFor use by US CMS.\n\n\nBuild Targets\n\n\nA koji \ntarget\n pairs a build tag (which contains packages needed to build software) and a destination tag (which the software will be tagged into once it is built).\n\n\nosg-el[567]\n\n\nThese build from the osg-*-el[567]-build tags for the current release series into the osg-*-el[567]-development tags and are the primary targets used for building OSG software.\n\n\nosg-3.[123]-el[567]\n\n\nThese build from the osg-*-el[567]-build tags into the osg-*-el[567]-development tags and are used for building to releases other than the current one.\n\n\nosg-upcoming-el[567]\n\n\nThese build from the osg-upcoming-el[567]-build tags into the osg-upcoming-el[567]-development tags and are used for building to upcoming.\n\n\ndist-el[567]-build\n\n\nThese build from the \ndist-el*-build\n tag directly into the \ndist-el*-build\n tag. It is used for making builds that should be in every buildroot.\n\n\nkojira-fake-*\n\n\nThese fool kojira into regenerating their build tags as repos we can yum install from. Without this, the osg-development tags (for example) wouldn't get regenerated and osg-minefield wouldn't work.\n\n\nhcc-el[567], perfsonar-el[56], uscms-el[56], panda-el6\n\n\nThese were made for builds made for our collaborators to build into their tags.\n\n\nSigning plugin\n\n\nThe signing plugin is used to sign packages right after they are built. We give it a GPG signing key and corresponding passphrase. It is configured per build tag. The current default is to use the OSG key to sign if a configuration is not specified. This is because it's very difficult to sign packages after the fact, so it's better to erroneously sign some of them with the wrong key than to not sign them.\n\n\nIt is therefore important that whenever a new build tag is created, a corresponding config section for the signing plugin is added, too.\n\n\nThis comes from the package \nkoji-plugin-sign\n and has configs in \n/etc/koji-sign-plugin\n and \n/etc/koji-hub/plugins\n. There is a script called \nfix-permissions\n in both directories that will make sure the plugin can read the config.\n\n\nTweaks\n\n\nThese are local config changes we needed to make to get certain features to work.\n\n\nUsing proxy certs\n\n\n/etc/sysconfig/httpd\n needed to be changed to include the following lines:\n\n\nOPENSSL_ALLOW_PROXY=1\nOPENSSL_ALLOW_PROXY_CERTS=1\n\nexport OPENSSL_ALLOW_PROXY\nexport OPENSSL_ALLOW_PROXY_CERTS\n\n\n\n\n\nThe user must use RFC proxies and must have a version of the koji client of 1.6.0-6.osg or newer.\n\n\nProcedures\n\n\nUser cert switch\n\n\nThe following steps need to be taken for someone replacing their user cert:\n\n\n\n\nAn admin should log in to the database and update the \nusers\n table with their new CN.\n\n\nThe user should import their new cert into their browser and rerun \nosg-koji setup\n to fix their \nclient.crt\n.\n\n\nIf the user gets a Python stack trace when connecting to \nkoji.chtc.wisc.edu\n via their browser, they should clear their cookies.\n\n\n\n\nAdding CAs for user authentication\n\n\nSince our Koji instance uses certs for auth, we specify which CAs we trust for signing user certs. The CA certs for user auth are concatenated together in the file \n/etc/pki/tls/certs/allowed-cas-for-users.crt\n. A comment line before the \nBEGIN CERTIFICATE\n line is used to name the file the cert comes from. We take the certs from the \nosg-ca-certs\n repository.\n\n\nFor example, when I added the CERN CAs to the bundle, I installed osg-ca-certs onto a Fermicloud VM, copied \n/etc/grid-security/certificates/CERN-TCA.pem\n (which signed user certs) and \nCERN-Root.pem\n (which signed \nCERN-TCA.pem\n) to \nkoji.chtc.wisc.edu\n, catted them to the end of the \nallowed-cas-for-users.crt\n file, edited the file to add comments before the certs, and restarted \nhttpd\n.\n\n\nA few tidbits of knowledge for administrators of our Koji server:\n\n\n\n\nThree services need to be running for koji-hub to be functioning: kojira, kojid, and the Apache web server. To restart these:\n\n\nservice kojid restart\n\n\nservice kojira restart\n\n\nservice httpd restart\n\n\n\n\n\n\nLogfiles can be found here:\n\n\n/var/log/kojid.log\n\n\n/var/log/kojira.log\n\n\n/var/log/messages\n\n\n\n\n\n\nkojid is configured to stop starting new tasks if it has less than 8GB free.\n\n\nFailed build roots are kept for 4 hours, and each build root is about 1GB currently. Hence, if too many tasks fail, the kojid might stop accepting new tasks for 4 hours.\n\n\nManually clean these out.\n\n\n\n\n\n\n\n\nKoji Permissions\n\n\nTo add a new user to Koji for someone with a given DN, first extract the CN. For example, Alain has the DN \n/DC=org/DC=doegrids/OU=People/CN=Alain Roy 424511\n, and the CN is just \nAlain Roy 424511\n. The commands below use just the CN.\n\n\n[you@client ~]$\n osg-koji add-user \nCN\n\n\n[you@client ~]$\n osg-koji grant-permission build \nCN\n\n\n[you@client ~]$\n osg-koji grant-permission repo \nCN\n\n\n\n\n\n\nIf you want to see the set of possible permissions:\n\n\n[you@client ~]$\n koji list-permissions \n\nEnter PEM pass phrase: \n\n\nadmin\n\n\nbuild\n\n\nrepo\n\n\nlivecd\n\n\nmaven-import\n\n\nwin-import\n\n\nwin-admin\n\n\nappliance\n\n\n\n\n\n\nIf you want to see someone's permissions:\n\n\n[you@client ~]$\n koji list-permissions --user \nAlain Roy 424511\n\n\nEnter PEM pass phrase: \n\n\nadmin\n\n\n\n\n\n\nIf you want to see your own permissions:\n\n\n[you@client ~]$\n koji list-permissions --mine\n\nEnter PEM pass phrase: \n\n\nadmin\n\n\n\n\n\n\nTo see the list of users, go to the \nKoji web site\n.\n\n\nRenewing host and service certs\n\n\nCerts and keys are stored in \n/p/condor/home/certificates/...\n\n\nTo obtain renewed certificates, use \nthe OSG PKI commandline clients\n or the web interface at \nhttps://oim.grid.iu.edu/oim/certificaterequesthost\n.\n\n\nThe following cert files are necessary:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhostcert.pem\n\n\nkoji.chtc host cert (\nCN=koji.chtc.wisc.edu\n)\n\n\n\n\n\n\nhostkey.pem\n\n\nkoji.chtc host key\n\n\n\n\n\n\nkojiracert.pem\n\n\nkoji.chtc/kojira service cert (\nCN=koji.chtc.wisc.edu/kojira\n)\n\n\n\n\n\n\nkojirakey.pem\n\n\nkoji.chtc/kojira service key\n\n\n\n\n\n\nkojiweb.pem\n\n\nConcatenation of \nhostcert.pem\n and \nhostkey.pem\n\n\n\n\n\n\nkojira.pem\n\n\nConcatenation of \nkojiracert.pem\n and \nkojirakey.pem\n\n\n\n\n\n\n\n\nTo create \nkojiweb.pem\n and \nkojira.pem\n from their respective cert/key files, do:\n\n\n[root@koji ~]#\n \n(\ndos2unix \n hostcert.pem\n;\n echo\n;\n dos2unix \n hostkey.pem\n)\n \n kojiweb.pem\n\n[root@koji ~]#\n chmod \n0600\n kojiweb.pem\n\n[root@koji ~]#\n \n(\ndos2unix \n kojiracert.pem\n;\n echo\n;\n dos2unix \n kojirakey.pem\n)\n \n kojira.pem\n\n[root@koji ~]#\n chmod \n0600\n kojira.pem\n\n\n\n\n\nAs \nroot\n in \n/etc\n on \nkoji.chtc.wisc.edu\n:\n\n\n\n\nRun \ngit status\n.\n\n\nRun \netckeeper commit\n to commit any uncommited changes (including unversioned files).\n\n\n\n\nPut the files onto \nkoji.chtc.wisc.edu\n as follows:\n\n\n\n\n\n\n\n\nFile\n\n\nLocation\n\n\nchown\n\n\nchmod\n\n\n\n\n\n\n\n\n\n\nhostcert.pem\n\n\n/etc/pki/tls/certs/hostcert.pem\n\n\nroot:root\n\n\n0644\n\n\n\n\n\n\nhostkey.pem\n\n\n/etc/pki/tls/private/hostkey.pem\n\n\nroot:root\n\n\n0600\n\n\n\n\n\n\nkojiweb.pem\n\n\n/etc/pki/tls/private/kojiweb.pem\n\n\napache:apache\n\n\n0600\n\n\n\n\n\n\nkojira.pem\n\n\n/etc/pki/tls/private/kojira.pem\n\n\nroot:root\n\n\n0600\n\n\n\n\n\n\n\n\n\n\nShut down \nkojira\n and \nkojid\n.\n\n\nRestart \nhttpd\n.\n\n\nLog in via your own cert to the web interface to verify that it is working.\n\n\nRun \nosg-koji list-permissions --mine\n to verify command-line access is working.\n\n\nRun \netckeeper commit\n to commit your changes in \n/etc\n.\n\n\nStart up \nkojira\n and \nkojid\n.", 
+            "title": "Koji-Hub Setup"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#notes-on-koji-hub-setup", 
+            "text": "Current Koji documentation  may be of use.", 
+            "title": "Notes on Koji-Hub Setup"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#tags", 
+            "text": "", 
+            "title": "Tags"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#base-tags", 
+            "text": "", 
+            "title": "Base tags"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#dist-el9156793-build", 
+            "text": "Tag list  These tags contains 3 external repos each, hosted locally under  http://mirror.batlab.org/pub/linux :   dist-el[567]-epel : A mirror of the EPEL 5/6/7 repositories  dist-el[567]-centos* : A mirror of the base CentOS repositories  dist-el[567]-centos-updates : A mirror of the CentOS Updates repositories   We don't put any packages in them (except for ones required for building, like  buildsys-macros  and  fetch-sources ), and generally don't build from them directly, but use tag inheritance.", 
+            "title": "dist-el[567]-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-el9156793", 
+            "text": "Tag list  These tags contains all the  package names  that we put into OSG;  koji add-pkg  adds to them.  osg-build  does this automatically. The tags do not actually contain any builds (i.e. packages with version-release). All the other  osg-*  tags inherit from these (either directly or indirectly). The purpose of this is to make promoting builds easier, since it keeps you from having to run  add-pkg  when you promote.", 
+            "title": "osg-el[567]"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#kojira-fake", 
+            "text": "Tag  This tag (and targets building to it) were created because  kojira  does not automatically regenerate a repo unless it's the source of another repo. Without this, the osg-development tags (for example) wouldn't get regenerated automatically after a build.", 
+            "title": "kojira-fake"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#main-osg-tags", 
+            "text": "", 
+            "title": "Main OSG tags"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-39112393-el9156793-build", 
+            "text": "Tag list  These are used to initialize the buildroot of most packages we make. They inherit from their respective dist-build and osg-development tags. The EL5 and EL6 tags also contain the  jpackage[56]-bin  external repos under  http://mirror.batlab.org/pub/jpackage/  since we use those for some builds.  Note  that the JPackage external repos must have a better priority than the OS and EPEL external repos to avoid build problems for Java packages.", 
+            "title": "osg-3.[123]-el[567]-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-upcoming-el9156793-build", 
+            "text": "Tag list  These tags are special in that they also need to inherit from the latest mainline osg-build repo (that is, if trunk is 3.3, then  osg-upcoming-el6-build  should inherit from  osg-3.3-el6-build ).", 
+            "title": "osg-upcoming-el[567]-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-42-el9156793-development", 
+            "text": "Tag list  These contain the builds in the  osg-minefield  repos. The  osg-development  repos hosted by the GOC take packages from this, so  osg-development  is pretty much  osg-minefield  after a 1-hour delay. They inherit from osg-testing (and occasionally from the more specialized branches like el5-gt52-experimental, though that is now discouraged). Builds that are made using the  osg-el[567]  targets (default if you're using  osg-build ) get their buildroots from the newest osg-build tags and put their results in the newest osg-development tags.", 
+            "title": "osg-*-el[567]-development"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-42-el9156793-testing", 
+            "text": "Tag list  These contain the builds in the  osg-testing  repos. They inherit from the respective  osg-release  tags.", 
+            "title": "osg-*-el[567]-testing"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-42-el9156793-prerelease", 
+            "text": "Tag list  These are a staging are for packages that we are  certain  will be released in the next release. They are otherwise empty. These are used for testing and for building the tarball clients.", 
+            "title": "osg-*-el[567]-prerelease"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-42-el9156793-release", 
+            "text": "Tag list  These contain the builds in the  osg-release  repos. They should be locked except for when moving packages from the  osg-prerelease  repos to the  osg-release  repos. They inherit from  osg-el[567] .", 
+            "title": "osg-*-el[567]-release"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-39112393-el9156793-release-build", 
+            "text": "Tag list  These inherit the  dist-*-build  tags and the  osg-*-release  tags, putting a base OS along with OSG packages in a single repo, without the need for yum priorities. It is used, along with  osg-*-prerelease , for building the tarball client. Note that there are no  release-build  repos for upcoming.", 
+            "title": "osg-3.[123]-el[567]-release-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-39112393-el9156793-contrib", 
+            "text": "Tag list  These contain the builds in the  osg-contrib  repos. Note that there are no  osg-upcoming-contrib  repos.", 
+            "title": "osg-3.[123]-el[567]-contrib"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#specialized-tags", 
+            "text": "These tags are generally made for long projects which may be in an unstable state and should not interfere with the main development of OSG packages. An example is a full-scale Globus update, where many packages have to be built, using each other as dependencies, and the whole system is not considered usable until all the updates are done. They should generally be removed after the work is done.", 
+            "title": "Specialized tags"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#el5-pegasus-and-el5-pegasus-build", 
+            "text": "These tags were made for Mats Rynge of the Pegasus project to build into.", 
+            "title": "el5-pegasus and el5-pegasus-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#el5-lcmaps-upgrade-and-el5-lcmaps-upgrade-build", 
+            "text": "These tags were made for Dave Dykstra to build into.", 
+            "title": "el5-lcmaps-upgrade and el5-lcmaps-upgrade-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#el915693-condor-unified-development-and-el915693-condor-unified-development-build", 
+            "text": "These tags were made for Carl Edquist's work on the unified HTCondor RPM.", 
+            "title": "el[56]-condor-unified-development and el[56]-condor-unified-development-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#collaborator-tags", 
+            "text": "", 
+            "title": "Collaborator Tags"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#hcc-42", 
+            "text": "For use by the Holland Computing Center at UNL.", 
+            "title": "hcc-*"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#uscms-42", 
+            "text": "For use by US CMS.", 
+            "title": "uscms-*"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#build-targets", 
+            "text": "A koji  target  pairs a build tag (which contains packages needed to build software) and a destination tag (which the software will be tagged into once it is built).", 
+            "title": "Build Targets"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-el9156793_1", 
+            "text": "These build from the osg-*-el[567]-build tags for the current release series into the osg-*-el[567]-development tags and are the primary targets used for building OSG software.", 
+            "title": "osg-el[567]"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-39112393-el9156793", 
+            "text": "These build from the osg-*-el[567]-build tags into the osg-*-el[567]-development tags and are used for building to releases other than the current one.", 
+            "title": "osg-3.[123]-el[567]"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#osg-upcoming-el9156793", 
+            "text": "These build from the osg-upcoming-el[567]-build tags into the osg-upcoming-el[567]-development tags and are used for building to upcoming.", 
+            "title": "osg-upcoming-el[567]"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#dist-el9156793-build_1", 
+            "text": "These build from the  dist-el*-build  tag directly into the  dist-el*-build  tag. It is used for making builds that should be in every buildroot.", 
+            "title": "dist-el[567]-build"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#kojira-fake-42", 
+            "text": "These fool kojira into regenerating their build tags as repos we can yum install from. Without this, the osg-development tags (for example) wouldn't get regenerated and osg-minefield wouldn't work.", 
+            "title": "kojira-fake-*"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#hcc-el9156793-perfsonar-el915693-uscms-el915693-panda-el6", 
+            "text": "These were made for builds made for our collaborators to build into their tags.", 
+            "title": "hcc-el[567], perfsonar-el[56], uscms-el[56], panda-el6"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#signing-plugin", 
+            "text": "The signing plugin is used to sign packages right after they are built. We give it a GPG signing key and corresponding passphrase. It is configured per build tag. The current default is to use the OSG key to sign if a configuration is not specified. This is because it's very difficult to sign packages after the fact, so it's better to erroneously sign some of them with the wrong key than to not sign them.  It is therefore important that whenever a new build tag is created, a corresponding config section for the signing plugin is added, too.  This comes from the package  koji-plugin-sign  and has configs in  /etc/koji-sign-plugin  and  /etc/koji-hub/plugins . There is a script called  fix-permissions  in both directories that will make sure the plugin can read the config.", 
+            "title": "Signing plugin"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#tweaks", 
+            "text": "These are local config changes we needed to make to get certain features to work.", 
+            "title": "Tweaks"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#using-proxy-certs", 
+            "text": "/etc/sysconfig/httpd  needed to be changed to include the following lines:  OPENSSL_ALLOW_PROXY=1\nOPENSSL_ALLOW_PROXY_CERTS=1\n\nexport OPENSSL_ALLOW_PROXY\nexport OPENSSL_ALLOW_PROXY_CERTS  The user must use RFC proxies and must have a version of the koji client of 1.6.0-6.osg or newer.", 
+            "title": "Using proxy certs"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#procedures", 
+            "text": "", 
+            "title": "Procedures"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#user-cert-switch", 
+            "text": "The following steps need to be taken for someone replacing their user cert:   An admin should log in to the database and update the  users  table with their new CN.  The user should import their new cert into their browser and rerun  osg-koji setup  to fix their  client.crt .  If the user gets a Python stack trace when connecting to  koji.chtc.wisc.edu  via their browser, they should clear their cookies.", 
+            "title": "User cert switch"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#adding-cas-for-user-authentication", 
+            "text": "Since our Koji instance uses certs for auth, we specify which CAs we trust for signing user certs. The CA certs for user auth are concatenated together in the file  /etc/pki/tls/certs/allowed-cas-for-users.crt . A comment line before the  BEGIN CERTIFICATE  line is used to name the file the cert comes from. We take the certs from the  osg-ca-certs  repository.  For example, when I added the CERN CAs to the bundle, I installed osg-ca-certs onto a Fermicloud VM, copied  /etc/grid-security/certificates/CERN-TCA.pem  (which signed user certs) and  CERN-Root.pem  (which signed  CERN-TCA.pem ) to  koji.chtc.wisc.edu , catted them to the end of the  allowed-cas-for-users.crt  file, edited the file to add comments before the certs, and restarted  httpd .  A few tidbits of knowledge for administrators of our Koji server:   Three services need to be running for koji-hub to be functioning: kojira, kojid, and the Apache web server. To restart these:  service kojid restart  service kojira restart  service httpd restart    Logfiles can be found here:  /var/log/kojid.log  /var/log/kojira.log  /var/log/messages    kojid is configured to stop starting new tasks if it has less than 8GB free.  Failed build roots are kept for 4 hours, and each build root is about 1GB currently. Hence, if too many tasks fail, the kojid might stop accepting new tasks for 4 hours.  Manually clean these out.", 
+            "title": "Adding CAs for user authentication"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#koji-permissions", 
+            "text": "To add a new user to Koji for someone with a given DN, first extract the CN. For example, Alain has the DN  /DC=org/DC=doegrids/OU=People/CN=Alain Roy 424511 , and the CN is just  Alain Roy 424511 . The commands below use just the CN.  [you@client ~]$  osg-koji add-user  CN  [you@client ~]$  osg-koji grant-permission build  CN  [you@client ~]$  osg-koji grant-permission repo  CN   If you want to see the set of possible permissions:  [you@client ~]$  koji list-permissions  Enter PEM pass phrase:   admin  build  repo  livecd  maven-import  win-import  win-admin  appliance   If you want to see someone's permissions:  [you@client ~]$  koji list-permissions --user  Alain Roy 424511  Enter PEM pass phrase:   admin   If you want to see your own permissions:  [you@client ~]$  koji list-permissions --mine Enter PEM pass phrase:   admin   To see the list of users, go to the  Koji web site .", 
+            "title": "Koji Permissions"
+        }, 
+        {
+            "location": "/infrastructure/koji-hub-setup/#renewing-host-and-service-certs", 
+            "text": "Certs and keys are stored in  /p/condor/home/certificates/...  To obtain renewed certificates, use  the OSG PKI commandline clients  or the web interface at  https://oim.grid.iu.edu/oim/certificaterequesthost .  The following cert files are necessary:           hostcert.pem  koji.chtc host cert ( CN=koji.chtc.wisc.edu )    hostkey.pem  koji.chtc host key    kojiracert.pem  koji.chtc/kojira service cert ( CN=koji.chtc.wisc.edu/kojira )    kojirakey.pem  koji.chtc/kojira service key    kojiweb.pem  Concatenation of  hostcert.pem  and  hostkey.pem    kojira.pem  Concatenation of  kojiracert.pem  and  kojirakey.pem     To create  kojiweb.pem  and  kojira.pem  from their respective cert/key files, do:  [root@koji ~]#   ( dos2unix   hostcert.pem ;  echo ;  dos2unix   hostkey.pem )    kojiweb.pem [root@koji ~]#  chmod  0600  kojiweb.pem [root@koji ~]#   ( dos2unix   kojiracert.pem ;  echo ;  dos2unix   kojirakey.pem )    kojira.pem [root@koji ~]#  chmod  0600  kojira.pem  As  root  in  /etc  on  koji.chtc.wisc.edu :   Run  git status .  Run  etckeeper commit  to commit any uncommited changes (including unversioned files).   Put the files onto  koji.chtc.wisc.edu  as follows:     File  Location  chown  chmod      hostcert.pem  /etc/pki/tls/certs/hostcert.pem  root:root  0644    hostkey.pem  /etc/pki/tls/private/hostkey.pem  root:root  0600    kojiweb.pem  /etc/pki/tls/private/kojiweb.pem  apache:apache  0600    kojira.pem  /etc/pki/tls/private/kojira.pem  root:root  0600      Shut down  kojira  and  kojid .  Restart  httpd .  Log in via your own cert to the web interface to verify that it is working.  Run  osg-koji list-permissions --mine  to verify command-line access is working.  Run  etckeeper commit  to commit your changes in  /etc .  Start up  kojira  and  kojid .", 
+            "title": "Renewing host and service certs"
+        }, 
+        {
             "location": "/projects/sha2-support/", 
             "text": "SHA-2 Compliance\n\n\nWhen a certificate authority signs a certificate, it uses one of several possible hash algorithms. \nHistorically, the most popular algorithms were MD5 (now retired due to security issues) and the SHA-1 family.\nSHA-1 certificates are being phased out due to perceived weaknesses \u2014 as of February 2017, a practical attack for generating collisions was demonstrated by \nGoogle researchers\n.\n These days, the preferred hash algorithm family is SHA-2.\n\n\nThe certificate authorities (CAs), which issue host and user certificates used widely in the OSG, defaulted to SHA-2-based certificates on 1 October 2013; all sites will need to make sure that their software supports certificates using the SHA-2 algorithms. All supported OSG releases support SHA-2.\n\n\nThe table below denotes indicates the minimum releases necessary to support SHA-2 certificates.\n\n\n\n\n\n\n\n\nComponent\n\n\nVersion\n\n\nIn Release\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nBeStMan 2\n\n\nbestman2-2.3.0-9.osg\n\n\n3.1.13\n\n\nSHA-2 support; also see jGlobus, below\n\n\n\n\n\n\ndCache SRM client\n\n\ndcache-srmclient-2.2.11.1-2.osg\n\n\n3.1.22\n\n\nMajor update includes SHA-2 support\n\n\n\n\n\n\nGlobus GRAM\n\n\nglobus-gram-job-manager-13.45-1.2.osg, globus-gram-job-manager-condor-1.0-13.1.osg, globus-gram-job-manager-pbs-1.6-1.1.osg\n\n\n3.1.9\n\n\nCritical bug fixes (not SHA-2 specific)\n\n\n\n\n\n\nGUMS\n\n\ngums-1.3.18.009-15.2.osg\n\n\n3.1.13\n\n\nSwitched to jGlobus 2 with SHA-2 support; also see jGlobus, below\n\n\n\n\n\n\njGlobus (for BeStMan 2)\n\n\njglobus-2.0.5-3.osg\n\n\n3.1.18\n\n\nFixed CRL refresh bug (not SHA-2 specific)\n\n\n\n\n\n\nVOMS\n\n\nvoms-2.0.8-1.5.osg\n\n\n3.1.17\n\n\nSHA-2 fix for voms-proxy-init\n\n\n\n\n\n\n\n\nIf a component does not appear in the above table, it already has SHA-2 support.", 
             "title": "SHA-2 Support"
