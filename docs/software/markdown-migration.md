@@ -90,11 +90,13 @@ Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual
 
 Make sure to use the TWiki document as a reference when making fixes!
 
+We use the [Pygments](http://pygments.org/) highlighting library for syntax; it knows about 100 different languages.  The Pygments website contains a live renderer if you want to see how your text will come out.  Please use the `console` language for shell sessions.
+
 #### Fixing root and user prompts ####
 
 | Find and replace...                                   | With...             |
 |:------------------------------------------------------|:--------------------|
-| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~] $` |
+| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~] #` |
 | `<span class="twiki-macro UCL\_PROMPT"></span>`       | `[user@client ~] $` |
 
 #### Highlighting user input  ####
@@ -109,7 +111,7 @@ Within command blocks and file snippets, we've used `%RED%...%ENDCOLOR%`, `&lt;.
 
 Ordered lists are often broken up into multiple lists if there are command blocks/file snippets and/or additional text within one of the list items. To make sure the contents of an item are indented properly, use the following formatting:
 
-- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code block with `:::<FORMAT>`; see [this page](http://squidfunk.github.io/mkdocs-material/extensions/codehilite/) for details, including possible highlighting formats.
+- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code block with `:::<FORMAT>`; see [this page](http://squidfunk.github.io/mkdocs-material/extensions/codehilite/) for details, including possible highlighting formats.  For an example of formatting a code section inside a list, see [the release series document](https://github.com/opensciencegrid/docs/blob/master/docs/release/release_series.md).
 - For additional text (i.e. after a code block), insert `N*4` spaces at the beginning of each line, where N is the level of the item in the list.
 
 For example:
@@ -132,7 +134,22 @@ For example:
 
 ```
 
-There are 12 spaces and 8 spaces in front of the command block and text associated with `Bar`, respectively; 4 spaces in front of the text associated with `Foo`; and 8 spaces in front of the file snippet associated with `Baz`
+There are 12 spaces and 8 spaces in front of the command block and text associated with `Bar`, respectively; 4 spaces in front of the text associated with `Foo`; and 8 spaces in front of the file snippet associated with `Baz`.  The above block is rendered below:
+
+1. Foo
+    - Bar
+
+            :::console
+            COMMAND
+            BLOCK
+        text associated with Bar
+
+    text associated with Foo
+
+2. Baz
+
+        FILE
+        SNIPPET
 
 ### Notes ###
 
@@ -142,6 +159,11 @@ To catch the user's attention for important items or pitfalls, we used `%NOTE%` 
 !!! note
     # things to note
 ```
+
+The above block is rendered below as an example.
+
+!!! note
+    # things to note
 
 ### Obvious errors ###
 
