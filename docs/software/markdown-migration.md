@@ -14,13 +14,13 @@ Archiving the TWiki document
 Save the raw TWiki file into the `docs/archive/` folder of your local git repository:
 
 ```console
-[user@client ~] $ curl '<TWIKI URL>?raw=text' > docs/archive/<TWIKI TITLE>
+[user@client ~] $ curl '<TWIKI URL>?raw=text' | iconv -f windows-1252 > docs/archive/<TWIKI TITLE>
 ```
 
 For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:
 
 ```console
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' > docs/archive/SHA2Compliance
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
 ```
 
 Initial conversion with Pandoc
@@ -49,7 +49,7 @@ For example, to do a Docker-based conversion of the document at https://twiki.op
 
 ```bash
 $ mkdir -p docs/archive docs/projects
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' > docs/archive/SHA2Compliance
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
 $ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance > docs/projects/sha2-support.md
 ```
 
