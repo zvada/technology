@@ -1,3 +1,9 @@
+.codehilite{
+          width:100%;
+          height: auto;
+          overflow: auto;
+        }
+
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f0f0f0; }
 .codehilite .c { color: #60a0b0; font-style: italic } /* Comment */
@@ -60,3 +66,7 @@
 .codehilite .vg { color: #bb60d5 } /* Name.Variable.Global */
 .codehilite .vi { color: #bb60d5 } /* Name.Variable.Instance */
 .codehilite .il { color: #40a070 } /* Literal.Number.Integer.Long */
+
+.wy-nav-content {
+    max-width: 90%;
+}
