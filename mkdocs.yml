@@ -13,6 +13,7 @@ pages:
   - Meeting Notes: 'meetings.md'
   - Software:
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
+    - Repository Management: 'software/repository-management.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
@@ -24,6 +25,7 @@ pages:
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
   - Infrastructure:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
+    - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
   - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - February 27, 2017: 'meetings/2017/TechArea20170227.md'
