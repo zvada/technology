@@ -158,10 +158,8 @@ Making the pull request
 
         <LINK TO TWIKI DOCUMENT>
 
+        - [ ] Enter date into "Migrated" column of google sheet
         - [ ] Add migration header to TWiki document
-        - [ ] Remaining TWiki link #1
-        - ...
-        - [ ] Remaining TWiki link #N
 
 See an example pull request [here](https://github.com/opensciencegrid/technology/pull/82).
 
