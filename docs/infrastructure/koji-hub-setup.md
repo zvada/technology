@@ -165,10 +165,6 @@ These are local config changes we needed to make to get certain features to work
 
 The user must use RFC proxies and must have a version of the koji client of 1.6.0-6.osg or newer.
 
-### Git builds
-
-On EL5 only, we needed to run the following to allow Git builds from github: `git config --system http.sslVerify false` This is to avoid server cert verification failures against github.com
-
 Procedures
 ----------
 
@@ -182,7 +178,7 @@ The following steps need to be taken for someone replacing their user cert:
 
 ### Adding CAs for user authentication
 
-Since our Koji instance uses certs for auth, we specify which CAs we trust for signing user certs. The CA certs for user auth are concatenated together in the file `/etc/pki/tls/certs/allowed-cas-for-users.crt`. A comment line before the "BEGIN CERTIFICATE" line is used to name the file the cert comes from. We take the certs from the `osg-ca-certs` repository.
+Since our Koji instance uses certs for auth, we specify which CAs we trust for signing user certs. The CA certs for user auth are concatenated together in the file `/etc/pki/tls/certs/allowed-cas-for-users.crt`. A comment line before the `BEGIN CERTIFICATE` line is used to name the file the cert comes from. We take the certs from the `osg-ca-certs` repository.
 
 For example, when I added the CERN CAs to the bundle, I installed osg-ca-certs onto a Fermicloud VM, copied `/etc/grid-security/certificates/CERN-TCA.pem` (which signed user certs) and `CERN-Root.pem` (which signed `CERN-TCA.pem`) to `koji.chtc.wisc.edu`, catted them to the end of the `allowed-cas-for-users.crt` file, edited the file to add comments before the certs, and restarted `httpd`.
 
@@ -202,18 +198,18 @@ A few tidbits of knowledge for administrators of our Koji server:
 
 ### Koji Permissions
 
-To add a new user to Koji for someone with a given DN, first extract the CN. For example, Alain has the DN "/DC=org/DC=doegrids/OU=People/CN=Alain Roy 424511", and the CN is just "Alain Roy 424511". The commands below use just the CN.
+To add a new user to Koji for someone with a given DN, first extract the CN. For example, Alain has the DN `/DC=org/DC=doegrids/OU=People/CN=Alain Roy 424511`, and the CN is just `Alain Roy 424511`. The commands below use just the CN.
 
-``` screen
-$ osg-koji add-user "<CN>"
-$ osg-koji grant-permission build "<CN>"
-$ osg-koji grant-permission repo "<CN>"
+``` console
+[you@client ~]$ osg-koji add-user "<CN>"
+[you@client ~]$ osg-koji grant-permission build "<CN>"
+[you@client ~]$ osg-koji grant-permission repo "<CN>"
 ```
 
 If you want to see the set of possible permissions:
 
-``` screen
-$ koji list-permissions 
+``` console
+[you@client ~]$ koji list-permissions 
 Enter PEM pass phrase: 
 admin
 build
@@ -227,16 +223,16 @@ appliance
 
 If you want to see someone's permissions:
 
-``` screen
-$ koji list-permissions --user "Alain Roy 424511"
+``` console
+[you@client ~]$ koji list-permissions --user "Alain Roy 424511"
 Enter PEM pass phrase: 
 admin
 ```
 
 If you want to see your own permissions:
 
-``` screen
-$ koji list-permissions --mine
+``` console
+[you@client ~]$ koji list-permissions --mine
 Enter PEM pass phrase: 
 admin
 ```
@@ -262,11 +258,11 @@ The following cert files are necessary:
 
 To create `kojiweb.pem` and `kojira.pem` from their respective cert/key files, do:
 
-``` screen
-# (dos2unix < hostcert.pem; echo; dos2unix < hostkey.pem) > kojiweb.pem
-# chmod 0600 kojiweb.pem
-# (dos2unix < kojiracert.pem; echo; dos2unix < kojirakey.pem) > kojira.pem
-# chmod 0600 kojira.pem
+``` console
+[root@koji ~]# (dos2unix < hostcert.pem; echo; dos2unix < hostkey.pem) > kojiweb.pem
+[root@koji ~]# chmod 0600 kojiweb.pem
+[root@koji ~]# (dos2unix < kojiracert.pem; echo; dos2unix < kojirakey.pem) > kojira.pem
+[root@koji ~]# chmod 0600 kojira.pem
 ```
 
 As `root` in `/etc` on `koji.chtc.wisc.edu`:
