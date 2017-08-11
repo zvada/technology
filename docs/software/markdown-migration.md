@@ -35,7 +35,7 @@ $ pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
 Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN FILE>` is the path to the resulting document in GitHub Markdown.
 
 !!! note
-    If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.
+    If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.
 
 ### Using docker ###
 
