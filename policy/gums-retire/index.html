@@ -296,9 +296,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="gums-retirement">GUMS Retirement</h1>
+                <h1 id="gums-retirement">GUMS Retirement<a class="headerlink" href="#gums-retirement" title="Permanent link">&para;</a></h1>
 <p>This document provides an overview of the planned retirement of support for GUMS in the OSG Software Stack.</p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>GUMS (Grid User Management System) is an authentication system used by OSG resource providers to map grid credentials to
 local UNIX accounts. It provides OSG site adminstrators with a centrally managed service that can handle requests from
 multiple hosts that require authentication e.g., HTCondor-CE, GridFTP, and XRootD servers. In discussion with the OSG
@@ -317,7 +317,7 @@ Software team.</p>
 <li>Find a suitable replacement for GUMS</li>
 <li>Provide documentation, tooling, and support to aid in the transition from GUMS to the intended solution</li>
 </ul>
-<h2 id="site-transition-plans">Site Transition Plans</h2>
+<h2 id="site-transition-plans">Site Transition Plans<a class="headerlink" href="#site-transition-plans" title="Permanent link">&para;</a></h2>
 <p>We have released a configuration of the LCMAPS authorization framework that performs distributed verification of VOMS
 extensions. This configuration, referred to as the LCMAPS VOMS plugin, supports VOMS attribute based mappings as well as
 user and VO banning. Host-based mappings are not supported however, the simplicity of the plugin's installation and
@@ -327,7 +327,7 @@ document. The intended solution will revolve around mapping local user accounts 
 with any site for which this solution does not work.</p>
 <p>LCMAPS VOMS plugin installation and configuration documentation can be
 found <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/InstallLcmapsVoms">here</a>.</p>
-<h2 id="timeline">Timeline</h2>
+<h2 id="timeline">Timeline<a class="headerlink" href="#timeline" title="Permanent link">&para;</a></h2>
 <ul>
 <li>April 2017 (completed): <code>lcmaps-plugins-voms</code> shipped and supported by OSG.</li>
 <li>May 2017 (completed): <code>osg-configure</code> and documentation necessary for using <code>lcmaps-plugins-voms</code> is shipped.</li>

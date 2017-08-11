@@ -298,8 +298,8 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="voms-admin-retirement">VOMS-Admin Retirement</h1>
-<h2 id="introduction">Introduction</h2>
+                <h1 id="voms-admin-retirement">VOMS-Admin Retirement<a class="headerlink" href="#voms-admin-retirement" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>This document provides an overview of the planned retirement of support for VOMS-Admin
 in the OSG Software Stack.</p>
 <p>Support for the VOMS infrastructure has three major components:</p>
@@ -333,7 +333,7 @@ certificate: this can be done without a VOMS-Admin endpoint.</p>
   authorizations; maintain a plugin to enable direct callouts from VOMS-Server
   to <code>comanage</code> for authorization lookups.</li>
 </ul>
-<h2 id="site-transition-plans">Site Transition Plans</h2>
+<h2 id="site-transition-plans">Site Transition Plans<a class="headerlink" href="#site-transition-plans" title="Permanent link">&para;</a></h2>
 <p>We will release a configuration of the LCMAPS authorization framework that performs
 distributed verification of VOMS extensions; this verification eludes the need to
 contact the VOMS-Admin interface for a list of authorizations.</p>
@@ -344,7 +344,7 @@ needed. <em>Note</em>: In parallel to the VOMS-Admin transition, OSG Software pl
 There is no need to complete one transition before the other.</p>
 <p>Sites using <code>edg-mkgridmap</code> will need to use its replacement, <code>lcmaps-plugins-voms</code> (this
 process is documented <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGReleaseSeries#Migrating_from_edg_mkgridmap_to">here</a>).</p>
-<h2 id="vo-transition-plans">VO Transition Plans</h2>
+<h2 id="vo-transition-plans">VO Transition Plans<a class="headerlink" href="#vo-transition-plans" title="Permanent link">&para;</a></h2>
 <p>Based on one-to-one discussions, we believe the majority of VOs only use VOMS-Admin to maintain
 a list of authorized pilots.  For these VOs, we will help convert invocations of <code>voms-proxy-init</code>:</p>
 <div class="codehilite"><pre><span></span>voms-proxy-init -voms hcc:/hcc/Role=pilot
@@ -367,7 +367,7 @@ not clear there are any such VOs that need support from OSG.  If there are, a ho
 to be available in summer 2017 from the CILogon 2.0 project.  If you feel your VO is affected, please contact the
 OSG and we will build a custom timeline.  If there are no such VOs, we will not need to adopt <code>comanage</code> for this
 use case (other uses of <code>comanage</code> are expected to proceed regardless).</p>
-<h2 id="timeline">Timeline</h2>
+<h2 id="timeline">Timeline<a class="headerlink" href="#timeline" title="Permanent link">&para;</a></h2>
 <ul>
 <li>April 2017 (completed): <code>lcmaps-plugins-voms</code> shipped and supported by OSG.</li>
 <li>May 2017 (completed): <code>osg-configure</code> and documentation necessary for using <code>lcmaps-plugins-voms</code> is shipped.</li>

@@ -94,6 +94,15 @@
         
             <li><a class="toctree-l4" href="#things-to-watch-out-for">Things to watch out for</a></li>
         
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#things-to-note">things to note</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#obvious-errors">Obvious errors</a></li>
+        
             <li><a class="toctree-l4" href="#making-the-pull-request">Making the pull request</a></li>
         
             <li><a class="toctree-l4" href="#adding-a-header-to-the-twiki-document">Adding a header to the TWiki document</a></li>
@@ -306,11 +315,11 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="migrating-to-markdown">Migrating to Markdown</h1>
+                <h1 id="migrating-to-markdown">Migrating to Markdown<a class="headerlink" href="#migrating-to-markdown" title="Permanent link">&para;</a></h1>
 <p>As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. The following document outlines the conversion process and conventions.</p>
-<h2 id="choosing-document-locations-and-names">Choosing document locations and names</h2>
+<h2 id="choosing-document-locations-and-names">Choosing document locations and names<a class="headerlink" href="#choosing-document-locations-and-names" title="Permanent link">&para;</a></h2>
 <p><code>SoftwareTeam</code> documents should go into the <a href="https://opensciencegrid.github.io/technology/">technology github repo</a> and <code>Release3</code> documents should go into the <a href="https://opensciencegrid.github.io/docs/">docs github repo</a>. Document file names should be lowercase, <code>-</code> delimited, and descriptive but concise, e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></p>
-<h2 id="archiving-the-twiki-document">Archiving the TWiki document</h2>
+<h2 id="archiving-the-twiki-document">Archiving the TWiki document<a class="headerlink" href="#archiving-the-twiki-document" title="Permanent link">&para;</a></h2>
 <p>Save the raw TWiki file into the <code>docs/archive/</code> folder of your local git repository:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> curl <span class="s1">&#39;&lt;TWIKI URL&gt;?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/&lt;TWIKI TITLE&gt;
 </pre></div>
@@ -321,7 +330,7 @@
 </pre></div>
 
 
-<h2 id="initial-conversion-with-pandoc">Initial conversion with Pandoc</h2>
+<h2 id="initial-conversion-with-pandoc">Initial conversion with Pandoc<a class="headerlink" href="#initial-conversion-with-pandoc" title="Permanent link">&para;</a></h2>
 <p><a href="http://pandoc.org/">Pandoc</a> is a tool that's useful for automated conversion of markdown languages. <a href="http://pandoc.org/installing.html">Once installed</a> (alternatively, run pandoc <a href="#using-docker">via docker</a>), run the following command to convert TWiki to Markdown:</p>
 <div class="codehilite"><pre><span></span><span class="gp">$</span> pandoc -f twiki -t markdown_github &lt;TWIKI FILE&gt; &gt; &lt;MARKDOWN FILE&gt;
 </pre></div>
@@ -330,9 +339,9 @@
 <p>Where <code>&lt;TWIKI FILE&gt;</code> is the path to initial document in raw TWiki and <code>&lt;MARKDOWN FILE&gt;</code> is the path to the resulting document in GitHub Markdown.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.</p>
+<p>If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.</p>
 </div>
-<h3 id="using-docker">Using docker</h3>
+<h3 id="using-docker">Using docker<a class="headerlink" href="#using-docker" title="Permanent link">&para;</a></h3>
 <p>The <code>pandoc</code> library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install <code>pandoc</code> but have access to docker, you can run the following command:</p>
 <div class="codehilite"><pre><span></span>docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/source jagregory/pandoc -f twiki -t markdown_github &lt;TWIKI FILE&gt; &gt; &lt;MARKDOWN FILE&gt;
 </pre></div>
@@ -346,15 +355,15 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 
 
 <p>We have found some cases where the Docker version of <code>pandoc</code> handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.</p>
-<h2 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs</h2>
+<h2 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs<a class="headerlink" href="#previewing-your-documents-with-mkdocs" title="Permanent link">&para;</a></h2>
 <p><a href="http://www.mkdocs.org/">Mkdocs</a> has a development mode that can be used to preview documents as you work on them and is available via package manager or <code>pip</code>. <a href="http://www.mkdocs.org/#installation">Once installed</a>, add your document(s) to the <code>pages</code> section of <code>mkdocs.yml</code> and launch the mkdocs server with the following command from the dir containing <code>mkdocs.yml</code>:</p>
 <div class="codehilite"><pre><span></span><span class="gp">$</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>src/ mkdocs serve
 </pre></div>
 
 
 <p>Access the server at <code>http://127.0.0.1:8000</code> and navigate to the document you're working on. It's useful to open the original TWiki doc in an adjacent tab or window to quickly compare the two.</p>
-<h2 id="things-to-watch-out-for">Things to watch out for</h2>
-<h3 id="broken-links">Broken links</h3>
+<h2 id="things-to-watch-out-for">Things to watch out for<a class="headerlink" href="#things-to-watch-out-for" title="Permanent link">&para;</a></h2>
+<h3 id="broken-links">Broken links<a class="headerlink" href="#broken-links" title="Permanent link">&para;</a></h3>
 <p>Pandoc isn't aware of the entire TWiki structure so internal links using <a href="http://twiki.org/cgi-bin/view/TWiki/WikiWord">WikiWords</a> result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival.</p>
 <p>If the broken link is:</p>
 <ol>
@@ -363,16 +372,17 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
    a. If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request
    b. If the link is not targeted for archival, link directly to the TWiki page.</li>
 </ol>
-<h3 id="broken-command-blocks-and-file-snippets">Broken command blocks and file snippets</h3>
-<p>Pandoc doesn't do a good job of converting our <code>&lt;pre class=...</code> blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (```):</p>
-<div class="codehilite"><pre><span></span>```
+<h3 id="broken-command-blocks-and-file-snippets">Broken command blocks and file snippets<a class="headerlink" href="#broken-command-blocks-and-file-snippets" title="Permanent link">&para;</a></h3>
+<p>Pandoc doesn't do a good job of converting our <code>&lt;pre class=...</code> blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (```) followed by an optional code highlighting format:</p>
+<div class="codehilite"><pre><span></span>```python
 # stuff
 ```
 </pre></div>
 
 
 <p>Make sure to use the TWiki document as a reference when making fixes!</p>
-<h4 id="fixing-root-and-user-prompts">Fixing root and user prompts</h4>
+<p>We use the <a href="http://pygments.org/">Pygments</a> highlighting library for syntax; it knows about 100 different languages.  The Pygments website contains a live renderer if you want to see how your text will come out.  Please use the <code>console</code> language for shell sessions.</p>
+<h4 id="fixing-root-and-user-prompts">Fixing root and user prompts<a class="headerlink" href="#fixing-root-and-user-prompts" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -383,7 +393,7 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 <tbody>
 <tr>
 <td align="left"><code>&lt;span class="twiki-macro UCL\_PROMPT\_ROOT"&gt;&lt;/span&gt;</code></td>
-<td align="left"><code>[root@client ~] $</code></td>
+<td align="left"><code>[root@client ~] #</code></td>
 </tr>
 <tr>
 <td align="left"><code>&lt;span class="twiki-macro UCL\_PROMPT"&gt;&lt;/span&gt;</code></td>
@@ -391,22 +401,23 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 </tr>
 </tbody>
 </table>
-<h4 id="highlighting-user-input">Highlighting user input</h4>
+<h4 id="highlighting-user-input">Highlighting user input<a class="headerlink" href="#highlighting-user-input" title="Permanent link">&para;</a></h4>
 <p>Within command blocks and file snippets, we've used <code>%RED%...%ENDCOLOR%</code>, <code>&amp;lt;...&amp;gt;</code>, etc. to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[root@client ~]#</span> condor_ce_trace -d &lt;CE HOSTNAME&gt;
 </pre></div>
 
 
-<h4 id="ordered-lists">Ordered Lists</h4>
+<h4 id="ordered-lists">Ordered Lists<a class="headerlink" href="#ordered-lists" title="Permanent link">&para;</a></h4>
 <p>Ordered lists are often broken up into multiple lists if there are command blocks/file snippets and/or additional text within one of the list items. To make sure the contents of an item are indented properly, use the following formatting:</p>
 <ul>
-<li>For code blocks or file snippets, add an empty line after any regular text, then insert <code>(N+1)*4</code> spaces at the beginning of each line, where N is the level of the item in the list.</li>
+<li>For code blocks or file snippets, add an empty line after any regular text, then insert <code>(N+1)*4</code> spaces at the beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code block with <code>:::&lt;FORMAT&gt;</code>; see <a href="http://squidfunk.github.io/mkdocs-material/extensions/codehilite/">this page</a> for details, including possible highlighting formats.  For an example of formatting a code section inside a list, see <a href="https://github.com/opensciencegrid/docs/blob/master/docs/release/release_series.md">the release series document</a>.</li>
 <li>For additional text (i.e. after a code block), insert <code>N*4</code> spaces at the beginning of each line, where N is the level of the item in the list.</li>
 </ul>
 <p>For example:</p>
 <div class="codehilite"><pre><span></span>1. Foo
     - Bar
 
+            :::console
             COMMAND
             BLOCK
         text associated with Bar
@@ -420,17 +431,45 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 </pre></div>
 
 
-<p>There are 12 spaces and 8 spaces in front of the command block and text associated with <code>Bar</code>, respectively; 4 spaces in front of the text associated with <code>Foo</code>; and 8 spaces in front of the file snippet associated with <code>Baz</code></p>
-<h3 id="notes">Notes</h3>
+<p>There are 12 spaces and 8 spaces in front of the command block and text associated with <code>Bar</code>, respectively; 4 spaces in front of the text associated with <code>Foo</code>; and 8 spaces in front of the file snippet associated with <code>Baz</code>.  The above block is rendered below:</p>
+<ol>
+<li>
+<p>Foo</p>
+<ul>
+<li>Bar<div class="codehilite"><pre><span></span><span class="go">COMMAND</span>
+<span class="go">BLOCK</span>
+</pre></div>
+
+
+<p>text associated with Bar</p>
+</li>
+</ul>
+<p>text associated with Foo</p>
+</li>
+<li>
+<p>Baz</p>
+<div class="codehilite"><pre><span></span>FILE
+SNIPPET
+</pre></div>
+
+
+</li>
+</ol>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
 <p>To catch the user's attention for important items or pitfalls, we used <code>%NOTE%</code> TWiki macros, these can be replaced with admonition-style notes:</p>
 <div class="codehilite"><pre><span></span>!!! note
     # things to note
 </pre></div>
 
 
-<h3 id="obvious-errors">Obvious errors</h3>
+<p>The above block is rendered below as an example.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<h1 id="things-to-note">things to note<a class="headerlink" href="#things-to-note" title="Permanent link">&para;</a></h1>
+</div>
+<h3 id="obvious-errors">Obvious errors<a class="headerlink" href="#obvious-errors" title="Permanent link">&para;</a></h3>
 <p>If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc <em>iff</em> the changes take less than ~15 minutes. This isn't a renovation project!</p>
-<h2 id="making-the-pull-request">Making the pull request</h2>
+<h2 id="making-the-pull-request">Making the pull request<a class="headerlink" href="#making-the-pull-request" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Create a branch based off of master</li>
 <li>Add page to <a href="../../../mkdocs.yml">mkdocs.yml</a> in <a href="http://titlecase.com/">title case</a>, e.g. <code>Migrating Documents to Markdown</code></li>
@@ -438,17 +477,15 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 <li><code>git commit</code> your changes and <code>git push</code> to your GH repo</li>
 <li>Make PR containing the following tasks in the body:<div class="codehilite"><pre><span></span>&lt;LINK TO TWIKI DOCUMENT&gt;
 
+- [ ] Enter date into &quot;Migrated&quot; column of google sheet
 - [ ] Add migration header to TWiki document
-- [ ] Remaining TWiki link #1
-- ...
-- [ ] Remaining TWiki link #N
 </pre></div>
 
 
 </li>
 </ol>
 <p>See an example pull request <a href="https://github.com/opensciencegrid/technology/pull/82">here</a>.</p>
-<h2 id="adding-a-header-to-the-twiki-document">Adding a header to the TWiki document</h2>
+<h2 id="adding-a-header-to-the-twiki-document">Adding a header to the TWiki document<a class="headerlink" href="#adding-a-header-to-the-twiki-document" title="Permanent link">&para;</a></h2>
 <p>After completing the migration of a document, replace the contents of TWiki document with the following header, linking to the location of the migrated document:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;&quot;</span><span class="nt">&gt;</span>
 This is an archive, find the new version of this document [[LINK TO GITHUB DOCUMENT][here]].
@@ -469,7 +506,7 @@ At the end of year (2017), the TWiki will be retired in favor of !GitHub. You ca
 
 
 <p>Currently, we do not recommend changing backlinks (links on other twiki pages that refer to the Twiki page you are migrating) to point at the new GitHub URL.  This is to provide a simple reminder to users that the migration will occur, and also is likely low priority regardless as all pages will eventually migrate to GitHub.  This advice may change in the future as we gain experience with this transition.</p>
-<h2 id="reviewing-pull-requests">Reviewing pull requests</h2>
+<h2 id="reviewing-pull-requests">Reviewing pull requests<a class="headerlink" href="#reviewing-pull-requests" title="Permanent link">&para;</a></h2>
 <p>To review pull requests, <code>cd</code> into the dir containing your git repository, check out the requester's branch, and start a local <code>mkdocs</code> server. Here's an example checking out Brian's <code>cut-sw-release</code> branch of the technology repository:</p>
 <div class="codehilite"><pre><span></span><span class="gp">#</span> Add the requester<span class="s1">&#39;s repo as a remote if you haven&#39;</span>t already
 <span class="gp">[user@client ~ ] $</span> git remote add blin https://www.github.com/brianhlin/technology.git
