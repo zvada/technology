@@ -12,6 +12,7 @@ pages:
   - Contact Us: 'contact.md'
   - Meeting Notes: 'meetings.md'
   - Software:
+    - Koji-Hub Setup: 'software/koji-hub-setup.md'
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'

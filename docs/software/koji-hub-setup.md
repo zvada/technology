@@ -1,7 +1,7 @@
 Notes on Koji-Hub Setup
 =======================
 
-<span class="twiki-macro TOC"></span> [Current Koji documentation](https://docs.pagure.org/koji/) may be of use.
+[Current Koji documentation](https://docs.pagure.org/koji/) may be of use.
 
 Tags
 ----
@@ -14,14 +14,9 @@ Tags
 
 These tags contains 3 external repos each, hosted locally under <http://mirror.batlab.org/pub/linux>:
 
-`dist-el[567]-epel`  
-A mirror of the EPEL 5/6/7 repositories
-
-`dist-el[567]-centos*`  
-A mirror of the base CentOS repositories
-
-`dist-el[567]-centos-updates`  
-A mirror of the CentOS Updates repositories
+-   `dist-el[567]-epel`: A mirror of the EPEL 5/6/7 repositories
+-   `dist-el[567]-centos*`: A mirror of the base CentOS repositories
+-   `dist-el[567]-centos-updates`: A mirror of the CentOS Updates repositories
 
 We don't put any packages in them (except for ones required for building, like `buildsys-macros` and `fetch-sources`), and generally don't build from them directly, but use tag inheritance.
 
@@ -29,7 +24,7 @@ We don't put any packages in them (except for ones required for building, like `
 
 [Tag list](https://koji.chtc.wisc.edu/koji/search?match=glob&type=tag&terms=osg-el%3F)
 
-These tags contains all the *package names* that we put into OSG; =koji add-pkg= adds to them. `osg-build` does this automatically. The tags do not actually contain any builds (i.e. packages with version-release). All the other `osg-*` tags inherit from these (either directly or indirectly). The purpose of this is to make promoting builds easier, since it keeps you from having to run `add-pkg` when you promote.
+These tags contains all the *package names* that we put into OSG; `koji add-pkg` adds to them. `osg-build` does this automatically. The tags do not actually contain any builds (i.e. packages with version-release). All the other `osg-*` tags inherit from these (either directly or indirectly). The purpose of this is to make promoting builds easier, since it keeps you from having to run `add-pkg` when you promote.
 
 #### kojira-fake
 
@@ -210,15 +205,15 @@ A few tidbits of knowledge for administrators of our Koji server:
 To add a new user to Koji for someone with a given DN, first extract the CN. For example, Alain has the DN "/DC=org/DC=doegrids/OU=People/CN=Alain Roy 424511", and the CN is just "Alain Roy 424511". The commands below use just the CN.
 
 ``` screen
-%UCL_PROMPT_SHORT% osg-koji add-user "%RED%CN%ENDCOLOR%"
-%UCL_PROMPT_SHORT% osg-koji grant-permission build "%RED%CN%ENDCOLOR%"
-%UCL_PROMPT_SHORT% osg-koji grant-permission repo "%RED%CN%ENDCOLOR%"
+$ osg-koji add-user "<CN>"
+$ osg-koji grant-permission build "<CN>"
+$ osg-koji grant-permission repo "<CN>"
 ```
 
 If you want to see the set of possible permissions:
 
 ``` screen
-%UCL_PROMPT_SHORT% koji list-permissions 
+$ koji list-permissions 
 Enter PEM pass phrase: 
 admin
 build
@@ -233,7 +228,7 @@ appliance
 If you want to see someone's permissions:
 
 ``` screen
-%UCL_PROMPT_SHORT% koji list-permissions --user "Alain Roy 424511"
+$ koji list-permissions --user "Alain Roy 424511"
 Enter PEM pass phrase: 
 admin
 ```
@@ -241,7 +236,7 @@ admin
 If you want to see your own permissions:
 
 ``` screen
-%UCL_PROMPT_SHORT% koji list-permissions --mine
+$ koji list-permissions --mine
 Enter PEM pass phrase: 
 admin
 ```
@@ -268,10 +263,10 @@ The following cert files are necessary:
 To create `kojiweb.pem` and `kojira.pem` from their respective cert/key files, do:
 
 ``` screen
-%UCL_PROMPT_SHORT% (dos2unix &lt; hostcert.pem; echo; dos2unix &lt; hostkey.pem) &gt; kojiweb.pem
-%UCL_PROMPT_SHORT% chmod 0600 kojiweb.pem
-%UCL_PROMPT_SHORT% (dos2unix &lt; kojiracert.pem; echo; dos2unix &lt; kojirakey.pem) &gt; kojira.pem
-%UCL_PROMPT_SHORT% chmod 0600 kojira.pem
+# (dos2unix < hostcert.pem; echo; dos2unix < hostkey.pem) > kojiweb.pem
+# chmod 0600 kojiweb.pem
+# (dos2unix < kojiracert.pem; echo; dos2unix < kojirakey.pem) > kojira.pem
+# chmod 0600 kojira.pem
 ```
 
 As `root` in `/etc` on `koji.chtc.wisc.edu`:
