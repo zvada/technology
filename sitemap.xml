@@ -33,6 +33,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/software/repository-management/</loc>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -89,6 +95,12 @@
         
     <url>
      <loc>https://opensciencegrid.github.io/technology/infrastructure/koji-hub-setup/</loc>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/infrastructure/koji-inf-overview/</loc>
      <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>

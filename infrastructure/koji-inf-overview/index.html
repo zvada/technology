@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>SHA-2 Support - OSG Technology Area</title>
+  <title>Koji Infrastructure Overview - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "SHA-2 Support";
-    var mkdocs_page_input_path = "projects/sha2-support.md";
-    var mkdocs_page_url = "/projects/sha2-support/";
+    var mkdocs_page_name = "Koji Infrastructure Overview";
+    var mkdocs_page_input_path = "infrastructure/koji-inf-overview.md";
+    var mkdocs_page_url = "/infrastructure/koji-inf-overview/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -151,14 +151,32 @@
         <li class="">
           
   
-    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+    <a class="" href="../koji-hub-setup/">Koji-Hub Setup</a>
   
         </li>
-        <li class="">
+        <li class=" current">
           
   
-    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+    <a class="current" href="./">Koji Infrastructure Overview</a>
   
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#koji-infrastructure-overview">Koji Infrastructure Overview</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#in-madison">In Madison</a></li>
+        
+            <li><a class="toctree-l4" href="#in-indiana">In Indiana</a></li>
+        
+            <li><a class="toctree-l4" href="#lines-of-communication">Lines of Communication</a></li>
+        
+            <li><a class="toctree-l4" href="#management">Management</a></li>
+        
+        </ul>
+    
+
+  </ul>
         </li>
   </ul>
 	    </li>
@@ -167,17 +185,11 @@
 		
   <span class="caption-text">Historical Transitions</span>
   <ul class="subnav">
-        <li class=" current">
+        <li class="">
           
   
-    <a class="current" href="./">SHA-2 Support</a>
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
   
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#sha-2-compliance">SHA-2 Compliance</a></li>
-    
-
-  </ul>
         </li>
   </ul>
 	    </li>
@@ -294,14 +306,14 @@
     
       
         
-          <li>Historical Transitions &raquo;</li>
+          <li>Infrastructure &raquo;</li>
         
       
     
-    <li>SHA-2 Support</li>
+    <li>Koji Infrastructure Overview</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/projects/sha2-support.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/infrastructure/koji-inf-overview.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -311,62 +323,92 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="sha-2-compliance">SHA-2 Compliance<a class="headerlink" href="#sha-2-compliance" title="Permanent link">&para;</a></h1>
-<p>When a certificate authority signs a certificate, it uses one of several possible hash algorithms. 
-Historically, the most popular algorithms were MD5 (now retired due to security issues) and the SHA-1 family.
-SHA-1 certificates are being phased out due to perceived weaknesses — as of February 2017, a practical attack for generating collisions was demonstrated by <a href="https://shattered.io/static/shattered.pdf">Google researchers</a>.
- These days, the preferred hash algorithm family is SHA-2.</p>
-<p>The certificate authorities (CAs), which issue host and user certificates used widely in the OSG, defaulted to SHA-2-based certificates on 1 October 2013; all sites will need to make sure that their software supports certificates using the SHA-2 algorithms. All supported OSG releases support SHA-2.</p>
-<p>The table below denotes indicates the minimum releases necessary to support SHA-2 certificates.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Component</th>
-<th align="left">Version</th>
-<th align="left">In Release</th>
-<th align="left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">BeStMan 2</td>
-<td align="left">bestman2-2.3.0-9.osg</td>
-<td align="left">3.1.13</td>
-<td align="left">SHA-2 support; also see jGlobus, below</td>
-</tr>
-<tr>
-<td align="left">dCache SRM client</td>
-<td align="left">dcache-srmclient-2.2.11.1-2.osg</td>
-<td align="left">3.1.22</td>
-<td align="left">Major update includes SHA-2 support</td>
-</tr>
-<tr>
-<td align="left">Globus GRAM</td>
-<td align="left">globus-gram-job-manager-13.45-1.2.osg, globus-gram-job-manager-condor-1.0-13.1.osg, globus-gram-job-manager-pbs-1.6-1.1.osg</td>
-<td align="left">3.1.9</td>
-<td align="left">Critical bug fixes (not SHA-2 specific)</td>
-</tr>
-<tr>
-<td align="left">GUMS</td>
-<td align="left">gums-1.3.18.009-15.2.osg</td>
-<td align="left">3.1.13</td>
-<td align="left">Switched to jGlobus 2 with SHA-2 support; also see jGlobus, below</td>
-</tr>
-<tr>
-<td align="left">jGlobus (for BeStMan 2)</td>
-<td align="left">jglobus-2.0.5-3.osg</td>
-<td align="left">3.1.18</td>
-<td align="left">Fixed CRL refresh bug (not SHA-2 specific)</td>
-</tr>
-<tr>
-<td align="left">VOMS</td>
-<td align="left">voms-2.0.8-1.5.osg</td>
-<td align="left">3.1.17</td>
-<td align="left">SHA-2 fix for voms-proxy-init</td>
-</tr>
-</tbody>
-</table>
-<p>If a component does not appear in the above table, it already has SHA-2 support.</p>
+                <h1 id="koji-infrastructure-overview">Koji Infrastructure Overview<a class="headerlink" href="#koji-infrastructure-overview" title="Permanent link">&para;</a></h1>
+<h2 id="in-madison">In Madison<a class="headerlink" href="#in-madison" title="Permanent link">&para;</a></h2>
+<h3 id="in-wid">In WID<a class="headerlink" href="#in-wid" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>koji.chtc.wisc.edu</em> is the main Koji server. It runs:<ul>
+<li><code>koji-hub</code> (httpd/mod_python service) -- controls everything else</li>
+<li><code>koji-web</code> (httpd/mod_python service) -- provides the web interface to koji-hub</li>
+<li><code>kojid</code> (standalone daemon) -- builds packages</li>
+<li><code>kojira</code> (standalone daemon) -- creates tasks to regen repos automatically</li>
+<li><code>rsyncd</code> (via xinetd)</li>
+<li><code>puppetd</code> (cron job)</li>
+<li>(also stores RPMs in its <code>/mnt/koji</code> directory)</li>
+</ul>
+</li>
+<li><em>db-01.batlab.org</em> is the database server. It runs:<ul>
+<li><code>postgres</code> (standalone daemon)</li>
+<li><code>rsyncd</code> (via xinetd)</li>
+<li><code>puppetd</code> (cron job)</li>
+<li>(others)</li>
+</ul>
+</li>
+<li><em>host-3.chtc.wisc.edu</em> is a backup server. It runs:<ul>
+<li><code>rsync</code> (cron job)</li>
+<li><code>puppetd</code> (cron job)</li>
+<li>(others)</li>
+</ul>
+</li>
+<li><em>wid-service-1.chtc.wisc.edu</em> is a Puppet Master. It runs:<ul>
+<li><code>puppetmaster</code> (standalone daemon)</li>
+<li>(others)</li>
+</ul>
+</li>
+</ul>
+<h3 id="in-cs-3370a">In CS (3370A)<a class="headerlink" href="#in-cs-3370a" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>osghost.chtc.wisc.edu</em> is a VM host. It runs:<ul>
+<li><em>kojibuilder2.chtc.wisc.edu</em> and <em>kojibuilder3.chtc.wisc.edu</em> are builder VMs. Each runs:<ul>
+<li><code>kojid</code> (standalone daemon) -- builds packages</li>
+<li><code>puppetd</code> (cron job)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="in-indiana">In Indiana<a class="headerlink" href="#in-indiana" title="Permanent link">&para;</a></h2>
+<ul>
+<li><em>repo1.grid.iu.edu</em>, <em>repo2.grid.iu.edu</em> and <em>repo-itb.grid.iu.edu</em> are repo hosts. Each runs:<ul>
+<li><code>mash</code> (cron job) -- pulls RPMs from a <code>koji-hub</code></li>
+<li>(others)</li>
+</ul>
+</li>
+<li><em>repo.grid.iu.edu</em> is a DNS alias pointing to either <em>repo1</em> or <em>repo2</em></li>
+</ul>
+<h2 id="lines-of-communication">Lines of Communication<a class="headerlink" href="#lines-of-communication" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>koji-web</code> provides a web interface to <code>koji-hub</code></li>
+<li><code>koji-hub</code> sends jobs to all <code>kojid</code> daemons and gets back the results</li>
+<li><code>kojira</code> sends requests to <code>koji-hub</code> to create tasks</li>
+<li><code>koji-hub</code> talks directly to <code>postgres</code> for all metadata</li>
+<li><code>koji-hub</code> writes to and reads from <code>/mnt/koji</code></li>
+<li><code>mash</code> pulls RPMs from <code>/mnt/koji</code> and communicates with <code>koji-hub</code> to get tag information</li>
+<li><code>puppetd</code> on all Madison machines pulls Puppet configuration from <code>puppetmaster</code> on <em>wid-service-1</em></li>
+<li><code>rsync</code> on <em>host-3.chtc.wisc.edu</em> pulls files from <code>rsyncd</code> on <em>koji.chtc.wisc.edu</em> and <em>db-01.batlab.org</em></li>
+</ul>
+<h2 id="management">Management<a class="headerlink" href="#management" title="Permanent link">&para;</a></h2>
+<p>Managed by the GOC:</p>
+<ul>
+<li><em>repo1.grid.iu.edu</em></li>
+<li><em>repo2.grid.iu.edu</em></li>
+<li><em>repo.grid.iu.edu</em></li>
+<li><em>repo-itb.grid.iu.edu</em></li>
+</ul>
+<p>Fully managed by CHTC Infrastructure:</p>
+<ul>
+<li><em>db-01.batlab.org</em></li>
+<li><em>host-3.chtc.wisc.edu</em></li>
+<li><em>wid-service-1.chtc.wisc.edu</em></li>
+</ul>
+<p>Management split between CHTC infrastructure and OSG-Software:</p>
+<ul>
+<li><em>koji.chtc.wisc.edu</em></li>
+<li><em>kojibuilder2.chtc.wisc.edu</em></li>
+<li><em>kojibuilder3.chtc.wisc.edu</em></li>
+<li><em>osghost.chtc.wisc.edu</em></li>
+</ul>
+<p>(In general, CHTC-inf takes care of accounts, firewalls, other basic config, and OSG takes care of the Koji services)</p>
               
             </div>
           </div>
@@ -374,10 +416,10 @@ SHA-1 certificates are being phased out due to perceived weaknesses — as of Fe
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../meetings/2017/TechArea20170227/" class="btn btn-neutral float-right" title="February 27, 2017">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../projects/sha2-support/" class="btn btn-neutral float-right" title="SHA-2 Support">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../infrastructure/koji-inf-overview/" class="btn btn-neutral" title="Koji Infrastructure Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../koji-hub-setup/" class="btn btn-neutral" title="Koji-Hub Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -405,10 +447,10 @@ SHA-1 certificates are being phased out due to perceived weaknesses — as of Fe
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../infrastructure/koji-inf-overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../koji-hub-setup/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../meetings/2017/TechArea20170227/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../projects/sha2-support/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

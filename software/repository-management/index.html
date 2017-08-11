@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>SHA-2 Support - OSG Technology Area</title>
+  <title>Repository Management - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "SHA-2 Support";
-    var mkdocs_page_input_path = "projects/sha2-support.md";
-    var mkdocs_page_url = "/projects/sha2-support/";
+    var mkdocs_page_name = "Repository Management";
+    var mkdocs_page_input_path = "software/repository-management.md";
+    var mkdocs_page_url = "/software/repository-management/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -76,14 +76,30 @@
         <li class="">
           
   
-    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
   
         </li>
-        <li class="">
+        <li class=" current">
           
   
-    <a class="" href="../../software/repository-management/">Repository Management</a>
+    <a class="current" href="./">Repository Management</a>
   
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#repository-management">Repository Management</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#public-repositories">Public repositories</a></li>
+        
+            <li><a class="toctree-l4" href="#internal-repositories">Internal repositories</a></li>
+        
+            <li><a class="toctree-l4" href="#build-repositories">Build repositories</a></li>
+        
+        </ul>
+    
+
+  </ul>
         </li>
   </ul>
 	    </li>
@@ -167,17 +183,11 @@
 		
   <span class="caption-text">Historical Transitions</span>
   <ul class="subnav">
-        <li class=" current">
+        <li class="">
           
   
-    <a class="current" href="./">SHA-2 Support</a>
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
   
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#sha-2-compliance">SHA-2 Compliance</a></li>
-    
-
-  </ul>
         </li>
   </ul>
 	    </li>
@@ -294,14 +304,14 @@
     
       
         
-          <li>Historical Transitions &raquo;</li>
+          <li>Software &raquo;</li>
         
       
     
-    <li>SHA-2 Support</li>
+    <li>Repository Management</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/projects/sha2-support.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/repository-management.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -311,62 +321,51 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="sha-2-compliance">SHA-2 Compliance<a class="headerlink" href="#sha-2-compliance" title="Permanent link">&para;</a></h1>
-<p>When a certificate authority signs a certificate, it uses one of several possible hash algorithms. 
-Historically, the most popular algorithms were MD5 (now retired due to security issues) and the SHA-1 family.
-SHA-1 certificates are being phased out due to perceived weaknesses — as of February 2017, a practical attack for generating collisions was demonstrated by <a href="https://shattered.io/static/shattered.pdf">Google researchers</a>.
- These days, the preferred hash algorithm family is SHA-2.</p>
-<p>The certificate authorities (CAs), which issue host and user certificates used widely in the OSG, defaulted to SHA-2-based certificates on 1 October 2013; all sites will need to make sure that their software supports certificates using the SHA-2 algorithms. All supported OSG releases support SHA-2.</p>
-<p>The table below denotes indicates the minimum releases necessary to support SHA-2 certificates.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Component</th>
-<th align="left">Version</th>
-<th align="left">In Release</th>
-<th align="left">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">BeStMan 2</td>
-<td align="left">bestman2-2.3.0-9.osg</td>
-<td align="left">3.1.13</td>
-<td align="left">SHA-2 support; also see jGlobus, below</td>
-</tr>
-<tr>
-<td align="left">dCache SRM client</td>
-<td align="left">dcache-srmclient-2.2.11.1-2.osg</td>
-<td align="left">3.1.22</td>
-<td align="left">Major update includes SHA-2 support</td>
-</tr>
-<tr>
-<td align="left">Globus GRAM</td>
-<td align="left">globus-gram-job-manager-13.45-1.2.osg, globus-gram-job-manager-condor-1.0-13.1.osg, globus-gram-job-manager-pbs-1.6-1.1.osg</td>
-<td align="left">3.1.9</td>
-<td align="left">Critical bug fixes (not SHA-2 specific)</td>
-</tr>
-<tr>
-<td align="left">GUMS</td>
-<td align="left">gums-1.3.18.009-15.2.osg</td>
-<td align="left">3.1.13</td>
-<td align="left">Switched to jGlobus 2 with SHA-2 support; also see jGlobus, below</td>
-</tr>
-<tr>
-<td align="left">jGlobus (for BeStMan 2)</td>
-<td align="left">jglobus-2.0.5-3.osg</td>
-<td align="left">3.1.18</td>
-<td align="left">Fixed CRL refresh bug (not SHA-2 specific)</td>
-</tr>
-<tr>
-<td align="left">VOMS</td>
-<td align="left">voms-2.0.8-1.5.osg</td>
-<td align="left">3.1.17</td>
-<td align="left">SHA-2 fix for voms-proxy-init</td>
-</tr>
-</tbody>
-</table>
-<p>If a component does not appear in the above table, it already has SHA-2 support.</p>
+                <h1 id="repository-management">Repository Management<a class="headerlink" href="#repository-management" title="Permanent link">&para;</a></h1>
+<p>This document attempts to record everything there is to know about repository management for the OSG.</p>
+<h2 id="public-repositories">Public repositories<a class="headerlink" href="#public-repositories" title="Permanent link">&para;</a></h2>
+<p>We host four public-facing repositories at <a href="http://repo.grid.iu.edu/">repo.grid.iu.edu</a>:</p>
+<ul>
+<li>
+<p><strong>development</strong>: This repository is the bleeding edge. Installing from this repository may cause the host to stop functioning, and we will not assist in undoing any damage.</p>
+</li>
+<li>
+<p><strong>testing</strong>: This repository contains software ready for testing. If you install packages from here, they may be buggy, but we will provide limited assistance in providing a migration path to a fixed verison.</p>
+</li>
+<li>
+<p><strong>release</strong>: This repository contains software that we are willing to support and can be used by the general community.</p>
+</li>
+<li>
+<p><strong>contrib</strong>: RPMs contributed from outside the OSG.</p>
+</li>
+</ul>
+<p>These repos are updated by the <code>mash</code> script running on <code>repo1.grid.iu.edu</code> and <code>repo2.grid.iu.edu</code>.</p>
+<h2 id="internal-repositories">Internal repositories<a class="headerlink" href="#internal-repositories" title="Permanent link">&para;</a></h2>
+<p>In addition to the public repositories above, we host two repositories on <code>koji.chtc.wisc.edu</code>. These are updated shortly after jobs are built into them or tagged into them. They are technically publicly accessible, but we discourage the public from using them.</p>
+<ul>
+<li>
+<p><strong>minefield</strong>: This repository is a copy of development above.</p>
+</li>
+<li>
+<p><strong>prerelease</strong>: This repository is a staging area for software that is slated to be in the next release.</p>
+</li>
+</ul>
+<p>These repos are updated by the <code>kojira</code> daemon running on <code>koji.chtc.wisc.edu</code>.</p>
+<h2 id="build-repositories">Build repositories<a class="headerlink" href="#build-repositories" title="Permanent link">&para;</a></h2>
+<p>The <code>koji</code> task in <code>osg-build</code> uses the <a href="http://koji.chtc.wisc.edu/koji/taginfo?tagID=472">osg-3.4-el6-build</a>/<a href="http://koji.chtc.wisc.edu/koji/taginfo?tagID=481">osg-3.4-el7-build</a> repo, which is the union of the following repositories:</p>
+<ul>
+<li>Minefield a.k.a. <code>osg-3.4-el6-development</code> / <code>osg-3.4-el7-development</code></li>
+<li>The <code>osg-el6-internal</code> / <code>osg-el7-internal</code> tag (containing build dependencies we do not want to make public)</li>
+<li>The <code>dist-el6-build</code> / <code>dist-el7-build</code> tag (consisting of the appropriate macros for %dist)</li>
+<li>CentOS and EPEL</li>
+</ul>
+<p>Koji will work from its internal cache of the above repositories (downloading the packages from the source), and will not update until the build repository is regenerated. By default, Koji does a groupinstall of the build group, then resolves the BuildRequires dependencies.</p>
+<p>The tarball creation scripts use the <a href="https://koji.chtc.wisc.edu/koji/taginfo?tagID=478">osg-3.4-el6-release-build</a> / <a href="https://koji.chtc.wisc.edu/koji/taginfo?tagID=487">osg-3.4-el7-release-build</a> repo, which is the union of the following repositories:</p>
+<ul>
+<li>Release a.k.a. <code>osg-3.4-el6-release</code> / <code>osg-3.4-el7-release</code></li>
+<li>The <code>dist-el6-build</code> / <code>dist-el7-build</code> tag (consisting of the appropriate macros for <code>%dist</code>)</li>
+<li>CentOS and EPEL</li>
+</ul>
               
             </div>
           </div>
@@ -374,10 +373,10 @@ SHA-1 certificates are being phased out due to perceived weaknesses — as of Fe
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../meetings/2017/TechArea20170227/" class="btn btn-neutral float-right" title="February 27, 2017">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../release/cut-sw-release/" class="btn btn-neutral float-right" title="How to Cut a Release">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../infrastructure/koji-inf-overview/" class="btn btn-neutral" title="Koji Infrastructure Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../markdown-migration/" class="btn btn-neutral" title="Migrating Documents to Markdown"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -405,10 +404,10 @@ SHA-1 certificates are being phased out due to perceived weaknesses — as of Fe
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../infrastructure/koji-inf-overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../markdown-migration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../meetings/2017/TechArea20170227/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../release/cut-sw-release/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
