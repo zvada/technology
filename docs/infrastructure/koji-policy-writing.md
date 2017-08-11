@@ -1,11 +1,11 @@
 Koji permissions and policy
 ---------------------------
 
-These are some notes I wrote on koji acls/policy doing some source diving in the koji code.
+These are some notes I wrote on Koji ACLs/policy after doing some source diving in the Koji code.
+The version of Koji was 1.6.0.
+I later found some documentation at <https://docs.pagure.org/koji/defining_hub_policies/>. Go read it, that page has better examples.
 
-EDIT: I later found some documentation at <https://docs.pagure.org/koji/defining_hub_policies/>. Go read it, that page has better examples.
-
-### Default policies (defined in `hub/kojixmlrpc.py`)
+### Default policies (defined in hub/kojixmlrpc.py)
 
     build_from_srpm =
            has_perm admin :: allow
@@ -52,96 +52,96 @@ Complex tests:
 
 The following generic tests are defined in `koji/policy.py`:
 
-`true` / `all`   
-always true
+-   `true` / `all`   
+    always true
 
-`false` / `none`   
-always false
+-   `false` / `none`   
+    always false
 
-`has FIELD`   
-true if policy data contains a field called FIELD
+-   `has FIELD`   
+    true if policy data contains a field called FIELD
 
-`bool FIELD`   
-true if FIELD is true
+-   `bool FIELD`   
+    true if FIELD is true
 
-`match FIELD PATTERN1 [PATTERN2 ...]`   
-true if FIELD matches any of the patterns (globs)
+-   `match FIELD PATTERN1 [PATTERN2 ...]`   
+    true if FIELD matches any of the patterns (globs)
 
-`compare FIELD OP NUMBER`   
-compare FIELD against a number. OP can be `<, >, <=, >=, =, !=`
+-   `compare FIELD OP NUMBER`   
+    compare FIELD against a number. OP can be `<, >, <=, >=, =, !=`
 
 the following koji-specific tests are defined in `hub/kojihub.py`:
 
-`buildtag PATTERN1 [PATTERN2 ...]`   
-true if the build tag of a build matches a pattern
+-   `buildtag PATTERN1 [PATTERN2 ...]`   
+    true if the build tag of a build matches a pattern
 
-`fromtag PATTERN1 [PATTERN2 ...]`   
-true if the tag we're moving a package from matches a pattern
+-   `fromtag PATTERN1 [PATTERN2 ...]`   
+    true if the tag we're moving a package from matches a pattern
 
-`has_perm PATTERN1 [PATTERN2 ...]`   
-true if user has any matching permission
+-   `has_perm PATTERN1 [PATTERN2 ...]`   
+    true if user has any matching permission
 
-`hastag TAG`   
-true if the build has the tag TAG
+-   `hastag TAG`   
+    true if the build has the tag TAG
 
-`imported`   
-true if the build was imported
+-   `imported`   
+    true if the build was imported
 
-`is_build_owner`   
-true if the user doing this task owns the build
+-   `is_build_owner`   
+    true if the user doing this task owns the build
 
-`is_child_task`   
-true if the task is a child of some other task
+-   `is_child_task`   
+    true if the task is a child of some other task
 
-`is_new_package`   
-true if the package being looked at is new (i.e. doesn't have an 'id' yet)
+-   `is_new_package`   
+    true if the package being looked at is new (i.e. doesn't have an 'id' yet)
 
-`method PATTERN1 [PATTERN2 ...]`   
-true if the method matches a pattern
+-   `method PATTERN1 [PATTERN2 ...]`   
+    true if the method matches a pattern
 
-`operation PATTERN1 [PATTERN2 ...]`   
-true if current operation matches any of the patterns
+-   `operation PATTERN1 [PATTERN2 ...]`   
+    true if current operation matches any of the patterns
 
-`package PATTERN1 [PATTERN2 ...]`   
-true if the package name matches any of the patterns
+-   `package PATTERN1 [PATTERN2 ...]`   
+    true if the package name matches any of the patterns
 
-`policy POLICY`   
-true if the named policy is true
+-   `policy POLICY`   
+    true if the named policy is true
 
-`skip_tag`   
-true if the skip\_tag option is true
+-   `skip_tag`   
+    true if the skip\_tag option is true
 
-`source PATTERN1 [PATTERN2 ...]`   
-true if source matches patterns
+-   `source PATTERN1 [PATTERN2 ...]`   
+    true if source matches patterns
 
-`tag PATTERN1 [PATTERN2 ...]`   
-true if the tag name matches any of the patterns
+-   `tag PATTERN1 [PATTERN2 ...]`   
+    true if the tag name matches any of the patterns
 
-`user PATTERN1 [PATTERN2 ...]`   
-true if username matches a pattern
+-   `user PATTERN1 [PATTERN2 ...]`   
+    true if username matches a pattern
 
-`user_in_group PATTERN1 [PATTERN2 ...]`   
-true if the user is in any matching group
+-   `user_in_group PATTERN1 [PATTERN2 ...]`   
+    true if the user is in any matching group
 
-`vm_name PATTERN1 [PATTERN2 ...]`   
-true if vm name matches a pattern
+-   `vm_name PATTERN1 [PATTERN2 ...]`   
+    true if vm name matches a pattern
 
 The actions are:
 
-`allow`   
-allow the action
+-   `allow`   
+    allow the action
 
-`deny`   
-deny the action
+-   `deny`   
+    deny the action
 
-`req`   
-?
+-   `req`   
+    ?
 
-`parent`   
-?
+-   `parent`   
+    ?
 
-`use default`   
-?
+-   `use default`   
+    ?
 
 ### Default permissions
 
@@ -160,16 +160,17 @@ As far as I can tell, additional permissions have to be manually added into the 
 
 The following permissions are checked by name in the koji command-line utility (i.e. policies are not used):
 
-`admin`   
-`add-group`, `add-tag`, `add-target`, `clone-tag`, `edit-target`, `remove-tag`, `remove-target`, `wrapper-rpm`
+-   `admin`:   
+    `add-group`, `add-tag`, `add-target`, `clone-tag`, `edit-target`, `remove-tag`, `remove-target`, `wrapper-rpm`
 
-`maven-import`   
-`import-archive` with the `--type=maven` option
+-   `maven-import`:   
+    `import-archive` with the `--type=maven` option
 
-`win-import`   
-`import-archive` with the `--type=win` option
+-   `win-import`:   
+    `import-archive` with the `--type=win` option
 
-`repo` is needed for `regen-repo`.
+-   `repo`:   
+    `regen-repo`
 
 I haven't found out where some of the other permissions are used.
 
@@ -187,38 +188,38 @@ where NAME is the name of the permission you want to create. You may now grant p
 
 **source:**
 
-`builder/kojid:BuildTask.handler`   
-used when source url points to an SRPM (as opposed to an scm) and the build is not a scratch build.
+-   `builder/kojid:BuildTask.handler`   
+    used when source url points to an SRPM (as opposed to an scm) and the build is not a scratch build.
 
 **policy data:**
 
-`user_id`   
-the owner of the task
+-   `user_id`   
+    the owner of the task
 
-`source`   
-the url of the source file
+-   `source`   
+    the url of the source file
 
-`task_id`   
-the id of the task
+-   `task_id`   
+    the id of the task
 
-`build_tag`   
-the id of the build tag
+-   `build_tag`   
+    the id of the build tag
 
-`skip_tag`   
-true if we're not tagging this build (`--scratch` or `--skip-tag` passed on the command line)
+-   `skip_tag`   
+    true if we're not tagging this build (`--scratch` or `--skip-tag` passed on the command line)
 
-`target`   
-the build target (only if we have one?)
+-   `target`   
+    the build target (only if we have one?)
 
-`tag`   
-the destination tag (only if `skip_tag` is false)
+-   `tag`   
+    the destination tag (only if `skip_tag` is false)
 
 #### build\_from\_repo\_id
 
 **source:**
 
-`builder/kojid:BuildTask.handler`   
-used when the `--repo-id` option is passed to `koji build`
+-   `builder/kojid:BuildTask.handler`   
+    used when the `--repo-id` option is passed to `koji build`
 
 **policy data:** same as `build_from_srpm`
 
@@ -226,34 +227,34 @@ used when the `--repo-id` option is passed to `koji build`
 
 **source:**
 
-`hub/kojihub.py:pkglist_add`   
-`add-pkg`, `block-pkg`, `set-pkg-arches`, `set-pkg-owner` commands
+-   `hub/kojihub.py:pkglist_add`   
+    `add-pkg`, `block-pkg`, `set-pkg-arches`, `set-pkg-owner` commands
 
 **policy data:**
 
-`action`   
-'add', 'update', 'block' depending on what is being done
+-   `action`   
+    'add', 'update', 'block' depending on what is being done
 
-`force`   
-true if `--force` is passed on the command line
+-   `force`   
+    true if `--force` is passed on the command line
 
-`package`   
-package info (the id I think?)
+-   `package`   
+    package info (the id I think?)
 
-`tag`   
-the id of the tag we're trying to add the package to/package is in
+-   `tag`   
+    the id of the tag we're trying to add the package to/package is in
 
 **source:**
 
-`hub/kojihub.py:pkglist_remove`   
-used internally by the `koji clone-tag` command?
+-   `hub/kojihub.py:pkglist_remove`   
+    used internally by the `koji clone-tag` command?
 
 **policy data:** same as above, except `action` is 'remove'
 
 **source:**
 
-`hub/kojihub.py:pkglist_unblock`   
-`unblock-pkg` command
+-   `hub/kojihub.py:pkglist_unblock`   
+    `unblock-pkg` command
 
 **policy data:** same as above, except `action` is 'unblock'
 
@@ -263,41 +264,41 @@ NOTE: RootExports is the class containing functions exported via XMLRPC. In gene
 
 **source:**
 
-`hub/kojihub.py:RootExports.tagBuild`   
-tagging builds
+-   `hub/kojihub.py:RootExports.tagBuild`   
+    tagging builds
 
 **policy data:**
 
-`build`   
-the id of the build
+-   `build`   
+    the id of the build
 
-`fromtag`   
-the id of the tag we're moving the build from, if there is one
+-   `fromtag`   
+    the id of the tag we're moving the build from, if there is one
 
-`operation`   
-'tag' or 'move'
+-   `operation`   
+    'tag' or 'move'
 
-`tag`   
-the id of the tag
+-   `tag`   
+    the id of the tag
 
 **source:**
 
-`hub/kojihub.py:RootExports.untagBuild`   
-untagging builds
+-   `hub/kojihub.py:RootExports.untagBuild`   
+    untagging builds
 
 **policy data:** same as above, except `operation` is 'untag', and `tag` is None
 
 **source:**
 
-`hub/kojihub.py:RootExports.moveAllBuilds`   
-moving all builds of a package from tag1 to tag2
+-   `hub/kojihub.py:RootExports.moveAllBuilds`   
+    moving all builds of a package from tag1 to tag2
 
 **policy data:** same as for `tagBuild`, except `operation` is 'move'. The policy is checked once for each build being moved.
 
 **source:**
 
-`hub/kojihub.py:HostExports.tagBuild`   
-tagging builds ("host version" ?)
+-   `hub/kojihub.py:HostExports.tagBuild`   
+    tagging builds ("host version" ?)
 
 **policy data:** same as for `tagBuild`, plus `user_id`
 
@@ -305,16 +306,16 @@ tagging builds ("host version" ?)
 
 **source:**
 
-`hub/kojihub.py:RootExports.winBuild`   
-windows builds in a vm (`win-build` command)
+-   `hub/kojihub.py:RootExports.winBuild`   
+    windows builds in a vm (`win-build` command)
 
 **policy data:**
 
-`tag`   
-the destination tag
+-   `tag`   
+    the destination tag
 
-`vm_name`   
-the name of the vm
+-   `vm_name`   
+    the name of the vm
 
 ### Examples
 
@@ -335,7 +336,7 @@ the name of the vm
 -   Operations team members can tag vo-clients as testing/release.
 -   Security team members can tag CA packages as testing/release.
 
-<!-- -->
+<!-- this comment actually affects the formatting -->
 
     promotion =
        has_perm software-team :: allow
@@ -362,4 +363,3 @@ the name of the vm
         }
         all :: deny
 
--- Main.MatyasSelmeci - 05 Oct 2016
