@@ -23,6 +23,7 @@ pages:
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
+    - Release Policy: 'policy/release-policy.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
   - Infrastructure:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
