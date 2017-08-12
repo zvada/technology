@@ -1,7 +1,7 @@
 Software Release Policy
 =======================
 
-This document doesn't talk about technical details of how to do a release. [The release process is discussed elsewhere](SoftwareTeam.HowToCutRelease).
+This document doesn't talk about technical details of how to do a release. [The release process is discussed elsewhere](../release/cut-sw-release/).
 
 1.0 Software Repositories
 -------------------------
@@ -58,8 +58,6 @@ New packages will only be added to *osg-development* with the permission of the 
 
 A package may be moved from *osg-development* to *osg-testing* when the individual maintainer of that package decides that it is ready for widespread testing and when the package is eventually intended for a production release, and when approved by the OSG Software Coordinator. Approval is needed because this is when we first make packages available to people outside of the OSG Software Team.
 
-In the past, every time the *osg-testing* cache is updated, the [pre-release notes](SoftwareTeam.PreReleaseNotes) page was updated. This lists all of the new or changed RPMs that have put into the *osg-testing* cache. This is important for our testers, so they can see what has changed. This page is now obsolete.
-
 ### 4.3. Moving packages to osg-prerelease; Readying the release
 
 When we are ready to make a production release, we first move the correct subset of packages from *osg-testing* into *osg-prerelease*. This should be done after checking with the OSG Software Coordinator to verify that it's okay to release the software. The intention of *osg-prerelease* is to do a final verification that we have the correct set of packages for release and that they really work together. This is important because the *osg-testing* repository might contain a mix of packages that are ready for release with packages that are not ready for release. When moving packages to *osg-prerelease*, the team member doing the release will:
@@ -79,8 +77,8 @@ Note that, except in exceptional circumstances, we release software on Tuesdays,
 When the *osg-prerelease* repository has been updated and verified, all of the changed software can be moved into the *osg-release* repository. As part of this move, two important tasks must be done:
 
 1.  Record the complete set of packages in the new release repository.
-2.  Update the [Release Notes](Documentation.Release3.ReleaseNotes). Note that each release has a separate page to describe the release, and it's linked from the main page. The individual page lists the changes at a high level (i.e. Updated package X to version Y) and the complete set of RPMs that changed.
-3.  Write an email about the release. Mail it both to `vdt-discuss@opensciencegrid.org` and the GOC. The GOC will distribute it to the right places.
+2.  Update the [Release Notes](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/ReleaseNotes). Note that each release has a separate page to describe the release, and it's linked from the main page. The individual page lists the changes at a high level (i.e. Updated package X to version Y) and the complete set of RPMs that changed.
+3.  Create a ticket on ticket.grid.iu.edu with a release announcement. Operations will distribute it to the right places.
 
 In addition, we will make another Koji tag/yum repository called *osg-release-VERSION*. All of the latest packages in osg-release will be tagged to be in this repository, and the tag will be locked. This will give us a reproducible way to install any given OSG Software release.
 
