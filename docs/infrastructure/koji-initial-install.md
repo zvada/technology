@@ -1,12 +1,16 @@
 Notes on Koji initial install
 =============================
 
-This document was written for the original install of koji/koji-hub version 1.6. The document is kept for historical purposes, as this setup may no longer be accurate with newer versions of Koji.
+!!! note
+    This document was written for the original install of koji/koji-hub version
+    1.6 to `koji-hub.batlab.org`.  The document is kept for historical
+    purposes, as this setup is no longer accurate with newer versions of Koji,
+    machine moves and renames, cert authority changes, etc.
 
 Machine setup
 -------------
 
-koji is run on `koji.chtc.wisc.edu`; right now a single machine is used for the hub (koji-hub), the web frontend (koji-web), repo generation (kojira), and el5 building (kojid). A second machine, `kojibuilder1.batlab.org` is used for el6 building.
+koji is run on `koji-hub.batlab.org`; right now a single machine was used for the hub (koji-hub), the web frontend (koji-web), repo generation (kojira), and el5 building (kojid). A second machine, `kojibuilder1.batlab.org` was used for el6 building.
 
 As instructions for setting up the machine, I'm just going to take the Fedora guide at <http://fedoraproject.org/wiki/Koji/ServerHowTo>, and add modifications / comments to suit our setup.
 
@@ -38,7 +42,7 @@ Sections taken from the Fedora guide will be between dividers like this:
 
 ---
 
-We use one machine for both these roles, so all of the above has to be installed.
+We used one machine for both these roles, so all of the above had to be installed.
 
 The koji packages to install are:
 
@@ -57,7 +61,7 @@ The koji packages to install are:
 
 ---
 
-This is `/mnt/koji` by default. Koji keeps *all RPMs built* in here so a complete history is kept. In addition, repositories are kept here. A repository is just a set of text files, but since a new one is generated for every build, the space will add up. Koji does clean up the repositories once they get old enough. For `koji.chtc.wisc.edu`, we allocated a 120G partition for `/mnt/koji`.
+This is `/mnt/koji` by default. Koji keeps *all RPMs built* in here so a complete history is kept. In addition, repositories are kept here. A repository is just a set of text files, but since a new one is generated for every build, the space will add up. Koji does clean up the repositories once they get old enough. For `koji-hub.batlab.org`, we allocated a 120G partition for `/mnt/koji`.
 
 ---
 
@@ -65,7 +69,7 @@ This is `/mnt/koji` by default. Koji keeps *all RPMs built* in here so a complet
 
 ---
 
-`kojid` (the builder daemon) will refuse to start a build if it does not have sufficient space under `/var/lib/mock`. By default, this is an 8G surplus, but we lowered it to 4G for `koji.chtc.wisc.edu`. The build roots will be wiped after successful builds, but the build roots for failed builds will be kept around for 2 weeks (?); as a result, disk usage of `/var/lib/mock` can swing wildly. For `koji.chtc.wisc.edu`, we have allocated 35G for `/var/lib/mock`. `/var/cache/mock` doesn't use up that much space, so we didn't make a separate partition for it, it just uses what's under `/`.
+`kojid` (the builder daemon) will refuse to start a build if it does not have sufficient space under `/var/lib/mock`. By default, this is an 8G surplus, but we lowered it to 4G for `koji-hub.batlab.org`. The build roots will be wiped after successful builds, but the build roots for failed builds will be kept around for 2 weeks (?); as a result, disk usage of `/var/lib/mock` can swing wildly. For `koji-hub.batlab.org`, we have allocated 35G for `/var/lib/mock`. `/var/cache/mock` doesn't use up that much space, so we didn't make a separate partition for it, it just uses what's under `/`.
 
 ### Authentication
 
@@ -73,13 +77,13 @@ Most of the "Koji Authentication Selection" section can be skipped. We got our c
 
 We have 3 certs, with the following subjects:
 
--   `/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=koji.chtc.wisc.edu` (for koji-hub, koji-web, and kojid)
--   `/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=kojira/koji.chtc.wisc.edu` (for kojira)
+-   `/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=koji-hub.batlab.org` (for koji-hub, koji-web, and kojid)
+-   `/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=kojira/koji-hub.batlab.org` (for kojira)
 -   `/DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=Services/CN=kojibuilder1.batlab.org` (for kojid on kojibuilder1)
 
 kojid needed a different cert than kojira because the two would connect to koji-hub at the same time and log each other off.
 
-Copies of the certs exist in AFS at `/p/condor/home/certificates/koji.chtc.wisc.edu/` and `/p/condor/home/certificates/kojibuilder1.batlab.org/`
+Copies of the certs exist in AFS at `/p/condor/home/certificates/koji-hub.batlab.org/` and `/p/condor/home/certificates/kojibuilder1.batlab.org/`
 
 Clients connecting to koji-hub need a file containing the CA certs; this is just a concatenation of the DigiCert Grid Root CA and the DigiCert Grid CA-1 certs, which can be obtained from DigiCert's website (get PEM format). We have a `digicert-chain.crt` in `/etc/pki/tls/certs/digicert-chain.crt` on `koji-hub`
 
@@ -89,26 +93,30 @@ We made a `kojiadmin` user, but we didn't make a cert for it so we just used use
 
 `/etc/sysconfig/httpd` needed to be changed to include the following lines:
 
-    OPENSSL_ALLOW_PROXY=1
-    OPENSSL_ALLOW_PROXY_CERTS=1
+```bash
+OPENSSL_ALLOW_PROXY=1
+OPENSSL_ALLOW_PROXY_CERTS=1
 
-    export OPENSSL_ALLOW_PROXY
-    export OPENSSL_ALLOW_PROXY_CERTS
+export OPENSSL_ALLOW_PROXY
+export OPENSSL_ALLOW_PROXY_CERTS
+```
 
 The user must use RFC proxies and must have a version of the koji client of 1.6.0-6.osg or newer.
 
 ### Postgres Database
 
 -   Install postgres:  
-    `[root@koji]# yum install postgresql-server`
+    `[root@koji-hub]# yum install postgresql-server`
 -   Init the db:  
-    `[root@koji]# su - postgres -c "PGDATA=/var/lib/pgsql/data" initdb`
+    `[root@koji-hub]# su - postgres -c "PGDATA=/var/lib/pgsql/data" initdb`
 -   Start the db:  
-    `[root@koji]# service postgresql start`
+    `[root@koji-hub]# service postgresql start`
 -   Make a koji account:  
-    `[root@koji]# useradd koji; passwd -d koji`
+    `[root@koji-hub]# useradd koji; passwd -d koji`
 
 ---
+
+<!-- I'd love to highlight the quoted stuff but the ``` is broken within blockquotes -->
 
 > #### Setup PostgreSQL and populate schema:
 >
@@ -139,13 +147,16 @@ To authorize the koji-web and koji-hub resources, make the following additions t
 
 Next, we'll need a koji admin user to run some commands. We'll need to add it to the database manually. Once again, we used user/pass authentication for the kojiadmin user until we disabled it. All database commands should be done as the `koji` user:
 
-    [root@koji]# sudo -u koji psql
-
-    koji=>  insert into users (name, password, status, usertype) values \
-              ('kojiadmin', 'some-throwaway-admin-password-in-plain-text', 0, 0);
-    koji=>  insert into user_perms (user_id, perm_id, creator_id) values \
-              ((select id from users where name='kojiadmin'), 1, \
-               (select id from users where name='kojiadmin'));
+```console
+[root@koji-hub]# sudo -u koji psql
+```
+```psql
+koji=>  insert into users (name, password, status, usertype) values
+          ('kojiadmin', 'some-throwaway-admin-password-in-plain-text', 0, 0);
+koji=>  insert into user_perms (user_id, perm_id, creator_id) values
+          ((select id from users where name='kojiadmin'), 1,
+           (select id from users where name='kojiadmin'));
+```
 
 
 ### Koji-Hub
@@ -165,7 +176,7 @@ Config files we care about:
 
 Install the necessary packages.
 ``` console
-[root@koji]# yum install koji-hub httpd mod_ssl mod_python
+[root@koji-hub]# yum install koji-hub httpd mod_ssl mod_python
 ```
 
 ---
@@ -194,7 +205,7 @@ We made multiple changes to this config file.
 Notable changes:
 
 -   We turned off `LoginCreatesUser`
--   `KojiWebURL` is <http://koji.chtc.wisc.edu/koji>
+-   `KojiWebURL` is <http://koji-hub.batlab.org/koji>
 -   `PluginPath` is `/usr/lib/koji-hub-plugins`
 -   `Plugins = sign` since there is an RPM signing plugin (package name: `koji-plugin-sign`) that we use
 
@@ -219,11 +230,13 @@ Finally, there is a `[policy]` section for controlling ACLs. The contents of tha
 
 This is actually outdated information, useful for Koji < 1.4.0. Instead, we add the following:
 
-    <Location /kojihub/ssllogin>
-            SSLVerifyClient require
-            SSLVerifyDepth  10
-            SSLOptions +StdEnvVars
-    </Location>
+```apache
+<Location /kojihub/ssllogin>
+        SSLVerifyClient require
+        SSLVerifyDepth  10
+        SSLOptions +StdEnvVars
+</Location>
+```
 
 ---
 
@@ -235,20 +248,22 @@ This is actually outdated information, useful for Koji < 1.4.0. Instead, we add 
 
 These are the config lines we use:
 
-    ## The host cert for koji.chtc.
-    SSLCertificateFile /etc/pki/tls/certs/digicert_hostcert.crt
+```apache
+## The host cert for koji-hub
+SSLCertificateFile /etc/pki/tls/certs/digicert_hostcert.crt
 
-    ## The private key for koji.chtc.
-    SSLCertificateKeyFile /etc/pki/tls/private/digicert_hostkey.key
+## The private key for koji-hub
+SSLCertificateKeyFile /etc/pki/tls/private/digicert_hostkey.key
 
-    ## The concatenation of the DigiCert CA certs we made above.
-    SSLCertificateChainFile /etc/pki/tls/certs/digicert-chain.crt
+## The concatenation of the DigiCert CA certs we made above.
+SSLCertificateChainFile /etc/pki/tls/certs/digicert-chain.crt
 
-    ## All the CA certs on the system.
-    SSLCACertificateFile /etc/pki/tls/certs/ca-bundle.crt
+## All the CA certs on the system.
+SSLCACertificateFile /etc/pki/tls/certs/ca-bundle.crt
 
-    SSLVerifyClient require
-    SSLVerifyDepth  10
+SSLVerifyClient require
+SSLVerifyDepth  10
+```
 
 Restart `httpd` after doing this.
 
@@ -271,7 +286,7 @@ At this point, SSL should be set up on Koji Hub. Create an account for yourself 
 
 In the database:
 
-```
+``` psql
 koji=>  update users set password = null where name='kojiadmin';
 ```
 
@@ -300,7 +315,7 @@ koji=>  update users set password = null where name='kojiadmin';
 We turned off auto account creation, so there won't be a problem with accounts with bad perms getting created. This means they have to be created manually. We have kojid running on koji-hub, so this is the command we used to add it:
 
 ``` console
-[you@koji-hub]$ koji add-host koji.chtc.wisc.edu i386 x86_64
+[you@koji-hub]$ koji add-host koji-hub.batlab.org i386 x86_64
 ```
 
 ### Koji-Web, Kojid
@@ -347,9 +362,13 @@ The following files should be in the `/etc/pki/tls` tree:
 
 #### Adding koji-builder host to database
 
-    [you@koji-hub]$ koji add-host-to-channel koji.chtc.wisc.edu createrepo
-
-    koji=>#  update host set capacity = 4 where name = 'koji.chtc.wisc.edu';
+```console
+[you@koji-hub]$ koji add-host-to-channel koji-hub.batlab.org createrepo
+```
+In the database:
+```psql
+koji=>#  update host set capacity = 4 where name = 'koji-hub.batlab.org';
+```
 
 #### Start kojid
 
