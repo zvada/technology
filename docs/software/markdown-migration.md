@@ -14,13 +14,13 @@ Archiving the TWiki document
 Save the raw TWiki file into the `docs/archive/` folder of your local git repository:
 
 ```console
-[user@client ~] $ curl '<TWIKI URL>?raw=text' > docs/archive/<TWIKI TITLE>
+[user@client ~] $ curl '<TWIKI URL>?raw=text' | iconv -f windows-1252 > docs/archive/<TWIKI TITLE>
 ```
 
 For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:
 
 ```console
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' > docs/archive/SHA2Compliance
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
 ```
 
 Initial conversion with Pandoc
@@ -35,7 +35,7 @@ $ pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
 Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN FILE>` is the path to the resulting document in GitHub Markdown.
 
 !!! note
-    If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Find the offending section via binary search, temporarily remove the section, convert the document with Pandoc, and manually convert the offending section.
+    If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.
 
 ### Using docker ###
 
@@ -49,7 +49,7 @@ For example, to do a Docker-based conversion of the document at https://twiki.op
 
 ```bash
 $ mkdir -p docs/archive docs/projects
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' > docs/archive/SHA2Compliance
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
 $ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance > docs/projects/sha2-support.md
 ```
 
@@ -82,19 +82,21 @@ If the broken link is:
 
 ### Broken command blocks and file snippets ###
 
-Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (\`\`\`):
+Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (\`\`\`) followed by an optional code highlighting format:
 
-    ```
+    ```python
     # stuff
     ```
 
 Make sure to use the TWiki document as a reference when making fixes!
 
+We use the [Pygments](http://pygments.org/) highlighting library for syntax; it knows about 100 different languages.  The Pygments website contains a live renderer if you want to see how your text will come out.  Please use the `console` language for shell sessions.
+
 #### Fixing root and user prompts ####
 
 | Find and replace...                                   | With...             |
 |:------------------------------------------------------|:--------------------|
-| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~] $` |
+| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~] #` |
 | `<span class="twiki-macro UCL\_PROMPT"></span>`       | `[user@client ~] $` |
 
 #### Highlighting user input  ####
@@ -109,7 +111,7 @@ Within command blocks and file snippets, we've used `%RED%...%ENDCOLOR%`, `&lt;.
 
 Ordered lists are often broken up into multiple lists if there are command blocks/file snippets and/or additional text within one of the list items. To make sure the contents of an item are indented properly, use the following formatting:
 
-- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list.
+- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code block with `:::<FORMAT>`; see [this page](http://squidfunk.github.io/mkdocs-material/extensions/codehilite/) for details, including possible highlighting formats.  For an example of formatting a code section inside a list, see [the release series document](https://github.com/opensciencegrid/docs/blob/master/docs/release/release_series.md).
 - For additional text (i.e. after a code block), insert `N*4` spaces at the beginning of each line, where N is the level of the item in the list.
 
 For example:
@@ -118,6 +120,7 @@ For example:
 1. Foo
     - Bar
 
+            :::console
             COMMAND
             BLOCK
         text associated with Bar
@@ -131,7 +134,22 @@ For example:
 
 ```
 
-There are 12 spaces and 8 spaces in front of the command block and text associated with `Bar`, respectively; 4 spaces in front of the text associated with `Foo`; and 8 spaces in front of the file snippet associated with `Baz`
+There are 12 spaces and 8 spaces in front of the command block and text associated with `Bar`, respectively; 4 spaces in front of the text associated with `Foo`; and 8 spaces in front of the file snippet associated with `Baz`.  The above block is rendered below:
+
+1. Foo
+    - Bar
+
+            :::console
+            COMMAND
+            BLOCK
+        text associated with Bar
+
+    text associated with Foo
+
+2. Baz
+
+        FILE
+        SNIPPET
 
 ### Notes ###
 
@@ -141,6 +159,11 @@ To catch the user's attention for important items or pitfalls, we used `%NOTE%` 
 !!! note
     # things to note
 ```
+
+The above block is rendered below as an example.
+
+!!! note
+    # things to note
 
 ### Obvious errors ###
 
@@ -157,10 +180,8 @@ Making the pull request
 
         <LINK TO TWIKI DOCUMENT>
 
+        - [ ] Enter date into "Migrated" column of google sheet
         - [ ] Add migration header to TWiki document
-        - [ ] Remaining TWiki link #1
-        - ...
-        - [ ] Remaining TWiki link #N
 
 See an example pull request [here](https://github.com/opensciencegrid/technology/pull/82).
 
