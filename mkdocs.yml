@@ -14,6 +14,7 @@ pages:
   - Software:
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
     - New Team Member: 'software/new-team-member.md'
+    - Repository Management: 'software/repository-management.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
