@@ -1,6 +1,5 @@
 Setup Instructions for New Team Members
 =======================================
-
 <span class="twiki-macro TOC" title="Contents:"></span>
 
 Accounts, Group Memberships, Certificates, Etc.
@@ -16,6 +15,6 @@ Accounts, Group Memberships, Certificates, Etc.
     - <https://twiki.opensciencegrid.org/bin/view/Documentation/CertificateGetWeb> 
 5. Access to FermiCloud
     - <http://fclweb.fnal.gov/>
-6 Jira ticket system
+6. Jira ticket system
     - Send email to <goc@opensciencegrid.org> and request access to Jira
 
