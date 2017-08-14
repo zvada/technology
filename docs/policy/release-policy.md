@@ -44,8 +44,8 @@ The version number will be of the form X.Y.Z. As of this writing, version number
 This figure shows the progression of repositories that packages will go through:
 
      osg-development -> osg-testing -> osg-prerelease -> osg-release
-                                   \
-                                    -> osg-contrib
+                      \
+                       -> osg-contrib
 
 4.0 Release policies
 --------------------
@@ -88,7 +88,7 @@ When we make a specific release, we copy the osg-release repository to a version
 
 ### 4.6 Moving packages to osg-contrib
 
-The *osg-contrib* repository is loosely regulated. In most cases, the team member in charge of the package can decide when a package is updated in *osg-contrib*. Contrib packages should be tested in *osg-testing* first.
+The *osg-contrib* repository is loosely regulated. In most cases, the team member in charge of the package can decide when a package is updated in *osg-contrib*. Contrib packages should be tested in *osg-development* first.
 
 ### 4.7 Timing of releases
 
