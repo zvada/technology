@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Repository Management - OSG Technology Area</title>
+  <title>CE Scale Testing - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Repository Management";
-    var mkdocs_page_input_path = "software/repository-management.md";
-    var mkdocs_page_url = "/software/repository-management/";
+    var mkdocs_page_name = "CE Scale Testing";
+    var mkdocs_page_input_path = "software/ce-test-scaling.md";
+    var mkdocs_page_url = "/software/ce-test-scaling/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -85,33 +85,37 @@
     <a class="" href="../new-team-member/">New Team Member</a>
   
         </li>
+        <li class="">
+          
+  
+    <a class="" href="../repository-management/">Repository Management</a>
+  
+        </li>
         <li class=" current">
           
   
-    <a class="current" href="./">Repository Management</a>
+    <a class="current" href="./">CE Scale Testing</a>
   
   <ul class="subnav">
       
-    <li class="toctree-l3"><a href="#repository-management">Repository Management</a></li>
+    <li class="toctree-l3"><a href="#how-to-run-scalability-tests-on-a-ce">How to Run Scalability Tests on a CE</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#public-repositories">Public repositories</a></li>
+            <li><a class="toctree-l4" href="#introduction">Introduction</a></li>
         
-            <li><a class="toctree-l4" href="#internal-repositories">Internal repositories</a></li>
+            <li><a class="toctree-l4" href="#sleeper-pool">Sleeper Pool</a></li>
         
-            <li><a class="toctree-l4" href="#build-repositories">Build repositories</a></li>
+            <li><a class="toctree-l4" href="#usual-topology-of-the-tests">Usual Topology of the Tests</a></li>
+        
+            <li><a class="toctree-l4" href="#monitoring-tools">Monitoring tools</a></li>
+        
+            <li><a class="toctree-l4" href="#generating-load">Generating Load</a></li>
         
         </ul>
     
 
   </ul>
-        </li>
-        <li class="">
-          
-  
-    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
-  
         </li>
   </ul>
 	    </li>
@@ -356,10 +360,10 @@
         
       
     
-    <li>Repository Management</li>
+    <li>CE Scale Testing</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/repository-management.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/ce-test-scaling.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -369,51 +373,56 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="repository-management">Repository Management<a class="headerlink" href="#repository-management" title="Permanent link">&para;</a></h1>
-<p>This document attempts to record everything there is to know about repository management for the OSG.</p>
-<h2 id="public-repositories">Public repositories<a class="headerlink" href="#public-repositories" title="Permanent link">&para;</a></h2>
-<p>We host four public-facing repositories at <a href="http://repo.grid.iu.edu/">repo.grid.iu.edu</a>:</p>
-<ul>
-<li>
-<p><strong>development</strong>: This repository is the bleeding edge. Installing from this repository may cause the host to stop functioning, and we will not assist in undoing any damage.</p>
-</li>
-<li>
-<p><strong>testing</strong>: This repository contains software ready for testing. If you install packages from here, they may be buggy, but we will provide limited assistance in providing a migration path to a fixed verison.</p>
-</li>
-<li>
-<p><strong>release</strong>: This repository contains software that we are willing to support and can be used by the general community.</p>
-</li>
-<li>
-<p><strong>contrib</strong>: RPMs contributed from outside the OSG.</p>
-</li>
-</ul>
-<p>These repos are updated by the <code>mash</code> script running on <code>repo1.grid.iu.edu</code> and <code>repo2.grid.iu.edu</code>.</p>
-<h2 id="internal-repositories">Internal repositories<a class="headerlink" href="#internal-repositories" title="Permanent link">&para;</a></h2>
-<p>In addition to the public repositories above, we host two repositories on <code>koji.chtc.wisc.edu</code>. These are updated shortly after jobs are built into them or tagged into them. They are technically publicly accessible, but we discourage the public from using them.</p>
-<ul>
-<li>
-<p><strong>minefield</strong>: This repository is a copy of development above.</p>
-</li>
-<li>
-<p><strong>prerelease</strong>: This repository is a staging area for software that is slated to be in the next release.</p>
-</li>
-</ul>
-<p>These repos are updated by the <code>kojira</code> daemon running on <code>koji.chtc.wisc.edu</code>.</p>
-<h2 id="build-repositories">Build repositories<a class="headerlink" href="#build-repositories" title="Permanent link">&para;</a></h2>
-<p>The <code>koji</code> task in <code>osg-build</code> uses the <a href="http://koji.chtc.wisc.edu/koji/taginfo?tagID=472">osg-3.4-el6-build</a>/<a href="http://koji.chtc.wisc.edu/koji/taginfo?tagID=481">osg-3.4-el7-build</a> repo, which is the union of the following repositories:</p>
-<ul>
-<li>Minefield a.k.a. <code>osg-3.4-el6-development</code> / <code>osg-3.4-el7-development</code></li>
-<li>The <code>osg-el6-internal</code> / <code>osg-el7-internal</code> tag (containing build dependencies we do not want to make public)</li>
-<li>The <code>dist-el6-build</code> / <code>dist-el7-build</code> tag (consisting of the appropriate macros for %dist)</li>
-<li>CentOS and EPEL</li>
-</ul>
-<p>Koji will work from its internal cache of the above repositories (downloading the packages from the source), and will not update until the build repository is regenerated. By default, Koji does a groupinstall of the build group, then resolves the BuildRequires dependencies.</p>
-<p>The tarball creation scripts use the <a href="https://koji.chtc.wisc.edu/koji/taginfo?tagID=478">osg-3.4-el6-release-build</a> / <a href="https://koji.chtc.wisc.edu/koji/taginfo?tagID=487">osg-3.4-el7-release-build</a> repo, which is the union of the following repositories:</p>
-<ul>
-<li>Release a.k.a. <code>osg-3.4-el6-release</code> / <code>osg-3.4-el7-release</code></li>
-<li>The <code>dist-el6-build</code> / <code>dist-el7-build</code> tag (consisting of the appropriate macros for <code>%dist</code>)</li>
-<li>CentOS and EPEL</li>
-</ul>
+                <h1 id="how-to-run-scalability-tests-on-a-ce">How to Run Scalability Tests on a CE<a class="headerlink" href="#how-to-run-scalability-tests-on-a-ce" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This document is intended as a general overview of the process for scalability testing of an OSG CE (Compute Element). All examples are for testing an <a href="https://twiki.grid.iu.edu/bin/view/Trash/Trash/Sandbox/HTCondorCEScaleTests">HTCondor-CE</a>, but they should be applicable for other CE software.</p>
+<p>The focus of testing a CE is on the number of concurrent running jobs the CE can sustain as well as the ramp-up rate when many jobs are queued.</p>
+<h2 id="sleeper-pool">Sleeper Pool<a class="headerlink" href="#sleeper-pool" title="Permanent link">&para;</a></h2>
+<p>With the focus on the CE, actual job payloads can be minimal – simple long sleep jobs are fine. Thus, then can run on nearly any resources, and it is even possible to allow far more of these jobs to run on a single resource than would be sensible for real jobs.</p>
+<p>When large-scale testing a CE, one of the objectives is to see if the CE can fully utilize all resources (cores) available to it or if there are bottlenecks preventing that outcome. However to do this would normally require using up production slots, and it is hard to find a site willing to give up so many production slots for so long. Thus, running resourceless jobs in parallel with production jobs allows the testing to proceed without interfering with real work.</p>
+<h3 id="setting-up-a-sleeper-pool">Setting Up a Sleeper Pool<a class="headerlink" href="#setting-up-a-sleeper-pool" title="Permanent link">&para;</a></h3>
+<p>A sleeper pool is created by “tricking” a worker node into thinking it has more cores than physically available. Then, the host is configured so that jobs marked for the sleeper pool are routed to the extra slots. In HTCondor, this is done by changing the START expression on each startd. For example, on a 32-core machine:</p>
+<div class="codehilite"><pre><span></span>START = ( \
+          (SlotID &gt;= 1) &amp;&amp; \
+          (SlotID &lt; 33) &amp;&amp; \
+          (RequiresWholeMachine =!= TRUE ) &amp;&amp; \
+          (SleepSlot =!= TRUE) &amp;&amp; \
+          (distro =?= &quot;RHEL6&quot; ) &amp;&amp; \
+          (CPU_Only == TRUE ) \
+          ) || \
+          ( (SlotID &gt;= 33) &amp;&amp; (distro =?= &quot;RHEL6&quot; ) &amp;&amp; (SleepSlot == TRUE) )
+</pre></div>
+
+
+<h2 id="usual-topology-of-the-tests">Usual Topology of the Tests<a class="headerlink" href="#usual-topology-of-the-tests" title="Permanent link">&para;</a></h2>
+<p>A brief introduction to the topology involved in the tests.</p>
+<h3 id="batch-system-and-sleeper-pool">Batch System and Sleeper Pool<a class="headerlink" href="#batch-system-and-sleeper-pool" title="Permanent link">&para;</a></h3>
+<p>This is normally the batch system of the resources which will be behind the CE to be tested. It is normally set up by a site administrator.</p>
+<h3 id="ce">CE<a class="headerlink" href="#ce" title="Permanent link">&para;</a></h3>
+<p>This is the physical hardware where the CE software runs, hopefully mimicking real production hardware specifications.</p>
+<h3 id="submitter">Submitter<a class="headerlink" href="#submitter" title="Permanent link">&para;</a></h3>
+<p>An HTCondor submit host. It can be a virtual machine for most test submissions.</p>
+<h2 id="monitoring-tools">Monitoring tools<a class="headerlink" href="#monitoring-tools" title="Permanent link">&para;</a></h2>
+<p>To monitor tests, two software components are needed (which can be installed on the same node): ganglia-gmond and ganglia-gmetad. Once they are installed, then some ad-hoc metrics can be created to monitor the CE; for example:</p>
+<div class="codehilite"><pre><span></span><span class="go">condor_q -pool red.unl.edu:9619 -name sleeper@red.unl.edu -const &#39;JobStatus=?=2&#39; | wc -l</span>
+<span class="go">gmetric --name RunningJobsCE </span>
+</pre></div>
+
+
+<h2 id="generating-load">Generating Load<a class="headerlink" href="#generating-load" title="Permanent link">&para;</a></h2>
+<h3 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h3>
+<p>The load_generators are found in the  <a href="https://github.com/efajardo/osgscal">OSgscal github repo</a>. The binary of interest here is <code>loadtest_condor</code></p>
+<h3 id="use">Use<a class="headerlink" href="#use" title="Permanent link">&para;</a></h3>
+<p>Just untar it or check it out from mas on the HTCondor submit node (see above):</p>
+<div class="codehilite"><pre><span></span><span class="go">git checkout https://github.com/efajardo/osgscal</span>
+<span class="go">cd load_generators/loadtest_condor/trunk/bin</span>
+</pre></div>
+
+
+<p>Keep in mind that you also need a valid proxy for grid submissions.</p>
+<p>For example, if the goal is to keep 1,000 jobs in the queue and run 6-hour sleep jobs (on average), you can run this command:</p>
+<div class="codehilite"><pre><span></span><span class="go">./loadtest_condor.sh -type grid condor sleeper@red.unl.edu red.unl.edu:9619 -jobs 40000 -cluster 10 -proxy /home/submituser/.globus/cmspilot01.proxy -end random 21600 -maxidle 1000 -in sandbox 50</span>
+</pre></div>
               
             </div>
           </div>
@@ -421,10 +430,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ce-test-scaling/" class="btn btn-neutral float-right" title="CE Scale Testing">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../release/cut-sw-release/" class="btn btn-neutral float-right" title="How to Cut a Release">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../new-team-member/" class="btn btn-neutral" title="New Team Member"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../repository-management/" class="btn btn-neutral" title="Repository Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -452,10 +461,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../new-team-member/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../repository-management/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../ce-test-scaling/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../release/cut-sw-release/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
