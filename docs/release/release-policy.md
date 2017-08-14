@@ -3,8 +3,8 @@ Software Release Policy
 
 This document doesn't talk about technical details of how to do a release. [The release process is discussed elsewhere](../release/cut-sw-release/).
 
-1.0 Software Repositories
--------------------------
+Software Repositories
+---------------------
 
 The Software Team maintains five primary software repositories
 
@@ -18,8 +18,8 @@ We also create a repository per release, called **osg-release-VERSION** (such as
 
 Occasionally there may be other repositories for specific short-term purposes.
 
-2.0 Version Numbers
--------------------
+Version Numbers
+---------------
 
 There is a single version number that is used to summarize the contents of the *osg-release* repository. Having a single version number is very useful for a variety of reasons, including:
 
@@ -38,8 +38,8 @@ The version number is communicated in two ways:
 
 The version number will be of the form X.Y.Z. As of this writing, version numbers are 3.0.Z, where Z indicates a minor revision.
 
-3.0 Progression of repositories
--------------------------------
+Progression of repositories
+---------------------------
 
 This figure shows the progression of repositories that packages will go through:
 
@@ -47,18 +47,18 @@ This figure shows the progression of repositories that packages will go through:
                       \
                        -> osg-contrib
 
-4.0 Release policies
---------------------
+Release policies
+----------------
 
-### 4.1 Adding packages to osg-development
+### Adding packages to osg-development
 
 New packages will only be added to *osg-development* with the permission of the OSG Software Manager. Updates can be done at any time without permission, but developers should be careful if their updates might be significant, particularly if an update might cause series compatibility issues. In cases where there is uncertainty, discuss it with the Software Manager.
 
-### 4.2 Moving packages to osg-testing
+### Moving packages to osg-testing
 
 A package may be moved from *osg-development* to *osg-testing* when the individual maintainer of that package decides that it is ready for widespread testing and when the package is eventually intended for a production release, and when approved by the OSG Software Manager. Approval is needed because this is when we first make packages available to people outside of the OSG Software Team.
 
-### 4.3. Moving packages to osg-prerelease; Readying the release
+### Moving packages to osg-prerelease; Readying the release
 
 When we are ready to make a production release, we first move the correct subset of packages from *osg-testing* into *osg-prerelease*. This should be done after checking with the OSG Release Manager to verify that it's okay to release the software. The intention of *osg-prerelease* is to do a final verification that we have the correct set of packages for release and that they really work together. This is important because the *osg-testing* repository might contain a mix of packages that are ready for release with packages that are not ready for release. When moving packages to *osg-prerelease*, the team member doing the release will:
 
@@ -70,7 +70,7 @@ We expect that in most cases, this process of updating and testing the *osg-prel
 
 Note that, except in exceptional circumstances, we release software on Tuesdays. Therefore the osg-prerelease cache is probably updated and readied on a Monday (or perhaps late the previous week).
 
-### 4.4 Moving packages to osg-release
+### Moving packages to osg-release
 
 Note that, except in exceptional circumstances, we release software on Tuesdays, so this process will only happen on Tuesdays.
 
@@ -82,15 +82,15 @@ When the *osg-prerelease* repository has been updated and verified, all of the c
 
 In addition, we will make another Koji tag/yum repository called *osg-release-VERSION*. All of the latest packages in osg-release will be tagged to be in this repository, and the tag will be locked. This will give us a reproducible way to install any given OSG Software release.
 
-### 4.5 Moving packages to osg-release-VERSION
+### Moving packages to osg-release-VERSION
 
 When we make a specific release, we copy the osg-release repository to a versioned osg-release-VERSION repository. This allows us to do testing with specific versions and in rare cases allows users to use a specific release.
 
-### 4.6 Moving packages to osg-contrib
+### Moving packages to osg-contrib
 
 The *osg-contrib* repository is loosely regulated. In most cases, the team member in charge of the package can decide when a package is updated in *osg-contrib*. Contrib packages should be tested in *osg-development* first.
 
-### 4.7 Timing of releases
+### Timing of releases
 
 Normally, releases happen on Tuesdays.
 
@@ -98,8 +98,8 @@ Code freezes happen two business days in advance of the release (normally Friday
 
 We will make exceptions for urgent situations; consult with the release manager when needed.
 
-5.0 CA Certificates and VO Client packages
-------------------------------------------
+CA Certificates and VO Client packages
+--------------------------------------
 
 Packages that contain only data are not part of the usual release cycle.
 Currently, these are the CA certificate packages and the VO Client packages.
