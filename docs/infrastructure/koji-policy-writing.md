@@ -260,7 +260,8 @@ where NAME is the name of the permission you want to create. You may now grant p
 
 #### tag
 
-NOTE: RootExports is the class containing functions exported via XMLRPC. In general, each function corresponds to a koji task.
+!!! note
+    RootExports is the class containing functions exported via XMLRPC. In general, each function corresponds to a koji task.
 
 **source:**
 
