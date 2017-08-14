@@ -23,8 +23,8 @@ KOJIBACKUP=/export/backup/$DATE/koji.chtc.wisc.edu
 RSYNC="rsync --archive --hard-links --verbose"
 ```
 
-I. Restoring the database
--------------------------
+Restoring the database
+----------------------
 
 The entire filesystem of *db-01* is backed up -- this includes all of `/var/lib/pgsql`, including the database as-is. In theory, this means that we could just rsync all the files to a blank hard drive, boot up, and we'd have a *db-01* again. However, the Postgres manual warns against restoring the database from a filesystem backup that was made while the database was live, and we do not shut down the database before backups.
 
@@ -32,7 +32,7 @@ We might be able to restore every other part of the filesystem besides the datab
 
 The new database server is called *newdb* in these instructions.
 
-### I.1. Restoring Services
+### Restoring Services
 
 Prerequisites for *newdb*: an EL 6+ host with an SSH server set up and accessible (as root) from *host-3.chtc.wisc.edu*
 
@@ -56,7 +56,7 @@ Prerequisites for *newdb*: an EL 6+ host with an SSH server set up and accessibl
 
 Continue on to the next section
 
-### I.2. Restoring Database Contents
+### Restoring Database Contents
 
 Assumes you have restored the /var directory from backup into `/root/dbrestore/var`.
 
@@ -85,7 +85,7 @@ Assumes you have restored the /var directory from backup into `/root/dbrestore/v
             psql -U postgres postgres
 
 
-### I.3. Validation
+### Validation
 
 Do the following tests to make sure the database is ready to use:
 
@@ -111,8 +111,8 @@ Do the following tests to make sure the database is ready to use:
 1.  Continue to "Restoring Koji" if needed, otherwise skip to "Starting Services and Validation"
 
 
-II. Restoring Koji
-------------------
+Restoring Koji
+--------------
 
 Both the root filesystem of *koji.chtc* and `/mnt/koji` are backed up. The root filesystem backups are in the `rootfs` subdirectory of `/export/backup/$DATE/koji.chtc.wisc.edu` and the backups of `/mnt/koji` are in the `kojifs` subdirectory.
 
@@ -120,7 +120,7 @@ The following instructions show how to restore the critical components of Koji o
 
 In the instructions, the new host will be named *newkoji*.
 
-### II.1. Installing the OS
+### Installing the OS
 
 Prerequisites for *newkoji*: an EL 6 host with an SSH server set up and accessible (as root) from *host-3.chtc.wisc.edu*   
 (This recipe was tested for EL 6, on the same machine as *newdb*).
@@ -167,7 +167,7 @@ Prerequisites for *newkoji*: an EL 6 host with an SSH server set up and accessib
 
 1.  Continue on to the next section
 
-### II.2. Restoring Configuration
+### Restoring Configuration
 
 On *newkoji*, define the shell function `dirclone`, listed below:
 
@@ -263,7 +263,7 @@ dirclone () {
             Disallow: /
 
 
-### II.3. Fixing Names
+### Fixing Names
 
 This section should be done if *newdb* or *newkoji* do not have the same as the previous db server and hub (i.e. *db-01.batlab.org* and *koji.chtc.wisc.edu*). This section should be completed on *newkoji*.
 
@@ -359,7 +359,7 @@ These steps are only necessary if you cannot get a DNS Canonical Name (CN) recor
 6.  Mail people that they will need to update *osg-build* and rerun `osg-koji setup`
 
 
-### II.4 Starting Services and Validation
+### Starting Services and Validation
 
 Now you will start up Koji services and verify that they function.
 Prerequisite: previous restore steps have been completed and `postgresql` is running on the database host.
