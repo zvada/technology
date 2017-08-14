@@ -21,6 +21,7 @@ pages:
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
+    - Release Policy: 'release/release-policy.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
@@ -28,10 +29,13 @@ pages:
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
   - Infrastructure:
+    - Koji Restore Recipe: 'infrastructure/koji-restore-recipe.md'
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
+    - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
+  - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - February 27, 2017: 'meetings/2017/TechArea20170227.md'
   - April 17, 2017: 'meetings/2017/TechArea20170417.md'
