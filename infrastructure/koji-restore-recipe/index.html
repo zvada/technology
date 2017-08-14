@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Koji Restore Recipe - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Koji Restore Recipe";
+    var mkdocs_page_input_path = "infrastructure/koji-restore-recipe.md";
+    var mkdocs_page_url = "/infrastructure/koji-restore-recipe/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/repository-management/">Repository Management</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Koji Restore Recipe</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#how-to-restore-koji">How to Restore Koji</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#background-information">Background information</a></li>
+        
+            <li><a class="toctree-l4" href="#setting-up-your-environment">Setting up your environment</a></li>
+        
+            <li><a class="toctree-l4" href="#restoring-the-database">Restoring the database</a></li>
+        
+            <li><a class="toctree-l4" href="#restoring-koji">Restoring Koji</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Infrastructure &raquo;</li>
+        
+      
+    
+    <li>Koji Restore Recipe</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/infrastructure/koji-restore-recipe.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="how-to-restore-koji">How to Restore Koji<a class="headerlink" href="#how-to-restore-koji" title="Permanent link">&para;</a></h1>
+<p>This document contains recipes on how to restore the Koji services and the database they require. It is divided into two sections: one for the database (to be done if something happens to <em>db-01</em>), and one for the server hosting the koji services (to be done if something happens to <em>koji.chtc</em>).</p>
+<p>In case both the database and the hub need to be restored, the database should be restored first.</p>
+<h2 id="background-information">Background information<a class="headerlink" href="#background-information" title="Permanent link">&para;</a></h2>
+<p>Backups of <em>koji.chtc.wisc.edu</em> and <em>db-01.batlab.org</em> are on <em>host-3.chtc.wisc.edu</em> in <code>/export/backup/&lt;DATE&gt;</code>. That machine is in WID. (Same room as <em>koji.chtc</em> itself, which is why we have offsite backups). It's a homebrew rsync-based backup system. (Not our home -- Nate told me it was written for Midwest Tier 2.) They go back up to a week, with a monthly snapshot for a year.</p>
+<h2 id="setting-up-your-environment">Setting up your environment<a class="headerlink" href="#setting-up-your-environment" title="Permanent link">&para;</a></h2>
+<p>For all of these steps, you will need a root shell on <em>host-3.chtc.wisc.edu</em> and have the following environment variables defined:</p>
+<div class="codehilite"><pre><span></span><span class="go">NEWDB=&lt;FQDN OF NEW DATABASE SERVER&gt;</span>
+<span class="go">NEWKOJI=&lt;FQDN OF NEW KOJI HOST&gt;</span>
+<span class="go">DATE=&lt;YYYY-MM-DD DATE OF MOST RECENT GOOD BACKUP&gt;</span>
+<span class="go">DBBACKUP=/export/backup/$DATE/db-01.batlab.org</span>
+<span class="go">KOJIBACKUP=/export/backup/$DATE/koji.chtc.wisc.edu</span>
+<span class="go">RSYNC=&quot;rsync --archive --hard-links --verbose&quot;</span>
+</pre></div>
+
+
+<h2 id="restoring-the-database">Restoring the database<a class="headerlink" href="#restoring-the-database" title="Permanent link">&para;</a></h2>
+<p>The entire filesystem of <em>db-01</em> is backed up -- this includes all of <code>/var/lib/pgsql</code>, including the database as-is. In theory, this means that we could just rsync all the files to a blank hard drive, boot up, and we'd have a <em>db-01</em> again. However, the Postgres manual warns against restoring the database from a filesystem backup that was made while the database was live, and we do not shut down the database before backups.</p>
+<p>We might be able to restore every other part of the filesystem besides the database, which would speed up the overall restoration process, but only the fresh install was tested.</p>
+<p>The new database server is called <em>newdb</em> in these instructions.</p>
+<h3 id="restoring-services">Restoring Services<a class="headerlink" href="#restoring-services" title="Permanent link">&para;</a></h3>
+<p>Prerequisites for <em>newdb</em>: an EL 6+ host with an SSH server set up and accessible (as root) from <em>host-3.chtc.wisc.edu</em></p>
+<div class="codehilite"><pre><span></span><span class="gp">#</span><span class="c1"># On newdb:</span>
+<span class="gp">#</span><span class="c1"># Install postgres, get a blank DB up and create the user that koji</span>
+<span class="gp">#</span><span class="c1"># will be using.</span>
+<span class="gp">[root@newdb]#</span> yum install -y postgresql-server
+<span class="gp">[root@newdb]#</span> service postgresql initdb
+<span class="gp">[root@newdb]#</span> useradd -r -m koji
+<span class="gp">#</span><span class="c1"># Make a directory we&#39;ll put the restored files into.</span>
+<span class="gp">[root@newdb]#</span> mkdir -p /root/dbrestore
+
+<span class="gp">#</span><span class="c1"># On host-3:</span>
+<span class="gp">[you@host-3]$</span> sudo <span class="nv">$RSYNC</span> <span class="nv">$DBBACKUP</span>/homefs/  <span class="nv">$NEWDB</span>:/root/dbrestore/home
+<span class="gp">[you@host-3]$</span> <span class="k">for</span> dir in root etc var<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+   sudo <span class="nv">$RSYNC</span> <span class="nv">$DBBACKUP</span>/rootfs/<span class="nv">$dir</span>/ <span class="se">\</span>
+      <span class="nv">$NEWDB</span>:/root/dbrestore/<span class="nv">$dir</span> <span class="se">\</span>
+   <span class="k">done</span>
+</pre></div>
+
+
+<p>Continue on to the next section</p>
+<h3 id="restoring-database-contents">Restoring Database Contents<a class="headerlink" href="#restoring-database-contents" title="Permanent link">&para;</a></h3>
+<p>Assumes you have restored the /var directory from backup into <code>/root/dbrestore/var</code>.</p>
+<ol>
+<li>
+<p>Restore the postgres config files so the koji-hub daemon can log in:</p>
+<div class="codehilite"><pre><span></span><span class="gp">#</span><span class="c1"># On newdb:</span>
+<span class="gp">[root@newdb]#</span> service postgresql stop
+<span class="gp">[root@newdb]#</span> cp -a /root/dbrestore/var/lib/pgsql/data/<span class="o">{</span>*.conf,postmaster.opts<span class="o">}</span> <span class="se">\</span>
+    /var/lib/pgsql/data/
+</pre></div>
+
+
+</li>
+<li>
+<p>Edit <code>/var/lib/pgsql/data/pg_hba.conf</code>. There are lines like:</p>
+<div class="codehilite"><pre><span></span># Koji-hub IPv4:
+host koji koji 128.104.100.41/32 md5
+</pre></div>
+
+
+<p>Change the IP address to the public IP address of the host that will serve as the new hub.</p>
+</li>
+<li>
+<p>Restore the actual database:</p>
+<div class="codehilite"><pre><span></span><span class="gp">#</span><span class="c1"># On newdb:</span>
+<span class="gp">[root@newdb]#</span> chown -R postgres:postgres /var/lib/pgsql/*
+<span class="gp">[root@newdb]#</span> service postgresql start
+<span class="gp">[root@newdb]#</span> gunzip -c /root/dbrestore/var/lib/pgsql-backup/postgres-db-01.sql.gz <span class="p">|</span>
+<span class="go">    psql -U postgres postgres</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h3 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h3>
+<p>Do the following tests to make sure the database is ready to use:</p>
+<ol>
+<li>
+<p>Test that the contents got properly restored:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newdb]#</span> psql -U koji koji koji
+</pre></div>
+
+
+<!-- -->
+
+<div class="codehilite"><pre><span></span><span class="gp">koji=&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">users</span><span class="p">;</span>
+<span class="gp">koji=&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">build</span> <span class="k">order</span> <span class="k">by</span> <span class="n">id</span> <span class="k">desc</span> <span class="k">limit</span> <span class="mf">10</span><span class="p">;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Test logging in as the koji user:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newdb]#</span> psql -U koji -h newdb koji
+</pre></div>
+
+
+<p>(you must use the FQDN of <em>newdb</em>, not <em>localhost</em>).
+Be sure you get prompted for a password, and the password from <code>/etc/koji-hub/hub.conf</code> works.</p>
+</li>
+<li>
+<p>Continue to "Restoring Koji" if needed, otherwise skip to "Starting Services and Validation"</p>
+</li>
+</ol>
+<h2 id="restoring-koji">Restoring Koji<a class="headerlink" href="#restoring-koji" title="Permanent link">&para;</a></h2>
+<p>Both the root filesystem of <em>koji.chtc</em> and <code>/mnt/koji</code> are backed up. The root filesystem backups are in the <code>rootfs</code> subdirectory of <code>/export/backup/$DATE/koji.chtc.wisc.edu</code> and the backups of <code>/mnt/koji</code> are in the <code>kojifs</code> subdirectory.</p>
+<p>The following instructions show how to restore the critical components of Koji onto a new machine.</p>
+<p>In the instructions, the new host will be named <em>newkoji</em>.</p>
+<h3 id="installing-the-os">Installing the OS<a class="headerlink" href="#installing-the-os" title="Permanent link">&para;</a></h3>
+<p>Prerequisites for <em>newkoji</em>: an EL 6 host with an SSH server set up and accessible (as root) from <em>host-3.chtc.wisc.edu</em> <br />
+(This recipe was tested for EL 6, on the same machine as <em>newdb</em>).</p>
+<ol>
+<li>
+<p>Install EPEL and OSG repos:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> rpm -Uvh <span class="se">\</span>
+    https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm <span class="se">\</span>
+    https://repo.grid.iu.edu/osg/3.4/osg-3.4-el6-release-latest.rpm
+<span class="gp">[root@newkoji]#</span> yum install -y yum-plugin-priorities
+</pre></div>
+
+
+</li>
+<li>
+<p>Edit <code>/etc/yum.repos.d/osg-*development.repo</code>:</p>
+<ul>
+<li>Enable the development repo</li>
+<li>Add <code>includepkg=koji*</code> to the definition for the development repo</li>
+</ul>
+</li>
+<li>
+<p>Go through the other repo files and make sure that EPEL and OS priorities are worse than 98.
+    This means absent or numerically greater.
+    Especially look at <code>cobbler-config.repo</code> if it exists.</p>
+</li>
+<li>
+<p>Install the koji packages and dependencies, making sure the koji packages themselves come from osg:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> yum install koji koji-builder koji-hub koji-plugin-sign <span class="se">\</span>
+    koji-theme-fedora koji-utils koji-web mod_ssl postgresql
+</pre></div>
+
+
+</li>
+<li>
+<p>Mount <code>/mnt/koji</code> if necessary</p>
+</li>
+<li>
+<p>Restore the contents of the koji filesystem. On <em>host-3</em>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">#</span><span class="c1"># At a minimum, you must restore the /mnt/koji/packages directory</span>
+<span class="gp">[you@host-3]$</span> sudo <span class="nv">$RSYNC</span> <span class="nv">$KOJIBACKUP</span>/kojifs/packages/ <span class="nv">$NEWKOJI</span>:/mnt/koji/packages
+<span class="gp">#</span><span class="c1"># The other directories are optional, though it saves a lot of time to restore /mnt/koji/repos</span>
+<span class="gp">[you@host-3]$</span> sudo <span class="nv">$RSYNC</span> <span class="nv">$KOJIBACKUP</span>/kojifs/repos/ <span class="nv">$NEWKOJI</span>:/mnt/koji/repos
+<span class="gp">[you@host-3]$</span> sudo <span class="nv">$RSYNC</span> <span class="nv">$KOJIBACKUP</span>/kojifs/work/ <span class="nv">$NEWKOJI</span>:/mnt/koji/work
+<span class="gp">[you@host-3]$</span> sudo <span class="nv">$RSYNC</span> <span class="nv">$KOJIBACKUP</span>/kojifs/scratch/ <span class="nv">$NEWKOJI</span>:/mnt/koji/scratch
+<span class="gp">#</span><span class="c1"># Any dirs you did not restore should be created.</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Fix permissions if needed. On <em>newkoji</em>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> chown -R apache:apache /mnt/koji/<span class="o">{</span>packages,repos,work,scratch<span class="o">}</span>
+<span class="gp">[root@newkoji]#</span> chmod <span class="m">0755</span> /mnt/koji/<span class="o">{</span>packages,repos,work,scratch<span class="o">}</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Continue on to the next section</p>
+</li>
+</ol>
+<h3 id="restoring-configuration">Restoring Configuration<a class="headerlink" href="#restoring-configuration" title="Permanent link">&para;</a></h3>
+<p>On <em>newkoji</em>, define the shell function <code>dirclone</code>, listed below:</p>
+<div class="codehilite"><pre><span></span>dirclone <span class="o">()</span> <span class="o">{</span>
+   <span class="nv">srcdir</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="k">)</span>/<span class="k">$(</span>basename <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="k">)</span>
+   <span class="nv">destdir</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="k">)</span>/<span class="k">$(</span>basename <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="k">)</span>
+   mkdir -p <span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+   rsync --archive --delete-after --acls --xattrs <span class="se">\</span>
+         --partial --partial-dir<span class="o">=</span>.rsync-partial <span class="se">\</span>
+         <span class="s2">&quot;</span><span class="nv">$srcdir</span><span class="s2">/&quot;</span> <span class="s2">&quot;</span><span class="nv">$destdir</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<ol>
+<li>
+<p>On <em>newkoji</em>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> mkdir -p /root/hubrestore
+</pre></div>
+
+
+</li>
+<li>
+<p>On <em>host-3</em>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host-3]$</span> sudo <span class="nv">$RSYNC</span> <span class="nv">$KOJIBACKUP</span>/rootfs/<span class="o">{</span>root,home,etc<span class="o">}</span> <span class="nv">$NEWKOJI</span>:/root/hubrestore/
+<span class="gp">[you@host-3]$</span> sudo <span class="nv">$RSYNC</span> <span class="nv">$KOJIBACKUP</span>/varfs/ <span class="nv">$NEWKOJI</span>:/root/hubrestore/var/
+</pre></div>
+
+
+</li>
+<li>
+<p>On <em>newkoji</em>, install some utils we will need later:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> yum install -y dos2unix vim-enhanced
+</pre></div>
+
+
+<p>(vim-enhanced is used for vimdiff)</p>
+</li>
+<li>
+<p>On <em>newkoji</em>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">#</span><span class="c1"># Restore some of the directories in /etc:</span>
+<span class="gp">[root@newkoji]#</span> <span class="k">while</span> <span class="nb">read</span> subtree<span class="p">;</span> <span class="k">do</span>
+<span class="go">    dirclone /root/hubrestore/etc/$subtree /etc/$subtree</span>
+<span class="go">done &lt;&lt;___END___</span>
+<span class="go">httpd</span>
+<span class="go">kojid</span>
+<span class="go">koji-hub</span>
+<span class="go">kojira</span>
+<span class="go">koji-sign-plugin</span>
+<span class="go">kojiweb</span>
+<span class="go">mock</span>
+<span class="go">pki/tls/certs</span>
+<span class="go">pki/tls/private</span>
+<span class="go">___END___</span>
+<span class="gp">#</span><span class="c1"># Restore some of the files:</span>
+<span class="gp">[root@newkoji]#</span> cp -a /root/hubrestore/etc/koji.conf /etc/
+<span class="gp">[root@newkoji]#</span> cp -a /root/hubrestore/etc/sysconfig/<span class="o">{</span>httpd,kojid,kojira<span class="o">}</span> /etc/sysconfig/
+</pre></div>
+
+
+</li>
+<li>
+<p>Restore users and home directories</p>
+<ul>
+<li>
+<p>If <em>newkoji</em> is on a separate host from <em>newdb</em>, then just simply copy over the files:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> dirclone /root/hubrestore/home /home
+<span class="gp">[root@newkoji]#</span> cp -a /root/hubrestore/etc/<span class="o">{</span>passwd,shadow,group,gshadow<span class="o">}</span> /etc
+</pre></div>
+
+
+</li>
+<li>
+<p>If <em>newkoji</em> is on the same host as <em>newdb</em>, then you will have to be more careful:</p>
+<div class="codehilite"><pre><span></span><span class="gp">#</span><span class="c1"># Skip home directories for the special users</span>
+<span class="gp">[root@newkoji]#</span> <span class="k">for</span> dir in /root/hubrestore/home/*<span class="p">;</span> <span class="k">do</span>
+<span class="go">    bndir=$(basename &quot;$dir&quot;)</span>
+<span class="go">    if [[ $bndir = koji &amp;&amp; $bndir = postgres ]]; then</span>
+<span class="go">        dirclone &quot;$dir&quot; /home/&quot;$bndir&quot;</span>
+<span class="go">    fi</span>
+<span class="go">done</span>
+<span class="gp">#</span><span class="c1"># Now merge the passwd, group, shadow, and gshadow files in /etc.</span>
+<span class="gp">#</span><span class="c1"># Make sure that your editor does not create backup files</span>
+<span class="gp">#</span><span class="c1"># (&quot;set nobackup&quot; in vim), and that shadow and gshadow are owned by</span>
+<span class="gp">#</span><span class="c1"># root and have 0400 permissions.</span>
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+<li>
+<p>Ensure a 'koji' user exists</p>
+</li>
+<li>
+<p>Fix dirs in <code>/var</code>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> rm -rf /var/lib/mock/*
+<span class="gp">[root@newkoji]#</span> chown root:mock /var/lib/mock
+<span class="gp">[root@newkoji]#</span> chmod <span class="m">2775</span> /var/lib/mock
+</pre></div>
+
+
+</li>
+<li>
+<p>Restore <code>/var/www/html</code> and <code>/var/spool/cron</code> <br />
+    (TODO) <code>/var</code> should have been backed up, but in case it isn't, the following files need to exist in <code>/var/www/html</code>:</p>
+<ul>
+<li>A symlink <code>mnt -&gt; /mnt</code></li>
+<li>A robots.txt with contents<div class="codehilite"><pre><span></span>User-agent: *
+Disallow: /
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="fixing-names">Fixing Names<a class="headerlink" href="#fixing-names" title="Permanent link">&para;</a></h3>
+<p>This section should be done if <em>newdb</em> or <em>newkoji</em> do not have the same as the previous db server and hub (i.e. <em>db-01.batlab.org</em> and <em>koji.chtc.wisc.edu</em>). This section should be completed on <em>newkoji</em>.</p>
+<h4 id="fixing-config-files-if-newdb-was-renamed">Fixing config files if <em>newdb</em> was renamed<a class="headerlink" href="#fixing-config-files-if-newdb-was-renamed" title="Permanent link">&para;</a></h4>
+<p>The only change that's needed if <em>newdb</em> was renamed is to <code>/etc/koji-hub/hub.conf</code>. Edit that file and change the DBHost line to point to the new hostname. After editing, make sure <code>hub.conf</code> is owned by <code>root:apache</code> and chmodded 0640.</p>
+<h4 id="installing-new-certkey-pairs-for-newkoji">Installing new cert/key pairs for <em>newkoji</em><a class="headerlink" href="#installing-new-certkey-pairs-for-newkoji" title="Permanent link">&para;</a></h4>
+<p>You will need two cert/key pairs: one for the host, and one for the kojira service. Run <code>dos2unix</code> on all cert and key files before using them. Define the shell function <code>makepem</code>, listed below. <code>makepem</code> combines a public and private keypair to make a .pem file that the koji services use.</p>
+<p>Usage: <code>makepem &lt;CERTFILE&gt; &lt;KEYFILE&gt; &lt;OUTPUT_FILE&gt;</code></p>
+<div class="codehilite"><pre><span></span>makepem <span class="o">()</span> <span class="o">{</span>
+    <span class="nv">certfile</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="nv">keyfile</span><span class="o">=</span><span class="nv">$2</span>
+    <span class="nv">outputfile</span><span class="o">=</span><span class="nv">$3</span>
+    <span class="o">(</span><span class="nb">set</span> -e
+    <span class="nv">keymodulus</span><span class="o">=</span><span class="k">$(</span>openssl rsa -noout -modulus -in <span class="s2">&quot;</span><span class="nv">$keyfile</span><span class="s2">&quot;</span><span class="k">)</span>
+    <span class="nv">certmodulus</span><span class="o">=</span><span class="k">$(</span>openssl x509 -noout -modulus -in <span class="s2">&quot;</span><span class="nv">$certfile</span><span class="s2">&quot;</span><span class="k">)</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$keymodulus</span> <span class="o">=</span> <span class="nv">$certmodulus</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s1">&#39;keyfile and certfile do not match&#39;</span><span class="p">;</span> <span class="k">return</span> <span class="m">1</span>
+    <span class="k">fi</span>
+    <span class="k">if</span> <span class="o">[[</span> -f <span class="nv">$outputfile</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+        mv -f <span class="s2">&quot;</span><span class="nv">$outputfile</span><span class="s2">&quot;</span><span class="o">{</span>,.bak<span class="o">}</span>
+    <span class="k">fi</span>
+    <span class="o">(</span>dos2unix &lt; <span class="s2">&quot;</span><span class="nv">$certfile</span><span class="s2">&quot;</span><span class="p">;</span> echo<span class="p">;</span> dos2unix &lt; <span class="s2">&quot;</span><span class="nv">$keyfile</span><span class="s2">&quot;</span><span class="o">)</span> &gt; <span class="s2">&quot;</span><span class="nv">$outputfile</span><span class="s2">&quot;</span>
+    chmod <span class="m">0600</span> <span class="s2">&quot;</span><span class="nv">$outputfile</span><span class="s2">&quot;</span>
+    <span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Place cert and key files into the following paths:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host cert</td>
+<td><code>/root/hostcert.pem</code></td>
+</tr>
+<tr>
+<td>host key</td>
+<td><code>/root/hostkey.pem</code></td>
+</tr>
+<tr>
+<td>kojira cert</td>
+<td><code>/root/kojiracert.pem</code></td>
+</tr>
+<tr>
+<td>kojira key</td>
+<td><code>/root/kojirakey.pem</code></td>
+</tr>
+</tbody>
+</table>
+<p>Then use <code>makepem</code> to combine the certs and put them in the proper locations.</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> makepem /root/hostcert.pem /root/hostkey.pem <span class="se">\</span>
+   /etc/pki/tls/private/kojiweb.pem
+<span class="gp">[root@newkoji]#</span> makepem /root/kojiracert.pem /root/kojirakey.pem <span class="se">\</span>
+   /etc/pki/tls/private/kojira.pem
+<span class="gp">[root@newkoji]#</span> chown apache:apache /etc/pki/tls/private/kojiweb.pem
+<span class="gp">[root@newkoji]#</span> chown root:root /etc/pki/tls/private/kojira.pem
+</pre></div>
+
+
+<p>In addition, copy the host cert and key into the locations HTTPD expects it them.</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> cp -a /root/hostcert.pem /etc/pki/tls/certs/hostcert.pem
+<span class="gp">[root@newkoji]#</span> cp -a /root/hostkey.pem /etc/pki/tls/private/hostkey.pem
+</pre></div>
+
+
+<h4 id="fixing-hostname-in-config-files">Fixing hostname in config files<a class="headerlink" href="#fixing-hostname-in-config-files" title="Permanent link">&para;</a></h4>
+<p>Use sed to replace the hostname in the following config files in /etc:</p>
+<ul>
+<li><code>/etc/kojira/kojira.conf</code></li>
+<li><code>/etc/koji.conf</code></li>
+<li><code>/etc/koji-hub/hub.conf</code></li>
+<li><code>/etc/httpd/conf.d/kojiweb.conf</code></li>
+<li><code>/etc/httpd/conf/httpd.conf</code></li>
+<li><code>/etc/kojid/kojid.conf</code></li>
+</ul>
+<p>You will need to fix <code>/etc/kojid/kojid.conf</code> on all builder machines as well (e.g. <em>kojibuilder2.chtc.wisc.edu</em>).</p>
+<h4 id="fixing-hostname-in-database">Fixing hostname in database<a class="headerlink" href="#fixing-hostname-in-database" title="Permanent link">&para;</a></h4>
+<p>You will need to find and fix entries that contain the hostname in the following tables:</p>
+<ul>
+<li><code>host</code> (should be 1 entry)</li>
+<li><code>users</code> (should be 2 entries, one for the host, and one for the kojira user)</li>
+</ul>
+<h4 id="fixing-hostname-elsewhere">Fixing hostname elsewhere<a class="headerlink" href="#fixing-hostname-elsewhere" title="Permanent link">&para;</a></h4>
+<p>These steps are only necessary if you cannot get a DNS Canonical Name (CN) record such that <em>koji.chtc.wisc.edu</em> resolves to <em>newkoji</em>.</p>
+<ol>
+<li>Update the repo definitions in the <em>osg-release</em> package</li>
+<li>Update the mash script(s) at the GOC</li>
+<li>Mail the software team and users that anyone using the <em>minefield</em> repos will need to update <em>osg-release</em></li>
+<li>Fix all the build machines to point to the new name</li>
+<li>Fix the following files in <em>osg-build</em> and make a new release<ul>
+<li><code>data/osg-koji-home.conf</code></li>
+<li><code>data/osg-koji-site.conf</code></li>
+<li><code>osgbuild/constants.py</code></li>
+<li><code>osgbuild/kojiinter.py</code></li>
+</ul>
+</li>
+<li>Mail people that they will need to update <em>osg-build</em> and rerun <code>osg-koji setup</code></li>
+</ol>
+<h3 id="starting-services-and-validation">Starting Services and Validation<a class="headerlink" href="#starting-services-and-validation" title="Permanent link">&para;</a></h3>
+<p>Now you will start up Koji services and verify that they function.
+Prerequisite: previous restore steps have been completed and <code>postgresql</code> is running on the database host.</p>
+<p>All steps will be run on <em>newkoji</em>.</p>
+<ol>
+<li>
+<p>Start the main koji daemon:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> service httpd start
+</pre></div>
+
+
+</li>
+<li>
+<p>Use <code>ps</code> to verify that it came up</p>
+</li>
+<li>Connect to the web interface in your browser.
+    Make sure you can use https and you can log in.</li>
+<li>As yourself, run the <code>koji</code> command-line tool and make a few queries (e.g. list-tags)</li>
+<li>
+<p>Start the koji build daemon:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> service kojid start
+</pre></div>
+
+
+</li>
+<li>
+<p>Use <code>ps</code> to verify that it came up</p>
+</li>
+</ol>
+<p>If you did not restore the <code>/mnt/koji/repos</code> directory, you will now need to regenerate the build repos.
+Use <code>koji list-tags</code> to get a list of tags and run <code>koji regen-repo</code> on all of the ones with <code>-build</code> in the name.
+This <strong>will</strong> take several hours.
+You will also need to regen the <code>-development</code> repos so that <em>minefield</em> works again. Keep an eye on the tasks in the web interface to make sure they are getting farmed out to the right hosts.</p>
+<ol>
+<li>Try a scratch build</li>
+<li>
+<p>Start <code>kojira</code>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@newkoji]#</span> service kojira start
+</pre></div>
+
+
+</li>
+<li>
+<p>Use <code>ps</code> to verify that it came up</p>
+</li>
+<li>Wait half a minute and use <code>ps</code> to verify that <code>kojid</code> is still up; the two processes can kick each other off if they are both using the same certificate</li>
+<li>Bump a package if needed and try a real, non-scratch build</li>
+<li>Make sure that kojira is regenerating the repos</li>
+</ol>
+<p>If you have updated <em>osg-release</em> and/or <em>osg-build</em>, rebuild those packages now.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../koji-hub-setup/" class="btn btn-neutral float-right" title="Koji-Hub Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../policy/globus-toolkit/" class="btn btn-neutral" title="Globus Toolkit Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../policy/globus-toolkit/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../koji-hub-setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
