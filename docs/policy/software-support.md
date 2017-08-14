@@ -8,7 +8,7 @@ Software Team Support
 When a ticket arrives at the GOC and the Operations staff member decides that the ticket should be assigned to the Software Team, the operations staff member will do two things:
 
 1.  The ticket will be assigned to a pseudo-user called "Software".
-2.  The "Next Action" fiel will be set to "SOFTWARE TRIAGE".
+2.  The "Next Action" field will be set to "SOFTWARE TRIAGE".
 3.  The Software pseudo-user has an email list as it's "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
 
 ## Triage duty (Software staff)
@@ -40,6 +40,8 @@ Note that if you follow the above, we will end up with three assignees to each t
     2.  Software Support (Triage)
     3.  The Software team member who will handle the ticket
 
+    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://twiki.grid.iu.edu/bin/view/Documentation/Release3/#Software_Guides_Troubleshooting).
+
 ## Handling tickets
 
 -   We need to take good care of our users. We are in a small community. Please be friendly and patient even when the user is frustrated or lacking in knowledge.
@@ -66,24 +68,4 @@ GOC Ticket is for user support. This is where we helping users debug, understand
 JIRA is for tracking our work. It's meant for internal usage, not for user support.
 
 In general, users should not ask for support via JIRA. A single user support ticket might result in zero, one, or multiple JIRA tickets. The user ticket may be closed even though the related JIRA tickets are open. ("Hi, this is a bug that we can't fix for the next six months, but I've made an internal bug report you can see at ...")
-
-# OSG Software Team Experts
-
-It's always a challenge to properly assign a ticket. Tickets are assigned to people who are available and have time. Preferably, tickets are assigned to people who have the right expertise.
-
-The table below suggests people who have the expertise with certain areas. This does **not** mean that they get all tickets on those topics. It does mean that they are good candidates for harder tickets or as a reference to help you in handling a ticket.
-
-Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://twiki.grid.iu.edu/bin/view/Documentation/Release3/#Software_Guides_Troubleshooting).
-
-| Area                   | Person        |
-|:-----------------------|:--------------|
-| osg-configure          | Suchandra     |
-| Globus, general issues | Alain         |
-| Globus, GridFTP        | Doug, Neha    |
-| VOMS & Tomcat          | Tim           |
-| Bestman                | Neha and Doug |
-| yum, RPM, installation | Matyas        |
-| Pacman installation    | Scot          |
-| RSV                    | Scot          |
-
 
