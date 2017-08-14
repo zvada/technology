@@ -61,49 +61,54 @@ Continue on to the next section
 Assumes you have restored the /var directory from backup into `/root/dbrestore/var`.
 
 1.  Restore the postgres config files so the koji-hub daemon can log in:
-    ``` console
-    ## On newdb:
-    [root@newdb]# service postgresql stop
-    [root@newdb]# cp -a /root/dbrestore/var/lib/pgsql/data/{*.conf,postmaster.opts} \
-        /var/lib/pgsql/data/
-    ```
+
+        :::console
+        ## On newdb:
+        [root@newdb]# service postgresql stop
+        [root@newdb]# cp -a /root/dbrestore/var/lib/pgsql/data/{*.conf,postmaster.opts} \
+            /var/lib/pgsql/data/
+
 1.  Edit `/var/lib/pgsql/data/pg_hba.conf`. There are lines like:
-    ```
-    # Koji-hub IPv4:
-    host koji koji 128.104.100.41/32 md5
-    ```
+
+        # Koji-hub IPv4:
+        host koji koji 128.104.100.41/32 md5
+
     Change the IP address to the public IP address of the host that will serve as the new hub.
+
 1.  Restore the actual database:
-    ``` console
-    ## On newdb:
-    [root@newdb]# chown -R postgres:postgres /var/lib/pgsql/*
-    [root@newdb]# service postgresql start
-    [root@newdb]# gunzip -c /root/dbrestore/var/lib/pgsql-backup/postgres-db-01.sql.gz |
-        psql -U postgres postgres
-    ## (Ignore the error 'role "postgres" already exists' if you see it)
-    ```
+
+        :::console
+        ## On newdb:
+        [root@newdb]# chown -R postgres:postgres /var/lib/pgsql/*
+        [root@newdb]# service postgresql start
+        [root@newdb]# gunzip -c /root/dbrestore/var/lib/pgsql-backup/postgres-db-01.sql.gz |
+            psql -U postgres postgres
+
 
 ### I.3. Validation
 
 Do the following tests to make sure the database is ready to use:
 
 1.  Test that the contents got properly restored:
-    ``` console
-    [root@newdb]# psql -U koji koji koji
-    ```
-    ``` psql
-    koji=> select * from users;
-    koji=> select * from build order by id desc limit 10;
-    ```
+
+        :::console
+        [root@newdb]# psql -U koji koji koji
+
+    <!-- -->
+
+        :::psql
+        koji=> select * from users;
+        koji=> select * from build order by id desc limit 10;
 
 1.  Test logging in as the koji user:
-    ``` console
-    [root@newdb]# psql -U koji -h newdb koji
-    ```
+
+        :::console
+        [root@newdb]# psql -U koji -h newdb koji
+
     (you must use the FQDN of *newdb*, not *localhost*).
     Be sure you get prompted for a password, and the password from `/etc/koji-hub/hub.conf` works.
 
-1.  Continue to Restoring koji if needed; otherwise skip to Starting Services and Validation
+1.  Continue to "Restoring Koji" if needed, otherwise skip to "Starting Services and Validation"
 
 
 II. Restoring Koji
@@ -117,43 +122,49 @@ In the instructions, the new host will be named *newkoji*.
 
 ### II.1. Installing the OS
 
-Prerequisites for *newkoji*: an EL 6+ host with an SSH server set up and accessible (as root) from *host-3.chtc.wisc.edu*
+Prerequisites for *newkoji*: an EL 6 host with an SSH server set up and accessible (as root) from *host-3.chtc.wisc.edu*   
 (This recipe was tested for EL 6, on the same machine as *newdb*).
 
 1.  Install EPEL and OSG repos:
-    ``` console
-    [root@newkoji]# rpm -Uvh \
-        https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm \
-        https://repo.grid.iu.edu/osg/3.4/osg-3.4-el6-release-latest.rpm
-    [root@newkoji]# yum install -y yum-plugin-priorities
-    ```
+
+        :::console
+        [root@newkoji]# rpm -Uvh \
+            https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm \
+            https://repo.grid.iu.edu/osg/3.4/osg-3.4-el6-release-latest.rpm
+        [root@newkoji]# yum install -y yum-plugin-priorities
+
 1.  Edit `/etc/yum.repos.d/osg-*development.repo`:
     -   Enable the development repo
     -   Add `includepkg=koji*` to the definition for the development repo
+
 1.  Go through the other repo files and make sure that EPEL and OS priorities are worse than 98.
     This means absent or numerically greater.
     Especially look at `cobbler-config.repo` if it exists.
+
 1.  Install the koji packages and dependencies, making sure the koji packages themselves come from osg:
-    ``` console
-    [root@newkoji]# yum install koji koji-builder koji-hub koji-plugin-sign \
-        koji-theme-fedora koji-utils koji-web mod_ssl postgresql
-    ```
+
+        :::console
+        [root@newkoji]# yum install koji koji-builder koji-hub koji-plugin-sign \
+            koji-theme-fedora koji-utils koji-web mod_ssl postgresql
+
 1.  Mount `/mnt/koji` if necessary
 2.  Restore the contents of the koji filesystem. On *host-3*:
-    ``` console
-    ## At a minimum, you must restore the /mnt/koji/packages directory
-    [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/packages/ $NEWKOJI:/mnt/koji/packages
-    ## The other directories are optional, though it saves a lot of time to restore /mnt/koji/repos
-    [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/repos/ $NEWKOJI:/mnt/koji/repos
-    [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/work/ $NEWKOJI:/mnt/koji/work
-    [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/scratch/ $NEWKOJI:/mnt/koji/scratch
-    ## Any dirs you did not restore should be created.
-    ```
+
+        :::console
+        ## At a minimum, you must restore the /mnt/koji/packages directory
+        [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/packages/ $NEWKOJI:/mnt/koji/packages
+        ## The other directories are optional, though it saves a lot of time to restore /mnt/koji/repos
+        [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/repos/ $NEWKOJI:/mnt/koji/repos
+        [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/work/ $NEWKOJI:/mnt/koji/work
+        [you@host-3]$ sudo $RSYNC $KOJIBACKUP/kojifs/scratch/ $NEWKOJI:/mnt/koji/scratch
+        ## Any dirs you did not restore should be created.
+
 1.  Fix permissions if needed. On *newkoji*:
-    ```
-    [root@newkoji]# chown -R apache:apache /mnt/koji/{packages,repos,work,scratch}
-    [root@newkoji]# chmod 0755 /mnt/koji/{packages,repos,work,scratch}
-    ```
+
+        :::console
+        [root@newkoji]# chown -R apache:apache /mnt/koji/{packages,repos,work,scratch}
+        [root@newkoji]# chmod 0755 /mnt/koji/{packages,repos,work,scratch}
+
 1.  Continue on to the next section
 
 ### II.2. Restoring Configuration
@@ -165,80 +176,92 @@ dirclone () {
    srcdir=$(dirname "$1")/$(basename "$1")
    destdir=$(dirname "$2")/$(basename "$2")
    mkdir -p "$(dirname "$2")"
-   rsync --archive --delete-after --acls --xattrs --partial --partial-dir=.rsync-partial "$srcdir/" "$destdir"
+   rsync --archive --delete-after --acls --xattrs \
+         --partial --partial-dir=.rsync-partial \
+         "$srcdir/" "$destdir"
 }
 ```
 
 1.  On *newkoji*:
-    ``` console
-    [root@newkoji]# mkdir -p /root/hubrestore
-    ```
+
+        :::console
+        [root@newkoji]# mkdir -p /root/hubrestore
+
 2.  On *host-3*:
-    ``` console
-    [you@host-3]$ sudo $RSYNC $KOJIBACKUP/rootfs/{root,home,etc} $NEWKOJI:/root/hubrestore/
-    [you@host-3]$ sudo $RSYNC $KOJIBACKUP/varfs/ $NEWKOJI:/root/hubrestore/var/
-    ```
+
+        :::console
+        [you@host-3]$ sudo $RSYNC $KOJIBACKUP/rootfs/{root,home,etc} $NEWKOJI:/root/hubrestore/
+        [you@host-3]$ sudo $RSYNC $KOJIBACKUP/varfs/ $NEWKOJI:/root/hubrestore/var/
+
 1.  On *newkoji*, install some utils we will need later:
-    ``` console
-    [root@newkoji]# yum install -y dos2unix vim-enhanced
-    ```
+
+        :::console
+        [root@newkoji]# yum install -y dos2unix vim-enhanced
+
     (vim-enhanced is used for vimdiff)
 
+
 1.  On *newkoji*:
-    ``` console
-    ## Restore some of the directories in /etc:
-    [root@newkoji]# while read subtree; do
-        dirclone /root/hubrestore/etc/$subtree /etc/$subtree
-    done <<___END___
-    httpd
-    kojid
-    koji-hub
-    kojira
-    koji-sign-plugin
-    kojiweb
-    mock
-    pki/tls/certs
-    pki/tls/private
-    ___END___
-    ## Restore some of the files:
-    [root@newkoji]# cp -a /root/hubrestore/etc/koji.conf /etc/
-    [root@newkoji]# cp -a /root/hubrestore/etc/sysconfig/{httpd,kojid,kojira} /etc/sysconfig/
-    ```
+
+        :::console
+        ## Restore some of the directories in /etc:
+        [root@newkoji]# while read subtree; do
+            dirclone /root/hubrestore/etc/$subtree /etc/$subtree
+        done <<___END___
+        httpd
+        kojid
+        koji-hub
+        kojira
+        koji-sign-plugin
+        kojiweb
+        mock
+        pki/tls/certs
+        pki/tls/private
+        ___END___
+        ## Restore some of the files:
+        [root@newkoji]# cp -a /root/hubrestore/etc/koji.conf /etc/
+        [root@newkoji]# cp -a /root/hubrestore/etc/sysconfig/{httpd,kojid,kojira} /etc/sysconfig/
+
 1.  Restore users and home directories
     -   If *newkoji* is on a separate host from *newdb*, then just simply copy over the files:
-    ``` console
-    [root@newkoji]# dirclone /root/hubrestore/home /home
-    [root@newkoji]# cp -a /root/hubrestore/etc/{passwd,shadow,group,gshadow} /etc
-    ```
+
+            :::console
+            [root@newkoji]# dirclone /root/hubrestore/home /home
+            [root@newkoji]# cp -a /root/hubrestore/etc/{passwd,shadow,group,gshadow} /etc
+
 
     -   If *newkoji* is on the same host as *newdb*, then you will have to be more careful:
-    ``` console
-    ## Skip home directories for the special users
-    [root@newkoji>]# for dir in /root/hubrestore/home/*; do
-        bndir=$(basename "$dir")
-        if [[ $bndir = koji && $bndir = postgres ]]; then
-            dirclone "$dir" /home/"$bndir"
-        fi
-    done
-    ## Now merge the passwd, group, shadow, and gshadow files in /etc.
-    ## Make sure that your editor does not create backup files
-    ## ("set nobackup" in vim), and that shadow and gshadow are owned by
-    ## root and have 0400 permissions.
+
+            :::console
+            ## Skip home directories for the special users
+            [root@newkoji]# for dir in /root/hubrestore/home/*; do
+                bndir=$(basename "$dir")
+                if [[ $bndir = koji && $bndir = postgres ]]; then
+                    dirclone "$dir" /home/"$bndir"
+                fi
+            done
+            ## Now merge the passwd, group, shadow, and gshadow files in /etc.
+            ## Make sure that your editor does not create backup files
+            ## ("set nobackup" in vim), and that shadow and gshadow are owned by
+            ## root and have 0400 permissions.
+
 1.  Ensure a 'koji' user exists
+
 1.  Fix dirs in `/var`:
-    ``` console
-    [root@newkoji]# rm -rf /var/lib/mock/*
-    [root@newkoji]# chown root:mock /var/lib/mock
-    [root@newkoji]# chmod 2775 /var/lib/mock
-    ```
+
+        :::console
+        [root@newkoji]# rm -rf /var/lib/mock/*
+        [root@newkoji]# chown root:mock /var/lib/mock
+        [root@newkoji]# chmod 2775 /var/lib/mock
+
 1.  Restore `/var/www/html` and `/var/spool/cron`   
     (TODO) `/var` should have been backed up, but in case it isn't, the following files need to exist in `/var/www/html`:
     -   A symlink `mnt -> /mnt`
     -   A robots.txt with contents
-    ```
-    User-agent: *
-    Disallow: /
-    ```
+
+            User-agent: *
+            Disallow: /
+
 
 ### II.3. Fixing Names
 
@@ -252,7 +275,7 @@ The only change that's needed if *newdb* was renamed is to `/etc/koji-hub/hub.co
 
 You will need two cert/key pairs: one for the host, and one for the kojira service. Run `dos2unix` on all cert and key files before using them. Define the shell function `makepem`, listed below. `makepem` combines a public and private keypair to make a .pem file that the koji services use.
 
-Usage: `makepem <CERTFILE> <KEYFILE> <OUTPUT_FILE>
+Usage: `makepem <CERTFILE> <KEYFILE> <OUTPUT_FILE>`
 ``` bash
 makepem () {
     certfile=$1
@@ -284,7 +307,7 @@ Place cert and key files into the following paths:
 
 Then use `makepem` to combine the certs and put them in the proper locations.
 
-``` rootscreen
+``` console
 [root@newkoji]# makepem /root/hostcert.pem /root/hostkey.pem \
    /etc/pki/tls/private/kojiweb.pem
 [root@newkoji]# makepem /root/kojiracert.pem /root/kojirakey.pem \
@@ -295,7 +318,7 @@ Then use `makepem` to combine the certs and put them in the proper locations.
 
 In addition, copy the host cert and key into the locations HTTPD expects it them.
 
-``` rootscreen
+``` console
 [root@newkoji]# cp -a /root/hostcert.pem /etc/pki/tls/certs/hostcert.pem
 [root@newkoji]# cp -a /root/hostkey.pem /etc/pki/tls/private/hostkey.pem
 ```
@@ -344,17 +367,19 @@ Prerequisite: previous restore steps have been completed and `postgresql` is run
 All steps will be run on *newkoji*.
 
 1.  Start the main koji daemon:
-    ``` console
-    [root@newkoji]# service httpd start
-    ```
+
+        :::console
+        [root@newkoji]# service httpd start
+
 1.  Use `ps` to verify that it came up
 1.  Connect to the web interface in your browser.
     Make sure you can use https and you can log in.
 1.  As yourself, run the `koji` command-line tool and make a few queries (e.g. list-tags)
 1.  Start the koji build daemon:
-    ``` console
-    [root@newkoji]# service kojid start
-    ```
+
+        :::console
+        [root@newkoji]# service kojid start
+
 1.  Use `ps` to verify that it came up
 
 If you did not restore the `/mnt/koji/repos` directory, you will now need to regenerate the build repos.
@@ -364,9 +389,10 @@ You will also need to regen the `-development` repos so that *minefield* works a
 
 1.  Try a scratch build
 1.  Start `kojira`:
-    ``` console
-    [root@newkoji]# service kojira start
-    ```
+
+        :::console
+        [root@newkoji]# service kojira start
+
 1.  Use `ps` to verify that it came up
 2.  Wait half a minute and use `ps` to verify that `kojid` is still up; the two processes can kick each other off if they are both using the same certificate
 3.  Bump a package if needed and try a real, non-scratch build
