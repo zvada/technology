@@ -198,13 +198,13 @@ To catch the user's attention for important items or pitfalls, we used `%NOTE%` 
 
 ```
 !!! note
-    # things to note
+    things to note
 ```
 
 The above block is rendered below as an example.
 
 !!! note
-    # things to note
+    things to note
 
 ### Obvious errors ###
 
