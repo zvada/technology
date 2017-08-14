@@ -110,6 +110,12 @@
     
         
     <url>
+     <loc>https://opensciencegrid.github.io/technology/infrastructure/koji-initial-install/</loc>
+     <lastmod>2017-08-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://opensciencegrid.github.io/technology/projects/sha2-support/</loc>
      <lastmod>2017-08-14</lastmod>
      <changefreq>daily</changefreq>
