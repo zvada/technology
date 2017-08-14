@@ -53,7 +53,7 @@ Monitoring tools
 
 To monitor tests, two software components are needed (which can be installed on the same node): ganglia-gmond and ganglia-gmetad. Once they are installed, then some ad-hoc metrics can be created to monitor the CE; for example:
 
-``` screen
+``` console
 condor_q -pool red.unl.edu:9619 -name sleeper@red.unl.edu -const 'JobStatus=?=2' | wc -l
 gmetric --name RunningJobsCE 
 ```
@@ -69,7 +69,7 @@ The load\_generators are found in the  [OSgscal github repo](https://github.com/
 
 Just untar it or check it out from mas on the HTCondor submit node (see above):
 
-``` screen
+``` console
 git checkout https://github.com/efajardo/osgscal
 cd load_generators/loadtest_condor/trunk/bin
 ```
@@ -78,6 +78,6 @@ Keep in mind that you also need a valid proxy for grid submissions.
 
 For example, if the goal is to keep 1,000 jobs in the queue and run 6-hour sleep jobs (on average), you can run this command:
 
-``` screen
+``` console
 ./loadtest_condor.sh -type grid condor sleeper@red.unl.edu red.unl.edu:9619 -jobs 40000 -cluster 10 -proxy /home/submituser/.globus/cmspilot01.proxy -end random 21600 -maxidle 1000 -in sandbox 50
 ```
