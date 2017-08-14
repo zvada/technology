@@ -194,17 +194,29 @@ There are 12 spaces and 8 spaces in front of the command block and text associat
 
 ### Notes ###
 
-To catch the user's attention for important items or pitfalls, we used `%NOTE%` TWiki macros, these can be replaced with admonition-style notes:
+To catch the user's attention for important items or pitfalls, we used `%NOTE%` TWiki macros, these can be replaced with admonition-style notes and warnings:
 
 ```
 !!! note
     things to note
 ```
 
-The above block is rendered below as an example.
+or
+
+```
+!!! warning
+    if a user doesn't do this thing, bad stuff will happen
+```
+
+The above blocks are rendered below as an example.
 
 !!! note
     things to note
+
+and
+
+!!! warning
+    if a user doesn't do this thing, bad stuff will happen
 
 ### Obvious errors ###
 
