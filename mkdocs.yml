@@ -13,6 +13,8 @@ pages:
   - Meeting Notes: 'meetings.md'
   - Software:
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
+    - New Team Member: 'software/new-team-member.md'
+    - Repository Management: 'software/repository-management.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
@@ -22,7 +24,11 @@ pages:
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
-  - Historical Transitions:
+  - Infrastructure:
+    - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
+    - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
+  - Historical Information:
+    - Koji Initial Install: 'infrastructure/koji-initial-install.md'
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - February 27, 2017: 'meetings/2017/TechArea20170227.md'
   - April 17, 2017: 'meetings/2017/TechArea20170417.md'
@@ -42,8 +48,10 @@ pages:
   - July 24, 2017: 'meetings/2017/TechArea20170724.md'
   - July 31, 2017: 'meetings/2017/TechArea20170731.md'
   - August 7, 2017: 'meetings/2017/TechArea20170807.md'
+  - August 14, 2017: 'meetings/2017/TechArea20170814.md'
 
 markdown_extensions:
   - admonition
   - codehilite
+  - toc(permalink=true)
 
