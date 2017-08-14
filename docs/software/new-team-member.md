@@ -1,7 +1,5 @@
 Setup Instructions for New Team Members
 =======================================
-<span class="twiki-macro TOC" title="Contents:"></span>
-
 Accounts, Group Memberships, Certificates, Etc.
 -----------------------------------------------
 
