@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Release Policy - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Release Policy";
+    var mkdocs_page_input_path = "release/release-policy.md";
+    var mkdocs_page_url = "/release/release-policy/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/repository-management/">Repository Management</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Release Policy</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#software-release-policy">Software Release Policy</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#software-repositories">Software Repositories</a></li>
+        
+            <li><a class="toctree-l4" href="#version-numbers">Version Numbers</a></li>
+        
+            <li><a class="toctree-l4" href="#progression-of-repositories">Progression of repositories</a></li>
+        
+            <li><a class="toctree-l4" href="#release-policies">Release policies</a></li>
+        
+            <li><a class="toctree-l4" href="#ca-certificates-and-vo-client-packages">CA Certificates and VO Client packages</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Release &raquo;</li>
+        
+      
+    
+    <li>Release Policy</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/release-policy.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="software-release-policy">Software Release Policy<a class="headerlink" href="#software-release-policy" title="Permanent link">&para;</a></h1>
+<p>This document doesn't talk about technical details of how to do a release. <a href="../../release/cut-sw-release/">The release process is discussed elsewhere</a>.</p>
+<h2 id="software-repositories">Software Repositories<a class="headerlink" href="#software-repositories" title="Permanent link">&para;</a></h2>
+<p>The Software Team maintains five primary software repositories</p>
+<ol>
+<li><strong>osg-development</strong>: This is the "wild west", the place where software goes while it is being worked on by the software team.</li>
+<li><strong>osg-testing</strong>: This is where software goes when it is ready for wide-spread testing.</li>
+<li><strong>osg-prerelease</strong>: This is where software goes just before being released, for final verification.</li>
+<li><strong>osg-release</strong>: This is the official, production release of the software stack. This is the main repository for end-users.</li>
+<li><strong>osg-contrib</strong>: This is where software goes that is not officially supported by the OSG Software Team, but we provide as a convenience for software our users might find useful.</li>
+</ol>
+<p>We also create a repository per release, called <strong>osg-release-VERSION</strong> (such as osg-release-3.0.4). This is intended mostly for testing purposes, though users may occasionally find it useful.</p>
+<p>Occasionally there may be other repositories for specific short-term purposes.</p>
+<h2 id="version-numbers">Version Numbers<a class="headerlink" href="#version-numbers" title="Permanent link">&para;</a></h2>
+<p>There is a single version number that is used to summarize the contents of the <em>osg-release</em> repository. Having a single version number is very useful for a variety of reasons, including:</p>
+<ol>
+<li>Every time changes are made to the <em>osg-release</em> repository, we update the version number and write release notes.</li>
+<li>We have a shorthand for referring to the state of the repository; we can talk about specific releases.</li>
+</ol>
+<p>However, there are important caveats about the version number:</p>
+<ol>
+<li>Even if a user says they have installed Version X, it may not be an accurate reflection of what they have installed: they may have chosen to update some of their software from a previous version. To truly understand what they have installed, the entire set of RPMs installed on their computer must be considered.</li>
+<li>The version number is only meaningful in the <em>osg-release</em> repository, though for technical reasons it's present (as an RPM) in other repositories.</li>
+</ol>
+<p>The version number is communicated in two ways:</p>
+<ol>
+<li>Every time a new release is made, the version number is updated. All release notes and communication to users about this release uses the new version number.</li>
+<li>There is an <em>osg-version</em> RPM that reports the version of the release. Major metapackages (osg-ce, osg-client, etc...) depend on this RPM. The RPM itself has the version number in it. It also provide a program that reports the version, and a text file that contains the version number.</li>
+</ol>
+<p>The version number will be of the form X.Y.Z. As of this writing, version numbers are 3.0.Z, where Z indicates a minor revision.</p>
+<h2 id="progression-of-repositories">Progression of repositories<a class="headerlink" href="#progression-of-repositories" title="Permanent link">&para;</a></h2>
+<p>This figure shows the progression of repositories that packages will go through:</p>
+<div class="codehilite"><pre><span></span> osg-development -&gt; osg-testing -&gt; osg-prerelease -&gt; osg-release
+                  \
+                   -&gt; osg-contrib
+</pre></div>
+
+
+<h2 id="release-policies">Release policies<a class="headerlink" href="#release-policies" title="Permanent link">&para;</a></h2>
+<h3 id="adding-packages-to-osg-development">Adding packages to osg-development<a class="headerlink" href="#adding-packages-to-osg-development" title="Permanent link">&para;</a></h3>
+<p>New packages will only be added to <em>osg-development</em> with the permission of the OSG Software Manager. Updates can be done at any time without permission, but developers should be careful if their updates might be significant, particularly if an update might cause series compatibility issues. In cases where there is uncertainty, discuss it with the Software Manager.</p>
+<h3 id="moving-packages-to-osg-testing">Moving packages to osg-testing<a class="headerlink" href="#moving-packages-to-osg-testing" title="Permanent link">&para;</a></h3>
+<p>A package may be moved from <em>osg-development</em> to <em>osg-testing</em> when the individual maintainer of that package decides that it is ready for widespread testing and when the package is eventually intended for a production release, and when approved by the OSG Software Manager. Approval is needed because this is when we first make packages available to people outside of the OSG Software Team.</p>
+<h3 id="moving-packages-to-osg-prerelease-readying-the-release">Moving packages to osg-prerelease; Readying the release<a class="headerlink" href="#moving-packages-to-osg-prerelease-readying-the-release" title="Permanent link">&para;</a></h3>
+<p>When we are ready to make a production release, we first move the correct subset of packages from <em>osg-testing</em> into <em>osg-prerelease</em>. This should be done after checking with the OSG Release Manager to verify that it's okay to release the software. The intention of <em>osg-prerelease</em> is to do a final verification that we have the correct set of packages for release and that they really work together. This is important because the <em>osg-testing</em> repository might contain a mix of packages that are ready for release with packages that are not ready for release. When moving packages to <em>osg-prerelease</em>, the team member doing the release will:</p>
+<ul>
+<li>Update the osg-version RPM to reflect the new version. Push this RPM through <em>osg-development</em>, <em>osg-testing</em>, and into <em>osg-prerelease</em>.</li>
+<li>Find the correct set of packages to push from <em>osg-testing</em> into <em>osg-prerelease</em>.</li>
+<li>At a minimum, run the automated test suite on the contents of <em>osg-prerelease</em>. In cases were more extensive testing is needed, or the test suite doesn't sufficiently cover the testing needs, do specific ad-hoc testing. (If appropriate, consider proposing extensions to the automated test suite.)</li>
+</ul>
+<p>We expect that in most cases, this process of updating and testing the <em>osg-prelease</em> repository will be less than one day. If there are urgent security updates to release, this process may be shortened.</p>
+<p>Note that, except in exceptional circumstances, we release software on Tuesdays. Therefore the osg-prerelease cache is probably updated and readied on a Monday (or perhaps late the previous week).</p>
+<h3 id="moving-packages-to-osg-release">Moving packages to osg-release<a class="headerlink" href="#moving-packages-to-osg-release" title="Permanent link">&para;</a></h3>
+<p>Note that, except in exceptional circumstances, we release software on Tuesdays, so this process will only happen on Tuesdays.</p>
+<p>When the <em>osg-prerelease</em> repository has been updated and verified, all of the changed software can be moved into the <em>osg-release</em> repository. As part of this move, two important tasks must be done:</p>
+<ol>
+<li>Record the complete set of packages in the new release repository.</li>
+<li>Update the <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/ReleaseNotes">Release Notes</a>. Note that each release has a separate page to describe the release, and it's linked from the main page. The individual page lists the changes at a high level (i.e. Updated package X to version Y) and the complete set of RPMs that changed.</li>
+<li>Create a ticket on ticket.grid.iu.edu with a release announcement. Operations will distribute it to the right places.</li>
+</ol>
+<p>In addition, we will make another Koji tag/yum repository called <em>osg-release-VERSION</em>. All of the latest packages in osg-release will be tagged to be in this repository, and the tag will be locked. This will give us a reproducible way to install any given OSG Software release.</p>
+<h3 id="moving-packages-to-osg-release-version">Moving packages to osg-release-VERSION<a class="headerlink" href="#moving-packages-to-osg-release-version" title="Permanent link">&para;</a></h3>
+<p>When we make a specific release, we copy the osg-release repository to a versioned osg-release-VERSION repository. This allows us to do testing with specific versions and in rare cases allows users to use a specific release.</p>
+<h3 id="moving-packages-to-osg-contrib">Moving packages to osg-contrib<a class="headerlink" href="#moving-packages-to-osg-contrib" title="Permanent link">&para;</a></h3>
+<p>The <em>osg-contrib</em> repository is loosely regulated. In most cases, the team member in charge of the package can decide when a package is updated in <em>osg-contrib</em>. Contrib packages should be tested in <em>osg-development</em> first.</p>
+<h3 id="timing-of-releases">Timing of releases<a class="headerlink" href="#timing-of-releases" title="Permanent link">&para;</a></h3>
+<p>Normally, releases happen on Tuesdays.</p>
+<p>Code freezes happen two business days in advance of the release (normally Friday). Specifically: RPM updates intended to be included in the next release (that is, pushed to the osg-release yum repo) must be in the osg-testing yum repo by noon Central Time two business days in advance of the release. This will allow time for final testing, discussions, reverts, etc.</p>
+<p>We will make exceptions for urgent situations; consult with the release manager when needed.</p>
+<h2 id="ca-certificates-and-vo-client-packages">CA Certificates and VO Client packages<a class="headerlink" href="#ca-certificates-and-vo-client-packages" title="Permanent link">&para;</a></h2>
+<p>Packages that contain only data are not part of the usual release cycle.
+Currently, these are the CA certificate packages and the VO Client packages.
+Updates to these packages come from the Security Team and Operations Team, respectively.
+They still move through the usual process for release, and the Software and Release Managers decide when these packages should be promoted to the next repository level.
+However, the actual releases of these packages do not increment the version number of the software stack.</p>
+<p><a href="../../release/cut-data-release/">The release process for data packages is discussed here.</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../policy/gums-retire/" class="btn btn-neutral float-right" title="GUMS Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../cut-data-release/" class="btn btn-neutral" title="How to Cut a Data Release"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../cut-data-release/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../policy/gums-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
