@@ -98,13 +98,14 @@ Code freezes happen two business days in advance of the release (normally Friday
 
 We will make exceptions for urgent situations; consult with the software coordinator when needed.
 
-5.0 Additional Notes
---------------------
+5.0 CA Certificates and VO Client packages
+------------------------------------------
 
-### 5.1 CA Certificates
+Packages that contain only data are not part of the usual release cycle.
+Currently, these are the CA certificate packages and the VO Client packages.
+Updates to these packages come from the Security Team and Operations Team, respectively.
+They still move through the usual process for release, and the Software and Release Managers decide when these packages should be promoted to the next repository level.
+However, the actual releases of these packages do not increment the version number of the software stack.
 
-The OSG Security Team is in charge of the CA Certificate packages. Because they are in the same repositories as the rest of the software, they go through the same process for release. That means that the version number of the software stack will be incremented even if the only changes are in the CA certificate packages. The OSG Software Team is happy to help with the mechanics of the release, but the OSG Security Team is in charge of the timing and contents of the release.
+[The release process for data packages is discussed here.](../release/cut-data-release/)
 
-### 5.2 VO Client packages
-
-The OSG Operations Team is in charge of the VO client packages, which contain files such as the `vomses` file, the `edg-mkgridmap.conf` file, and others. Because they are in the same repositories as the rest of the software, they go through the same process for release. That means that the version number of the software stack will be incremented even if the only changes are in the CA certificate packages. The OSG Software Team is happy to help with the mechanics of the release, but the OSG Operations Team is in charge of the timing and contents of the release.
