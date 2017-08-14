@@ -52,15 +52,15 @@ This figure shows the progression of repositories that packages will go through:
 
 ### 4.1 Adding packages to osg-development
 
-New packages will only be added to *osg-development* with the permission of the OSG Software Coordinator. Updates can be done at any time without permission, but developers should be careful if their updates might be significant, particularly if an update might cause series compatibility issues. In cases where there is uncertainty, discuss it with the Software Coordinator.
+New packages will only be added to *osg-development* with the permission of the OSG Software Manager. Updates can be done at any time without permission, but developers should be careful if their updates might be significant, particularly if an update might cause series compatibility issues. In cases where there is uncertainty, discuss it with the Software Manager.
 
 ### 4.2 Moving packages to osg-testing
 
-A package may be moved from *osg-development* to *osg-testing* when the individual maintainer of that package decides that it is ready for widespread testing and when the package is eventually intended for a production release, and when approved by the OSG Software Coordinator. Approval is needed because this is when we first make packages available to people outside of the OSG Software Team.
+A package may be moved from *osg-development* to *osg-testing* when the individual maintainer of that package decides that it is ready for widespread testing and when the package is eventually intended for a production release, and when approved by the OSG Software Manager. Approval is needed because this is when we first make packages available to people outside of the OSG Software Team.
 
 ### 4.3. Moving packages to osg-prerelease; Readying the release
 
-When we are ready to make a production release, we first move the correct subset of packages from *osg-testing* into *osg-prerelease*. This should be done after checking with the OSG Software Coordinator to verify that it's okay to release the software. The intention of *osg-prerelease* is to do a final verification that we have the correct set of packages for release and that they really work together. This is important because the *osg-testing* repository might contain a mix of packages that are ready for release with packages that are not ready for release. When moving packages to *osg-prerelease*, the team member doing the release will:
+When we are ready to make a production release, we first move the correct subset of packages from *osg-testing* into *osg-prerelease*. This should be done after checking with the OSG Release Manager to verify that it's okay to release the software. The intention of *osg-prerelease* is to do a final verification that we have the correct set of packages for release and that they really work together. This is important because the *osg-testing* repository might contain a mix of packages that are ready for release with packages that are not ready for release. When moving packages to *osg-prerelease*, the team member doing the release will:
 
 -   Update the osg-version RPM to reflect the new version. Push this RPM through *osg-development*, *osg-testing*, and into *osg-prerelease*.
 -   Find the correct set of packages to push from *osg-testing* into *osg-prerelease*.
@@ -96,7 +96,7 @@ Normally, releases happen on Tuesdays.
 
 Code freezes happen two business days in advance of the release (normally Friday). Specifically: RPM updates intended to be included in the next release (that is, pushed to the osg-release yum repo) must be in the osg-testing yum repo by noon Central Time two business days in advance of the release. This will allow time for final testing, discussions, reverts, etc.
 
-We will make exceptions for urgent situations; consult with the software coordinator when needed.
+We will make exceptions for urgent situations; consult with the release manager when needed.
 
 5.0 CA Certificates and VO Client packages
 ------------------------------------------
