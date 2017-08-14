@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Koji Policy Writing - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Koji Policy Writing";
+    var mkdocs_page_input_path = "infrastructure/koji-policy-writing.md";
+    var mkdocs_page_url = "/infrastructure/koji-policy-writing/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/repository-management/">Repository Management</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Koji Policy Writing</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#koji-permissions-and-policy">Koji permissions and policy</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#default-policies-defined-in-hubkojixmlrpcpy">Default policies (defined in hub/kojixmlrpc.py)</a></li>
+        
+            <li><a class="toctree-l4" href="#policy-syntax">Policy syntax</a></li>
+        
+            <li><a class="toctree-l4" href="#default-permissions">Default permissions</a></li>
+        
+            <li><a class="toctree-l4" href="#adding-permissions">Adding permissions</a></li>
+        
+            <li><a class="toctree-l4" href="#where-policies-are-used-and-what-policy-data-is-passed-on">Where policies are used and what policy data is passed on:</a></li>
+        
+            <li><a class="toctree-l4" href="#examples">Examples</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Infrastructure &raquo;</li>
+        
+      
+    
+    <li>Koji Policy Writing</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/infrastructure/koji-policy-writing.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="koji-permissions-and-policy">Koji permissions and policy<a class="headerlink" href="#koji-permissions-and-policy" title="Permanent link">&para;</a></h2>
+<p>These are some notes I wrote on Koji ACLs/policy after doing some source diving in the Koji code.
+The version of Koji was 1.6.0.
+I later found some documentation at <a href="https://docs.pagure.org/koji/defining_hub_policies/">https://docs.pagure.org/koji/defining_hub_policies/</a>. Go read it, that page has better examples.</p>
+<h3 id="default-policies-defined-in-hubkojixmlrpcpy">Default policies (defined in hub/kojixmlrpc.py)<a class="headerlink" href="#default-policies-defined-in-hubkojixmlrpcpy" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>build_from_srpm =
+       has_perm admin :: allow
+       all :: deny
+build_from_repo_id =
+       has_perm admin :: allow
+       all :: deny
+channel =
+       has req_channel :: req
+       is_child_task :: parent
+       all :: use default
+package_list =
+       has_perm admin :: allow
+       all :: deny
+vm =
+       has_perm admin win-admin :: allow
+       all :: deny
+</pre></div>
+
+
+<p>If <code>MissingPolicyOk</code> is true (default), then policies that do not exist default to "allow".</p>
+<h3 id="policy-syntax">Policy syntax<a class="headerlink" href="#policy-syntax" title="Permanent link">&para;</a></h3>
+<p>Policies are set in the <code>[policy]</code> section of <code>/etc/koji-hub/hub.conf</code></p>
+<p>Each policy definition starts with</p>
+<div class="codehilite"><pre><span></span>policy_name =
+</pre></div>
+
+
+<p>The rest of the definition is indented. The lines in the policy definition have the following format:</p>
+<p>Simple tests:</p>
+<div class="codehilite"><pre><span></span>test [params] [&amp;&amp; test [params] ...] :: action-if-true
+test [params] [&amp;&amp; test [params] ...] !! action-if-false
+</pre></div>
+
+
+<p>Complex tests:</p>
+<div class="codehilite"><pre><span></span>test [params [&amp;&amp; ...]] :: {
+   test [params [&amp;&amp; ...]] :: action
+   test [params [&amp;&amp; ...]] :: {
+      ...
+      }
+}
+</pre></div>
+
+
+<p>The following generic tests are defined in <code>koji/policy.py</code>:</p>
+<ul>
+<li>
+<p><code>true</code> / <code>all</code> <br />
+    always true</p>
+</li>
+<li>
+<p><code>false</code> / <code>none</code> <br />
+    always false</p>
+</li>
+<li>
+<p><code>has FIELD</code> <br />
+    true if policy data contains a field called FIELD</p>
+</li>
+<li>
+<p><code>bool FIELD</code> <br />
+    true if FIELD is true</p>
+</li>
+<li>
+<p><code>match FIELD PATTERN1 [PATTERN2 ...]</code> <br />
+    true if FIELD matches any of the patterns (globs)</p>
+</li>
+<li>
+<p><code>compare FIELD OP NUMBER</code> <br />
+    compare FIELD against a number. OP can be <code>&lt;, &gt;, &lt;=, &gt;=, =, !=</code></p>
+</li>
+</ul>
+<p>the following koji-specific tests are defined in <code>hub/kojihub.py</code>:</p>
+<ul>
+<li>
+<p><code>buildtag PATTERN1 [PATTERN2 ...]</code> <br />
+    true if the build tag of a build matches a pattern</p>
+</li>
+<li>
+<p><code>fromtag PATTERN1 [PATTERN2 ...]</code> <br />
+    true if the tag we're moving a package from matches a pattern</p>
+</li>
+<li>
+<p><code>has_perm PATTERN1 [PATTERN2 ...]</code> <br />
+    true if user has any matching permission</p>
+</li>
+<li>
+<p><code>hastag TAG</code> <br />
+    true if the build has the tag TAG</p>
+</li>
+<li>
+<p><code>imported</code> <br />
+    true if the build was imported</p>
+</li>
+<li>
+<p><code>is_build_owner</code> <br />
+    true if the user doing this task owns the build</p>
+</li>
+<li>
+<p><code>is_child_task</code> <br />
+    true if the task is a child of some other task</p>
+</li>
+<li>
+<p><code>is_new_package</code> <br />
+    true if the package being looked at is new (i.e. doesn't have an 'id' yet)</p>
+</li>
+<li>
+<p><code>method PATTERN1 [PATTERN2 ...]</code> <br />
+    true if the method matches a pattern</p>
+</li>
+<li>
+<p><code>operation PATTERN1 [PATTERN2 ...]</code> <br />
+    true if current operation matches any of the patterns</p>
+</li>
+<li>
+<p><code>package PATTERN1 [PATTERN2 ...]</code> <br />
+    true if the package name matches any of the patterns</p>
+</li>
+<li>
+<p><code>policy POLICY</code> <br />
+    true if the named policy is true</p>
+</li>
+<li>
+<p><code>skip_tag</code> <br />
+    true if the skip_tag option is true</p>
+</li>
+<li>
+<p><code>source PATTERN1 [PATTERN2 ...]</code> <br />
+    true if source matches patterns</p>
+</li>
+<li>
+<p><code>tag PATTERN1 [PATTERN2 ...]</code> <br />
+    true if the tag name matches any of the patterns</p>
+</li>
+<li>
+<p><code>user PATTERN1 [PATTERN2 ...]</code> <br />
+    true if username matches a pattern</p>
+</li>
+<li>
+<p><code>user_in_group PATTERN1 [PATTERN2 ...]</code> <br />
+    true if the user is in any matching group</p>
+</li>
+<li>
+<p><code>vm_name PATTERN1 [PATTERN2 ...]</code> <br />
+    true if vm name matches a pattern</p>
+</li>
+</ul>
+<p>The actions are:</p>
+<ul>
+<li>
+<p><code>allow</code> <br />
+    allow the action</p>
+</li>
+<li>
+<p><code>deny</code> <br />
+    deny the action</p>
+</li>
+<li>
+<p><code>req</code> <br />
+    ?</p>
+</li>
+<li>
+<p><code>parent</code> <br />
+    ?</p>
+</li>
+<li>
+<p><code>use default</code> <br />
+    ?</p>
+</li>
+</ul>
+<h3 id="default-permissions">Default permissions<a class="headerlink" href="#default-permissions" title="Permanent link">&para;</a></h3>
+<p>These are the permissions that people can be given in koji:</p>
+<ul>
+<li><code>admin</code></li>
+<li><code>build</code></li>
+<li><code>repo</code></li>
+<li><code>livecd</code></li>
+<li><code>maven-import</code></li>
+<li><code>win-import</code></li>
+<li><code>win-admin</code></li>
+<li><code>appliance</code></li>
+</ul>
+<p>As far as I can tell, additional permissions have to be manually added into the 'permissions' table in postgres.</p>
+<p>The following permissions are checked by name in the koji command-line utility (i.e. policies are not used):</p>
+<ul>
+<li>
+<p><code>admin</code>: <br />
+<code>add-group</code>, <code>add-tag</code>, <code>add-target</code>, <code>clone-tag</code>, <code>edit-target</code>, <code>remove-tag</code>, <code>remove-target</code>, <code>wrapper-rpm</code></p>
+</li>
+<li>
+<p><code>maven-import</code>: <br />
+<code>import-archive</code> with the <code>--type=maven</code> option</p>
+</li>
+<li>
+<p><code>win-import</code>: <br />
+<code>import-archive</code> with the <code>--type=win</code> option</p>
+</li>
+<li>
+<p><code>repo</code>: <br />
+<code>regen-repo</code></p>
+</li>
+</ul>
+<p>I haven't found out where some of the other permissions are used.</p>
+<h3 id="adding-permissions">Adding permissions<a class="headerlink" href="#adding-permissions" title="Permanent link">&para;</a></h3>
+<p>Go into postgres and run</p>
+<div class="codehilite"><pre><span></span>insert into permissions values ((select nextval(&#39;permissions_id_seq&#39;)), &#39;NAME&#39;);
+</pre></div>
+
+
+<p>where NAME is the name of the permission you want to create. You may now grant people that permission and use that name in policies.</p>
+<h3 id="where-policies-are-used-and-what-policy-data-is-passed-on">Where policies are used and what policy data is passed on:<a class="headerlink" href="#where-policies-are-used-and-what-policy-data-is-passed-on" title="Permanent link">&para;</a></h3>
+<h4 id="build95from95srpm">build_from_srpm<a class="headerlink" href="#build95from95srpm" title="Permanent link">&para;</a></h4>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>builder/kojid:BuildTask.handler</code> <br />
+    used when source url points to an SRPM (as opposed to an scm) and the build is not a scratch build.</li>
+</ul>
+<p><strong>policy data:</strong></p>
+<ul>
+<li>
+<p><code>user_id</code> <br />
+    the owner of the task</p>
+</li>
+<li>
+<p><code>source</code> <br />
+    the url of the source file</p>
+</li>
+<li>
+<p><code>task_id</code> <br />
+    the id of the task</p>
+</li>
+<li>
+<p><code>build_tag</code> <br />
+    the id of the build tag</p>
+</li>
+<li>
+<p><code>skip_tag</code> <br />
+    true if we're not tagging this build (<code>--scratch</code> or <code>--skip-tag</code> passed on the command line)</p>
+</li>
+<li>
+<p><code>target</code> <br />
+    the build target (only if we have one?)</p>
+</li>
+<li>
+<p><code>tag</code> <br />
+    the destination tag (only if <code>skip_tag</code> is false)</p>
+</li>
+</ul>
+<h4 id="build95from95repo95id">build_from_repo_id<a class="headerlink" href="#build95from95repo95id" title="Permanent link">&para;</a></h4>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>builder/kojid:BuildTask.handler</code> <br />
+    used when the <code>--repo-id</code> option is passed to <code>koji build</code></li>
+</ul>
+<p><strong>policy data:</strong> same as <code>build_from_srpm</code></p>
+<h4 id="package95list">package_list<a class="headerlink" href="#package95list" title="Permanent link">&para;</a></h4>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:pkglist_add</code> <br />
+<code>add-pkg</code>, <code>block-pkg</code>, <code>set-pkg-arches</code>, <code>set-pkg-owner</code> commands</li>
+</ul>
+<p><strong>policy data:</strong></p>
+<ul>
+<li>
+<p><code>action</code> <br />
+    'add', 'update', 'block' depending on what is being done</p>
+</li>
+<li>
+<p><code>force</code> <br />
+    true if <code>--force</code> is passed on the command line</p>
+</li>
+<li>
+<p><code>package</code> <br />
+    package info (the id I think?)</p>
+</li>
+<li>
+<p><code>tag</code> <br />
+    the id of the tag we're trying to add the package to/package is in</p>
+</li>
+</ul>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:pkglist_remove</code> <br />
+    used internally by the <code>koji clone-tag</code> command?</li>
+</ul>
+<p><strong>policy data:</strong> same as above, except <code>action</code> is 'remove'</p>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:pkglist_unblock</code> <br />
+<code>unblock-pkg</code> command</li>
+</ul>
+<p><strong>policy data:</strong> same as above, except <code>action</code> is 'unblock'</p>
+<h4 id="tag">tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RootExports is the class containing functions exported via XMLRPC. In general, each function corresponds to a koji task.</p>
+</div>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:RootExports.tagBuild</code> <br />
+    tagging builds</li>
+</ul>
+<p><strong>policy data:</strong></p>
+<ul>
+<li>
+<p><code>build</code> <br />
+    the id of the build</p>
+</li>
+<li>
+<p><code>fromtag</code> <br />
+    the id of the tag we're moving the build from, if there is one</p>
+</li>
+<li>
+<p><code>operation</code> <br />
+    'tag' or 'move'</p>
+</li>
+<li>
+<p><code>tag</code> <br />
+    the id of the tag</p>
+</li>
+</ul>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:RootExports.untagBuild</code> <br />
+    untagging builds</li>
+</ul>
+<p><strong>policy data:</strong> same as above, except <code>operation</code> is 'untag', and <code>tag</code> is None</p>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:RootExports.moveAllBuilds</code> <br />
+    moving all builds of a package from tag1 to tag2</li>
+</ul>
+<p><strong>policy data:</strong> same as for <code>tagBuild</code>, except <code>operation</code> is 'move'. The policy is checked once for each build being moved.</p>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:HostExports.tagBuild</code> <br />
+    tagging builds ("host version" ?)</li>
+</ul>
+<p><strong>policy data:</strong> same as for <code>tagBuild</code>, plus <code>user_id</code></p>
+<h4 id="vm">vm<a class="headerlink" href="#vm" title="Permanent link">&para;</a></h4>
+<p><strong>source:</strong></p>
+<ul>
+<li><code>hub/kojihub.py:RootExports.winBuild</code> <br />
+    windows builds in a vm (<code>win-build</code> command)</li>
+</ul>
+<p><strong>policy data:</strong></p>
+<ul>
+<li>
+<p><code>tag</code> <br />
+    the destination tag</p>
+</li>
+<li>
+<p><code>vm_name</code> <br />
+    the name of the vm</p>
+</li>
+</ul>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<h4 id="let-people-with-the-build-permission-also-add-packages-and-build-srpms">Let people with the "build" permission also add packages and build SRPMs<a class="headerlink" href="#let-people-with-the-build-permission-also-add-packages-and-build-srpms" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>package_list = 
+    has_perm admin :: allow
+    has_perm build &amp;&amp; match action add update :: allow
+    all :: deny
+
+build_from_srpm =
+    has_perm admin build :: allow
+    all :: deny
+</pre></div>
+
+
+<h4 id="promotion-policy-for-different-teams">Promotion policy for different teams<a class="headerlink" href="#promotion-policy-for-different-teams" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Software team members can tag any package as testing/release.</li>
+<li>Operations team members can tag vo-clients as testing/release.</li>
+<li>Security team members can tag CA packages as testing/release.</li>
+</ul>
+<!-- this comment actually affects the formatting -->
+
+<div class="codehilite"><pre><span></span>promotion =
+   has_perm software-team :: allow
+   has_perm operations-team &amp;&amp; package vo-client :: allow
+   has_perm security-team &amp;&amp; package *-ca-certs* :: allow
+   all :: deny
+
+tag =
+    has_perm admin :: allow
+    operation tag :: {
+        tag *testing *release* &amp;&amp; policy promotion :: allow
+        tag *testing *release* !! allow
+    }
+    operation untag :: {
+        fromtag *testing *release* &amp;&amp; policy promotion :: allow
+        fromtag *testing *release* !! allow
+    }
+    operation move :: {
+        tag *testing *release* &amp;&amp; policy promotion :: allow
+        fromtag *testing *release* &amp;&amp; policy promotion :: allow
+        tag *testing *release* !! {
+            fromtag *testing *release* !! allow
+        }
+    }
+    all :: deny
+</pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../koji-initial-install/" class="btn btn-neutral float-right" title="Koji Initial Install">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../koji-inf-overview/" class="btn btn-neutral" title="Koji Infrastructure Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../koji-inf-overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../koji-initial-install/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
