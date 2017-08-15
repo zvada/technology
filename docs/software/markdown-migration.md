@@ -3,17 +3,6 @@ Migrating to Markdown
 
 As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to [Markdown](https://guides.github.com/features/mastering-markdown/). The following document outlines the conversion process and conventions.
 
-Requirements
-------------
-
-To perform a document migration, you will need the following tools and accounts:
-
-- `git` and a GitHub account
-- A host with a running docker service
-- `sudo` or membership in the `docker` group
-
-If you cannot install the above tools locally, they are available on `osghost`. Speak with Brian L for access.
-
 Preparing the git repository
 ----------------------------
 
@@ -42,12 +31,30 @@ Once you've chosen the target repository for your document, prepare your local r
         :::console
         [user@client ~ ] $ git branch <BRANCH NAME> master
 
-Using the twiki-converter docker image
---------------------------------------
+
+Automatic TWiki conversion
+--------------------------
+
+Choose one of the following methods for converting TWiki documents:
+
+- Using our own [docker conversion image](#using-docker) (recommended)
+- A combination of [pandoc](#using-pandoc) and mkdocs
+
+### Using docker ###
 
 The twiki-converter docker image can be used to preview the document tree via a [mkdocs](http://www.mkdocs.org/#getting-started) development server, archive TWiki documents, and convert documents to Markdown via [pandoc](http://pandoc.org/). The image is available on `osghost`, otherwise, follow the instructions [here](https://github.com/brianhlin/docker-twiki-converter) to build it locally. 
 
-### Preview the document tree ###
+#### Requirements ####
+
+To perform a document migration using docker, you will need the following tools and accounts:
+
+- `git` and a GitHub account
+- A host with a running docker service
+- `sudo` or membership in the `docker` group
+
+If you cannot install the above tools locally, they are available on `osghost`. Speak with Brian L for access.
+
+#### Previewing the document tree ####
 
 When starting a twiki-converter docker container, it expects your local github repository to be mounted in `/source` so that any changes made to the repository are reflected in the mkdocs development server. To start a docker container based off of the twiki-converter docker image:
 
@@ -67,7 +74,7 @@ When starting a twiki-converter docker container, it expects your local github r
 
 3. Access the development server in your browser via `http://osghost.chtc.wisc.edu:<PORT>` or `localhost:<PORT>` for containers run on `osghost` or locally, respectively. `osghost` has a restrictive firewall so if you have issues accessing your container from outside of the UW-Madison campus, use an SSH tunnel to map the `osghost` port to a local port.
 
-### Convert documents ###
+#### Converting documents ####
 
 The docker image contains a convenience script, `convert-twiki` for saving archives and converting them to Markdown. To run the script in a running container, run the following command:
 
@@ -88,6 +95,8 @@ To see the converted document in your browser:
 2. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
 3. Refresh the document tree in your browser
 
+Once you can view the converted document in your browser, move onto the [next section](#completing-the-conversion)
+
 #### Troubleshooting conversion ####
 
 Pandoc sometimes has issues converting documents and requires manual intervention by removing whichever section is causing issues in the conversion.
@@ -107,8 +116,78 @@ Pandoc sometimes has issues converting documents and requires manual interventio
 5. Repeat steps 2-4 until you've narrowed down the problematic section
 6. Manually convert the offending section
 
-Things to watch out for
------------------------
+### Using pandoc ###
+
+If you've already used the [docker method](#using-docker), skip to the section about [completing the conversion](#completing-the-conversion). 
+
+#### Requirements ####
+
+This method requires the following packages:
+
+- pandoc (> 1.16)
+- mkdocs
+- MarkdownHighlight
+- pygments
+
+#### Archiving the TWiki document ####
+
+Save the raw TWiki file into the `docs/archive/` folder of your local git repository:
+
+```console
+[user@client ~] $ curl '<TWIKI URL>?raw=text' | iconv -f windows-1252 > docs/archive/<TWIKI TITLE>
+```
+
+For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:
+
+```console
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
+```
+
+#### Initial conversion with Pandoc ####
+
+[Pandoc](http://pandoc.org/) is a tool that's useful for automated conversion of markdown languages. [Once installed](http://pandoc.org/installing.html) (alternatively, run pandoc [via docker](#using-docker)), run the following command to convert TWiki to Markdown:
+
+```console
+$ pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
+```
+
+Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN FILE>` is the path to the resulting document in GitHub Markdown.
+
+!!! note
+    If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.
+
+##### Using pandoc via docker ######
+
+The `pandoc` library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install `pandoc` but have access to docker, you can run the following command:
+
+```bash
+docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
+```
+
+For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:
+
+```bash
+$ mkdir -p docs/archive docs/projects
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
+$ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance > docs/projects/sha2-support.md
+```
+
+We have found some cases where the Docker version of `pandoc` handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.
+
+#### Previewing your document(s) with Mkdocs ####
+
+[Mkdocs](http://www.mkdocs.org/) has a development mode that can be used to preview documents as you work on them and is available via package manager or `pip`. [Once installed](http://www.mkdocs.org/#installation), add your document(s) to the `pages` section of `mkdocs.yml` and launch the mkdocs server with the following command from the dir containing `mkdocs.yml`:
+
+```console
+$ PYTHONPATH=src/ mkdocs serve
+```
+
+Access the server at `http://127.0.0.1:8000` and navigate to the document you're working on. It's useful to open the original TWiki doc in an adjacent tab or window to quickly compare the two.
+
+Completing the conversion
+-------------------------
+
+Manual review of the automatically converted documents are required since the automatic conversion process isn't perfect. This section contains a list of problems commonly encountered in automatically converted documents.
 
 ### Broken links ###
 
