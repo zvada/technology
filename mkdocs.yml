@@ -13,12 +13,13 @@ pages:
   - Meeting Notes: 'meetings.md'
   - Software:
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
+    - Koji Workflow: 'software/koji-workflow.md'
     - New Team Member: 'software/new-team-member.md'
     - Repository Management: 'software/repository-management.md'
     - CE Scale Testing: 'software/ce-test-scaling.md'
     - RPM Development Guide: 'software/rpm-development-guide.md'
     - Upcoming to Main: 'software/upcoming-to-main.md'
-
+    - Effort Tracking: 'software/effort-tracking.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
@@ -35,6 +36,8 @@ pages:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
     - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
+  - Documentation:
+    - Writing Documentation: 'documentation/writing-documentation.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
   - Historical Transitions:
