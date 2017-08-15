@@ -353,7 +353,7 @@ After the pull request is merged, replace the contents of TWiki document with th
 
 ```
 <div style="border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;">
-This is an archive, find the new version of this document [[LINK TO GITHUB DOCUMENT][here]].
+This document has been migrated to GitHub (<LINK TO GITHUB DOCUMENT>). If you wish to see the old TWiki document, click the latest revision 'rNN' in the footer below.
 
 Background:
 
@@ -368,7 +368,7 @@ Once the div has been added, update the spreadsheet and go back to your pull req
 
 ```
 - [X] Enter date into "Migrated" column of google sheet
-- [X] Add migration header to TWiki document
+- [X] Add migration div to TWiki document
 ```
 Currently, we do not recommend changing backlinks (links on other twiki pages that refer to the Twiki page you are migrating) to point at the new GitHub URL.  This is to provide a simple reminder to users that the migration will occur, and also is likely low priority regardless as all pages will eventually migrate to GitHub.  This advice may change in the future as we gain experience with this transition.
 
