@@ -16,8 +16,8 @@ When a ticket arrives at the GOC and the Operations staff member decides that th
 All OSG Software Team members who are at least 50% on the software team will share triage duty. Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:
 
 -   Watch the software incoming tickets. **If a ticket has not been assigned to a software team member, you assign it appropriately.** You are responsible for assigning all incoming tickets that haven't been assigned. This includes tickets that have arrived over the weekend or were not handled by the previous person on triage duty.
--   Handle incoming tickets where possible. Many tickets are common problems that most team members should be able to solve. For harder tickets, collect initial details (versions, logs, etc...) before passing the ticket to someone else.
--   Assign incoming tickets to the most appropriate software team member as needed. Where appropriate, include people from other teams (i.e. security, operations, glidein...) Leave the "software" user assigned to the ticket.
+-   If you can handle an incoming ticket, assign it to yourself and handle it. Leave the "software" user assigned to the ticket. Many tickets are common problems that most team members should be able to solve.
+-   If you cannot handle an incoming ticket, collect initial details (versions, logs, etc...), and assign the ticket to the most appropriate software team member. Where appropriate, include people from other teams (i.e. security, operations, glidein...) Leave the "software" user assigned to the ticket.
 -   Look at assigned tickets. For tickets that are not being handled in a timely fashion, please remind the person that owns the ticket, or, if the ticket is waiting on the user, remind the user.
 
 Please note: being on triage duty does *not* mean that you must personally solve all new tickets. It means that you handle the easy tickets and assign the other tickets appropriately.
