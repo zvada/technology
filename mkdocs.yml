@@ -13,6 +13,7 @@ pages:
   - Meeting Notes: 'meetings.md'
   - Software:
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
+    - Koji Workflow: 'software/koji-workflow.md'
     - New Team Member: 'software/new-team-member.md'
     - Repository Management: 'software/repository-management.md'
     - Upcoming to Main: 'software/upcoming-to-main.md'
