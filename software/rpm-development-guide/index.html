@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>RPM Development Guide - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "RPM Development Guide";
+    var mkdocs_page_input_path = "software/rpm-development-guide.md";
+    var mkdocs_page_url = "/software/rpm-development-guide/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-workflow/">Koji Workflow</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">RPM Development Guide</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#rpm-development-guide">RPM Development Guide</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#principles">Principles</a></li>
+        
+            <li><a class="toctree-l4" href="#contributing-packages">Contributing Packages</a></li>
+        
+            <li><a class="toctree-l4" href="#development-infrastructure">Development Infrastructure</a></li>
+        
+            <li><a class="toctree-l4" href="#packaging-conventions">Packaging Conventions</a></li>
+        
+            <li><a class="toctree-l4" href="#packaging-for-multiple-distro-versions">Packaging for Multiple Distro Versions</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../effort-tracking/">Effort Tracking</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/software-support/">Software Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Documentation</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Software &raquo;</li>
+        
+      
+    
+    <li>RPM Development Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/rpm-development-guide.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="rpm-development-guide">RPM Development Guide<a class="headerlink" href="#rpm-development-guide" title="Permanent link">&para;</a></h1>
+<p>This page documents technical guidelines and details about RPM development for the OSG Software Stack. The procedures, conventions, and policies defined within are used by the OSG Software Team, and are recommended to all external developers who wish to contribute to the OSG Software Stack.</p>
+<h2 id="principles">Principles<a class="headerlink" href="#principles" title="Permanent link">&para;</a></h2>
+<p>The principles below guide the design and implementation of the technical details that follow.</p>
+<ul>
+<li>Packages should adhere to community standards (e.g., <a href="http://fedoraproject.org/wiki/PackagingGuidelines">Fedora Packaging Guidelines</a>) when possible, and significant deviations must be documented</li>
+<li>Every released package must be reproducible from data stored in our system</li>
+<li>Source code for software should be clearly separable from the packaging of that software</li>
+<li>Upstream source files (which should not be modified) should be clearly separated from files owned by the OSG Software Team</li>
+<li>Building source and binary packages from our system should be easy and efficient</li>
+<li>External developers should have a clear and effective system for developing and contributing packages</li>
+<li>We should use standard tools from relevant packaging and development communities when appropriate</li>
+</ul>
+<h2 id="contributing-packages">Contributing Packages<a class="headerlink" href="#contributing-packages" title="Permanent link">&para;</a></h2>
+<p>We encourage all interested parties to contribute to OSG Software, and all the infrastructure described on this page should be friendly to external contributors.</p>
+<ul>
+<li>To participate in the packaging community: You must subscribe to the <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;">&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;</a> email list. Subscribing to an OSG email list is <a href="http://listserv.fnal.gov/users.asp#subscribe%20to%20list">described here</a>.</li>
+<li>To create and edit packages: <a href="http://vdt.cs.wisc.edu/internal/svn.html">Obtain access to VDT SVN</a>.</li>
+<li>To upload new source tarballs: You must have a cs.wisc.edu account with write access to the VDT source tarball directory. Email the osg-software list and request permission.</li>
+<li>To build using the OSG's Koji build system: You must have a valid grid certificate and a Koji account. Email the osg-software list with your cert's DN and request permission.</li>
+</ul>
+<h2 id="development-infrastructure">Development Infrastructure<a class="headerlink" href="#development-infrastructure" title="Permanent link">&para;</a></h2>
+<p>This section documents most of what a developer needs to know about our RPM infrastructure:</p>
+<ul>
+<li>Upstream Source Cache — a filesystem scheme for caching upstream source files</li>
+<li>Revision Control System — where to get and store development files, and how they are organized</li>
+<li>Build System — how to build packages from the revision control system</li>
+<li>Yum Repository — the location and organization of our Yum repository, and how to promote packages through it</li>
+</ul>
+<h3 id="upstream-source-cache">Upstream Source Cache<a class="headerlink" href="#upstream-source-cache" title="Permanent link">&para;</a></h3>
+<p>One of our principles (every released package must be reproducible from data stored in our system) creates a potential issue: If we keep all historical source data, especially upstream files like source tarballs and source RPMs, in our revision control system, we may face large checkouts and consequently long checkout and update times.</p>
+<p>Our solution is to cache all upstream source files in a separate filesystem area, retaining historical files indefinitely. To avoid tainting upstream files, our policy is to leave them unmodified after download.</p>
+<h4 id="locating-files-in-the-cache">Locating Files in the Cache<a class="headerlink" href="#locating-files-in-the-cache" title="Permanent link">&para;</a></h4>
+<p>Upstream source files are stored in the filesystem as follows:</p>
+<blockquote>
+<p><code>/p/vdt/public/html/upstream/&lt;PACKAGE&gt;/&lt;VERSION&gt;/&lt;FILE&gt;</code></p>
+</blockquote>
+<p>where:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Definition</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>&lt;PACKAGE&gt;</code></td>
+<td align="left">Upstream name of the source package, or some widely accepted form thereof</td>
+<td align="left"><code>ndt</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;VERSION&gt;</code></td>
+<td align="left">Upstream version string used to identify the release</td>
+<td align="left"><code>3.6.4</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;FILE&gt;</code></td>
+<td align="left">Upstream filename itself</td>
+<td align="left"><code>ndt-3.6.4.tar.gz</code></td>
+</tr>
+</tbody>
+</table>
+<p>The authoritative cache is the VDT webserver, which is fully backed up. The Koji build system uses this cache.</p>
+<p>Upstream source files are referenced from within the revision control system; see below for details.</p>
+<h4 id="contributing-upstream-files">Contributing Upstream Files<a class="headerlink" href="#contributing-upstream-files" title="Permanent link">&para;</a></h4>
+<p>You must make sure that any new upstream source files are cached on the VDT webserver before building the package via Koji. You have two options:</p>
+<ul>
+<li>If you have access to a UW–Madison CSL machine, you can scp the source files directly into the AFS locations using that machine</li>
+<li>If you do not have such access, write to the osg-software list to find someone who will post the files for you</li>
+</ul>
+<h3 id="revision-control-system">Revision Control System<a class="headerlink" href="#revision-control-system" title="Permanent link">&para;</a></h3>
+<p>All packages that the OSG Software Team releases are checked into our revision control system (currently Subversion but with the option to change at a later date).</p>
+<h4 id="subversion-access">Subversion Access<a class="headerlink" href="#subversion-access" title="Permanent link">&para;</a></h4>
+<p>Our Subversion repository is located at:</p>
+<blockquote>
+<div class="codehilite"><pre><span></span>https://vdt.cs.wisc.edu/svn
+</pre></div>
+
+
+</blockquote>
+<p><a href="http://vdt.cs.wisc.edu/internal/svn.html">Procedure for offsite users obtaining access to Subversion</a></p>
+<p>Or, from a UW–Madison Computer Sciences machine:</p>
+<blockquote>
+<div class="codehilite"><pre><span></span>file:///p/condor/workspaces/vdt/svn
+</pre></div>
+
+
+</blockquote>
+<p>The current SVN directory housing our native package work is <code>$SVN/native/redhat</code> (where <code>$SVN</code> is one of the ways of accessing our SVN repository above). For example, to check out the current package repository via HTTPS, do:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> svn co https://vdt.cs.wisc.edu/svn/native/redhat
+</pre></div>
+
+
+<h4 id="osg-owned-software">OSG-Owned Software<a class="headerlink" href="#osg-owned-software" title="Permanent link">&para;</a></h4>
+<p>OSG-owned software goes into GitHub under the <code>opensciencegrid</code> organization. Files are organized as the developer sees fit.</p>
+<p>It is strongly recommended that each software package include a top-level Makefile with at least the following targets:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>install</code></td>
+<td align="left">Install the software into final FHS locations rooted at <code>DESTDIR</code></td>
+</tr>
+<tr>
+<td align="left"><code>dist</code></td>
+<td align="left">Create a distribution source tarball (in the current section directory) for a release</td>
+</tr>
+<tr>
+<td align="left"><code>upstream</code></td>
+<td align="left">Install the distribution source tarball into the upstream source cache</td>
+</tr>
+</tbody>
+</table>
+<h4 id="packaging-top-level-directory-organization">Packaging Top-Level Directory Organization<a class="headerlink" href="#packaging-top-level-directory-organization" title="Permanent link">&para;</a></h4>
+<p>The top levels of our Subversion directory hierarchy for packaging are as follows:</p>
+<blockquote>
+<p><code>native/redhat/&lt;SECTION&gt;/&lt;PACKAGE&gt;</code></p>
+</blockquote>
+<p>where:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Definition</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>&lt;SECTION&gt;</code></td>
+<td align="left">Development section</td>
+<td align="left">Standard Subversion sections like <code>trunk</code> and <code>branches/*</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;PACKAGE&gt;</code></td>
+<td align="left">Our standardized name for a source package</td>
+<td align="left"><code>ndt</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="package-directory-organization">Package Directory Organization<a class="headerlink" href="#package-directory-organization" title="Permanent link">&para;</a></h4>
+<p>Within a source package directory, the following files (detailed in separate sections below) may exist:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>README</code></td>
+<td>text file</td>
+<td>package notes, by and for developers</td>
+</tr>
+<tr>
+<td><code>upstream/</code></td>
+<td>directory</td>
+<td>references to the upstream source cache and other kinds of upstream files</td>
+</tr>
+<tr>
+<td><code>osg/</code></td>
+<td>directory</td>
+<td>overrides and patches of upstream files, plus new files, which contribute to the final OSG source package</td>
+</tr>
+</tbody>
+</table>
+<h5 id="readme">README<a class="headerlink" href="#readme" title="Permanent link">&para;</a></h5>
+<p>This is a free-form text file for developers to leave notes about the package. Please document anything interesting about how you procured the upstream source, the reasons for the modifications you made, or anything else people might need to know in order to maintain the package in the future. Please document the <em>why</em>, not just the <em>what</em>.</p>
+<h5 id="upstream">upstream<a class="headerlink" href="#upstream" title="Permanent link">&para;</a></h5>
+<p>Within the per-package directories of the revision control system, there must be a way to refer to cached files. This is done with small text files that (a) are named consistently, and (b) contain the location of the referenced file as its contents.</p>
+<p>A reference file is named:</p>
+<blockquote>
+<p><code>&lt;DESCRIPTION&gt;.&lt;TYPE&gt;.source</code></p>
+</blockquote>
+<p>where:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Definition</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>&lt;DESCRIPTION&gt;</code></td>
+<td align="left">Descriptive label of the source of the referenced file</td>
+<td align="left"><code>developer</code>, <code>epel</code>, <code>emi</code></td>
+</tr>
+<tr>
+<td align="left"><code>&lt;TYPE&gt;</code></td>
+<td align="left">Type of referenced file</td>
+<td align="left"><code>tarball</code>, <code>srpm</code></td>
+</tr>
+</tbody>
+</table>
+<p>The contents of the file match the upstream source cache path defined above, without the prefix component:</p>
+<blockquote>
+<p><code>&lt;PACKAGE&gt;/&lt;VERSION&gt;/&lt;FILE&gt;</code></p>
+</blockquote>
+<p>In addition, the <code>.source</code> files may contain comments, which start with <code>#</code> and continue until the end of the line. It is useful to add the source of the upstream file into a comment.</p>
+<p>For example, the reference file for <code>globus-common</code>'s source tarball is named <code>epel.srpm.source</code> and might contain:</p>
+<div class="codehilite"><pre><span></span>globus-common/16.4/globus-common-16.4-1.el6.src.rpm
+# Downloaded from &#39;http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm&#39;
+</pre></div>
+
+
+<h5 id="osg">osg<a class="headerlink" href="#osg" title="Permanent link">&para;</a></h5>
+<p>The <code>osg</code> directory contains files that are owned by the OSG Software Team and that are used to create the final, released source package. It may contain a variety of development files:</p>
+<ul>
+<li>An RPM <code>.spec</code> file, which overrides any spec file from a referenced source</li>
+<li>Patch (<code>.patch</code>) or replacement files, which override any same-named file from the top-level directory of a referenced source</li>
+<li>Other files, which must be explicitly placed into the package by the spec file</li>
+</ul>
+<h4 id="generated-directories">Generated directories<a class="headerlink" href="#generated-directories" title="Permanent link">&para;</a></h4>
+<p>The following directories may be generated by our build tool, <a href="../SoftwareTeam.OSGBuildTools">OSG-Build</a>. They are not under revision control.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_upstream_srpm_contents/</code></td>
+<td>expanded contents of a cached upstream source package</td>
+</tr>
+<tr>
+<td><code>_upstream_tarball_contents/</code></td>
+<td>expanded contents of all cached upstream source tarballs</td>
+</tr>
+<tr>
+<td><code>_final_srpm_contents/</code></td>
+<td>the final contents of the OSG source package</td>
+</tr>
+<tr>
+<td><code>_build_results/</code></td>
+<td>OSG source and binary packages resulting from a build</td>
+</tr>
+<tr>
+<td><code>_quilt/</code></td>
+<td>expanded, patched contents of the upstream sources, as generated by the <code>quilt</code> tool</td>
+</tr>
+</tbody>
+</table>
+<h5 id="95upstream95srpm95contents">_upstream_srpm_contents<a class="headerlink" href="#95upstream95srpm95contents" title="Permanent link">&para;</a></h5>
+<p>The <code>_upstream_srpm_contents</code> directory contains the files that are part of the upstream source package. It is a volatile record of the upstream source for developer use.</p>
+<h5 id="95upstream95tarball95contents">_upstream_tarball_contents<a class="headerlink" href="#95upstream95tarball95contents" title="Permanent link">&para;</a></h5>
+<p>The <code>_upstream_tarball_contents</code> directory contains the files that are part of the upstream source tarballs. It is generated by the package build tool if the <code>--full-extract</code> option is passed. It is not used for anything by the build tool, but meant as a convenience to allow the developer to look inside the upstream sources (for making patches, etc.).</p>
+<h5 id="95final95srpm95contents">_final_srpm_contents<a class="headerlink" href="#95final95srpm95contents" title="Permanent link">&para;</a></h5>
+<p>The <code>_final_srpm_contents</code> directory contains the final files that are part of the released source package. It is a volatile record of a build for developer use.</p>
+<h5 id="95build95results">_build_results<a class="headerlink" href="#95build95results" title="Permanent link">&para;</a></h5>
+<p>The <code>_build_results</code> directory contains the source and binary RPMs that are produced by a local build. It is a volatile record of a build for developer use.</p>
+<h5 id="95quilt">_quilt<a class="headerlink" href="#95quilt" title="Permanent link">&para;</a></h5>
+<p>The <code>_quilt</code> directory contains the unpacked sources after they have been patched using the <a href="http://savannah.nongnu.org/projects/quilt">quilt</a> utility. This allows easier patch development.</p>
+<h4 id="packaging-organization-examples">Packaging Organization Examples<a class="headerlink" href="#packaging-organization-examples" title="Permanent link">&para;</a></h4>
+<h5 id="use-case-1-packaging-an-upstream-source-tarball">Use Case 1: Packaging an Upstream Source Tarball<a class="headerlink" href="#use-case-1-packaging-an-upstream-source-tarball" title="Permanent link">&para;</a></h5>
+<p>When the OSG Software Team packages an upstream source tarball, for which there is no existing package, the source tarball is referenced with a .source file and we provide a spec file and, if necessary, patches. For example, RSV is provided as a source tarball only. Its package directory contains:</p>
+<blockquote>
+<div class="codehilite"><pre><span></span>rsv/
+    osg/
+        rsv.spec
+    upstream/
+        developer.tarball.source
+</pre></div>
+
+
+</blockquote>
+<h5 id="use-case-2-passing-through-a-source-rpm">Use Case 2: Passing Through a Source RPM<a class="headerlink" href="#use-case-2-passing-through-a-source-rpm" title="Permanent link">&para;</a></h5>
+<p>When the OSG Software Team simply provides a copy of an existing source RPM, it is referenced with a .source file and that is it. For example, we do not modify the <code>globus-common</code> source RPM from EPEL. Its package directory contains:</p>
+<blockquote>
+<div class="codehilite"><pre><span></span>globus-common/
+    upstream/
+        epel.srpm.source
+</pre></div>
+
+
+</blockquote>
+<h5 id="use-case-3-modifying-a-source-rpm">Use Case 3: Modifying a Source RPM<a class="headerlink" href="#use-case-3-modifying-a-source-rpm" title="Permanent link">&para;</a></h5>
+<p>When the OSG Software Team modifies an existing source RPM, it is referenced with a .source file and then all changes to the upstream source are contained in the <code>osg</code> directory. For example, we use this mechanism for the <code>globus-ftp-client</code> package, originally obtained from EPEL. Its package directory contains:</p>
+<blockquote>
+<div class="codehilite"><pre><span></span>globus-ftp-client/
+    osg/
+        globus-ftp-client.spec
+        1853-ssh-bin.patch
+    upstream/
+        epel.srpm.source
+</pre></div>
+
+
+</blockquote>
+<h3 id="build-process">Build Process<a class="headerlink" href="#build-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li>All necessary information to create the package will be committed to the VDT source code repository (see below)</li>
+<li>The <a href="../SoftwareTeam.OSGBuildTools">OSG build tools</a> will take those files, create a source RPM, and submit it to our Koji build system</li>
+</ol>
+<p>Developers may use <code>rpmbuild</code> and <code>mock</code> for faster iterative development before submitting the package to Koji. <code>osg-build</code> may be used as a wrapper script around <code>rpmbuild</code> and <code>mock</code>.</p>
+<h3 id="osg-software-repository">OSG Software Repository<a class="headerlink" href="#osg-software-repository" title="Permanent link">&para;</a></h3>
+<p>OSG Operations maintains the Yum repositories that contain our source and binary RPMs at <code>https://repo.grid.iu.edu/osg/</code> and are mirrored at other institutions as well.</p>
+<h4 id="release-levels">Release Levels<a class="headerlink" href="#release-levels" title="Permanent link">&para;</a></h4>
+<p>Every package is classified into a release level based on the amount of testing it has undergone and our confidence in its stability. When a package is first built, it goes into the lowest level (<code>osg-development</code>). The members of the OSG Software and Release teams may promote packages through the release levels, as per our <a href="../SoftwareTeam.ReleasePolicy">Release Policy page</a>.</p>
+<h2 id="packaging-conventions">Packaging Conventions<a class="headerlink" href="#packaging-conventions" title="Permanent link">&para;</a></h2>
+<p>In addition to adhering to the <a href="http://fedoraproject.org/wiki/PackagingGuidelines">Fedora Packaging Guidelines</a> (FPG), we have a few rules and guidelines of our own:</p>
+<ul>
+<li>When we pass-through an RPM and make any changes to it (so it has an updated package number), we construct the version-release as follows:<ul>
+<li>The version of the original RPM remains unchanged</li>
+<li>The release is composed of three parts: ORIGINALRELEASE.OSGRELEASE</li>
+<li>We add a distro tag based on the OSG major version and OS major version, e.g. "osg33.el6". (Use <code>%{?dist}</code> in the Release field)</li>
+</ul>
+</li>
+</ul>
+<p>Example: We copy package foobar-3.0.5-1 from somewhere. We need to patch it, so the full name-version-release (NVR) for OSG 3.3 on EL 6 becomes <code>foobar-3.0.5-1.1.osg33.el6</code> Note that we added ".1.osg33.el6" to the release number. If we update our packaging (but still base on foobar-3.0.5-1), we change to ".2.osg33.el6". In the spec file, this would look like:</p>
+<div class="codehilite"><pre><span></span><span class="gh">Release</span><span class="p">:</span> 1.2<span class="nv">%{?dist}</span>
+</pre></div>
+
+
+<h2 id="packaging-for-multiple-distro-versions">Packaging for Multiple Distro Versions<a class="headerlink" href="#packaging-for-multiple-distro-versions" title="Permanent link">&para;</a></h2>
+<h3 id="conditionalizing-spec-files">Conditionalizing spec files<a class="headerlink" href="#conditionalizing-spec-files" title="Permanent link">&para;</a></h3>
+<p>Some packages may need different build behavior between major versions of the OS; RPM conditional statements will be used to handle this.</p>
+<p>The following macros are defined:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Value (EL6)</th>
+<th align="left">Value (EL7)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>%rhel</code></td>
+<td align="left"><code>6</code></td>
+<td align="left"><code>7</code></td>
+</tr>
+<tr>
+<td align="left"><code>%el6</code></td>
+<td align="left"><code>1</code></td>
+<td align="left"><em>undefined</em> or <code>0</code></td>
+</tr>
+<tr>
+<td align="left"><code>%el7</code></td>
+<td align="left"><em>undefined</em> or <code>0</code></td>
+<td align="left"><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p>Here's how to use them:</p>
+<div class="codehilite"><pre><span></span><span class="cp">%if</span> 0%{?el6}
+<span class="c"># this code will be executed on EL 6 only</span>
+<span class="cp">%endif</span>
+
+<span class="cp">%if</span> 0%{?el7}
+<span class="c"># this code will be executed on EL 7 only</span>
+<span class="cp">%endif</span>
+
+<span class="cp">%if</span> 0%{?rhel} &gt;= 7
+<span class="c"># this code will be executed on EL 7 and newer</span>
+<span class="cp">%endif</span>
+</pre></div>
+
+
+<p>(There does not seem to be an <code>%elseif</code>).</p>
+<p>The syntax <code>%{?el6}</code> expands to the value of the <code>%el6</code> macro if it is defined, and to the empty string if not; the <code>0</code> is there to keep the condition from being empty in the <code>%if</code> statement if the macro is not defined.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../upcoming-to-main/" class="btn btn-neutral float-right" title="Upcoming to Main">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../ce-test-scaling/" class="btn btn-neutral" title="CE Scale Testing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../ce-test-scaling/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../upcoming-to-main/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

@@ -52,13 +52,19 @@
     </url>
         
     <url>
-     <loc>https://opensciencegrid.github.io/technology/software/upcoming-to-main/</loc>
+     <loc>https://opensciencegrid.github.io/technology/software/ce-test-scaling/</loc>
      <lastmod>2017-08-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://opensciencegrid.github.io/technology/software/ce-test-scaling/</loc>
+     <loc>https://opensciencegrid.github.io/technology/software/rpm-development-guide/</loc>
+     <lastmod>2017-08-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/software/upcoming-to-main/</loc>
      <lastmod>2017-08-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
