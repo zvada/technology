@@ -84,28 +84,15 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#choosing-document-locations-and-names">Choosing document locations and names</a></li>
+            <li><a class="toctree-l4" href="#preparing-the-git-repository">Preparing the git repository</a></li>
         
-            <li><a class="toctree-l4" href="#archiving-the-twiki-document">Archiving the TWiki document</a></li>
+            <li><a class="toctree-l4" href="#automatic-twiki-conversion">Automatic TWiki conversion</a></li>
         
-            <li><a class="toctree-l4" href="#initial-conversion-with-pandoc">Initial conversion with Pandoc</a></li>
+            <li><a class="toctree-l4" href="#completing-the-conversion">Completing the conversion</a></li>
         
-            <li><a class="toctree-l4" href="#previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs</a></li>
+            <li><a class="toctree-l4" href="#submitting-the-pull-request">Submitting the pull request</a></li>
         
-            <li><a class="toctree-l4" href="#things-to-watch-out-for">Things to watch out for</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#things-to-note">things to note</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#obvious-errors">Obvious errors</a></li>
-        
-            <li><a class="toctree-l4" href="#making-the-pull-request">Making the pull request</a></li>
-        
-            <li><a class="toctree-l4" href="#adding-a-header-to-the-twiki-document">Adding a header to the TWiki document</a></li>
+            <li><a class="toctree-l4" href="#after-the-pull-request">After the pull request</a></li>
         
             <li><a class="toctree-l4" href="#reviewing-pull-requests">Reviewing pull requests</a></li>
         
@@ -402,9 +389,152 @@
               
                 <h1 id="migrating-to-markdown">Migrating to Markdown<a class="headerlink" href="#migrating-to-markdown" title="Permanent link">&para;</a></h1>
 <p>As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. The following document outlines the conversion process and conventions.</p>
-<h2 id="choosing-document-locations-and-names">Choosing document locations and names<a class="headerlink" href="#choosing-document-locations-and-names" title="Permanent link">&para;</a></h2>
-<p><code>SoftwareTeam</code> documents should go into the <a href="https://opensciencegrid.github.io/technology/">technology github repo</a> and <code>Release3</code> documents should go into the <a href="https://opensciencegrid.github.io/docs/">docs github repo</a>. Document file names should be lowercase, <code>-</code> delimited, and descriptive but concise, e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></p>
-<h2 id="archiving-the-twiki-document">Archiving the TWiki document<a class="headerlink" href="#archiving-the-twiki-document" title="Permanent link">&para;</a></h2>
+<h2 id="preparing-the-git-repository">Preparing the git repository<a class="headerlink" href="#preparing-the-git-repository" title="Permanent link">&para;</a></h2>
+<p>First you will need to choose which git repoository you will be working with:</p>
+<table>
+<thead>
+<tr>
+<th align="left">If you are converting a document from...</th>
+<th align="left">Use this github repository...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SoftwareTeam</td>
+<td align="left"><a href="https://www.github.com/opensciencegrid/technology/">technology</a></td>
+</tr>
+<tr>
+<td align="left">Release3</td>
+<td align="left"><a href="https://www.github.com/opensciencegrid/docs/">docs</a></td>
+</tr>
+</tbody>
+</table>
+<p>Once you've chosen the target repository for your document, prepare your local repository:</p>
+<ol>
+<li><a href="https://help.github.com/articles/fork-a-repo/">Fork</a> the repository</li>
+<li>
+<p>Clone a local repository:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git clone git:github.com/&lt;GITHUB USERNAME&gt;/&lt;REPOSITORY&gt;.git
+</pre></div>
+
+
+</li>
+<li>
+<p>Add <code>opensciencegrid/technology</code> as the upstream remote repository for merging upstream changes:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git remote add upstream https://www.github.com/opensciencegrid/&lt;REPOSITORY&gt;.git
+</pre></div>
+
+
+</li>
+<li>
+<p>Create a branch for the document you plan to convert:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git branch &lt;BRANCH NAME&gt; master
+</pre></div>
+
+
+</li>
+</ol>
+<h2 id="automatic-twiki-conversion">Automatic TWiki conversion<a class="headerlink" href="#automatic-twiki-conversion" title="Permanent link">&para;</a></h2>
+<p>Choose one of the following methods for converting TWiki documents:</p>
+<ul>
+<li>Using our own <a href="#using-docker">docker conversion image</a> (recommended)</li>
+<li>A combination of <a href="#using-pandoc">pandoc</a> and mkdocs</li>
+</ul>
+<h3 id="using-docker">Using docker<a class="headerlink" href="#using-docker" title="Permanent link">&para;</a></h3>
+<p>The twiki-converter docker image can be used to preview the document tree via a <a href="http://www.mkdocs.org/#getting-started">mkdocs</a> development server, archive TWiki documents, and convert documents to Markdown via <a href="http://pandoc.org/">pandoc</a>. The image is available on <code>osghost</code>, otherwise, follow the instructions <a href="https://github.com/brianhlin/docker-twiki-converter">here</a> to build it locally. </p>
+<h4 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h4>
+<p>To perform a document migration using docker, you will need the following tools and accounts:</p>
+<ul>
+<li><code>git</code> and a GitHub account</li>
+<li>A host with a running docker service</li>
+<li><code>sudo</code> or membership in the <code>docker</code> group</li>
+</ul>
+<p>If you cannot install the above tools locally, they are available on <code>osghost</code>. Speak with Brian L for access.</p>
+<h4 id="previewing-the-document-tree">Previewing the document tree<a class="headerlink" href="#previewing-the-document-tree" title="Permanent link">&para;</a></h4>
+<p>When starting a twiki-converter docker container, it expects your local github repository to be mounted in <code>/source</code> so that any changes made to the repository are reflected in the mkdocs development server. To start a docker container based off of the twiki-converter docker image:</p>
+<ol>
+<li>
+<p>Create a container from the image with the following command:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker run -d -v &lt;PATH TO LOCAL GITHUB REPO&gt;:/source -p <span class="m">8000</span> twiki
+</pre></div>
+
+
+<p>The above command should return the container ID, which will be used in subsequent commands. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the docker container exits immediately, remove the <code>-d</code> option for details. If you see permission denied errors, you may need to disable SELinux or put it in permissive mode.</p>
+</div>
+</li>
+<li>
+<p>To find the port that your development server is lisetning on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker port &lt;CONTAINER ID&gt;
+</pre></div>
+
+
+</li>
+<li>
+<p>Access the development server in your browser via <code>http://osghost.chtc.wisc.edu:&lt;PORT&gt;</code> or <code>localhost:&lt;PORT&gt;</code> for containers run on <code>osghost</code> or locally, respectively. <code>osghost</code> has a restrictive firewall so if you have issues accessing your container from outside of the UW-Madison campus, use an SSH tunnel to map the <code>osghost</code> port to a local port.</p>
+</li>
+</ol>
+<h4 id="converting-documents">Converting documents<a class="headerlink" href="#converting-documents" title="Permanent link">&para;</a></h4>
+<p>The docker image contains a convenience script, <code>convert-twiki</code> for saving archives and converting them to Markdown. To run the script in a running container, run the following command:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker <span class="nb">exec</span> &lt;CONTAINER ID&gt; convert-twiki &lt;TWIKI URL&gt;
+</pre></div>
+
+
+<p>Where <CONTAINER ID> is the docker container ID and <TWIKI URL> is the link to the TWiki document that you want to convert, e.g. <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess">https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess</a>. This will result in an archive of the twiki doc, <code>docs/archive/SoftwareDevelopmentProcess</code>, in your local repo and a converted copy, <code>SoftwareDevelopmentProcess</code>, placed into the root of your local github repository. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the above command does not complete quickly, it means that Pandoc is having an issue with a specific section of the document. See <a href="#troubleshooting-conversion">Troubleshooting conversion</a> for next steps.</p>
+</div>
+<p>To see the converted document in your browser:</p>
+<ol>
+<li>Rename and move the converted document into the appropriate folder in <code>docs/</code>. <ul>
+<li>Document file names should be lowercase, <code>-</code> delimited, and descriptive but concise, e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></li>
+<li>It's not important to get the name/location correct on the first try as this can be discussed in the pull request</li>
+</ul>
+</li>
+<li>Add the document to the <code>pages:</code> section of <code>mkdocs.yml</code> in <a href="http://titlecase.com/">title case</a>, e.g. <code>- Migrating Documents to Markdown: 'software/markdown-migration.md'</code></li>
+<li>Refresh the document tree in your browser</li>
+</ol>
+<p>Once you can view the converted document in your browser, move onto the <a href="#completing-the-conversion">next section</a></p>
+<h4 id="troubleshooting-conversion">Troubleshooting conversion<a class="headerlink" href="#troubleshooting-conversion" title="Permanent link">&para;</a></h4>
+<p>Pandoc sometimes has issues converting documents and requires manual intervention by removing whichever section is causing issues in the conversion.</p>
+<ol>
+<li>Copy the archive of the document into the root of your git repository</li>
+<li>
+<p>Kill the process in the docker container:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker <span class="nb">exec</span> &lt;CONTAINER ID&gt; pkill -9 pandoc
+</pre></div>
+
+
+</li>
+<li>
+<p>Remove a section from the copy of the archive to find the problematic section (recommendation: use a binary search strategy)</p>
+</li>
+<li>
+<p>Run pandoc manually:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker <span class="nb">exec</span> &lt;CONTAINER ID&gt; pandoc -f twiki -t markdown_github &lt;ARCHIVE COPY&gt; &gt; &lt;MARKDOWN FILE&gt;
+</pre></div>
+
+
+</li>
+<li>
+<p>Repeat steps 2-4 until you've narrowed down the problematic section</p>
+</li>
+<li>Manually convert the offending section</li>
+</ol>
+<h3 id="using-pandoc">Using pandoc<a class="headerlink" href="#using-pandoc" title="Permanent link">&para;</a></h3>
+<p>If you've already used the <a href="#using-docker">docker method</a>, skip to the section about <a href="#completing-the-conversion">completing the conversion</a>. </p>
+<h4 id="requirements_1">Requirements<a class="headerlink" href="#requirements_1" title="Permanent link">&para;</a></h4>
+<p>This method requires the following packages:</p>
+<ul>
+<li>pandoc (&gt; 1.16)</li>
+<li>mkdocs</li>
+<li>MarkdownHighlight</li>
+<li>pygments</li>
+</ul>
+<h4 id="archiving-the-twiki-document">Archiving the TWiki document<a class="headerlink" href="#archiving-the-twiki-document" title="Permanent link">&para;</a></h4>
 <p>Save the raw TWiki file into the <code>docs/archive/</code> folder of your local git repository:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> curl <span class="s1">&#39;&lt;TWIKI URL&gt;?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/&lt;TWIKI TITLE&gt;
 </pre></div>
@@ -415,7 +545,7 @@
 </pre></div>
 
 
-<h2 id="initial-conversion-with-pandoc">Initial conversion with Pandoc<a class="headerlink" href="#initial-conversion-with-pandoc" title="Permanent link">&para;</a></h2>
+<h4 id="initial-conversion-with-pandoc">Initial conversion with Pandoc<a class="headerlink" href="#initial-conversion-with-pandoc" title="Permanent link">&para;</a></h4>
 <p><a href="http://pandoc.org/">Pandoc</a> is a tool that's useful for automated conversion of markdown languages. <a href="http://pandoc.org/installing.html">Once installed</a> (alternatively, run pandoc <a href="#using-docker">via docker</a>), run the following command to convert TWiki to Markdown:</p>
 <div class="codehilite"><pre><span></span><span class="gp">$</span> pandoc -f twiki -t markdown_github &lt;TWIKI FILE&gt; &gt; &lt;MARKDOWN FILE&gt;
 </pre></div>
@@ -426,7 +556,7 @@
 <p class="admonition-title">Note</p>
 <p>If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.</p>
 </div>
-<h3 id="using-docker">Using docker<a class="headerlink" href="#using-docker" title="Permanent link">&para;</a></h3>
+<h5 id="using-pandoc-via-docker">Using pandoc via docker<a class="headerlink" href="#using-pandoc-via-docker" title="Permanent link">&para;</a></h5>
 <p>The <code>pandoc</code> library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install <code>pandoc</code> but have access to docker, you can run the following command:</p>
 <div class="codehilite"><pre><span></span>docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/source jagregory/pandoc -f twiki -t markdown_github &lt;TWIKI FILE&gt; &gt; &lt;MARKDOWN FILE&gt;
 </pre></div>
@@ -440,22 +570,25 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 
 
 <p>We have found some cases where the Docker version of <code>pandoc</code> handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.</p>
-<h2 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs<a class="headerlink" href="#previewing-your-documents-with-mkdocs" title="Permanent link">&para;</a></h2>
+<h4 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs<a class="headerlink" href="#previewing-your-documents-with-mkdocs" title="Permanent link">&para;</a></h4>
 <p><a href="http://www.mkdocs.org/">Mkdocs</a> has a development mode that can be used to preview documents as you work on them and is available via package manager or <code>pip</code>. <a href="http://www.mkdocs.org/#installation">Once installed</a>, add your document(s) to the <code>pages</code> section of <code>mkdocs.yml</code> and launch the mkdocs server with the following command from the dir containing <code>mkdocs.yml</code>:</p>
 <div class="codehilite"><pre><span></span><span class="gp">$</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>src/ mkdocs serve
 </pre></div>
 
 
 <p>Access the server at <code>http://127.0.0.1:8000</code> and navigate to the document you're working on. It's useful to open the original TWiki doc in an adjacent tab or window to quickly compare the two.</p>
-<h2 id="things-to-watch-out-for">Things to watch out for<a class="headerlink" href="#things-to-watch-out-for" title="Permanent link">&para;</a></h2>
+<h2 id="completing-the-conversion">Completing the conversion<a class="headerlink" href="#completing-the-conversion" title="Permanent link">&para;</a></h2>
+<p>Manual review of the automatically converted documents are required since the automatic conversion process isn't perfect. This section contains a list of problems commonly encountered in automatically converted documents.</p>
 <h3 id="broken-links">Broken links<a class="headerlink" href="#broken-links" title="Permanent link">&para;</a></h3>
 <p>Pandoc isn't aware of the entire TWiki structure so internal links using <a href="http://twiki.org/cgi-bin/view/TWiki/WikiWord">WikiWords</a> result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival.</p>
 <p>If the broken link is:</p>
 <ol>
 <li>For a document that has already been migrated to GitHub, update it to point at the new location.</li>
-<li>For a document that not been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access):
-   a. If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request
-   b. If the link is not targeted for archival, link directly to the TWiki page.</li>
+<li>For a document that not been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access):<ul>
+<li>If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request</li>
+<li>If the link is not targeted for archival, link directly to the TWiki page.</li>
+</ul>
+</li>
 </ol>
 <h3 id="broken-command-blocks-and-file-snippets">Broken command blocks and file snippets<a class="headerlink" href="#broken-command-blocks-and-file-snippets" title="Permanent link">&para;</a></h3>
 <p>Pandoc doesn't do a good job of converting our <code>&lt;pre class=...</code> blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (```) followed by an optional code highlighting format:</p>
@@ -541,26 +674,35 @@ SNIPPET
 </li>
 </ol>
 <h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h3>
-<p>To catch the user's attention for important items or pitfalls, we used <code>%NOTE%</code> TWiki macros, these can be replaced with admonition-style notes:</p>
+<p>To catch the user's attention for important items or pitfalls, we used <code>%NOTE%</code> TWiki macros, these can be replaced with admonition-style notes and warnings:</p>
 <div class="codehilite"><pre><span></span>!!! note
-    # things to note
+    things to note
 </pre></div>
 
 
-<p>The above block is rendered below as an example.</p>
+<p>or</p>
+<div class="codehilite"><pre><span></span>!!! warning
+    if a user doesn&#39;t do this thing, bad stuff will happen
+</pre></div>
+
+
+<p>The above blocks are rendered below as an example.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<h1 id="things-to-note">things to note<a class="headerlink" href="#things-to-note" title="Permanent link">&para;</a></h1>
+<p>things to note</p>
+</div>
+<p>and</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>if a user doesn't do this thing, bad stuff will happen</p>
 </div>
 <h3 id="obvious-errors">Obvious errors<a class="headerlink" href="#obvious-errors" title="Permanent link">&para;</a></h3>
 <p>If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc <em>iff</em> the changes take less than ~15 minutes. This isn't a renovation project!</p>
-<h2 id="making-the-pull-request">Making the pull request<a class="headerlink" href="#making-the-pull-request" title="Permanent link">&para;</a></h2>
+<h2 id="submitting-the-pull-request">Submitting the pull request<a class="headerlink" href="#submitting-the-pull-request" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Create a branch based off of master</li>
-<li>Add page to <a href="../../../mkdocs.yml">mkdocs.yml</a> in <a href="http://titlecase.com/">title case</a>, e.g. <code>Migrating Documents to Markdown</code></li>
-<li><code>git add</code> the archived raw TWiki and the converted Markdown document(s)</li>
-<li><code>git commit</code> your changes and <code>git push</code> to your GH repo</li>
-<li>Make PR containing the following tasks in the body:<div class="codehilite"><pre><span></span>&lt;LINK TO TWIKI DOCUMENT&gt;
+<li><code>git add</code> the archived raw TWiki, the converted Markdown document(s), and <code>mkdocs.yml</code></li>
+<li><code>git commit</code> your changes and <code>git push</code> to your GitHub repo</li>
+<li>Submit a pull request containing the following tasks in the body:<div class="codehilite"><pre><span></span>&lt;LINK TO TWIKI DOCUMENT&gt;
 
 - [ ] Enter date into &quot;Migrated&quot; column of google sheet
 - [ ] Add migration header to TWiki document
@@ -569,9 +711,9 @@ SNIPPET
 
 </li>
 </ol>
-<p>See an example pull request <a href="https://github.com/opensciencegrid/technology/pull/82">here</a>.</p>
-<h2 id="adding-a-header-to-the-twiki-document">Adding a header to the TWiki document<a class="headerlink" href="#adding-a-header-to-the-twiki-document" title="Permanent link">&para;</a></h2>
-<p>After completing the migration of a document, replace the contents of TWiki document with the following header, linking to the location of the migrated document:</p>
+<p>See an example pull request <a href="https://github.com/opensciencegrid/technology/pull/98">here</a>.</p>
+<h2 id="after-the-pull-request">After the pull request<a class="headerlink" href="#after-the-pull-request" title="Permanent link">&para;</a></h2>
+<p>After the pull request is merged, replace the contents of TWiki document with the div, linking to the location of the migrated document:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;&quot;</span><span class="nt">&gt;</span>
 This is an archive, find the new version of this document [[LINK TO GITHUB DOCUMENT][here]].
 
@@ -585,23 +727,23 @@ At the end of year (2017), the TWiki will be retired in favor of !GitHub. You ca
 </pre></div>
 
 
-<p>Once the header has been added, go back to your pull request and mark that task as complete:</p>
-<div class="codehilite"><pre><span></span>- [X] Add migration header to TWiki document
+<p>Once the div has been added, update the spreadsheet and go back to your pull request and mark your tasks as complete:</p>
+<div class="codehilite"><pre><span></span>- [X] Enter date into &quot;Migrated&quot; column of google sheet
+- [X] Add migration header to TWiki document
 </pre></div>
 
 
 <p>Currently, we do not recommend changing backlinks (links on other twiki pages that refer to the Twiki page you are migrating) to point at the new GitHub URL.  This is to provide a simple reminder to users that the migration will occur, and also is likely low priority regardless as all pages will eventually migrate to GitHub.  This advice may change in the future as we gain experience with this transition.</p>
 <h2 id="reviewing-pull-requests">Reviewing pull requests<a class="headerlink" href="#reviewing-pull-requests" title="Permanent link">&para;</a></h2>
-<p>To review pull requests, <code>cd</code> into the dir containing your git repository, check out the requester's branch, and start a local <code>mkdocs</code> server. Here's an example checking out Brian's <code>cut-sw-release</code> branch of the technology repository:</p>
+<p>To review pull requests, <code>cd</code> into the dir containing your git repository and check out the requester's branch, which the twiki-converter container should automatically notice. Here's an example checking out Brian's <code>cut-sw-release</code> branch of the technology repository:</p>
 <div class="codehilite"><pre><span></span><span class="gp">#</span> Add the requester<span class="s1">&#39;s repo as a remote if you haven&#39;</span>t already
 <span class="gp">[user@client ~ ] $</span> git remote add blin https://www.github.com/brianhlin/technology.git
 <span class="gp">[user@client ~ ] $</span> git fetch --all
 <span class="gp">[user@client ~ ] $</span> git checkout blin/cut-sw-release
-<span class="gp">[user@client ~ ] $</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>src/ mkdocs serve
 </pre></div>
 
 
-<p>Access the server at <code>http://127.0.0.1:8000</code> and navigate to the document in the request.</p>
+<p>Refresh your browser and navigate to the document in the request.</p>
               
             </div>
           </div>
