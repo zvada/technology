@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>CE Scale Testing - OSG Technology Area</title>
+  <title>Writing Documentation - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "CE Scale Testing";
-    var mkdocs_page_input_path = "software/ce-test-scaling.md";
-    var mkdocs_page_url = "/software/ce-test-scaling/";
+    var mkdocs_page_name = "Writing Documentation";
+    var mkdocs_page_input_path = "documentation/writing-documentation.md";
+    var mkdocs_page_url = "/documentation/writing-documentation/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -76,52 +76,32 @@
         <li class="">
           
   
-    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../new-team-member/">New Team Member</a>
+    <a class="" href="../../software/new-team-member/">New Team Member</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../repository-management/">Repository Management</a>
+    <a class="" href="../../software/repository-management/">Repository Management</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
+    <a class="" href="../../software/upcoming-to-main/">Upcoming to Main</a>
   
         </li>
-        <li class=" current">
+        <li class="">
           
   
-    <a class="current" href="./">CE Scale Testing</a>
+    <a class="" href="../../software/ce-test-scaling/">CE Scale Testing</a>
   
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#how-to-run-scalability-tests-on-a-ce">How to Run Scalability Tests on a CE</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#introduction">Introduction</a></li>
-        
-            <li><a class="toctree-l4" href="#sleeper-pool">Sleeper Pool</a></li>
-        
-            <li><a class="toctree-l4" href="#usual-topology-of-the-tests">Usual Topology of the Tests</a></li>
-        
-            <li><a class="toctree-l4" href="#monitoring-tools">Monitoring tools</a></li>
-        
-            <li><a class="toctree-l4" href="#generating-load">Generating Load</a></li>
-        
-        </ul>
-    
-
-  </ul>
         </li>
   </ul>
 	    </li>
@@ -229,11 +209,23 @@
 		
   <span class="caption-text">Documentation</span>
   <ul class="subnav">
-        <li class="">
+        <li class=" current">
           
   
-    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+    <a class="current" href="./">Writing Documentation</a>
   
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#tips-for-writing-software-documentation">Tips for Writing Software Documentation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#writing-procedural-step-by-step-instructions">Writing Procedural (Step-by-Step) Instructions</a></li>
+        
+        </ul>
+    
+
+  </ul>
         </li>
   </ul>
 	    </li>
@@ -381,14 +373,14 @@
     
       
         
-          <li>Software &raquo;</li>
+          <li>Documentation &raquo;</li>
         
       
     
-    <li>CE Scale Testing</li>
+    <li>Writing Documentation</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/ce-test-scaling.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/documentation/writing-documentation.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -398,56 +390,42 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="how-to-run-scalability-tests-on-a-ce">How to Run Scalability Tests on a CE<a class="headerlink" href="#how-to-run-scalability-tests-on-a-ce" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>This document is intended as a general overview of the process for scalability testing of an OSG CE (Compute Element). All examples are for testing an <a href="https://twiki.grid.iu.edu/bin/view/Trash/Trash/Sandbox/HTCondorCEScaleTests">HTCondor-CE</a>, but they should be applicable for other CE software.</p>
-<p>The focus of testing a CE is on the number of concurrent running jobs the CE can sustain as well as the ramp-up rate when many jobs are queued.</p>
-<h2 id="sleeper-pool">Sleeper Pool<a class="headerlink" href="#sleeper-pool" title="Permanent link">&para;</a></h2>
-<p>With the focus on the CE, actual job payloads can be minimal – simple long sleep jobs are fine. Thus, then can run on nearly any resources, and it is even possible to allow far more of these jobs to run on a single resource than would be sensible for real jobs.</p>
-<p>When large-scale testing a CE, one of the objectives is to see if the CE can fully utilize all resources (cores) available to it or if there are bottlenecks preventing that outcome. However to do this would normally require using up production slots, and it is hard to find a site willing to give up so many production slots for so long. Thus, running resourceless jobs in parallel with production jobs allows the testing to proceed without interfering with real work.</p>
-<h3 id="setting-up-a-sleeper-pool">Setting Up a Sleeper Pool<a class="headerlink" href="#setting-up-a-sleeper-pool" title="Permanent link">&para;</a></h3>
-<p>A sleeper pool is created by “tricking” a worker node into thinking it has more cores than physically available. Then, the host is configured so that jobs marked for the sleeper pool are routed to the extra slots. In HTCondor, this is done by changing the START expression on each startd. For example, on a 32-core machine:</p>
-<div class="codehilite"><pre><span></span>START = ( \
-          (SlotID &gt;= 1) &amp;&amp; \
-          (SlotID &lt; 33) &amp;&amp; \
-          (RequiresWholeMachine =!= TRUE ) &amp;&amp; \
-          (SleepSlot =!= TRUE) &amp;&amp; \
-          (distro =?= &quot;RHEL6&quot; ) &amp;&amp; \
-          (CPU_Only == TRUE ) \
-          ) || \
-          ( (SlotID &gt;= 33) &amp;&amp; (distro =?= &quot;RHEL6&quot; ) &amp;&amp; (SleepSlot == TRUE) )
-</pre></div>
-
-
-<h2 id="usual-topology-of-the-tests">Usual Topology of the Tests<a class="headerlink" href="#usual-topology-of-the-tests" title="Permanent link">&para;</a></h2>
-<p>A brief introduction to the topology involved in the tests.</p>
-<h3 id="batch-system-and-sleeper-pool">Batch System and Sleeper Pool<a class="headerlink" href="#batch-system-and-sleeper-pool" title="Permanent link">&para;</a></h3>
-<p>This is normally the batch system of the resources which will be behind the CE to be tested. It is normally set up by a site administrator.</p>
-<h3 id="ce">CE<a class="headerlink" href="#ce" title="Permanent link">&para;</a></h3>
-<p>This is the physical hardware where the CE software runs, hopefully mimicking real production hardware specifications.</p>
-<h3 id="submitter">Submitter<a class="headerlink" href="#submitter" title="Permanent link">&para;</a></h3>
-<p>An HTCondor submit host. It can be a virtual machine for most test submissions.</p>
-<h2 id="monitoring-tools">Monitoring tools<a class="headerlink" href="#monitoring-tools" title="Permanent link">&para;</a></h2>
-<p>To monitor tests, two software components are needed (which can be installed on the same node): ganglia-gmond and ganglia-gmetad. Once they are installed, then some ad-hoc metrics can be created to monitor the CE; for example:</p>
-<div class="codehilite"><pre><span></span><span class="go">condor_q -pool red.unl.edu:9619 -name sleeper@red.unl.edu -const &#39;JobStatus=?=2&#39; | wc -l</span>
-<span class="go">gmetric --name RunningJobsCE </span>
-</pre></div>
-
-
-<h2 id="generating-load">Generating Load<a class="headerlink" href="#generating-load" title="Permanent link">&para;</a></h2>
-<h3 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h3>
-<p>The load_generators are found in the  <a href="https://github.com/efajardo/osgscal">OSgscal github repo</a>. The binary of interest here is <code>loadtest_condor</code></p>
-<h3 id="use">Use<a class="headerlink" href="#use" title="Permanent link">&para;</a></h3>
-<p>Just untar it or check it out from mas on the HTCondor submit node (see above):</p>
-<div class="codehilite"><pre><span></span><span class="go">git checkout https://github.com/efajardo/osgscal</span>
-<span class="go">cd load_generators/loadtest_condor/trunk/bin</span>
-</pre></div>
-
-
-<p>Keep in mind that you also need a valid proxy for grid submissions.</p>
-<p>For example, if the goal is to keep 1,000 jobs in the queue and run 6-hour sleep jobs (on average), you can run this command:</p>
-<div class="codehilite"><pre><span></span><span class="go">./loadtest_condor.sh -type grid condor sleeper@red.unl.edu red.unl.edu:9619 -jobs 40000 -cluster 10 -proxy /home/submituser/.globus/cmspilot01.proxy -end random 21600 -maxidle 1000 -in sandbox 50</span>
-</pre></div>
+                <h1 id="tips-for-writing-software-documentation">Tips for Writing Software Documentation<a class="headerlink" href="#tips-for-writing-software-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="writing-procedural-step-by-step-instructions">Writing Procedural (Step-by-Step) Instructions<a class="headerlink" href="#writing-procedural-step-by-step-instructions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Title the procedure with the user goal, usually starting with a gerund; e.g.:</p>
+<p><strong>Installing the Frobnosticator</strong></p>
+</li>
+<li>
+<p>Number all steps (as opposed to using bullets)</p>
+</li>
+<li>
+<p>List steps in order in which they are performed</p>
+</li>
+<li>
+<p>Each step should begin with a single-line instruction in plain English, in command form; e.g.:</p>
+<ol>
+<li>Make sure that the Frobnosticator configuration file is world-writable</li>
+</ol>
+</li>
+<li>
+<p>If the means of carrying out the instruction is unclear or complex, include clarification, ideally in the form of a working example; e.g.:
+  <code>chmod a+x /usr/share/frobnosticator/frob.conf</code></p>
+</li>
+<li>
+<p>Put clarifying information in separate paragraphs within the step</p>
+</li>
+<li>
+<p>Put critical information about the <strong>whole</strong> procedure in one or more paragraphs before the numbered steps</p>
+</li>
+<li>
+<p>Put supplemental information about the <strong>whole</strong> procedure in one or more paragraphs after the numbered steps</p>
+</li>
+<li>
+<p>Avoid pronouns when writing technical articles or documentation e.g., <code>install foo</code> rather than <code>install it</code>.</p>
+</li>
+</ul>
               
             </div>
           </div>
@@ -455,10 +433,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../release/cut-sw-release/" class="btn btn-neutral float-right" title="How to Cut a Release">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../infrastructure/koji-initial-install/" class="btn btn-neutral float-right" title="Koji Initial Install">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../upcoming-to-main/" class="btn btn-neutral" title="Upcoming to Main"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../infrastructure/koji-policy-writing/" class="btn btn-neutral" title="Koji Policy Writing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -486,10 +464,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../upcoming-to-main/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../infrastructure/koji-policy-writing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../release/cut-sw-release/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../infrastructure/koji-initial-install/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

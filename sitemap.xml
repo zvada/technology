@@ -152,6 +152,16 @@
     
         
     <url>
+     <loc>https://opensciencegrid.github.io/technology/documentation/writing-documentation/</loc>
+     <lastmod>2017-08-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>https://opensciencegrid.github.io/technology/infrastructure/koji-initial-install/</loc>
      <lastmod>2017-08-15</lastmod>
      <changefreq>daily</changefreq>
