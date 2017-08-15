@@ -9,7 +9,7 @@ When a ticket arrives at the GOC and the Operations staff member decides that th
 
 1.  The ticket will be assigned to a pseudo-user called "Software".
 2.  The "Next Action" field will be set to "SOFTWARE TRIAGE".
-3.  The Software pseudo-user has an email list as it's "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
+3.  The Software pseudo-user has an email list as its "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
 
 ## Triage duty (Software staff)
 
@@ -30,12 +30,11 @@ All the currently opened tickets assigned to the software team can be seen here:
 
 Note that if you follow the above, we will end up with three assignees to each ticket. This is the overall flow:
 
-1.  A ticket arrives at the GOC, either by email or via the ticket creator
-2.  If the ticket arrives via email, then someone at the GOC manually makes a ticket out of it. It's not automatic.
-3.  **ASSIGNMENT \#1:** The ticket is assigned to a GOC member. They're in charge of ushering the ticket through it's whole lifetime, though for software tickets they won't do a whole lot on the technical work. Note that some software tickets may not be assigned to us, because they might assign them to the VO support center. This is good.
-4.  **ASSIGNMENT \#2:** The GOC member looks at the ticket and decides it's a software ticket. (They might do some upfront work if they can.) They then assign it to "Software Support (Triage)". We now have two people assigned to the ticket.
-5.  When assigned to "Software Support (Triage)", all changes to the ticket are sent to <osg-software-support-stream@opensciencegrid.org>, so we leave this pseudo-person on the ticket. Watching the email to this mailing list is a nice (but optional) way for you to see what's happening when you're on triage duty.
-6.  **ASSIGNMENT \#3:** The person on triage duty assigns it to the right person from the software team. We now have three assignees:
+1.  A ticket arrives at the GOC, either via the ticket creator, or created by Operations in response to an email.
+2.  **ASSIGNMENT \#1:** The ticket is assigned to an Operations member. They're in charge of ushering the ticket through its whole lifetime, though for software tickets they won't do a whole lot on the technical work. Note that some software tickets may not be assigned to us, because they might assign them to the VO support center. This is good.
+3.  **ASSIGNMENT \#2:** The Operations member looks at the ticket and decides it's a software ticket. (They might do some upfront work if they can.) They then assign it to "Software Support (Triage)". We now have two people assigned to the ticket.
+4.  When assigned to "Software Support (Triage)", all changes to the ticket are sent to <osg-software-support-stream@opensciencegrid.org>, so we leave this pseudo-person on the ticket. Watching the email to this mailing list is a nice (but optional) way for you to see what's happening when you're on triage duty.
+5.  **ASSIGNMENT \#3:** The person on triage duty assigns it to the right person from the software team. We now have three assignees:
     1.  GOC member
     2.  Software Support (Triage)
     3.  The Software team member who will handle the ticket
