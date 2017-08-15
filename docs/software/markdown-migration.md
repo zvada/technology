@@ -353,7 +353,7 @@ After the pull request is merged, replace the contents of TWiki document with th
 
 ```
 <div style="border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;">
-This document has been migrated to GitHub (<LINK TO GITHUB DOCUMENT>). If you wish to see the old TWiki document, click the latest revision 'rNN' in the footer below.
+This document has been migrated to !GitHub (<LINK TO GITHUB DOCUMENT>). If you wish to see the old TWiki document, click the latest revision 'rNN' in the footer below.
 
 Background:
 
