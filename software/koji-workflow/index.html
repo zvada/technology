@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Koji Workflow - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Koji Workflow";
+    var mkdocs_page_input_path = "software/koji-workflow.md";
+    var mkdocs_page_url = "/software/koji-workflow/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Koji Workflow</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#koji-workflow">Koji Workflow</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#terminology">Terminology</a></li>
+        
+            <li><a class="toctree-l4" href="#further-reading">Further reading</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#using-koji">Using Koji</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#required-software">Required Software</a></li>
+        
+            <li><a class="toctree-l4" href="#obtaining-a-login">Obtaining a login</a></li>
+        
+            <li><a class="toctree-l4" href="#configuring-certificate-authentication">Configuring certificate authentication</a></li>
+        
+            <li><a class="toctree-l4" href="#creating-a-new-build">Creating a new build</a></li>
+        
+            <li><a class="toctree-l4" href="#build-task-results">Build task Results</a></li>
+        
+            <li><a class="toctree-l4" href="#promoting-builds-from-development-testing">Promoting Builds from Development -&gt; Testing</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/software-support/">Software Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Documentation</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Software &raquo;</li>
+        
+      
+    
+    <li>Koji Workflow</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/koji-workflow.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="koji-workflow">Koji Workflow<a class="headerlink" href="#koji-workflow" title="Permanent link">&para;</a></h1>
+<p>This covers the basics of using and understanding the <a href="https://koji.chtc.wisc.edu/koji">OSG Koji</a> instance. It is meant primarily for OSG Software team members who need to interact with the service.</p>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h2>
+<p>Using and understanding the following terminology correctly will help in the reading of this document:</p>
+<p><strong>Package</strong><br />
+This refers to a named piece of software in the Koji database. An example would be "lcmaps".</p>
+<p><strong>Build</strong><br />
+A specific version and release of a package, and an associated state. A build state may be successful (and contain RPMs), failed, or in-progress. A given build may be in one or more tags. The build is associated with the output of the latest build task with the same version and release of the package.</p>
+<p><strong>Tag</strong><br />
+A named set of packages and builds, parent tags, and reference to external repositories. An example would be the "osg-3.3-el6-development" tag, which contains (among others) the "lcmaps" package and the "lcmaps-1.6.6-1.1.osg33.el6" build. There is an inheritance structure to tags: by default, all packages/builds in a parent tag are added to the tag. A tag may contain a reference to (possibly inherited) external repositories; the RPMs in these repositories are added to repositories created from this tag. Examples of referenced external repositories include CentOS base, EPEL, or JPackage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A tag is NOT a yum repository.</p>
+</div>
+<p><strong>Target</strong><br />
+A target consists of a build tag and a destination tag. An example is "osg-3.3-el6", where the build tag is "osg-3.3-el6-build" and the destination tag is "osg-3.3-el6". A target is used by the build task to know what repository to build from and tag to build into.</p>
+<p><strong>Task</strong><br />
+A unit of work for Koji. Several common tasks are:</p>
+<ul>
+<li>
+<p>build<br />
+    This task takes a SRPM and a target, and attempts to create a complete Build in the target's destination tag from the target's build repository. This task will launch one buildArch task for each architecture in the destination tag; if each subtask is successful, then it will launch a tagBuild subtask.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the build task is marked as "scratch", then it won't result in a saved Build.</p>
+</div>
+</li>
+<li>
+<p>buildArch<br />
+    This task takes a SRPM, architecture name, and a Koji repository as an input, and runs <code>mock</code> to create output RPMs for that arch. The build artifacts are added to the Build if all buildArch tasks are successful.</p>
+</li>
+<li>
+<p>tagBuild<br />
+    This adds a successful build to a given tag.</p>
+</li>
+<li>
+<p>newRepo<br />
+    This creates a new repository from a given tag.</p>
+</li>
+</ul>
+<p><strong>Build artifacts</strong><br />
+The results of a buildArch task. Their metadata are recorded in the Koji database, and files are saved to disk. Metadata may include checksums, timestamps, and who initiated the task. Artifacts may include RPMs, SRPMs, and build logs.</p>
+<p><strong>Repository</strong><br />
+A yum repository created from the contents of a tag at a specific point in time. By default, the yum repository will contain all successful, non-blocked builds in the tag, plus all RPMs in the external repositories for the tag.</p>
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Official Koji documentation: <a href="https://docs.pagure.org/koji/">https://docs.pagure.org/koji/</a></li>
+<li>Fedora's koji documentation: <a href="http://fedoraproject.org/wiki/Koji">http://fedoraproject.org/wiki/Koji</a></li>
+<li>Fedora's "Using Koji" page: <a href="http://fedoraproject.org/wiki/Using_the_Koji_build_system">http://fedoraproject.org/wiki/Using_the_Koji_build_system</a> Note that some instructions there may not apply to OSG's Koji. For the most part though, they are useful.</li>
+</ul>
+<h1 id="using-koji">Using Koji<a class="headerlink" href="#using-koji" title="Permanent link">&para;</a></h1>
+<h2 id="required-software">Required Software<a class="headerlink" href="#required-software" title="Permanent link">&para;</a></h2>
+<p>Using Koji requires:</p>
+<ul>
+<li><code>osg-build</code> version 1.6.3 or later.</li>
+<li><code>koji</code> 1.6.0-2.osg or later. <strong>Note</strong> that you want a koji build from osg; the output of <code>rpm -q koji</code> should end in ".osg".</li>
+</ul>
+<p>Both pieces of software are available from the osg repositories. <code>osg-build</code> may also be obtained from GitHub by cloning out <code>https://github.com/opensciencegrid/osg-build</code></p>
+<h3 id="special-instructions-for-uw-madison-csl-machines">Special instructions for UW-Madison CSL machines:<a class="headerlink" href="#special-instructions-for-uw-madison-csl-machines" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Clone the osg-build GitHub repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> git clone https://github.com/opensciencegrid/osg-build
+</pre></div>
+
+
+</li>
+<li>
+<p>Add this directory to your <code>$PATH</code></p>
+</li>
+<li>
+<p>Run</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> osg-koji setup
+</pre></div>
+
+
+<p>to set up the koji configuration and certificates in <code>~/.osg-koji</code></p>
+</li>
+</ul>
+<h2 id="obtaining-a-login">Obtaining a login<a class="headerlink" href="#obtaining-a-login" title="Permanent link">&para;</a></h2>
+<p>You will be using your grid certificate to log in. Email osg-software the DN of your certificate, and we will set up a koji account with the appropriate permissions. If you are switching certificate providers, you will need to email osg-software with your new DN. You will also need to clear your browser cookies and cache for <code>https://koji.chtc.wisc.edu</code> before trying to use the koji web interface again.</p>
+<h2 id="configuring-certificate-authentication">Configuring certificate authentication<a class="headerlink" href="#configuring-certificate-authentication" title="Permanent link">&para;</a></h2>
+<p>You must also configure certificate authentication for the command-line tools on your build host:</p>
+<ul>
+<li>
+<p>Run</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> osg-koji setup
+</pre></div>
+
+
+<p>to set up the appropriate configuration and certificates in <code>~/.osg-koji</code></p>
+</li>
+</ul>
+<p>After this, you will also be able to run koji commands manually by using the <code>osg-koji</code> wrapper script. You might need to rerun <code>osg-koji setup</code> if you renew or change your cert.</p>
+<h2 id="creating-a-new-build">Creating a new build<a class="headerlink" href="#creating-a-new-build" title="Permanent link">&para;</a></h2>
+<p>We create a new build in Koji from the package's directory in OSG Software subversion.</p>
+<p>If a successful build already exists in Koji (regardless of whether it is in the tag you use), you cannot replace the build. Two builds are the same if they have the same NVR (Name-Version-Release). You <em>can</em> do a "scratch" build, which recompiles, but the results are not added to the tag. This is useful for experimenting with koji.</p>
+<p>To do a build, execute the following command from within the OSG Software subversion checkout:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> osg-build koji &lt;PACKAGE NAME&gt;
+</pre></div>
+
+
+<p>To do a scratch build, simply add the <code>--scratch</code> command line flag.</p>
+<p>Each invocation of osg-build will ask for the password once or twice; if you get asked more like 20 times, then you may not be running the OSG-patched version of Koji; try switching to the one from the osg-development repository.</p>
+<p>When you do a non-scratch build, it will build with the <em>osg-el6</em> and <em>osg-el7</em> targets. This will assign your build the <em>osg-3.4-el6-development</em> and <em>osg-3.4-el7-development</em> tags (and your package will be assigned the <em>osg-el6</em> and <em>osg-el7</em> tags). If successful, your build will end up in the Koji <em>osg-minefield</em> yum repos and will eventually show up in the <em>osg-development</em> yum repos. This is a high latency process.</p>
+<h2 id="build-task-results">Build task Results<a class="headerlink" href="#build-task-results" title="Permanent link">&para;</a></h2>
+<h3 id="how-to-find-build-results">How to find build results<a class="headerlink" href="#how-to-find-build-results" title="Permanent link">&para;</a></h3>
+<p>The most recent build results are always shown on the home page of Koji:</p>
+<p><a href="https://koji.chtc.wisc.edu/koji/index">https://koji.chtc.wisc.edu/koji/index</a></p>
+<p>Clicking on a build result brings you to the build information page. A successful build will result in the build page having build logs, RPMs, and a SRPM.</p>
+<p>If your build isn't in the recent list, you can use the search box in the upper-right-hand corner. Type the exact package name (or use a wildcard), and it will bring up a list of all builds for that package. You can find your build from there. For example, the "lcmaps" package page is here:</p>
+<p><a href="https://koji.chtc.wisc.edu/koji/packageinfo?packageID=56">https://koji.chtc.wisc.edu/koji/packageinfo?packageID=56</a></p>
+<p>And the lcmaps-1.6.6-1.1.osg33.el6 build is here:</p>
+<p><a href="https://koji.chtc.wisc.edu/koji/buildinfo?buildID=7427">https://koji.chtc.wisc.edu/koji/buildinfo?buildID=7427</a></p>
+<h3 id="trying-our-your-build">Trying our your build<a class="headerlink" href="#trying-our-your-build" title="Permanent link">&para;</a></h3>
+<p>Because it takes a while for your build to get into one of the regular repositories, it's simplest to download your RPM directly (see the previous section on How to find build results), and install it with:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@host]#</span> yum localinstall &lt;RPM&gt;
+</pre></div>
+
+
+<h3 id="how-to-get-the-resulting-rpm-into-a-repository">How to get the resulting RPM into a repository<a class="headerlink" href="#how-to-get-the-resulting-rpm-into-a-repository" title="Permanent link">&para;</a></h3>
+<p>Once a package has been built, it is added to a tag. We then must turn the tag into a yum repository. This is normally done automatically and you do not need to deal with it yourself. Three notes:</p>
+<ul>
+<li>The kojira daemon creates a repository automatically post-build on the koji-hub host. Eventually, the development repository will be the one hosted by koji-hub.</li>
+<li>
+<p>The koji-hub repository can be created manually by running</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> osg-koji regen-repo &lt;TAG NAME&gt;
+</pre></div>
+
+
+<p>For example, the tag name for osg-development in 3.4 on el6 is "osg-3.4-el6-development". Likely, you won't need to do this when kojira is working.
+-   Repositories are created on external hosts with the <code>mash</code> tool. These are usually triggered by cron jobs, but may be run by hand too. Documentation for running mash is on the TODO list.
+-   You can create your own personal repository using <code>mash</code>.</p>
+</li>
+</ul>
+<h3 id="debugging-build-issues">Debugging build issues<a class="headerlink" href="#debugging-build-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Failed build tasks can be seen from the Koji homepage. The logs from the tasks are included. Relevant logs include:</p>
+<ul>
+<li>
+<p><code>root.log</code><br />
+    This is the log of mock trying to create an appropriate build root for your RPM. This will invoke yum twice: once to create a generic build root, once for all the dependencies in your BuildRequires. All RPMs in your build root will be logged here. If mock is unable to create the build root, the reason will show up here.</p>
+</li>
+<li>
+<p><code>build.log</code><br />
+    The output of the rpmbuild executable. If your package fails to compile, the reason will show up here.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>One input to the buildArch task is a repository, which is based on a Koji tag. If the repository hasn't been recreated for a dependency you need (for example, when kojira isn't working), you may not have the right RPMs available in your build root.</p>
+<ul>
+<li>
+<p>One common issue is building a chain of dependencies. For example, suppose build B depends on the results of build A. If you build A then build B immediately, B will likely fail. This is because A is not in the repository that B uses. The proper string of events building A, starting the regeneration of the destination and build repo (which should happen in a few minutes of the build A task completing), then submitting build task B.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if you submit build task B while the build repository task is open, it will not start until the build task has finished.</p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="promoting-builds-from-development-testing">Promoting Builds from Development -&gt; Testing<a class="headerlink" href="#promoting-builds-from-development-testing" title="Permanent link">&para;</a></h2>
+<p>Software contributors can promote any package to testing. Members of the security team can promote ca-cert packages to testing.</p>
+<p>To promote from development to testing:</p>
+<h3 id="using-osg-promote">Using <em>osg-promote</em><a class="headerlink" href="#using-osg-promote" title="Permanent link">&para;</a></h3>
+<p>If you want to promote the latest version:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> osg-promote -r &lt;OSGVER&gt;-testing &lt;PACKAGE NAME&gt;
+</pre></div>
+
+
+<p>&lt;PACKAGE NAME&gt; is the bare package name without version, e.g. <code>gratia-probe</code>.</p>
+<p>If you want to promote a specific version:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> osg-promote -r &lt;OSGVER&gt;-testing &lt;BUILD NAME&gt;
+</pre></div>
+
+
+<p>&lt;BUILD NAME&gt; is a full <code>name-version-revision.disttag</code> such as <code>gratia-probe-1.17.0-2.osg33.el6</code>.</p>
+<p>&lt;OSGVER&gt; is the OSG major version that you are promoting for (e.g. <code>3.4</code>).</p>
+<p><code>osg-promote</code> will promote both the el6 and el7 builds of a package. After promoting, copy and paste the JIRA code <code>osg-promote</code> produces into the JIRA ticket that you are working on.</p>
+<p>For <code>osg-promote</code>, you may omit the <code>.osg34.el6</code> or <code>.osg34.el7</code>; the script will add the appropriate disttag on.</p>
+<p>See <a href="../SoftwareTeam.OSGBuildTools">OSG Building Tools</a> for full details on <code>osg-promote</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../new-team-member/" class="btn btn-neutral float-right" title="New Team Member">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../markdown-migration/" class="btn btn-neutral" title="Migrating Documents to Markdown"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../markdown-migration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../new-team-member/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
