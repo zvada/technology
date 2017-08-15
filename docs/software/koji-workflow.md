@@ -8,7 +8,7 @@ Terminology
 
 Using and understanding the following terminology correctly will help in the reading of this document:
 
-**Package:**  
+**Package**  
 This refers to a named piece of software in the Koji database. An example would be "lcmaps".
 
 **Build**  
@@ -17,7 +17,8 @@ A specific version and release of a package, and an associated state. A build st
 **Tag**  
 A named set of packages and builds, parent tags, and reference to external repositories. An example would be the "osg-3.3-el6-development" tag, which contains (among others) the "lcmaps" package and the "lcmaps-1.6.6-1.1.osg33.el6" build. There is an inheritance structure to tags: by default, all packages/builds in a parent tag are added to the tag. A tag may contain a reference to (possibly inherited) external repositories; the RPMs in these repositories are added to repositories created from this tag. Examples of referenced external repositories include CentOS base, EPEL, or JPackage.
 
--   A tag is NOT a yum repository.
+!!! note
+    A tag is NOT a yum repository.
 
 **Target**  
 A target consists of a build tag and a destination tag. An example is "osg-3.3-el6", where the build tag is "osg-3.3-el6-build" and the destination tag is "osg-3.3-el6". A target is used by the build task to know what repository to build from and tag to build into.
@@ -28,7 +29,8 @@ A unit of work for Koji. Several common tasks are:
 -   build  
     This task takes a SRPM and a target, and attempts to create a complete Build in the target's destination tag from the target's build repository. This task will launch one buildArch task for each architecture in the destination tag; if each subtask is successful, then it will launch a tagBuild subtask.
 
-    -   Note that if the build task is marked as "scratch", then it won't result in a Build.
+    !!! note
+        If the build task is marked as "scratch", then it won't result in a saved Build.
 
 -   buildArch  
     This task takes a SRPM, architecture name, and a Koji repository as an input, and runs `mock` to create output RPMs for that arch. The build artifacts are added to the Build if all buildArch tasks are successful.
@@ -39,10 +41,10 @@ A unit of work for Koji. Several common tasks are:
 -   newRepo  
     This creates a new repository from a given tag.
 
-**Build artifacts:**  
+**Build artifacts**  
 The results of a buildArch task. Their metadata are recorded in the Koji database, and files are saved to disk. Metadata may include checksums, timestamps, and who initiated the task. Artifacts may include RPMs, SRPMs, and build logs.
 
-**Repository:**  
+**Repository**  
 A yum repository created from the contents of a tag at a specific point in time. By default, the yum repository will contain all successful, non-blocked builds in the tag, plus all RPMs in the external repositories for the tag.
 
 Further reading
@@ -112,7 +114,7 @@ To do a build, execute the following command from within the OSG Software subver
 [you@host]$ osg-build koji <PACKAGE NAME>
 ```
 
-To do a scratch build, simply add the "--scratch" command line flag.
+To do a scratch build, simply add the `--scratch` command line flag.
 
 Each invocation of osg-build will ask for the password once or twice; if you get asked more like 20 times, then you may not be running the OSG-patched version of Koji; try switching to the one from the osg-development repository.
 
