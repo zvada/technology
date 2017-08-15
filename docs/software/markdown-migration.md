@@ -3,8 +3,8 @@ Migrating to Markdown
 
 As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to [Markdown](https://guides.github.com/features/mastering-markdown/). The following document outlines the conversion process and conventions.
 
-Preparing the git repository
-----------------------------
+Choosing the git repository
+---------------------------
 
 First you will need to choose which git repoository you will be working with:
 
@@ -13,24 +13,7 @@ First you will need to choose which git repoository you will be working with:
 | SoftwareTeam | [technology](https://www.github.com/opensciencegrid/technology/) |
 | Release3 | [docs](https://www.github.com/opensciencegrid/docs/) |
 
-Once you've chosen the target repository for your document, prepare your local repository:
-
-1. [Fork](https://help.github.com/articles/fork-a-repo/) the repository
-2. Clone a local repository:
-
-        :::console
-        [user@client ~ ] $ git clone git:github.com/<GITHUB USERNAME>/<REPOSITORY>.git
-
-3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
-
-        :::console
-        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/<REPOSITORY>.git
-
-4. Create a branch for the document you plan to convert:
-
-        :::console
-        [user@client ~ ] $ git branch <BRANCH NAME> master
-
+Once you've chosen the target repository for your document, move onto the next section and pick your conversion method.
 
 Automatic TWiki conversion
 --------------------------
@@ -48,11 +31,29 @@ The twiki-converter docker image can be used to preview the document tree via a 
 
 To perform a document migration using docker, you will need the following tools and accounts:
 
-- `git` and a GitHub account
+- [Fork](https://help.github.com/articles/fork-a-repo/) and [clone](https://help.github.com/articles/cloning-a-repository/) the repository that you chose in the [above section](#choosing-the-git-repository)
 - A host with a running docker service
 - `sudo` or membership in the `docker` group
 
 If you cannot install the above tools locally, they are available on `osghost`. Speak with Brian L for access.
+
+#### Preparing the git repository ####
+
+1. `cd` into your local git repository
+3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
+
+        :::console
+        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/<REPOSITORY>.git
+
+4. Create a branch for the document you plan to convert:
+
+        :::console
+        [user@client ~ ] $ git branch <BRANCH NAME> master
+
+5. Change to the branch you just created
+
+        :::console
+        [user@client ~ ] $ git checkout <BRANCH NAME>
 
 #### Previewing the document tree ####
 
@@ -89,11 +90,12 @@ Where <CONTAINER ID> is the docker container ID and <TWIKI URL> is the link to t
 
 To see the converted document in your browser:
 
-1. Rename and move the converted document into the appropriate folder in `docs/`. 
+1. Rename, move the converted document into a folder in `docs/`.
     - Document file names should be lowercase, `-` delimited, and descriptive but concise, e.g. `markdown-migration.md` or `cutting-release.md`
     - It's not important to get the name/location correct on the first try as this can be discussed in the pull request
-2. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
-3. Refresh the document tree in your browser
+2. `sudo chown` the converted document to be owned by you
+3. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
+4. Refresh the document tree in your browser
 
 Once you can view the converted document in your browser, move onto the [next section](#completing-the-conversion)
 
@@ -122,12 +124,31 @@ If you've already used the [docker method](#using-docker), skip to the section a
 
 #### Requirements ####
 
-This method requires the following packages:
+This method requires the following:
 
+- [Fork](https://help.github.com/articles/fork-a-repo/) and [clone](https://help.github.com/articles/cloning-a-repository/) the repository that you chose in the [above section](#choosing-the-git-repository)
 - pandoc (> 1.16)
 - mkdocs
 - MarkdownHighlight
 - pygments
+
+#### Preparing the git repository ####
+
+1. `cd` into your local git repository
+3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
+
+        :::console
+        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/<REPOSITORY>.git
+
+4. Create a branch for the document you plan to convert:
+
+        :::console
+        [user@client ~ ] $ git branch <BRANCH NAME> master
+
+5. Change to the branch you just created
+
+        :::console
+        [user@client ~ ] $ git checkout <BRANCH NAME>
 
 #### Archiving the TWiki document ####
 
@@ -304,9 +325,19 @@ If you see any other obvious errors (e.g., links to gratia web), feel free to co
 Submitting the pull request
 ---------------------------
 
-1. `git add` the archived raw TWiki, the converted Markdown document(s), and `mkdocs.yml`
-2. `git commit` your changes and `git push` to your GitHub repo
-3. Submit a pull request containing the following tasks in the body:
+1. Stage the archived raw TWiki, the converted Markdown document(s), and `mkdocs.yml`:
+
+        :::console
+        [user@client ~ ]$ git add mkdocs.yaml docs/archive/<TWIKI ARCHIVE> <PATH TO CONVERTED DOC>
+
+2. Commit and push your changes to your GitHub repo:
+
+        :::console
+        [user@client ~ ] $ git commit -m "<COMMIT MSG>"
+        [user@client ~ ] $ git push origin <BRANCH NAME>
+
+3. Open your browser and navigate to your GitHub fork
+4. Submit a pull request containing the following tasks in the body:
 
         <LINK TO TWIKI DOCUMENT>
 
