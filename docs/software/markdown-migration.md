@@ -93,7 +93,7 @@ To see the converted document in your browser:
 1. Rename, move the converted document into a folder in `docs/`.
     - Document file names should be lowercase, `-` delimited, and descriptive but concise, e.g. `markdown-migration.md` or `cutting-release.md`
     - It's not important to get the name/location correct on the first try as this can be discussed in the pull request
-2. `sudo chown` the converted document to be owned by you
+2. `sudo chown` the archived and converted documents to be owned by you
 3. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
 4. Refresh the document tree in your browser
 
