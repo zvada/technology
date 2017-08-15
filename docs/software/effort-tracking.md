@@ -12,7 +12,7 @@ There are just a few simple ideas to keep in mind:
 
 - **Each week, report your effort on OSG Technology activities**
        
-     Just include a section in your weekly status report with this information; here is a somewhat long example:
+     Update your numbers in the effort tracking google spreadsheet (ask BrianL for access) and include a section in your weekly status report; here is an example:
 
         EFFORT
         External development: 63% 
@@ -24,7 +24,7 @@ There are just a few simple ideas to keep in mind:
 
      The main idea is that **all** of your job-related activity for a week equals 100%, whether that is exactly 40 hours of work, a little less (subject to your local institution’s rules), or more. This implies that the same hours worked could result in different effort percentages reported from week to week; for example, 4 hours in a 40-hour week is 10%, but 4 hours in a 50-hour week (which I hope is exceedingly rare) is 8%.
      
-     Report 100% of your effort each week, but note that all effort outside of the Technology area falls into a single category. Unless you work at UW–Madison, we do not need to know any details about your effort outside of the Technology area. (TimC will talk to UW–Madison folks about local expectations.)
+     Report 100% of your effort each week, but note that all effort outside of the Technology area falls into a single category. Unless you work at UW–Madison, we do not need to know any details about your effort outside of the Technology area. (BrianL will talk to UW–Madison folks about local expectations.)
 
      If you are assigned to the Technology area for less than 100%, please report your actual Technology effort accurately. Workloads vary from week to week. For example, suppose you are 50% Technology in general, but you actually work 24 hours in a 40-hour week; you should report 60% effort for that week. The goal is to present reality, not what you think management wants to see.
 
@@ -44,9 +44,9 @@ Here are the categories in which to track effort:
 | Release        | Release team activities, primarily acceptance testing and cutting releases|
 | Support        | User support, including working on GOC tickets, direct support emails, some JIRA tickets that are more support than development, etc. It might be tricky to decide when support work becomes development work; generally, once a support ticket turns into a JIRA ticket and goes through the normal development lifecycle, then the JIRA-based work is development. If there is still extensive communication with GOC ticket users, that is still support. |
 | Management     | This is mainly for team leads; e.g., managing team activities and tickets (generally); hiring; **leading** (not just attending) meetings|
-| Education      | **Not for general learning or training activities** The OSG Education area is essentially part of the Software area, because TimC runs the OSG School. So this category is for OSG School effort (or other sanctioned OSG Education activities.|
+| Education      | **Not for general learning or training activities** The OSG Education area is essentially part of the Software area, because many technology-area members contribute to the OSG School. So this category is for OSG School effort (or other sanctioned OSG Education activities.|
 | Admin          | General administrative activities that benefit the OSG Technology area but that do not fit elsewhere — **use sparingly!!**|
-| Outside        | For all activities outside of the OSG Technology area (Madison team members should provide extra details, see TimC)|
+| Outside        | For all activities outside of the OSG Technology area (Madison team members should provide extra details, see BrianL)|
 | Leave          | This is for holidays, vacation, and sick leave; count a full day of leave as 8.0 hours, count a half day as 4.0 hours|
 
 A few thoughts about tricky situations:
@@ -59,4 +59,4 @@ A few thoughts about tricky situations:
 
 - Learning activities. Put short amounts of learning time in their relevant development category. For instance, if Igor is showing Edgar how to use GlideTester, that goes into *Internal*. But for longer training events, or for events that are less obviously related to day-to-day activities, mark the time as *Admin*, and maybe add a comment explaining the activity.
 
-Ultimately, if you are not sure how to deal with a situation, ask TimC and he will make something up and document it here (generically) for future reference.
+Ultimately, if you are not sure how to deal with a situation, ask BrianL and he will make something up and document it here (generically) for future reference.
