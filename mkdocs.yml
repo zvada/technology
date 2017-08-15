@@ -17,7 +17,7 @@ pages:
     - Repository Management: 'software/repository-management.md'
     - Upcoming to Main: 'software/upcoming-to-main.md'
     - CE Scale Testing: 'software/ce-test-scaling.md'
-
+    - Effort Tracking: 'software/effort-tracking.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
