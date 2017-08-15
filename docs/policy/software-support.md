@@ -57,9 +57,11 @@ Note that if you follow the above, we will end up with three assignees to each t
 
 If someone emails you directly for support, you have the choice of when to move it to a ticket. The recommended criteria are:
 
-1.  If it's easy to handle and you can definitely do it yourself, leave it in email.
-2.  If there is a chance you can't do it in a timely fashion, or a chance that you might lose track of the ticket lose it, or a chance that you might need help from others, turn it into a ticket.
-3.  If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into a ticket.
+-   If it's easy to handle and you can definitely do it yourself, leave it in email.
+-   If there's a chance that you can't do it in a timely fashion, turn it into a ticket.
+-   If there's a chance that you might lose track of the email, turn it into a ticket.
+-   If there's a chance that you might need help from others, turn it into a ticket.
+-   If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into a ticket.
 
 ## GOC ticket vs. JIRA
 
