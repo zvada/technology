@@ -84,7 +84,7 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#preparing-the-git-repository">Preparing the git repository</a></li>
+            <li><a class="toctree-l4" href="#choosing-the-git-repository">Choosing the git repository</a></li>
         
             <li><a class="toctree-l4" href="#automatic-twiki-conversion">Automatic TWiki conversion</a></li>
         
@@ -402,7 +402,7 @@
               
                 <h1 id="migrating-to-markdown">Migrating to Markdown<a class="headerlink" href="#migrating-to-markdown" title="Permanent link">&para;</a></h1>
 <p>As part of the TWiki retirement (the read-only target date of Oct 1, 2017, with a shutdown date in 2018), we will need to convert the OSG Software and Release3 docs from TWiki syntax to <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. The following document outlines the conversion process and conventions.</p>
-<h2 id="preparing-the-git-repository">Preparing the git repository<a class="headerlink" href="#preparing-the-git-repository" title="Permanent link">&para;</a></h2>
+<h2 id="choosing-the-git-repository">Choosing the git repository<a class="headerlink" href="#choosing-the-git-repository" title="Permanent link">&para;</a></h2>
 <p>First you will need to choose which git repoository you will be working with:</p>
 <table>
 <thead>
@@ -422,16 +422,26 @@
 </tr>
 </tbody>
 </table>
-<p>Once you've chosen the target repository for your document, prepare your local repository:</p>
+<p>Once you've chosen the target repository for your document, move onto the next section and pick your conversion method.</p>
+<h2 id="automatic-twiki-conversion">Automatic TWiki conversion<a class="headerlink" href="#automatic-twiki-conversion" title="Permanent link">&para;</a></h2>
+<p>Choose one of the following methods for converting TWiki documents:</p>
+<ul>
+<li>Using our own <a href="#using-docker">docker conversion image</a> (recommended)</li>
+<li>A combination of <a href="#using-pandoc">pandoc</a> and mkdocs</li>
+</ul>
+<h3 id="using-docker">Using docker<a class="headerlink" href="#using-docker" title="Permanent link">&para;</a></h3>
+<p>The twiki-converter docker image can be used to preview the document tree via a <a href="http://www.mkdocs.org/#getting-started">mkdocs</a> development server, archive TWiki documents, and convert documents to Markdown via <a href="http://pandoc.org/">pandoc</a>. The image is available on <code>osghost</code>, otherwise, follow the instructions <a href="https://github.com/brianhlin/docker-twiki-converter">here</a> to build it locally. </p>
+<h4 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h4>
+<p>To perform a document migration using docker, you will need the following tools and accounts:</p>
+<ul>
+<li><a href="https://help.github.com/articles/fork-a-repo/">Fork</a> and <a href="https://help.github.com/articles/cloning-a-repository/">clone</a> the repository that you chose in the <a href="#choosing-the-git-repository">above section</a></li>
+<li>A host with a running docker service</li>
+<li><code>sudo</code> or membership in the <code>docker</code> group</li>
+</ul>
+<p>If you cannot install the above tools locally, they are available on <code>osghost</code>. Speak with Brian L for access.</p>
+<h4 id="preparing-the-git-repository">Preparing the git repository<a class="headerlink" href="#preparing-the-git-repository" title="Permanent link">&para;</a></h4>
 <ol>
-<li><a href="https://help.github.com/articles/fork-a-repo/">Fork</a> the repository</li>
-<li>
-<p>Clone a local repository:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git clone git:github.com/&lt;GITHUB USERNAME&gt;/&lt;REPOSITORY&gt;.git
-</pre></div>
-
-
-</li>
+<li><code>cd</code> into your local git repository</li>
 <li>
 <p>Add <code>opensciencegrid/technology</code> as the upstream remote repository for merging upstream changes:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git remote add upstream https://www.github.com/opensciencegrid/&lt;REPOSITORY&gt;.git
@@ -446,23 +456,14 @@
 
 
 </li>
+<li>
+<p>Change to the branch you just created</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git checkout &lt;BRANCH NAME&gt;
+</pre></div>
+
+
+</li>
 </ol>
-<h2 id="automatic-twiki-conversion">Automatic TWiki conversion<a class="headerlink" href="#automatic-twiki-conversion" title="Permanent link">&para;</a></h2>
-<p>Choose one of the following methods for converting TWiki documents:</p>
-<ul>
-<li>Using our own <a href="#using-docker">docker conversion image</a> (recommended)</li>
-<li>A combination of <a href="#using-pandoc">pandoc</a> and mkdocs</li>
-</ul>
-<h3 id="using-docker">Using docker<a class="headerlink" href="#using-docker" title="Permanent link">&para;</a></h3>
-<p>The twiki-converter docker image can be used to preview the document tree via a <a href="http://www.mkdocs.org/#getting-started">mkdocs</a> development server, archive TWiki documents, and convert documents to Markdown via <a href="http://pandoc.org/">pandoc</a>. The image is available on <code>osghost</code>, otherwise, follow the instructions <a href="https://github.com/brianhlin/docker-twiki-converter">here</a> to build it locally. </p>
-<h4 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h4>
-<p>To perform a document migration using docker, you will need the following tools and accounts:</p>
-<ul>
-<li><code>git</code> and a GitHub account</li>
-<li>A host with a running docker service</li>
-<li><code>sudo</code> or membership in the <code>docker</code> group</li>
-</ul>
-<p>If you cannot install the above tools locally, they are available on <code>osghost</code>. Speak with Brian L for access.</p>
 <h4 id="previewing-the-document-tree">Previewing the document tree<a class="headerlink" href="#previewing-the-document-tree" title="Permanent link">&para;</a></h4>
 <p>When starting a twiki-converter docker container, it expects your local github repository to be mounted in <code>/source</code> so that any changes made to the repository are reflected in the mkdocs development server. To start a docker container based off of the twiki-converter docker image:</p>
 <ol>
@@ -502,11 +503,12 @@
 </div>
 <p>To see the converted document in your browser:</p>
 <ol>
-<li>Rename and move the converted document into the appropriate folder in <code>docs/</code>. <ul>
+<li>Rename, move the converted document into a folder in <code>docs/</code>.<ul>
 <li>Document file names should be lowercase, <code>-</code> delimited, and descriptive but concise, e.g. <code>markdown-migration.md</code> or <code>cutting-release.md</code></li>
 <li>It's not important to get the name/location correct on the first try as this can be discussed in the pull request</li>
 </ul>
 </li>
+<li><code>sudo chown</code> the archived and converted documents to be owned by you</li>
 <li>Add the document to the <code>pages:</code> section of <code>mkdocs.yml</code> in <a href="http://titlecase.com/">title case</a>, e.g. <code>- Migrating Documents to Markdown: 'software/markdown-migration.md'</code></li>
 <li>Refresh the document tree in your browser</li>
 </ol>
@@ -540,13 +542,39 @@
 <h3 id="using-pandoc">Using pandoc<a class="headerlink" href="#using-pandoc" title="Permanent link">&para;</a></h3>
 <p>If you've already used the <a href="#using-docker">docker method</a>, skip to the section about <a href="#completing-the-conversion">completing the conversion</a>. </p>
 <h4 id="requirements_1">Requirements<a class="headerlink" href="#requirements_1" title="Permanent link">&para;</a></h4>
-<p>This method requires the following packages:</p>
+<p>This method requires the following:</p>
 <ul>
+<li><a href="https://help.github.com/articles/fork-a-repo/">Fork</a> and <a href="https://help.github.com/articles/cloning-a-repository/">clone</a> the repository that you chose in the <a href="#choosing-the-git-repository">above section</a></li>
 <li>pandoc (&gt; 1.16)</li>
 <li>mkdocs</li>
 <li>MarkdownHighlight</li>
 <li>pygments</li>
 </ul>
+<h4 id="preparing-the-git-repository_1">Preparing the git repository<a class="headerlink" href="#preparing-the-git-repository_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li><code>cd</code> into your local git repository</li>
+<li>
+<p>Add <code>opensciencegrid/technology</code> as the upstream remote repository for merging upstream changes:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git remote add upstream https://www.github.com/opensciencegrid/&lt;REPOSITORY&gt;.git
+</pre></div>
+
+
+</li>
+<li>
+<p>Create a branch for the document you plan to convert:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git branch &lt;BRANCH NAME&gt; master
+</pre></div>
+
+
+</li>
+<li>
+<p>Change to the branch you just created</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git checkout &lt;BRANCH NAME&gt;
+</pre></div>
+
+
+</li>
+</ol>
 <h4 id="archiving-the-twiki-document">Archiving the TWiki document<a class="headerlink" href="#archiving-the-twiki-document" title="Permanent link">&para;</a></h4>
 <p>Save the raw TWiki file into the <code>docs/archive/</code> folder of your local git repository:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> curl <span class="s1">&#39;&lt;TWIKI URL&gt;?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/&lt;TWIKI TITLE&gt;
@@ -713,8 +741,24 @@ SNIPPET
 <p>If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc <em>iff</em> the changes take less than ~15 minutes. This isn't a renovation project!</p>
 <h2 id="submitting-the-pull-request">Submitting the pull request<a class="headerlink" href="#submitting-the-pull-request" title="Permanent link">&para;</a></h2>
 <ol>
-<li><code>git add</code> the archived raw TWiki, the converted Markdown document(s), and <code>mkdocs.yml</code></li>
-<li><code>git commit</code> your changes and <code>git push</code> to your GitHub repo</li>
+<li>
+<p>Stage the archived raw TWiki, the converted Markdown document(s), and <code>mkdocs.yml</code>:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ]$</span> git add mkdocs.yaml docs/archive/&lt;TWIKI ARCHIVE&gt; &lt;PATH TO CONVERTED DOC&gt;
+</pre></div>
+
+
+</li>
+<li>
+<p>Commit and push your changes to your GitHub repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git commit -m <span class="s2">&quot;&lt;COMMIT MSG&gt;&quot;</span>
+<span class="gp">[user@client ~ ] $</span> git push origin &lt;BRANCH NAME&gt;
+</pre></div>
+
+
+</li>
+<li>
+<p>Open your browser and navigate to your GitHub fork</p>
+</li>
 <li>Submit a pull request containing the following tasks in the body:<div class="codehilite"><pre><span></span>&lt;LINK TO TWIKI DOCUMENT&gt;
 
 - [ ] Enter date into &quot;Migrated&quot; column of google sheet
@@ -728,7 +772,7 @@ SNIPPET
 <h2 id="after-the-pull-request">After the pull request<a class="headerlink" href="#after-the-pull-request" title="Permanent link">&para;</a></h2>
 <p>After the pull request is merged, replace the contents of TWiki document with the div, linking to the location of the migrated document:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;&quot;</span><span class="nt">&gt;</span>
-This is an archive, find the new version of this document [[LINK TO GITHUB DOCUMENT][here]].
+This document has been migrated to GitHub (<span class="nt">&lt;LINK</span> <span class="err">TO</span> <span class="err">GITHUB</span> <span class="err">DOCUMENT</span><span class="nt">&gt;</span>). If you wish to see the old TWiki document, click the latest revision &#39;rNN&#39; in the footer below.
 
 Background:
 
@@ -742,7 +786,7 @@ At the end of year (2017), the TWiki will be retired in favor of !GitHub. You ca
 
 <p>Once the div has been added, update the spreadsheet and go back to your pull request and mark your tasks as complete:</p>
 <div class="codehilite"><pre><span></span>- [X] Enter date into &quot;Migrated&quot; column of google sheet
-- [X] Add migration header to TWiki document
+- [X] Add migration div to TWiki document
 </pre></div>
 
 
