@@ -50,7 +50,7 @@ Note that if you follow the above, we will end up with three assignees to each t
 -   If you run across a problem that has a chance of being hit by other users, consider:
     -   Is there a bug we should fix in the software? Or something we could improve in the software?
     -   Is there a way to improve our documentation?
-    -   Can you extend our troubleshooting documents to help people track this down more quickly? Consider the troubleshooting documents to be as much for us as for our users. Also note that as of this writing (February 2012) the troubleshooting documents are not yet deep. We can and should make them deeper.
+    -   Can you extend our troubleshooting documents to help people track this down more quickly? Consider the troubleshooting documents to be as much for us as for our users.
 
 ## Direct email vs. support
 
