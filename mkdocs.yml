@@ -34,6 +34,8 @@ pages:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
     - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
+  - Documentation:
+    - Writing Documentation: 'documentation/writing-documentation.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
   - Historical Transitions:
