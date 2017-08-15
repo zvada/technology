@@ -113,6 +113,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/policy/software-support/</loc>
+     <lastmod>2017-08-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     

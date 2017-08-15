@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Software Support - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Software Support";
+    var mkdocs_page_input_path = "policy/software-support.md";
+    var mkdocs_page_url = "/policy/software-support/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../contact/">Contact Us</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../meetings/">Meeting Notes</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Software Support</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#software-team-support">Software Team Support</a></li>
+    
+
+    <li class="toctree-l3"><a href="#managing-osg-software-tickets">Managing OSG Software Tickets</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#incoming-tickets-operations-staff">Incoming tickets (Operations staff)</a></li>
+        
+            <li><a class="toctree-l4" href="#triage-duty-software-staff">Triage duty (Software staff)</a></li>
+        
+            <li><a class="toctree-l4" href="#handling-tickets">Handling tickets</a></li>
+        
+            <li><a class="toctree-l4" href="#direct-email-vs-support">Direct email vs. support</a></li>
+        
+            <li><a class="toctree-l4" href="#goc-ticket-vs-jira">GOC ticket vs. JIRA</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Policy &raquo;</li>
+        
+      
+    
+    <li>Software Support</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/software-support.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="software-team-support">Software Team Support<a class="headerlink" href="#software-team-support" title="Permanent link">&para;</a></h1>
+<h1 id="managing-osg-software-tickets">Managing OSG Software Tickets<a class="headerlink" href="#managing-osg-software-tickets" title="Permanent link">&para;</a></h1>
+<h2 id="incoming-tickets-operations-staff">Incoming tickets (Operations staff)<a class="headerlink" href="#incoming-tickets-operations-staff" title="Permanent link">&para;</a></h2>
+<p>When a ticket arrives at the GOC and the Operations staff member decides that the ticket should be assigned to the Software Team, the operations staff member will do two things:</p>
+<ol>
+<li>The ticket will be assigned to a pseudo-user called "Software".</li>
+<li>The "Next Action" field will be set to "SOFTWARE TRIAGE".</li>
+<li>The Software pseudo-user has an email list as it's "personal" email address. This is: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;">&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;</a>.</li>
+</ol>
+<h2 id="triage-duty-software-staff">Triage duty (Software staff)<a class="headerlink" href="#triage-duty-software-staff" title="Permanent link">&para;</a></h2>
+<p>All OSG Software Team members who are at least 50% on the software team will share triage duty. Each week (Monday through Friday), there will be one person on triage duty. This person will be responsible for triage, which means:</p>
+<ul>
+<li>Watching the software incoming tickets. <strong>If a ticket has not been assigned to a software team member, you assign it appropriately.</strong> You should check the queue at least twice a day. You only need to do this during your regular work hours. No weekend or holiday triage is required. The person for triage is responsible for triaging all incoming tickets that haven't be assigned. This includes tickets that arrived over the weekend or were not handled by the previous person on triage duty.</li>
+<li>Handling incoming tickets where possible. Many tickets are common problems that most team members should be able to solve. For harder tickets, initial details (versions, logs, etc...) can be collected before passing the ticket to someone else.</li>
+<li>Assigning incoming tickets to the most appropriate software team member as needed. Where appropriate, include people from other teams (i.e. security, operations, glidein...) Leave the "software" user assigned to the ticket.</li>
+<li>Looking at assigned tickets. For tickets that are not being handled in a timely fashion, please remind the person that owns the ticket.</li>
+</ul>
+<p>Please note: being on triage duty does <em>not</em> mean that you must personally solve all new tickets. It means that you handle the easy tickets and assign the other tickets appropriately.</p>
+<p>Note that the software pseudo-user has an email address that is a mailing list: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;">&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;</a>. If you find it convenient, you can sign up for the mailing list to see all the incoming tickets. Alain recommends you do this during your triage duty, but you do not need to stay subscribed when you are not on triage duty.</p>
+<p>All the currently opened tickets assigned to the software team can be seen here: <a href="https://ticket.grid.iu.edu/goc/list/open">GOC Open Tickets</a></p>
+<h3 id="flow-of-tickets">Flow of tickets<a class="headerlink" href="#flow-of-tickets" title="Permanent link">&para;</a></h3>
+<p>Note that if you follow the above, we will end up with three assignees to each ticket. This is the overall flow:</p>
+<ol>
+<li>A ticket arrives at the GOC, either by email or via the ticket creator</li>
+<li>If the ticket arrives via email, then someone at the GOC manually makes a ticket out of it. It's not automatic.</li>
+<li><strong>ASSIGNMENT #1:</strong> The ticket is assigned to a GOC member. They're in charge of ushering the ticket through it's whole lifetime, though for software tickets they won't do a whole lot on the technical work. Note that some software tickets may not be assigned to us, because they might assign them to the VO support center. This is good.</li>
+<li><strong>ASSIGNMENT #2:</strong> The GOC member looks at the ticket and decides it's a software ticket. (They might do some upfront work if they can.) They then assign it to "Software Support (Triage)". We now have two people assigned to the ticket.</li>
+<li>When assigned to "Software Support (Triage)", all changes to the ticket are sent to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;">&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;</a>, so we leave this pseudo-person on the ticket. Watching the email to this mailing list is a nice (but optional) way for you to see what's happening when you're on triage duty.</li>
+<li>
+<p><strong>ASSIGNMENT #3:</strong> The person on triage duty assigns it to the right person from the software team. We now have three assignees:</p>
+<ol>
+<li>GOC member</li>
+<li>Software Support (Triage)</li>
+<li>The Software team member who will handle the ticket</li>
+</ol>
+<p>Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our <a href="https://twiki.grid.iu.edu/bin/view/Documentation/Release3/#Software_Guides_Troubleshooting">troubleshooting documents</a>.</p>
+</li>
+</ol>
+<h2 id="handling-tickets">Handling tickets<a class="headerlink" href="#handling-tickets" title="Permanent link">&para;</a></h2>
+<ul>
+<li>We need to take good care of our users. We are in a small community. Please be friendly and patient even when the user is frustrated or lacking in knowledge.</li>
+<li>Always sign your ticket with your full name, so people know who is responding.</li>
+<li>If it's easy for you, include a signature at the bottom of your response.</li>
+<li>Remember that you can tell people to use the <code>osg-system-profiler</code> to collect information. It can shorten the number of times you ask for information because it collects quite a bit for you.</li>
+<li>If you run across a problem that has a chance of being hit by other users, consider:<ul>
+<li>Is there a bug we should fix in the software? Or something we could improve in the software?</li>
+<li>Is there a way to improve our documentation?</li>
+<li>Can you extend our troubleshooting documents to help people track this down more quickly? Consider the troubleshooting documents to be as much for us as for our users. Also note that as of this writing (February 2012) the troubleshooting documents are not yet deep. We can and should make them deeper.</li>
+</ul>
+</li>
+</ul>
+<h2 id="direct-email-vs-support">Direct email vs. support<a class="headerlink" href="#direct-email-vs-support" title="Permanent link">&para;</a></h2>
+<p>If someone emails you directly for support, you have the choice of when to move it to a ticket. The recommended criteria are:</p>
+<ul>
+<li>If it's easy to handle and you can definitely do it yourself, leave it in email.</li>
+<li>If there's a chance that you can't do it in a timely fashion, turn it into a ticket.</li>
+<li>If there's a chance that you might lose track of the email, turn it into a ticket.</li>
+<li>If there's a chance that you might need help from others, turn it into a ticket.</li>
+<li>If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into a ticket.</li>
+</ul>
+<h2 id="goc-ticket-vs-jira">GOC ticket vs. JIRA<a class="headerlink" href="#goc-ticket-vs-jira" title="Permanent link">&para;</a></h2>
+<p>GOC Ticket is for user support. This is where we helping users debug, understand their problems, etc.</p>
+<p>JIRA is for tracking our work. It's meant for internal usage, not for user support.</p>
+<p>In general, users should not ask for support via JIRA. A single user support ticket might result in zero, one, or multiple JIRA tickets. The user ticket may be closed even though the related JIRA tickets are open. ("Hi, this is a bug that we can't fix for the next six months, but I've made an internal bug report you can see at ...")</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../infrastructure/koji-restore-recipe/" class="btn btn-neutral float-right" title="Koji Restore Recipe">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../globus-toolkit/" class="btn btn-neutral" title="Globus Toolkit Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../globus-toolkit/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../infrastructure/koji-restore-recipe/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
