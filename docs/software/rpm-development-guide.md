@@ -1,8 +1,6 @@
 RPM Development Guide
 =====================
 
-<span class="twiki-macro TOC"></span>
-
 This page documents technical guidelines and details about RPM development for the OSG Software Stack. The procedures, conventions, and policies defined within are used by the OSG Software Team, and are recommended to all external developers who wish to contribute to the OSG Software Stack.
 
 Principles
@@ -48,17 +46,15 @@ Our solution is to cache all upstream source files in a separate filesystem area
 
 Upstream source files are stored in the filesystem as follows:
 
-> `/p/vdt/public/html/upstream/<em>%GREEN%package%ENDCOLOR%</em>/<em>%GREEN%version%ENDCOLOR%</em>/<em>%GREEN%file%ENDCOLOR%</em>`
+> `/p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>`
 
 where:
 
-<span class="twiki-macro TABLE" sort="off"></span>
-
-| Symbol                              | Definition                                                                | Example            |
-|:------------------------------------|:--------------------------------------------------------------------------|:-------------------|
-| `<em>%GREEN%package%ENDCOLOR%</em>` | Upstream name of the source package, or some widely accepted form thereof | `ndt`              |
-| `<em>%GREEN%version%ENDCOLOR%</em>` | Upstream version string used to identify the release                      | `3.6.4`            |
-| `<em>%GREEN%file%ENDCOLOR%</em>`    | Upstream filename itself                                                  | `ndt-3.6.4.tar.gz` |
+| Symbol      | Definition                                                                | Example            |
+|:------------|:--------------------------------------------------------------------------|:-------------------|
+| `<PACKAGE>` | Upstream name of the source package, or some widely accepted form thereof | `ndt`              |
+| `<VERSION>` | Upstream version string used to identify the release                      | `3.6.4`            |
+| `<FILE>`    | Upstream filename itself                                                  | `ndt-3.6.4.tar.gz` |
 
 The authoritative cache is the VDT webserver, which is fully backed up. The Koji build system uses this cache.
 
@@ -89,8 +85,8 @@ Or, from a UW–Madison Computer Sciences machine:
 
 The current SVN directory housing our native package work is `$SVN/native/redhat` (where `$SVN` is one of the ways of accessing our SVN repository above). For example, to check out the current package repository via HTTPS, do:
 
-``` screen
-svn co https://vdt.cs.wisc.edu/svn/native/redhat
+```console
+[you@host]$ svn co https://vdt.cs.wisc.edu/svn/native/redhat
 ```
 
 #### OSG-Owned Software
@@ -98,8 +94,6 @@ svn co https://vdt.cs.wisc.edu/svn/native/redhat
 OSG-owned software goes into GitHub under the `opensciencegrid` organization. Files are organized as the developer sees fit.
 
 It is strongly recommended that each software package include a top-level Makefile with at least the following targets:
-
-<span class="twiki-macro TABLE" sort="off"></span>
 
 | Symbol     | Purpose                                                                               |
 |:-----------|:--------------------------------------------------------------------------------------|
@@ -111,16 +105,14 @@ It is strongly recommended that each software package include a top-level Makefi
 
 The top levels of our Subversion directory hierarchy for packaging are as follows:
 
-> `native/redhat/<em>%GREEN%section%ENDCOLOR%</em>/<em>%GREEN%package%ENDCOLOR%</em>`
+> `native/redhat/<SECTION>/<PACKAGE>`
 
 where:
 
-<span class="twiki-macro TABLE" sort="off"></span>
-
-| Symbol                              | Definition                                 | Example                                                               |
-|:------------------------------------|:-------------------------------------------|:----------------------------------------------------------------------|
-| `<em>%GREEN%section%ENDCOLOR%</em>` | Development section                        | Standard Subversion sections like `trunk`, `branches/*`, and `tags/*` |
-| `<em>%GREEN%package%ENDCOLOR%</em>` | Our standardized name for a source package | `ndt`                                                                 |
+| Symbol      | Definition                                 | Example                                                    |
+|:------------|:-------------------------------------------|:-----------------------------------------------------------|
+| `<SECTION>` | Development section                        | Standard Subversion sections like `trunk` and `branches/*` |
+| `<PACKAGE>` | Our standardized name for a source package | `ndt`                                                      |
 
 #### Package Directory Organization
 
@@ -142,20 +134,18 @@ Within the per-package directories of the revision control system, there must be
 
 A reference file is named:
 
-> `<em>%GREEN%description%ENDCOLOR%</em>.<em>%GREEN%type%ENDCOLOR%</em>.source`
+> `<DESCRIPTION>.<TYPE>.source`
 
 where:
 
-<span class="twiki-macro TABLE" sort="off"></span>
-
-| Symbol                                  | Definition                                             | Example                    |
-|:----------------------------------------|:-------------------------------------------------------|:---------------------------|
-| `<em>%GREEN%description%ENDCOLOR%</em>` | Descriptive label of the source of the referenced file | `developer`, `epel`, `emi` |
-| `<em>%GREEN%type%ENDCOLOR%</em>`        | Type of referenced file                                | Use: `tarball`, `srpm`     |
+| Symbol          | Definition                                             | Example                    |
+|:----------------|:-------------------------------------------------------|:---------------------------|
+| `<DESCRIPTION>` | Descriptive label of the source of the referenced file | `developer`, `epel`, `emi` |
+| `<TYPE>`        | Type of referenced file                                | `tarball`, `srpm`          |
 
 The contents of the file match the upstream source cache path defined above, without the prefix component:
 
-> `<em>%GREEN%package%ENDCOLOR%</em>/<em>%GREEN%version%ENDCOLOR%</em>/<em>%GREEN%file%ENDCOLOR%</em>`
+> `<PACKAGE>/<VERSION>/<FILE>`
 
 In addition, the `.source` files may contain comments, which start with `#` and continue until the end of the line. It is useful to add the source of the upstream file into a comment.
 
@@ -260,7 +250,11 @@ In addition to adhering to the [Fedora Packaging Guidelines](http://fedoraprojec
     -   The release is composed of three parts: ORIGINALRELEASE.OSGRELEASE
     -   We add a distro tag based on the OSG major version and OS major version, e.g. "osg33.el6". (Use `%{?dist}` in the Release field)
 
-Example: We copy package foobar-3.0.5-1 from somewhere. We need to patch it, so the full name-version-release (NVR) for OSG 3.3 on EL 6 becomes `foobar-3.0.5-1%RED%.1.osg33.el6%ENDCOLOR%` That is, we added ".1.osg33.el6" to the release number. If we update our packaging (but still base on foobar-3.0.5-1), we change to ".2.osg33.el6". In the spec file, this would look like: &lt;pre class="file"&gt; Release: 1.2%{?dist} &lt;/pre&gt;
+Example: We copy package foobar-3.0.5-1 from somewhere. We need to patch it, so the full name-version-release (NVR) for OSG 3.3 on EL 6 becomes `foobar-3.0.5-1.1.osg33.el6` Note that we added ".1.osg33.el6" to the release number. If we update our packaging (but still base on foobar-3.0.5-1), we change to ".2.osg33.el6". In the spec file, this would look like:
+
+```spec
+Release: 1.2%{?dist}
+```
 
 Packaging for Multiple Distro Versions
 --------------------------------------
@@ -279,17 +273,19 @@ The following macros are defined:
 
 Here's how to use them:
 
-    %if 0%{?el6}
-    # this code will be executed on EL 6 only
-    %endif
+```spec
+%if 0%{?el6}
+# this code will be executed on EL 6 only
+%endif
 
-    %if 0%{?el7}
-    # this code will be executed on EL 7 only
-    %endif
+%if 0%{?el7}
+# this code will be executed on EL 7 only
+%endif
 
-    %if 0%{?rhel} >= 7
-    # this code will be executed on EL 7 and newer
-    %endif
+%if 0%{?rhel} >= 7
+# this code will be executed on EL 7 and newer
+%endif
+```
 
 (There does not seem to be an `%elseif`).
 
