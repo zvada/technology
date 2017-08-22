@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Upcoming to Main - OSG Technology Area</title>
+  <title>Release Schedule - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Upcoming to Main";
-    var mkdocs_page_input_path = "software/upcoming-to-main.md";
-    var mkdocs_page_url = "/software/upcoming-to-main/";
+    var mkdocs_page_name = "Release Schedule";
+    var mkdocs_page_input_path = "release/release-schedule.md";
+    var mkdocs_page_url = "/release/release-schedule/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -62,55 +62,49 @@
         <li class="">
           
   
-    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../koji-workflow/">Koji Workflow</a>
+    <a class="" href="../../software/koji-workflow/">Koji Workflow</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../new-team-member/">New Team Member</a>
+    <a class="" href="../../software/new-team-member/">New Team Member</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../repository-management/">Repository Management</a>
+    <a class="" href="../../software/repository-management/">Repository Management</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
+    <a class="" href="../../software/ce-test-scaling/">CE Scale Testing</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../rpm-development-guide/">RPM Development Guide</a>
+    <a class="" href="../../software/rpm-development-guide/">RPM Development Guide</a>
   
-        </li>
-        <li class=" current">
-          
-  
-    <a class="current" href="./">Upcoming to Main</a>
-  
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#promoting-packages-from-upcoming-to-main">Promoting Packages from Upcoming to Main</a></li>
-    
-
-  </ul>
         </li>
         <li class="">
           
   
-    <a class="" href="../effort-tracking/">Effort Tracking</a>
+    <a class="" href="../../software/upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/effort-tracking/">Effort Tracking</a>
   
         </li>
   </ul>
@@ -123,26 +117,38 @@
         <li class="">
           
   
-    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+    <a class="" href="../cut-sw-release/">How to Cut a Release</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+    <a class="" href="../cut-data-release/">How to Cut a Data Release</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/release-policy/">Release Policy</a>
+    <a class="" href="../release-policy/">Release Policy</a>
   
         </li>
-        <li class="">
+        <li class=" current">
           
   
-    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+    <a class="current" href="./">Release Schedule</a>
   
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#osg-software-release-schedule">OSG Software Release Schedule</a></li>
+    
+
+    <li class="toctree-l3"><a href="#release-cycle-phases">Release Cycle Phases</a></li>
+    
+
+    <li class="toctree-l3"><a href="#example-schedule">Example Schedule</a></li>
+    
+
+  </ul>
         </li>
   </ul>
 	    </li>
@@ -377,14 +383,14 @@
     
       
         
-          <li>Software &raquo;</li>
+          <li>Release &raquo;</li>
         
       
     
-    <li>Upcoming to Main</li>
+    <li>Release Schedule</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/upcoming-to-main.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/release-schedule.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -394,24 +400,67 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="promoting-packages-from-upcoming-to-main">Promoting Packages from Upcoming to Main<a class="headerlink" href="#promoting-packages-from-upcoming-to-main" title="Permanent link">&para;</a></h1>
-<p>Sometimes we move packages from Upcoming to the Main repositories in the middle of a release series. Once the Release Manager has given tentative approval for such a move:</p>
-<p>If needed, move the software from upcoming to trunk and release using the usual process:</p>
-<ol>
-<li>Merge changes to the package in SVN from branches/upcoming to trunk.</li>
-<li>Build the package from trunk.</li>
-<li>Follow the normal process to prepare a build for release (including development testing, promotion, etc.).</li>
-</ol>
-<p>On release day, when the package has been released in the Main production repository, clean up the package from the upcoming repos:</p>
-<ol>
-<li>Untag from <strong>all upcoming repos</strong> the version of the package corresponding to the version that was released in main. (Do <strong>NOT</strong> untag from the osg-upcoming-elN-release-X.Y.Z tags)</li>
-</ol>
-<p>Also, untag all equal or lesser NVRs (minus the dist tag) from all upcoming repos.</p>
-<p>If you do not have the privileges to untag from upcoming-release, someone on the Release Team can help.</p>
-<p>(These steps are necessary to make sure Koji builds can't mistakenly use an older build from the upcoming repos).</p>
-<ol>
-<li>Unless there's a newer build in branches/upcoming than what was released, remove the package directory from branches/upcoming.</li>
-</ol>
+                <h2 id="osg-software-release-schedule">OSG Software Release Schedule<a class="headerlink" href="#osg-software-release-schedule" title="Permanent link">&para;</a></h2>
+<p>To help with predictability and align with the GOC update schedule, we have adopted a fixed release schedule. OSG Software will be released on the second Tuesday of the month. Urgent releases could happen on the fourth Tuesday of the month.</p>
+<h2 id="release-cycle-phases">Release Cycle Phases<a class="headerlink" href="#release-cycle-phases" title="Permanent link">&para;</a></h2>
+<p>Various "Freeze" dates will happen in the weeks leading up to the release. They are as follows:</p>
+<ul>
+<li>Development Freeze (end of the day on the Monday two weeks before release):<ul>
+<li>The remaining testing is planned for this release.</li>
+<li>Packages are considered for inclusion in the release on this date.</li>
+<li>Some additional work on the packages may be done later in the day.</li>
+<li>All packages to be tested, need to be promoted to the testing repository by the end of the day.</li>
+<li>We will schedule testing for all packages at this date.</li>
+<li>If a package is promoted after this date, it may not get tested in time for the release.</li>
+</ul>
+</li>
+<li>Package Freeze (end of the day on the Monday one week before release):<ul>
+<li>The intended release set is determined.</li>
+<li>Packages that have been tested will be promoted to the prerelease repository as they are ready.</li>
+<li>New packages that have short predictable testing cycle will be accepted for release.</li>
+</ul>
+</li>
+<li>Prerelease Freeze (2 PM Central on the Friday before release):<ul>
+<li>Last minute decision of which packages are included.</li>
+<li>Packages will be run through the automated tests just prior to release.</li>
+<li>Tarball clients will be created just prior to release.</li>
+</ul>
+</li>
+<li>Release (second or fourth Tuesday of the month):<ul>
+<li>The software packages are placed in the release repositories.</li>
+<li>The release is announced.</li>
+</ul>
+</li>
+</ul>
+<p>If a freeze date falls on a holiday, it will be moved to the next business day. Exceptions for freezes may be made at the discretion of the Release Manager.</p>
+<h2 id="example-schedule">Example Schedule<a class="headerlink" href="#example-schedule" title="Permanent link">&para;</a></h2>
+<p>Example schedule for the September 2017 release:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Phase</th>
+<th align="left">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Development Freeze</td>
+<td align="left">Monday, 8/28 at 5 PM</td>
+</tr>
+<tr>
+<td align="left">Package Freeze</td>
+<td align="left">Monday, 9/5 at 5 PM</td>
+</tr>
+<tr>
+<td align="left">Prerelease Freeze</td>
+<td align="left">Friday, 9/9 at 2 PM</td>
+</tr>
+<tr>
+<td align="left">Release</td>
+<td align="left">Tuesday, 9/12</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
@@ -419,10 +468,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../effort-tracking/" class="btn btn-neutral float-right" title="Effort Tracking">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../policy/gums-retire/" class="btn btn-neutral float-right" title="GUMS Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../rpm-development-guide/" class="btn btn-neutral" title="RPM Development Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../release-policy/" class="btn btn-neutral" title="Release Policy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -450,10 +499,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../rpm-development-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../release-policy/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../effort-tracking/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../policy/gums-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

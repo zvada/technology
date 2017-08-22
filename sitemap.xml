@@ -81,6 +81,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/release/release-schedule/</loc>
+     <lastmod>2017-08-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
