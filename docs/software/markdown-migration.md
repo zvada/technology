@@ -242,10 +242,10 @@ We use the [Pygments](http://pygments.org/) highlighting library for syntax; it 
 
 #### Highlighting user input  ####
 
-Within command blocks and file snippets, we've used `%RED%...%ENDCOLOR%`, `&lt;...&gt;`, etc. to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input:
+Within command blocks and file snippets, we've used `&lt;...&gt;` to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input. You may also use TWiki-style color highlighting. 
 
 ```console
-[root@client ~]# condor_ce_trace -d <CE HOSTNAME>
+[root@client ~]# condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
 ```
 
 #### Ordered Lists ####
