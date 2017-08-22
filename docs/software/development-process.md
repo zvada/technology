@@ -42,6 +42,10 @@ Current definitions:
 - maintenance: OSG 3.3 ( **branches/osg-3.3** )
 - current: OSG 3.4 ( **trunk** )
 
+<!--
+- future: OSG 3.5 ( *branches/osg-3.5* )
+-->
+
 Procedure:
 
 
@@ -58,6 +62,20 @@ Procedure:
 11. As needed (or directed by the Software manager), perform the cross-series tests (see below)
 
 **Note:** Do not change the RPM Release number in the **maintenance** branch before rebuilding; the %dist tag will differ automatically, and hence the **maintenance** and **current** NVRs will not conflict.
+
+<!--
+1. Make changes to the *trunk*
+2. Optionally, make and test a scratch build from the *trunk*
+3. Commit the changes
+4. Make an official build from the *trunk* (e.g.: `osg-build koji <PACKAGE>`)
+5. Perform the standard 4 tests for the *current* series (see below)
+6. Merge the relevant commits from the *trunk* into the *future* branch (see below for tips)
+7. Optionally, make and test a scratch build from the *future* branch
+8. Commit the merge
+9. Make an official build from the *future* branch (e.g.: `osg-build koji --repo=3.4 <PACKAGE>`)
+10. Perform install tests for the *future* series (see below)
+11. As needed (or directed by the Software manager), perform the cross-series tests (see below)
+-->
 
 ### Merging changes from one release series to another
 
