@@ -10,6 +10,7 @@ extra_css:
 pages:
   - Home: 'index.md'
   - Software:
+    - Development Process: 'software/development-process.md'
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
     - Koji Workflow: 'software/koji-workflow.md'
     - New Team Member: 'software/new-team-member.md'
