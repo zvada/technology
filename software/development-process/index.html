@@ -509,8 +509,8 @@ svn merge -c $commit2 \^/native/redhat/trunk/$pkg $pkg
 <p>Note that merge tracking in recent versions of SVN (1.5 or newer) should prevent commits from accidentally being merged multiple times. You should still look out for conflicts and examine the changes via <code>svn diff</code> before committing the merge.</p>
 <h2 id="testing-procedures">Testing Procedures<a class="headerlink" href="#testing-procedures" title="Permanent link">&para;</a></h2>
 <p>Before promoting a package to a testing repository, each build must be tested lightly from the development repos to make sure that it is not completely broken, thereby wasting time during acceptance testing. Normally, the person who builds a package performs the development testing.</p>
-<p><span style="color: \#F60;">If you are not doing your own development testing for a package,</span> contact the Software Manager and/or leave a comment in the associated ticket; otherwise, your package may never be promoted to testing and hence never released.</p>
-<h3 id="the-standard-4-tests-defined">The “Standard 4” tests, defined<a class="headerlink" href="#the-standard-4-tests-defined" title="Permanent link">&para;</a></h3>
+<p><strong>If you are not doing your own development testing for a package</strong>, contact the Software Manager and/or leave a comment in the associated ticket; otherwise, your package may never be promoted to testing and hence never released.</p>
+<h3 id="the-standard-4-tests-defined">The "Standard 4" tests, defined<a class="headerlink" href="#the-standard-4-tests-defined" title="Permanent link">&para;</a></h3>
 <p>In most cases, the Software manager will ask a developer to perform the “standard 4” tests on an updated package in a release series before promotion. This is a shorthand description for a standard set of 4 test runs:</p>
 <ul>
 <li>Fresh install on el6</li>
@@ -526,19 +526,19 @@ svn merge -c $commit2 \^/native/redhat/trunk/$pkg $pkg
 <li>For some changes, it will be necessary to perform careful functional tests of the affected component(s)</li>
 </ul>
 <p>If you have questions, check with the Software Manager to determine the amount of testing that is required per test run.</p>
-<h3 id="the-cross-series-test-defined">The “Cross-Series” test, defined<a class="headerlink" href="#the-cross-series-test-defined" title="Permanent link">&para;</a></h3>
+<h3 id="the-cross-series-test-defined">The "Cross-Series" test, defined<a class="headerlink" href="#the-cross-series-test-defined" title="Permanent link">&para;</a></h3>
 <p>The cross-series test may need to be run for packages that have been built for multiple release series of the OSG software stack (i.e. 3.3 and 3.4):</p>
 <ul>
 <li>On el6, install from the 3.3 repositories, then update from the 3.4 repositories</li>
 <li>On el7, install from the 3.3 repositories, then update from the 3.4 repositories</li>
 </ul>
 <p>Viewed another way, this test is similar to the update installs, above, except from 3.3-release to 3.4-development.</p>
-<h3 id="the-long-tail-tests-defined">The “Long Tail” tests, defined<a class="headerlink" href="#the-long-tail-tests-defined" title="Permanent link">&para;</a></h3>
+<h3 id="the-long-tail-tests-defined">The "Long Tail" tests, defined<a class="headerlink" href="#the-long-tail-tests-defined" title="Permanent link">&para;</a></h3>
 <p>These tests may need to be run when updating a package that's also in the old, unsupported (3.2) branch. They will consist of:</p>
 <ul>
 <li>Install from 3.2-release and update to 3.4-development (on el6 only)</li>
 </ul>
-<h3 id="the-full-set-of-tests-defined">The “full set of tests,” defined<a class="headerlink" href="#the-full-set-of-tests-defined" title="Permanent link">&para;</a></h3>
+<h3 id="the-full-set-of-tests-defined">The "full set of tests", defined<a class="headerlink" href="#the-full-set-of-tests-defined" title="Permanent link">&para;</a></h3>
 <p>All of the tests mentioned above.</p>
 <h3 id="running-the-tests-in-vm-universe">Running the tests in VM Universe<a class="headerlink" href="#running-the-tests-in-vm-universe" title="Permanent link">&para;</a></h3>
 <p>In the case that the package you're testing is covered by osg-tested-internal, you can run the full set of tests in a manual VM universe test run. Make sure you meet the <a href="https://github.com/opensciencegrid/vm-test-runs">pre-requisites</a> required to submit VM Universe jobs on <code>osghost.chtc.wisc.edu</code>. After that's done, you can prepare the test suite by running:</p>
