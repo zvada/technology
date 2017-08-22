@@ -114,9 +114,9 @@ Testing Procedures
 
 Before promoting a package to a testing repository, each build must be tested lightly from the development repos to make sure that it is not completely broken, thereby wasting time during acceptance testing. Normally, the person who builds a package performs the development testing.
 
-<span style="color: \#F60;">If you are not doing your own development testing for a package,</span> contact the Software Manager and/or leave a comment in the associated ticket; otherwise, your package may never be promoted to testing and hence never released.
+**If you are not doing your own development testing for a package**, contact the Software Manager and/or leave a comment in the associated ticket; otherwise, your package may never be promoted to testing and hence never released.
 
-### The “Standard 4” tests, defined
+### The "Standard 4" tests, defined
 
 In most cases, the Software manager will ask a developer to perform the “standard 4” tests on an updated package in a release series before promotion. This is a shorthand description for a standard set of 4 test runs:
 
@@ -135,7 +135,7 @@ For each test run, the amount of functional testing required will vary.
 
 If you have questions, check with the Software Manager to determine the amount of testing that is required per test run.
 
-### The “Cross-Series” test, defined
+### The "Cross-Series" test, defined
 
 The cross-series test may need to be run for packages that have been built for multiple release series of the OSG software stack (i.e. 3.3 and 3.4):
 
@@ -144,13 +144,13 @@ The cross-series test may need to be run for packages that have been built for m
 
 Viewed another way, this test is similar to the update installs, above, except from 3.3-release to 3.4-development.
 
-### The “Long Tail” tests, defined
+### The "Long Tail" tests, defined
 
 These tests may need to be run when updating a package that's also in the old, unsupported (3.2) branch. They will consist of:
 
 -   Install from 3.2-release and update to 3.4-development (on el6 only)
 
-### The “full set of tests,” defined
+### The "full set of tests", defined
 
 All of the tests mentioned above.
 
