@@ -12,6 +12,12 @@
     
         
     <url>
+     <loc>https://opensciencegrid.github.io/technology/software/development-process/</loc>
+     <lastmod>2017-08-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://opensciencegrid.github.io/technology/software/markdown-migration/</loc>
      <lastmod>2017-08-22</lastmod>
      <changefreq>daily</changefreq>
