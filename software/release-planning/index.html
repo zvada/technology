@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Effort Tracking - OSG Technology Area</title>
+  <title>Release Planning - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Effort Tracking";
-    var mkdocs_page_input_path = "software/effort-tracking.md";
-    var mkdocs_page_url = "/software/effort-tracking/";
+    var mkdocs_page_name = "Release Planning";
+    var mkdocs_page_input_path = "software/release-planning.md";
+    var mkdocs_page_url = "/software/release-planning/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -107,31 +107,31 @@
     <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
   
         </li>
+        <li class="">
+          
+  
+    <a class="" href="../effort-tracking/">Effort Tracking</a>
+  
+        </li>
         <li class=" current">
           
   
-    <a class="current" href="./">Effort Tracking</a>
+    <a class="current" href="./">Release Planning</a>
   
   <ul class="subnav">
       
-    <li class="toctree-l3"><a href="#effort-tracking">Effort Tracking</a></li>
+    <li class="toctree-l3"><a href="#plans-for-future-releases">Plans for Future Releases</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#basic-ideas">Basic Ideas</a></li>
+            <li><a class="toctree-l4" href="#osg-34-may-2017">OSG 3.4 (May 2017)</a></li>
         
-            <li><a class="toctree-l4" href="#effort-categories">Effort Categories</a></li>
+            <li><a class="toctree-l4" href="#previous-releases">Previous Releases</a></li>
         
         </ul>
     
 
   </ul>
-        </li>
-        <li class="">
-          
-  
-    <a class="" href="../release-planning/">Release Planning</a>
-  
         </li>
   </ul>
 	    </li>
@@ -401,10 +401,10 @@
         
       
     
-    <li>Effort Tracking</li>
+    <li>Release Planning</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/effort-tracking.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/release-planning.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -414,103 +414,121 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="effort-tracking">Effort Tracking<a class="headerlink" href="#effort-tracking" title="Permanent link">&para;</a></h1>
-<p>This page describes a simple plan for tracking effort in the OSG Technology teams.</p>
-<h2 id="basic-ideas">Basic Ideas<a class="headerlink" href="#basic-ideas" title="Permanent link">&para;</a></h2>
-<p>At its simplest, we would like to understand how much effort is spent on various OSG Technology activities over time. The focus is on having reasonably accurate, unbiased data. We might use the data later, for example, to hone future OSG proposals. And of course, all federal funding is subject to effort tracking.</p>
-<p>There are just a few simple ideas to keep in mind:</p>
-<ul>
-<li>
-<p><strong>Each week, report your effort on OSG Technology activities</strong></p>
-<p>Update your numbers in the effort tracking google spreadsheet (ask BrianL for access) and include a section in your weekly status report; here is an example:</p>
-<div class="codehilite"><pre><span></span>EFFORT
-External development: 63% 
-Support: 12% 
-Leave: 20% 
-Outside: 5
-</pre></div>
-
-
-</li>
-<li>
-<p><strong>Follow standard federal regulations for calculating effort</strong> (e.g., OMB Circular A-21)</p>
-<p>The main idea is that <strong>all</strong> of your job-related activity for a week equals 100%, whether that is exactly 40 hours of work, a little less (subject to your local institution’s rules), or more. This implies that the same hours worked could result in different effort percentages reported from week to week; for example, 4 hours in a 40-hour week is 10%, but 4 hours in a 50-hour week (which I hope is exceedingly rare) is 8%.</p>
-<p>Report 100% of your effort each week, but note that all effort outside of the Technology area falls into a single category. Unless you work at UW–Madison, we do not need to know any details about your effort outside of the Technology area. (BrianL will talk to UW–Madison folks about local expectations.)</p>
-<p>If you are assigned to the Technology area for less than 100%, please report your actual Technology effort accurately. Workloads vary from week to week. For example, suppose you are 50% Technology in general, but you actually work 24 hours in a 40-hour week; you should report 60% effort for that week. The goal is to present reality, not what you think management wants to see.</p>
-</li>
-<li>
-<p><strong>Effort is reported as <em>integer</em> percentages, no less accurate than 5% intervals</strong> 
-     So please do not report percentages like 43.21% and please do not round to the nearest 10%.</p>
-</li>
-</ul>
-<h2 id="effort-categories">Effort Categories<a class="headerlink" href="#effort-categories" title="Permanent link">&para;</a></h2>
-<p>Here are the categories in which to track effort:</p>
+                <h1 id="plans-for-future-releases">Plans for Future Releases<a class="headerlink" href="#plans-for-future-releases" title="Permanent link">&para;</a></h1>
+<p>This informal page is the mapping of "technology goals" (e.g., "release software Foo version X") to release numbers. It is meant to be updated as the releases evolve (and items are moved back in schedule). For package support policy between release series, see <a href="../../policy/release-series">this page</a>.</p>
+<p>Unless explicitly noted, bullet points refer to software in the release repo.</p>
+<p>This page is not meant to track minor bugfixes or updates -- rather, its focus should be new features.</p>
+<h2 id="osg-34-may-2017">OSG 3.4 (May 2017)<a class="headerlink" href="#osg-34-may-2017" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Investigations</th>
-<th>Work on the Investigations team</th>
+<th align="left">Package(s)</th>
+<th align="left">Change in osg-release</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>External</td>
-<td>Software work that (generally) benefits our users; e.g., creating packages; updating existing ones; designing, coding, and testing new tools, existing tools, patches, or our software components</td>
+<td align="left">BeStMan2</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"><a href="../../policy/bestman2-retire">Retirement policy</a></td>
 </tr>
 <tr>
-<td>Internal</td>
-<td>Software work on tools that we use to get work done; e.g., working on osg-test (for now), osg-build, Koji maintenance, the UW or UC ITB instances</td>
+<td align="left">edg-mkgridmap</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"><a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2600">SOFTWARE-2600</a></td>
 </tr>
 <tr>
-<td>Documentation</td>
-<td>Work on our TWiki or Markdown documentation</td>
+<td align="left">frontier-squid</td>
+<td align="left"><span style="color:maroon">Modify</span></td>
+<td align="left">Version 3</td>
 </tr>
 <tr>
-<td>Release</td>
-<td>Release team activities, primarily acceptance testing and cutting releases</td>
+<td align="left">glexec</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"><a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2600">SOFTWARE-2620</a></td>
 </tr>
 <tr>
-<td>Support</td>
-<td>User support, including working on GOC tickets, direct support emails, some JIRA tickets that are more support than development, etc. It might be tricky to decide when support work becomes development work; generally, once a support ticket turns into a JIRA ticket and goes through the normal development lifecycle, then the JIRA-based work is development. If there is still extensive communication with GOC ticket users, that is still support.</td>
+<td align="left">GRAM</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"><a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2600">SOFTWARE-2530</a></td>
 </tr>
 <tr>
-<td>Management</td>
-<td>This is mainly for team leads; e.g., managing team activities and tickets (generally); hiring; <strong>leading</strong> (not just attending) meetings</td>
+<td align="left">GUMS</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"><a href="../../policy/gums-retire">Retirement policy</a>, <a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2600">SOFTWARE-2600</a></td>
 </tr>
 <tr>
-<td>Education</td>
-<td><strong>Not for general learning or training activities</strong> The OSG Education area is essentially part of the Software area, because many technology-area members contribute to the OSG School. So this category is for OSG School effort (or other sanctioned OSG Education activities.</td>
+<td align="left">jglobus</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"><a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2600">SOFTWARE-2606</a></td>
 </tr>
 <tr>
-<td>Admin</td>
-<td>General administrative activities that benefit the OSG Technology area but that do not fit elsewhere — <strong>use sparingly!!</strong></td>
+<td align="left">netlogger</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td>Outside</td>
-<td>For all activities outside of the OSG Technology area (Madison team members should provide extra details, see BrianL)</td>
+<td align="left">osg-ce</td>
+<td align="left"><span style="color:maroon">Modify</span></td>
+<td align="left">Drop <a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2623">GridFTP</a>, <a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2482">gums-client</a></td>
 </tr>
 <tr>
-<td>Leave</td>
-<td>This is for holidays, vacation, and sick leave; count a full day of leave as 8.0 hours, count a half day as 4.0 hours</td>
+<td align="left">osg-info-services</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">osg-version</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">singularity</td>
+<td align="left"><span style="color:green">Add</span></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">voms-admin-server</td>
+<td align="left"><span style="color:red">Drop</span></td>
+<td align="left"><a href="../../policy/voms-admin-retire">Retirement policy</a></td>
 </tr>
 </tbody>
 </table>
-<p>A few thoughts about tricky situations:</p>
+<p>Track OSG 3.4 updates through its <a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2329">JIRA epic</a>.</p>
+<h3 id="support-policy-for-osg-33">Support Policy for OSG 3.3<a class="headerlink" href="#support-policy-for-osg-33" title="Permanent link">&para;</a></h3>
+<p>According to our <a href="../../policy/release-series">release support policy</a> and the release date of May 2017 for OSG 3.4, OSG 3.3 will receive routine software updates until November 2017 and critical updates until May 2018.</p>
+<h2 id="previous-releases">Previous Releases<a class="headerlink" href="#previous-releases" title="Permanent link">&para;</a></h2>
+<h3 id="12-november-2013">12 November 2013<a class="headerlink" href="#12-november-2013" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Meetings. If a meeting is specific to one of the categories above, use that category. If the meeting is more general (e.g., the weekly Monday meeting, or the OSG AHM), amortize your time according to your usual breakdown by category. For example, someone who spends nearly all of their time working on development tasks should count the Monday meeting as development time.</p>
+<li><strong>OSG 3.1</strong><ul>
+<li>HTCondor-CE with PBS</li>
+<li>osg-configure emits an ERROR if squid defaults are not changed ("UNAVAILABLE" is a valid change)</li>
+</ul>
 </li>
-<li>
-<p>Administrative activities. This is probably the trickiest category. It certainly covers any administrative work that pertains to your activity in the OSG Technology area. But what about administrative activities that pertain to your employment in general, and not to any particular activity? In that case, and that case only, you should amortize the administrative activity between <em>Admin</em> and <em>Outside</em> according to either (a) your appointment percentages between OSG Technology and non-Technology activities, or (b) your actual percentages between OSG Technology and non-Technology activities.</p>
+<li><strong>OSG 3.2</strong><ul>
+<li>Initial release (<a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SP021_NewVersions">how to create</a>)</li>
+<li>HDFS 2.0.0 (already done in Upcoming)</li>
+<li>HTCondor 8.0.4</li>
+<li>glideinWMS 3.2.0</li>
+<li>osg-info-services (Note: ReSS will likely be retired around year-end)</li>
+<li>OSG 3.1 updates</li>
+</ul>
 </li>
-<li>
-<p>Outside (non-Technology) activities that benefit the OSG Technology area. The simplest approach is to amortize the time. The more correct approach is to figure out where credit will be given for the work; if the OSG Annual Report will describe the work in one of the Technology sections, then it should be a Technology category; otherwise not.</p>
-</li>
-<li>
-<p>Learning activities. Put short amounts of learning time in their relevant development category. For instance, if Igor is showing Edgar how to use GlideTester, that goes into <em>Internal</em>. But for longer training events, or for events that are less obviously related to day-to-day activities, mark the time as <em>Admin</em>, and maybe add a comment explaining the activity.</p>
+<li><strong>Upcoming</strong><ul>
+<li>HTCondor 8.1 with unified RPM</li>
+<li>BOSCO</li>
+</ul>
 </li>
 </ul>
-<p>Ultimately, if you are not sure how to deal with a situation, ask BrianL and he will make something up and document it here (generically) for future reference.</p>
+<h3 id="10-december-2013">10 December 2013<a class="headerlink" href="#10-december-2013" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>OSG 3.2</strong><ul>
+<li>RSV-for-VOs</li>
+<li>Squid must be present on OSG-CE (??? what does this mean?)</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>
@@ -518,10 +536,10 @@ Outside: 5
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../release-planning/" class="btn btn-neutral float-right" title="Release Planning">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../release/cut-sw-release/" class="btn btn-neutral float-right" title="How to Cut a Release">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../upcoming-to-main/" class="btn btn-neutral" title="Upcoming to Main"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../effort-tracking/" class="btn btn-neutral" title="Effort Tracking"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -549,10 +567,10 @@ Outside: 5
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../upcoming-to-main/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../effort-tracking/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../release-planning/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../release/cut-sw-release/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
