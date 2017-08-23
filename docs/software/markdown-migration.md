@@ -86,7 +86,7 @@ The docker image contains a convenience script, `convert-twiki` for saving archi
 [user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% convert-twiki %RED%<TWIKI URL>%ENDCOLOR%
 ```
 
-Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `docs/archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess`, placed into the root of your local github repository. 
+Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess`, placed into the root of your local github repository. 
 
 !!! warning
     If the above command does not complete quickly, it means that Pandoc is having an issue with a specific section of the document. See [Troubleshooting conversion](#troubleshooting-conversion) for next steps.
@@ -181,8 +181,8 @@ docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github %RED%<T
 For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:
 
 ```bash
-$ mkdir -p docs/archive docs/projects
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
+$ mkdir -p archive docs/projects
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
 $ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance > docs/projects/sha2-support.md
 ```
 
@@ -318,18 +318,18 @@ If you see any other obvious errors (e.g., links to gratia web), feel free to co
 Archiving Documents
 -------------------
 
-If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the `docs/archive` folder of your local git repository:
+If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the `archive` folder of your local git repository:
 
 ``` console
 [user@client ~ ] $ cd technology/
-[user@client ~ ] $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > docs/archive/%RED%<TWIKI TITLE>%ENDCOLOR%
+[user@client ~ ] $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > archive/%RED%<TWIKI TITLE>%ENDCOLOR%
 ```
 
 For example:
 
 ``` console
 [user@client ~ ] $ cd technology
-[user@client ~ ] $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
+[user@client ~ ] $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
 ```
 
 After downloading the document, continue onto the next section to walk through pull request submission.
@@ -340,7 +340,7 @@ Submitting the pull request
 1. Stage the archived raw TWiki (as well as the converted Markdown document(s) and `mkdocs.yml` if you are converting the document):
 
         :::console
-        [user@client ~ ] $ git add mkdocs.yaml docs/archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
+        [user@client ~ ] $ git add mkdocs.yaml archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
 
 2. Commit and push your changes to your GitHub repo:
 
