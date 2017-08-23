@@ -18,6 +18,7 @@ pages:
     - CE Scale Testing: 'software/ce-test-scaling.md'
     - RPM Development Guide: 'software/rpm-development-guide.md'
     - Upcoming to Main: 'software/upcoming-to-main.md'
+    - Software Support: 'policy/software-support.md'
     - Effort Tracking: 'software/effort-tracking.md'
     - Release Planning: 'software/release-planning.md'
   - Release:
@@ -31,7 +32,6 @@ pages:
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
-    - Software Support: 'policy/software-support.md'
   - Infrastructure:
     - Koji Restore Recipe: 'infrastructure/koji-restore-recipe.md'
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
