@@ -107,6 +107,35 @@
     <a class="" href="../../software/upcoming-to-main/">Upcoming to Main</a>
   
         </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Software Support</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#software-team-support">Software Team Support</a></li>
+    
+
+    <li class="toctree-l3"><a href="#managing-osg-software-tickets">Managing OSG Software Tickets</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#incoming-tickets-operations-staff">Incoming tickets (Operations staff)</a></li>
+        
+            <li><a class="toctree-l4" href="#triage-duty-technology-area-staff">Triage duty (Technology Area staff)</a></li>
+        
+            <li><a class="toctree-l4" href="#handling-tickets">Handling tickets</a></li>
+        
+            <li><a class="toctree-l4" href="#direct-email-vs-support">Direct email vs. support</a></li>
+        
+            <li><a class="toctree-l4" href="#goc-ticket-vs-jira">GOC ticket vs. JIRA</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
         <li class="">
           
   
@@ -186,35 +215,6 @@
   
     <a class="" href="../globus-toolkit/">Globus Toolkit Support</a>
   
-        </li>
-        <li class=" current">
-          
-  
-    <a class="current" href="./">Software Support</a>
-  
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#software-team-support">Software Team Support</a></li>
-    
-
-    <li class="toctree-l3"><a href="#managing-osg-software-tickets">Managing OSG Software Tickets</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#incoming-tickets-operations-staff">Incoming tickets (Operations staff)</a></li>
-        
-            <li><a class="toctree-l4" href="#triage-duty-software-staff">Triage duty (Software staff)</a></li>
-        
-            <li><a class="toctree-l4" href="#handling-tickets">Handling tickets</a></li>
-        
-            <li><a class="toctree-l4" href="#direct-email-vs-support">Direct email vs. support</a></li>
-        
-            <li><a class="toctree-l4" href="#goc-ticket-vs-jira">GOC ticket vs. JIRA</a></li>
-        
-        </ul>
-    
-
-  </ul>
         </li>
   </ul>
 	    </li>
@@ -406,7 +406,7 @@
     
       
         
-          <li>Policy &raquo;</li>
+          <li>Software &raquo;</li>
         
       
     
@@ -432,8 +432,8 @@
 <li>The "Next Action" field will be set to "SOFTWARE TRIAGE".</li>
 <li>The Software pseudo-user has an email list as its "personal" email address. This is: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;">&#111;&#115;&#103;&#45;&#115;&#111;&#102;&#116;&#119;&#97;&#114;&#101;&#45;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#45;&#115;&#116;&#114;&#101;&#97;&#109;&#64;&#111;&#112;&#101;&#110;&#115;&#99;&#105;&#101;&#110;&#99;&#101;&#103;&#114;&#105;&#100;&#46;&#111;&#114;&#103;</a>.</li>
 </ol>
-<h2 id="triage-duty-software-staff">Triage duty (Software staff)<a class="headerlink" href="#triage-duty-software-staff" title="Permanent link">&para;</a></h2>
-<p>All OSG Software Team members who are at least 50% on the software team will share triage duty. Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:</p>
+<h2 id="triage-duty-technology-area-staff">Triage duty (Technology Area staff)<a class="headerlink" href="#triage-duty-technology-area-staff" title="Permanent link">&para;</a></h2>
+<p>All OSG Technology Area Team members who are at least 50% on the will share triage duty (except Brian Bockelman). Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:</p>
 <ul>
 <li>Watch the software incoming tickets. <strong>If a ticket has not been assigned to a software team member, you assign it appropriately.</strong> You are responsible for assigning all incoming tickets that haven't been assigned. This includes tickets that have arrived over the weekend or were not handled by the previous person on triage duty.</li>
 <li>If you can handle an incoming ticket, assign it to yourself and handle it. Leave the "software" user assigned to the ticket. Many tickets are common problems that most team members should be able to solve.</li>
@@ -460,6 +460,26 @@
 <p>Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our <a href="https://twiki.grid.iu.edu/bin/view/Documentation/Release3/#Software_Guides_Troubleshooting">troubleshooting documents</a>.</p>
 </li>
 </ol>
+<h3 id="updating-the-triage-calendar">Updating the triage calendar<a class="headerlink" href="#updating-the-triage-calendar" title="Permanent link">&para;</a></h3>
+<p>The calendar is hosted on Tim Cartwright’s Google Calendar account. If you need privileges to edit, ask Brian L. To update</p>
+<ol>
+<li>Update checkout (<a href="https://github.com/opensciencegrid/osg-triage-assignments">GitHub</a>)</li>
+<li>Generate next rotation:<div class="codehilite"><pre><span></span>./triage.py --generateNextRotation &gt; rotation.txt
+</pre></div>
+
+
+<ol>
+<li>Check and update assignments according to team member outages</li>
+<li>
+<p>Load triage assignments into Google Calendar:</p>
+<p>./triage.py --load rotation.txt</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>To subscribe to this calendar in your calendar program, use the iCal URL: <code>https://www.google.com/calendar/ical/h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com/public/basic.ics</code></p>
+<iframe src="https://www.google.com/calendar/embed?height=600&showPrint=0&wkst=1&bgcolor=%23FFFFFF&src=h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com&color=%232F6309&ctz=America%2FChicago" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
 <h2 id="handling-tickets">Handling tickets<a class="headerlink" href="#handling-tickets" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We need to take good care of our users. We are in a small community. Please be friendly and patient even when the user is frustrated or lacking in knowledge.</li>
@@ -493,10 +513,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../infrastructure/koji-restore-recipe/" class="btn btn-neutral float-right" title="Koji Restore Recipe">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../software/effort-tracking/" class="btn btn-neutral float-right" title="Effort Tracking">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../globus-toolkit/" class="btn btn-neutral" title="Globus Toolkit Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../software/upcoming-to-main/" class="btn btn-neutral" title="Upcoming to Main"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -524,10 +544,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../globus-toolkit/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../software/upcoming-to-main/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../infrastructure/koji-restore-recipe/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../software/effort-tracking/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

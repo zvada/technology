@@ -60,6 +60,12 @@
     </url>
         
     <url>
+     <loc>https://opensciencegrid.github.io/technology/policy/software-support/</loc>
+     <lastmod>2017-08-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://opensciencegrid.github.io/technology/software/effort-tracking/</loc>
      <lastmod>2017-08-23</lastmod>
      <changefreq>daily</changefreq>
@@ -129,12 +135,6 @@
         
     <url>
      <loc>https://opensciencegrid.github.io/technology/policy/globus-toolkit/</loc>
-     <lastmod>2017-08-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://opensciencegrid.github.io/technology/policy/software-support/</loc>
      <lastmod>2017-08-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
