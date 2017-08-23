@@ -11,9 +11,9 @@ When a ticket arrives at the GOC and the Operations staff member decides that th
 2.  The "Next Action" field will be set to "SOFTWARE TRIAGE".
 3.  The Software pseudo-user has an email list as its "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
 
-## Triage duty (Software staff)
+## Triage duty (Technology Area staff)
 
-All OSG Software Team members who are at least 50% on the software team will share triage duty. Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:
+All OSG Technology Area Team members who are at least 50% on the will share triage duty (except Brian Bockelman). Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:
 
 -   Watch the software incoming tickets. **If a ticket has not been assigned to a software team member, you assign it appropriately.** You are responsible for assigning all incoming tickets that haven't been assigned. This includes tickets that have arrived over the weekend or were not handled by the previous person on triage duty.
 -   If you can handle an incoming ticket, assign it to yourself and handle it. Leave the "software" user assigned to the ticket. Many tickets are common problems that most team members should be able to solve.
@@ -40,6 +40,23 @@ Note that if you follow the above, we will end up with three assignees to each t
     3.  The Software team member who will handle the ticket
 
     Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://twiki.grid.iu.edu/bin/view/Documentation/Release3/#Software_Guides_Troubleshooting).
+
+### Updating the triage calendar ###
+
+The calendar is hosted on Tim Cartwright’s Google Calendar account. If you need privileges to edit, ask Brian L. To update
+
+1.  Update checkout ([GitHub](https://github.com/opensciencegrid/osg-triage-assignments))
+2.  Generate next rotation:
+
+        ./triage.py --generateNextRotation > rotation.txt
+3.  Check and update assignments according to team member outages
+4.  Load triage assignments into Google Calendar:
+
+        ./triage.py --load rotation.txt
+
+To subscribe to this calendar in your calendar program, use the iCal URL: `https://www.google.com/calendar/ical/h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com/public/basic.ics`
+
+<iframe src="https://www.google.com/calendar/embed?height=600&showPrint=0&wkst=1&bgcolor=%23FFFFFF&src=h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com&color=%232F6309&ctz=America%2FChicago" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 ## Handling tickets
 
