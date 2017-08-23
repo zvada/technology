@@ -1,0 +1,80 @@
+---+ OSG Technology Area Meeting, 20 February 2017
+*Coordinates:* Conference: 857-216-4999, PIN: 32390; [[https://www.uberconference.com/osgcat]] 
+
+*Attending:* !BrianL, Carl, Derek, Marian, Mat, Suchandra, !TimC 
+
+
+---++ Announcements
+---+++ Triage Duty
+   * This week: Edgar 
+   * Next week: Mat 
+   * 6 (&minus;1) open tickets 
+
+
+---+++ JIRA
+|*# of tickets*|*&Delta;*|*State*|
+|158|(+1)|Open|
+|24|(0)|In Progress|
+|2|(+2)|Ready for Testing|
+|0|(&minus;12)|Ready for Release|
+
+
+---+++ Release Schedule
+%TABLE{sort="off"}%
+| *Name* | *Version* | *Development Freeze* | *Package Freeze* | *Release* | *Notes* |
+| March | 3.3.22 | 2017-02-27 | 2017-03-06 | 2017-03-14 | |
+| April | 3.3.23 | 2017-03-27 | 2017-04-03 | 2017-04-11 | |
+| May | 3.3.24 | 2017-04-25 | 2017-05-01 | 2017-05-09 | |
+
+Notes: Additional “urgent” releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release. 
+
+
+---++ OSG Software Team
+---+++ Discussions
+Given the timing of the March release cycle (shipping right after the AHM), and the number of tickets flagged for March already, please try to get as many tickets done as early as possible. The release team needs time to do proper testing. 
+
+
+---+++ Support Update
+   * KU (Derek, Suchandra) - Hosted CE is starting up.  Just getting things configured. 
+
+
+---++ OSG Release Team
+   * March 14th Release - OSG 3.3.22
+      * Tim Theisen is handling the [[https://jira.opensciencegrid.org/issues/?jql=project%2520%253D%2520SOFTWARE%2520AND%2520labels%2520in%2520%25283.3.22%2529%2520ORDER%2520BY%2520status%2520ASC%252C%2520priority%2520DESC%252C%2520assignee%2520ASC][March 14th Release]]
+      * Development Freeze next week
+   * Data Release - VO Package v71
+
+|3.3.22|&Delta;|Status|
+|15|(+15)|Open|
+|11|(+11)|In Progress|
+|2|(+2)|Ready for Testing|
+|0|(+0)|Ready for Release|
+|28|(+28)|Total|
+
+---+++ OSG 3.3.22
+   * Testing
+      * !XRootD 4.6.0
+      * frontier-squid 3.5.24-1.1 in Upcoming
+
+---+++ Discussions
+None this week 
+
+
+---++ OSG Investigations Team
+---+++ Last Week
+   * GRACC Transfer Summaries 
+   * Syracuse !StashCache running now. 
+   * Packaged Auth !StashCache is coming from Marian. 
+
+
+---+++ This Week
+   * Finish GRACC Tickets 
+   * Blahp Merge 
+   * Begin PEARC paper 
+
+
+---+++ Ongoing
+   * Gratia V2: Derek will be working on this.  Jira project: [[https://jira.opensciencegrid.org/browse/GRACC/][GRACC]].  Project documentation located at [[https://opensciencegrid.github.io/gracc]].  
+   * New !StashCache server packaging that is coming out of our collaboration with Syracuse. Authenticated !StashCache Package incoming after papers completed.  
+   * UNL setting up authenticated !StashCache as well 
+   * See Support Update section - !StashCache troubleshooting at BNL, host migration to el7 caused some odd xrootd behavior, investigating
