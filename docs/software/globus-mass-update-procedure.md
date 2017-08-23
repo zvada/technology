@@ -14,31 +14,35 @@ Get packages to update, using `osg-outdated-epel-pkgs` from `opensciencegrid/too
 
 To get in N-V-R format:
 
-``` screen
-./osg-outdated-epel-pkgs | egrep '^(globus|myproxy|gsi)' | awk 'BEGIN {OFS=""} {print $1, "-", $3}'
+``` console
+[you@host]$ ./osg-outdated-epel-pkgs | \
+    egrep '^(globus|myproxy|gsi)' | \
+    awk 'BEGIN {OFS=""} {print $1, "-", $3}'
 ```
 
 or to split up N and V-R in a comma-separated way (which you can feed into a Google Sheet to turn it into two columns):
 
-``` screen
-./osg-outdated-epel-pkgs | egrep '^(globus|myproxy|gsi)' | awk 'BEGIN {OFS=""} {print $1, ",", $3}'
+``` console
+[you@host]$ ./osg-outdated-epel-pkgs | \
+    egrep '^(globus|myproxy|gsi)' | \
+    awk 'BEGIN {OFS=""} {print $1, ",", $3}'
 ```
 
 ### SVN
 
 Create a separate SVN branch and populate it with all the packages you will update. (Get the list from the doc created above).
 
-``` screen
+``` console
 [you@uw]$ svn mkdir file:///p/vdt/workspace/svn/native/redhat/branches/globus
 ### From a checkout, in native/redhat
-[you@uw]$ for x in %RED<PACKAGES>%ENDCOLOR%; do
-     svn copy $x branches/globus/${x#trunk/}
+[you@uw]$ for x in %RED%<PACKAGES>%ENDCOLOR%; do \
+     svn copy $x branches/globus/${x#trunk/}; \
    done
 ```
 
 ### Koji (Mat/Carl)
 
-This requires a Koji administrator. Current Koji admins are Main.MatyasSelmeci and Main.CarlEdquist.
+This requires a Koji administrator. Koji admins as of August 2017 are Mat Selmeci and Carl Edquist.
 
 Ensure Koji tags exist: a destination tag, and a build tag, one for each dver, e.g.:
 
@@ -49,34 +53,34 @@ Ensure Koji tags exist: a destination tag, and a build tag, one for each dver, e
 
 Set up tag inheritence: base the build tags off of the corresponding `dist-el?-build` tag. This is because we don't want old osg packages interfering with the new versions we're building. These may already exist -- check the `el?-globus-build` tags in the web interface.
 
-``` screen
-[you@client]$ for el in el6 el7; do
+``` console
+[you@host]$ for el in el6 el7; do \
         osg-koji add-tag --parent=dist-$el-build \
-            --arches=x86_64 $el-globus-build
+            --arches=x86_64 $el-globus-build; \
     done
 ```
 
 Tag `buildsys-macros` for the OSG release into the build tags:
 
-``` screen
-[you@client]$ for el in el6 el7; do
-       buildsys_macros_nvr=$(osg-koji -q list-tagged osg-3.4-$el-development
-         buildsys-macros --latest | awk '{print $1}')
-       osg-koji tag-pkg $el-globus-build $buildsys_macros_nvr
+``` console
+[you@host]$ for el in el6 el7; do \
+       buildsys_macros_nvr=$(osg-koji -q list-tagged osg-3.4-$el-development \
+         buildsys-macros --latest | awk '{print $1}'); \
+       osg-koji tag-pkg $el-globus-build $buildsys_macros_nvr; \
    done
 ```
 
 Ensure Koji targets exist, one for each dver, e.g.:
 
--   el6-globus (el6-globus-build → el6-globus)
--   el7-globus (el7-globus-build → el7-globus)
--   kojira-fake-el6-globus (el6-globus → kojira-fake)
--   kojira-fake-el7-globus (el7-globus → kojira-fake)
+-   el6-globus (el6-globus-build &rarr; el6-globus)
+-   el7-globus (el7-globus-build &rarr; el7-globus)
+-   kojira-fake-el6-globus (el6-globus &rarr; kojira-fake)
+-   kojira-fake-el7-globus (el7-globus &rarr; kojira-fake)
 
-``` screen
-[you@client]$ for el in el6 el7; do
-       osg-koji add-target $el-globus $el-globus-build $el-globus
-       osg-koji add-target kojira-fake-$el-globus $el-globus kojira-fake
+``` console
+[you@host]$ for el in el6 el7; do \
+       osg-koji add-target $el-globus $el-globus-build $el-globus; \
+       osg-koji add-target kojira-fake-$el-globus $el-globus kojira-fake; \
    done
 ```
 
@@ -92,34 +96,45 @@ Per-package work
 
 A useful alias:
 
-``` screen
-alias osg-build-globus="osg-build koji --ktt el6-globus --ktt el7-globus"
+``` console
+[you@host]$ alias osg-build-globus="osg-build koji --ktt el6-globus --ktt el7-globus"
 ```
 
 ### Strict pass-through (no osg/ directory)
 
-1.  &lt;pre class="screen"&gt;
+1.  Run:
 
-\[<you@uw>\]$ osg-import-srpm "$url" \[<you@uw>\]$ osg-build-globus --scratch $pkg &lt;/pre&gt;
+        :::console
+        [you@uw]$ osg-import-srpm "%RED%<URL>%ENDCOLOR%"
+        [you@uw]$ osg-build-globus --scratch %RED%<PKG>%ENDCOLOR%
 
-1.  Commit - use a message like:&lt;pre&gt;
 
-Update to 3.12-1 from EPEL (SOFTWARE-2197) &lt;/pre&gt;
+2.  Commit - use a message like "Update to 3.12-1 from EPEL (SOFTWARE-2197)"
 
-1.  Do a non-scratch build.
+3.  Do a non-scratch build.
 
 ### Non-strict pass-through
 
-1.  &lt;pre class="screen"&gt;\[<you@uw>\]$ osg-import-srpm --diff3 "$url"&lt;/pre&gt;
+1.  Run:
+
+        :::console
+        [you@uw]$ osg-import-srpm --diff3 "%RED%<URL>%ENDCOLOR%"
+
 2.  Fix merge conflicts in the spec file. If not already there, put a .1 after the Release number to mark the changes as ours.
-3.  &lt;pre class="screen"&gt;\[<you@uw>\]$ osg-build quilt $pkg&lt;/pre&gt;
+3.  Run:
+
+        :::console
+        [you@uw]$ osg-build quilt %RED%<PKG>%ENDCOLOR%
+
 4.  Fix patches if necessary.
-5.  &lt;pre class="screen"&gt;\[<you@uw>\]$ osg-build-globus --scratch $pkg&lt;/pre&gt;
-6.  Commit - use a message like:&lt;pre&gt;
+5.  Run:
 
-Update to 8.29-1 from EPEL and merge OSG changes (SOFTWARE-2197) &lt;/pre&gt;
+        :::console
+        [you@uw>]$ osg-build-globus --scratch %RED%<PKG>%ENDCOLOR%
 
-1.  Do a non-scratch build.
+6.  Commit - use a message like "Update to 8.29-1 from EPEL and merge OSG changes (SOFTWARE-2197)"
+
+7.  Do a non-scratch build.
 
 Testing
 -------
@@ -128,7 +143,7 @@ Create a yum `.repo` file similar to `osg-minefield` that installs from the `el?
 
 EL7 example:
 
-``` file
+``` ini
 [globus]
 name=globus
 baseurl=http://koji.chtc.wisc.edu/mnt/koji/repos/el7-globus/latest/$basearch/
@@ -145,16 +160,26 @@ Merge
 
 ### Koji (Mat/Carl)
 
-This requires a Koji administrator. Current Koji admins are Main.MatyasSelmeci and Main.CarlEdquist.
+This requires a Koji administrator. Koji admins as of August 2017 are Mat Selmeci and Carl Edquist.
 
 1.  Untag broken versions that we don't want to ship.
-2.  Use `move-pkg`:&lt;pre class="screen"&gt;
+2.  Use `move-pkg`:
 
-\[<you@client>\]$ for el in el6 el7; do osg-koji -q list-tagged ${el}-globus | awk '{print $1}' &gt; ${el}-tagged.txt done \#\#\# Check the txts if they look sane \[<you@client>\]$ for el in el6 el7; do xargs -a ${el}-tagged.txt osg-koji move-pkg ${el}-globus osg-3.3-${el}-development done &lt;/pre&gt;
+        :::console
+        [you@host>]$ for el in el6 el7; do \
+                osg-koji -q list-tagged ${el}-globus | \
+                    awk '{print $1}' > ${el}-tagged.txt; \
+            done
+        ### Check the txts if they look sane
+        [you@host>]$ for el in el6 el7; do \
+                xargs -a ${el}-tagged.txt \
+                    osg-koji move-pkg ${el}-globus \
+                        osg-3.3-${el}-development; \
+            done
 
 ### SVN
 
 1.  Merge from `trunk` to `branches/globus` first, to pick up any globus changes that may have happened in trunk.
 2.  Merge from `branches/globus` to `trunk`.
-3.  Move `branches/globus` to `tags/globus-<em>DATE</em>`.
+3.  Move `branches/globus` to `tags/globus-%RED%<DATE>%ENDCOLOR%`.
 
