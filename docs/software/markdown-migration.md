@@ -18,6 +18,9 @@ Once you've chosen the target repository for your document, move onto the next s
 Automatic TWiki conversion
 --------------------------
 
+!!! note
+    If you are only archiving the documents, skip to this [section](#archiving-documents).
+
 Choose one of the following methods for converting TWiki documents:
 
 - Using our own [docker conversion image](#using-docker) (recommended)
@@ -152,17 +155,7 @@ This method requires the following:
 
 #### Archiving the TWiki document ####
 
-Save the raw TWiki file into the `docs/archive/` folder of your local git repository:
-
-```console
-[user@client ~] $ curl '<TWIKI URL>?raw=text' | iconv -f windows-1252 > docs/archive/<TWIKI TITLE>
-```
-
-For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:
-
-```console
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
-```
+Follow the instructions for [archival](#archiving-documents) then continue to the next section to convert the document with pandoc.
 
 #### Initial conversion with Pandoc ####
 
@@ -322,13 +315,32 @@ and
 
 If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc *iff* the changes take less than ~15 minutes. This isn't a renovation project!
 
+Archiving Documents
+-------------------
+
+If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the `docs/archive` folder of your local git repository:
+
+``` console
+[user@client ~ ] $ cd technology/
+[user@client ~ ] $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > docs/archive/%RED%<TWIKI TITLE>%ENDCOLOR%
+```
+
+For example:
+
+``` console
+[user@client ~ ] $ cd technology
+[user@client ~ ] $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
+```
+
+After downloading the document, continue onto the next section to walk through pull request submission.
+
 Submitting the pull request
 ---------------------------
 
-1. Stage the archived raw TWiki, the converted Markdown document(s), and `mkdocs.yml`:
+1. Stage the archived raw TWiki (as well as the converted Markdown document(s) and `mkdocs.yml` if you are converting the document):
 
         :::console
-        [user@client ~ ]$ git add mkdocs.yaml docs/archive/<TWIKI ARCHIVE> <PATH TO CONVERTED DOC>
+        [user@client ~ ] $ git add mkdocs.yaml docs/archive/<TWIKI ARCHIVE> <PATH TO CONVERTED DOC>
 
 2. Commit and push your changes to your GitHub repo:
 
@@ -337,19 +349,24 @@ Submitting the pull request
         [user@client ~ ] $ git push origin <BRANCH NAME>
 
 3. Open your browser and navigate to your GitHub fork
-4. Submit a pull request containing the following tasks in the body:
+4. Submit a pull request containing with the following body:
 
         <LINK TO TWIKI DOCUMENT>
 
         - [ ] Enter date into "Migrated" column of google sheet
-        - [ ] Add migration header to TWiki document
+    - If you are migrating a document, also add this task:
+
+            - [ ] Add migration header to TWiki document
+    - If you are archiving a document, add this task:
+
+            - [ ] Move TWiki document to the trash
 
 See an example pull request [here](https://github.com/opensciencegrid/technology/pull/98).
 
 After the pull request
 ----------------------
 
-After the pull request is merged, replace the contents of TWiki document with the div, linking to the location of the migrated document:
+After the pull request is merged, replace the contents of TWiki document with the div if you're migrating the document, linking to the location of the migrated document:
 
 ```
 <div style="border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;">
@@ -364,7 +381,7 @@ At the end of year (2017), the TWiki will be retired in favor of !GitHub. You ca
 </div>
 ```
 
-Once the div has been added, update the spreadsheet and go back to your pull request and mark your tasks as complete:
+If you are archiving a document, move it to the trash instead. Once the document has been updated or trashed, add the date to the spreadsheet and go back to your pull request and mark your tasks as complete. For example, if you completed the migration of a document:
 
 ```
 - [X] Enter date into "Migrated" column of google sheet
