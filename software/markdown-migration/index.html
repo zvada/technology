@@ -524,7 +524,7 @@
 </pre></div>
 
 
-<p>Where <span style="color:red"><CONTAINER ID></span> is the docker container ID and <span style="color:red"><TWIKI URL></span> is the link to the TWiki document that you want to convert, e.g. <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess">https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess</a>. This will result in an archive of the twiki doc, <code>docs/archive/SoftwareDevelopmentProcess</code>, in your local repo and a converted copy, <code>SoftwareDevelopmentProcess</code>, placed into the root of your local github repository. </p>
+<p>Where <span style="color:red"><CONTAINER ID></span> is the docker container ID and <span style="color:red"><TWIKI URL></span> is the link to the TWiki document that you want to convert, e.g. <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess">https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess</a>. This will result in an archive of the twiki doc, <code>archive/SoftwareDevelopmentProcess</code>, in your local repo and a converted copy, <code>SoftwareDevelopmentProcess</code>, placed into the root of your local github repository. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If the above command does not complete quickly, it means that Pandoc is having an issue with a specific section of the document. See <a href="#troubleshooting-conversion">Troubleshooting conversion</a> for next steps.</p>
@@ -623,8 +623,8 @@
 
 
 <p>For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:</p>
-<div class="codehilite"><pre><span></span>$ mkdir -p docs/archive docs/projects
-$ curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/SHA2Compliance
+<div class="codehilite"><pre><span></span>$ mkdir -p archive docs/projects
+$ curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/SHA2Compliance
 $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance &gt; docs/projects/sha2-support.md
 </pre></div>
 
@@ -759,15 +759,15 @@ SNIPPET
 <h3 id="obvious-errors">Obvious errors<a class="headerlink" href="#obvious-errors" title="Permanent link">&para;</a></h3>
 <p>If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc <em>iff</em> the changes take less than ~15 minutes. This isn't a renovation project!</p>
 <h2 id="archiving-documents">Archiving Documents<a class="headerlink" href="#archiving-documents" title="Permanent link">&para;</a></h2>
-<p>If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the <code>docs/archive</code> folder of your local git repository:</p>
+<p>If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the <code>archive</code> folder of your local git repository:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> <span class="nb">cd</span> technology/
-<span class="gp">[user@client ~ ] $</span> curl <span class="s1">&#39;<span style="color:red">&lt;TWIKI URL&gt;</span>?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/<span style="color:red">&lt;TWIKI TITLE&gt;</span>
+<span class="gp">[user@client ~ ] $</span> curl <span class="s1">&#39;<span style="color:red">&lt;TWIKI URL&gt;</span>?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/<span style="color:red">&lt;TWIKI TITLE&gt;</span>
 </pre></div>
 
 
 <p>For example:</p>
 <div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> <span class="nb">cd</span> technology
-<span class="gp">[user@client ~ ] $</span> curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; docs/archive/SHA2Compliance
+<span class="gp">[user@client ~ ] $</span> curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/SHA2Compliance
 </pre></div>
 
 
@@ -776,7 +776,7 @@ SNIPPET
 <ol>
 <li>
 <p>Stage the archived raw TWiki (as well as the converted Markdown document(s) and <code>mkdocs.yml</code> if you are converting the document):</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git add mkdocs.yaml docs/archive/<span style="color:red">&lt;TWIKI ARCHIVE&gt;</span> <span style="color:red">&lt;PATH TO CONVERTED DOC&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git add mkdocs.yaml archive/<span style="color:red">&lt;TWIKI ARCHIVE&gt;</span> <span style="color:red">&lt;PATH TO CONVERTED DOC&gt;</span>
 </pre></div>
 
 
@@ -820,8 +820,8 @@ Background:
 
 At the end of year (2017), the TWiki will be retired in favor of !GitHub. You can find the various TWiki webs and their new !GitHub locations listed below:
 
-   * Release3: https://opensciencegrid.github.io/docs
-   * !SoftwareTeam: https://opensciencegrid.github.io/technology
+   * Release3: https://opensciencegrid.github.io/docs ([[https://github.com/opensciencegrid/docs/tree/master/archive][archive]])
+   * !SoftwareTeam: https://opensciencegrid.github.io/technology ([[https://github.com/opensciencegrid/technology/tree/master/archive][archive]]
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
 
