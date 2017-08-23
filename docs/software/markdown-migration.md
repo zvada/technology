@@ -18,9 +18,6 @@ Once you've chosen the target repository for your document, move onto the next s
 Automatic TWiki conversion
 --------------------------
 
-!!! note
-    If you are only archiving the documents, skip to this [section](#archiving-documents).
-
 Choose one of the following methods for converting TWiki documents:
 
 - Using our own [docker conversion image](#using-docker) (recommended)
@@ -46,17 +43,17 @@ If you cannot install the above tools locally, they are available on `osghost`. 
 3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
 
         :::console
-        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
+        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/<REPOSITORY>.git
 
 4. Create a branch for the document you plan to convert:
 
         :::console
-        [user@client ~ ] $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
+        [user@client ~ ] $ git branch <BRANCH NAME> master
 
 5. Change to the branch you just created
 
         :::console
-        [user@client ~ ] $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
+        [user@client ~ ] $ git checkout <BRANCH NAME>
 
 #### Previewing the document tree ####
 
@@ -65,7 +62,7 @@ When starting a twiki-converter docker container, it expects your local github r
 1. Create a container from the image with the following command:
 
         :::console
-        [user@client ~ ] $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 twiki
+        [user@client ~ ] $ docker run -d -v <PATH TO LOCAL GITHUB REPO>:/source -p 8000 twiki
     The above command should return the container ID, which will be used in subsequent commands. 
 
     !!! note
@@ -74,7 +71,7 @@ When starting a twiki-converter docker container, it expects your local github r
 2. To find the port that your development server is lisetning on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:
 
         :::console
-        [user@client ~ ] $ docker port %RED%<CONTAINER ID>%ENDCOLOR%
+        [user@client ~ ] $ docker port <CONTAINER ID>
 
 3. Access the development server in your browser via `http://osghost.chtc.wisc.edu:<PORT>` or `localhost:<PORT>` for containers run on `osghost` or locally, respectively. `osghost` has a restrictive firewall so if you have issues accessing your container from outside of the UW-Madison campus, use an SSH tunnel to map the `osghost` port to a local port.
 
@@ -83,10 +80,10 @@ When starting a twiki-converter docker container, it expects your local github r
 The docker image contains a convenience script, `convert-twiki` for saving archives and converting them to Markdown. To run the script in a running container, run the following command:
 
 ```console
-[user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% convert-twiki %RED%<TWIKI URL>%ENDCOLOR%
+[user@client ~ ] $ docker exec <CONTAINER ID> convert-twiki <TWIKI URL>
 ```
 
-Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `docs/archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess`, placed into the root of your local github repository. 
+Where <CONTAINER ID> is the docker container ID and <TWIKI URL> is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `docs/archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess`, placed into the root of your local github repository. 
 
 !!! warning
     If the above command does not complete quickly, it means that Pandoc is having an issue with a specific section of the document. See [Troubleshooting conversion](#troubleshooting-conversion) for next steps.
@@ -110,13 +107,13 @@ Pandoc sometimes has issues converting documents and requires manual interventio
 2. Kill the process in the docker container:
 
         :::console
-        [user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pkill -9 pandoc
+        [user@client ~ ] $ docker exec <CONTAINER ID> pkill -9 pandoc
 
 3. Remove a section from the copy of the archive to find the problematic section (recommendation: use a binary search strategy)
 4. Run pandoc manually:
 
         :::console
-        [user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pandoc -f twiki -t markdown_github %RED%<ARCHIVE COPY>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
+        [user@client ~ ] $ docker exec <CONTAINER ID> pandoc -f twiki -t markdown_github <ARCHIVE COPY> > <MARKDOWN FILE>
 
 5. Repeat steps 2-4 until you've narrowed down the problematic section
 6. Manually convert the offending section
@@ -141,28 +138,38 @@ This method requires the following:
 3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
 
         :::console
-        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
+        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/<REPOSITORY>.git
 
 4. Create a branch for the document you plan to convert:
 
         :::console
-        [user@client ~ ] $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
+        [user@client ~ ] $ git branch <BRANCH NAME> master
 
 5. Change to the branch you just created
 
         :::console
-        [user@client ~ ] $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
+        [user@client ~ ] $ git checkout <BRANCH NAME>
 
 #### Archiving the TWiki document ####
 
-Follow the instructions for [archival](#archiving-documents) then continue to the next section to convert the document with pandoc.
+Save the raw TWiki file into the `docs/archive/` folder of your local git repository:
+
+```console
+[user@client ~] $ curl '<TWIKI URL>?raw=text' | iconv -f windows-1252 > docs/archive/<TWIKI TITLE>
+```
+
+For example, to archive https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance:
+
+```console
+$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
+```
 
 #### Initial conversion with Pandoc ####
 
 [Pandoc](http://pandoc.org/) is a tool that's useful for automated conversion of markdown languages. [Once installed](http://pandoc.org/installing.html) (alternatively, run pandoc [via docker](#using-docker)), run the following command to convert TWiki to Markdown:
 
 ```console
-$ pandoc -f twiki -t markdown_github %RED%<TWIKI FILE>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
+$ pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
 ```
 
 Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN FILE>` is the path to the resulting document in GitHub Markdown.
@@ -175,7 +182,7 @@ Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN
 The `pandoc` library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install `pandoc` but have access to docker, you can run the following command:
 
 ```bash
-docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github %RED%<TWIKI FILE>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
+docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github <TWIKI FILE> > <MARKDOWN FILE>
 ```
 
 For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:
@@ -315,58 +322,34 @@ and
 
 If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc *iff* the changes take less than ~15 minutes. This isn't a renovation project!
 
-Archiving Documents
--------------------
-
-If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the `docs/archive` folder of your local git repository:
-
-``` console
-[user@client ~ ] $ cd technology/
-[user@client ~ ] $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > docs/archive/%RED%<TWIKI TITLE>%ENDCOLOR%
-```
-
-For example:
-
-``` console
-[user@client ~ ] $ cd technology
-[user@client ~ ] $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > docs/archive/SHA2Compliance
-```
-
-After downloading the document, continue onto the next section to walk through pull request submission.
-
 Submitting the pull request
 ---------------------------
 
-1. Stage the archived raw TWiki (as well as the converted Markdown document(s) and `mkdocs.yml` if you are converting the document):
+1. Stage the archived raw TWiki, the converted Markdown document(s), and `mkdocs.yml`:
 
         :::console
-        [user@client ~ ] $ git add mkdocs.yaml docs/archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
+        [user@client ~ ]$ git add mkdocs.yaml docs/archive/<TWIKI ARCHIVE> <PATH TO CONVERTED DOC>
 
 2. Commit and push your changes to your GitHub repo:
 
         :::console
-        [user@client ~ ] $ git commit -m "%RED%<COMMIT MSG>%ENDCOLOR%"
-        [user@client ~ ] $ git push origin %RED%<BRANCH NAME>%ENDCOLOR%
+        [user@client ~ ] $ git commit -m "<COMMIT MSG>"
+        [user@client ~ ] $ git push origin <BRANCH NAME>
 
 3. Open your browser and navigate to your GitHub fork
-4. Submit a pull request containing with the following body:
+4. Submit a pull request containing the following tasks in the body:
 
-        %RED%<LINK TO TWIKI DOCUMENT>%ENDCOLOR%
+        <LINK TO TWIKI DOCUMENT>
 
         - [ ] Enter date into "Migrated" column of google sheet
-    - If you are migrating a document, also add this task:
-
-            - [ ] Add migration header to TWiki document
-    - If you are archiving a document, add this task:
-
-            - [ ] Move TWiki document to the trash
+        - [ ] Add migration header to TWiki document
 
 See an example pull request [here](https://github.com/opensciencegrid/technology/pull/98).
 
 After the pull request
 ----------------------
 
-After the pull request is merged, replace the contents of TWiki document with the div if you're migrating the document, linking to the location of the migrated document:
+After the pull request is merged, replace the contents of TWiki document with the div, linking to the location of the migrated document:
 
 ```
 <div style="border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;">
@@ -381,7 +364,7 @@ At the end of year (2017), the TWiki will be retired in favor of !GitHub. You ca
 </div>
 ```
 
-If you are archiving a document, move it to the trash instead. Once the document has been updated or trashed, add the date to the spreadsheet and go back to your pull request and mark your tasks as complete. For example, if you completed the migration of a document:
+Once the div has been added, update the spreadsheet and go back to your pull request and mark your tasks as complete:
 
 ```
 - [X] Enter date into "Migrated" column of google sheet
