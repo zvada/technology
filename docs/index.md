@@ -49,11 +49,11 @@ Meeting Notes
   * [1 May 2017](meetings/2017/TechArea20170501.md)
   * [24 April 2017](meetings/2017/TechArea20170424.md)
   * [17 April 2017](meetings/2017/TechArea20170417.md)
-  * [10 April 2017](https://github.com/opensciencegrid/technology/master/docs/meetings/TechAreaMeeting20170410)
-  * [3 April 2017](https://github.com/opensciencegrid/technology/master/docs/meetings/TechAreaMeeting20170403)
-  * [27 March 2017](https://github.com/opensciencegrid/technology/master/docs/meetings/TechAreaMeeting20170327)
-  * [20 March 2017](https://github.com/opensciencegrid/technology/master/docs/meetings/TechAreaMeeting20170320)
-  * [13 March 2017](https://github.com/opensciencegrid/technology/master/docs/meetings/TechAreaMeeting20170313)
+  * [10 April 2017](https://github.com/opensciencegrid/technology/tree/master/archive/meetings/2017/TechAreaMeeting20170410)
+  * [3 April 2017](https://github.com/opensciencegrid/technology/tree/master/archive/meetings/2017/TechAreaMeeting20170403)
+  * [27 March 2017](https://github.com/opensciencegrid/technology/tree/master/archive/meetings/2017/TechAreaMeeting20170327)
+  * [20 March 2017](https://github.com/opensciencegrid/technology/tree/master/archive/meetings/2017/TechAreaMeeting20170320)
+  * [13 March 2017](https://github.com/opensciencegrid/technology/tree/master/archive/meetings/2017/TechAreaMeeting20170313)
   * [27 February 2017](meetings/2017/TechArea20170227.md)
 
 Meeting note archives older than February 27, 2017 can be found [here](https://github.com/opensciencegrid/technology/tree/master/docs/meetings).
