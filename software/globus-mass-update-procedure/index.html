@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Globus Mass Update Procedure - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Globus Mass Update Procedure";
+    var mkdocs_page_input_path = "software/globus-mass-update-procedure.md";
+    var mkdocs_page_url = "/software/globus-mass-update-procedure/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../development-process/">Development Process</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-workflow/">Koji Workflow</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../rpm-development-guide/">RPM Development Guide</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/software-support/">Software Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../effort-tracking/">Effort Tracking</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../release-planning/">Release Planning</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Globus Mass Update Procedure</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#globus-mass-update-procedure">Globus mass update procedure</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#prep-work">Prep work</a></li>
+        
+            <li><a class="toctree-l4" href="#per-package-work">Per-package work</a></li>
+        
+            <li><a class="toctree-l4" href="#testing">Testing</a></li>
+        
+            <li><a class="toctree-l4" href="#merge">Merge</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Documentation</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Software &raquo;</li>
+        
+      
+    
+    <li>Globus Mass Update Procedure</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/globus-mass-update-procedure.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="globus-mass-update-procedure">Globus mass update procedure<a class="headerlink" href="#globus-mass-update-procedure" title="Permanent link">&para;</a></h1>
+<p>Globus consists of many packages, which we tend to update at the same time. This requires extra work, primarily to prevent dependency issues.</p>
+<h2 id="prep-work">Prep work<a class="headerlink" href="#prep-work" title="Permanent link">&para;</a></h2>
+<h3 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h3>
+<p>Create a spreadsheet or table of the builds. Table should have NVR, perhaps URL, status (not started, imported, built, tested), and comments (mostly to record if it was a simple pass-through or not).</p>
+<p>Get packages to update, using <code>osg-outdated-epel-pkgs</code> from <code>opensciencegrid/tools</code>.</p>
+<p>To get in N-V-R format:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> ./osg-outdated-epel-pkgs <span class="p">|</span> <span class="se">\</span>
+    egrep <span class="s1">&#39;^(globus|myproxy|gsi)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+    awk <span class="s1">&#39;BEGIN {OFS=&quot;&quot;} {print $1, &quot;-&quot;, $3}&#39;</span>
+</pre></div>
+
+
+<p>or to split up N and V-R in a comma-separated way (which you can feed into a Google Sheet to turn it into two columns):</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> ./osg-outdated-epel-pkgs <span class="p">|</span> <span class="se">\</span>
+    egrep <span class="s1">&#39;^(globus|myproxy|gsi)&#39;</span> <span class="p">|</span> <span class="se">\</span>
+    awk <span class="s1">&#39;BEGIN {OFS=&quot;&quot;} {print $1, &quot;,&quot;, $3}&#39;</span>
+</pre></div>
+
+
+<h3 id="svn">SVN<a class="headerlink" href="#svn" title="Permanent link">&para;</a></h3>
+<p>Create a separate SVN branch and populate it with all the packages you will update. (Get the list from the doc created above).</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@uw]$</span> svn mkdir file:///p/vdt/workspace/svn/native/redhat/branches/globus
+<span class="gp">#</span><span class="c1">## From a checkout, in native/redhat</span>
+<span class="gp">[you@uw]$</span> <span class="k">for</span> x in <span style="color:red">&lt;PACKAGES&gt;</span><span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+     svn copy <span class="nv">$x</span> branches/globus/<span class="si">${</span><span class="nv">x</span><span class="p">#trunk/</span><span class="si">}</span><span class="p">;</span> <span class="se">\</span>
+   <span class="k">done</span>
+</pre></div>
+
+
+<h3 id="koji-matcarl">Koji (Mat/Carl)<a class="headerlink" href="#koji-matcarl" title="Permanent link">&para;</a></h3>
+<p>This requires a Koji administrator. Koji admins as of August 2017 are Mat Selmeci and Carl Edquist.</p>
+<p>Ensure Koji tags exist: a destination tag, and a build tag, one for each dver, e.g.:</p>
+<ul>
+<li>el6-globus</li>
+<li>el6-globus-build</li>
+<li>el7-globus</li>
+<li>el7-globus-build</li>
+</ul>
+<p>Set up tag inheritence: base the build tags off of the corresponding <code>dist-el?-build</code> tag. This is because we don't want old osg packages interfering with the new versions we're building. These may already exist -- check the <code>el?-globus-build</code> tags in the web interface.</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+        osg-koji add-tag --parent<span class="o">=</span>dist-<span class="nv">$el</span>-build <span class="se">\</span>
+            --arches<span class="o">=</span>x86_64 <span class="nv">$el</span>-globus-build<span class="p">;</span> <span class="se">\</span>
+    <span class="k">done</span>
+</pre></div>
+
+
+<p>Tag <code>buildsys-macros</code> for the OSG release into the build tags:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+       <span class="nv">buildsys_macros_nvr</span><span class="o">=</span><span class="k">$(</span>osg-koji -q list-tagged osg-3.4-<span class="nv">$el</span>-development <span class="se">\</span>
+         buildsys-macros --latest <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span><span class="p">;</span> <span class="se">\</span>
+       osg-koji tag-pkg <span class="nv">$el</span>-globus-build <span class="nv">$buildsys_macros_nvr</span><span class="p">;</span> <span class="se">\</span>
+   <span class="k">done</span>
+</pre></div>
+
+
+<p>Ensure Koji targets exist, one for each dver, e.g.:</p>
+<ul>
+<li>el6-globus (el6-globus-build &rarr; el6-globus)</li>
+<li>el7-globus (el7-globus-build &rarr; el7-globus)</li>
+<li>kojira-fake-el6-globus (el6-globus &rarr; kojira-fake)</li>
+<li>kojira-fake-el7-globus (el7-globus &rarr; kojira-fake)</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+       osg-koji add-target <span class="nv">$el</span>-globus <span class="nv">$el</span>-globus-build <span class="nv">$el</span>-globus<span class="p">;</span> <span class="se">\</span>
+       osg-koji add-target kojira-fake-<span class="nv">$el</span>-globus <span class="nv">$el</span>-globus kojira-fake<span class="p">;</span> <span class="se">\</span>
+   <span class="k">done</span>
+</pre></div>
+
+
+<p>If basing the packages off of the Globus repos, add the Globus repos as external repos, and add them to the build tags (but not the dest tags).</p>
+<p>Edit <code>/etc/koji-hub/plugins/sign.conf</code> and set up the GPG signing for the RPMs. Run <code>/etc/koji-hub/plugins/fix-permissions</code> after editing the file.</p>
+<h2 id="per-package-work">Per-package work<a class="headerlink" href="#per-package-work" title="Permanent link">&para;</a></h2>
+<ol>
+<li>cd into branches/globus</li>
+<li>Download packages from <a href="http://dl.fedoraproject.org/epel/6/SRPMS/">http://dl.fedoraproject.org/epel/6/SRPMS/</a></li>
+</ol>
+<p>A useful alias:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@host]$</span> <span class="nb">alias</span> osg-build-globus<span class="o">=</span><span class="s2">&quot;osg-build koji --ktt el6-globus --ktt el7-globus&quot;</span>
+</pre></div>
+
+
+<h3 id="strict-pass-through-no-osg-directory">Strict pass-through (no osg/ directory)<a class="headerlink" href="#strict-pass-through-no-osg-directory" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@uw]$</span> osg-import-srpm <span class="s2">&quot;<span style="color:red">&lt;URL&gt;</span>&quot;</span>
+<span class="gp">[you@uw]$</span> osg-build-globus --scratch <span style="color:red">&lt;PKG&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Commit - use a message like "Update to 3.12-1 from EPEL (SOFTWARE-2197)"</p>
+</li>
+<li>
+<p>Do a non-scratch build.</p>
+</li>
+</ol>
+<h3 id="non-strict-pass-through">Non-strict pass-through<a class="headerlink" href="#non-strict-pass-through" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@uw]$</span> osg-import-srpm --diff3 <span class="s2">&quot;<span style="color:red">&lt;URL&gt;</span>&quot;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Fix merge conflicts in the spec file. If not already there, put a .1 after the Release number to mark the changes as ours.</p>
+</li>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@uw]$</span> osg-build quilt <span style="color:red">&lt;PKG&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Fix patches if necessary.</p>
+</li>
+<li>
+<p>Run:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[you@uw&gt;]$</span> osg-build-globus --scratch <span style="color:red">&lt;PKG&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Commit - use a message like "Update to 8.29-1 from EPEL and merge OSG changes (SOFTWARE-2197)"</p>
+</li>
+<li>
+<p>Do a non-scratch build.</p>
+</li>
+</ol>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>Create a yum <code>.repo</code> file similar to <code>osg-minefield</code> that installs from the <code>el?-globus</code> repos. Enable this and <code>osg-minefield</code>.</p>
+<p>EL7 example:</p>
+<div class="codehilite"><pre><span></span><span class="k">[globus]</span>
+<span class="na">name</span><span class="o">=</span><span class="s">globus</span>
+<span class="na">baseurl</span><span class="o">=</span><span class="s">http://koji.chtc.wisc.edu/mnt/koji/repos/el7-globus/latest/$basearch/</span>
+<span class="na">failovermethod</span><span class="o">=</span><span class="s">priority</span>
+<span class="na">priority</span><span class="o">=</span><span class="s">98</span>
+<span class="na">enabled</span><span class="o">=</span><span class="s">1</span>
+<span class="na">gpgcheck</span><span class="o">=</span><span class="s">0</span>
+<span class="na">gpgkey</span><span class="o">=</span><span class="s">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OSG</span>
+<span class="na">consider_as_osg</span><span class="o">=</span><span class="s">yes</span>
+</pre></div>
+
+
+<h2 id="merge">Merge<a class="headerlink" href="#merge" title="Permanent link">&para;</a></h2>
+<h3 id="koji-matcarl_1">Koji (Mat/Carl)<a class="headerlink" href="#koji-matcarl_1" title="Permanent link">&para;</a></h3>
+<p>This requires a Koji administrator. Koji admins as of August 2017 are Mat Selmeci and Carl Edquist.</p>
+<ol>
+<li>Untag broken versions that we don't want to ship.</li>
+<li>Use <code>move-pkg</code>:<div class="codehilite"><pre><span></span><span class="gp">[you@host&gt;]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+        osg-koji -q list-tagged <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-globus <span class="p">|</span> <span class="se">\</span>
+            awk <span class="s1">&#39;{print $1}&#39;</span> &gt; <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-tagged.txt<span class="p">;</span> <span class="se">\</span>
+    <span class="k">done</span>
+<span class="gp">#</span><span class="c1">## Check the txts if they look sane</span>
+<span class="gp">[you@host&gt;]$</span> <span class="k">for</span> el in el6 el7<span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+        xargs -a <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-tagged.txt <span class="se">\</span>
+            osg-koji move-pkg <span class="si">${</span><span class="nv">el</span><span class="si">}</span>-globus <span class="se">\</span>
+                osg-3.3-<span class="si">${</span><span class="nv">el</span><span class="si">}</span>-development<span class="p">;</span> <span class="se">\</span>
+    <span class="k">done</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h3 id="svn_1">SVN<a class="headerlink" href="#svn_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Merge from <code>trunk</code> to <code>branches/globus</code> first, to pick up any globus changes that may have happened in trunk.</li>
+<li>Merge from <code>branches/globus</code> to <code>trunk</code>.</li>
+<li>Move <code>branches/globus</code> to <code>tags/globus-<span style="color:red">&lt;DATE&gt;</span></code>.</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../release/cut-sw-release/" class="btn btn-neutral float-right" title="How to Cut a Release">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../release-planning/" class="btn btn-neutral" title="Release Planning"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../release-planning/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../release/cut-sw-release/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
