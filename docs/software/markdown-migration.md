@@ -354,9 +354,11 @@ Submitting the pull request
         %RED%<LINK TO TWIKI DOCUMENT>%ENDCOLOR%
 
         - [ ] Enter date into "Migrated" column of google sheet
+
     - If you are migrating a document, also add this task:
 
             - [ ] Add migration header to TWiki document
+
     - If you are archiving a document, add this task:
 
             - [ ] Move TWiki document to the trash
