@@ -120,7 +120,9 @@ A release of a software is created from your local clone of a software project. 
 4. Once this is done, release the software as you usually do. This process varies from one project to another, but often it involves running `make upstream` or similar. Check your project's `README` file for instructions.
 5. **Test your software.**
 6. Tag the commit that you made the release from. Git release tags are conventionally called `VERSION`, where *VERSION* is the version of the software you are releasing. So if you're releasing version 1.3.0, you would create the tag `v1.3.0`.
-   **Note:** once a tag has been pushed to the OSG repo, it should not be changed. Be sure the commit you want to tag is the final one you made the release from.
+
+    !!! note
+         Once a tag has been pushed to the OSG repo, it should not be changed. Be sure the commit you want to tag is the final one you made the release from.
 
      1. Create the tag in your local repo:
 
