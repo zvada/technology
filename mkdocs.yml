@@ -9,15 +9,24 @@ extra_css:
 
 pages:
   - Home: 'index.md'
-  - Contact Us: 'contact.md'
-  - Meeting Notes: 'meetings.md'
   - Software:
+    - Development Process: 'software/development-process.md'
     - Migrating Documents to Markdown: 'software/markdown-migration.md'
+    - Koji Workflow: 'software/koji-workflow.md'
     - New Team Member: 'software/new-team-member.md'
     - Repository Management: 'software/repository-management.md'
+    - CE Scale Testing: 'software/ce-test-scaling.md'
+    - RPM Development Guide: 'software/rpm-development-guide.md'
+    - Upcoming to Main: 'software/upcoming-to-main.md'
+    - Software Support: 'policy/software-support.md'
+    - Effort Tracking: 'software/effort-tracking.md'
+    - Release Planning: 'software/release-planning.md'
+    - Globus Mass Update Procedure: 'software/globus-mass-update-procedure.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
+    - Release Policy: 'release/release-policy.md'
+    - Release Schedule: 'release/release-schedule.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
@@ -25,10 +34,15 @@ pages:
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
   - Infrastructure:
+    - Koji Restore Recipe: 'infrastructure/koji-restore-recipe.md'
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
+    - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
+  - Documentation:
+    - Writing Documentation: 'documentation/writing-documentation.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
+  - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - February 27, 2017: 'meetings/2017/TechArea20170227.md'
   - April 17, 2017: 'meetings/2017/TechArea20170417.md'
@@ -49,9 +63,11 @@ pages:
   - July 31, 2017: 'meetings/2017/TechArea20170731.md'
   - August 7, 2017: 'meetings/2017/TechArea20170807.md'
   - August 14, 2017: 'meetings/2017/TechArea20170814.md'
+  - August 28, 2017: 'meetings/2017/TechArea20170828.md'
 
 markdown_extensions:
   - admonition
   - codehilite
   - toc(permalink=true)
+  - osg_markdown.colors
 
