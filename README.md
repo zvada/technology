@@ -1,6 +1,6 @@
 # OSG Technology Area
 
-This repository contains the meeting notes for the OSG Technology Area.
+This repository contains the internal documents for the OSG Technology Area.
 
 - [Github hosted](http://opensciencegrid.github.io/technology)
 
