@@ -65,10 +65,15 @@ We use the standard GitHub [pull request](https://help.github.com/articles/using
 If you've never contributed to this project on GitHub before, do the following steps first:
 
 1. Using the GitHub web interface, fork the repo you wish to contribute to.
-2. Make a clone of your forked repo on your local machine.&lt;pre class="screen"&gt;
+2. Make a clone of your forked repo on your local machine.
 
-git clone <git@github.com>:*USERNAME*/*PROJECT*&lt;/pre&gt; NOTE: If you get a "Permission denied" error, your public key may not be set up with GitHub -- please see the "Getting shell access to GitHub" section above.
-If you get some other error, [the GitHub page on SSH](https://help.github.com/categories/ssh/) may contain useful information on troubleshooting.
+        :::console
+        [user@client ~ ] $ git clone <git@github.com>:%RED%<USERNAME/PROJECT>%ENDCOLOR%
+
+    !!! note
+        If you get a "Permission denied" error, your public key may not be set up with GitHub -- please see the "Getting shell access to GitHub" section above.
+
+        If you get some other error, [the GitHub page on SSH](https://help.github.com/categories/ssh/) may contain useful information on troubleshooting.
 
 Once you have your local repo, do the following:
 
@@ -120,7 +125,7 @@ A release of a software is created from your local clone of a software project. 
      1. Create the tag in your local repo:
 
             :::console
-            [user@client ~ ] $ git tag %RED<TAG>%ENDCOLOR
+            [user@client ~ ] $ git tag %RED%<TAG>%ENDCOLOR%
 
      2. Push the tag to your own GitHub repo:
 
@@ -130,4 +135,4 @@ A release of a software is created from your local clone of a software project. 
      3. Push the tag to the OSG repo:
       
             :::console
-            [user@client ~ ] $ git push upstream %RED<TAG>%ENDCOLOR
+            [user@client ~ ] $ git push upstream %RED%<TAG>%ENDCOLOR%
