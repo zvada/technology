@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "OSG Technology Area\n\n\nWelcome to the home page of the OSG Technology Team documentation area! This is currently a work in progress as we migrate our TWiki documentation to GitHub. If you are looking for our full documentation, please visit the \nTWiki\n.\n\n\nThe Team\n\n\n\n\n\n\n\n\nSoftware\n\n\nRelease\n\n\nTechnology\n\n\n\n\n\n\n\n\n\n\nBrian Lin (manager) (90%)\n\n\nTim Theisen (manager) (50%)\n\n\nBrian Bockelman (manager) (50%)\n\n\n\n\n\n\nCarl Edquist\n\n\nBrian Lin (10%)\n\n\nDerek Weitzel (75%)\n\n\n\n\n\n\nDerek Weitzel (25%)\n\n\nSuchandra Thapa (50%)\n\n\nEdgar Fajardo (50%)\n\n\n\n\n\n\nEdgar Fajardo (50%)\n\n\n\n\nJeff Dost (50%)\n\n\n\n\n\n\nMat Selmeci\n\n\n\n\n\n\n\n\n\n\nTim Cartwright (35%)\n\n\n\n\n\n\n\n\n\n\n\n\nContact Us\n\n\n\n\nSlack channel\n\n\nosg-software@opensciencegrid.org\n - General discussion amongst team members\n\n\nosg-commits@cs.wisc.edu\n - Broadcast of all source code repo commits\n\n\n\n\nMeeting Notes\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363; \nUber Conference\n\n\nRecent Notes\n\n\n\n\n21 August 2017 - Canceled\n\n\n14 August 2017\n\n\n7 August 2017\n\n\n31 July 2017\n\n\n24 July 2017\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n - Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nMeeting note archives older than February 27, 2017 can be found \nhere\n.", 
+            "text": "OSG Technology Area\n\n\nWelcome to the home page of the OSG Technology Team documentation area! This is currently a work in progress as we migrate our TWiki documentation to GitHub. If you are looking for our full documentation, please visit the \nTWiki\n.\n\n\nThe Team\n\n\n\n\n\n\n\n\nSoftware\n\n\nRelease\n\n\nTechnology\n\n\n\n\n\n\n\n\n\n\nBrian Lin (manager) (90%)\n\n\nTim Theisen (manager) (50%)\n\n\nBrian Bockelman (manager) (50%)\n\n\n\n\n\n\nCarl Edquist\n\n\nBrian Lin (10%)\n\n\nDerek Weitzel (75%)\n\n\n\n\n\n\nDerek Weitzel (25%)\n\n\nSuchandra Thapa (50%)\n\n\nEdgar Fajardo (50%)\n\n\n\n\n\n\nEdgar Fajardo (50%)\n\n\n\n\nJeff Dost (50%)\n\n\n\n\n\n\nMat Selmeci\n\n\n\n\n\n\n\n\n\n\nTim Cartwright (35%)\n\n\n\n\n\n\n\n\n\n\n\n\nContact Us\n\n\n\n\nSlack channel\n\n\nosg-software@opensciencegrid.org\n - General discussion amongst team members\n\n\nosg-commits@cs.wisc.edu\n - Broadcast of all source code repo commits\n\n\n\n\nMeeting Notes\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363; \nUber Conference\n\n\nRecent Notes\n\n\n\n\n28 August 2017\n\n\n21 August 2017 - Canceled\n\n\n14 August 2017\n\n\n7 August 2017\n\n\n31 July 2017\n\n\n24 July 2017\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n - Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nMeeting note archives older than February 27, 2017 can be found \nhere\n.", 
             "title": "Home"
         }, 
         {
@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/#recent-notes", 
-            "text": "21 August 2017 - Canceled  14 August 2017  7 August 2017  31 July 2017  24 July 2017  17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017  - Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017   Meeting note archives older than February 27, 2017 can be found  here .", 
+            "text": "28 August 2017  21 August 2017 - Canceled  14 August 2017  7 August 2017  31 July 2017  24 July 2017  17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017  - Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017   Meeting note archives older than February 27, 2017 can be found  here .", 
             "title": "Recent Notes"
         }, 
         {
@@ -3183,6 +3183,96 @@
         {
             "location": "/meetings/2017/TechArea20170814/#discussions_2", 
             "text": "Once format of Glidein Logs in GRACC ES is finalized, light documentation will be written for the benefit of internal teams  Derek offered to give a short presentation on ES queries", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/", 
+            "text": "OSG Technology Area Meeting, 28 August 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n\n\nAttending:\n   \n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Edgar\n\n\nNext week: Derek\n\n\n9 (-3) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n154\n\n\n-3\n\n\nOpen\n\n\n\n\n\n\n20\n\n\n-1\n\n\nIn Progress\n\n\n\n\n\n\n14\n\n\n+12\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nName\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nSeptember\n\n\n3.4.3, 3.3.28\n\n\n2017-08-28\n\n\n2017-09-05\n\n\n2017-09-12\n\n\n5 week cycle\n\n\n\n\n\n\nOctober\n\n\n3.4.4, 3.3.29\n\n\n2017-09-25\n\n\n2017-10-02\n\n\n2017-10-10\n\n\n\n\n\n\n\n\nNovember\n\n\n3.4.5, 3.3.30\n\n\n2017-10-30\n\n\n2017-11-06\n\n\n2017-11-14\n\n\n5 week cycle\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n3.4.3/3.3.28\n\n\n\n\nTickets not marked RFT\n\n\n\n\n\n\n\n\n\n\nOwner\n\n\n# tickets\n\n\n\n\n\n\n\n\n\n\nMat\n\n\n10\n\n\n\n\n\n\nBrian\n\n\n7\n\n\n\n\n\n\nCarl\n\n\n5\n\n\n\n\n\n\nMarian\n\n\n1\n\n\n\n\n\n\n\n\nDocumentation\n\n\n\n\n6 documents migrated and meeting-related pages archived last week:  \n\n\nhttps://github.com/opensciencegrid/technology/pulse\n\n\nhttps://github.com/opensciencegrid/docs/pulse\n\n\nIf you're short on time, pick shorter documents to migrate or archive the ones marked as such in the spreadsheet\n\n\n\n\n\n\nDerek has two students that are beginning to familiarize themselves with the migration process\n\n\nWe have enough experience with the process that we can start focusing on high-priority Release3 documents\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nClemson (BrianL, Marian): expired WN CRLs and possibly an HTCondor IPv6 bug\n\n\nJINR (BrianL): CE jobs held (\"Error parsing classad or job not found\") due to missing \npbs_pro\n in \n/etc/blah.config\n\n\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nSeptember 12th\n release\n\n\nDevelopment Freeze today!\n\n\nTimT may call upon software team members for testing assistance\n\n\n\n\n\n\n\n\n\n\n3.3.28\n\n\n\n\nBoth\n\n\n\n\n3.4.3\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n2\n\n\n-3\n\n\n9\n\n\n-2\n\n\n0\n\n\n-1\n\n\n11\n\n\n-6\n\n\nOpen\n\n\n\n\n\n\n3\n\n\n+1\n\n\n8\n\n\n+2\n\n\n1\n\n\n+0\n\n\n12\n\n\n+3\n\n\nIn Progress\n\n\n\n\n\n\n5\n\n\n+5\n\n\n6\n\n\n+5\n\n\n3\n\n\n+3\n\n\n14\n\n\n+13\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n10\n\n\n+3\n\n\n22\n\n\n+4\n\n\n4\n\n\n+2\n\n\n37\n\n\n+10\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\nBoth  \n\n\nStashCache 0.8 (\nSOFTWARE-2873\n)\n\n\nosg-ca-scripts 1.1.7 (\nSOFTWARE-2834\n)\n\n\nxrootd-lcmaps 1.3.4 (\nSOFTWARE-2847\n)\n\n\n\n\n\n\n3.4.3  \n\n\nSingularity 2.3 (\nSOFTWARE-2755\n)\n\n\nCVMFS 2.4.1 (\nSOFTWARE-2858\n)\n\n\nosg-configure 2.2.0 (\nSOFTWARE-2864\n)\n\n\n\n\n\n\n3.3.28  \n\n\nosg-configure 1.10.0 (\nSOFTWARE-2865\n)\n\n\nxrootd-hdfs 1.9.2 (\nSOFTWARE-2853\n)\n\n\n\n\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC-ITB moving forward\n\n\nSome GRACC support of a `slurm\nmeter\n` issue, still debugging.\n\n\nIndexing Glidein Logs in GRACC's ES\n\n\nStarted backup reports\n\n\nFirst step of creating ES snapshots for backup up GRACC\n\n\n\n\nThis Week\n\n\n\n\nGRACC Backup reports\n\n\nGRACC backup of Dashboards\n\n\nInitiate backups of ES snapshots\n\n\nStart indexing GOC server status in GRACC ES\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)\n\n\n\n\nDiscussions\n\n\nNone this week", 
+            "title": "August 28, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#osg-technology-area-meeting-28-august-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin  Attending:", 
+            "title": "OSG Technology Area Meeting, 28 August 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#announcements", 
+            "text": "", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#triage-duty", 
+            "text": "This week: Edgar  Next week: Derek  9 (-3) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#jira", 
+            "text": "# of tickets   State      154  -3  Open    20  -1  In Progress    14  +12  Ready for Testing    0  +0  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#release-schedule", 
+            "text": "Name  Version  Development Freeze  Package Freeze  Release  Notes      September  3.4.3, 3.3.28  2017-08-28  2017-09-05  2017-09-12  5 week cycle    October  3.4.4, 3.3.29  2017-09-25  2017-10-02  2017-10-10     November  3.4.5, 3.3.30  2017-10-30  2017-11-06  2017-11-14  5 week cycle     Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#osg-software-team", 
+            "text": "", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#3433328", 
+            "text": "Tickets not marked RFT      Owner  # tickets      Mat  10    Brian  7    Carl  5    Marian  1", 
+            "title": "3.4.3/3.3.28"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#documentation", 
+            "text": "6 documents migrated and meeting-related pages archived last week:    https://github.com/opensciencegrid/technology/pulse  https://github.com/opensciencegrid/docs/pulse  If you're short on time, pick shorter documents to migrate or archive the ones marked as such in the spreadsheet    Derek has two students that are beginning to familiarize themselves with the migration process  We have enough experience with the process that we can start focusing on high-priority Release3 documents", 
+            "title": "Documentation"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#discussions", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#support-update", 
+            "text": "Clemson (BrianL, Marian): expired WN CRLs and possibly an HTCondor IPv6 bug  JINR (BrianL): CE jobs held (\"Error parsing classad or job not found\") due to missing  pbs_pro  in  /etc/blah.config", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#osg-release-team", 
+            "text": "Suchandra Thapa is handling the  September 12th  release  Development Freeze today!  TimT may call upon software team members for testing assistance      3.3.28   Both   3.4.3   Total   Status      2  -3  9  -2  0  -1  11  -6  Open    3  +1  8  +2  1  +0  12  +3  In Progress    5  +5  6  +5  3  +3  14  +13  Ready for Testing    0  +0  0  +0  0  +0  0  +0  Ready for Release    10  +3  22  +4  4  +2  37  +10  Total      Both    StashCache 0.8 ( SOFTWARE-2873 )  osg-ca-scripts 1.1.7 ( SOFTWARE-2834 )  xrootd-lcmaps 1.3.4 ( SOFTWARE-2847 )    3.4.3    Singularity 2.3 ( SOFTWARE-2755 )  CVMFS 2.4.1 ( SOFTWARE-2858 )  osg-configure 2.2.0 ( SOFTWARE-2864 )    3.3.28    osg-configure 1.10.0 ( SOFTWARE-2865 )  xrootd-hdfs 1.9.2 ( SOFTWARE-2853 )", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#last-week", 
+            "text": "GRACC-ITB moving forward  Some GRACC support of a `slurm meter ` issue, still debugging.  Indexing Glidein Logs in GRACC's ES  Started backup reports  First step of creating ES snapshots for backup up GRACC", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#this-week", 
+            "text": "GRACC Backup reports  GRACC backup of Dashboards  Initiate backups of ES snapshots  Start indexing GOC server status in GRACC ES", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170828/#discussions_2", 
+            "text": "None this week", 
             "title": "Discussions"
         }
     ]
