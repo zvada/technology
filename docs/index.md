@@ -30,6 +30,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [28 August 2017](meetings/2017/TechArea20170828.md)
   * 21 August 2017 - Canceled
   * [14 August 2017](meetings/2017/TechArea20170814.md)
   * [7 August 2017](meetings/2017/TechArea20170807.md)
