@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Git Software Development Process - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git Software Development Process";
+    var mkdocs_page_input_path = "software/git-software-development.md";
+    var mkdocs_page_url = "/software/git-software-development/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../development-process/">Development Process</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-workflow/">Koji Workflow</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../rpm-development-guide/">RPM Development Guide</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/software-support/">Software Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../effort-tracking/">Effort Tracking</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../release-planning/">Release Planning</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../globus-mass-update-procedure/">Globus Mass Update Procedure</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Git Software Development Process</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#git-software-development-workflow">Git software development workflow</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#git-and-github-basics">Git and GitHub basics</a></li>
+        
+            <li><a class="toctree-l4" href="#getting-shell-access-to-github">Getting shell access to GitHub</a></li>
+        
+            <li><a class="toctree-l4" href="#contribution-workflow">Contribution workflow</a></li>
+        
+            <li><a class="toctree-l4" href="#release-workflow">Release workflow</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Documentation</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Software &raquo;</li>
+        
+      
+    
+    <li>Git Software Development Process</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/git-software-development.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="git-software-development-workflow">Git software development workflow<a class="headerlink" href="#git-software-development-workflow" title="Permanent link">&para;</a></h1>
+<p>This document describes the development workflow for OSG software packages kept in GitHub. It is intended for people who wish to contribute to OSG software.</p>
+<h2 id="git-and-github-basics">Git and GitHub basics<a class="headerlink" href="#git-and-github-basics" title="Permanent link">&para;</a></h2>
+<p>If you are unfamiliar with Git and GitHub, the GitHub website has a good series of tutorials at <a href="https://help.github.com/categories/bootcamp/">https://help.github.com/categories/bootcamp/</a></p>
+<h2 id="getting-shell-access-to-github">Getting shell access to GitHub<a class="headerlink" href="#getting-shell-access-to-github" title="Permanent link">&para;</a></h2>
+<p>There are multiple ways of authenticating to GitHub from the shell. This section will cover using SSH keys. This is no longer the method recommended by GitHub, but is easier to set up for someone with existing SSH experience.</p>
+<p>The instructions here are derived from <a href="https://help.github.com/articles/generating-an-ssh-key/">GitHub's own instructions on using SSH keys</a>.</p>
+<h3 id="creating-a-new-ssh-key-optional-but-recommended">Creating a new SSH key (optional but recommended)<a class="headerlink" href="#creating-a-new-ssh-key-optional-but-recommended" title="Permanent link">&para;</a></h3>
+<p>If you already have an SSH keypair in your <code>~/.ssh</code> directory that you want to use for GitHub, you may skip this step. It is more secure, however, to create a new keypair specifically for use with GitHub.</p>
+<p>The instructions below will create an SSH public/private key pair with the private key stored in <code>~/.ssh/id_github</code> and public key stored in <code>~/.ssh/id_github.pub</code>.</p>
+<h4 id="generating-the-key">Generating the key<a class="headerlink" href="#generating-the-key" title="Permanent link">&para;</a></h4>
+<p>Use <code>ssh-keygen</code> to generate the SSH keypair. For <em>EMAIL_ADDRESS</em>, use the email address associated with your GitHub account.</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> ssh-keygen -t rsa -b <span class="m">4096</span> -f ~/.ssh/id_github -C <span style="color:red">&lt;EMAIL_ADDRESS&gt;</span>
+</pre></div>
+
+
+<h4 id="configuring-ssh-to-use-the-key-for-github">Configuring SSH to use the key for GitHub<a class="headerlink" href="#configuring-ssh-to-use-the-key-for-github" title="Permanent link">&para;</a></h4>
+<p>Make sure SSH uses the new key by default to access GitHub. Create or edit <code>~/.ssh/config</code> and append the following lines:</p>
+<div class="codehilite"><pre><span></span>Host github.com
+IdentityFile <span style="color:red">&lt;YOUR_HOME_DIR&gt;</span>/.ssh/id_github
+</pre></div>
+
+
+<h3 id="adding-the-ssh-public-key-to-github">Adding the SSH public key to GitHub<a class="headerlink" href="#adding-the-ssh-public-key-to-github" title="Permanent link">&para;</a></h3>
+<p>Using the GitHub web interface:</p>
+<ol>
+<li>On the upper right of the screen, click on your profile picture</li>
+<li>In the menu that pops up, click "Settings"</li>
+<li>On the left-hand sidebar, click "SSH and GPG keys"</li>
+<li>In the top right of the "SSH keys" box, click "New SSH key"</li>
+<li>In the "Title" field of the dialog that pops up, enter a descriptive name for the key</li>
+<li>Open the public key file (e.g. <code>~/.ssh/id_github.pub</code> (don't forget the <code>.pub</code>)) in a text editor and copy its full contents to the clipboard</li>
+<li>In the "Key" field, paste the public key</li>
+<li>Below the "Key" field, click "Add SSH key"</li>
+</ol>
+<p>You should see your new key in the "SSH keys" list.</p>
+<h3 id="testing-that-shell-access-works">Testing that shell access works<a class="headerlink" href="#testing-that-shell-access-works" title="Permanent link">&para;</a></h3>
+<p>To verify you can authenticate to GitHub using SSH, SSH to <code>git@github.com</code>. You should see a message that 'you've successfully authenticated, but GitHub does not provide shell access.'</p>
+<h2 id="contribution-workflow">Contribution workflow<a class="headerlink" href="#contribution-workflow" title="Permanent link">&para;</a></h2>
+<p>We use the standard GitHub <a href="https://help.github.com/articles/using-pull-requests/">pull request</a> workflow for making contributions to OSG software.</p>
+<p>If you've never contributed to this project on GitHub before, do the following steps first:</p>
+<ol>
+<li>Using the GitHub web interface, fork the repo you wish to contribute to.</li>
+<li>
+<p>Make a clone of your forked repo on your local machine.</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git clone &lt;git@github.com&gt;:<span style="color:red">&lt;USERNAME/PROJECT&gt;</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get a "Permission denied" error, your public key may not be set up with GitHub -- please see the "Getting shell access to GitHub" section above.</p>
+<p>If you get some other error, <a href="https://help.github.com/categories/ssh/">the GitHub page on SSH</a> may contain useful information on troubleshooting.</p>
+</div>
+</li>
+</ol>
+<p>Once you have your local repo, do the following:</p>
+<ol>
+<li>
+<p>Create a branch to hold changes that are related to the issue you are working on. Give the branch a name that will remind you of its purpose, such as <code>sw2345-pathchange</code></p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git checkout -b <span style="color:red">&lt;BRANCH&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Make your commits to this branch, then push the branch to your repo on GitHub.</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git push origin <span style="color:red">&lt;BRANCH&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Select your branch in the GitHub web interface, then create a "pull request" against the original repo. Add a good description of your change into the message for the pull request. Enter a JIRA ticket number in the message to automatically link the pull request to the JIRA ticket.</p>
+</li>
+<li>
+<p>Request a review from the drop down menu on the right and wait for your pull request to be reviewed by a software team member.</p>
+<ul>
+<li>If the team member accepts your changes, they will merge your pull request, and your changes will be incorporated upstream. You may then delete the branch you created your pull request from.</li>
+<li>If your changes are rejected, then you may make additional changes to the branch that your pull request is for. Once you push the changes from your local repo to your GitHub repo, they will automatically be added to the pull request.</li>
+</ul>
+</li>
+</ol>
+<h2 id="release-workflow">Release workflow<a class="headerlink" href="#release-workflow" title="Permanent link">&para;</a></h2>
+<p>This section is intended for OSG Software team members or the primary developers of a software project (i.e. those that make releases). Some of the steps require direct write access the GitHub repo for the project owned by <code>opensciencegrid</code>. (If you can approve pull requests, you have write access).</p>
+<p>A release of a software is created from your local clone of a software project. Before you release, you need to make sure your local clone is in sync with the GitHub repo owned by <code>opensciencegrid</code> (the OSG repo):</p>
+<ol>
+<li>
+<p>If you haven't already, add the OSG repo as a "remote" to your repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git remote add upstream git@github.com:opensciencegrid/<span style="color:red">&lt;PROJECT&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Fetch changes from the OSG repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git fetch upstream
+</pre></div>
+
+
+</li>
+<li>
+<p>Compare your branch you are releasing from (probably <code>master</code>) to its copy in the OSG repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git checkout master<span class="p">;</span> git diff upstream/master
+</pre></div>
+
+
+<p>There should be no differences.</p>
+</li>
+<li>
+<p>Once this is done, release the software as you usually do. This process varies from one project to another, but often it involves running <code>make upstream</code> or similar. Check your project's <code>README</code> file for instructions.</p>
+</li>
+<li><strong>Test your software.</strong></li>
+<li>
+<p>Tag the commit that you made the release from. Git release tags are conventionally called <code>VERSION</code>, where <em>VERSION</em> is the version of the software you are releasing. So if you're releasing version 1.3.0, you would create the tag <code>v1.3.0</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once a tag has been pushed to the OSG repo, it should not be changed. Be sure the commit you want to tag is the final one you made the release from.</p>
+</div>
+<ol>
+<li>
+<p>Create the tag in your local repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git tag <span style="color:red">&lt;TAG&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Push the tag to your own GitHub repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git push origin <span style="color:red">&lt;TAG&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Push the tag to the OSG repo:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git push upstream <span style="color:red">&lt;TAG&gt;</span>
+</pre></div>
+
+
+</li>
+</ol>
+</li>
+</ol>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../release/cut-sw-release/" class="btn btn-neutral float-right" title="How to Cut a Release">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../globus-mass-update-procedure/" class="btn btn-neutral" title="Globus Mass Update Procedure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../globus-mass-update-procedure/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../release/cut-sw-release/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
