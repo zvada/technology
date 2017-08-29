@@ -22,6 +22,7 @@ pages:
     - Effort Tracking: 'software/effort-tracking.md'
     - Release Planning: 'software/release-planning.md'
     - Globus Mass Update Procedure: 'software/globus-mass-update-procedure.md'
+    - Git Software Development Process: 'software/git-software-development.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
