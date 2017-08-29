@@ -85,10 +85,10 @@ Once you have your local repo, do the following:
 2. Make your commits to this branch, then push the branch to your repo on GitHub.
 
     	:::console
-    	[user@client ~ ] $ git push origin  %RED%<BRANCH>%ENDCOLOR%
+    	[user@client ~ ] $ git push origin %RED%<BRANCH>%ENDCOLOR%
 
 3. Select your branch in the GitHub web interface, then create a "pull request" against the original repo. Add a good description of your change into the message for the pull request. Enter a JIRA ticket number in the message to automatically link the pull request to the JIRA ticket.
-4. Wait for your pull request to be reviewed by a software team member.
+4. Request a review from the drop down menu on the right and wait for your pull request to be reviewed by a software team member.
 
      - If the team member accepts your changes, they will merge your pull request, and your changes will be incorporated upstream. You may then delete the branch you created your pull request from.
      - If your changes are rejected, then you may make additional changes to the branch that your pull request is for. Once you push the changes from your local repo to your GitHub repo, they will automatically be added to the pull request.
@@ -103,7 +103,7 @@ A release of a software is created from your local clone of a software project. 
 1. If you haven't already, add the OSG repo as a "remote" to your repo:
       
         :::console
-        [user@client ~ ] $ git remote add upstream <git@github.com>:opensciencegrid/%RED%<PROJECT>%ENDCOLOR%
+        [user@client ~ ] $ git remote add upstream git@github.com:opensciencegrid/%RED%<PROJECT>%ENDCOLOR%
 
 2. Fetch changes from the OSG repo:
 
