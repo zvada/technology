@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Resurrecting Epel Packages - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Resurrecting Epel Packages";
+    var mkdocs_page_input_path = "software/resurrecting-epel-packages.md";
+    var mkdocs_page_url = "/software/resurrecting-epel-packages/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../development-process/">Development Process</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-workflow/">Koji Workflow</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../rpm-development-guide/">RPM Development Guide</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/software-support/">Software Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../effort-tracking/">Effort Tracking</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../release-planning/">Release Planning</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../globus-mass-update-procedure/">Globus Mass Update Procedure</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../git-software-development/">Git Software Development Process</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Resurrecting Epel Packages</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#resurrecting-epel-rpms">Resurrecting EPEL RPMs</a></li>
+    
+
+    <li class="toctree-l3"><a href="#removing-resurrected-rpms">Removing resurrected RPMs</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#why-you-should-not-use-block-pkg">Why you should not use block-pkg</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#policy-for-epelrescue-tags">Policy for epelrescue tags</a></li>
+    
+
+    <li class="toctree-l3"><a href="#table-of-epelrescue-rpms">Table of epelrescue RPMs</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#finding-out-if-a-package-is-still-needed-in-epelrescue">Finding out if a package is still needed in epelrescue</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Documentation</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Software &raquo;</li>
+        
+      
+    
+    <li>Resurrecting Epel Packages</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/resurrecting-epel-packages.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="resurrecting-epel-rpms">Resurrecting EPEL RPMs<a class="headerlink" href="#resurrecting-epel-rpms" title="Permanent link">&para;</a></h1>
+<p>You will need to be a Koji admin to do these steps. </p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> osg-koji --list-permissions --mine
+</pre></div>
+
+
+<p>Will tell you if you're an admin or not. Current Koji admins are the Madison team and Brian Bockelman.</p>
+<table>
+<thead>
+<tr>
+<th align="left">EPEL version</th>
+<th align="left">EPEL Koji tag</th>
+<th align="left">Our Koji tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">5</td>
+<td align="left">dist-5E-epel</td>
+<td align="left">epelrescue-el5</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">dist-6E-epel</td>
+<td align="left">epelrescue-el6</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">epel7</td>
+<td align="left">epelrescue-el7</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Determine the NVR of the build containing the RPM of the package you want.</p>
+<p>Use the Fedora/EPEL Koji web interface (<a href="https://koji.fedoraproject.org">https://koji.fedoraproject.org</a>) to search for it.</p>
+<p>You can use the search box in the upper right to look for packages, builds, or RPMs; it accepts shell wildcards.</p>
+<p>EPEL builds have .el5, .el6, or .el7 in the dist tag.</p>
+</li>
+<li>
+<p>Download <em>all</em> RPMs for <em>all</em> architectures we care about (i386, i486, i586, i686, x86_64, noarch), including the .src.rpm and the debuginfo rpms.</p>
+<p>You have three options for the downloads:</p>
+<ol>
+<li>Use the links in the web interface</li>
+<li>Use the koji command-line interface against the Fedora koji:<ol>
+<li>Download <code>fedora-koji.conf</code>, attached to this page</li>
+<li>Run <code>koji --noauth -c fedora-koji.conf download-build --debuginfo <span style="color:red">&lt;BUILD_NVR&gt;</span></code></li>
+<li>Delete RPMs for architectures we do not care about (see list above)</li>
+</ol>
+</li>
+<li>Dig around in <a href="https://kojipkgs.fedoraproject.org/packages/">https://kojipkgs.fedoraproject.org/packages/</a></li>
+</ol>
+</li>
+</ol>
+<p>On your development machine:</p>
+<ol>
+<li>
+<p><strong>Important:</strong> Verify that all of the RPMs are signed:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[root@client ~] #</span> rpm -K *.rpm <span class="p">|</span> grep -iv gpg
+</pre></div>
+
+
+<p>should be empty</p>
+<p>If not, <span style="color:red">STOP</span> and sign them using the OSG RPM key -- talk to Mat</p>
+</li>
+<li>
+<p>Import the RPMs themselves into the Koji system</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> osg-koji import <span style="color:red">&lt;RPM_DIRECTORY&gt;</span>/*.rpm
+</pre></div>
+
+
+<p>They will not be in any tags at this point</p>
+</li>
+<li>
+<p>Add the package to the whitelist for our koji tag:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> osg-koji add-pkg <span style="color:red">&lt;OUR_KOJI_TAG&gt;</span> <span style="color:red">&lt;PACKAGE&gt;</span> --owner<span class="o">=</span><span class="s2">&quot;<span style="color:red">&lt;YOUR_KOJI_USERNAME&gt;</span>&quot;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Actually tag the builds:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> osg-koji tag-pkg <span style="color:red">&lt;OUR_KOJI_TAG&gt; &lt;BUILD&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Check the Tasks tab in Koji to see if kojira has started regening the repos -- it might take a few minutes to kick in.</p>
+<p>If it doesn't, do it manually (if you're doing multiple packages, save this step until you're done with all of them):</p>
+<div class="codehilite"><pre><span></span>for repo in osg-{3.1,3.2,3.3,upcoming}-el5-{build,development,testing,release,prerelease,release-build}; do
+   osg-koji regen-repo --nowait $repo
+done
+</pre></div>
+
+
+</li>
+<li>
+<p>Make a test VM and install the package from minefield to test that it is actually present.</p>
+</li>
+<li>Update the epelrescue RPMs table below</li>
+</ol>
+<h1 id="removing-resurrected-rpms">Removing resurrected RPMs<a class="headerlink" href="#removing-resurrected-rpms" title="Permanent link">&para;</a></h1>
+<p>In case the RPM appeared back in EPEL, or we no longer need it, here's how to remove it from the epelrescue tags so we're not overriding the EPEL version:</p>
+<ol>
+<li>
+<p>Find out the NVR of the build:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> osg-koji list-tagged <span style="color:red">&lt;OUR_KOJI_TAG&gt; &lt;PACKAGE&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Untag the packages:</p>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~] $</span> osg-koji untag-pkg <span style="color:red">&lt;OUR_KOJI_TAG&gt; &lt;BUILD&gt;</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h2 id="why-you-should-not-use-block-pkg">Why you should not use block-pkg<a class="headerlink" href="#why-you-should-not-use-block-pkg" title="Permanent link">&para;</a></h2>
+<p>EPEL removes their packages by using 'koji block-pkg', which leaves the package and the builds in the tag, but prevents it from appearing in the repos. We cannot do that, because blocks are inherited and this will mess up our build repos. This is what happened in one case:</p>
+<ol>
+<li>EPEL removed rpmdevtools, which is a necessary package for all builds. I resurrected it into epelrescue-el5.</li>
+<li>Later, EPEL put rpmdevtools back into their repos, so it no longer needed to be in epelrescue-el5.</li>
+<li>I used block-pkg on rpmdevtools in epelrescue-el5, thinking that the package could remain tagged, but will stay out of our repos, and the EPEL package would be used instead.</li>
+<li>The block not only hid our rpmdevtools, it hid EPEL's rpmdevtools as well, preventing us from being able to build.</li>
+<li>I unblocked the rpmdevtools, and just untagged the build instead, regenerated our build repos, and we could build again.</li>
+</ol>
+<h1 id="policy-for-epelrescue-tags">Policy for epelrescue tags<a class="headerlink" href="#policy-for-epelrescue-tags" title="Permanent link">&para;</a></h1>
+<p><a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2046">https://jira.opensciencegrid.org/browse/SOFTWARE-2046</a></p>
+<h1 id="table-of-epelrescue-rpms">Table of epelrescue RPMs<a class="headerlink" href="#table-of-epelrescue-rpms" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th align="left">Package</th>
+<th align="left">Distro version</th>
+<th align="left">Date added</th>
+<th align="left">Reason added</th>
+<th align="left">Date removed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">python-six-1.7.3-1.el6</td>
+<td align="left">6</td>
+<td align="left">2015-08-12</td>
+<td align="left">Dep of osg-build (via mock)</td>
+<td align="left">2015-10-14</td>
+</tr>
+<tr>
+<td align="left">python-argparse-1.2.1-2.el6</td>
+<td align="left">6</td>
+<td align="left">2015-09-23</td>
+<td align="left">Dep of osg-wn-client (via gfal2)</td>
+<td align="left">2015-10-14</td>
+</tr>
+<tr>
+<td align="left">python-backports-ssl_match_hostname-3.4.0.2-4.el6</td>
+<td align="left">6</td>
+<td align="left">2015-09-23</td>
+<td align="left">Dep of osg-build (via mock)</td>
+<td align="left">2015-10-14</td>
+</tr>
+<tr>
+<td align="left">python-requests-1.1.0-4.el6</td>
+<td align="left">6</td>
+<td align="left">2015-09-23</td>
+<td align="left">Dep of osg-build (via mock)</td>
+<td align="left">2015-10-14</td>
+</tr>
+<tr>
+<td align="left">python-urllib3-1.5-7.el6</td>
+<td align="left">6</td>
+<td align="left">2015-09-23</td>
+<td align="left">Dep of osg-build (via mock)</td>
+<td align="left">2015-10-14</td>
+</tr>
+</tbody>
+</table>
+<h2 id="finding-out-if-a-package-is-still-needed-in-epelrescue">Finding out if a package is still needed in epelrescue<a class="headerlink" href="#finding-out-if-a-package-is-still-needed-in-epelrescue" title="Permanent link">&para;</a></h2>
+<p>Set <code>$pkg</code> to the name of a package to test (e.g. <code>python-six</code>), and <code>$rhel</code> set to the RHEL version you're testing for (e.g. <code>5</code>, <code>6</code>, or <code>7</code>).</p>
+<p>Using Carl's <code>centos-srpms</code>, <code>scientific-srpms</code>, <code>slf-srpms</code> scripts:</p>
+<div class="codehilite"><pre><span></span>for script in centos-srpms scientific-srpms slf-srpms; do
+       echo -n $script &quot;: &quot;
+       $script -$rhel $pkg | grep . || echo none
+done
+</pre></div>
+
+
+<p>A dry run of removing the package:</p>
+<div class="codehilite"><pre><span></span>osg-koji untag-pkg -n --all epelrescue-el$rhel $pkg
+</pre></div>
+
+
+<p>Remove the <code>-n</code> when the output of that looks fine.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../release/cut-sw-release/" class="btn btn-neutral float-right" title="How to Cut a Release">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../git-software-development/" class="btn btn-neutral" title="Git Software Development Process"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../git-software-development/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../release/cut-sw-release/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
