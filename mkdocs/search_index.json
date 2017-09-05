@@ -342,7 +342,7 @@
         }, 
         {
             "location": "/software/new-team-member/", 
-            "text": "Setup Instructions for New Team Members\n\n\nAccounts, Group Memberships, Certificates, Etc.\n\n\n\n\nComputing account at FNAL\n\n\nTo get this, follow the instructions at \nhttps://fermi.service-now.com/kb_view.do?sysparm_article=KB0010797\n\n\n\n\n\n\nssh access to a UW CompSci account, including AFS access\n\n\nSend email to Tim\n\n\n\n\n\n\nRead/write access to the UW Subversion repository;\n\n\nSend email to Matt \n\n\n\n\n\n\nGrid certificate\n\n\nhttps://twiki.opensciencegrid.org/bin/view/Documentation/CertificateGetWeb\n \n\n\n\n\n\n\nAccess to FermiCloud\n\n\nhttp://fclweb.fnal.gov/\n\n\n\n\n\n\nJira ticket system\n\n\nSend email to \n and request access to Jira", 
+            "text": "Setup Instructions for New Team Members\n\n\nAccounts, Group Memberships, Certificates, Etc.\n\n\n\n\nComputing account at FNAL\n\n\nTo get this, follow the instructions at \nhttps://fermi.service-now.com/kb_view.do?sysparm_article=KB0010797\n\n\n\n\n\n\nssh access to a UW CompSci account, including AFS access\n\n\nSend email to Tim C with top 3 requested usernames\n\n\n\n\n\n\nRead/write access to the UW Subversion repository;\n\n\nSend email to Mat or Tim C\n\n\n\n\n\n\nGrid certificate\n\n\nhttps://twiki.opensciencegrid.org/bin/view/Documentation/CertificateGetWeb\n \n\n\n\n\n\n\nAccess to FermiCloud\n\n\nhttp://fclweb.fnal.gov/\n\n\n\n\n\n\nJira ticket system\n\n\nSend email to \n and request access to JIRA\n\n\n\n\n\n\nAccess to Koji\n\n\nSend email to Mat with DN of grid certificate", 
             "title": "New Team Member"
         }, 
         {
@@ -352,7 +352,7 @@
         }, 
         {
             "location": "/software/new-team-member/#accounts-group-memberships-certificates-etc", 
-            "text": "Computing account at FNAL  To get this, follow the instructions at  https://fermi.service-now.com/kb_view.do?sysparm_article=KB0010797    ssh access to a UW CompSci account, including AFS access  Send email to Tim    Read/write access to the UW Subversion repository;  Send email to Matt     Grid certificate  https://twiki.opensciencegrid.org/bin/view/Documentation/CertificateGetWeb      Access to FermiCloud  http://fclweb.fnal.gov/    Jira ticket system  Send email to   and request access to Jira", 
+            "text": "Computing account at FNAL  To get this, follow the instructions at  https://fermi.service-now.com/kb_view.do?sysparm_article=KB0010797    ssh access to a UW CompSci account, including AFS access  Send email to Tim C with top 3 requested usernames    Read/write access to the UW Subversion repository;  Send email to Mat or Tim C    Grid certificate  https://twiki.opensciencegrid.org/bin/view/Documentation/CertificateGetWeb      Access to FermiCloud  http://fclweb.fnal.gov/    Jira ticket system  Send email to   and request access to JIRA    Access to Koji  Send email to Mat with DN of grid certificate", 
             "title": "Accounts, Group Memberships, Certificates, Etc."
         }, 
         {
