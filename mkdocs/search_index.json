@@ -3364,6 +3364,96 @@
             "location": "/meetings/2017/TechArea20170828/#discussions_2", 
             "text": "XRootD developers have moved to a release model where they seek explicit sign-off from stakeholders", 
             "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/", 
+            "text": "OSG Technology Area Meeting, 5 September 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n\n\nAttending:\n Edgar, Derek, Tim C, Tim T, Carl, Suchandra\n\n\nAnnouncements\n\n\nTriage Duty\n\n\n\n\nThis week: Derek\n\n\nNext week: Brian Lin\n\n\n9 (+0) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n154\n\n\n-3\n\n\nOpen\n\n\n\n\n\n\n20\n\n\n-1\n\n\nIn Progress\n\n\n\n\n\n\n14\n\n\n+12\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nName\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nSeptember\n\n\n3.4.3, 3.3.28\n\n\n2017-08-28\n\n\n2017-09-05\n\n\n2017-09-12\n\n\n5 week cycle\n\n\n\n\n\n\nOctober\n\n\n3.4.4, 3.3.29\n\n\n2017-09-25\n\n\n2017-10-02\n\n\n2017-10-10\n\n\n\n\n\n\n\n\nNovember\n\n\n3.4.5, 3.3.30\n\n\n2017-10-30\n\n\n2017-11-06\n\n\n2017-11-14\n\n\n5 week cycle\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n3.4.3/3.3.28\n\n\n\n\nTickets not marked RFT\n\n\n\n\n\n\n\n\n\n\nOwner\n\n\n# tickets\n\n\n\n\n\n\n\n\n\n\nMat\n\n\n7\n\n\n\n\n\n\nBrian\n\n\n1\n\n\n\n\n\n\nCarl\n\n\n3\n\n\n\n\n\n\nTim\n\n\n1\n\n\n\n\n\n\n\n\nDocumentation\n\n\nDiscussions\n\n\nNew 8.7 Condor build might have to be punted to October.  We might still release a new 8.6 this month -- have to look at OSG's demands to see if it's worth releasing.\n\n\nSupport Update\n\n\nSome issues with Florida -- Derek to investigate.\n\n\nOSG Release Team\n\n\n\n\nSuchandra Thapa is handling the \nSeptember 12th\n release\n\n\nPackage Freeze today!\n\n\nTimT may call upon software team members for testing assistance\n\n\n\n\n\n\n\n\n\n\n3.3.28\n\n\n\n\nBoth\n\n\n\n\n3.4.3\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n1\n\n\n-1\n\n\n2\n\n\n-7\n\n\n0\n\n\n+0\n\n\n3\n\n\n-8\n\n\nOpen\n\n\n\n\n\n\n1\n\n\n-2\n\n\n6\n\n\n-2\n\n\n2\n\n\n+1\n\n\n9\n\n\n-3\n\n\nIn Progress\n\n\n\n\n\n\n7\n\n\n+2\n\n\n10\n\n\n+4\n\n\n4\n\n\n+1\n\n\n21\n\n\n+7\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n+1\n\n\n0\n\n\n+0\n\n\n1\n\n\n+1\n\n\nReady for Release\n\n\n\n\n\n\n9\n\n\n-1\n\n\n19\n\n\n-4\n\n\n6\n\n\n+2\n\n\n34\n\n\n-3\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\nBoth  \n\n\nStashCache 0.8 (\nSOFTWARE-2873\n)\n\n\nosg-ca-scripts 1.1.7 (\nSOFTWARE-2834\n)\n\n\nxrootd-lcmaps 1.3.4 (\nSOFTWARE-2847\n)\n\n\n\n\n\n\n3.4.3  \n\n\nSingularity 2.3 (\nSOFTWARE-2755\n)\n\n\nCVMFS 2.4.1 (\nSOFTWARE-2858\n)\n\n\nosg-configure 2.2.0 (\nSOFTWARE-2864\n)\n\n\n\n\n\n\n3.3.28  \n\n\nosg-configure 1.10.0 (\nSOFTWARE-2865\n)\n\n\nxrootd-hdfs 1.9.2 (\nSOFTWARE-2853\n)\n\n\n\n\n\n\n\n\nDiscussions\n\n\nWill need extra help for testing.  Nebraska will help test the Globus update for 3.4, but need a 3.3 site to test the 3.3 updates -- should contact osg-sites.\n\n\nSuchandra may test gridftp-hdfs but Matyas still needs to debug \n promote.\n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nGRACC backup of Dashboards\n\n\nInitiate backups of ES snapshots\n\n\nStart indexing GOC server status in GRACC ES\n\n\nWork no Glidein logs in ES\n\n\nFix naming issues in GRACC related to explosion of \"Fake\" sites in records.\n\n\n\n\nThis Week\n\n\n\n\nSome corruption in GRACC\n\n\nTesting GRACC update\n\n\nStashcache XRootD update going smoothly\n\n\nSome minor issues at Syracuse\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)\n\n\n\n\nDiscussions", 
+            "title": "September 05, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#osg-technology-area-meeting-5-september-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin  Attending:  Edgar, Derek, Tim C, Tim T, Carl, Suchandra", 
+            "title": "OSG Technology Area Meeting, 5 September 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#announcements", 
+            "text": "", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#triage-duty", 
+            "text": "This week: Derek  Next week: Brian Lin  9 (+0) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#jira", 
+            "text": "# of tickets   State      154  -3  Open    20  -1  In Progress    14  +12  Ready for Testing    0  +0  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#release-schedule", 
+            "text": "Name  Version  Development Freeze  Package Freeze  Release  Notes      September  3.4.3, 3.3.28  2017-08-28  2017-09-05  2017-09-12  5 week cycle    October  3.4.4, 3.3.29  2017-09-25  2017-10-02  2017-10-10     November  3.4.5, 3.3.30  2017-10-30  2017-11-06  2017-11-14  5 week cycle     Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#osg-software-team", 
+            "text": "", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#3433328", 
+            "text": "Tickets not marked RFT      Owner  # tickets      Mat  7    Brian  1    Carl  3    Tim  1", 
+            "title": "3.4.3/3.3.28"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#documentation", 
+            "text": "", 
+            "title": "Documentation"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#discussions", 
+            "text": "New 8.7 Condor build might have to be punted to October.  We might still release a new 8.6 this month -- have to look at OSG's demands to see if it's worth releasing.", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#support-update", 
+            "text": "Some issues with Florida -- Derek to investigate.", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#osg-release-team", 
+            "text": "Suchandra Thapa is handling the  September 12th  release  Package Freeze today!  TimT may call upon software team members for testing assistance      3.3.28   Both   3.4.3   Total   Status      1  -1  2  -7  0  +0  3  -8  Open    1  -2  6  -2  2  +1  9  -3  In Progress    7  +2  10  +4  4  +1  21  +7  Ready for Testing    0  +0  1  +1  0  +0  1  +1  Ready for Release    9  -1  19  -4  6  +2  34  -3  Total      Both    StashCache 0.8 ( SOFTWARE-2873 )  osg-ca-scripts 1.1.7 ( SOFTWARE-2834 )  xrootd-lcmaps 1.3.4 ( SOFTWARE-2847 )    3.4.3    Singularity 2.3 ( SOFTWARE-2755 )  CVMFS 2.4.1 ( SOFTWARE-2858 )  osg-configure 2.2.0 ( SOFTWARE-2864 )    3.3.28    osg-configure 1.10.0 ( SOFTWARE-2865 )  xrootd-hdfs 1.9.2 ( SOFTWARE-2853 )", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#discussions_1", 
+            "text": "Will need extra help for testing.  Nebraska will help test the Globus update for 3.4, but need a 3.3 site to test the 3.3 updates -- should contact osg-sites.  Suchandra may test gridftp-hdfs but Matyas still needs to debug   promote.", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#last-week", 
+            "text": "GRACC backup of Dashboards  Initiate backups of ES snapshots  Start indexing GOC server status in GRACC ES  Work no Glidein logs in ES  Fix naming issues in GRACC related to explosion of \"Fake\" sites in records.", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#this-week", 
+            "text": "Some corruption in GRACC  Testing GRACC update  Stashcache XRootD update going smoothly  Some minor issues at Syracuse", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170905/#discussions_2", 
+            "text": "", 
+            "title": "Discussions"
         }
     ]
 }
