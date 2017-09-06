@@ -541,7 +541,9 @@ A yum repository created from the contents of a tag at a specific point in time.
 </li>
 </ul>
 <h2 id="obtaining-a-login">Obtaining a login<a class="headerlink" href="#obtaining-a-login" title="Permanent link">&para;</a></h2>
-<p>You will be using your grid certificate to log in. Email osg-software the DN of your certificate, and we will set up a koji account with the appropriate permissions. If you are switching certificate providers, you will need to email osg-software with your new DN. You will also need to clear your browser cookies and cache for <code>https://koji.chtc.wisc.edu</code> before trying to use the koji web interface again.</p>
+<p>You will be using your grid certificate to log in. Email a Koji admin the DN of your certificate, and we will set up a Koji account with the appropriate permissions.</p>
+<p>If you are switching certificate providers, you will need to email a Koji admin with your new DN. You will also need to clear your browser cookies and cache for <code>https://koji.chtc.wisc.edu</code> before trying to use the Koji web interface again. If your CN has changed, you will not be able to use your old certificate.</p>
+<p>Current Koji admins are Mat Selmeci and Carl Edquist.</p>
 <h2 id="configuring-certificate-authentication">Configuring certificate authentication<a class="headerlink" href="#configuring-certificate-authentication" title="Permanent link">&para;</a></h2>
 <p>You must also configure certificate authentication for the command-line tools on your build host:</p>
 <ul>
