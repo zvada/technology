@@ -85,7 +85,11 @@ Both pieces of software are available from the osg repositories. `osg-build` may
 Obtaining a login
 -----------------
 
-You will be using your grid certificate to log in. Email osg-software the DN of your certificate, and we will set up a koji account with the appropriate permissions. If you are switching certificate providers, you will need to email osg-software with your new DN. You will also need to clear your browser cookies and cache for `https://koji.chtc.wisc.edu` before trying to use the koji web interface again.
+You will be using your grid certificate to log in. Email a Koji admin the DN of your certificate, and we will set up a Koji account with the appropriate permissions.
+
+If you are switching certificate providers, you will need to email a Koji admin with your new DN. You will also need to clear your browser cookies and cache for `https://koji.chtc.wisc.edu` before trying to use the Koji web interface again. If your CN has changed, you will not be able to use your old certificate.
+
+Current Koji admins are Mat Selmeci and Carl Edquist.
 
 Configuring certificate authentication
 --------------------------------------
