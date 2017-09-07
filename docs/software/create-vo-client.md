@@ -41,7 +41,7 @@ To make the tarball:
 
 <!-- -->
 
--   Follow the instructions in the attached [gums-template-conversion.txt](gums-template-conversion.txt) file to convert it from GUMS 1.1 (1.2?) format to GUMS 1.3 format. Name the result `gums.config.template`. See also the [Automated GUMS Conversion](#Automated_GUMS_Conversion) section below for a scripted version of this step.
+-   Follow the instructions in the attached [gums-template-conversion.txt](gums-template-conversion.txt) file to convert it from GUMS 1.1 (1.2?) format to GUMS 1.3 format. Name the result `gums.config.template`. See also the [Automated GUMS Conversion](#automated-gums-conversion) section below for a scripted version of this step.
 -   Move the files into a subdirectory to include in the tarball:
 
 <!-- -->
