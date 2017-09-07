@@ -90,6 +90,12 @@
     </url>
         
     <url>
+     <loc>https://opensciencegrid.github.io/technology/software/osg-build-tools/</loc>
+     <lastmod>2017-09-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://opensciencegrid.github.io/technology/software/resurrecting-epel-packages/</loc>
      <lastmod>2017-09-07</lastmod>
      <changefreq>daily</changefreq>

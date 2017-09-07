@@ -841,6 +841,381 @@
             "title": "Release workflow"
         }, 
         {
+            "location": "/software/osg-build-tools/", 
+            "text": "OSG Build Tools\n\n\nThis page documents the tools used for RPM development for the OSG Software Stack. See \nthe RPM development guide\n for the principles on which these tools are based.\n\n\nThe tools are distributed in the \nosg-build\n RPM in our repositories, but can also be used from a Git clone of \nopensciencegrid/osg-build on GitHub\n.\n\n\nThis page is up-to-date as of \nosg-build\n version 1.10.1.\n\n\nThe tools\n\n\nosg-build\n\n\nOverview\n\n\nThis is the primary tool used in building source and binary RPMs.\n\n\n\n\nosg-build \nTASK\n [options] \nPACKAGE DIRECTORY\n [...]\n\n\n\n\npackage_directory\n is a directory containing an \nosg/\n and/or an \nupstream/\n subdirectory. See \nthe RPM development guide\n for how these directories are organized.\n\n\nTasks\n\n\nkoji\n\n\nPrebuilds the final source package, then builds it remotely using the Koji instance hosted at UW-Madison. \nhttps://koji.chtc.wisc.edu\n By default, the resulting RPMs will end up in the osg-minefield repositories based on the most recent OSG major version (e.g. 3.4). You may specify a different set of repos with \n--repo\n, described later. RPMs from the osg-minefield repositories are regularly pulled to the osg-development repositories hosted by the GOC at \nhttp://repo.grid.iu.edu\n Unless you specify otherwise (by passing \n--el6\n, \n--el7\n or specifying a different koji tag/target), the package will be built for both el6 and el7. This is the method used to build final versions of packages you expect to ship.\n\n\nlint\n\n\nPrebuilds the final source package, then runs \nrpmlint\n on it to check for various problems. You will need to have \nrpmlint\n installed. People on UW CSL machines should add \n/p/vdt/workspace/rpmlint\n to their $PATH.\n\n\nmock\n\n\nPrebuilds the final source package, then builds it locally using \nmock\n, and stores the resulting source and binary RPMs in the package-specific \n_build_results\n directory.\n\n\nprebuild\n\n\nPrebuilds the final source package from upstream sources (if any) and local files (if any). May create or overwrite the \n_upstream_srpm_contents\n and \n_final_srpm_contents\n directories.\n\n\nprepare\n\n\nPrebuilds the final source package, then calls \nrpmbuild -bp\n on the result, extracting and patching the source files (and performing any other steps defined in the \n%prep\n section of the spec file. The resulting sources will be under \n_final_srpm_contents\n.\n\n\nrpmbuild\n\n\nPrebuilds the final source package, then builds it locally using \nrpmbuild\n, and stores the resulting source and binary RPMs in the package-specific \n_build_results\n directory.\n\n\nquilt\n\n\nCollects the upstream local sources and spec file, then calls \nquilt setup\n on the spec file, extracting the source files and adding the patches to a quilt series file. See \nQuilt documentation (PDF link)\n for more information on quilt; also look at the example in the Usage Patterns section below. Similar to \nprepare\n (in fact, \nquilt\n calls \nrpmbuild -bp\n behind the scenes), but the source tree is in pre-patch state, and various quilt commands can be used to apply and modify patches. Unpacks into \n_quilt\n as of \nosg-build-1.2.2\n or \n_final_srpm_contents\n in previous versions. Requires \nquilt\n. People on UW CSL machines should add \n/p/vdt/workspace/quilt/bin\n to their \n$PATH\n, and \n/p/vdt/workspace/quilt/share/man\n to their \n$MANPATH\n.\n\n\nOptions\n\n\nThis section lists the command-line options.\n\n\n--help\n\n\nPrints the built-in usage information and exits without doing anything else.\n\n\n--version\n\n\nPrints the version of \nosg-build\n and exits without doing anything else.\n\n\nCommon Options\n\n\n-a, --autoclean, --no-autoclean\n\n\nBefore each build, clean out the contents of the underscore directories (_build_results, _final_srpm_contents, _upstream_srpm_contents, _upstream_tarball_contents). If the directories are not cleaned up, earlier builds of a package may interfere with later ones. \n--no-autoclean\n will disable this.\n\n\nDefault is \ntrue\n.\n\n\nHas no effect with the \n--vcs\n flag.\n\n\n-c, --cache-prefix \nprefix\n\n\nSets the \nprefix\n for upstream source cache references. The prefix must be a valid URI starting with either \nhttp\n, \nhttps\n, or \nfile\n, or one of the following special values:\n\n\n\n\nAFS (corresponds to \nfile:///p/vdt/public/html/upstream\n, which is the location of the VDT cache using AFS from a UW CS machine).\n\n\nVDT (corresponds to \nhttp://vdt.cs.wisc.edu/upstream\n, which is the location of the VDT cache from off-site).\n\n\nAUTO (AFS if available, VDT if not)\n\n\n\n\nThe upstream source cache must be organized as described above. All files referenced by \n.source\n files in the affected packages must exist in the cache, or a runtime error will occur.\n\n\nDefault is \nAUTO\n.\n\n\nHas no effect with the \n--vcs\n flag.\n\n\n--el6, --el7, --redhat-release \nversion\n (Config: redhat_release)\n\n\nSets the distro version to build for. This affects the %dist tag, the mock config, and the default koji tag and target (unless otherwise specified).\n\n\n--el6\n is equivalent to \n--redhat-release 6\n\n\n--el7\n is equivalent to \n--redhat-release 7\n\n\n--loglevel \nloglevel\n\n\nSets the verbosity of the script. Valid values are: \ndebug\n, \ninfo\n, \nwarning\n, \nerror\n and \ncritical\n.\n\n\nDefault is \ninfo\n.\n\n\n-q, --quiet\n\n\nDo not display as much information. Equivalent to \n--loglevel warning\n\n\n-v, --verbose\n\n\nDisplay more information. Equivalent to \n--loglevel debug\n\n\n-w, --working-directory \npath\n\n\nUse \npath\n as the root directory of the files created by the script. For example, if \npath\n is \n$HOME/working\n, and the package being built is \nndt\n, the following tree will be created:\n\n\n\n\n$HOME/working/ndt/_upstream_srpm_contents\n\n\n$HOME/working/ndt/_upstream_tarball_contents\n\n\n$HOME/working/ndt/_final_srpm_contents\n\n\n$HOME/working/ndt/_build_results\n\n\n\n\nIf \npath\n is \nTEMP\n, a randomly named directory under \n/tmp\n is used as the working directory.\n\n\nThe default setting is to use the package directory as the working directory.\n\n\nHas no effect with the \n--vcs\n flag.\n\n\nOptions specific to prebuild task\n\n\n--full-extract\n\n\nIf set, all upstream tarballs will be extracted into \n_upstream_tarball_contents/\n during the prebuild step. This flag is now mostly redundant with the \nprepare\n and \nquilt\n tasks.\n\n\nOptions specific to rpmbuild and mock tasks\n\n\n--distro-tag \ndist\n\n\nSets the distribution tag added on to the end of the release in the RPM ( \nrpmbuild\n and \nmock\n tasks only ).\n\n\nDefault is \n.osg.el6\n or \n.osg.el7\n\n\n-t, --target-arch \narch\n\n\nSpecify an architecture to build packages for ( \nrpmbuild\n and \nmock\n tasks only ).\n\n\nDefault is unspecified, which builds for the current machine architecture.\n\n\nOptions specific to mock task\n\n\n--mock-clean, --no-mock-clean\n\n\nEnable/disable deletion of the mock buildroot after a successful build.\n\n\nDefault is \ntrue\n.\n\n\n-m, --mock-config \npath\n\n\nSpecifies the \nmock\n configuration file to use. This file details how to set up the build environment used by mock for the build, including Yum repositories from which to install dependencies and certain predefined variables (e.g., the distribution tag \n%dist\n).\n\n\nSee also \n--mock-config-from-koji\n.\n\n\n--mock-config-from-koji \nbuild tag\n\n\nCreates a mock config from a Koji build tag. This is the most accurate way to replicate the build environment that Koji will provide (outside of Koji). The build tag is based on the distro version (el6, el7) and the OSG major version (3.3, 3.4). For 3.4 on el6, it is: \nosg-3.4-el6-build\n Also requires the Koji command-line tools (package \nkoji\n), obtainable from the osg repositories. Since this uses koji, some of the koji-specific options may apply, namely: \n--koji-backend\n, \n--koji-login\n, and \n--koji-wrapper\n.\n\n\nOptions specific to koji task\n\n\n--dry-run\n\n\nDo not actually run koji, merely show the command(s) that will be run. For debugging purposes.\n\n\n--getfiles, --get-files\n\n\nFor scratch builds without \n--vcs\n only. Download the resulting RPMs and logs from the build into the \n_build_results\n directory.\n\n\n-k, --kojilogin, --koji-login \nlogin\n\n\nSets the login to use for the koji task. This should most likely be your CN. If not specified, will extract it from your client cert (\n~/.osg-koji/client.crt\n or \n~/.koji/client.crt\n).\n\n\n--koji-target \ntarget\n\n\nThe koji target to use for building.\n\n\nDefault is \nosg-el6\n for el6 and \nosg-el7\n for el7.\n\n\n--koji-tag \ntag\n\n\nThe koji tag to add packages to. See the \nKoji Workflow guide\n for more information on the terminology. The special value \nTARGET\n uses the destination tag defined in the koji target.\n\n\nDefault is \nosg-el6\n or \nosg-el7\n.\n\n\n--ktt, --koji-tag-and-target \narg\n\n\nShorthand for setting both --koji-tag and --koji-target to \narg\n.\n\n\n--koji-wrapper, --no-koji-wrapper\n\n\nEnable/disable use of the \nosg-koji\n wrapper script around koji. See below for a description of \nosg-koji\n.\n\n\nDefault is \ntrue\n.\n\n\n--koji-backend \nbackend\n\n\nSpecifies the method osg-build will use to interface with Koji. This can be \nshell\n or \nkojilib\n.\n\n\n--wait, --no-wait, --nowait\n\n\nWait for koji tasks to finish. Bad for running multiple builds in a single command, since you will have to type in your passphrase for the first one, wait for it to complete, then type in your passphrase for the second one, wait for it to complete, etc. If you want to wait for multiple tasks to finish, use the \nkoji watch-task\n command or look at the website \nhttps://koji.chtc.wisc.edu\n.\n\n\n--wait\n used to be the default until \nosg-build-1.1.3\n\n\n--regen-repos\n\n\nStart a \nregen-repo\n koji task on the build tag after each koji build, to update the build repository used for the next build. Not useful unless you are launching multiple builds. This enables you to launch builds that depend on each other. Doesn't work too well with \n--no-wait\n, since the next build may be started before the regen-repo task is complete. Waiting will keep the next build from being queued until the regen-repo is complete.\n\n\n--scratch, --no-scratch\n\n\nPerform scratch builds. A scratch build does not go into a repository, but the name-version-release (NVR) of the created RPMs are not considered used, so the build may be modified and repeated without needing a release bump. This has the same use case as the mock task: creating packages that you want to test before releasing. If you do not have a machine with mock set up, or want to test exactly the environment that Koji provides, scratch builds might be more convenient.\n\n\n--vcs, --no-vcs, --svn, --no-svn\n\n\nHave Koji check the package out from a version control system instead of creating an SRPM on the local machine and submitting that to Koji. Currently, SVN and Git are supported. If this flag is specified, you may use SVN URLs or URL@Revision pairs to specify the packages to build. You may continue specify package directories from an SVN checkout, in which case osg-build will use \nsvn info\n to find the right URL@Revision pair to use and warn you about uncommitted changes. osg-build will also warn you about an outdated working directory.\n\n\n--vcs\n defaults to \ntrue\n for non-scratch builds, and \nfalse\n for scratch builds.\n\n\n--repo=\ndestination repository\n, --upcoming\n\n\nSelects the repositories (osg-3.3, upcoming, etc.) to build packages for. Currently valid repositories are:\n\n\n\n\n\n\n\n\nRepository\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nosg\n\n\nOSG Software development repos for trunk (this is the default)\n\n\n\n\n\n\nosg-3.3 (or just 3.3)\n\n\nOSG Software development repos for 3.2 branch\n\n\n\n\n\n\nupcoming\n\n\nOSG Software development repos for upcoming branch\n\n\n\n\n\n\ninternal\n\n\nOSG Software internal branch\n\n\n\n\n\n\nhcc\n\n\nHolland Computing Center (Nebraska) testing repos\n\n\n\n\n\n\n\n\n--upcoming\n is an alias for \n--repo=upcoming\n\n\nNote that the repo selection affects which VCS paths you are allowed to build from. For example, you are not allowed to build from branches/osg-3.3 (from the OSG SVN) into the 'osg' repo, or from HCC's git repositories into the 'upcoming' repo.\n\n\nkoji-tag-diff\n\n\nThis script displays the differences between the latest packages in two koji tags.\n\n\nExample invocation: \nkoji-tag-diff osg-3.4-el6-development osg-3.4-el7-testing\n\n\nThis prints the packages that are in osg-3.4-el6-development but not in osg-3.4-el7-testing, or vice versa.\n\n\nosg-build-test\n\n\nThis script runs automated tests for \nosg-build\n. Only a few tests have been implemented so far.\n\n\nosg-import-srpm\n\n\nThis is a script to fetch an SRPM from a remote site, copy it into the upstream cache on AFS, and create an SVN package dir (if needed) with an \nupstream/*.source\n file. By default it will put downloaded files into the VDT upstream cache (/p/vdt/public/html/upstream), but you can pass \n--upstream-root=\nUPSTREAM DIR\n to put them somewhere else. If called with the \n--extract-spec\n or \n-e\n argument, it will extract the spec file from the SRPM and place it into the \nosg\n subdir in SVN. If called with the \n--diff-spec\n or \n-d\n argument, it will extract the spec file and compare it to the existing spec file in the \nosg\n subdir. \nThe script hasn't been touched in a while and needs a good deal of cleanup.\n A planned feature is to allow doing a three-way diff between the existing RPM before OSG modifications, the new RPM before OSG modifications and the existing RPM after OSG modifications.\n\n\nosg-koji\n\n\nThis is a wrapper script around the \nkoji\n command line tool. It automatically specifies parameters to access the OSG's koji instance, and forces SSL authentication. It takes the same parameters as \nkoji\n and passes them on.\n\n\nAn additional command, \nosg-koji setup\n exists, which performs the following tasks:\n\n\n\n\nCreate a koji configuration in \n~/.osg-koji\n\n\nCreate a CA bundle for verifying the server.\n    Use either files in \n/etc/grid-security/certificates\n, or (if those are not found), from files downloaded from the DOEGrids and DigiCert sites.\n\n\nCreate a client cert file. This can be a symlink to your grid proxy, or it can be a file created from your grid public and private key files.\n    The location of those files can be specified by the \n--usercert\n and \n--userkey\n arguments.\n    If unspecified, \nusercert\n defaults to \n~/.globus/usercert.pem\n, and \nuserkey\n defaults to \n~/.globus/userkey.pem\n.\n\n\n\n\nosg-promote\n\n\nOverview\n\n\nRun this script to push packages from one set of repos to another (e.g. from development to testing), according to the OSG software promotion guidelines.\n\n\nOnce the packages are promoted, the script will generate code to cut and paste into a JIRA comment.\n\n\nSynopsis\n\n\n\n\nosg-promote [-r|--route \nROUTE\n]... [options] \nPACKAGE OR BUILD\n [...]\n\n\n\n\nExamples\n\n\n\n\n\n\nPromote the latest build of \nosg-version\n to testing for the current release series  \n\n\nosg-promote -r testing osg-version\n\n\n\n\n\n\n\n\n\nPromote the latest builds of \nosg-ce\n to testing for the 3.3 and 3.4 release series  \n\n\nosg-promote -r 3.3-testing -r 3.4-testing osg-ce\n\n\n\n\n\n\n\n\n\nPromote \nosg-build-1.5.0-1\n to testing for the current release series  \n\n\nosg-promote -r testing osg-build-1.5.0-1\n\n\n\n\n\n\n\n\n\nArguments\n\n\n-h\n\n\nDisplay help and a list of valid routes.\n\n\npackage or build\n\n\nA package (e.g. \nosg-version\n) or build (e.g. \nosg-version-3.3.0-1.osg33.el6\n) to promote. You may omit the dist tag (the \n.osg33.el6\n part).\n\n\nIf a package is specified, the most recent version of that package will be promoted.\n\n\nIf a build is specified, that build and the build that has the same \nversion\n-\nrelease\n for the other distro version(s) will be promoted. That is, if you specify the route \n3.3-testing\n and the build \nfoo-1-1\n, then \nfoo-1-1.osg33.el6\n and \nfoo-1-1.osg33.el7\n will be promoted.\n\n\nThis may be specified multiple times, to promote multiple packages. The NVRs of each set of builds for a package \nmust\n match.\n\n\n-r \nROUTE\n, --route \nROUTE\n\n\nThe promotion route to use. Use \nosg-promote -h\n to get a list of valid routes. This may be specified multiple times. For example, to promote for both 3.4 and 3.3, pass \n-r 3.4-testing -r 3.3-testing\n.\n\n\nIf not specified, the \ntesting\n route is used, which corresponds to the testing route for the latest release series.\n\n\n-n, --dry-run\n\n\nDo not promote, just show what would be done.\n\n\n--el6-only / --el7-only\n\n\nOnly promote packages for el6 / el7.\n\n\n--no-el6 / --no-el7\n\n\nDo not promote packages for el6 / el7.\n\n\n--ignore-rejects\n\n\nIgnore rejections due to version mismatch between dvers or missing package for one dver.\n\n\n--regen\n\n\nRegenerate the destination repos after promoting.\n\n\n-y, --assume-yes\n\n\nDo not prompt before promotion.\n\n\nCommon Usage Patterns\n\n\nVerify that all files necessary to build the package are in the right place\n\n\nRun \nosg-build prebuild \nPACKAGEDIR\n.\n\n\nFetch and extract all source files for examination\n\n\nRun \nosg-build prebuild --full-extract \nPACKAGEDIR\n. Look inside the \n_upstream_tarball_contents\n directory.\n\n\nGet a post-patch version of the upstream sources for examination\n\n\nRun \nosg-build prepare \nPACKAGEDIR\n. Look inside the \n_build_results\n directory.\n\n\nSee which patches work with a new version of a package, update or remove them\n\n\n\n\nPlace the new source tarball into the upstream cache, edit the version in the spec file and *.sources files as necessary\n\n\nRun \nosg-build quilt \nPACKAGEDIR\n.\n\n\nEnter the extracted sources inside the \n_final_srpm_contents\n directory. You should see a file called \nseries\n and a symlink called \npatches\n.\n\n\nType \nquilt series\n to get a list of patches in order of application.\n\n\nType \nquilt push\n to apply the next patch.\n\n\nIf the patch applies cleanly, continue.\n\n\nIf the patch applies with some fuzz, type \nquilt refresh\n to update the offsets in the patch.\n\n\nIf the patch does not apply and you wish to remove it, type \nquilt delete \nPATCH NAME\n (delete only removes it from the series file, not the disk)\n\n\nIf the patch does not apply and you wish to fix it, either type \nquilt push -f\n to interactively apply the patch, or \nquilt delete \nPATCH NAME\n the patch and use \nquilt new\n / \nquilt edit\n / \nquilt refresh\n to edit files and make a new patch from your changes. Consult the \nquilt(1)\n manpage for more info.\n\n\n\n\n\n\nIf you have a new patch, run \nquilt import \nPATCHFILE\n to add the patch to the series file, and run \nquilt push\n to apply it.\n\n\nIf you have changes to make to the source code that you want to save as a patch, type \nquilt new \nPATCHNAME\n, edit the files, type \nquilt add \nFILE\n on each file you edited, then type \nquilt refresh\n to recreate the patch.\n\n\nOnce you're all done, copy the patches in the \npatches/\n directory to the \nosg/\n dir in SVN, run \nquilt series\n to get the application order and update the spec file accordingly.\n\n\n\n\nSee if a package builds successfully for OSG 3.4\n\n\n\n\nIf you have all the build dependencies of the package installed, run \nosg-build rpmbuild \nPACKAGEDIR\n. The resulting RPMs will be in the \n_build_results\n directory.\n\n\nIf you do not have all the build dependencies installed, or want to make sure you specified all of the necessary ones and the package builds from a clean environment, run \nosg-build mock --mock-config-from-koji osg-3.4-el6-build \nPACKAGEDIR\n. The resulting RPMs will be in the \n_build_results\n directory.\n\n\nIf you do not have mock installed, or want to exactly replicate the build environment in Koji, run \nosg-build koji --scratch \nPACKAGEDIR\n. You may download the resulting RPMs from kojiweb \nhttps://koji.chtc.wisc.edu/koji\n or pass \n--getfiles\n to \nosg-build koji\n and they will get downloaded to the \n_build_results\n directory.\n\n\n\n\nCheck for potential errors in a package\n\n\nRun \nosg-build lint \nPACKAGEDIR\n.\n\n\nCreate and test a final build of a package for all platforms for upcoming\n\n\n\n\nsvn commit\n your changes in \nbranches/upcoming\n.\n\n\nType \nosg-build koji --repo=upcoming \nPACKAGEDIR\n\n\nWait for the \nosg-upcoming-minefield\n repos to be regenerated containing the new version of your package. You can run \nosg-koji wait-repo osg-upcoming-el\nX\n-development --build=\nPACKAGENAME-VERSION-RELEASE\n and wait for that process to finish (substitute \n6\n or \n7\n for \nX\n). Or, you can just check kojiweb \nhttps://koji.chtc.wisc.edu/koji/tasks\n.\n\n\nOn your test machine, make sure the \nosg-upcoming-minefield\n repo is enabled (edit \n/etc/yum.repos.d/osg-upcoming-minefield.repo\n or \n/etc/yum.repos.d/osg-el6-upcoming-minefield.repo\n). Clean your cache (\nyum clean all; yum clean expire-cache\n).\n\n\nInstall your software, see if it works.\n\n\n\n\nPromote the latest build of a package to testing for the current OSG release series\n\n\nRun \nosg-promote -r testing \nPACKAGE\n\n\nPromote the latest build of a package to testing for the 3.3 and 3.4 release series\n\n\nRun \nosg-promote -r 3.3-testing -r 3.4-testing \nPACKAGE", 
+            "title": "OSG Build Tools"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#osg-build-tools", 
+            "text": "This page documents the tools used for RPM development for the OSG Software Stack. See  the RPM development guide  for the principles on which these tools are based.  The tools are distributed in the  osg-build  RPM in our repositories, but can also be used from a Git clone of  opensciencegrid/osg-build on GitHub .  This page is up-to-date as of  osg-build  version 1.10.1.", 
+            "title": "OSG Build Tools"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#the-tools", 
+            "text": "", 
+            "title": "The tools"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#osg-build", 
+            "text": "", 
+            "title": "osg-build"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#overview", 
+            "text": "This is the primary tool used in building source and binary RPMs.   osg-build  TASK  [options]  PACKAGE DIRECTORY  [...]   package_directory  is a directory containing an  osg/  and/or an  upstream/  subdirectory. See  the RPM development guide  for how these directories are organized.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#tasks", 
+            "text": "", 
+            "title": "Tasks"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#koji", 
+            "text": "Prebuilds the final source package, then builds it remotely using the Koji instance hosted at UW-Madison.  https://koji.chtc.wisc.edu  By default, the resulting RPMs will end up in the osg-minefield repositories based on the most recent OSG major version (e.g. 3.4). You may specify a different set of repos with  --repo , described later. RPMs from the osg-minefield repositories are regularly pulled to the osg-development repositories hosted by the GOC at  http://repo.grid.iu.edu  Unless you specify otherwise (by passing  --el6 ,  --el7  or specifying a different koji tag/target), the package will be built for both el6 and el7. This is the method used to build final versions of packages you expect to ship.", 
+            "title": "koji"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#lint", 
+            "text": "Prebuilds the final source package, then runs  rpmlint  on it to check for various problems. You will need to have  rpmlint  installed. People on UW CSL machines should add  /p/vdt/workspace/rpmlint  to their $PATH.", 
+            "title": "lint"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#mock", 
+            "text": "Prebuilds the final source package, then builds it locally using  mock , and stores the resulting source and binary RPMs in the package-specific  _build_results  directory.", 
+            "title": "mock"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#prebuild", 
+            "text": "Prebuilds the final source package from upstream sources (if any) and local files (if any). May create or overwrite the  _upstream_srpm_contents  and  _final_srpm_contents  directories.", 
+            "title": "prebuild"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#prepare", 
+            "text": "Prebuilds the final source package, then calls  rpmbuild -bp  on the result, extracting and patching the source files (and performing any other steps defined in the  %prep  section of the spec file. The resulting sources will be under  _final_srpm_contents .", 
+            "title": "prepare"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#rpmbuild", 
+            "text": "Prebuilds the final source package, then builds it locally using  rpmbuild , and stores the resulting source and binary RPMs in the package-specific  _build_results  directory.", 
+            "title": "rpmbuild"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#quilt", 
+            "text": "Collects the upstream local sources and spec file, then calls  quilt setup  on the spec file, extracting the source files and adding the patches to a quilt series file. See  Quilt documentation (PDF link)  for more information on quilt; also look at the example in the Usage Patterns section below. Similar to  prepare  (in fact,  quilt  calls  rpmbuild -bp  behind the scenes), but the source tree is in pre-patch state, and various quilt commands can be used to apply and modify patches. Unpacks into  _quilt  as of  osg-build-1.2.2  or  _final_srpm_contents  in previous versions. Requires  quilt . People on UW CSL machines should add  /p/vdt/workspace/quilt/bin  to their  $PATH , and  /p/vdt/workspace/quilt/share/man  to their  $MANPATH .", 
+            "title": "quilt"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#options", 
+            "text": "This section lists the command-line options.", 
+            "title": "Options"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-help", 
+            "text": "Prints the built-in usage information and exits without doing anything else.", 
+            "title": "--help"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-version", 
+            "text": "Prints the version of  osg-build  and exits without doing anything else.", 
+            "title": "--version"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#common-options", 
+            "text": "", 
+            "title": "Common Options"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-a-autoclean-no-autoclean", 
+            "text": "Before each build, clean out the contents of the underscore directories (_build_results, _final_srpm_contents, _upstream_srpm_contents, _upstream_tarball_contents). If the directories are not cleaned up, earlier builds of a package may interfere with later ones.  --no-autoclean  will disable this.  Default is  true .  Has no effect with the  --vcs  flag.", 
+            "title": "-a, --autoclean, --no-autoclean"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-c-cache-prefix-prefix", 
+            "text": "Sets the  prefix  for upstream source cache references. The prefix must be a valid URI starting with either  http ,  https , or  file , or one of the following special values:   AFS (corresponds to  file:///p/vdt/public/html/upstream , which is the location of the VDT cache using AFS from a UW CS machine).  VDT (corresponds to  http://vdt.cs.wisc.edu/upstream , which is the location of the VDT cache from off-site).  AUTO (AFS if available, VDT if not)   The upstream source cache must be organized as described above. All files referenced by  .source  files in the affected packages must exist in the cache, or a runtime error will occur.  Default is  AUTO .  Has no effect with the  --vcs  flag.", 
+            "title": "-c, --cache-prefix prefix"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-el6-el7-redhat-release-version-config-redhat95release", 
+            "text": "Sets the distro version to build for. This affects the %dist tag, the mock config, and the default koji tag and target (unless otherwise specified).  --el6  is equivalent to  --redhat-release 6  --el7  is equivalent to  --redhat-release 7", 
+            "title": "--el6, --el7, --redhat-release version (Config: redhat_release)"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-loglevel-loglevel", 
+            "text": "Sets the verbosity of the script. Valid values are:  debug ,  info ,  warning ,  error  and  critical .  Default is  info .", 
+            "title": "--loglevel loglevel"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-q-quiet", 
+            "text": "Do not display as much information. Equivalent to  --loglevel warning", 
+            "title": "-q, --quiet"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-v-verbose", 
+            "text": "Display more information. Equivalent to  --loglevel debug", 
+            "title": "-v, --verbose"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-w-working-directory-path", 
+            "text": "Use  path  as the root directory of the files created by the script. For example, if  path  is  $HOME/working , and the package being built is  ndt , the following tree will be created:   $HOME/working/ndt/_upstream_srpm_contents  $HOME/working/ndt/_upstream_tarball_contents  $HOME/working/ndt/_final_srpm_contents  $HOME/working/ndt/_build_results   If  path  is  TEMP , a randomly named directory under  /tmp  is used as the working directory.  The default setting is to use the package directory as the working directory.  Has no effect with the  --vcs  flag.", 
+            "title": "-w, --working-directory path"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#options-specific-to-prebuild-task", 
+            "text": "", 
+            "title": "Options specific to prebuild task"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-full-extract", 
+            "text": "If set, all upstream tarballs will be extracted into  _upstream_tarball_contents/  during the prebuild step. This flag is now mostly redundant with the  prepare  and  quilt  tasks.", 
+            "title": "--full-extract"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#options-specific-to-rpmbuild-and-mock-tasks", 
+            "text": "", 
+            "title": "Options specific to rpmbuild and mock tasks"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-distro-tag-dist", 
+            "text": "Sets the distribution tag added on to the end of the release in the RPM (  rpmbuild  and  mock  tasks only ).  Default is  .osg.el6  or  .osg.el7", 
+            "title": "--distro-tag dist"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-t-target-arch-arch", 
+            "text": "Specify an architecture to build packages for (  rpmbuild  and  mock  tasks only ).  Default is unspecified, which builds for the current machine architecture.", 
+            "title": "-t, --target-arch arch"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#options-specific-to-mock-task", 
+            "text": "", 
+            "title": "Options specific to mock task"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-mock-clean-no-mock-clean", 
+            "text": "Enable/disable deletion of the mock buildroot after a successful build.  Default is  true .", 
+            "title": "--mock-clean, --no-mock-clean"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-m-mock-config-path", 
+            "text": "Specifies the  mock  configuration file to use. This file details how to set up the build environment used by mock for the build, including Yum repositories from which to install dependencies and certain predefined variables (e.g., the distribution tag  %dist ).  See also  --mock-config-from-koji .", 
+            "title": "-m, --mock-config path"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-mock-config-from-koji-build-tag", 
+            "text": "Creates a mock config from a Koji build tag. This is the most accurate way to replicate the build environment that Koji will provide (outside of Koji). The build tag is based on the distro version (el6, el7) and the OSG major version (3.3, 3.4). For 3.4 on el6, it is:  osg-3.4-el6-build  Also requires the Koji command-line tools (package  koji ), obtainable from the osg repositories. Since this uses koji, some of the koji-specific options may apply, namely:  --koji-backend ,  --koji-login , and  --koji-wrapper .", 
+            "title": "--mock-config-from-koji build tag"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#options-specific-to-koji-task", 
+            "text": "", 
+            "title": "Options specific to koji task"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-dry-run", 
+            "text": "Do not actually run koji, merely show the command(s) that will be run. For debugging purposes.", 
+            "title": "--dry-run"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-getfiles-get-files", 
+            "text": "For scratch builds without  --vcs  only. Download the resulting RPMs and logs from the build into the  _build_results  directory.", 
+            "title": "--getfiles, --get-files"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-k-kojilogin-koji-login-login", 
+            "text": "Sets the login to use for the koji task. This should most likely be your CN. If not specified, will extract it from your client cert ( ~/.osg-koji/client.crt  or  ~/.koji/client.crt ).", 
+            "title": "-k, --kojilogin, --koji-login login"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-koji-target-target", 
+            "text": "The koji target to use for building.  Default is  osg-el6  for el6 and  osg-el7  for el7.", 
+            "title": "--koji-target target"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-koji-tag-tag", 
+            "text": "The koji tag to add packages to. See the  Koji Workflow guide  for more information on the terminology. The special value  TARGET  uses the destination tag defined in the koji target.  Default is  osg-el6  or  osg-el7 .", 
+            "title": "--koji-tag tag"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-ktt-koji-tag-and-target-arg", 
+            "text": "Shorthand for setting both --koji-tag and --koji-target to  arg .", 
+            "title": "--ktt, --koji-tag-and-target arg"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-koji-wrapper-no-koji-wrapper", 
+            "text": "Enable/disable use of the  osg-koji  wrapper script around koji. See below for a description of  osg-koji .  Default is  true .", 
+            "title": "--koji-wrapper, --no-koji-wrapper"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-koji-backend-backend", 
+            "text": "Specifies the method osg-build will use to interface with Koji. This can be  shell  or  kojilib .", 
+            "title": "--koji-backend backend"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-wait-no-wait-nowait", 
+            "text": "Wait for koji tasks to finish. Bad for running multiple builds in a single command, since you will have to type in your passphrase for the first one, wait for it to complete, then type in your passphrase for the second one, wait for it to complete, etc. If you want to wait for multiple tasks to finish, use the  koji watch-task  command or look at the website  https://koji.chtc.wisc.edu .  --wait  used to be the default until  osg-build-1.1.3", 
+            "title": "--wait, --no-wait, --nowait"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-regen-repos", 
+            "text": "Start a  regen-repo  koji task on the build tag after each koji build, to update the build repository used for the next build. Not useful unless you are launching multiple builds. This enables you to launch builds that depend on each other. Doesn't work too well with  --no-wait , since the next build may be started before the regen-repo task is complete. Waiting will keep the next build from being queued until the regen-repo is complete.", 
+            "title": "--regen-repos"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-scratch-no-scratch", 
+            "text": "Perform scratch builds. A scratch build does not go into a repository, but the name-version-release (NVR) of the created RPMs are not considered used, so the build may be modified and repeated without needing a release bump. This has the same use case as the mock task: creating packages that you want to test before releasing. If you do not have a machine with mock set up, or want to test exactly the environment that Koji provides, scratch builds might be more convenient.", 
+            "title": "--scratch, --no-scratch"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-vcs-no-vcs-svn-no-svn", 
+            "text": "Have Koji check the package out from a version control system instead of creating an SRPM on the local machine and submitting that to Koji. Currently, SVN and Git are supported. If this flag is specified, you may use SVN URLs or URL@Revision pairs to specify the packages to build. You may continue specify package directories from an SVN checkout, in which case osg-build will use  svn info  to find the right URL@Revision pair to use and warn you about uncommitted changes. osg-build will also warn you about an outdated working directory.  --vcs  defaults to  true  for non-scratch builds, and  false  for scratch builds.", 
+            "title": "--vcs, --no-vcs, --svn, --no-svn"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-repodestination-repository-upcoming", 
+            "text": "Selects the repositories (osg-3.3, upcoming, etc.) to build packages for. Currently valid repositories are:     Repository  Description      osg  OSG Software development repos for trunk (this is the default)    osg-3.3 (or just 3.3)  OSG Software development repos for 3.2 branch    upcoming  OSG Software development repos for upcoming branch    internal  OSG Software internal branch    hcc  Holland Computing Center (Nebraska) testing repos     --upcoming  is an alias for  --repo=upcoming  Note that the repo selection affects which VCS paths you are allowed to build from. For example, you are not allowed to build from branches/osg-3.3 (from the OSG SVN) into the 'osg' repo, or from HCC's git repositories into the 'upcoming' repo.", 
+            "title": "--repo=destination repository, --upcoming"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#koji-tag-diff", 
+            "text": "This script displays the differences between the latest packages in two koji tags.  Example invocation:  koji-tag-diff osg-3.4-el6-development osg-3.4-el7-testing  This prints the packages that are in osg-3.4-el6-development but not in osg-3.4-el7-testing, or vice versa.", 
+            "title": "koji-tag-diff"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#osg-build-test", 
+            "text": "This script runs automated tests for  osg-build . Only a few tests have been implemented so far.", 
+            "title": "osg-build-test"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#osg-import-srpm", 
+            "text": "This is a script to fetch an SRPM from a remote site, copy it into the upstream cache on AFS, and create an SVN package dir (if needed) with an  upstream/*.source  file. By default it will put downloaded files into the VDT upstream cache (/p/vdt/public/html/upstream), but you can pass  --upstream-root= UPSTREAM DIR  to put them somewhere else. If called with the  --extract-spec  or  -e  argument, it will extract the spec file from the SRPM and place it into the  osg  subdir in SVN. If called with the  --diff-spec  or  -d  argument, it will extract the spec file and compare it to the existing spec file in the  osg  subdir.  The script hasn't been touched in a while and needs a good deal of cleanup.  A planned feature is to allow doing a three-way diff between the existing RPM before OSG modifications, the new RPM before OSG modifications and the existing RPM after OSG modifications.", 
+            "title": "osg-import-srpm"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#osg-koji", 
+            "text": "This is a wrapper script around the  koji  command line tool. It automatically specifies parameters to access the OSG's koji instance, and forces SSL authentication. It takes the same parameters as  koji  and passes them on.  An additional command,  osg-koji setup  exists, which performs the following tasks:   Create a koji configuration in  ~/.osg-koji  Create a CA bundle for verifying the server.\n    Use either files in  /etc/grid-security/certificates , or (if those are not found), from files downloaded from the DOEGrids and DigiCert sites.  Create a client cert file. This can be a symlink to your grid proxy, or it can be a file created from your grid public and private key files.\n    The location of those files can be specified by the  --usercert  and  --userkey  arguments.\n    If unspecified,  usercert  defaults to  ~/.globus/usercert.pem , and  userkey  defaults to  ~/.globus/userkey.pem .", 
+            "title": "osg-koji"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#osg-promote", 
+            "text": "", 
+            "title": "osg-promote"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#overview_1", 
+            "text": "Run this script to push packages from one set of repos to another (e.g. from development to testing), according to the OSG software promotion guidelines.  Once the packages are promoted, the script will generate code to cut and paste into a JIRA comment.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#synopsis", 
+            "text": "osg-promote [-r|--route  ROUTE ]... [options]  PACKAGE OR BUILD  [...]", 
+            "title": "Synopsis"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#examples", 
+            "text": "Promote the latest build of  osg-version  to testing for the current release series    osg-promote -r testing osg-version    Promote the latest builds of  osg-ce  to testing for the 3.3 and 3.4 release series    osg-promote -r 3.3-testing -r 3.4-testing osg-ce    Promote  osg-build-1.5.0-1  to testing for the current release series    osg-promote -r testing osg-build-1.5.0-1", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#arguments", 
+            "text": "", 
+            "title": "Arguments"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-h", 
+            "text": "Display help and a list of valid routes.", 
+            "title": "-h"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#package-or-build", 
+            "text": "A package (e.g.  osg-version ) or build (e.g.  osg-version-3.3.0-1.osg33.el6 ) to promote. You may omit the dist tag (the  .osg33.el6  part).  If a package is specified, the most recent version of that package will be promoted.  If a build is specified, that build and the build that has the same  version - release  for the other distro version(s) will be promoted. That is, if you specify the route  3.3-testing  and the build  foo-1-1 , then  foo-1-1.osg33.el6  and  foo-1-1.osg33.el7  will be promoted.  This may be specified multiple times, to promote multiple packages. The NVRs of each set of builds for a package  must  match.", 
+            "title": "package or build"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-r-route-route-route", 
+            "text": "The promotion route to use. Use  osg-promote -h  to get a list of valid routes. This may be specified multiple times. For example, to promote for both 3.4 and 3.3, pass  -r 3.4-testing -r 3.3-testing .  If not specified, the  testing  route is used, which corresponds to the testing route for the latest release series.", 
+            "title": "-r ROUTE, --route ROUTE"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-n-dry-run", 
+            "text": "Do not promote, just show what would be done.", 
+            "title": "-n, --dry-run"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-el6-only-el7-only", 
+            "text": "Only promote packages for el6 / el7.", 
+            "title": "--el6-only / --el7-only"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-no-el6-no-el7", 
+            "text": "Do not promote packages for el6 / el7.", 
+            "title": "--no-el6 / --no-el7"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-ignore-rejects", 
+            "text": "Ignore rejections due to version mismatch between dvers or missing package for one dver.", 
+            "title": "--ignore-rejects"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-regen", 
+            "text": "Regenerate the destination repos after promoting.", 
+            "title": "--regen"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#-y-assume-yes", 
+            "text": "Do not prompt before promotion.", 
+            "title": "-y, --assume-yes"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#common-usage-patterns", 
+            "text": "", 
+            "title": "Common Usage Patterns"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#verify-that-all-files-necessary-to-build-the-package-are-in-the-right-place", 
+            "text": "Run  osg-build prebuild  PACKAGEDIR .", 
+            "title": "Verify that all files necessary to build the package are in the right place"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#fetch-and-extract-all-source-files-for-examination", 
+            "text": "Run  osg-build prebuild --full-extract  PACKAGEDIR . Look inside the  _upstream_tarball_contents  directory.", 
+            "title": "Fetch and extract all source files for examination"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#get-a-post-patch-version-of-the-upstream-sources-for-examination", 
+            "text": "Run  osg-build prepare  PACKAGEDIR . Look inside the  _build_results  directory.", 
+            "title": "Get a post-patch version of the upstream sources for examination"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#see-which-patches-work-with-a-new-version-of-a-package-update-or-remove-them", 
+            "text": "Place the new source tarball into the upstream cache, edit the version in the spec file and *.sources files as necessary  Run  osg-build quilt  PACKAGEDIR .  Enter the extracted sources inside the  _final_srpm_contents  directory. You should see a file called  series  and a symlink called  patches .  Type  quilt series  to get a list of patches in order of application.  Type  quilt push  to apply the next patch.  If the patch applies cleanly, continue.  If the patch applies with some fuzz, type  quilt refresh  to update the offsets in the patch.  If the patch does not apply and you wish to remove it, type  quilt delete  PATCH NAME  (delete only removes it from the series file, not the disk)  If the patch does not apply and you wish to fix it, either type  quilt push -f  to interactively apply the patch, or  quilt delete  PATCH NAME  the patch and use  quilt new  /  quilt edit  /  quilt refresh  to edit files and make a new patch from your changes. Consult the  quilt(1)  manpage for more info.    If you have a new patch, run  quilt import  PATCHFILE  to add the patch to the series file, and run  quilt push  to apply it.  If you have changes to make to the source code that you want to save as a patch, type  quilt new  PATCHNAME , edit the files, type  quilt add  FILE  on each file you edited, then type  quilt refresh  to recreate the patch.  Once you're all done, copy the patches in the  patches/  directory to the  osg/  dir in SVN, run  quilt series  to get the application order and update the spec file accordingly.", 
+            "title": "See which patches work with a new version of a package, update or remove them"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#see-if-a-package-builds-successfully-for-osg-34", 
+            "text": "If you have all the build dependencies of the package installed, run  osg-build rpmbuild  PACKAGEDIR . The resulting RPMs will be in the  _build_results  directory.  If you do not have all the build dependencies installed, or want to make sure you specified all of the necessary ones and the package builds from a clean environment, run  osg-build mock --mock-config-from-koji osg-3.4-el6-build  PACKAGEDIR . The resulting RPMs will be in the  _build_results  directory.  If you do not have mock installed, or want to exactly replicate the build environment in Koji, run  osg-build koji --scratch  PACKAGEDIR . You may download the resulting RPMs from kojiweb  https://koji.chtc.wisc.edu/koji  or pass  --getfiles  to  osg-build koji  and they will get downloaded to the  _build_results  directory.", 
+            "title": "See if a package builds successfully for OSG 3.4"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#check-for-potential-errors-in-a-package", 
+            "text": "Run  osg-build lint  PACKAGEDIR .", 
+            "title": "Check for potential errors in a package"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#create-and-test-a-final-build-of-a-package-for-all-platforms-for-upcoming", 
+            "text": "svn commit  your changes in  branches/upcoming .  Type  osg-build koji --repo=upcoming  PACKAGEDIR  Wait for the  osg-upcoming-minefield  repos to be regenerated containing the new version of your package. You can run  osg-koji wait-repo osg-upcoming-el X -development --build= PACKAGENAME-VERSION-RELEASE  and wait for that process to finish (substitute  6  or  7  for  X ). Or, you can just check kojiweb  https://koji.chtc.wisc.edu/koji/tasks .  On your test machine, make sure the  osg-upcoming-minefield  repo is enabled (edit  /etc/yum.repos.d/osg-upcoming-minefield.repo  or  /etc/yum.repos.d/osg-el6-upcoming-minefield.repo ). Clean your cache ( yum clean all; yum clean expire-cache ).  Install your software, see if it works.", 
+            "title": "Create and test a final build of a package for all platforms for upcoming"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#promote-the-latest-build-of-a-package-to-testing-for-the-current-osg-release-series", 
+            "text": "Run  osg-promote -r testing  PACKAGE", 
+            "title": "Promote the latest build of a package to testing for the current OSG release series"
+        }, 
+        {
+            "location": "/software/osg-build-tools/#promote-the-latest-build-of-a-package-to-testing-for-the-33-and-34-release-series", 
+            "text": "Run  osg-promote -r 3.3-testing -r 3.4-testing  PACKAGE", 
+            "title": "Promote the latest build of a package to testing for the 3.3 and 3.4 release series"
+        }, 
+        {
             "location": "/software/resurrecting-epel-packages/", 
             "text": "Resurrecting EPEL RPMs\n\n\nYou will need to be a Koji admin to do these steps. \n\n\n[user@client ~] $\n osg-koji --list-permissions --mine\n\n\n\n\n\nWill tell you if you're an admin or not. Current Koji admins are the Madison team and Brian Bockelman.\n\n\n\n\n\n\n\n\nEPEL version\n\n\nEPEL Koji tag\n\n\nOur Koji tag\n\n\n\n\n\n\n\n\n\n\n5\n\n\ndist-5E-epel\n\n\nepelrescue-el5\n\n\n\n\n\n\n6\n\n\ndist-6E-epel\n\n\nepelrescue-el6\n\n\n\n\n\n\n7\n\n\nepel7\n\n\nepelrescue-el7\n\n\n\n\n\n\n\n\n\n\n\n\nDetermine the NVR of the build containing the RPM of the package you want.\n\n\nUse the Fedora/EPEL Koji web interface (\nhttps://koji.fedoraproject.org\n) to search for it.\n\n\nYou can use the search box in the upper right to look for packages, builds, or RPMs; it accepts shell wildcards.\n\n\nEPEL builds have .el5, .el6, or .el7 in the dist tag.\n\n\n\n\n\n\nDownload \nall\n RPMs for \nall\n architectures we care about (i386, i486, i586, i686, x86_64, noarch), including the .src.rpm and the debuginfo rpms.\n\n\nYou have three options for the downloads:\n\n\n\n\nUse the links in the web interface\n\n\nUse the koji command-line interface against the Fedora koji:\n\n\nDownload \nfedora-koji.conf\n, attached to this page\n\n\nRun \nkoji --noauth -c fedora-koji.conf download-build --debuginfo \nBUILD_NVR\n\n\nDelete RPMs for architectures we do not care about (see list above)\n\n\n\n\n\n\nDig around in \nhttps://kojipkgs.fedoraproject.org/packages/\n\n\n\n\n\n\n\n\nOn your development machine:\n\n\n\n\n\n\nImportant:\n Verify that all of the RPMs are signed:\n\n\n[root@client ~] #\n rpm -K *.rpm \n|\n grep -iv gpg\n\n\n\n\n\nshould be empty\n\n\nIf not, \nSTOP\n and sign them using the OSG RPM key -- talk to Mat\n\n\n\n\n\n\nImport the RPMs themselves into the Koji system\n\n\n[user@client ~] $\n osg-koji import \nRPM_DIRECTORY\n/*.rpm\n\n\n\n\n\nThey will not be in any tags at this point\n\n\n\n\n\n\nAdd the package to the whitelist for our koji tag:\n\n\n[user@client ~] $\n osg-koji add-pkg \nOUR_KOJI_TAG\n \nPACKAGE\n --owner\n=\nYOUR_KOJI_USERNAME\n\n\n\n\n\n\n\n\n\n\nActually tag the builds:\n\n\n[user@client ~] $\n osg-koji tag-pkg \nOUR_KOJI_TAG\n \nBUILD\n\n\n\n\n\n\n\n\n\n\nCheck the Tasks tab in Koji to see if kojira has started regening the repos -- it might take a few minutes to kick in.\n\n\nIf it doesn't, do it manually (if you're doing multiple packages, save this step until you're done with all of them):\n\n\nfor repo in osg-{3.1,3.2,3.3,upcoming}-el5-{build,development,testing,release,prerelease,release-build}; do\n   osg-koji regen-repo --nowait $repo\ndone\n\n\n\n\n\n\n\n\n\nMake a test VM and install the package from minefield to test that it is actually present.\n\n\n\n\nUpdate the epelrescue RPMs table below\n\n\n\n\nRemoving resurrected RPMs\n\n\nIn case the RPM appeared back in EPEL, or we no longer need it, here's how to remove it from the epelrescue tags so we're not overriding the EPEL version:\n\n\n\n\n\n\nFind out the NVR of the build:\n\n\n[user@client ~] $\n osg-koji list-tagged \nOUR_KOJI_TAG\n \nPACKAGE\n\n\n\n\n\n\n\n\n\n\nUntag the packages:\n\n\n[user@client ~] $\n osg-koji untag-pkg \nOUR_KOJI_TAG\n \nBUILD\n\n\n\n\n\n\n\n\n\n\nWhy you should not use block-pkg\n\n\nEPEL removes their packages by using 'koji block-pkg', which leaves the package and the builds in the tag, but prevents it from appearing in the repos. We cannot do that, because blocks are inherited and this will mess up our build repos. This is what happened in one case:\n\n\n\n\nEPEL removed rpmdevtools, which is a necessary package for all builds. I resurrected it into epelrescue-el5.\n\n\nLater, EPEL put rpmdevtools back into their repos, so it no longer needed to be in epelrescue-el5.\n\n\nI used block-pkg on rpmdevtools in epelrescue-el5, thinking that the package could remain tagged, but will stay out of our repos, and the EPEL package would be used instead.\n\n\nThe block not only hid our rpmdevtools, it hid EPEL's rpmdevtools as well, preventing us from being able to build.\n\n\nI unblocked the rpmdevtools, and just untagged the build instead, regenerated our build repos, and we could build again.\n\n\n\n\nPolicy for epelrescue tags\n\n\nhttps://jira.opensciencegrid.org/browse/SOFTWARE-2046\n\n\nTable of epelrescue RPMs\n\n\n\n\n\n\n\n\nPackage\n\n\nDistro version\n\n\nDate added\n\n\nReason added\n\n\nDate removed\n\n\n\n\n\n\n\n\n\n\npython-six-1.7.3-1.el6\n\n\n6\n\n\n2015-08-12\n\n\nDep of osg-build (via mock)\n\n\n2015-10-14\n\n\n\n\n\n\npython-argparse-1.2.1-2.el6\n\n\n6\n\n\n2015-09-23\n\n\nDep of osg-wn-client (via gfal2)\n\n\n2015-10-14\n\n\n\n\n\n\npython-backports-ssl_match_hostname-3.4.0.2-4.el6\n\n\n6\n\n\n2015-09-23\n\n\nDep of osg-build (via mock)\n\n\n2015-10-14\n\n\n\n\n\n\npython-requests-1.1.0-4.el6\n\n\n6\n\n\n2015-09-23\n\n\nDep of osg-build (via mock)\n\n\n2015-10-14\n\n\n\n\n\n\npython-urllib3-1.5-7.el6\n\n\n6\n\n\n2015-09-23\n\n\nDep of osg-build (via mock)\n\n\n2015-10-14\n\n\n\n\n\n\n\n\nFinding out if a package is still needed in epelrescue\n\n\nSet \n$pkg\n to the name of a package to test (e.g. \npython-six\n), and \n$rhel\n set to the RHEL version you're testing for (e.g. \n5\n, \n6\n, or \n7\n).\n\n\nUsing Carl's \ncentos-srpms\n, \nscientific-srpms\n, \nslf-srpms\n scripts:\n\n\nfor script in centos-srpms scientific-srpms slf-srpms; do\n       echo -n $script \n: \n\n       $script -$rhel $pkg | grep . || echo none\ndone\n\n\n\n\n\nA dry run of removing the package:\n\n\nosg-koji untag-pkg -n --all epelrescue-el$rhel $pkg\n\n\n\n\n\nRemove the \n-n\n when the output of that looks fine.", 
             "title": "Resurrecting Epel Packages"
