@@ -214,6 +214,16 @@ If the broken link is:
     - If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request
     - If the link is not targeted for archival, link directly to the TWiki page.
 
+#### Fixing sub-section links ####
+
+To link sections within a page, lowercase the entire section name and replace spaces with dashes. If there are multiple sections with the same name you can link the subsequent sections by appending `_N` where `N` is the section's ordinal number minus one, e.g. append `_1` for the second section. For example, if you have three sections named "Optional Configuration", link them like so:
+
+```
+[1st section](#optional-configuration)
+[2nd section](#optional-configuration_1)
+[3rd section](#optional-configuration_2)
+```
+
 ### Broken command blocks and file snippets ###
 
 Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (\`\`\`) followed by an optional code highlighting format:
