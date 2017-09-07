@@ -2,7 +2,7 @@
 OSG Build Tools
 ===============
 
-This page documents the tools used for RPM development for the OSG Software Stack. See [the RPM development guide](rpm-development-guide.md) for the principles on which these tools are based.
+This page documents the tools used for RPM development for the OSG Software Stack. See [the RPM development guide](rpm-development-guide) for the principles on which these tools are based.
 
 The tools are distributed in the `osg-build` RPM in our repositories, but can also be used from a Git clone of [opensciencegrid/osg-build on GitHub](https://github.com/opensciencegrid/osg-build).
 
@@ -20,7 +20,7 @@ This is the primary tool used in building source and binary RPMs.
 
 > `osg-build <TASK> [options] <PACKAGE DIRECTORY> [...]`
 
-*package\_directory* is a directory containing an `osg/` and/or an `upstream/` subdirectory. See [the RPM development guide](rpm-development-guide.md) for how these directories are organized.
+*package\_directory* is a directory containing an `osg/` and/or an `upstream/` subdirectory. See [the RPM development guide](rpm-development-guide) for how these directories are organized.
 
 ### Tasks
 
@@ -185,7 +185,7 @@ Default is `osg-el6` for el6 and `osg-el7` for el7.
 
 #### --koji-tag *tag*
 
-The koji tag to add packages to. See the [Koji Workflow guide](koji-workflow.md) for more information on the terminology. The special value `TARGET` uses the destination tag defined in the koji target.
+The koji tag to add packages to. See the [Koji Workflow guide](koji-workflow) for more information on the terminology. The special value `TARGET` uses the destination tag defined in the koji target.
 
 Default is `osg-el6` or `osg-el7`.
 
@@ -227,7 +227,7 @@ Have Koji check the package out from a version control system instead of creatin
 
 Selects the repositories (osg-3.3, upcoming, etc.) to build packages for. Currently valid repositories are:
 
-|                       |                                                                |
+| Repository            | Description                                                    |
 |-----------------------|----------------------------------------------------------------|
 | osg                   | OSG Software development repos for trunk (this is the default) |
 | osg-3.3 (or just 3.3) | OSG Software development repos for 3.2 branch                  |
@@ -287,18 +287,17 @@ Once the packages are promoted, the script will generate code to cut and paste i
 
 ### Examples
 
-Promote the latest build of `osg-version` to testing for the current release series  
-`osg-promote -r testing osg-version`
+- Promote the latest build of `osg-version` to testing for the current release series  
 
-<!-- -->
+        osg-promote -r testing osg-version
 
-Promote the latest builds of `osg-ce` to testing for the 3.3 and 3.4 release series  
-`osg-promote -r 3.3-testing -r 3.4-testing osg-ce`
+- Promote the latest builds of `osg-ce` to testing for the 3.3 and 3.4 release series  
 
-<!-- -->
+        osg-promote -r 3.3-testing -r 3.4-testing osg-ce
 
-Promote `osg-build-1.5.0-1` to testing for the current release series  
-`osg-promote -r testing osg-build-1.5.0-1`
+- Promote `osg-build-1.5.0-1` to testing for the current release series  
+
+        osg-promote -r testing osg-build-1.5.0-1
 
 ### Arguments
 
