@@ -11,10 +11,10 @@ For a typical update to an existing package, the overall development cycle is ro
 
 1.  Download the new upstream source (tarball, source RPM, checkout) into [the UW AFS upstream area](rpm-development-guide#upstream-source-cache)
 2.  In [a checkout of our packaging code](rpm-development-guide#revision-control-system), update [the reference to the upstream file](rpm-development-guide#upstream) and, as needed, [the RPM spec file](rpm-development-guide#osg)
-3.  Use [osg-build](osg-build-tools.md#osg_build) to perform a scratch build of the updated package
+3.  Use [osg-build](osg-build-tools#osg-build) to perform a scratch build of the updated package
 4.  Verify that the build succeeded; if not, redo previous steps until success
 5.  Optionally, lightly test the new RPM(s); if there are problems, redo previous steps until success
-6.  Use [osg-build](osg-build-tools.md#osg_build) to perform an official build of the updated package (which will go into the development repos)
+6.  Use [osg-build](osg-build-tools#osg-build) to perform an official build of the updated package (which will go into the development repos)
 7.  Perform standard developer testing of the new RPM(s) — see below for details
 8.  Obtain permission from the Software manager to promote the package
 9.  Promote the package to testing — see below for details
@@ -204,7 +204,7 @@ Follow these steps to request promotion, promote a package, and note the promoti
 
 1.  Make sure the package update has at least one associated JIRA ticket; if there is no ticket, at least create one for releasing the package(s)
 2.  Obtain permission to promote the package(s) from the Software manager (see above)
-3.  Use [osg-promote](osg-build-tools.md#osg_promote) to promote the package(s) from development to testing
+3.  Use [osg-promote](osg-build-tools#osg-promote) to promote the package(s) from development to testing
 4.  Comment on the associated JIRA ticket(s) with osg-promote’s JIRA-formatted output (or at least the build NVRs) and, if you know, suggestions for acceptance testing
 5.  Mark each associated JIRA ticket as “Ready For Testing” and (done automatically for you:) set the Assignee to “Unassigned”
 
