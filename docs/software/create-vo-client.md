@@ -51,7 +51,7 @@ To make the tarball:
           mv vomses gums.config.template edg-mkgridmap.conf vomsdir vo-client-$VERSION/
           tar -czf vo-client-$VERSION-osg.tar.gz vo-client-$VERSION/
 
-Upload the tarball into the [upstream source cache](rpm-development-guide#Upstream_Source_Cache), in the<br> `vo-client/VERSION/` directory.
+Upload the tarball into the [upstream source cache](rpm-development-guide#upstream-source-cache), in the `vo-client/VERSION/` directory.
 
 Automated GUMS Conversion
 -------------------------
@@ -77,14 +77,14 @@ To use it:
 RPM spec file maintenance
 -------------------------
 
-The OSG RPM spec file is [maintained in Subversion](rpm-development-guide#Revision_Control_System).
+The OSG RPM spec file is [maintained in Subversion](rpm-development-guide#revision-control-system).
 
-The VO Client package is located in<br> `native/redhat/trunk/vo-client`
+The VO Client package is located in `native/redhat/trunk/vo-client`
 
 There are two files that need to be maintained:
 
 -   `osg/vo-client.spec` - This is the RPM spec file proper. One needs to update the version (and/or the release number) every time a new RPM is created.
--   `upstream/release_tarball.source` - This file contains the relative path of the tarball within the [upstream source cache](rpm-development-guide#Upstream_Source_Cache). Since the tarball file name will change with every new RPM version, this file has to be changed accordingly.
+-   `upstream/release_tarball.source` - This file contains the relative path of the tarball within the [upstream source cache](rpm-development-guide#upstream-source-cache). Since the tarball file name will change with every new RPM version, this file has to be changed accordingly.
 
 RPM building
 ------------
@@ -92,8 +92,8 @@ RPM building
 After installing the [osg-build tools](https://twiki.grid.iu.edu/bin/view/SoftwareTeam/VDTRPMBuildBox), check out a clean copy from svn, then:
 
 -   `osg-build prebuild .`
--   Once there are no errors, run<br> `osg-build koji . --scratch` This can be done without making any permanent change.
--   Once that builds successfully, run<br> `osg-build koji .` This is permanent, unlike when you ran with `--scratch`. You cannot rebuild this version of the RPM again - you must bump the release number and edit the changelog.
+-   Once there are no errors, run `osg-build koji . --scratch` This can be done without making any permanent change.
+-   Once that builds successfully, run `osg-build koji .` This is permanent, unlike when you ran with `--scratch`. You cannot rebuild this version of the RPM again - you must bump the release number and edit the changelog.
 
 This will push the RPMs into the OSG development repository. Koji requires additional setup compared to rpmbuild; [see the documentation here](koji-workflow).
 
