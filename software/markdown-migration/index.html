@@ -690,6 +690,14 @@ $ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class=
 </ul>
 </li>
 </ol>
+<h4 id="fixing-sub-section-links">Fixing sub-section links<a class="headerlink" href="#fixing-sub-section-links" title="Permanent link">&para;</a></h4>
+<p>To link sections within a page, lowercase the entire section name and replace spaces with dashes. If there are multiple sections with the same name you can link the subsequent sections by appending <code>_N</code> where <code>N</code> is the section's ordinal number minus one, e.g. append <code>_1</code> for the second section. For example, if you have three sections named "Optional Configuration", link them like so:</p>
+<div class="codehilite"><pre><span></span>[1st section](#optional-configuration)
+[2nd section](#optional-configuration_1)
+[3rd section](#optional-configuration_2)
+</pre></div>
+
+
 <h3 id="broken-command-blocks-and-file-snippets">Broken command blocks and file snippets<a class="headerlink" href="#broken-command-blocks-and-file-snippets" title="Permanent link">&para;</a></h3>
 <p>Pandoc doesn't do a good job of converting our <code>&lt;pre class=...</code> blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (```) followed by an optional code highlighting format:</p>
 <div class="codehilite"><pre><span></span>```python
