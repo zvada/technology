@@ -101,6 +101,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://opensciencegrid.github.io/technology/software/create-vo-client/</loc>
+     <lastmod>2017-09-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
