@@ -23,6 +23,7 @@ pages:
     - Release Planning: 'software/release-planning.md'
     - Globus Mass Update Procedure: 'software/globus-mass-update-procedure.md'
     - Git Software Development Process: 'software/git-software-development.md'
+    - OSG Build Tools: 'software/osg-build-tools.md'
     - Resurrecting Epel Packages: 'software/resurrecting-epel-packages.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
