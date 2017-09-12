@@ -102,6 +102,12 @@
     </url>
         
     <url>
+     <loc>https://opensciencegrid.github.io/technology/software/koji-mass-rebuilds/</loc>
+     <lastmod>2017-09-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://opensciencegrid.github.io/technology/software/create-vo-client/</loc>
      <lastmod>2017-09-12</lastmod>
      <changefreq>daily</changefreq>

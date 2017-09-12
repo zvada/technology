@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Koji Mass Rebuilds - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Koji Mass Rebuilds";
+    var mkdocs_page_input_path = "software/koji-mass-rebuilds.md";
+    var mkdocs_page_url = "/software/koji-mass-rebuilds/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../development-process/">Development Process</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-workflow/">Koji Workflow</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../rpm-development-guide/">RPM Development Guide</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/software-support/">Software Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../effort-tracking/">Effort Tracking</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../release-planning/">Release Planning</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../globus-mass-update-procedure/">Globus Mass Update Procedure</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../git-software-development/">Git Software Development Process</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../osg-build-tools/">OSG Build Tools</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../resurrecting-epel-packages/">Resurrecting Epel Packages</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Koji Mass Rebuilds</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#mass-rpm-rebuilds-for-a-new-build-target-in-koji">Mass RPM Rebuilds for a new Build Target in Koji</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#new-rhel-version-vs-new-osg-series">New RHEL version vs new OSG series</a></li>
+        
+            <li><a class="toctree-l4" href="#doing-scratch-builds-of-everything-first">Doing scratch builds of everything first</a></li>
+        
+            <li><a class="toctree-l4" href="#options-for-calculating-build-dependencies">Options for calculating build dependencies</a></li>
+        
+            <li><a class="toctree-l4" href="#pre-computing-predictive-vs-just-in-time">Pre-computing (predictive) vs just-in-time</a></li>
+        
+            <li><a class="toctree-l4" href="#package-list-closure-pruning">Package list closure, pruning</a></li>
+        
+            <li><a class="toctree-l4" href="#proposal-recommendations">Proposal / Recommendations</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../create-vo-client/">Creating the VO Client Package</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Documentation</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../infrastructure/koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Software &raquo;</li>
+        
+      
+    
+    <li>Koji Mass Rebuilds</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/software/koji-mass-rebuilds.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mass-rpm-rebuilds-for-a-new-build-target-in-koji">Mass RPM Rebuilds for a new Build Target in Koji<a class="headerlink" href="#mass-rpm-rebuilds-for-a-new-build-target-in-koji" title="Permanent link">&para;</a></h1>
+<p>Whenever we move to a new OSG series (OSG 3.3) and/or a new RHEL version (EL7), we want to make new builds for all of our packages in the new koji build target (osg-3.3-el7). Due to tricky build dependencies and unexpected build failures, this can be a messy task; and in the past we have gone about it in an ad-hoc manner.</p>
+<p>This document will discuss some of the aspects of the task and issues involved, some possible approaches, and ultimately a proposal for a general tool or procedure for doing our mass rebuilds.</p>
+<h2 id="new-rhel-version-vs-new-osg-series">New RHEL version vs new OSG series<a class="headerlink" href="#new-rhel-version-vs-new-osg-series" title="Permanent link">&para;</a></h2>
+<h3 id="new-rhel-version">New RHEL version<a class="headerlink" href="#new-rhel-version" title="Permanent link">&para;</a></h3>
+<p>For a new RHEL version, we start with no osg packages to build against, so we are forced to build things in dependency order. Figuring out the dependency order is possibly the most difficult (or interesting) part of doing mass rebuilds -- more on that later.</p>
+<h3 id="new-osg-series">New OSG series<a class="headerlink" href="#new-osg-series" title="Permanent link">&para;</a></h3>
+<p>For a new OSG series within an existing RHEL version, we have more options. While it's possible to "start from scratch" the same way we would with a new RHEL version and build everything in dependency order, this is not really necessary if we take advantage of existing builds from the previous series.</p>
+<p>A prior step is to determine the package list for the new series -- this will be some combination of Upcoming and the current release series, minus any packages pruned for the new series. This should also be reflected in the new trunk packaging area. All the current builds for packages in that list (from upcoming + current series) can be tagged into the new *-development (or *-build) repos. This should make all of the build dependencies available for mass rebuilding the new series all at once (osg-build koji *).</p>
+<p>After some consideration, I wholeheartedly endorse this approach for new OSG series -- for all but academic exercises. Rebuilding in dependency order when all the dependencies are already built just seems like wasted effort.</p>
+<h2 id="doing-scratch-builds-of-everything-first">Doing scratch builds of everything first<a class="headerlink" href="#doing-scratch-builds-of-everything-first" title="Permanent link">&para;</a></h2>
+<p>Before doing the mass rebuilds in a new build target, it seems to be a good idea to do scratch builds of all the packages in the current series first. (Or, at least the ones we intend to bring into the new build target.) This will give us a chance to see any build failures that have crept in (possibly due to upstream changes in the OS or EPEL), and fix them first if desired, but in any case avoid the confusion of seeing the failures for the first time in the new build target.</p>
+<p>Doing mass scratch rebuilds for an existing series is easy, as they can all be done at once.</p>
+<p>Relatedly, doing a round of scratch builds <strong>after</strong> successfully building all packages into a new build target can also be useful, because it can reveal dependency issues only present in the new set of builds. Doing developer test installs or a round of VMU tests may also uncover any runtime dependency issues.</p>
+<h2 id="options-for-calculating-build-dependencies">Options for calculating build dependencies<a class="headerlink" href="#options-for-calculating-build-dependencies" title="Permanent link">&para;</a></h2>
+<p>We can get dependency information from a number of places:</p>
+<ul>
+<li>scraping .spec files for Requires/BuildRequires/Provides and <code>%package</code> names</li>
+<li>querying existing rpms directly on koji-hub and our OS/EPEL mirrors (<code>rpm -q</code>)</li>
+<li>querying srpms from <code>osg-build prebuild</code> directly for build requirements</li>
+<li>inspecting previous buildroots to determine resolved build dependencies</li>
+<li>use <code>repoquery</code> to determine whatrequires/whatprovides for packages</li>
+<li>use <code>yum-builddep</code> to find packages with all build requirements available</li>
+<li>using the repodata (primary+filelists) from rpm repositories, including:</li>
+<li>upcoming + 3.X development + external repos (Centos/EPEL/JPackage), OR</li>
+<li>osg-upcoming-elX-build, which includes them all</li>
+</ul>
+<p>One important aspect is that the runtime requirements are also relevant for determining build requirements, since a build will require installing all of the runtime requirements of the packages required for the build.</p>
+<p>That is, <code>(A BuildRequires B) and (B Requires C)</code> implies <code>A BuildRequires C</code>.</p>
+<p>Combined with the fact that runtime requirements are transitive, that is, <code>(A Requires B) and (B Requires C)</code> implies <code>A Requires C</code>, computing build requirements is a recursive operation, which can be many levels deep.</p>
+<p>Another question to keep in mind is whether to use versioned requires/provides (i.e., BuildRequires xyz &gt;= 1.2-3) or to only pay attention to the package/capability names. Similarly, whether to pay any attention to conflicts/obsoletes. These would add complexity to anything except the standard tools (repoquery, yum-builddep) which already take these things into account. (And we may get pretty far even without paying attention to versions.)</p>
+<p>Note also that the dependencies/capabilities for a given package often varies between different rhel versions.</p>
+<h2 id="pre-computing-predictive-vs-just-in-time">Pre-computing (predictive) vs just-in-time<a class="headerlink" href="#pre-computing-predictive-vs-just-in-time" title="Permanent link">&para;</a></h2>
+<p>Two different approaches to determining dependency order for building are:</p>
+<ul>
+<li>pre compute all dependencies based on an existing series/rhel version, OR</li>
+<li>compute which remaining packages have all build reqs satisfied now</li>
+</ul>
+<p>The first approach has the benefit of being able to determine the packages that need to be built in order to accomplish a smaller subset goal first -- for example, to be able to install osg-wn-client. (And, if there are problems with resolving certain dependencies (say with osg-wn-client again), it will become apparent earlier, as opposed to not until all possible-to-build packages have been built.) The limitation of this approach is that the predicted set of files/capabilities that a binary package will provide may differ between osg series/rhel versions, and as a result may be inaccurate for the new build target.</p>
+<p>The second approach provides somewhat more confidence about being able to correctly determine which packages should be buildable at any point in time, but (as mentioned above) it is a bit more in the dark about seeing the bigger picture of the dependency graph or being able to build subsets of targets.</p>
+<p>It may be useful to have both options available -- building from the list in the second approach, but using the first mechanism to have a better picture of where things are at, or perhaps to steer toward finishing a certain subset of packages first.</p>
+<h2 id="package-list-closure-pruning">Package list closure, pruning<a class="headerlink" href="#package-list-closure-pruning" title="Permanent link">&para;</a></h2>
+<p>At some point (either in the planning stage or after building packages into the new build target), we need to ensure that the new osg series/rhel version contains all of its install requirements for all of its packages. It would probably suffice to do a VMU run that installs each package (perhaps individually, to avoid conflicts).</p>
+<p>But if we go about it more analytically, we may also get, as a result, a list of packages which we previously only maintained for the purpose of building our other packages (ie, that were never required at runtime for any use cases that we cared about), which now, in the new target, are no longer build requirements (directly or indirectly) for any packages that we care about installing. Packages in this category could be reviewed to also be dropped from the new build target.</p>
+<h2 id="proposal-recommendations">Proposal / Recommendations<a class="headerlink" href="#proposal-recommendations" title="Permanent link">&para;</a></h2>
+<p>As mentioned earlier, my recommendation is that we treat a new OSG series differently than a new RHEL version.</p>
+<h3 id="for-a-new-osg-series">For a new OSG series:<a class="headerlink" href="#for-a-new-osg-series" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>update native/redhat packaging area to reflect packages for new series, including upcoming + trunk - removed packages</p>
+</li>
+<li>
+<p>tag existing builds of packages in new list into the new development tag (eg, for osg-3.3-el6, tag the .osgup.el6 and .osg32.el6 builds into osg-3.3-el6-development)</p>
+</li>
+<li>
+<p>build all packages in new packaging area into new build target at once</p>
+</li>
+<li>
+<p>for all successful builds, remove corresponding old builds (eg, .osgup/.osg32) from the new tag (osg-3.3-el6-development)</p>
+</li>
+</ul>
+<h3 id="for-a-new-rhel-version">For a new RHEL version:<a class="headerlink" href="#for-a-new-rhel-version" title="Permanent link">&para;</a></h3>
+<ul>
+<li>pull the repodata from the relevant <code>*-build</code> repo from koji:</li>
+</ul>
+<p>for pre-computing, use a build repo from an existing rhel version:<br />
+<a href="https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el6-build/latest/x86_64/repodata/">https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el6-build/latest/x86_64/repodata/</a></p>
+<p>for just-in-time, use the new build repo:<br />
+<a href="https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el8-build/latest/x86_64/repodata/">https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el8-build/latest/x86_64/repodata/</a></p>
+<p>the primary and filelists (sqlite) files can be used to get runtime requires and provides. (Note that this includes packages from the relevant external repos, also.)</p>
+<ul>
+<li>generate srpms repodata for the current set of packages to build, with osg-build prebuild and createrepo.</li>
+</ul>
+<p>the primary (sqlite) file can be used to get build-requires.</p>
+<ul>
+<li>use sql to resolve direct dependencies at the package name level:<ul>
+<li>src-pkg: bin-pkg (BuildRequires)</li>
+<li>bin-pkg: bin-pkg (Requires)</li>
+<li>bin-pkg: src-pkg (bin-pkg comes from which src-pkg? only needed for pre-computing dependencies)</li>
+</ul>
+</li>
+<li>resolve this list into a full list of recursive build dependencies.</li>
+</ul>
+<p>Since this is recursive, there is no way to do it in a fixed number of sql queries. However the above input list is already directly consumable by Make, which is designed to handle recursive dependencies just like this. Or we can write a new tool to do it in python.</p>
+<ul>
+<li>build ready-to-be-built packages</li>
+<li>update our copy of the repodata from the regen'ed <code>*-build</code> repo, as often as new versions become available</li>
+<li>update our dependency lists</li>
+<li>repeat until all packages are built</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../create-vo-client/" class="btn btn-neutral float-right" title="Creating the VO Client Package">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../resurrecting-epel-packages/" class="btn btn-neutral" title="Resurrecting Epel Packages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../resurrecting-epel-packages/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../create-vo-client/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
