@@ -25,6 +25,7 @@ pages:
     - Git Software Development Process: 'software/git-software-development.md'
     - OSG Build Tools: 'software/osg-build-tools.md'
     - Resurrecting Epel Packages: 'software/resurrecting-epel-packages.md'
+    - Koji Mass Rebuilds: 'software/koji-mass-rebuilds.md'
     - Creating the VO Client Package: 'software/create-vo-client.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
