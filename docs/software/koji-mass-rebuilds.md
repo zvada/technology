@@ -35,23 +35,23 @@ Options for calculating build dependencies
 
 We can get dependency information from a number of places:
 
-- scraping .spec files for Requires/BuildRequires/Provides and %package names
-- querying existing rpms directly on koji-hub and our OS/EPEL mirrors (rpm -q)
-- querying srpms from 'osg-build prebuild' directly for build requirements
+- scraping .spec files for Requires/BuildRequires/Provides and `%package` names
+- querying existing rpms directly on koji-hub and our OS/EPEL mirrors (`rpm -q`)
+- querying srpms from `osg-build prebuild` directly for build requirements
 - inspecting previous buildroots to determine resolved build dependencies
-- use repoquery to determine whatrequires/whatprovides for packages
-- use yum-builddep to find packages with all build requirements available
+- use `repoquery` to determine whatrequires/whatprovides for packages
+- use `yum-builddep` to find packages with all build requirements available
 - using the repodata (primary+filelists) from rpm repositories, including:
 - upcoming + 3.X development + external repos (Centos/EPEL/JPackage), OR
 - osg-upcoming-elX-build, which includes them all
 
 One important aspect is that the runtime requirements are also relevant for determining build requirements, since a build will require installing all of the runtime requirements of the packages required for the build.
 
-That is, ((A BuildRequires B) and (B Requires C)) implies (A BuildRequires C).
+That is, `(A BuildRequires B) and (B Requires C)` implies `A BuildRequires C`.
 
-Combined with the fact that runtime requirements are transitive, that is, ((A Requires B) and (B Requires C)) implies (A Requires C), computing build requirements is a recursive operation, which can be many levels deep.
+Combined with the fact that runtime requirements are transitive, that is, `(A Requires B) and (B Requires C)` implies `A Requires C`, computing build requirements is a recursive operation, which can be many levels deep.
 
-Another question to keep in mind is whether to use versioned requires/provides (ie, BuildRequires xyz >= 1.2-3) or to only pay attention to the package/capability names. Similarly, whether to pay any attention to conflicts/obsoletes. These would add complexity to anything except the standard tools (repoquery, yum-builddep) which already take these things into account. (And we may get pretty far even without paying attention to versions.)
+Another question to keep in mind is whether to use versioned requires/provides (i.e., BuildRequires xyz >= 1.2-3) or to only pay attention to the package/capability names. Similarly, whether to pay any attention to conflicts/obsoletes. These would add complexity to anything except the standard tools (repoquery, yum-builddep) which already take these things into account. (And we may get pretty far even without paying attention to versions.)
 
 Note also that the dependencies/capabilities for a given package often varies between different rhel versions.
 
@@ -93,7 +93,7 @@ As mentioned earlier, my recommendation is that we treat a new OSG series differ
 
 ### For a new RHEL version:
 
-- pull the repodata from the relevant \*-build repo from koji:
+- pull the repodata from the relevant `*-build` repo from koji:
 
 for pre-computing, use a build repo from an existing rhel version:  
 <https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el6-build/latest/x86_64/repodata/>
@@ -107,19 +107,17 @@ the primary and filelists (sqlite) files can be used to get runtime requires and
 
 the primary (sqlite) file can be used to get build-requires.
 
-- use sql to resolve direct dependencies at the package name level:  
-src-pkg: bin-pkg (BuildRequires)  
-bin-pkg: bin-pkg (Requires)  
-bin-pkg: src-pkg (bin-pkg comes from which src-pkg? only needed for pre-computing dependencies)
-
+- use sql to resolve direct dependencies at the package name level:
+    - src-pkg: bin-pkg (BuildRequires)
+    - bin-pkg: bin-pkg (Requires)
+    - bin-pkg: src-pkg (bin-pkg comes from which src-pkg? only needed for pre-computing dependencies)
 - resolve this list into a full list of recursive build dependencies.
 
 Since this is recursive, there is no way to do it in a fixed number of sql queries. However the above input list is already directly consumable by Make, which is designed to handle recursive dependencies just like this. Or we can write a new tool to do it in python.
 
 - build ready-to-be-built packages
-- update our copy of the repodata from the regen'ed \*-build repo, as often as new versions become available
+- update our copy of the repodata from the regen'ed `*-build` repo, as often as new versions become available
 - update our dependency lists
 - repeat until all packages are built
 
--- Main.CarlEdquist - 05 Mar 2015
 
