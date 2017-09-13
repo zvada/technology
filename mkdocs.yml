@@ -25,6 +25,7 @@ pages:
     - Git Software Development Process: 'software/git-software-development.md'
     - OSG Build Tools: 'software/osg-build-tools.md'
     - Resurrecting Epel Packages: 'software/resurrecting-epel-packages.md'
+    - Koji Mass Rebuilds: 'software/koji-mass-rebuilds.md'
     - Creating the VO Client Package: 'software/create-vo-client.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
@@ -69,6 +70,7 @@ pages:
   - August 14, 2017: 'meetings/2017/TechArea20170814.md'
   - August 28, 2017: 'meetings/2017/TechArea20170828.md'
   - September 05, 2017: 'meetings/2017/TechArea20170905.md'
+  - September 11, 2017: 'meetings/2017/TechArea20170911.md'
 
 markdown_extensions:
   - admonition

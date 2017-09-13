@@ -3,6 +3,8 @@ OSG Technology Area
 
 Welcome to the home page of the OSG Technology Team documentation area! This is currently a work in progress as we migrate our TWiki documentation to GitHub. If you are looking for our full documentation, please visit the [TWiki](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WebHome).
 
+If you are looking for site administrator documentation, please visit the [OSG Documentation page](https://opensciencegrid.github.io/docs/).
+
 The Team
 --------
 
@@ -30,6 +32,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [11 September 2017](meetings/2017/TechArea20170911.md)
   * [5 September 2017](meetings/2017/TechArea20170905.md)
   * [28 August 2017](meetings/2017/TechArea20170828.md)
   * 21 August 2017 - Canceled
