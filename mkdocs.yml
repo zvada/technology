@@ -32,6 +32,7 @@ pages:
     - How to Cut a Data Release: 'release/cut-data-release.md'
     - Release Policy: 'release/release-policy.md'
     - Release Schedule: 'release/release-schedule.md'
+    - New Release Series: 'release/new-release-series.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
