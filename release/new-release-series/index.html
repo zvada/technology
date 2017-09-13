@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Release Series Support - OSG Technology Area</title>
+  <title>New Release Series - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Release Series Support";
-    var mkdocs_page_input_path = "policy/release-series.md";
-    var mkdocs_page_url = "/policy/release-series/";
+    var mkdocs_page_name = "New Release Series";
+    var mkdocs_page_input_path = "release/new-release-series.md";
+    var mkdocs_page_url = "/release/new-release-series/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -110,7 +110,7 @@
         <li class="">
           
   
-    <a class="" href="../software-support/">Software Support</a>
+    <a class="" href="../../policy/software-support/">Software Support</a>
   
         </li>
         <li class="">
@@ -171,32 +171,38 @@
         <li class="">
           
   
-    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+    <a class="" href="../cut-sw-release/">How to Cut a Release</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+    <a class="" href="../cut-data-release/">How to Cut a Data Release</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/release-policy/">Release Policy</a>
+    <a class="" href="../release-policy/">Release Policy</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+    <a class="" href="../release-schedule/">Release Schedule</a>
   
         </li>
-        <li class="">
+        <li class=" current">
           
   
-    <a class="" href="../../release/new-release-series/">New Release Series</a>
+    <a class="current" href="./">New Release Series</a>
   
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#how-to-prepare-a-new-release-series">How to Prepare a New Release Series</a></li>
+    
+
+  </ul>
         </li>
   </ul>
 	    </li>
@@ -208,43 +214,31 @@
         <li class="">
           
   
-    <a class="" href="../gums-retire/">GUMS Retirement</a>
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../bestman2-retire/">BeStMan2 Retirement</a>
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../voms-admin-retire/">VOMS Admin Retirement</a>
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
   
-        </li>
-        <li class=" current">
-          
-  
-    <a class="current" href="./">Release Series Support</a>
-  
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#osg-software-release-series-support-policy">OSG Software Release Series Support Policy</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#life-cycle-dates">Life-cycle Dates</a></li>
-        
-        </ul>
-    
-
-  </ul>
         </li>
         <li class="">
           
   
-    <a class="" href="../globus-toolkit/">Globus Toolkit Support</a>
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
   
         </li>
   </ul>
@@ -452,14 +446,14 @@
     
       
         
-          <li>Policy &raquo;</li>
+          <li>Release &raquo;</li>
         
       
     
-    <li>Release Series Support</li>
+    <li>New Release Series</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/policy/release-series.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/new-release-series.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -469,48 +463,52 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="osg-software-release-series-support-policy">OSG Software Release Series Support Policy<a class="headerlink" href="#osg-software-release-series-support-policy" title="Permanent link">&para;</a></h1>
-<p>This document describes the OSG policy for managing its software releases. Use this policy to help plan when to perform major OSG software updates at your site.</p>
-<p>OSG software releases are organized into <strong>release series</strong>, with the intent that software updates within a series do not take long to perform, cause significant downtime, or break dependent software. New series can be more disruptive, allowing OSG to add, substantially change, and remove software components. Releases are assigned versions, such as "OSG 3.2.1", where the first two numbers designate the release series and the third number increments within the series. Changes to the first number are infrequent and indicate sweeping changes to the way in which OSG software is distributed.</p>
-<p>OSG supports at most two concurrent release series, <strong>current</strong> and <strong>previous</strong>, where the goal is to begin a new release series about every 18 months. Once a new series starts, OSG will support the previous series for at least 12 months and will announce its end-of-life date at least 6 months in advance. During the first 6 months of a series, OSG will endeavor to apply backward-compatible changes to the previous series as well; afterward, OSG will apply only critical bug and security fixes. When support ends for a release series, it means that OSG no longer updates the software, fixes issues, or troubleshoots installations for releases within the series. The plan is to maintain interoperability between supported series, but there is no guarantee that unsupported series will continue to function in OSG.</p>
-<p>OSG Operations will handle deviations from this policy, in consultation with OSG Technology and stakeholders.</p>
-<h2 id="life-cycle-dates">Life-cycle Dates<a class="headerlink" href="#life-cycle-dates" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th align="center">Release Series</th>
-<th>Initial Release</th>
-<th>End of Regular Support</th>
-<th>End of Critical Bug/Security Support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">3.4</td>
-<td>June 2017</td>
-<td>Not set</td>
-<td>Not set</td>
-</tr>
-<tr>
-<td align="center">3.3</td>
-<td>August 2015</td>
-<td>December 2017</td>
-<td>May 2018</td>
-</tr>
-<tr>
-<td align="center">3.2</td>
-<td>November 2013</td>
-<td>February 2016</td>
-<td>August 2016</td>
-</tr>
-<tr>
-<td align="center">3.1</td>
-<td>April 2012</td>
-<td>October 2014</td>
-<td>April 2015</td>
-</tr>
-</tbody>
-</table>
+                <h1 id="how-to-prepare-a-new-release-series">How to Prepare a New Release Series<a class="headerlink" href="#how-to-prepare-a-new-release-series" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notes taken from <a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2622">SOFTWARE-2622</a> for the OSG 3.4 release:</p>
+</div>
+<p>This ticket serves as a checklist for all the preparation that is required to release OSG 3.4. </p>
+<p>The following can be done at any time:</p>
+<ul>
+<li>Create a blank <code>osg-3.4</code> SVN branch and add <code>buildsys-macros</code> package</li>
+<li>Add 3.4 koji tags and targets; update <code>osg-build</code> to use them (not by default of course)</li>
+<li>Set up package signing for the 3.4 build tags</li>
+<li>Update <code>tarball-client</code> scripts<ul>
+<li><code>bundles.ini</code></li>
+<li><code>patches/</code></li>
+<li><code>upload-tarballs-to-oasis</code> (<code>foreach_dver_arch</code> will need to be updated because we're dropping i386 support)</li>
+</ul>
+</li>
+</ul>
+<p>The following must wait until the month of the 3.4.0 release:</p>
+<ul>
+<li>Populate SVN branch and tags (as in fill it with the packages we're going to release for 3.4)</li>
+<li>Mass rebuild</li>
+<li>Update mash<ul>
+<li>On repo-itb</li>
+<li>On repo1/repo2</li>
+</ul>
+</li>
+<li>Update documentation</li>
+<li>Update osg-test / vmu-test-runs</li>
+</ul>
+<p>The following must be done immediately after the 3.4.0 release:</p>
+<ul>
+<li>Update tag inheritance on the <code>upcoming-build</code> tags to inherit from <code>3.4-devel</code> instead of <code>3.3-devel</code></li>
+<li>Drop the <code>osg-3.4-elX-bootstrap</code> koji tags</li>
+</ul>
+<p>The following should be done sometime after the 3.4.0 release:</p>
+<ul>
+<li>Do these three at the same time:<ul>
+<li>Move the SVN <code>trunk</code> to <code>branches/osg-3.3</code> and move <code>branches/osg-3.4</code> to <code>trunk</code></li>
+<li>Update the koji <code>osg-elX</code> build targets to build from and to 3.4 instead of 3.3</li>
+<li>Notify the software list of this change</li>
+</ul>
+</li>
+<li>Update the docker-osg-wn-client scripts to build from 3.4</li>
+<li>Update the default promotion route aliases in <code>osg-promote</code></li>
+</ul>
               
             </div>
           </div>
@@ -518,10 +516,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../globus-toolkit/" class="btn btn-neutral float-right" title="Globus Toolkit Support">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../policy/gums-retire/" class="btn btn-neutral float-right" title="GUMS Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../voms-admin-retire/" class="btn btn-neutral" title="VOMS Admin Retirement"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../release-schedule/" class="btn btn-neutral" title="Release Schedule"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -549,10 +547,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../voms-admin-retire/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../release-schedule/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../globus-toolkit/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../policy/gums-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
