@@ -512,7 +512,7 @@
 <p>Choose one of the following methods for converting TWiki documents:</p>
 <ul>
 <li>Using our own <a href="#using-docker">docker conversion image</a> (recommended)</li>
-<li>A combination of <a href="#using-pandoc">pandoc</a> and mkdocs</li>
+<li>Directly using pandoc and mkdocs <a href="#conversion-without-docker">on your own machine</a></li>
 </ul>
 <h3 id="using-docker">Using docker<a class="headerlink" href="#using-docker" title="Permanent link">&para;</a></h3>
 <p>The twiki-converter docker image can be used to preview the document tree via a <a href="http://www.mkdocs.org/#getting-started">mkdocs</a> development server, archive TWiki documents, and convert documents to Markdown via <a href="http://pandoc.org/">pandoc</a>. The image is available on <code>osghost</code>, otherwise, follow the instructions <a href="https://github.com/brianhlin/docker-twiki-converter">here</a> to build it locally. </p>
@@ -624,7 +624,7 @@
 </li>
 <li>Manually convert the offending section</li>
 </ol>
-<h3 id="using-pandoc">Using pandoc<a class="headerlink" href="#using-pandoc" title="Permanent link">&para;</a></h3>
+<h3 id="conversion-without-docker">Conversion without Docker<a class="headerlink" href="#conversion-without-docker" title="Permanent link">&para;</a></h3>
 <p>If you've already used the <a href="#using-docker">docker method</a>, skip to the section about <a href="#completing-the-conversion">completing the conversion</a>. </p>
 <h4 id="requirements_1">Requirements<a class="headerlink" href="#requirements_1" title="Permanent link">&para;</a></h4>
 <p>This method requires the following:</p>
@@ -673,20 +673,6 @@
 <p class="admonition-title">Note</p>
 <p>If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.</p>
 </div>
-<h5 id="using-pandoc-via-docker">Using pandoc via docker<a class="headerlink" href="#using-pandoc-via-docker" title="Permanent link">&para;</a></h5>
-<p>The <code>pandoc</code> library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install <code>pandoc</code> but have access to docker, you can run the following command:</p>
-<div class="codehilite"><pre><span></span>docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/source jagregory/pandoc -f twiki -t markdown_github <span style="color:red">&lt;TWIKI FILE&gt;</span> &gt; <span style="color:red">&lt;MARKDOWN FILE&gt;</span>
-</pre></div>
-
-
-<p>For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:</p>
-<div class="codehilite"><pre><span></span>$ mkdir -p archive docs/projects
-$ curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/SHA2Compliance
-$ docker run -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance &gt; docs/projects/sha2-support.md
-</pre></div>
-
-
-<p>We have found some cases where the Docker version of <code>pandoc</code> handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.</p>
 <h4 id="previewing-your-documents-with-mkdocs">Previewing your document(s) with Mkdocs<a class="headerlink" href="#previewing-your-documents-with-mkdocs" title="Permanent link">&para;</a></h4>
 <p><a href="http://www.mkdocs.org/">Mkdocs</a> has a development mode that can be used to preview documents as you work on them and is available via package manager or <code>pip</code>. <a href="http://www.mkdocs.org/#installation">Once installed</a>, add your document(s) to the <code>pages</code> section of <code>mkdocs.yml</code> and launch the mkdocs server with the following command from the dir containing <code>mkdocs.yml</code>:</p>
 <div class="codehilite"><pre><span></span><span class="gp">$</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>src/ mkdocs serve
@@ -841,7 +827,7 @@ SNIPPET
 <ol>
 <li>
 <p>Stage the archived raw TWiki (as well as the converted Markdown document(s) and <code>mkdocs.yml</code> if you are converting the document):</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git add mkdocs.yaml archive/<span style="color:red">&lt;TWIKI ARCHIVE&gt;</span> <span style="color:red">&lt;PATH TO CONVERTED DOC&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git add mkdocs.yml archive/<span style="color:red">&lt;TWIKI ARCHIVE&gt;</span> <span style="color:red">&lt;PATH TO CONVERTED DOC&gt;</span>
 </pre></div>
 
 
