@@ -1,0 +1,142 @@
+# Testing HTCondor Prereleases on the Madison ITB Site
+
+This document contains a basic recipe for testing an HTCondor prerelease build on the Madison ITB site.
+
+## Prerequisites
+
+The following items are known prerequisites to using this recipe.  If you are not running the Ansible commands from
+osghost, there are almost certainly other prerequisites that are not listed below.  And even using osghost for Ansible
+and itb-submit for the submissions, there may be other prerequisites missing.  Please improve this document by adding
+other prerequisites as they are identified!
+
+* A checkout of the osgitb directory from our local git instance (not GitHub)
+* Your X.509 DN in the `osgitb/unmanaged/htcondor/condor_mapfile` file and (via Ansible) on `itb-ce1` and `itb-ce2`
+
+## Gather Information
+
+Technically skippable, this section is about checking on the state of the ITB machines before making changes.  The plan
+is to keep the ITB machines generally up-to-date independently, so those steps are not listed here.  And honestly, the
+steps below are just some ideas; do whatever makes sense for the given update.
+
+The commands can be run as-is from within the `osgitb` directory from git.
+
+1. Check OS versions for all current ITB hosts:
+
+        :::console
+        ansible current -i inventory -f 20 -o -m command -a 'cat /etc/redhat-release'
+
+2. Check HTCondor versions for all HTCondor hosts:
+
+        :::console
+        ansible condor -i inventory -f 20 -o -m command -a 'rpm -q condor'
+
+3. Obtain the NVR of the HTCondor prerelease build from OSG to test.  Do this by talking to Tim&nbsp;T. and checking
+   Koji.  The expectation is that the HTCondor prerelease build will be in the development repository (or
+   upcoming-development).
+
+## Install HTCondor Prerelease
+
+1. Shut down HTCondor and HTCondor-CE on prerelease machines:
+
+        :::console
+        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor-ce state=stopped' -l 'itb-ce*'
+        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor state=stopped'
+
+2. Install new version of HTCondor on prerelease machines:
+
+        :::console
+        ansible condordev -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-upcoming --assumeyes update condor'
+
+    or, if you need to install an NVR that is “earlier” (in the RPM sense) than what is currently installed:
+
+        :::console
+        ansible condordev -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-development --assumeyes downgrade condor condor-classads condor-python condor-procd blahp'
+
+3. Verify installation of correct RPM version:
+
+        :::console
+        ansible condor -i inventory -f 20 -o -m command -a 'rpm -q condor'
+
+4. Restart HTCondor and HTCondor-CE on prerelease machines:
+
+        :::console
+        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor state=started'
+        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor-ce state=started' -l 'itb-ce*'
+
+## Run Tests
+
+For the tests themselves, use your personal space on `itb-submit`.  Copy or checkout the `osgitb/htcondor-tests`
+directory to get the test directories.
+
+### Submitting jobs directly
+
+1. Change into the `1-direct-jobs` subdirectory
+
+2. If there are old result files in the directory, remove them:
+
+        :::console
+        make distclean
+
+3. Submit the test workflow
+
+        :::console
+        condor_submit_dag test.dag
+
+4. Monitor the jobs until they are complete or stuck
+
+    In the initial test runs, the entire workflow ran in a few minutes.  If the DAG or jobs exit immediately, go on
+    hold, or otherwise fail, then you have some troubleshooting to do!  Keep trying steps 2 and 3 until you get a clean
+    run (or one or more HTCondor bug tickets).
+
+5. Check the final output file:
+
+        :::console
+        cat count-by-hostnames.txt
+
+    You should see a reasonable distribution of jobs by hostname, keeping in mind the different number of cores per
+    machine and the fact that HTCondor can and will reuse claims to process many jobs on a single host.  Especially
+    watch out for a case in which no jobs run on the newly updated hosts (at the time of writing: `itb-data[456]`).
+
+6. (Optional) Clean up, using the `make clean` or `make distclean` commands.
+
+### Submitting jobs using HTCondor-C
+
+If direct submissions fail, there is probably no point to doing this step.
+
+1. Change into the `2-htcondor-c-jobs` subdirectory
+
+2. If there are old result files in the directory, remove them:
+
+        :::console
+        make distclean
+
+3. Submit the test workflow
+
+        :::console
+        condor_submit_dag test.dag
+
+4. Monitor the jobs until they are complete or stuck
+
+    In the initial test runs, the entire workflow ran in 10 minutes or less; generally, this test takes longer than the
+    direct submission test, because of the layers of indirection.  Also, status updates from the CEs back to the submit
+    host are infrequent.  For direct information about the CEs, log in to `itb-ce1` and `itb-ce2` to check status; don’t
+    forget to check both `condor_ce_q` and `condor_q` on the CEs, probably in that order.
+
+    If the DAG or jobs exit immediately, go on hold, or otherwise fail, then you have some troubleshooting to do!  Keep
+    trying steps 2 and 3 until you get a clean run (or one or more HTCondor bug tickets).
+
+5. Check the final output file:
+
+        :::console
+        cat count-by-hostnames.txt
+
+    Again, look for a reasonable distribution of jobs by hostname.
+
+6. (Optional) Clean up, using the `make clean` or `make distclean` commands.
+
+### Submitting jobs from a GlideinWMS VO Frontend
+
+Again, if previous steps fail, do not bother with this step.
+
+Currently, we do not own a GlideinWMS VO Frontend that feeds into the ITB system.  So for this test, email Suchandra
+Thapa and ask him to submit a round of Madison ITB tests, wait for jobs to complete, and provide summary statistics.
