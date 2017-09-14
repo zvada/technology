@@ -24,7 +24,7 @@ Automatic TWiki conversion
 Choose one of the following methods for converting TWiki documents:
 
 - Using our own [docker conversion image](#using-docker) (recommended)
-- A combination of [pandoc](#using-pandoc) and mkdocs
+- Directly using pandoc and mkdocs [on your own machine](#conversion-without-docker)
 
 ### Using docker ###
 
@@ -121,7 +121,7 @@ Pandoc sometimes has issues converting documents and requires manual interventio
 5. Repeat steps 2-4 until you've narrowed down the problematic section
 6. Manually convert the offending section
 
-### Using pandoc ###
+### Conversion without Docker ###
 
 If you've already used the [docker method](#using-docker), skip to the section about [completing the conversion](#completing-the-conversion). 
 
@@ -169,24 +169,6 @@ Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN
 
 !!! note
     If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.
-
-##### Using pandoc via docker ######
-
-The `pandoc` library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install `pandoc` but have access to docker, you can run the following command:
-
-```bash
-docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github %RED%<TWIKI FILE>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
-```
-
-For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:
-
-```bash
-$ mkdir -p archive docs/projects
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
-$ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance > docs/projects/sha2-support.md
-```
-
-We have found some cases where the Docker version of `pandoc` handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.
 
 #### Previewing your document(s) with Mkdocs ####
 
