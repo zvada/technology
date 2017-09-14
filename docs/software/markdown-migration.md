@@ -332,7 +332,7 @@ Submitting the pull request
 1. Stage the archived raw TWiki (as well as the converted Markdown document(s) and `mkdocs.yml` if you are converting the document):
 
         :::console
-        [user@client ~ ] $ git add mkdocs.yaml archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
+        [user@client ~ ] $ git add mkdocs.yml archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
 
 2. Commit and push your changes to your GitHub repo:
 
