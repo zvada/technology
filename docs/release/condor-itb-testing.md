@@ -45,7 +45,7 @@ The commands can be run as-is from within the `osgitb` directory from git.
 2. Install new version of HTCondor on prerelease machines:
 
         :::console
-        ansible condordev -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-upcoming --assumeyes update condor'
+        ansible condordev -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-development --assumeyes update condor'
 
     or, if you need to install an NVR that is “earlier” (in the RPM sense) than what is currently installed:
 
