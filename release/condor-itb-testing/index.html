@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>New Release Series - OSG Technology Area</title>
+  <title>HTCondor Prerelease Testing - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "New Release Series";
-    var mkdocs_page_input_path = "release/new-release-series.md";
-    var mkdocs_page_url = "/release/new-release-series/";
+    var mkdocs_page_name = "HTCondor Prerelease Testing";
+    var mkdocs_page_input_path = "release/condor-itb-testing.md";
+    var mkdocs_page_url = "/release/condor-itb-testing/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -192,23 +192,35 @@
     <a class="" href="../release-schedule/">Release Schedule</a>
   
         </li>
-        <li class=" current">
-          
-  
-    <a class="current" href="./">New Release Series</a>
-  
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#how-to-prepare-a-new-release-series">How to Prepare a New Release Series</a></li>
-    
-
-  </ul>
-        </li>
         <li class="">
           
   
-    <a class="" href="../condor-itb-testing/">HTCondor Prerelease Testing</a>
+    <a class="" href="../new-release-series/">New Release Series</a>
   
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">HTCondor Prerelease Testing</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#testing-htcondor-prereleases-on-the-madison-itb-site">Testing HTCondor Prereleases on the Madison ITB Site</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a class="toctree-l4" href="#gather-information">Gather Information</a></li>
+        
+            <li><a class="toctree-l4" href="#install-htcondor-prerelease">Install HTCondor Prerelease</a></li>
+        
+            <li><a class="toctree-l4" href="#run-tests">Run Tests</a></li>
+        
+        </ul>
+    
+
+  </ul>
         </li>
   </ul>
 	    </li>
@@ -456,10 +468,10 @@
         
       
     
-    <li>New Release Series</li>
+    <li>HTCondor Prerelease Testing</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/new-release-series.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/condor-itb-testing.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -469,52 +481,168 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="how-to-prepare-a-new-release-series">How to Prepare a New Release Series<a class="headerlink" href="#how-to-prepare-a-new-release-series" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Notes taken from <a href="https://jira.opensciencegrid.org/browse/SOFTWARE-2622">SOFTWARE-2622</a> for the OSG 3.4 release:</p>
-</div>
-<p>This ticket serves as a checklist for all the preparation that is required to release OSG 3.4. </p>
-<p>The following can be done at any time:</p>
+                <h1 id="testing-htcondor-prereleases-on-the-madison-itb-site">Testing HTCondor Prereleases on the Madison ITB Site<a class="headerlink" href="#testing-htcondor-prereleases-on-the-madison-itb-site" title="Permanent link">&para;</a></h1>
+<p>This document contains a basic recipe for testing an HTCondor prerelease build on the Madison ITB site.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>The following items are known prerequisites to using this recipe.  If you are not running the Ansible commands from
+osghost, there are almost certainly other prerequisites that are not listed below.  And even using osghost for Ansible
+and itb-submit for the submissions, there may be other prerequisites missing.  Please improve this document by adding
+other prerequisites as they are identified!</p>
 <ul>
-<li>Create a blank <code>osg-3.4</code> SVN branch and add <code>buildsys-macros</code> package</li>
-<li>Add 3.4 koji tags and targets; update <code>osg-build</code> to use them (not by default of course)</li>
-<li>Set up package signing for the 3.4 build tags</li>
-<li>Update <code>tarball-client</code> scripts<ul>
-<li><code>bundles.ini</code></li>
-<li><code>patches/</code></li>
-<li><code>upload-tarballs-to-oasis</code> (<code>foreach_dver_arch</code> will need to be updated because we're dropping i386 support)</li>
+<li>A checkout of the osgitb directory from our local git instance (not GitHub)</li>
+<li>Your X.509 DN in the <code>osgitb/unmanaged/htcondor/condor_mapfile</code> file and (via Ansible) on <code>itb-ce1</code> and <code>itb-ce2</code></li>
 </ul>
+<h2 id="gather-information">Gather Information<a class="headerlink" href="#gather-information" title="Permanent link">&para;</a></h2>
+<p>Technically skippable, this section is about checking on the state of the ITB machines before making changes.  The plan
+is to keep the ITB machines generally up-to-date independently, so those steps are not listed here.  And honestly, the
+steps below are just some ideas; do whatever makes sense for the given update.</p>
+<p>The commands can be run as-is from within the <code>osgitb</code> directory from git.</p>
+<ol>
+<li>
+<p>Check OS versions for all current ITB hosts:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible current -i inventory -f 20 -o -m command -a &#39;cat /etc/redhat-release&#39;</span>
+</pre></div>
+
+
 </li>
-</ul>
-<p>The following must wait until the month of the 3.4.0 release:</p>
-<ul>
-<li>Populate SVN branch and tags (as in fill it with the packages we're going to release for 3.4)</li>
-<li>Mass rebuild</li>
-<li>Update mash<ul>
-<li>On repo-itb</li>
-<li>On repo1/repo2</li>
-</ul>
+<li>
+<p>Check HTCondor versions for all HTCondor hosts:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible condor -i inventory -f 20 -o -m command -a &#39;rpm -q condor&#39;</span>
+</pre></div>
+
+
 </li>
-<li>Update documentation</li>
-<li>Update osg-test / vmu-test-runs</li>
-</ul>
-<p>The following must be done immediately after the 3.4.0 release:</p>
-<ul>
-<li>Update tag inheritance on the <code>upcoming-build</code> tags to inherit from <code>3.4-devel</code> instead of <code>3.3-devel</code></li>
-<li>Drop the <code>osg-3.4-elX-bootstrap</code> koji tags</li>
-</ul>
-<p>The following should be done sometime after the 3.4.0 release:</p>
-<ul>
-<li>Do these three at the same time:<ul>
-<li>Move the SVN <code>trunk</code> to <code>branches/osg-3.3</code> and move <code>branches/osg-3.4</code> to <code>trunk</code></li>
-<li>Update the koji <code>osg-elX</code> build targets to build from and to 3.4 instead of 3.3</li>
-<li>Notify the software list of this change</li>
-</ul>
+<li>
+<p>Obtain the NVR of the HTCondor prerelease build from OSG to test.  Do this by talking to Tim&nbsp;T. and checking
+   Koji.  The expectation is that the HTCondor prerelease build will be in the development repository (or
+   upcoming-development).</p>
 </li>
-<li>Update the docker-osg-wn-client scripts to build from 3.4</li>
-<li>Update the default promotion route aliases in <code>osg-promote</code></li>
-</ul>
+</ol>
+<h2 id="install-htcondor-prerelease">Install HTCondor Prerelease<a class="headerlink" href="#install-htcondor-prerelease" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Shut down HTCondor and HTCondor-CE on prerelease machines:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible condordev -i inventory -bK -f 20 -m service -a &#39;name=condor-ce state=stopped&#39; -l &#39;itb-ce*&#39;</span>
+<span class="go">ansible condordev -i inventory -bK -f 20 -m service -a &#39;name=condor state=stopped&#39;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Install new version of HTCondor on prerelease machines:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible condordev -i inventory -bK -f 10 -m command -a &#39;yum --enablerepo=osg-development --assumeyes update condor&#39;</span>
+</pre></div>
+
+
+<p>or, if you need to install an NVR that is “earlier” (in the RPM sense) than what is currently installed:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible condordev -i inventory -bK -f 10 -m command -a &#39;yum --enablerepo=osg-development --assumeyes downgrade condor condor-classads condor-python condor-procd blahp&#39;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Verify installation of correct RPM version:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible condor -i inventory -f 20 -o -m command -a &#39;rpm -q condor&#39;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Restart HTCondor and HTCondor-CE on prerelease machines:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible condordev -i inventory -bK -f 20 -m service -a &#39;name=condor state=started&#39;</span>
+<span class="go">ansible condordev -i inventory -bK -f 20 -m service -a &#39;name=condor-ce state=started&#39; -l &#39;itb-ce*&#39;</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h2 id="run-tests">Run Tests<a class="headerlink" href="#run-tests" title="Permanent link">&para;</a></h2>
+<p>For the tests themselves, use your personal space on <code>itb-submit</code>.  Copy or checkout the <code>osgitb/htcondor-tests</code>
+directory to get the test directories.</p>
+<h3 id="submitting-jobs-directly">Submitting jobs directly<a class="headerlink" href="#submitting-jobs-directly" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Change into the <code>1-direct-jobs</code> subdirectory</p>
+</li>
+<li>
+<p>If there are old result files in the directory, remove them:</p>
+<div class="codehilite"><pre><span></span><span class="go">make distclean</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Submit the test workflow</p>
+<div class="codehilite"><pre><span></span><span class="go">condor_submit_dag test.dag</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Monitor the jobs until they are complete or stuck</p>
+<p>In the initial test runs, the entire workflow ran in a few minutes.  If the DAG or jobs exit immediately, go on
+hold, or otherwise fail, then you have some troubleshooting to do!  Keep trying steps 2 and 3 until you get a clean
+run (or one or more HTCondor bug tickets).</p>
+</li>
+<li>
+<p>Check the final output file:</p>
+<div class="codehilite"><pre><span></span><span class="go">cat count-by-hostnames.txt</span>
+</pre></div>
+
+
+<p>You should see a reasonable distribution of jobs by hostname, keeping in mind the different number of cores per
+machine and the fact that HTCondor can and will reuse claims to process many jobs on a single host.  Especially
+watch out for a case in which no jobs run on the newly updated hosts (at the time of writing: <code>itb-data[456]</code>).</p>
+</li>
+<li>
+<p>(Optional) Clean up, using the <code>make clean</code> or <code>make distclean</code> commands.</p>
+</li>
+</ol>
+<h3 id="submitting-jobs-using-htcondor-c">Submitting jobs using HTCondor-C<a class="headerlink" href="#submitting-jobs-using-htcondor-c" title="Permanent link">&para;</a></h3>
+<p>If direct submissions fail, there is probably no point to doing this step.</p>
+<ol>
+<li>
+<p>Change into the <code>2-htcondor-c-jobs</code> subdirectory</p>
+</li>
+<li>
+<p>If there are old result files in the directory, remove them:</p>
+<div class="codehilite"><pre><span></span><span class="go">make distclean</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Submit the test workflow</p>
+<div class="codehilite"><pre><span></span><span class="go">condor_submit_dag test.dag</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Monitor the jobs until they are complete or stuck</p>
+<p>In the initial test runs, the entire workflow ran in 10 minutes or less; generally, this test takes longer than the
+direct submission test, because of the layers of indirection.  Also, status updates from the CEs back to the submit
+host are infrequent.  For direct information about the CEs, log in to <code>itb-ce1</code> and <code>itb-ce2</code> to check status; don’t
+forget to check both <code>condor_ce_q</code> and <code>condor_q</code> on the CEs, probably in that order.</p>
+<p>If the DAG or jobs exit immediately, go on hold, or otherwise fail, then you have some troubleshooting to do!  Keep
+trying steps 2 and 3 until you get a clean run (or one or more HTCondor bug tickets).</p>
+</li>
+<li>
+<p>Check the final output file:</p>
+<div class="codehilite"><pre><span></span><span class="go">cat count-by-hostnames.txt</span>
+</pre></div>
+
+
+<p>Again, look for a reasonable distribution of jobs by hostname.</p>
+</li>
+<li>
+<p>(Optional) Clean up, using the <code>make clean</code> or <code>make distclean</code> commands.</p>
+</li>
+</ol>
+<h3 id="submitting-jobs-from-a-glideinwms-vo-frontend">Submitting jobs from a GlideinWMS VO Frontend<a class="headerlink" href="#submitting-jobs-from-a-glideinwms-vo-frontend" title="Permanent link">&para;</a></h3>
+<p>Again, if previous steps fail, do not bother with this step.</p>
+<p>Currently, we do not own a GlideinWMS VO Frontend that feeds into the ITB system.  So for this test, email Suchandra
+Thapa and ask him to submit a round of Madison ITB tests, wait for jobs to complete, and provide summary statistics.</p>
               
             </div>
           </div>
@@ -522,10 +650,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../condor-itb-testing/" class="btn btn-neutral float-right" title="HTCondor Prerelease Testing">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../policy/gums-retire/" class="btn btn-neutral float-right" title="GUMS Retirement">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../release-schedule/" class="btn btn-neutral" title="Release Schedule"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../new-release-series/" class="btn btn-neutral" title="New Release Series"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -553,10 +681,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../release-schedule/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../new-release-series/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../condor-itb-testing/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../policy/gums-retire/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
