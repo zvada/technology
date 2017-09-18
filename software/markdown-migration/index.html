@@ -546,21 +546,21 @@
 <li><code>cd</code> into your local git repository</li>
 <li>
 <p>Add <code>opensciencegrid/technology</code> as the upstream remote repository for merging upstream changes:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git remote add upstream https://www.github.com/opensciencegrid/<span style="color:red">&lt;REPOSITORY&gt;</span>.git
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git remote add upstream https://www.github.com/opensciencegrid/<span style="color:red">&lt;REPOSITORY&gt;</span>.git
 </pre></div>
 
 
 </li>
 <li>
 <p>Create a branch for the document you plan to convert:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git branch <span style="color:red">&lt;BRANCH NAME&gt;</span> master
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git branch <span style="color:red">&lt;BRANCH NAME&gt;</span> master
 </pre></div>
 
 
 </li>
 <li>
 <p>Change to the branch you just created</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git checkout <span style="color:red">&lt;BRANCH NAME&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git checkout <span style="color:red">&lt;BRANCH NAME&gt;</span>
 </pre></div>
 
 
@@ -571,7 +571,7 @@
 <ol>
 <li>
 <p>Create a container from the image with the following command:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker run -d -v <span style="color:red">&lt;PATH TO LOCAL GITHUB REPO&gt;</span>:/source -p <span class="m">8000</span> twiki
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> docker run -d -v <span style="color:red">&lt;PATH TO LOCAL GITHUB REPO&gt;</span>:/source -p <span class="m">8000</span> twiki
 </pre></div>
 
 
@@ -583,7 +583,7 @@
 </li>
 <li>
 <p>To find the port that your development server is lisetning on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker port <span style="color:red">&lt;CONTAINER ID&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> docker port <span style="color:red">&lt;CONTAINER ID&gt;</span>
 </pre></div>
 
 
@@ -594,7 +594,7 @@
 </ol>
 <h4 id="converting-documents">Converting documents<a class="headerlink" href="#converting-documents" title="Permanent link">&para;</a></h4>
 <p>The docker image contains a convenience script, <code>convert-twiki</code> for saving archives and converting them to Markdown. To run the script in a running container, run the following command:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker <span class="nb">exec</span> <span style="color:red">&lt;CONTAINER ID&gt;</span> convert-twiki <span style="color:red">&lt;TWIKI URL&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> docker <span class="nb">exec</span> <span style="color:red">&lt;CONTAINER ID&gt;</span> convert-twiki <span style="color:red">&lt;TWIKI URL&gt;</span>
 </pre></div>
 
 
@@ -621,7 +621,7 @@
 <li>Copy the archive of the document into the root of your git repository</li>
 <li>
 <p>Kill the process in the docker container:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker <span class="nb">exec</span> <span style="color:red">&lt;CONTAINER ID&gt;</span> pkill -9 pandoc
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> docker <span class="nb">exec</span> <span style="color:red">&lt;CONTAINER ID&gt;</span> pkill -9 pandoc
 </pre></div>
 
 
@@ -631,7 +631,7 @@
 </li>
 <li>
 <p>Run pandoc manually:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> docker <span class="nb">exec</span> <span style="color:red">&lt;CONTAINER ID&gt;</span> pandoc -f twiki -t markdown_github <span style="color:red">&lt;ARCHIVE COPY&gt;</span> &gt; <span style="color:red">&lt;MARKDOWN FILE&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> docker <span class="nb">exec</span> <span style="color:red">&lt;CONTAINER ID&gt;</span> pandoc -f twiki -t markdown_github <span style="color:red">&lt;ARCHIVE COPY&gt;</span> &gt; <span style="color:red">&lt;MARKDOWN FILE&gt;</span>
 </pre></div>
 
 
@@ -657,21 +657,21 @@
 <li><code>cd</code> into your local git repository</li>
 <li>
 <p>Add <code>opensciencegrid/technology</code> as the upstream remote repository for merging upstream changes:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git remote add upstream https://www.github.com/opensciencegrid/<span style="color:red">&lt;REPOSITORY&gt;</span>.git
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git remote add upstream https://www.github.com/opensciencegrid/<span style="color:red">&lt;REPOSITORY&gt;</span>.git
 </pre></div>
 
 
 </li>
 <li>
 <p>Create a branch for the document you plan to convert:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git branch <span style="color:red">&lt;BRANCH NAME&gt;</span> master
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git branch <span style="color:red">&lt;BRANCH NAME&gt;</span> master
 </pre></div>
 
 
 </li>
 <li>
 <p>Change to the branch you just created</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git checkout <span style="color:red">&lt;BRANCH NAME&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git checkout <span style="color:red">&lt;BRANCH NAME&gt;</span>
 </pre></div>
 
 
@@ -739,17 +739,17 @@
 <tbody>
 <tr>
 <td align="left"><code>&lt;span class="twiki-macro UCL\_PROMPT\_ROOT"&gt;&lt;/span&gt;</code></td>
-<td align="left"><code>root#</code></td>
+<td align="left"><code>root@host #</code></td>
 </tr>
 <tr>
 <td align="left"><code>&lt;span class="twiki-macro UCL\_PROMPT"&gt;&lt;/span&gt;</code></td>
-<td align="left"><code>user$</code></td>
+<td align="left"><code>user@host $</code></td>
 </tr>
 </tbody>
 </table>
 <h4 id="highlighting-user-input">Highlighting user input<a class="headerlink" href="#highlighting-user-input" title="Permanent link">&para;</a></h4>
 <p>Within command blocks and file snippets, we've used <code>&amp;lt;...&amp;gt;</code> to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input. You may also use TWiki-style color highlighting. </p>
-<div class="codehilite"><pre><span></span><span class="go">root# condor_ce_trace -d <span style="color:red">&lt;CE HOSTNAME&gt;</span></span>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> condor_ce_trace -d <span style="color:red">&lt;CE HOSTNAME&gt;</span>
 </pre></div>
 
 
@@ -828,14 +828,14 @@ SNIPPET
 <p>If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc <em>iff</em> the changes take less than ~15 minutes. This isn't a renovation project!</p>
 <h2 id="archiving-documents">Archiving Documents<a class="headerlink" href="#archiving-documents" title="Permanent link">&para;</a></h2>
 <p>If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the <code>archive</code> folder of your local git repository:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> <span class="nb">cd</span> technology/
-<span class="gp">[user@client ~ ] $</span> curl <span class="s1">&#39;<span style="color:red">&lt;TWIKI URL&gt;</span>?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/<span style="color:red">&lt;TWIKI TITLE&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> <span class="nb">cd</span> technology/
+<span class="gp">user@host $</span> curl <span class="s1">&#39;<span style="color:red">&lt;TWIKI URL&gt;</span>?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/<span style="color:red">&lt;TWIKI TITLE&gt;</span>
 </pre></div>
 
 
 <p>For example:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> <span class="nb">cd</span> technology
-<span class="gp">[user@client ~ ] $</span> curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/SHA2Compliance
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> <span class="nb">cd</span> technology
+<span class="gp">user@host $</span> curl <span class="s1">&#39;https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text&#39;</span> <span class="p">|</span> iconv -f windows-1252 &gt; archive/SHA2Compliance
 </pre></div>
 
 
@@ -844,15 +844,15 @@ SNIPPET
 <ol>
 <li>
 <p>Stage the archived raw TWiki (as well as the converted Markdown document(s) and <code>mkdocs.yml</code> if you are converting the document):</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git add mkdocs.yml archive/<span style="color:red">&lt;TWIKI ARCHIVE&gt;</span> <span style="color:red">&lt;PATH TO CONVERTED DOC&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git add mkdocs.yml archive/<span style="color:red">&lt;TWIKI ARCHIVE&gt;</span> <span style="color:red">&lt;PATH TO CONVERTED DOC&gt;</span>
 </pre></div>
 
 
 </li>
 <li>
 <p>Commit and push your changes to your GitHub repo:</p>
-<div class="codehilite"><pre><span></span><span class="gp">[user@client ~ ] $</span> git commit -m <span class="s2">&quot;<span style="color:red">&lt;COMMIT MSG&gt;</span>&quot;</span>
-<span class="gp">[user@client ~ ] $</span> git push origin <span style="color:red">&lt;BRANCH NAME&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> git commit -m <span class="s2">&quot;<span style="color:red">&lt;COMMIT MSG&gt;</span>&quot;</span>
+<span class="gp">user@host $</span> git push origin <span style="color:red">&lt;BRANCH NAME&gt;</span>
 </pre></div>
 
 
@@ -912,9 +912,9 @@ At the end of year (2017), the TWiki will be retired in favor of !GitHub. You ca
 <h2 id="reviewing-pull-requests">Reviewing pull requests<a class="headerlink" href="#reviewing-pull-requests" title="Permanent link">&para;</a></h2>
 <p>To review pull requests, <code>cd</code> into the dir containing your git repository and check out the requester's branch, which the twiki-converter container should automatically notice. Here's an example checking out Brian's <code>cut-sw-release</code> branch of the technology repository:</p>
 <div class="codehilite"><pre><span></span><span class="gp">#</span> Add the requester<span class="s1">&#39;s repo as a remote if you haven&#39;</span>t already
-<span class="gp">[user@client ~ ] $</span> git remote add blin https://www.github.com/brianhlin/technology.git
-<span class="gp">[user@client ~ ] $</span> git fetch --all
-<span class="gp">[user@client ~ ] $</span> git checkout blin/cut-sw-release
+<span class="gp">user@host $</span> git remote add blin https://www.github.com/brianhlin/technology.git
+<span class="gp">user@host $</span> git fetch --all
+<span class="gp">user@host $</span> git checkout blin/cut-sw-release
 </pre></div>
 
 
