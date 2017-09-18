@@ -32,6 +32,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [18 September 2017](meetings/2017/TechArea20170918.md)
   * [11 September 2017](meetings/2017/TechArea20170911.md)
   * [5 September 2017](meetings/2017/TechArea20170905.md)
   * [28 August 2017](meetings/2017/TechArea20170828.md)
