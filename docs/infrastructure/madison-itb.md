@@ -275,30 +275,3 @@ If you do not have an account, request one from the CHTC system administrators.
   </devices>
 </domain>
 ```
-
-## Archive
-
-(Note: I have not fixed old TWiki links below because I don’t care and they don’t matter.  Mostly, this section is still
-around so that I (cat) can bug Mat about making sure the old stuff is all completely gone.)
-
-Archived Madison ITB notes are on [another page](MadisonItbArchive).
-
-### Old Puppet information — now obsolete and awaiting decommissioning ([SOFTWARE-2559](https://jira.opensciencegrid.org/browse/SOFTWARE-2559))
-
-Configuration is managed by Puppet using the UW Center for High-Throughput Computing's Puppet server on
-`wid-service-1.chtc.wisc.edu`.  See [MadisonITBInstanceConfiguration](MadisonITBInstanceConfiguration) for details.
-
-### New Puppet ideas — now obsolete and not implemented
-
-- We maintain and build our own current (4.x) Puppet RPMs (including dependencies) for EL 6 and EL 7 based on Fedora SRPMs — this looks very doable
-- We run a Puppet Master on `osghost` or, if absolutely necessary, on a VM on `osghost`
-- Firewall rules will limit Puppet client access to the Puppet Master to a minimal range of IP addresses
-- We use public Puppet classes wherever possible (e.g., NTP from Puppet Labs)
-- When necessary, we write and maintain simple-as-possible Puppet classes for basic machine setup
-- Goals for automated configuration management:
-    - Manage the system clock (i.e., a properly configured NTP daemon)
-    - Manage a set of local user accounts, groups, and public SSH keys
-    - Manage a `sudoers` file for local user accounts
-    - Manage firewall rules
-    - Install a basic set of common tools (nominations: vi, emacs)
-- In the meantime, we will write, maintain, and apply documentation to make these changes manually
