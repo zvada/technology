@@ -220,17 +220,17 @@ We use the [Pygments](http://pygments.org/) highlighting library for syntax; it 
 
 #### Fixing root and user prompts ####
 
-| Find and replace...                                   | With...             |
-|:------------------------------------------------------|:--------------------|
-| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~] #` |
-| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `[user@client ~] $` |
+| Find and replace...                                   | With... |
+|:------------------------------------------------------|:--------|
+| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `root#` |
+| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `user$` |
 
 #### Highlighting user input  ####
 
 Within command blocks and file snippets, we've used `&lt;...&gt;` to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input. You may also use TWiki-style color highlighting. 
 
 ```console
-[root@client ~]# condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
+root# condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
 ```
 
 #### Ordered Lists ####
