@@ -46,17 +46,17 @@ If you cannot install the above tools locally, they are available on `osghost`. 
 3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
 
         :::console
-        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
+        user@host $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
 
 4. Create a branch for the document you plan to convert:
 
         :::console
-        [user@client ~ ] $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
+        user@host $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
 
 5. Change to the branch you just created
 
         :::console
-        [user@client ~ ] $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
+        user@host $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
 
 #### Previewing the document tree ####
 
@@ -65,7 +65,7 @@ When starting a twiki-converter docker container, it expects your local github r
 1. Create a container from the image with the following command:
 
         :::console
-        [user@client ~ ] $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 twiki
+        user@host $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 twiki
     The above command should return the container ID, which will be used in subsequent commands. 
 
     !!! note
@@ -74,7 +74,7 @@ When starting a twiki-converter docker container, it expects your local github r
 2. To find the port that your development server is lisetning on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:
 
         :::console
-        [user@client ~ ] $ docker port %RED%<CONTAINER ID>%ENDCOLOR%
+        user@host $ docker port %RED%<CONTAINER ID>%ENDCOLOR%
 
 3. Access the development server in your browser via `http://osghost.chtc.wisc.edu:<PORT>` or `localhost:<PORT>` for containers run on `osghost` or locally, respectively. `osghost` has a restrictive firewall so if you have issues accessing your container from outside of the UW-Madison campus, use an SSH tunnel to map the `osghost` port to a local port.
 
@@ -83,7 +83,7 @@ When starting a twiki-converter docker container, it expects your local github r
 The docker image contains a convenience script, `convert-twiki` for saving archives and converting them to Markdown. To run the script in a running container, run the following command:
 
 ```console
-[user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% convert-twiki %RED%<TWIKI URL>%ENDCOLOR%
+user@host $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% convert-twiki %RED%<TWIKI URL>%ENDCOLOR%
 ```
 
 Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess`, placed into the root of your local github repository. 
@@ -110,13 +110,13 @@ Pandoc sometimes has issues converting documents and requires manual interventio
 2. Kill the process in the docker container:
 
         :::console
-        [user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pkill -9 pandoc
+        user@host $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pkill -9 pandoc
 
 3. Remove a section from the copy of the archive to find the problematic section (recommendation: use a binary search strategy)
 4. Run pandoc manually:
 
         :::console
-        [user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pandoc -f twiki -t markdown_github %RED%<ARCHIVE COPY>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
+        user@host $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pandoc -f twiki -t markdown_github %RED%<ARCHIVE COPY>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
 
 5. Repeat steps 2-4 until you've narrowed down the problematic section
 6. Manually convert the offending section
@@ -141,17 +141,17 @@ This method requires the following:
 3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
 
         :::console
-        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
+        user@host $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
 
 4. Create a branch for the document you plan to convert:
 
         :::console
-        [user@client ~ ] $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
+        user@host $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
 
 5. Change to the branch you just created
 
         :::console
-        [user@client ~ ] $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
+        user@host $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
 
 #### Archiving the TWiki document ####
 
@@ -222,15 +222,15 @@ We use the [Pygments](http://pygments.org/) highlighting library for syntax; it 
 
 | Find and replace...                                   | With... |
 |:------------------------------------------------------|:--------|
-| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `root#` |
-| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `user$` |
+| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `root@host #` |
+| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `user@host $` |
 
 #### Highlighting user input  ####
 
 Within command blocks and file snippets, we've used `&lt;...&gt;` to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input. You may also use TWiki-style color highlighting. 
 
 ```console
-root# condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
+root@host # condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
 ```
 
 #### Ordered Lists ####
@@ -313,15 +313,15 @@ Archiving Documents
 If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the `archive` folder of your local git repository:
 
 ``` console
-[user@client ~ ] $ cd technology/
-[user@client ~ ] $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > archive/%RED%<TWIKI TITLE>%ENDCOLOR%
+user@host $ cd technology/
+user@host $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > archive/%RED%<TWIKI TITLE>%ENDCOLOR%
 ```
 
 For example:
 
 ``` console
-[user@client ~ ] $ cd technology
-[user@client ~ ] $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
+user@host $ cd technology
+user@host $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
 ```
 
 After downloading the document, continue onto the next section to walk through pull request submission.
@@ -332,13 +332,13 @@ Submitting the pull request
 1. Stage the archived raw TWiki (as well as the converted Markdown document(s) and `mkdocs.yml` if you are converting the document):
 
         :::console
-        [user@client ~ ] $ git add mkdocs.yml archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
+        user@host $ git add mkdocs.yml archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
 
 2. Commit and push your changes to your GitHub repo:
 
         :::console
-        [user@client ~ ] $ git commit -m "%RED%<COMMIT MSG>%ENDCOLOR%"
-        [user@client ~ ] $ git push origin %RED%<BRANCH NAME>%ENDCOLOR%
+        user@host $ git commit -m "%RED%<COMMIT MSG>%ENDCOLOR%"
+        user@host $ git push origin %RED%<BRANCH NAME>%ENDCOLOR%
 
 3. Open your browser and navigate to your GitHub fork
 4. Submit a pull request containing with the following body:
@@ -390,9 +390,9 @@ To review pull requests, `cd` into the dir containing your git repository and ch
 
 ```console
 # Add the requester's repo as a remote if you haven't already
-[user@client ~ ] $ git remote add blin https://www.github.com/brianhlin/technology.git
-[user@client ~ ] $ git fetch --all
-[user@client ~ ] $ git checkout blin/cut-sw-release
+user@host $ git remote add blin https://www.github.com/brianhlin/technology.git
+user@host $ git fetch --all
+user@host $ git checkout blin/cut-sw-release
 ```
 
 Refresh your browser and navigate to the document in the request.
