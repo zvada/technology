@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Madison ITB - OSG Technology Area</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Madison ITB";
+    var mkdocs_page_input_path = "infrastructure/madison-itb.md";
+    var mkdocs_page_url = "/infrastructure/madison-itb/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Technology Area</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../software/development-process/">Development Process</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/markdown-migration/">Migrating Documents to Markdown</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/koji-workflow/">Koji Workflow</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/new-team-member/">New Team Member</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/repository-management/">Repository Management</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/ce-test-scaling/">CE Scale Testing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/rpm-development-guide/">RPM Development Guide</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/upcoming-to-main/">Upcoming to Main</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/software-support/">Software Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/effort-tracking/">Effort Tracking</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/release-planning/">Release Planning</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/globus-mass-update-procedure/">Globus Mass Update Procedure</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/git-software-development/">Git Software Development Process</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/osg-build-tools/">OSG Build Tools</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/resurrecting-epel-packages/">Resurrecting Epel Packages</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/koji-mass-rebuilds/">Koji Mass Rebuilds</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../software/create-vo-client/">Creating the VO Client Package</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-policy/">Release Policy</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/new-release-series/">New Release Series</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/condor-itb-testing/">HTCondor Prerelease Testing</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Policy</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../policy/gums-retire/">GUMS Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/bestman2-retire/">BeStMan2 Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/voms-admin-retire/">VOMS Admin Retirement</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/release-series/">Release Series Support</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../policy/globus-toolkit/">Globus Toolkit Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Infrastructure</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../koji-restore-recipe/">Koji Restore Recipe</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-hub-setup/">Koji-Hub Setup</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-inf-overview/">Koji Infrastructure Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../koji-policy-writing/">Koji Policy Writing</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Madison ITB</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#softwarerelease-team-itb-site-design">Software/Release Team ITB Site Design</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#madison-itb-machines">Madison ITB Machines</a></li>
+        
+            <li><a class="toctree-l4" href="#itb-goals-revisited-2016-11-03">ITB Goals, Revisited 2016-11-03</a></li>
+        
+            <li><a class="toctree-l4" href="#configuration">Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#monitoring">Monitoring</a></li>
+        
+            <li><a class="toctree-l4" href="#making-a-new-virtual-machine-on-itb-host-1">Making a New Virtual Machine on itb-host-1</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Documentation</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../koji-initial-install/">Koji Initial Install</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Historical Transitions</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../projects/sha2-support/">SHA-2 Support</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Technology Area</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Infrastructure &raquo;</li>
+        
+      
+    
+    <li>Madison ITB</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/infrastructure/madison-itb.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <style type="text/css">
+pre em { color: red; font-weight: normal; font-style: normal; }
+.old { color: red; }
+.off { color: blue; }
+</style>
+
+<h1 id="softwarerelease-team-itb-site-design">Software/Release Team ITB Site Design<a class="headerlink" href="#softwarerelease-team-itb-site-design" title="Permanent link">&para;</a></h1>
+<h2 id="madison-itb-machines">Madison ITB Machines<a class="headerlink" href="#madison-itb-machines" title="Permanent link">&para;</a></h2>
+<p>All physical hosts are located in 3370A in the VDT rack.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Host</th>
+<th align="left">Purpose</th>
+<th align="left">OS</th>
+<th align="left">Arch</th>
+<th align="left">CPU Model</th>
+<th align="left">CPUs</th>
+<th align="left">RAM</th>
+<th align="left">Storage</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">itb-data1</td>
+<td align="left">worker node</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Celeron G530 2.4Ghz</td>
+<td align="left">2 / 2</td>
+<td align="left">8 GB</td>
+<td align="left">750 GB × 2 (RAID?)</td>
+<td align="left">planned as HDFS data node</td>
+</tr>
+<tr>
+<td align="left">itb-data2</td>
+<td align="left">worker node</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Celeron G530 2.4Ghz</td>
+<td align="left">2 / 2</td>
+<td align="left">8 GB</td>
+<td align="left">750 GB × 2 (RAID?)</td>
+<td align="left">planned as HDFS data node</td>
+</tr>
+<tr>
+<td align="left">itb-data3</td>
+<td align="left">worker node</td>
+<td align="left">SL 7.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Celeron G530 2.4Ghz</td>
+<td align="left">2 / 2</td>
+<td align="left">8 GB</td>
+<td align="left">750 GB × 2 (RAID?)</td>
+<td align="left">planned as HDFS data node</td>
+</tr>
+<tr>
+<td align="left">itb-data4</td>
+<td align="left">worker node</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Celeron G530 2.4Ghz</td>
+<td align="left">2 / 2</td>
+<td align="left">8 GB</td>
+<td align="left">750 GB × 2 (RAID?)</td>
+<td align="left">planned as XRootD data node</td>
+</tr>
+<tr>
+<td align="left">itb-data5</td>
+<td align="left">worker node</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Xeon E3-1220 3.10GHz</td>
+<td align="left">2 / 4</td>
+<td align="left">8 GB</td>
+<td align="left">750 GB × 2 (RAID?)</td>
+<td align="left">planned as XRootD data node</td>
+</tr>
+<tr>
+<td align="left">itb-data6</td>
+<td align="left">worker node</td>
+<td align="left">SL 7.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Xeon E3-1220 3.10GHz</td>
+<td align="left">2 / 4</td>
+<td align="left">8 GB</td>
+<td align="left">???</td>
+<td align="left">planned as XRootD data node</td>
+</tr>
+<tr>
+<td align="left">itb-host-1</td>
+<td align="left">KVM host</td>
+<td align="left">SL 7.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Xeon E5-2450 2.10GHz</td>
+<td align="left">16 / 32</td>
+<td align="left">64 GB</td>
+<td align="left">1 TB × 4 (HW RAID 5)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  itb-ce1</td>
+<td align="left">HTCondor-CE</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">4</td>
+<td align="left">6 GB</td>
+<td align="left">192 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  itb-ce2</td>
+<td align="left">HTCondor-CE</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">4</td>
+<td align="left">6 GB</td>
+<td align="left">192 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  itb-cm</td>
+<td align="left">HTCondor CM</td>
+<td align="left">SL 7.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">4</td>
+<td align="left">6 GB</td>
+<td align="left">192 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  <span class="old">itb-glidein</span></td>
+<td align="left">GlideinWMS VO frontend?</td>
+<td align="left">SL 6.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">3</td>
+<td align="left">6 GB</td>
+<td align="left">50 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  <span class="old">itb-gums-rsv</span></td>
+<td align="left">GUMS, RSV</td>
+<td align="left">SL 6.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">3</td>
+<td align="left">6 GB</td>
+<td align="left">50 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  <span class="off">itb-hdfs-name1</span></td>
+<td align="left">— (so far)</td>
+<td align="left">SL ?</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">4</td>
+<td align="left">6 GB</td>
+<td align="left">192 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  <span class="old">itb-hdfs-name2</span></td>
+<td align="left">— (so far)</td>
+<td align="left">SL 6.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">3</td>
+<td align="left">6 GB</td>
+<td align="left">50 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  <span class="old">itb-se-hdfs</span></td>
+<td align="left">— (so far)</td>
+<td align="left">SL 6.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">3</td>
+<td align="left">6 GB</td>
+<td align="left">50 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  <span class="old">itb-se-xrootd</span></td>
+<td align="left">— (so far)</td>
+<td align="left">SL 6.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">3</td>
+<td align="left">6 GB</td>
+<td align="left">50 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  itb-submit</td>
+<td align="left">HTCondor submit</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">4</td>
+<td align="left">6 GB</td>
+<td align="left">192 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">·  <span class="off">itb-xrootd</span></td>
+<td align="left">— (so far)</td>
+<td align="left">SL ?</td>
+<td align="left">x86 64-bit</td>
+<td align="left">VM</td>
+<td align="left">4</td>
+<td align="left">6 GB</td>
+<td align="left">192 GB</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">itb-host-2</td>
+<td align="left">worker node</td>
+<td align="left">SL 6.9</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Xeon E5-2450 2.10GHz</td>
+<td align="left">16 / 32</td>
+<td align="left">64 GB</td>
+<td align="left">352 GB in $(EXECUTE)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">itb-host-3</td>
+<td align="left">worker node</td>
+<td align="left">SL 7.3</td>
+<td align="left">x86 64-bit</td>
+<td align="left">Xeon E5-2450 2.10GHz</td>
+<td align="left">16 / 32</td>
+<td align="left">64 GB</td>
+<td align="left">352 GB in $(EXECUTE)</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>(Data last updated 2017-09-11 by Tim C. <span class="old">Red</span> indicates a host that has yet to be rebuilt; <span class="off">Blue</span> is rebuilt but currently off.)</p>
+<h2 id="itb-goals-revisited-2016-11-03">ITB Goals, Revisited 2016-11-03<a class="headerlink" href="#itb-goals-revisited-2016-11-03" title="Permanent link">&para;</a></h2>
+<p>Roughly in order of priority, at least for the top few items.</p>
+<ul>
+<li>Test pre-release builds of HTCondor and HTCondor-CE in an OSG context<ul>
+<li>Install software and run jobs as soon as possible after a pre-release</li>
+<li>An implementation idea: Maybe have more than one CE and/or HTCondor instance? One for “production” and one for
+  rapid testing</li>
+</ul>
+</li>
+<li>Add the ability to create and control job pressure locally<ul>
+<li>Run all the time? Some of the time? Most of the time, but be able to drain or spike on demand?</li>
+<li>Maybe add a VO front-end?</li>
+</ul>
+</li>
+<li>Review and significantly tighten firewall rules on ITB hosts</li>
+<li>Add HTCondor-CE-Bosco to the overall site plan, so that we can test it, too</li>
+<li>Test the OSG stack before release (i.e., updates out of osg-prerelease)</li>
+<li>Have a mix of EL6 and EL7 execute hosts and user jobs to test EL 6→7 migration</li>
+<li>Test other batch systems<ul>
+<li>Slurm</li>
+<li>PBS, in some flavor</li>
+<li>LSF and SGE usage is waning in the field, so they are lowest priority</li>
+</ul>
+</li>
+<li>Add other types of hosts (e.g., VO frontend, storage, RSV, squid, etc.)<ul>
+<li>Current HDFS/XRootD nodes could be repurposed or we could spin up new VMs on <code>itb-host-1</code></li>
+<li>We could potentially run our own factory in the future</li>
+</ul>
+</li>
+<li>Investigate whether there is a way to switch easily between ITB and production pilots and payloads</li>
+<li>Test large-customer specific workflows (e.g., LIGO)</li>
+<li>Investigate monitoring/testing setup for site verification<ul>
+<li>Ask sites (e.g., UNL) for their solutions</li>
+</ul>
+</li>
+<li>Flexible site installation<ul>
+<li>Configuration management for production and/or base hosts (logins, ntpd, repo RPMs, etc.)</li>
+<li>Determine upgrade procedure: do we upgrade the hosts in place with the option of reverting to production images or
+  do we hotswap production machines with freshly installed testing machines</li>
+</ul>
+</li>
+</ul>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>Basic host configuration is handled by Ansible and a local Git repository of playbooks.</p>
+<h3 id="git-repository">Git Repository<a class="headerlink" href="#git-repository" title="Permanent link">&para;</a></h3>
+<p>The authoritative Git repository for Madison ITB configuration is <code>gitolite@git.chtc.wisc.edu:osgitb</code>.  Clone the
+repository and push validated changes back to it.</p>
+<h3 id="ansible">Ansible<a class="headerlink" href="#ansible" title="Permanent link">&para;</a></h3>
+<p>The <code>osghost</code> machine has Ansible 2.3.1.0 installed via RPM.  Use other hosts and versions at your own risk.</p>
+<h4 id="common-ansible-commands">Common Ansible commands<a class="headerlink" href="#common-ansible-commands" title="Permanent link">&para;</a></h4>
+<p><strong>Note:</strong></p>
+<ul>
+<li>For critical passwords, see Tim C. or other knowledgeable Madison OSG staff in person</li>
+<li>All commands below are meant to be run from the <code>osgitb</code> directory from Git</li>
+</ul>
+<p>To run Ansible for the first time on a new machine (using the <code>root</code> password when prompted):</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible-playbook secure.yml -i inventory -u root -k --ask-vault-pass -f 20 -l HOST-PATTERN</span>
+<span class="go">ansible-playbook site.yml -i inventory -u root -k -f 20 -l HOST-PATTERN</span>
+</pre></div>
+
+
+<p>The <code>HOST-PATTERN</code> can be a glob-like pattern or a regular expression that matches host names in the inventory file; see
+Ansible documentation for details.</p>
+<p>After initial successful runs of both playbooks, subsequent runs should replace the <code>-u root -k</code> part with <code>-bK</code> to use
+your own login and <code>sudo</code>.  For example:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible-playbook secure.yml -i inventory -bK --ask-vault-pass -f 20 -l HOST-PATTERN</span>
+<span class="go">ansible-playbook site.yml -i inventory -bK -f 20 [ -l HOST-PATTERN ]</span>
+</pre></div>
+
+
+<p>Omit the <code>-l</code> option to apply configuration to all hosts.</p>
+<p>If you have your own playbook to manage personal configuration, run it as follows:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible-playbook PLAYBOOK-PATH -i inventory -f 20 [ -l HOST-PATTERN ]</span>
+</pre></div>
+
+
+<h4 id="adding-host-and-other-certificates">Adding host and other certificates<a class="headerlink" href="#adding-host-and-other-certificates" title="Permanent link">&para;</a></h4>
+<p>(This is in very rough form, but the key bits are here.)</p>
+<ol>
+<li>Ask Mat to get new certificates — be sure to think about <code>http</code>, <code>rsv</code>, and other service certificates</li>
+<li>Wait for Mat to tell you that the new certificates are in <code>/p/condor/home/certificates</code></li>
+<li><code>scp -p</code> the certificate(s) (<code>*cert.pem*</code> and <code>*key.pem</code>) to your home directory on <code>osghost</code> or whatever machine you use for Ansible</li>
+<li>Find the corresponding certificate location(s) in the Ansible <code>roles/certs/files</code> directory</li>
+<li><code>cp -p</code> the certificate files over the top of the existing Ansible ones (or create new, equivalent paths)</li>
+<li>Run <code>ansible-vault encrypt FILE(S)</code> to encrypt the files — get the Ansible vault password from Tim C. if you need it</li>
+<li>Verify permissions, contents (you can <code>cat</code> the encrypted files), etc.</li>
+<li>Apply the files with something like <code>ansible-playbook secure.yml -i inventory -bK -f 20 -t certs</code></li>
+<li>Commit changes (now or after applying)</li>
+<li>Push changes to origin</li>
+</ol>
+<h4 id="doing-yum-updates">Doing yum updates<a class="headerlink" href="#doing-yum-updates" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Check to see if updates are needed and, if so, what would be updated:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible [ HOST | GROUP ] -i inventory -bK -f 20 -m command -a &#39;yum check-update&#39;</span>
+</pre></div>
+
+
+<p>You can name a single <code>HOST</code> or an inventory <code>GROUP</code> (such as the handy <code>current</code> group); with a group, you can
+further restrict the hosts with a <code>-l</code> option.</p>
+<p><strong>Note:</strong> <code>yum check-update</code> exits with status code <code>100</code> when it succeeds in identifying packages to update;
+therefore Ansible shows such results as failures.</p>
+</li>
+<li>
+<p>Review the package lists to be updated and decide whether to proceed with all updates or limited ones</p>
+</li>
+<li>
+<p>Do updates:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible [ HOST | GROUP ] -i inventory -bK -f 20 -m command -a &#39;yum --assumeyes update&#39; [ -l LIMITS ]</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h4 id="updating-htcondor-from-upcoming">Updating HTCondor from Upcoming<a class="headerlink" href="#updating-htcondor-from-upcoming" title="Permanent link">&para;</a></h4>
+<p>Something like this:</p>
+<div class="codehilite"><pre><span></span><span class="go">ansible condordev -i inventory -bK -f 10 -m command -a &#39;yum --enablerepo=osg-upcoming --assumeyes update condor&#39;</span>
+</pre></div>
+
+
+<h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h2>
+<h3 id="htcondor-ce-view">HTCondor-CE View<a class="headerlink" href="#htcondor-ce-view" title="Permanent link">&para;</a></h3>
+<p>Once we sort out our firewall rules, pilot, VO, and schedd availability graphs should be available
+<a href="http://itb-ce1.chtc.wisc.edu:59619">here</a> through HTCondor-CE View.</p>
+<h3 id="tracking-payload-jobs-via-kibana">Tracking payload jobs via Kibana<a class="headerlink" href="#tracking-payload-jobs-via-kibana" title="Permanent link">&para;</a></h3>
+<p>At this time, the easest way to verify that payload jobs are running within the glideinWMS pilots is to track their records via <a href="https://gracc.opensciencegrid.org/kibana/app/kibana#/discover?_g=(refreshInterval:(display:Off,pause:f,value:0),time:(from:now%2Fw,mode:quick,to:now%2Fw))&_a=(columns:!(_source),index:%27gracc.osg-itb.raw-\*%27,interval:auto,query:(query_string:(analyze_wildcard:!f,query:%27\*%27)),sort:!(EndTime,desc))">Kibana</a>. To view all payload jobs that have run on our ITB site in the past week, use <a href="https://gracc.opensciencegrid.org/kibana/app/kibana#/discover?_g=(refreshInterval:(display:Off,pause:f,value:0),time:(from:now%2Fw,mode:quick,to:now%2Fw))&_a=(columns:!(ProbeName),index:%27gracc.osg-itb.raw-\*%27,interval:auto,query:(query_string:(analyze_wildcard:!f,query:%27ResourceType:%20Payload%20AND%20ProbeConfig:%20%22condor:itb-ce1.chtc.wisc.edu%22%27)),sort:!(EndTime,desc))">this query</a>.</p>
+<h2 id="making-a-new-virtual-machine-on-itb-host-1">Making a New Virtual Machine on itb-host-1<a class="headerlink" href="#making-a-new-virtual-machine-on-itb-host-1" title="Permanent link">&para;</a></h2>
+<p>For this procedure, you will need login access to the CHTC Cobbler website, which is separate from other CHTC logins.
+If you do not have an account, request one from the CHTC system administrators.</p>
+<ol>
+<li>
+<p>If this is a new host (combination of MAC address, IP address, and hostname), set up host with CHTC Infrastructure</p>
+<ol>
+<li>Pick a MAC address, starting with <code>00:16:3e:</code> followed by three random octets (e.g., <code>00:16:3e:f7:29:ee</code>)</li>
+<li>Email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#116;&#99;&#111;&#110;&#100;&#111;&#114;&#45;&#105;&#110;&#102;&#64;&#99;&#115;&#46;&#119;&#105;&#115;&#99;&#46;&#101;&#100;&#117;">&#104;&#116;&#99;&#111;&#110;&#100;&#111;&#114;&#45;&#105;&#110;&#102;&#64;&#99;&#115;&#46;&#119;&#105;&#115;&#99;&#46;&#101;&#100;&#117;</a> with a request for a new OSG ITB VM, including the chosen MAC address</li>
+<li>Wait to receive the associated IP address for the new host</li>
+</ol>
+</li>
+<li>
+<p>Create or edit the Cobbler system object for the host</p>
+<ol>
+<li>Access <a href="https://cobbler-widmir.chtc.wisc.edu/cobbler_web">https://cobbler-widmir.chtc.wisc.edu/cobbler_web</a></li>
+<li>In the left navigation area, under “Configuration”, click the “Systems” link</li>
+<li>If desired, filter (at the bottom) by “name” on something like <code>itb-*.chtc.wisc.edu</code></li>
+<li>For a new host, select an existing, similar one and click “Copy” to the right of its entry, then give it a name and click “OK”</li>
+<li>For a newly copied or any existing host, click “Edit” to the right of its entry</li>
+<li>In the <strong>first</strong> “General” section: select a “Profile” of “Scientific_6_8_osg_vm” or “Scientific_7_2_osg_vm”</li>
+<li>In the <strong>second</strong> “General” section, check the “Netboot Enabled” checkbox</li>
+<li>In the “Networking (Global)” section, set “Hostname” to the fully qualified hostname for the virtual machine</li>
+<li>In the “Networking” section, select the “eth0” interface to edit, and set the “MAC Address”, “IP Address”, and “DNS Name” fields for the host</li>
+<li>Click the “Save” button</li>
+<li>In the left navigation area, under “Actions”, click the “Sync” link</li>
+</ol>
+</li>
+<li>
+<p>Log in to <code>itb-host-1</code> and become <code>root</code></p>
+</li>
+<li>
+<p>Create the libvirt definition file</p>
+<ol>
+<li>Create a new XML file named after the desired hostname (e.g., <code>itb-ce2.xml</code>) and copy in the template below</li>
+<li>Replace <code>{{ HOSTNAME }}</code> with the fully qualified hostname of the new virtual host</li>
+<li>Replace <code>{{ MAC_ADDRESS }}</code> with the MAC address of the new virtual host (from above)</li>
+<li>If desired, edit other values in the XML definition file; ask CHTC Infrastructure for help, if needed</li>
+<li>Save the XML file</li>
+<li>
+<p>Create a new, empty disk image for the virtual host, in its correct location (as specified in the XML file):</p>
+<div class="codehilite"><pre><span></span><span class="go">truncate -s 192G /var/lib/libvirt/images/HOSTNAME.dd</span>
+<span class="go">chown qemu:qemu /var/lib/libvirt/images/HOSTNAME.dd</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Load the new host definition into libvirt:</p>
+<div class="codehilite"><pre><span></span><span class="go">virsh define XML-FILE</span>
+</pre></div>
+
+
+</li>
+</ol>
+</li>
+<li>
+<p>Install the new machine</p>
+<ol>
+<li>
+<p>Start the virtual machine:</p>
+<div class="codehilite"><pre><span></span><span class="go">virsh start HOSTNAME</span>
+</pre></div>
+
+
+<p>At this time, the machine will boot over the network, and Cobbler will install and minimally configure the OS,
+then reboot the now-installed machine.  The whole process typically takes 15–20 minutes.  You may be able to
+<code>ssh</code> into the machine during the install process, but there is no need to monitor or interfere.</p>
+</li>
+<li>
+<p>Once the machine is available (which you can only guess at), <code>ssh</code> in and verify that the machine basically works</p>
+</li>
+<li>Immediately run Ansible on the machine, first with the <code>secure.yml</code> playbook, then the <code>site.yml</code> one (see above)</li>
+<li>Log in to the machine and look around to make sure it seems OK</li>
+<li>When things look good, tell virsh to start the virtual machine when the host itself starts:<div class="codehilite"><pre><span></span><span class="go">virsh autostart HOSTNAME</span>
+</pre></div>
+
+
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="libvirt-vm-template">Libvirt VM Template<a class="headerlink" href="#libvirt-vm-template" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;domain</span> <span class="na">type=</span><span class="s">&#39;kvm&#39;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;name&gt;</span>{{ HOSTNAME }}<span class="nt">&lt;/name&gt;</span>
+
+  <span class="nt">&lt;memory</span> <span class="na">unit=</span><span class="s">&#39;GiB&#39;</span><span class="nt">&gt;</span>6<span class="nt">&lt;/memory&gt;</span>
+  <span class="nt">&lt;vcpu&gt;</span>4<span class="nt">&lt;/vcpu&gt;</span>
+  <span class="nt">&lt;os&gt;</span>
+    <span class="nt">&lt;type&gt;</span>hvm<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;boot</span> <span class="na">dev=</span><span class="s">&#39;network&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;boot</span> <span class="na">dev=</span><span class="s">&#39;hd&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bios</span> <span class="na">useserial=</span><span class="s">&#39;yes&#39;</span> <span class="na">rebootTimeout=</span><span class="s">&#39;0&#39;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/os&gt;</span>
+  <span class="nt">&lt;features&gt;</span>
+    <span class="nt">&lt;acpi/&gt;</span>
+    <span class="nt">&lt;apic/&gt;</span>
+    <span class="nt">&lt;pae/&gt;</span>
+  <span class="nt">&lt;/features&gt;</span>
+
+  <span class="nt">&lt;devices&gt;</span>
+
+    <span class="nt">&lt;emulator&gt;</span>/usr/libexec/qemu-kvm<span class="nt">&lt;/emulator&gt;</span>
+
+    <span class="nt">&lt;disk</span> <span class="na">type=</span><span class="s">&#39;file&#39;</span> <span class="na">device=</span><span class="s">&#39;disk&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">file=</span><span class="s">&#39;/var/lib/libvirt/images/{{ HOSTNAME }}.dd&#39;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;target</span> <span class="na">dev=</span><span class="s">&#39;vda&#39;</span> <span class="na">bus=</span><span class="s">&#39;virtio&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/disk&gt;</span>
+
+    <span class="nt">&lt;interface</span> <span class="na">type=</span><span class="s">&#39;bridge&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mac</span> <span class="na">address=</span><span class="s">&#39;{{ MAC_ADDRESS }}&#39;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;source</span> <span class="na">bridge=</span><span class="s">&#39;br0&#39;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;model</span> <span class="na">type=</span><span class="s">&#39;virtio&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/interface&gt;</span>
+
+    <span class="nt">&lt;serial</span> <span class="na">type=</span><span class="s">&#39;pty&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;target</span> <span class="na">port=</span><span class="s">&#39;0&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/serial&gt;</span>
+    <span class="nt">&lt;console</span> <span class="na">type=</span><span class="s">&#39;pty&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;target</span> <span class="na">type=</span><span class="s">&#39;serial&#39;</span> <span class="na">port=</span><span class="s">&#39;0&#39;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/console&gt;</span>
+
+    <span class="nt">&lt;graphics</span> <span class="na">type=</span><span class="s">&#39;vnc&#39;</span> <span class="na">autoport=</span><span class="s">&#39;yes&#39;</span> <span class="na">listen=</span><span class="s">&#39;127.0.0.1&#39;</span><span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;/devices&gt;</span>
+<span class="nt">&lt;/domain&gt;</span>
+</pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../documentation/writing-documentation/" class="btn btn-neutral float-right" title="Writing Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../koji-policy-writing/" class="btn btn-neutral" title="Koji Policy Writing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../koji-policy-writing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../documentation/writing-documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
