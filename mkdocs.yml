@@ -45,6 +45,7 @@ pages:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
     - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
+    - Madison ITB: 'infrastructure/madison-itb.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
   - Historical Information:
@@ -71,8 +72,9 @@ pages:
   - August 7, 2017: 'meetings/2017/TechArea20170807.md'
   - August 14, 2017: 'meetings/2017/TechArea20170814.md'
   - August 28, 2017: 'meetings/2017/TechArea20170828.md'
-  - September 05, 2017: 'meetings/2017/TechArea20170905.md'
+  - September 5, 2017: 'meetings/2017/TechArea20170905.md'
   - September 11, 2017: 'meetings/2017/TechArea20170911.md'
+  - September 18, 2017: 'meetings/2017/TechArea20170918.md'
 
 markdown_extensions:
   - admonition
