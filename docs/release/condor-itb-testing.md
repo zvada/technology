@@ -65,7 +65,7 @@ The commands can be run as-is from within the `osgitb` directory from git.
 
 ## Run Tests
 
-For the tests themselves, use your personal space on `itb-submit`.  Copy or checkout the `osgitb/htcondor-tests`
+For the first two test workflows, use your personal space on `itb-submit`.  Copy or checkout the `osgitb/htcondor-tests`
 directory to get the test directories.
 
 ### Submitting jobs directly
@@ -136,7 +136,32 @@ If direct submissions fail, there is probably no point to doing this step.
 
 ### Submitting jobs from a GlideinWMS VO Frontend
 
-Again, if previous steps fail, do not bother with this step.
+For this workflow, use your personal space on `glidein3.chtc.wisc.edu`.  Copy or checkout the `osgitb/htcondor-tests`
+directory to get the test directories.  Again, if previous steps fail, do not bother with this step.
 
-Currently, we do not own a GlideinWMS VO Frontend that feeds into the ITB system.  So for this test, email Suchandra
-Thapa and ask him to submit a round of Madison ITB tests, wait for jobs to complete, and provide summary statistics.
+1. Change into the `3-frontend-jobs` subdirectory
+
+1. If there are old result files in the directory, remove them:
+
+        :::console
+        make distclean
+
+1. Submit the test workflow
+
+        :::console
+        condor_submit_dag test.dag
+
+1. Monitor the jobs until they are complete or stuck
+
+    This workflow could take much longer than the first two, possibly hours.  Fire and forget, although some jobs should
+    be running within 30-40 minutes.  If nothing is running by then, it is time to start troubleshooting.
+
+1. Check the final output file:
+
+        :::console
+        cat count-by-hostnames.txt
+
+    There may be less of a distribution among all of the ITB execute nodes, due to the maximum number of glideins to
+    the site and how HTCondor allocates jobs to slots.
+
+1. (Optional) Clean up, using the `make clean` or `make distclean` commands.
