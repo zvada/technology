@@ -105,17 +105,22 @@ If direct submissions fail, there is probably no point to doing this step.
 
 1. Change into the `2-htcondor-c-jobs` subdirectory
 
-2. If there are old result files in the directory, remove them:
+1. If there are old result files in the directory, remove them:
 
         :::console
         make distclean
 
-3. Submit the test workflow
+1. Get a proxy for your X.509 credentials
+
+        :::console
+        voms-proxy-init
+
+1. Submit the test workflow
 
         :::console
         condor_submit_dag test.dag
 
-4. Monitor the jobs until they are complete or stuck
+1. Monitor the jobs until they are complete or stuck
 
     In the initial test runs, the entire workflow ran in 10 minutes or less; generally, this test takes longer than the
     direct submission test, because of the layers of indirection.  Also, status updates from the CEs back to the submit
@@ -125,14 +130,14 @@ If direct submissions fail, there is probably no point to doing this step.
     If the DAG or jobs exit immediately, go on hold, or otherwise fail, then you have some troubleshooting to do!  Keep
     trying steps 2 and 3 until you get a clean run (or one or more HTCondor bug tickets).
 
-5. Check the final output file:
+1. Check the final output file:
 
         :::console
         cat count-by-hostnames.txt
 
     Again, look for a reasonable distribution of jobs by hostname.
 
-6. (Optional) Clean up, using the `make clean` or `make distclean` commands.
+1. (Optional) Clean up, using the `make clean` or `make distclean` commands.
 
 ### Submitting jobs from a GlideinWMS VO Frontend
 
@@ -153,15 +158,19 @@ directory to get the test directories.  Again, if previous steps fail, do not bo
 
 1. Monitor the jobs until they are complete or stuck
 
-    This workflow could take much longer than the first two, possibly hours.  Fire and forget, although some jobs should
-    be running within 30-40 minutes.  If nothing is running by then, it is time to start troubleshooting.
+    This workflow could take much longer than the first two, maybe an hour or so.  Also, unless there are active
+    glideins, it will take 10 minutes or longer for the first glideins to appear and start matching jobs.  Thus it is
+    helpful to monitor `condor_q -totals` until all of the jobs are submitted (there should be 2001), then switch to
+    monitoring `condor_status` until glideins start appearing.  After the first jobs start running and finishing, it is
+    probably safe to ignore the rest of the run.  If the jobs do not appear in the local queue, if glideins do not
+    appear, or if jobs do not start running on the glideins, it is time to start troubleshooting.
 
 1. Check the final output file:
 
         :::console
         cat count-by-hostnames.txt
 
-    There may be less of a distribution among all of the ITB execute nodes, due to the maximum number of glideins to
-    the site and how HTCondor allocates jobs to slots.
+    The distribution of jobs per execute node may be more skewed than in the first two workflows, due to the way in
+    which pilots ramp up over time and how HTCondor allocates jobs to slots.
 
 1. (Optional) Clean up, using the `make clean` or `make distclean` commands.
