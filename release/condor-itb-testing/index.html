@@ -568,7 +568,7 @@ steps below are just some ideas; do whatever makes sense for the given update.</
 </li>
 </ol>
 <h2 id="run-tests">Run Tests<a class="headerlink" href="#run-tests" title="Permanent link">&para;</a></h2>
-<p>For the tests themselves, use your personal space on <code>itb-submit</code>.  Copy or checkout the <code>osgitb/htcondor-tests</code>
+<p>For the first two test workflows, use your personal space on <code>itb-submit</code>.  Copy or checkout the <code>osgitb/htcondor-tests</code>
 directory to get the test directories.</p>
 <h3 id="submitting-jobs-directly">Submitting jobs directly<a class="headerlink" href="#submitting-jobs-directly" title="Permanent link">&para;</a></h3>
 <ol>
@@ -651,9 +651,44 @@ trying steps 2 and 3 until you get a clean run (or one or more HTCondor bug tick
 </li>
 </ol>
 <h3 id="submitting-jobs-from-a-glideinwms-vo-frontend">Submitting jobs from a GlideinWMS VO Frontend<a class="headerlink" href="#submitting-jobs-from-a-glideinwms-vo-frontend" title="Permanent link">&para;</a></h3>
-<p>Again, if previous steps fail, do not bother with this step.</p>
-<p>Currently, we do not own a GlideinWMS VO Frontend that feeds into the ITB system.  So for this test, email Suchandra
-Thapa and ask him to submit a round of Madison ITB tests, wait for jobs to complete, and provide summary statistics.</p>
+<p>For this workflow, use your personal space on <code>glidein3.chtc.wisc.edu</code>.  Copy or checkout the <code>osgitb/htcondor-tests</code>
+directory to get the test directories.  Again, if previous steps fail, do not bother with this step.</p>
+<ol>
+<li>
+<p>Change into the <code>3-frontend-jobs</code> subdirectory</p>
+</li>
+<li>
+<p>If there are old result files in the directory, remove them:</p>
+<div class="codehilite"><pre><span></span><span class="go">make distclean</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Submit the test workflow</p>
+<div class="codehilite"><pre><span></span><span class="go">condor_submit_dag test.dag</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Monitor the jobs until they are complete or stuck</p>
+<p>This workflow could take much longer than the first two, possibly hours.  Fire and forget, although some jobs should
+be running within 30-40 minutes.  If nothing is running by then, it is time to start troubleshooting.</p>
+</li>
+<li>
+<p>Check the final output file:</p>
+<div class="codehilite"><pre><span></span><span class="go">cat count-by-hostnames.txt</span>
+</pre></div>
+
+
+<p>There may be less of a distribution among all of the ITB execute nodes, due to the maximum number of glideins to
+the site and how HTCondor allocates jobs to slots.</p>
+</li>
+<li>
+<p>(Optional) Clean up, using the <code>make clean</code> or <code>make distclean</code> commands.</p>
+</li>
+</ol>
               
             </div>
           </div>
