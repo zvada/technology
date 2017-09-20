@@ -623,6 +623,13 @@ watch out for a case in which no jobs run on the newly updated hosts (at the tim
 
 </li>
 <li>
+<p>Get a proxy for your X.509 credentials</p>
+<div class="codehilite"><pre><span></span><span class="go">voms-proxy-init</span>
+</pre></div>
+
+
+</li>
+<li>
 <p>Submit the test workflow</p>
 <div class="codehilite"><pre><span></span><span class="go">condor_submit_dag test.dag</span>
 </pre></div>
@@ -673,8 +680,12 @@ directory to get the test directories.  Again, if previous steps fail, do not bo
 </li>
 <li>
 <p>Monitor the jobs until they are complete or stuck</p>
-<p>This workflow could take much longer than the first two, possibly hours.  Fire and forget, although some jobs should
-be running within 30-40 minutes.  If nothing is running by then, it is time to start troubleshooting.</p>
+<p>This workflow could take much longer than the first two, maybe an hour or so.  Also, unless there are active
+glideins, it will take 10 minutes or longer for the first glideins to appear and start matching jobs.  Thus it is
+helpful to monitor <code>condor_q -totals</code> until all of the jobs are submitted (there should be 2001), then switch to
+monitoring <code>condor_status</code> until glideins start appearing.  After the first jobs start running and finishing, it is
+probably safe to ignore the rest of the run.  If the jobs do not appear in the local queue, if glideins do not
+appear, or if jobs do not start running on the glideins, it is time to start troubleshooting.</p>
 </li>
 <li>
 <p>Check the final output file:</p>
@@ -682,8 +693,8 @@ be running within 30-40 minutes.  If nothing is running by then, it is time to s
 </pre></div>
 
 
-<p>There may be less of a distribution among all of the ITB execute nodes, due to the maximum number of glideins to
-the site and how HTCondor allocates jobs to slots.</p>
+<p>The distribution of jobs per execute node may be more skewed than in the first two workflows, due to the way in
+which pilots ramp up over time and how HTCondor allocates jobs to slots.</p>
 </li>
 <li>
 <p>(Optional) Clean up, using the <code>make clean</code> or <code>make distclean</code> commands.</p>
