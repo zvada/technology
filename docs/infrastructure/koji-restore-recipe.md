@@ -215,6 +215,7 @@ dirclone () {
         koji-sign-plugin
         kojiweb
         mock
+        pki/koji
         pki/tls/certs
         pki/tls/private
         ___END___
