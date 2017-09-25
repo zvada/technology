@@ -8,14 +8,16 @@ If you are looking for site administrator documentation, please visit the [OSG D
 The Team
 --------
 
-| Software | Release | Technology |
-| ----------------- | -- | -- |
-| Brian Lin (manager) (90%) | Tim Theisen (manager) (50%) | Brian Bockelman (manager) (50%) |
-| Carl Edquist | Brian Lin (10%) | Derek Weitzel (75%) |
-| Derek Weitzel (25%) | Suchandra Thapa (50%) | Edgar Fajardo (50%) |
-| Edgar Fajardo (50%) | | Jeff Dost (50%) |
-| Mat Selmeci | | | Marian Zvada (25%)
-| Tim Cartwright (35%) | | |
+| Software | Technology |
+| ----------------- | -- |
+| Brian Lin (software manager) (100%) | Brian Bockelman (manager) (50%) |
+| Carl Edquist | Derek Weitzel (75%) |
+| Derek Weitzel (25%) | Edgar Fajardo (50%) |
+| Edgar Fajardo (50%) | Jeff Dost (50%) |
+| Mat Selmeci | | Marian Zvada (25%)
+| Suchandra Thapa (50%) | |
+| Tim Cartwright (35%) | |
+| Tim Theisen (release manager) (50%) | |
 
 Contact Us
 ----------
