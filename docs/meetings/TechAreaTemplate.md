@@ -19,10 +19,10 @@
 
 | # of tickets | &Delta; | State             |
 |------------- |-------- |------------------ |
-| 141          | -17   | Open              |
-| 33           | +9    | In Progress       |
-| 4            | +2    | Ready for Testing |
-| 0            | -12   | Ready for Release |
+| 141          | -17     | Open              |
+| 33           | +9      | In Progress       |
+| 4            | +2      | Ready for Testing |
+| 0            | -12     | Ready for Release |
 
 
 ### Release Schedule
