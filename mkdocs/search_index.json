@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "OSG Technology Area\n\n\nWelcome to the home page of the OSG Technology Team documentation area! This is currently a work in progress as we migrate our TWiki documentation to GitHub. If you are looking for our full documentation, please visit the \nTWiki\n.\n\n\nIf you are looking for site administrator documentation, please visit the \nOSG Documentation page\n.\n\n\nThe Team\n\n\n\n\n\n\n\n\nSoftware\n\n\nRelease\n\n\nTechnology\n\n\n\n\n\n\n\n\n\n\nBrian Lin (manager) (90%)\n\n\nTim Theisen (manager) (50%)\n\n\nBrian Bockelman (manager) (50%)\n\n\n\n\n\n\nCarl Edquist\n\n\nBrian Lin (10%)\n\n\nDerek Weitzel (75%)\n\n\n\n\n\n\nDerek Weitzel (25%)\n\n\nSuchandra Thapa (50%)\n\n\nEdgar Fajardo (50%)\n\n\n\n\n\n\nEdgar Fajardo (50%)\n\n\n\n\nJeff Dost (50%)\n\n\n\n\n\n\nMat Selmeci\n\n\n\n\n\n\n\n\n\n\nTim Cartwright (35%)\n\n\n\n\n\n\n\n\n\n\n\n\nContact Us\n\n\n\n\nSlack channel\n\n\nosg-software@opensciencegrid.org\n - General discussion amongst team members\n\n\nosg-commits@cs.wisc.edu\n - Broadcast of all source code repo commits\n\n\n\n\nMeeting Notes\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363; \nUber Conference\n\n\nRecent Notes\n\n\n\n\n18 September 2017\n\n\n11 September 2017\n\n\n5 September 2017\n\n\n28 August 2017\n\n\n21 August 2017 - Canceled\n\n\n14 August 2017\n\n\n7 August 2017\n\n\n31 July 2017\n\n\n24 July 2017\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n - Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nMeeting note archives older than February 27, 2017 can be found \nhere\n.", 
+            "text": "OSG Technology Area\n\n\nWelcome to the home page of the OSG Technology Team documentation area! This is currently a work in progress as we migrate our TWiki documentation to GitHub. If you are looking for our full documentation, please visit the \nTWiki\n.\n\n\nIf you are looking for site administrator documentation, please visit the \nOSG Documentation page\n.\n\n\nThe Team\n\n\n\n\n\n\n\n\nSoftware\n\n\nTechnology\n\n\n\n\n\n\n\n\n\n\nBrian Lin (software manager) (100%)\n\n\nBrian Bockelman (manager) (50%)\n\n\n\n\n\n\nCarl Edquist\n\n\nDerek Weitzel (75%)\n\n\n\n\n\n\nDerek Weitzel (25%)\n\n\nEdgar Fajardo (50%)\n\n\n\n\n\n\nEdgar Fajardo (50%)\n\n\nJeff Dost (50%)\n\n\n\n\n\n\nMat Selmeci\n\n\n\n\n\n\n\n\nSuchandra Thapa (50%)\n\n\n\n\n\n\n\n\nTim Cartwright (35%)\n\n\n\n\n\n\n\n\nTim Theisen (release manager) (50%)\n\n\n\n\n\n\n\n\n\n\nContact Us\n\n\n\n\nSlack channel\n\n\nosg-software@opensciencegrid.org\n - General discussion amongst team members\n\n\nosg-commits@cs.wisc.edu\n - Broadcast of all source code repo commits\n\n\n\n\nMeeting Notes\n\n\nWhen:\n Every Monday, 11:00 a.m. (U.S. Central)  \n\n\nWhere:\n +1 719-284-5267, PIN #57363; \nUber Conference\n\n\nRecent Notes\n\n\n\n\n25 September 2017\n\n\n18 September 2017\n\n\n11 September 2017\n\n\n5 September 2017\n\n\n28 August 2017\n\n\n21 August 2017 - Canceled\n\n\n14 August 2017\n\n\n7 August 2017\n\n\n31 July 2017\n\n\n24 July 2017\n\n\n17 July 2017\n\n\n10 July 2017\n\n\n3 July 2017\n\n\n26 June 2017\n\n\n19 June 2017\n\n\n12 June 2017\n\n\n5 June 2017\n\n\n30 May 2017\n - Memorial Day\n\n\n22 May 2017\n\n\n15 May 2017\n\n\n8 May 2017\n\n\n1 May 2017\n\n\n24 April 2017\n\n\n17 April 2017\n\n\n10 April 2017\n\n\n3 April 2017\n\n\n27 March 2017\n\n\n20 March 2017\n\n\n13 March 2017\n\n\n27 February 2017\n\n\n\n\nMeeting note archives older than February 27, 2017 can be found \nhere\n.", 
             "title": "Home"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#the-team", 
-            "text": "Software  Release  Technology      Brian Lin (manager) (90%)  Tim Theisen (manager) (50%)  Brian Bockelman (manager) (50%)    Carl Edquist  Brian Lin (10%)  Derek Weitzel (75%)    Derek Weitzel (25%)  Suchandra Thapa (50%)  Edgar Fajardo (50%)    Edgar Fajardo (50%)   Jeff Dost (50%)    Mat Selmeci      Tim Cartwright (35%)", 
+            "text": "Software  Technology      Brian Lin (software manager) (100%)  Brian Bockelman (manager) (50%)    Carl Edquist  Derek Weitzel (75%)    Derek Weitzel (25%)  Edgar Fajardo (50%)    Edgar Fajardo (50%)  Jeff Dost (50%)    Mat Selmeci     Suchandra Thapa (50%)     Tim Cartwright (35%)     Tim Theisen (release manager) (50%)", 
             "title": "The Team"
         }, 
         {
@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/#recent-notes", 
-            "text": "18 September 2017  11 September 2017  5 September 2017  28 August 2017  21 August 2017 - Canceled  14 August 2017  7 August 2017  31 July 2017  24 July 2017  17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017  - Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017   Meeting note archives older than February 27, 2017 can be found  here .", 
+            "text": "25 September 2017  18 September 2017  11 September 2017  5 September 2017  28 August 2017  21 August 2017 - Canceled  14 August 2017  7 August 2017  31 July 2017  24 July 2017  17 July 2017  10 July 2017  3 July 2017  26 June 2017  19 June 2017  12 June 2017  5 June 2017  30 May 2017  - Memorial Day  22 May 2017  15 May 2017  8 May 2017  1 May 2017  24 April 2017  17 April 2017  10 April 2017  3 April 2017  27 March 2017  20 March 2017  13 March 2017  27 February 2017   Meeting note archives older than February 27, 2017 can be found  here .", 
             "title": "Recent Notes"
         }, 
         {
@@ -4248,6 +4248,91 @@
         {
             "location": "/meetings/2017/TechArea20170918/#discussions_2", 
             "text": "Starting to setup time for Kibana walkthrough for Glidein Logs.", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/", 
+            "text": "OSG Technology Area Meeting, 24 September 2017\n\n\nCoordinates:\n Conference: 719-284-5267, PIN: 57363; \nhttps://www.uberconference.com/osgblin\n\n\nAttending:\n \n\n\nAnnouncements\n\n\nOSG All Hands 2018 at University of Utah Mar 19 - 22, 2018\n\n\nTriage Duty\n\n\n\n\nThis week: TimT\n\n\nNext week: BrianL\n\n\n10 (+0) open tickets\n\n\n\n\nJIRA\n\n\n\n\n\n\n\n\n# of tickets\n\n\n\n\nState\n\n\n\n\n\n\n\n\n\n\n162\n\n\n+9\n\n\nOpen\n\n\n\n\n\n\n19\n\n\n+2\n\n\nIn Progress\n\n\n\n\n\n\n1\n\n\n-5\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n-20\n\n\nReady for Release\n\n\n\n\n\n\n\n\nRelease Schedule\n\n\n\n\n\n\n\n\nName\n\n\nVersion\n\n\nDevelopment Freeze\n\n\nPackage Freeze\n\n\nRelease\n\n\nNotes\n\n\n\n\n\n\n\n\n\n\nOctober\n\n\n3.4.4, 3.3.29\n\n\n2017-09-25\n\n\n2017-10-02\n\n\n2017-10-10\n\n\n\n\n\n\n\n\nNovember\n\n\n3.4.5, 3.3.30\n\n\n2017-10-30\n\n\n2017-11-06\n\n\n2017-11-14\n\n\n5 week cycle\n\n\n\n\n\n\n\n\nNotes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.  \n\n\nOSG Software Team\n\n\n\n\n\n\nOpen JIRA tickets\n\n\n\n\n\n\n\n\nOwner\n\n\n# tickets not RFT\n\n\n\n\n\n\n\n\n\n\nMat\n\n\n12\n\n\n\n\n\n\nCarl\n\n\n4\n\n\n\n\n\n\nEdgar\n\n\n2\n\n\n\n\n\n\nBrianL\n\n\n1\n\n\n\n\n\n\n-   Software and release teams merged. Effort #s updated \nhere\n\n\n\n\n\n\n\n\n-   It sounds like HDFS 3 isn't expected until at least April 2018\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nhttps://github.com/opensciencegrid/docs/pulse#new-issues\n\n\nhttps://github.com/opensciencegrid/technology/pulse#new-issues\n  \n\n\n\n\nOnly 3 docs fully migrated, ~7 docs awaiting review\n\n\nRelease3: ~45 docs remaining\n\n\nSoftwareTeam: ~50 docs remaining\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nSupport Update\n\n\n\n\nLBNL (BrianL): Strange Gridmanager errors showing up intermittently; asked them to update to condor 8.6\n\n\n\n\nOSG Release Team\n\n\n\n\n\n\n\n\n3.3.28\n\n\n\n\nBoth\n\n\n\n\n3.4.3\n\n\n\n\nTotal\n\n\n\n\nStatus\n\n\n\n\n\n\n\n\n\n\n3\n\n\n+3\n\n\n12\n\n\n+12\n\n\n3\n\n\n+3\n\n\n18\n\n\n+18\n\n\nOpen\n\n\n\n\n\n\n0\n\n\n+0\n\n\n8\n\n\n+8\n\n\n2\n\n\n+2\n\n\n10\n\n\n+10\n\n\nIn Progress\n\n\n\n\n\n\n0\n\n\n+0\n\n\n1\n\n\n+1\n\n\n0\n\n\n+0\n\n\n1\n\n\n+1\n\n\nReady for Testing\n\n\n\n\n\n\n0\n\n\n+0\n\n\n0\n\n\n+00\n\n\n0\n\n\n+0\n\n\n0\n\n\n+0\n\n\nReady for Release\n\n\n\n\n\n\n3\n\n\n+3\n\n\n21\n\n\n+21\n\n\n5\n\n\n+5\n\n\n29\n\n\n+29\n\n\nTotal\n\n\n\n\n\n\n\n\n\n\nBoth  \n\n\nUpdate globus-gridftp-server-control to 5.2\n\n\n\n\n\n\n3.4.3\n\n\n3.3.28\n\n\n\n\nDiscussions\n\n\nNone this week  \n\n\nOSG Investigations Team\n\n\nLast Week\n\n\n\n\nFirst step of creating ES snapshots for backup up GRACC - Ongoing.\n\n\nFixed explosion of \"Fake\" sites in records. Also fixed incorrect user VOs. Changing indexes to relefect the changes.\n\n\n\n\nThis Week\n\n\n\n\nInitiate backups of ES snapshots\n\n\nGRACC-ITB work\n\n\nStart indexing GOC server status in GRACC ES\n\n\nStash Writeback hack-a-thon on Tuesday \n Wednesday (Derek, Brian, Lincoln, Marin)\n\n\n\n\nOngoing\n\n\n\n\nGRACC Project\n\n\nStashCache Project (New URL!)\n\n\n\n\nDiscussions\n\n\nStarting to setup time for Kibana walkthrough for Glidein Logs", 
+            "title": "September 25, 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#osg-technology-area-meeting-24-september-2017", 
+            "text": "Coordinates:  Conference: 719-284-5267, PIN: 57363;  https://www.uberconference.com/osgblin  Attending:", 
+            "title": "OSG Technology Area Meeting, 24 September 2017"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#announcements", 
+            "text": "OSG All Hands 2018 at University of Utah Mar 19 - 22, 2018", 
+            "title": "Announcements"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#triage-duty", 
+            "text": "This week: TimT  Next week: BrianL  10 (+0) open tickets", 
+            "title": "Triage Duty"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#jira", 
+            "text": "# of tickets   State      162  +9  Open    19  +2  In Progress    1  -5  Ready for Testing    0  -20  Ready for Release", 
+            "title": "JIRA"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#release-schedule", 
+            "text": "Name  Version  Development Freeze  Package Freeze  Release  Notes      October  3.4.4, 3.3.29  2017-09-25  2017-10-02  2017-10-10     November  3.4.5, 3.3.30  2017-10-30  2017-11-06  2017-11-14  5 week cycle     Notes: Additional \u201curgent\u201d releases may be scheduled for the 4th Tuesday of each month. The Testing date is when acceptance testing will be scheduled for releasable packages; if a package is added after this date, it may not be possible to schedule adequate testing time, thereby forcing it into the next release.", 
+            "title": "Release Schedule"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#osg-software-team", 
+            "text": "Open JIRA tickets     Owner  # tickets not RFT      Mat  12    Carl  4    Edgar  2    BrianL  1    -   Software and release teams merged. Effort #s updated  here     -   It sounds like HDFS 3 isn't expected until at least April 2018", 
+            "title": "OSG Software Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#documentation", 
+            "text": "https://github.com/opensciencegrid/docs/pulse#new-issues  https://github.com/opensciencegrid/technology/pulse#new-issues      Only 3 docs fully migrated, ~7 docs awaiting review  Release3: ~45 docs remaining  SoftwareTeam: ~50 docs remaining", 
+            "title": "Documentation"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#discussions", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#support-update", 
+            "text": "LBNL (BrianL): Strange Gridmanager errors showing up intermittently; asked them to update to condor 8.6", 
+            "title": "Support Update"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#osg-release-team", 
+            "text": "3.3.28   Both   3.4.3   Total   Status      3  +3  12  +12  3  +3  18  +18  Open    0  +0  8  +8  2  +2  10  +10  In Progress    0  +0  1  +1  0  +0  1  +1  Ready for Testing    0  +0  0  +00  0  +0  0  +0  Ready for Release    3  +3  21  +21  5  +5  29  +29  Total      Both    Update globus-gridftp-server-control to 5.2    3.4.3  3.3.28", 
+            "title": "OSG Release Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#discussions_1", 
+            "text": "None this week", 
+            "title": "Discussions"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#osg-investigations-team", 
+            "text": "", 
+            "title": "OSG Investigations Team"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#last-week", 
+            "text": "First step of creating ES snapshots for backup up GRACC - Ongoing.  Fixed explosion of \"Fake\" sites in records. Also fixed incorrect user VOs. Changing indexes to relefect the changes.", 
+            "title": "Last Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#this-week", 
+            "text": "Initiate backups of ES snapshots  GRACC-ITB work  Start indexing GOC server status in GRACC ES  Stash Writeback hack-a-thon on Tuesday   Wednesday (Derek, Brian, Lincoln, Marin)", 
+            "title": "This Week"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#ongoing", 
+            "text": "GRACC Project  StashCache Project (New URL!)", 
+            "title": "Ongoing"
+        }, 
+        {
+            "location": "/meetings/2017/TechArea20170925/#discussions_2", 
+            "text": "Starting to setup time for Kibana walkthrough for Glidein Logs", 
             "title": "Discussions"
         }
     ]
