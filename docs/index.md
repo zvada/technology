@@ -11,7 +11,7 @@ The Team
 | Software | Technology |
 | ----------------- | -- |
 | Brian Lin (software manager) (100%) | Brian Bockelman (manager) (50%) |
-| Carl Edquist | Derek Weitzel (75%) |
+| Carl Edquist | Derek Weitzel (50%) |
 | Derek Weitzel (25%) | Edgar Fajardo (50%) |
 | Edgar Fajardo (50%) | Jeff Dost (50%) |
 | Mat Selmeci | | Marian Zvada (25%)
