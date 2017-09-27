@@ -12,10 +12,9 @@ The Team
 | ----------------- | -- |
 | Brian Lin (software manager) (100%) | Brian Bockelman (manager) (50%) |
 | Carl Edquist | Derek Weitzel (50%) |
-| Derek Weitzel (25%) | Edgar Fajardo (50%) |
-| Edgar Fajardo (50%) | Jeff Dost (50%) |
-| Mat Selmeci | | Marian Zvada (25%)
-| Suchandra Thapa (50%) | |
+| Edgar Fajardo (50%)| Edgar Fajardo (50%) |
+| Mat Selmeci | Jeff Dost (50%) |
+| Suchandra Thapa (50%) | Marian Zvada (25%) |
 | Tim Cartwright (35%) | |
 | Tim Theisen (release manager) (50%) | |
 
