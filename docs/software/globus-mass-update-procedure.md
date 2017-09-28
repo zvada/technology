@@ -92,7 +92,7 @@ Per-package work
 ----------------
 
 1.  cd into branches/globus
-2.  Download packages from <http://dl.fedoraproject.org/epel/6/SRPMS/>
+2.  Download packages from <http://dl.fedoraproject.org/pub/epel/6/SRPMS/>
 
 A useful alias:
 

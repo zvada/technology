@@ -22,8 +22,8 @@ Contact Us
 ----------
 
 -  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software)
--  [osg-software@opensciencegrid.org](osg-software@opensciencegrid.org) - General discussion amongst team members
--  [osg-commits@cs.wisc.edu](osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
+-  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
+-  [osg-commits@cs.wisc.edu](mailto:osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
 
 Meeting Notes
 -------------
