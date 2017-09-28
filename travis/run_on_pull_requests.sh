@@ -1,4 +1,4 @@
 #!/bin/bash -xe
 
-echo "Verifying mkdocs build"
-PYTHONPATH=src/ mkdocs build -v
+PYTHONPATH=src/ mkdocs build --verbose --strict
+linkchecker --config=travis/linkchecker.config site/index.html

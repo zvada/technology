@@ -8,5 +8,7 @@ before_script:
 - pip install mkdocs
 - pip install MarkdownHighlight
 - pip install pygments
+- pip install linkchecker
+- pip install requests==2.9.2 # https://github.com/wummel/linkchecker/issues/649
 script:
 - if [ "${TRAVIS_PULL_REQUEST}" == "false" ] && [ "${TRAVIS_BRANCH}" == "master" ]; then ./travis/run_on_non_pull_requests.sh; else ./travis/run_on_pull_requests.sh; fi
