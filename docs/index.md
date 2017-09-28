@@ -8,7 +8,7 @@ If you are looking for site administrator documentation, please visit the [OSG D
 The Team
 --------
 
-| Software | Technology |
+| Software and Release | Technology |
 | ----------------- | -- |
 | Brian Lin (software manager) (100%) | Brian Bockelman (manager) (50%) |
 | Carl Edquist | Derek Weitzel (50%) |
