@@ -508,8 +508,8 @@
 <p>These tags contains 3 external repos each, hosted locally under <a href="http://mirror.batlab.org/pub/linux">http://mirror.batlab.org/pub/linux</a>:</p>
 <ul>
 <li><code>dist-el[567]-epel</code>: A mirror of the EPEL 5/6/7 repositories</li>
-<li><code>dist-el[567]-centos*</code>: A mirror of the base CentOS repositories</li>
-<li><code>dist-el[567]-centos-updates</code>: A mirror of the CentOS Updates repositories</li>
+<li><code>dist-el[567]-centos*-os</code>: A mirror of the base CentOS repositories</li>
+<li><code>dist-el[567]-centos*-updates*</code>: A mirror of the CentOS Updates repositories</li>
 </ul>
 <p>We don't put any packages in them (except for ones required for building, like <code>buildsys-macros</code> and <code>fetch-sources</code>), and generally don't build from them directly, but use tag inheritance.</p>
 <h4 id="osg-el9156793">osg-el[567]<a class="headerlink" href="#osg-el9156793" title="Permanent link">&para;</a></h4>
@@ -546,17 +546,11 @@
 <p>These contain the builds in the <code>osg-contrib</code> repos. Note that there are no <code>osg-upcoming-contrib</code> repos.</p>
 <h3 id="specialized-tags">Specialized tags<a class="headerlink" href="#specialized-tags" title="Permanent link">&para;</a></h3>
 <p>These tags are generally made for long projects which may be in an unstable state and should not interfere with the main development of OSG packages. An example is a full-scale Globus update, where many packages have to be built, using each other as dependencies, and the whole system is not considered usable until all the updates are done. They should generally be removed after the work is done.</p>
-<h4 id="el5-pegasus-and-el5-pegasus-build">el5-pegasus and el5-pegasus-build<a class="headerlink" href="#el5-pegasus-and-el5-pegasus-build" title="Permanent link">&para;</a></h4>
-<p>These tags were made for Mats Rynge of the Pegasus project to build into.</p>
-<h4 id="el5-lcmaps-upgrade-and-el5-lcmaps-upgrade-build">el5-lcmaps-upgrade and el5-lcmaps-upgrade-build<a class="headerlink" href="#el5-lcmaps-upgrade-and-el5-lcmaps-upgrade-build" title="Permanent link">&para;</a></h4>
-<p>These tags were made for Dave Dykstra to build into.</p>
-<h4 id="el915693-condor-unified-development-and-el915693-condor-unified-development-build">el[56]-condor-unified-development and el[56]-condor-unified-development-build<a class="headerlink" href="#el915693-condor-unified-development-and-el915693-condor-unified-development-build" title="Permanent link">&para;</a></h4>
-<p>These tags were made for Carl Edquist's work on the unified HTCondor RPM.</p>
+<h4 id="el916793-globus-and-el916793-globus-build">el[67]-globus and el[67]-globus-build<a class="headerlink" href="#el916793-globus-and-el916793-globus-build" title="Permanent link">&para;</a></h4>
+<p>These tags were made by Matyas Selmeci for mass Globus updates.</p>
 <h3 id="collaborator-tags">Collaborator Tags<a class="headerlink" href="#collaborator-tags" title="Permanent link">&para;</a></h3>
 <h4 id="hcc-42">hcc-*<a class="headerlink" href="#hcc-42" title="Permanent link">&para;</a></h4>
 <p>For use by the Holland Computing Center at UNL.</p>
-<h4 id="uscms-42">uscms-*<a class="headerlink" href="#uscms-42" title="Permanent link">&para;</a></h4>
-<p>For use by US CMS.</p>
 <h2 id="build-targets">Build Targets<a class="headerlink" href="#build-targets" title="Permanent link">&para;</a></h2>
 <p>A koji <em>target</em> pairs a build tag (which contains packages needed to build software) and a destination tag (which the software will be tagged into once it is built).</p>
 <h3 id="osg-el9156793_1">osg-el[567]<a class="headerlink" href="#osg-el9156793_1" title="Permanent link">&para;</a></h3>
@@ -569,7 +563,7 @@
 <p>These build from the <code>dist-el*-build</code> tag directly into the <code>dist-el*-build</code> tag. It is used for making builds that should be in every buildroot.</p>
 <h3 id="kojira-fake-42">kojira-fake-*<a class="headerlink" href="#kojira-fake-42" title="Permanent link">&para;</a></h3>
 <p>These fool kojira into regenerating their build tags as repos we can yum install from. Without this, the osg-development tags (for example) wouldn't get regenerated and osg-minefield wouldn't work.</p>
-<h3 id="hcc-el9156793-perfsonar-el915693-uscms-el915693-panda-el6">hcc-el[567], perfsonar-el[56], uscms-el[56], panda-el6<a class="headerlink" href="#hcc-el9156793-perfsonar-el915693-uscms-el915693-panda-el6" title="Permanent link">&para;</a></h3>
+<h3 id="hcc-el9156793-panda-el6">hcc-el[567], panda-el6<a class="headerlink" href="#hcc-el9156793-panda-el6" title="Permanent link">&para;</a></h3>
 <p>These were made for builds made for our collaborators to build into their tags.</p>
 <h2 id="signing-plugin">Signing plugin<a class="headerlink" href="#signing-plugin" title="Permanent link">&para;</a></h2>
 <p>The signing plugin is used to sign packages right after they are built. We give it a GPG signing key and corresponding passphrase. It is configured per build tag. The current default is to use the OSG key to sign if a configuration is not specified. This is because it's very difficult to sign packages after the fact, so it's better to erroneously sign some of them with the wrong key than to not sign them.</p>
