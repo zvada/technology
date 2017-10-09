@@ -51,8 +51,8 @@ Further reading
 ---------------
 
 -   Official Koji documentation: <https://docs.pagure.org/koji/>
--   Fedora's koji documentation: <http://fedoraproject.org/wiki/Koji>
--   Fedora's "Using Koji" page: <http://fedoraproject.org/wiki/Using_the_Koji_build_system> Note that some instructions there may not apply to OSG's Koji. For the most part though, they are useful.
+-   Fedora's koji documentation: <https://fedoraproject.org/wiki/Koji>
+-   Fedora's "Using Koji" page: <https://fedoraproject.org/wiki/Using_the_Koji_build_system> Note that some instructions there may not apply to OSG's Koji. For the most part though, they are useful.
 
 Using Koji
 ==========
