@@ -2,8 +2,8 @@ Old Release Series Removal Plan
 ===============================
 
 In order to reduce clutter and disk usage on our repositories and build system,
-we should remove OSG Software release series.  This will result in packages
-from those series becoming unavailable both to users, and to developers.
+we should remove older OSG Software release series.  This will result in
+packages from those series becoming unavailable both to users, and to developers.
 
 
 Policy
