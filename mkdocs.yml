@@ -76,6 +76,8 @@ pages:
   - September 11, 2017: 'meetings/2017/TechArea20170911.md'
   - September 18, 2017: 'meetings/2017/TechArea20170918.md'
   - September 25, 2017: 'meetings/2017/TechArea20170925.md'
+  - October 2, 2017: 'meetings/2017/TechArea20171002.md'
+  - October 9, 2017: 'meetings/2017/TechArea20171009.md'
 
 markdown_extensions:
   - admonition
