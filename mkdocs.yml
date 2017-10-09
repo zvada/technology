@@ -33,6 +33,7 @@ pages:
     - Release Policy: 'release/release-policy.md'
     - Release Schedule: 'release/release-schedule.md'
     - New Release Series: 'release/new-release-series.md'
+    - Old Release Series Removal: 'release/old-release-removal.md'
     - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
     - VO Package Testing: 'release/testing-vo-package.md'
   - Policy:
