@@ -2,15 +2,13 @@ Old Release Series Removal Plan
 ===============================
 
 In order to reduce clutter and disk usage on our repositories and build system,
-we should remove older OSG Software release series.  This will result in
-packages from those series becoming unavailable, so we should remove a release
-series when its packages are no longer needed.
+we will remove older OSG Software release series.  This will result in packages
+from those series becoming unavailable, so we will remove a release series when
+its packages are no longer needed.
 
-I propose the following rule:
-
-Remove a release series when the _following_ series is completely out of
-support.  For example, OSG 3.1 can be removed when OSG 3.2 is out of support,
-and OSG 3.2 can be removed when OSG 3.3 is out of support.
+We will remove a release series when the _following_ series is completely out
+of support.  For example, OSG 3.1 will be removed when OSG 3.2 is out of
+support, and OSG 3.2 will be removed when OSG 3.3 is out of support.
 
 
 Tasks
