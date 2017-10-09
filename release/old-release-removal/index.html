@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Writing Documentation - OSG Technology Area</title>
+  <title>Old Release Series Removal - OSG Technology Area</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Writing Documentation";
-    var mkdocs_page_input_path = "documentation/writing-documentation.md";
-    var mkdocs_page_url = "/documentation/writing-documentation/";
+    var mkdocs_page_name = "Old Release Series Removal";
+    var mkdocs_page_input_path = "release/old-release-removal.md";
+    var mkdocs_page_url = "/release/old-release-removal/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -171,49 +171,63 @@
         <li class="">
           
   
-    <a class="" href="../../release/cut-sw-release/">How to Cut a Release</a>
+    <a class="" href="../cut-sw-release/">How to Cut a Release</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/cut-data-release/">How to Cut a Data Release</a>
+    <a class="" href="../cut-data-release/">How to Cut a Data Release</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/release-policy/">Release Policy</a>
+    <a class="" href="../release-policy/">Release Policy</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/release-schedule/">Release Schedule</a>
+    <a class="" href="../release-schedule/">Release Schedule</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/new-release-series/">New Release Series</a>
+    <a class="" href="../new-release-series/">New Release Series</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Old Release Series Removal</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#old-release-series-removal-plan">Old Release Series Removal Plan</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#tasks">Tasks</a></li>
+        
+            <li><a class="toctree-l4" href="#undoing">Undoing</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../condor-itb-testing/">HTCondor Prerelease Testing</a>
   
         </li>
         <li class="">
           
   
-    <a class="" href="../../release/old-release-removal/">Old Release Series Removal</a>
-  
-        </li>
-        <li class="">
-          
-  
-    <a class="" href="../../release/condor-itb-testing/">HTCondor Prerelease Testing</a>
-  
-        </li>
-        <li class="">
-          
-  
-    <a class="" href="../../release/testing-vo-package/">VO Package Testing</a>
+    <a class="" href="../testing-vo-package/">VO Package Testing</a>
   
         </li>
   </ul>
@@ -297,23 +311,11 @@
 		
   <span class="caption-text">Documentation</span>
   <ul class="subnav">
-        <li class=" current">
+        <li class="">
           
   
-    <a class="current" href="./">Writing Documentation</a>
+    <a class="" href="../../documentation/writing-documentation/">Writing Documentation</a>
   
-  <ul class="subnav">
-      
-    <li class="toctree-l3"><a href="#tips-for-writing-software-documentation">Tips for Writing Software Documentation</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#writing-procedural-step-by-step-instructions">Writing Procedural (Step-by-Step) Instructions</a></li>
-        
-        </ul>
-    
-
-  </ul>
         </li>
   </ul>
 	    </li>
@@ -496,14 +498,14 @@
     
       
         
-          <li>Documentation &raquo;</li>
+          <li>Release &raquo;</li>
         
       
     
-    <li>Writing Documentation</li>
+    <li>Old Release Series Removal</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/documentation/writing-documentation.md"
+        <a href="https://github.com/opensciencegrid/technology/edit/master/docs/release/old-release-removal.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -513,42 +515,99 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="tips-for-writing-software-documentation">Tips for Writing Software Documentation<a class="headerlink" href="#tips-for-writing-software-documentation" title="Permanent link">&para;</a></h1>
-<h2 id="writing-procedural-step-by-step-instructions">Writing Procedural (Step-by-Step) Instructions<a class="headerlink" href="#writing-procedural-step-by-step-instructions" title="Permanent link">&para;</a></h2>
+                <h1 id="old-release-series-removal-plan">Old Release Series Removal Plan<a class="headerlink" href="#old-release-series-removal-plan" title="Permanent link">&para;</a></h1>
+<p>In order to reduce clutter and disk usage on our repositories and build system,
+we will remove older OSG Software release series.  This will result in packages
+from those series becoming unavailable, so we will remove a release series when
+its packages are no longer needed.</p>
+<p>We will remove a release series when the <em>following</em> series is completely out
+of support.  For example, OSG 3.1 will be removed when OSG 3.2 is out of
+support, and OSG 3.2 will be removed when OSG 3.3 is out of support.</p>
+<h2 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">&para;</a></h2>
+<p>Removing a release series requires work from both Operations and Software &amp;
+Release.  The first step is to create a JIRA ticket in the SOFTWARE project to
+track the work.</p>
+<p>Operations tasks should be completed before Software &amp; Release tasks.</p>
+<h3 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">&para;</a></h3>
+<p>These tasks should be completed in order.</p>
+<ol>
+<li>
+<p>Two weeks in advance, notify sites (including mirror sites) that the
+    release series is going away.</p>
+</li>
+<li>
+<p>Remove the series from the mash configs on the repo.grid.iu.edu machines.</p>
+</li>
+<li>
+<p>Remove the appropriate mirrorlist directories from <code>/usr/local/mirror/osg</code>.</p>
+</li>
+<li>
+<p>Remove the appropriate repo directories from <code>/usr/local/repo/osg</code>.</p>
+</li>
+<li>
+<p>Wait for mash to run and verify that the repos are no longer getting
+    updated:</p>
+<ul>
+<li>Look at the mash logs in <code>/var/log/repo</code>.</li>
+<li>Verify that mash did not recreate the repo directory under
+   <code>/usr/local/repo/osg</code> corresponding to the old release series.</li>
+</ul>
+</li>
+</ol>
+<h3 id="software-release">Software &amp; Release<a class="headerlink" href="#software-release" title="Permanent link">&para;</a></h3>
+<p>These tasks can be completed in any order.</p>
 <ul>
 <li>
-<p>Title the procedure with the user goal, usually starting with a gerund; e.g.:</p>
-<p><strong>Installing the Frobnosticator</strong></p>
+<p>Tag and remove the SVN branch corresponding to the release series.</p>
 </li>
 <li>
-<p>Number all steps (as opposed to using bullets)</p>
+<p>Edit <code>vm-test-runs</code> and remove any "long tail" tests that reference the
+  series.</p>
 </li>
 <li>
-<p>List steps in order in which they are performed</p>
+<p>Edit <code>tarball-client</code>:</p>
 </li>
 <li>
-<p>Each step should begin with a single-line instruction in plain English, in command form; e.g.:</p>
-<ol>
-<li>Make sure that the Frobnosticator configuration file is world-writable</li>
-</ol>
+<p>Remove bundles from <code>bundles.ini</code>.</p>
+</li>
+<li>Remove patch and other files that were used only by those bundles.</li>
+<li>
+<p>Test that the current bundles didn't get broken by your changes.</p>
 </li>
 <li>
-<p>If the means of carrying out the instruction is unclear or complex, include clarification, ideally in the form of a working example; e.g.:
-  <code>chmod a+x /usr/share/frobnosticator/frob.conf</code></p>
+<p>Edit <code>osg-build</code>:</p>
 </li>
 <li>
-<p>Put clarifying information in separate paragraphs within the step</p>
+<p>Remove the promotion routes from <code>promoter.ini</code>.</p>
+</li>
+<li>Remove references in <code>constants.py</code>.</li>
+<li>
+<p>Test your changes; also run the unit tests.</p>
 </li>
 <li>
-<p>Put critical information about the <strong>whole</strong> procedure in one or more paragraphs before the numbered steps</p>
+<p>Remove things from Koji:</p>
 </li>
 <li>
-<p>Put supplemental information about the <strong>whole</strong> procedure in one or more paragraphs after the numbered steps</p>
+<p>All targets referencing the series.</p>
 </li>
 <li>
-<p>Avoid pronouns when writing technical articles or documentation e.g., <code>install foo</code> rather than <code>install it</code>.</p>
+<p>All tags referencing the series.</p>
+</li>
+<li>
+<p>Remove references to the series from <code>opensciencegrid/docker-osg-wn-scripts</code>
+  on GitHub, including the <code>genbranches</code> and <code>update-all</code> scripts.</p>
+</li>
+<li>
+<p>Remove branches from <code>opensciencegrid/docker-osg-wn</code> on GitHub.</p>
+</li>
+<li>
+<p>Move files in <code>/p/vdt/public/html/release-info</code> to its <code>attic</code> subdirectory.</p>
 </li>
 </ul>
+<h2 id="undoing">Undoing<a class="headerlink" href="#undoing" title="Permanent link">&para;</a></h2>
+<p>If we really need RPMs from a removed release series, we can look at the text
+files in <code>/p/vdt/public/html/release-info/attic</code> to determine the exact NVRs we
+need, and download them from Koji.</p>
               
             </div>
           </div>
@@ -556,10 +615,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../infrastructure/koji-initial-install/" class="btn btn-neutral float-right" title="Koji Initial Install">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../condor-itb-testing/" class="btn btn-neutral float-right" title="HTCondor Prerelease Testing">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../infrastructure/madison-itb/" class="btn btn-neutral" title="Madison ITB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../new-release-series/" class="btn btn-neutral" title="New Release Series"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -587,10 +646,10 @@
           <a href="https://github.com/opensciencegrid/technology" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../infrastructure/madison-itb/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../new-release-series/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../infrastructure/koji-initial-install/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../condor-itb-testing/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
