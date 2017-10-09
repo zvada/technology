@@ -34,6 +34,7 @@ pages:
     - Release Schedule: 'release/release-schedule.md'
     - New Release Series: 'release/new-release-series.md'
     - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
+    - VO Package Testing: 'release/testing-vo-package.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
