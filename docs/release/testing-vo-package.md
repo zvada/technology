@@ -30,6 +30,8 @@ make sure no new errors have appeared.
 
 Log on to a system with a working GUMS install.  Make sure that you have the correct vo-client 
 rpms (osg-gums-config) installed.  
+
+
 1. Make a backup of `/etc/gums/gums.config` 
 1. Copy the mysql database information from `/etc/gums/gums.config` to `/etc/gums/gums.config.template`
 1. Copy `/etc/gums/gums.config.template` to `/etc/gums/gums.config`
@@ -38,3 +40,4 @@ rpms (osg-gums-config) installed.
 1. Go to the Update VO members page and click on the `update VO members` button
 1. Once completed, there will probably be some errors.
 1. Compare errors to errors on prior vo package update tickets and make sure no new errors have occurred. 
+
