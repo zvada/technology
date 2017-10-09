@@ -533,15 +533,17 @@ There will be some errors so compare your errors with the errors on previous vo-
 make sure no new errors have appeared.</p>
 <h2 id="testing-gums">Testing GUMS<a class="headerlink" href="#testing-gums" title="Permanent link">&para;</a></h2>
 <p>Log on to a system with a working GUMS install.  Make sure that you have the correct vo-client 
-rpms (osg-gums-config) installed.<br />
-1. Make a backup of <code>/etc/gums/gums.config</code> 
-1. Copy the mysql database information from <code>/etc/gums/gums.config</code> to <code>/etc/gums/gums.config.template</code>
-1. Copy <code>/etc/gums/gums.config.template</code> to <code>/etc/gums/gums.config</code>
-1. Start the <code>tomcat6</code> service 
-1. Go to the GUMS interface (e.g. https://my.host:8443/gums)
-1. Go to the Update VO members page and click on the <code>update VO members</code> button
-1. Once completed, there will probably be some errors.
-1. Compare errors to errors on prior vo package update tickets and make sure no new errors have occurred. </p>
+rpms (osg-gums-config) installed.  </p>
+<ol>
+<li>Make a backup of <code>/etc/gums/gums.config</code> </li>
+<li>Copy the mysql database information from <code>/etc/gums/gums.config</code> to <code>/etc/gums/gums.config.template</code></li>
+<li>Copy <code>/etc/gums/gums.config.template</code> to <code>/etc/gums/gums.config</code></li>
+<li>Start the <code>tomcat6</code> service </li>
+<li>Go to the GUMS interface (e.g. https://my.host:8443/gums)</li>
+<li>Go to the Update VO members page and click on the <code>update VO members</code> button</li>
+<li>Once completed, there will probably be some errors.</li>
+<li>Compare errors to errors on prior vo package update tickets and make sure no new errors have occurred. </li>
+</ol>
               
             </div>
           </div>
