@@ -9,18 +9,18 @@ packages from those series becoming unavailable both to users, and to developers
 Policy
 ------
 
-We should delete a release series only when needing to download a package from
+We should remove a release series only when needing to download a package from
 that series is improbable.  I propose the following rule:
 
-Delete a release series when the _following_ series is completely out of
-support.  For example, OSG 3.1 can be deleted when OSG 3.2 is out of support,
-and OSG 3.2 can be deleted when OSG 3.3 is out of support.
+Remove a release series when the _following_ series is completely out of
+support.  For example, OSG 3.1 can be removed when OSG 3.2 is out of support,
+and OSG 3.2 can be removed when OSG 3.3 is out of support.
 
 
 Tasks
 -----
 
-Deleting a release series requires work from both Operations and Software &
+Removing a release series requires work from both Operations and Software &
 Release.  The first step is to create a JIRA ticket in the SOFTWARE project to
 track the work.
 
@@ -44,8 +44,8 @@ These tasks should be completed in order.
     updated:
 
     -  Look at the mash logs in `/var/log/repo`.
-    -  Verify that the repo directory under `/usr/local/repo/osg` did not get
-       recreated.
+    -  Verify that mash did not recreate the repo directory under
+       `/usr/local/repo/osg` corresponding to the old release series.
 
 ### Software & Release
 
@@ -84,7 +84,7 @@ These tasks can be completed in any order.
 Undoing
 -------
 
-If we really need RPMs from a deleted release series, we can look at the text
+If we really need RPMs from a removed release series, we can look at the text
 files in `/p/vdt/public/html/release-info/attic` to determine the exact NVRs we
 need, and download them from Koji.
 
