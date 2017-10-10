@@ -14,34 +14,42 @@ support, and OSG 3.2 will be removed when OSG 3.3 is out of support.
 Tasks
 -----
 
-Removing a release series requires work from both Operations and Software &
-Release.  The first step is to create a JIRA ticket in the SOFTWARE project to
-track the work.
+Removing a release series requires work from Software & Release, and
+coordination with Operations. The first step is to create a JIRA ticket
+in the SOFTWARE project to track the work.
 
-Operations tasks should be completed before Software & Release tasks.
+Tasks in the 'Repo Update' section need to be completed before tasks in
+the 'Software 'Update' section; also, tasks in the 'Repo Update' section
+require coordination with Operations.
 
 
-### Operations
+### Repo Update
 
 These tasks should be completed in order.
 
-1.  Two weeks in advance, notify sites (including mirror sites) that the
-    release series is going away.
+1.  Two weeks in advance, Operations should notify sites (including mirror
+    sites) that the release series is going away.
 
-2.  Remove the series from the mash configs on the repo.grid.iu.edu machines.
+2.  Software & Release should ask permission from Operations to do
+    the following removal tasks on repo-itb.grid.iu.edu.
+    
+3.  Remove the series from the mash configs.
 
-3.  Remove the appropriate mirrorlist directories from `/usr/local/mirror/osg`.
+4.  Remove the appropriate mirrorlist directories from `/usr/local/mirror/osg`.
 
-4.  Remove the appropriate repo directories from `/usr/local/repo/osg`.
+5.  Remove the appropriate repo directories from `/usr/local/repo/osg`.
 
-5.  Wait for mash to run and verify that the repos are no longer getting
+6.  Wait for mash to run and verify that the repos are no longer getting
     updated:
 
     -  Look at the mash logs in `/var/log/repo`.
     -  Verify that mash did not recreate the repo directory under
        `/usr/local/repo/osg` corresponding to the old release series.
 
-### Software & Release
+7.  Software & Release should ask permission from Operations to do
+    these same removal tasks on repo1.grid.iu.edu and repo2.grid.iu.edu.
+
+### Software Update
 
 These tasks can be completed in any order.
 
