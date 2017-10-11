@@ -8,7 +8,7 @@ If you are looking for site administrator documentation, please visit the [OSG D
 The Team
 --------
 
-| Software | Technology |
+| Software and Release | Technology |
 | ----------------- | -- |
 | Brian Lin (software manager) (100%) | Brian Bockelman (manager) (50%) |
 | Carl Edquist | Derek Weitzel (50%) |
@@ -22,8 +22,8 @@ Contact Us
 ----------
 
 -  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software)
--  [osg-software@opensciencegrid.org](osg-software@opensciencegrid.org) - General discussion amongst team members
--  [osg-commits@cs.wisc.edu](osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
+-  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
+-  [osg-commits@cs.wisc.edu](mailto:osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
 
 Meeting Notes
 -------------
@@ -33,6 +33,8 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [9 October 2017](meetings/2017/TechArea20171009.md)
+  * [2 October 2017](meetings/2017/TechArea20171002.md)
   * [25 September 2017](meetings/2017/TechArea20170925.md)
   * [18 September 2017](meetings/2017/TechArea20170918.md)
   * [11 September 2017](meetings/2017/TechArea20170911.md)

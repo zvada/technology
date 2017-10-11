@@ -33,7 +33,9 @@ pages:
     - Release Policy: 'release/release-policy.md'
     - Release Schedule: 'release/release-schedule.md'
     - New Release Series: 'release/new-release-series.md'
+    - Old Release Series Removal: 'release/old-release-removal.md'
     - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
+    - VO Package Testing: 'release/testing-vo-package.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
@@ -76,6 +78,8 @@ pages:
   - September 11, 2017: 'meetings/2017/TechArea20170911.md'
   - September 18, 2017: 'meetings/2017/TechArea20170918.md'
   - September 25, 2017: 'meetings/2017/TechArea20170925.md'
+  - October 2, 2017: 'meetings/2017/TechArea20171002.md'
+  - October 9, 2017: 'meetings/2017/TechArea20171009.md'
 
 markdown_extensions:
   - admonition

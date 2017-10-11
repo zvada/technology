@@ -15,8 +15,8 @@ Tags
 These tags contains 3 external repos each, hosted locally under <http://mirror.batlab.org/pub/linux>:
 
 -   `dist-el[567]-epel`: A mirror of the EPEL 5/6/7 repositories
--   `dist-el[567]-centos*`: A mirror of the base CentOS repositories
--   `dist-el[567]-centos-updates`: A mirror of the CentOS Updates repositories
+-   `dist-el[567]-centos*-os`: A mirror of the base CentOS repositories
+-   `dist-el[567]-centos*-updates*`: A mirror of the CentOS Updates repositories
 
 We don't put any packages in them (except for ones required for building, like `buildsys-macros` and `fetch-sources`), and generally don't build from them directly, but use tag inheritance.
 
@@ -88,27 +88,15 @@ These contain the builds in the `osg-contrib` repos. Note that there are no `osg
 
 These tags are generally made for long projects which may be in an unstable state and should not interfere with the main development of OSG packages. An example is a full-scale Globus update, where many packages have to be built, using each other as dependencies, and the whole system is not considered usable until all the updates are done. They should generally be removed after the work is done.
 
-#### el5-pegasus and el5-pegasus-build
+#### el\[67\]-globus and el\[67\]-globus-build
 
-These tags were made for Mats Rynge of the Pegasus project to build into.
-
-#### el5-lcmaps-upgrade and el5-lcmaps-upgrade-build
-
-These tags were made for Dave Dykstra to build into.
-
-#### el\[56\]-condor-unified-development and el\[56\]-condor-unified-development-build
-
-These tags were made for Carl Edquist's work on the unified HTCondor RPM.
+These tags were made by Matyas Selmeci for mass Globus updates.
 
 ### Collaborator Tags
 
 #### hcc-\*
 
 For use by the Holland Computing Center at UNL.
-
-#### uscms-\*
-
-For use by US CMS.
 
 Build Targets
 -------------
@@ -135,7 +123,7 @@ These build from the `dist-el*-build` tag directly into the `dist-el*-build` tag
 
 These fool kojira into regenerating their build tags as repos we can yum install from. Without this, the osg-development tags (for example) wouldn't get regenerated and osg-minefield wouldn't work.
 
-### hcc-el\[567\], perfsonar-el\[56\], uscms-el\[56\], panda-el6
+### hcc-el\[567\], panda-el6
 
 These were made for builds made for our collaborators to build into their tags.
 

@@ -19,7 +19,7 @@ All physical hosts are located in 3370A in the VDT rack.
 | itb-data4                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
 | itb-data5                                    | worker node             | SL 6.9 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
 | itb-data6                                    | worker node             | SL 7.3 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | ???                  | planned as XRootD data node |
-| itb-host-1                                   | KVM host                | SL 7.3 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 1 TB × 4 (HW RAID 5) |                             |
+| itb-host-1                                   | KVM host                | SL 7.4 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 1 TB × 4 (HW RAID 5) |                             |
 |  ·  itb-ce1                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
 |  ·  itb-ce2                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
 |  ·  itb-cm                                   | HTCondor CM             | SL 7.3 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
@@ -34,7 +34,7 @@ All physical hosts are located in 3370A in the VDT rack.
 | itb-host-2                                   | worker node             | SL 6.9 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
 | itb-host-3                                   | worker node             | SL 7.3 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
 
-(Data last updated 2017-09-11 by Tim C. <span class="old">Red</span> indicates a host that has yet to be rebuilt; <span class="off">Blue</span> is rebuilt but currently off.)
+(Data last updated 2017-10-05 by Tim C. <span class="old">Red</span> indicates a host that has yet to be rebuilt; <span class="off">Blue</span> is rebuilt but currently off.)
 
 
 ## ITB Goals, Revisited 2016-11-03
