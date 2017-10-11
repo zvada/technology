@@ -625,7 +625,7 @@
 </pre></div>
 
 
-<p>Where <span style="color:red"><CONTAINER ID></span> is the docker container ID and <span style="color:red"><TWIKI URL></span> is the link to the TWiki document that you want to convert, e.g. <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess">https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess</a>. This will result in an archive of the twiki doc, <code>archive/SoftwareDevelopmentProcess</code>, in your local repo and a converted copy, <code>SoftwareDevelopmentProcess</code>, placed into the root of your local github repository. </p>
+<p>Where <span style="color:red"><CONTAINER ID></span> is the docker container ID and <span style="color:red"><TWIKI URL></span> is the link to the TWiki document that you want to convert, e.g. <a href="https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess">https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess</a>. This will result in an archive of the twiki doc, <code>archive/SoftwareDevelopmentProcess</code>, in your local repo and a converted copy, <code>SoftwareDevelopmentProcess.md</code>, placed into the root of your local github repository.  If the twiki url is for a specific revision of the document, a <code>.rNN</code> will be included in the output filenames.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If the above command does not complete quickly, it means that Pandoc is having an issue with a specific section of the document. See <a href="#troubleshooting-conversion">Troubleshooting conversion</a> for next steps.</p>
