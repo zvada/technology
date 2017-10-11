@@ -185,6 +185,15 @@ Completing the conversion
 
 Manual review of the automatically converted documents are required since the automatic conversion process isn't perfect. This section contains a list of problems commonly encountered in automatically converted documents.
 
+### Headers ###
+
+Use the following conventions for headers
+
+1. There should only be one level 1 heading per document: the title
+2. Level 1 headings should use the `====` format
+3. Level 2 sub-headings should use the `----` format
+4. If there is no other introduction to the document, remove the "About this..." sub-heading
+
 ### Broken links ###
 
 Pandoc isn't aware of the entire TWiki structure so internal links using [WikiWords](http://twiki.org/cgi-bin/view/TWiki/WikiWord) result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival.
