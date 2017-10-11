@@ -726,6 +726,14 @@
 <p>Access the server at <code>http://127.0.0.1:8000</code> and navigate to the document you're working on. It's useful to open the original TWiki doc in an adjacent tab or window to quickly compare the two.</p>
 <h2 id="completing-the-conversion">Completing the conversion<a class="headerlink" href="#completing-the-conversion" title="Permanent link">&para;</a></h2>
 <p>Manual review of the automatically converted documents are required since the automatic conversion process isn't perfect. This section contains a list of problems commonly encountered in automatically converted documents.</p>
+<h3 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h3>
+<p>Use the following conventions for headers</p>
+<ol>
+<li>There should only be one level 1 heading per document: the title</li>
+<li>Level 1 headings should use the <code>====</code> format</li>
+<li>Level 2 sub-headings should use the <code>----</code> format</li>
+<li>If there is no other introduction to the document, remove the "About this..." sub-heading</li>
+</ol>
 <h3 id="broken-links">Broken links<a class="headerlink" href="#broken-links" title="Permanent link">&para;</a></h3>
 <p>Pandoc isn't aware of the entire TWiki structure so internal links using <a href="http://twiki.org/cgi-bin/view/TWiki/WikiWord">WikiWords</a> result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival.</p>
 <p>If the broken link is:</p>
