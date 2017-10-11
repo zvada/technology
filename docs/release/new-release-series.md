@@ -26,7 +26,7 @@ Do first, anytime before the month of the release
     -   Save the result with `etckeeper commit`
 
 -   Update `osg-build` to use the new koji tags and targets (not by default of course)
-    -   See the Git commits on opensciencegrid/osg-build for SOFTWARE-2693 for details on how to do this
+    -   See the [Git commits](https://github.com/opensciencegrid/osg-build/pull/39/files) on opensciencegrid/osg-build for SOFTWARE-2693 for details on how to do this
     -   **You will be using this version of `osg-build` for some tasks, even if it hasn't been released**
 
 
