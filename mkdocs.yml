@@ -42,7 +42,7 @@ pages:
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
-    - 'OASIS Repository Mirroring': 'docs/policy/external-oasis-repos.md'
+    - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
   - Infrastructure:
     - Koji Restore Recipe: 'infrastructure/koji-restore-recipe.md'
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
