@@ -3,7 +3,9 @@ Policy for OSG Mirroring of External CVMFS repositories
 =====================================================
 
 This document provides an overview of the policies and security understanding with regards to OSG mirroring of CVMFS
-repositories of external organizations.  This is not a service-level agreement but rather a statement of responsibilities.
+repositories of external organizations.  It aims to help external repositories and OSG VOs understand what OSG is
+attempting to achieve with the mirroring service.
+This is not a service-level agreement but rather a statement of responsibilities.
 
 !!! note:
     To actually understand the technical procedure for mirroring a repository, [see the following page](https://twiki.grid.iu.edu/bin/view/Documentation/Release3/OasisExternalRepositories).  This document solely covers the policy aspects.
@@ -37,7 +39,7 @@ VO Responsibilities
 * The requesting VO should only include targeted repositories they need to support their science.
 * The VO should understand that in the event of a reported security incident, the contents of this repository may be replaced with an
   empty directory and signed by the OSG repository key.  This will be done after attempting to contact the VO first; the amount of time OSG
-  will wait on an unresponsive VO will be based on the evaluation of the situation of the OSG Security officer. 
+  will wait on an unresponsive VO will be based on the evaluation of the situation of the OSG Security Team. 
 * The VO is ultimately responsible for the contents of the repository.  OSG provides a mirror.
 * If the external repository is *not* operated by the VO, OSG may work directly with the external repository maintainers.  This is done for
   ease of operations and may be limited to day-to-day, non-security-related support.
