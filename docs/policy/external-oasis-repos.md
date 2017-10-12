@@ -1,6 +1,7 @@
 
 Policy for OSG Mirroring of External CVMFS repositories
 =====================================================
+12 October 2017
 
 This document provides an overview of the policies and security understanding with regards to OSG mirroring of CVMFS
 repositories of external organizations.  It aims to help external repositories and OSG VOs understand what OSG is
