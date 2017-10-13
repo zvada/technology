@@ -15,14 +15,14 @@ All physical hosts are located in 3370A in the VDT rack.
 |:---------------------------------------------|:------------------------|:-------|:-----------|:---------------------|:--------|:------|:---------------------|:----------------------------|
 | itb-data1                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
 | itb-data2                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
-| itb-data3                                    | worker node             | SL 7.3 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
+| itb-data3                                    | worker node             | SL 7.4 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
 | itb-data4                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
 | itb-data5                                    | worker node             | SL 6.9 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
-| itb-data6                                    | worker node             | SL 7.3 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | ???                  | planned as XRootD data node |
+| itb-data6                                    | worker node             | SL 7.4 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | ???                  | planned as XRootD data node |
 | itb-host-1                                   | KVM host                | SL 7.4 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 1 TB × 4 (HW RAID 5) |                             |
 |  ·  itb-ce1                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
 |  ·  itb-ce2                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  itb-cm                                   | HTCondor CM             | SL 7.3 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  itb-cm                                   | HTCondor CM             | SL 7.4 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
 |  ·  <span class="old">itb-glidein</span>     | GlideinWMS VO frontend? | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
 |  ·  <span class="old">itb-gums-rsv</span>    | GUMS, RSV               | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
 |  ·  <span class="off">itb-hdfs-name1</span>  | — (so far)              | SL ?   | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
@@ -32,41 +32,14 @@ All physical hosts are located in 3370A in the VDT rack.
 |  ·  itb-submit                               | HTCondor submit         | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
 |  ·  <span class="off">itb-xrootd</span>      | — (so far)              | SL ?   | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
 | itb-host-2                                   | worker node             | SL 6.9 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
-| itb-host-3                                   | worker node             | SL 7.3 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
+| itb-host-3                                   | worker node             | SL 7.4 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
 
-(Data last updated 2017-10-05 by Tim C. <span class="old">Red</span> indicates a host that has yet to be rebuilt; <span class="off">Blue</span> is rebuilt but currently off.)
+(Data last updated 2017-10-13 by Tim C. <span class="old">Red</span> indicates a host that has yet to be rebuilt; <span class="off">Blue</span> is rebuilt but currently off.)
 
 
-## ITB Goals, Revisited 2016-11-03
+## ITB Goals
 
-Roughly in order of priority, at least for the top few items.
-
-- Test pre-release builds of HTCondor and HTCondor-CE in an OSG context
-    - Install software and run jobs as soon as possible after a pre-release
-    - An implementation idea: Maybe have more than one CE and/or HTCondor instance? One for “production” and one for
-      rapid testing
-- Add the ability to create and control job pressure locally
-    - Run all the time? Some of the time? Most of the time, but be able to drain or spike on demand?
-    - Maybe add a VO front-end?
-- Review and significantly tighten firewall rules on ITB hosts
-- Add HTCondor-CE-Bosco to the overall site plan, so that we can test it, too
-- Test the OSG stack before release (i.e., updates out of osg-prerelease)
-- Have a mix of EL6 and EL7 execute hosts and user jobs to test EL 6→7 migration
-- Test other batch systems
-    - Slurm
-    - PBS, in some flavor
-    - LSF and SGE usage is waning in the field, so they are lowest priority
-- Add other types of hosts (e.g., VO frontend, storage, RSV, squid, etc.)
-    - Current HDFS/XRootD nodes could be repurposed or we could spin up new VMs on `itb-host-1`
-    - We could potentially run our own factory in the future
-- Investigate whether there is a way to switch easily between ITB and production pilots and payloads
-- Test large-customer specific workflows (e.g., LIGO)
-- Investigate monitoring/testing setup for site verification
-    - Ask sites (e.g., UNL) for their solutions
-- Flexible site installation
-    - Configuration management for production and/or base hosts (logins, ntpd, repo RPMs, etc.)
-    - Determine upgrade procedure: do we upgrade the hosts in place with the option of reverting to production images or
-      do we hotswap production machines with freshly installed testing machines
+Goals for the Madison ITB site are now maintained in [a Google document](https://docs.google.com/document/d/1H4r8d2cznTKwnvPZGhj63-c7HMF9c_7izeU8dxerPiM/).
 
 
 ## Configuration
@@ -140,12 +113,17 @@ If you have your own playbook to manage personal configuration, run it as follow
     **Note:** `yum check-update` exits with status code `100` when it succeeds in identifying packages to update;
     therefore Ansible shows such results as failures.
 
-2. Review the package lists to be updated and decide whether to proceed with all updates or limited ones
+1. Review the package lists to be updated and decide whether to proceed with all updates or limited ones
 
-3. Do updates:
+1. Do updates:
 
         :::console
         ansible [ HOST | GROUP ] -i inventory -bK -f 20 -m command -a 'yum --assumeyes update' [ -l LIMITS ]
+
+1. If needed (and if unsure, ask a sysadmin), reboot machines:
+
+        :::console
+        ansible [ HOST | GROUP ] -i inventory -bK -f 20 -m command -a '/sbin/shutdown -r +1' [ -l LIMITS ]
 
 #### Updating HTCondor from Upcoming
 
