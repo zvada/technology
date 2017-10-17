@@ -35,7 +35,7 @@ pages:
     - New Release Series: 'release/new-release-series.md'
     - Old Release Series Removal: 'release/old-release-removal.md'
     - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
-    - VO Package Testing: 'release/testing-vo-package.md'
+    - Acceptance Testing: 'release/acceptance-testing.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
