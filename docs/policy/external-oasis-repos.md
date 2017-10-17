@@ -32,15 +32,19 @@ OSG Responsibilities
   object contents, but assume users of the Stratum-1 will do further integrity checking.  No SLA is provided covering potential data corruptions.
 * OSG will provide best-effort notification to the mirrored repository in case OSG detects a service outage of the external repo.
 * In the event of a reported security incident, OSG will replace the repository contents with an empty directory, signed by an OSG-managed key.
+  This will be done under the direction of the security team.
 * Once the external repository is approved, OSG will distribute the corresponding repository signing keys in a valid whitelist.  The whitelist
   will be signed by the OSG Stratum-0.  This whitelist attests to the authenticity of the key, but not a statement about repository contents.
 
 VO Responsibilities
 -------------------
+* The individual responsible on behalf of the VO will be registered with the OASIS Manager role in OIM.
 * The requesting VO should only include targeted repositories they need to support their science.
 * The VO should understand that in the event of a reported security incident, the contents of this repository may be replaced with an
-  empty directory and signed by the OSG repository key.  This will be done after attempting to contact the VO first; the amount of time OSG
-  will wait on an unresponsive VO will be based on the evaluation of the situation of the OSG Security Team. 
+  empty directory and signed by the OSG repository key.  Depending on the OSG Security team's evaluation of the severity and urgency
+  of the incident, the blanking may be done immediately without VO notification or after some notification period.
+* In the case of a security incident, the VO and OSG Security team will need to mutually agree that the incident is resolved before the
+  repository is unblanked.
 * The VO is ultimately responsible for the contents of the repository.  OSG provides a mirror.
 * If the external repository is *not* operated by the VO, OSG may work directly with the external repository maintainers.  This is done for
   ease of operations and may be limited to day-to-day, non-security-related support.
