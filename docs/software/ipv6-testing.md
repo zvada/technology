@@ -131,7 +131,7 @@ Request timeout for icmp_seq 1
 Testing in mixed mode
 ---------------------
 
-To test IPv6 in mixed mode, you can use the `ntop` tool to monitor traffic over IPv6. `ntop` is installed on all the test machines and you can access the web interface at *hostname:3000* (e.g. [Ntop cabinet-10-10-9](http://cabinet-10-10-9.t2.ucsd.edu:3000/)). To see a table that displays network traffic between your VM and another host by going to *All Protocols* -> *Traffic* and looking at the IPv6 column.
+To test IPv6 in mixed mode, you can use the `ntop` tool to monitor traffic over IPv6. `ntop` is installed on all the test machines and you can access the web interface at *hostname:3000*. To see a table that displays network traffic between your VM and another host by going to *All Protocols* -> *Traffic* and looking at the IPv6 column.
 
 ![NTP-web](../images/ipv6-testing.png)
 

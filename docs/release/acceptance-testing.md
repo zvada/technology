@@ -1,7 +1,7 @@
 Acceptance Testing
 ==================
 
-The OSG Release Team collects and maintains testing procedures for major components in the OSG Sofware Stack. These components are enumerated in the [Component notes](ComponentHome). We have gotten a start with some [Manual testing recipes](SoftwareTeam.TestingRecipes). These test should verify that basic functionality of the component works in typically deployed configurations.
+The OSG Release Team collects and maintains testing procedures for major components in the OSG Sofware Stack. These test should verify that basic functionality of the component works in typically deployed configurations.
 
 CVMFS
 -----
