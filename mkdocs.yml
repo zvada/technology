@@ -17,6 +17,7 @@ pages:
     - Repository Management: 'software/repository-management.md'
     - CE Scale Testing: 'software/ce-test-scaling.md'
     - RPM Development Guide: 'software/rpm-development-guide.md'
+    - Using Quilt: 'software/quilt.md'
     - Upcoming to Main: 'software/upcoming-to-main.md'
     - Software Support: 'policy/software-support.md'
     - Effort Tracking: 'software/effort-tracking.md'
@@ -27,6 +28,8 @@ pages:
     - Resurrecting Epel Packages: 'software/resurrecting-epel-packages.md'
     - Koji Mass Rebuilds: 'software/koji-mass-rebuilds.md'
     - Creating the VO Client Package: 'software/create-vo-client.md'
+    - PKI Overview: 'software/pki-overview.md'
+    - IPv6 Testing: 'software/ipv6-testing.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
@@ -35,7 +38,8 @@ pages:
     - New Release Series: 'release/new-release-series.md'
     - Old Release Series Removal: 'release/old-release-removal.md'
     - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
-    - VO Package Testing: 'release/testing-vo-package.md'
+    - Empty Packages: 'release/empty-pkgs.md'
+    - Acceptance Testing: 'release/acceptance-testing.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
