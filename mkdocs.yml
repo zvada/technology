@@ -40,7 +40,6 @@ pages:
     - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
     - Empty Packages: 'release/empty-pkgs.md'
     - Acceptance Testing: 'release/acceptance-testing.md'
-    - Flexible Release Model: 'release/flexible-release-model.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
@@ -48,6 +47,7 @@ pages:
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
     - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
+    - 'Flexible Release Model': 'policy/flexible-release-model.md'
   - Infrastructure:
     - Koji Restore Recipe: 'infrastructure/koji-restore-recipe.md'
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
