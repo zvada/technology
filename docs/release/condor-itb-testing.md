@@ -10,7 +10,7 @@ and itb-submit for the submissions, there may be other prerequisites missing.  P
 other prerequisites as they are identified!
 
 * A checkout of the osgitb directory from our local git instance (not GitHub)
-* Your X.509 DN in the `osgitb/unmanaged/htcondor/condor_mapfile` file and (via Ansible) on `itb-ce1` and `itb-ce2`
+* Your X.509 DN in the `osgitb/unmanaged/htcondor-ce/grid-mapfile` file and (via Ansible) on `itb-ce1` and `itb-ce2`
 
 ## Gather Information
 
