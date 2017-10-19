@@ -52,20 +52,20 @@ These tasks can be completed in any order.
 
 - Edit `tarball-client`:
 
-  - Remove bundles from `bundles.ini`.
-  - Remove patch and other files that were used only by those bundles.
-  - Test that the current bundles didn't get broken by your changes.
+    - Remove bundles from `bundles.ini`.
+    - Remove patch and other files that were used only by those bundles.
+    - Test that the current bundles didn't get broken by your changes.
 
 - Edit `osg-build`:
 
-  - Remove the promotion routes from `promoter.ini`.
-  - Remove references in `constants.py`.
-  - Test your changes; also run the unit tests.
+    - Remove the promotion routes from `promoter.ini`.
+    - Remove references in `constants.py`.
+    - Test your changes; also run the unit tests.
 
 - Remove things from Koji:
 
-  - All targets referencing the series.
-  - All tags referencing the series.
+    - All targets referencing the series.
+    - All tags referencing the series.
 
 - Remove references to the series from `opensciencegrid/docker-osg-wn-scripts`
   on GitHub, including the `genbranches` and `update-all` scripts.
