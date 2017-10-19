@@ -40,6 +40,7 @@ pages:
     - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
     - Empty Packages: 'release/empty-pkgs.md'
     - Acceptance Testing: 'release/acceptance-testing.md'
+    - Flexible Release Model: 'release/flexible-release-model.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
