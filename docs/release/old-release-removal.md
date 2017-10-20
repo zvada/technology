@@ -90,7 +90,7 @@ Template Email
 
 >   On <DAYNAME, MONTH DAY>, the OSG will be removing the OSG <3.X> release
 >   series from our repositories.  This includes both RPMs and tarballs hosted
->   on repo.grid.iu.edu.
+>   on repo.opensciencegrid.org.
 >
 >   All support for OSG <3.X> had been discontinued at the end of <MONTH YEAR>.
 >
