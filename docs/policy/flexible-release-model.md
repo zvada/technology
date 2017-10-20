@@ -15,7 +15,7 @@ For these reasons, we created a new release model.
 Release Model
 -------------
 
-The OSG Release team will release batches of integrated, tested software on an ad hoc basis, with the process outlined below (changes from the old process are highlighted):
+The OSG Release team releases batches of integrated, tested software on an ad hoc basis, with the process outlined below (changes from the old process are highlighted):
 
 1.  Software and Release Team members develop packages and mark them for testing
 
@@ -25,8 +25,8 @@ The OSG Release team will release batches of integrated, tested software on an a
 
 4.  **Weekly, the Release Manager evaluates packages that are ready for release; when a sufficient number of important packages are ready**[1]**, the Release Manager schedules a release date and announces it. For urgent changes, the Release Manager evaluates the packages as soon as they are tested**
 
-5.  The Software and Release Team perform pre-release testing, release the packages, and announce the release
+5.  The Software and Release Team performs pre-release testing, releases the packages, and announces the release
 
-Note: The release dates of parallel release series (e.g., 3.3 and 3.4) will not have to coincide, as they have in the past.
+Note: The release dates of parallel release series (e.g., 3.3 and 3.4) do not have to coincide, as they have in the past.
 
-[1] The threshold for “sufficient number of important packages” will be determined by the Release Manager, with input from the other Technology Area leaders.
+[1] The threshold for “sufficient number of important packages” is determined by the Release Manager, with input from the other Technology Area leaders.
