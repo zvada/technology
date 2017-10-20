@@ -27,7 +27,8 @@ Operations tasks should be completed before Software & Release tasks.
 These tasks should be completed in order.
 
 1.  Two weeks in advance, notify sites (including mirror sites) that the
-    release series is going away.
+    release series is going away.  See the [template email](#template-email)
+    below.
 
 2.  Remove the series from the mash configs on the repo.grid.iu.edu machines.
 
@@ -83,3 +84,23 @@ If we really need RPMs from a removed release series, we can look at the text
 files in `/p/vdt/public/html/release-info/attic` to determine the exact NVRs we
 need, and download them from Koji.
 
+
+
+Template Email
+--------------
+
+>   On <DAYNAME, MONTH DAY>, the OSG will be removing the OSG <3.X> release
+>   series from our repositories.  This includes both RPMs and tarballs hosted
+>   on repo.opensciencegrid.org.
+>
+>   All support for OSG <3.X> had been discontinued at the end of <MONTH YEAR>.
+>
+>   Any sites running OSG <3.X> should upgrade to the current release series,
+>   OSG <3.Y>.  If you need assistance upgrading, please contact us at
+>   goc@opensciencegrid.org.
+
+If we're dropping support for a distro (e.g. EL 5 when we drop OSG 3.2), add
+the following after the first paragraph:
+
+>   Note that OSG <3.X> was the last release to support Enterprise Linux <Z>
+>   distributions.
