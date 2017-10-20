@@ -88,12 +88,18 @@ need, and download them from Koji.
 Template Email
 --------------
 
->   On <DAYNAME, MONTH DAY>, the OSG will be removing the OSG <3.X> release series from our
->   repositories.  This includes both RPMs and tarballs hosted on
->   repo.grid.iu.edu.
+>   On <DAYNAME, MONTH DAY>, the OSG will be removing the OSG <3.X> release
+>   series from our repositories.  This includes both RPMs and tarballs hosted
+>   on repo.grid.iu.edu.
 >
 >   All support for OSG <3.X> had been discontinued at the end of <MONTH YEAR>.
 >
 >   Any sites running OSG <3.X> should upgrade to the current release series,
 >   OSG <3.Y>.  If you need assistance upgrading, please contact us at
 >   goc@opensciencegrid.org.
+
+If we're dropping support for a distro (e.g. EL 5 when we drop OSG 3.2), add
+the following after the first paragraph:
+
+>   Note that OSG <3.X> was the last release to support Enterprise Linux <Z>
+>   distributions.
