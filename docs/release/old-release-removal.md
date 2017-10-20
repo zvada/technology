@@ -16,7 +16,8 @@ Tasks
 
 Removing a release series requires work from both Operations and Software &
 Release.  The first step is to create a JIRA ticket in the SOFTWARE project to
-track the work.
+track the work.  Second, Software & Release will enumerate the directories for
+Operations to remove.
 
 Operations tasks should be completed before Software & Release tasks.
 
