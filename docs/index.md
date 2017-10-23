@@ -10,7 +10,7 @@ The Team
 
 | Software and Release | Technology |
 | ----------------- | -- |
-| Brian Lin (software manager) (100%) | Brian Bockelman (manager) (50%) |
+| Brian Lin (software manager) | Brian Bockelman (manager) (50%) |
 | Carl Edquist | Derek Weitzel (50%) |
 | Edgar Fajardo (50%)| Edgar Fajardo (50%) |
 | Mat Selmeci | Jeff Dost (50%) |
