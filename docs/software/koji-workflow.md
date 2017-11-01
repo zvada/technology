@@ -181,6 +181,12 @@ Once a package has been built, it is added to a tag. We then must turn the tag i
         !!! note
             if you submit build task B while the build repository task is open, it will not start until the build task has finished.
 
+- Other errors
+
+    -   `package <PACKAGE NAME> not in list for tag <TAG>`<br/>
+        This happens when the name of the directory your package is in does not match the name of the package.
+        You must rename one or the other and commit your changes before trying again.
+
 Promoting Builds from Development -> Testing
 --------------------------------------------
 
