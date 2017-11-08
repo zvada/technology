@@ -31,8 +31,11 @@ OSG Responsibilities
 * OSG will provide a best-effort mirror of the full contents of the external repo.  We will attempt to provide best-effort integrity of the
   object contents, but assume users of the Stratum-1 will do further integrity checking.  No SLA is provided covering potential data corruptions.
 * OSG will provide best-effort notification to the mirrored repository in case OSG detects a service outage of the external repo.
-* In the event of a reported security incident, OSG will replace the repository contents with an empty directory, signed by an OSG-managed key.
-  This will be done under the direction of the security team.
+* In the event of a security incident, the operations group at Indiana University
+will replace the compromised repository with an empty directory, signed by
+the key managed by them. This will be done in consultation with the security
+team or, in the unlikely event they cannot be reached, at the discretion of
+the Operations Coordinator.
 * Once the external repository is approved, OSG will distribute the corresponding repository signing keys in a valid whitelist.  The whitelist
   will be signed by the OSG Stratum-0.  This whitelist attests to the authenticity of the key, but not a statement about repository contents.
 
