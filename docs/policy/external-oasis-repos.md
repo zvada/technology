@@ -49,3 +49,16 @@ VO Responsibilities
 * If the external repository is *not* operated by the VO, OSG may work directly with the external repository maintainers.  This is done for
   ease of operations and may be limited to day-to-day, non-security-related support.
 
+Operational Policies
+--------------------
+
+To help us provide the best operational setup possible, we have a few additional replication policies:
+
+1.  OSG Operations only hosts the shared `oasis.opensciencegrid.org` repository; VO-dedicated software respositories
+    (such as `nova.opensciencegrid.org` for the NoVA VO) should be operated by the VO.
+2.  VOs are asked to either run their own repository or utilize the shared repository, but not both.
+3.  There is a finite amount of high-performance storage on the CDN.   A minimum of 100 GB per repository is guaranteed.
+    Larger limits may be requested.
+4.  VOs may ask the OSG to replicate their repositories to the European Grid Infrastructure (EGI); however, this can
+    only be done if the repository name ends in `.opensciencegrid.org`.
+
