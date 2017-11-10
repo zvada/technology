@@ -1,6 +1,8 @@
-# Testing HTCondor Prereleases on the Madison ITB Site
+# Testing OSG Software Prereleases on the Madison ITB Site
 
-This document contains a basic recipe for testing an HTCondor prerelease build on the Madison ITB site.
+This document contains basic recipes for testing a OSG software prereleases on the Madison ITB site, which includes
+HTCondor prerelease builds and full OSG software stack prereleases from Yum.
+
 
 ## Prerequisites
 
@@ -12,7 +14,8 @@ other prerequisites as they are identified!
 * A checkout of the osgitb directory from our local git instance (not GitHub)
 * Your X.509 DN in the `osgitb/unmanaged/htcondor-ce/grid-mapfile` file and (via Ansible) on `itb-ce1` and `itb-ce2`
 
-## Gather Information
+
+## Gathering Information
 
 Technically skippable, this section is about checking on the state of the ITB machines before making changes.  The plan
 is to keep the ITB machines generally up-to-date independently, so those steps are not listed here.  And honestly, the
@@ -25,50 +28,85 @@ The commands can be run as-is from within the `osgitb` directory from git.
         :::console
         ansible current -i inventory -f 20 -o -m command -a 'cat /etc/redhat-release'
 
-2. Check HTCondor versions for all HTCondor hosts:
+1. Check the date and time on all hosts (in case NTP stops working):
 
         :::console
-        ansible condor -i inventory -f 20 -o -m command -a 'rpm -q condor'
+        ansible current -i inventory -f 20 -o -m command -a 'date'
 
-3. Obtain the NVR of the HTCondor prerelease build from OSG to test.  Do this by talking to Tim&nbsp;T. and checking
-   Koji.  The expectation is that the HTCondor prerelease build will be in the development repository (or
-   upcoming-development).
+1. Check software versions for certain hosts (e.g., for the `condor` package on hosts in the `worksers` group):
 
-## Install HTCondor Prerelease
+        :::console
+        ansible workers -i inventory -f 20 -o -m command -a 'rpm -q condor'
+
+
+## Installing HTCondor Prerelease
+
+Use this section to install a new version of HTCondor, specifically a prerelease build from the development or
+upcoming-development repository, on the test hosts.
+
+1. Obtain the NVR of the HTCondor prerelease build from OSG to test.  Do this by talking to Tim&nbsp;T. and checking
+   Koji.
 
 1. Shut down HTCondor and HTCondor-CE on prerelease machines:
 
         :::console
-        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor-ce state=stopped' -l 'itb-ce*'
-        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor state=stopped'
+        ansible 'testing:&ces' -i inventory -bK -f 20 -m service -a 'name=condor-ce state=stopped'
+        ansible 'testing:&condor' -i inventory -bK -f 20 -m service -a 'name=condor state=stopped'
 
-2. Install new version of HTCondor on prerelease machines:
+1. Install new version of HTCondor on prerelease machines:
 
         :::console
-        ansible condordev -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-development --assumeyes update condor'
+        ansible 'testing:&condor' -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-development --assumeyes update condor'
 
     or, if you need to install an NVR that is “earlier” (in the RPM sense) than what is currently installed:
 
         :::console
-        ansible condordev -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-development --assumeyes downgrade condor condor-classads condor-python condor-procd blahp'
+        ansible 'testing:&condor' -i inventory -bK -f 10 -m command -a 'yum --enablerepo=osg-development --assumeyes downgrade condor condor-classads condor-python condor-procd blahp'
 
-3. Verify installation of correct RPM version:
+1. Verify correct RPM versions across the site:
 
         :::console
         ansible condor -i inventory -f 20 -o -m command -a 'rpm -q condor'
 
-4. Restart HTCondor and HTCondor-CE on prerelease machines:
+1. Restart HTCondor and HTCondor-CE on prerelease machines:
 
         :::console
-        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor state=started'
-        ansible condordev -i inventory -bK -f 20 -m service -a 'name=condor-ce state=started' -l 'itb-ce*'
+        ansible 'testing:&condor' -i inventory -bK -f 20 -m service -a 'name=condor state=started'
+        ansible 'testing:&ces' -i inventory -bK -f 20 -m service -a 'name=condor-ce state=started'
 
-## Run Tests
+
+## Installing a Prerelease of the OSG Software Stack
+
+Use this section to install new versions of all OSG software from a prerelease repository in Yum.
+
+1. Check with the Release Manager to make sure that the prerelease repository has been populated with the desired
+   package versions.
+
+1. Make sure that software is generally up-to-date on the hosts&nbsp;— see
+   [the MadisonITB page](/infrastructure/madison-itb) for more details
+
+    It may be desirable to update only non-OSG software at this stage, in which case one could simply disable the OSG
+    repositories by adding command-line options to the `yum update` commands.
+
+1. Install new software on prerelease hosts:
+
+        :::console
+        ansible testing -i inventory -bK -f 20 -m command -a 'yum --enablerepo=osg-prerelease --assumeyes update'
+
+1. Verify OSG software updates by inspecting the Yum output carefully or examining specific package versions:
+
+        :::console
+        ansible current -i inventory -f 20 -o -m command -a 'rpm -q osg-wn-client'
+
+    Use an inventory group and package names that best fit the situation.
+
+
+## Running Tests
 
 For the first two test workflows, use your personal space on `itb-submit`.  Copy or checkout the `osgitb/htcondor-tests`
 directory to get the test directories.
 
-### Submitting jobs directly
+### Part Ⅰ: Submitting jobs directly
 
 1. Change into the `1-direct-jobs` subdirectory
 
@@ -102,7 +140,7 @@ directory to get the test directories.
    target to remove all workflow-generated files (plus Emacs backup files).
 
 
-### Submitting jobs using HTCondor-C
+### Part Ⅱ: Submitting jobs using HTCondor-C
 
 If direct submissions fail, there is probably no point to doing this step.
 
@@ -142,7 +180,7 @@ If direct submissions fail, there is probably no point to doing this step.
 
 1. (Optional) Clean up, using the `make clean` or `make distclean` commands.
 
-### Submitting jobs from a GlideinWMS VO Frontend
+### Part Ⅲ: Submitting jobs from a GlideinWMS VO Frontend
 
 For this workflow, use your personal space on `glidein3.chtc.wisc.edu`.  Copy or checkout the `osgitb/htcondor-tests`
 directory to get the test directories.  Again, if previous steps fail, do not bother with this step.
