@@ -290,3 +290,56 @@ Here's how to use them:
 (There does not seem to be an `%elseif`).
 
 The syntax `%{?el6}` expands to the value of the `%el6` macro if it is defined, and to the empty string if not; the `0` is there to keep the condition from being empty in the `%if` statement if the macro is not defined.
+
+
+Renaming or Removing Packages
+-----------------------------
+
+Occasionally we want to cause a package to be removed on update, or replaced by a package with a different name.
+
+For the most part, the [Fedora Packaging Guidelines page on renames](https://fedoraproject.org/wiki/Packaging:Guidelines#Renaming.2FReplacing_Existing_Packages) shows how to do that.
+The exception is that we do not have the equivalent of a `fedora-obsolete-packages` package, so in order to force the removal of an entire package (not a subpackage), we have to dummy out the package instead -- see below.
+(This should be a rare situation.)
+
+!!! note
+    After doing a rename or a removal, you must update all the packages and subpackages that require the package being removed or renamed, and change or remove the requirements as appropriate.
+
+To find packages that require the old package at run time, set up a host with the OSG repos and install the `yum-utils` RPM.
+Then, run:
+```console
+$ repoquery --plugins --whatrequires $OLDPACKAGE
+```
+
+To find packages that require the old package at build time, install `osg-build`, and do this from a checkout of the OSG repos:
+```console
+$ osg-build prebuild *
+$ for srpm in */_final_srpm_contents/*.src.rpm; do \
+    echo "***** $srpm *****"; \
+    rpm -q --requires -p $srpm | grep -w $OLDPACKAGE; \
+  done
+```
+
+
+!!! note
+    Carefully test these changes, including places where the old package may be brought in indirectly.
+
+
+### Dummying out a package
+
+In order to forcibly remove an entire package, you have to replace the package with one that does nothing.
+This is because there is no package that will "obsolete" the old package.
+
+Do the following for the main package and any subpackages it may have:
+
+-   Change the Summary to "Dummy package"
+-   Change the %description to:
+
+    > This is an empty package created for %RED%$%ENDCOLOR%.
+    > It may safely be removed.
+
+-   Remove all Requires and Obsoletes lines
+-   Do not remove Provides lines
+-   Remove %pre and %post scriptlets
+-   Unless there is a good reason not to, remove %preun and %postun scriptlets
+-   Empty the %files section
+
