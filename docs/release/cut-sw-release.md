@@ -77,7 +77,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
         [user@client ~] $ osg-run-tests 'Testing OSG pre-release'
 
 3.  `cd` into the directory specified in the output of the previous command
-4.  `cd` into `parameters.d` and remove all files within it except for `osg33-el6.yaml` and `osg33-el7.yaml`
+4.  `cd` into `parameters.d` and remove all files within it except for `osg33.yaml` and `osg34.yaml`
 5.  Edit `osg33.yaml` so that it reads:
 
         platforms:
