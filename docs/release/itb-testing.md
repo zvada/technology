@@ -93,6 +93,14 @@ Use this section to install new versions of all OSG software from a prerelease r
         :::console
         ansible testing -i inventory -bK -f 20 -m command -a 'yum --enablerepo=osg-prerelease --assumeyes update'
 
+1. Read the Yum output carefully, and follow up on any warnings, etc.
+
+1. If the `osg-configure` package was updated on any host(s), run the `osg-configure` command on the host(s):
+
+        :::console
+        ansible testing -i inventory -bK -f 20 -m command -a 'osg-configure -v' -l [HOST(S)]
+        ansible testing -i inventory -bK -f 20 -m command -a 'osg-configure -c' -l [HOST(S)]
+
 1. Verify OSG software updates by inspecting the Yum output carefully or examining specific package versions:
 
         :::console
