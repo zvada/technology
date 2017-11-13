@@ -38,7 +38,7 @@ pages:
     - Release Schedule: 'release/release-schedule.md'
     - New Release Series: 'release/new-release-series.md'
     - Old Release Series Removal: 'release/old-release-removal.md'
-    - HTCondor Prerelease Testing: 'release/condor-itb-testing.md'
+    - ITB Prerelease Testing: 'release/itb-testing.md'
     - Empty Packages: 'release/empty-pkgs.md'
     - Acceptance Testing: 'release/acceptance-testing.md'
   - Policy:
