@@ -33,7 +33,7 @@ The commands can be run as-is from within the `osgitb` directory from git.
         :::console
         ansible current -i inventory -f 20 -o -m command -a 'date'
 
-1. Check software versions for certain hosts (e.g., for the `condor` package on hosts in the `worksers` group):
+1. Check software versions for certain hosts (e.g., for the `condor` package on hosts in the `workers` group):
 
         :::console
         ansible workers -i inventory -f 20 -o -m command -a 'rpm -q condor'
