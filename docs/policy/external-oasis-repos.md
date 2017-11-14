@@ -8,7 +8,7 @@ repositories of external organizations.  It aims to help external repositories a
 attempting to achieve with the mirroring service.
 This is not a service-level agreement but rather a statement of responsibilities.
 
-!!! note:
+!!! note
     To actually understand the technical procedure for mirroring a repository, [see the following page](https://twiki.grid.iu.edu/bin/view/Documentation/Release3/OasisExternalRepositories).  This document solely covers the policy aspects.
 
 Introduction
