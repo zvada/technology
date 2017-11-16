@@ -96,6 +96,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
           - label: All (java)
             selinux: True
             osg_java: True
+            rng: True
             packages:
               - osg-tested-internal
               
