@@ -26,10 +26,12 @@ Day 0: Generate Preliminary Release List
 
 The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release. Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
-```console
+```bash
+VERSIONS='<VERSION(S)>'
+REVISION=<REVISION>
 git clone https://github.com/opensciencegrid/release-tools.git
 cd release-tools
-0-generate-pkg-list -d <REVISION> <VERSION(S)>
+0-generate-pkg-list -d $REVISION $VERSIONS
 ```
 
 Day 1: Verify Pre-Release
@@ -39,8 +41,9 @@ This section is to be performed 1-2 days before the release (as designated by th
 
 Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated `release-list` in git). To do this, run the `1-verify-prerelease` script from git:
 
-```console
-1-verify-prerelease <VERSION(S)>
+```bash
+VERSIONS='<VERSION(S)>'
+1-verify-prerelease $VERSIONS
 ```
 
 If there are any discrepancies consult the release manager. You may have to tag packages with the `osg-koji` tool.
@@ -54,8 +57,10 @@ For the second phase of the release, try to complete it earlier in the day rathe
 
 This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
 
-```console
-2-create-release -d <REVISION> <VERSION(S)>
+```bash
+VERSIONS='VERSION(S)>'
+REVISION=<REVISION>
+2-create-release -d $REVISION $VERSIONS
 ```
 
 1.  `*.txt` files are also created and it should be verified that they've been moved to `/p/vdt/public/html/release-info/` on UW's AFS.
@@ -67,7 +72,7 @@ Update the GitHub repo at [opensciencegrid/docker-osg-wn](https://github.com/ope
 
 Instructions for using the script:
 
-```console
+```bash
 git clone git@github.com:opensciencegrid/docker-osg-wn-scripts.git
 git clone git@github.com:opensciencegrid/docker-osg-wn.git
 docker-osg-wn-scripts/update-all docker-osg-wn
@@ -80,7 +85,7 @@ cd docker-osg-wn
 
 Wait for the CA certificates to be propagated to the web server on `repo.grid.iu.edu`. The repository is checked every 10 minutes for update CA certificates. Then, run the following command to update the VO Package and/or CA certificates in the tarball installations and verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
 
-```console
+```bash
 /p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
 /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
 ```
