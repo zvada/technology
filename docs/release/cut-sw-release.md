@@ -157,7 +157,21 @@ cd release-tools
 ./1-client-tarballs $NON_UPCOMING_VERSIONS
 ```
 
-You should get up to 8 tarballs for each version (excluding upcoming), 25-55 megs each and they should all have the version number in the name.
+You should get 7 tarballs.
+They should all have the version number in the name.
+
+-   OSG 3.3.x
+    -   32-bit (i386)
+        - osg-wn-client, el6: 23 megabytes
+    -   64-bit
+        - osg-wn-client, el6: 23 megabytes
+        - osg-wn-client, el7: 31 megabytes
+-   OSG 3.4.x
+    -   64-bit
+        - osg-afs-client, el6: 23 megabytes
+        - osg-afs-client, el7: 31 megabytes
+        - osg-wn-client, el6: 23 megabytes
+        - osg-wn-client, el7: 31 megabytes
 
 ### Step 5: Briefly test the client tarballs
 
@@ -168,33 +182,29 @@ NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
 
 dotest () {
     file=$dir/$client-$ver-1.$rhel.$arch.tar.gz
-    mkdir -p $rhel-$arch
-    pushd $rhel-$arch
-    tar xzf ../$file
-    $client/osg/osg-post-install
-    $client/osgrun osg-version
-    popd
-    rm -rf $rhel-$arch
+    if [ -e $file ]; then
+        echo "Testing $client-$ver-1.$rhel.$arch..."
+        mkdir -p $rhel-$arch
+        pushd $rhel-$arch
+        tar xzf ../$file
+        $client/osg/osg-post-install
+        $client/osgrun osg-version
+        popd
+        rm -rf $rhel-$arch
+    fi
 }
 
 pushd /tmp
 
-for client in osg-afs-client osg-wn-client; do
-    for ver in $NON_UPCOMING_VERSIONS; do
+for ver in $NON_UPCOMING_VERSIONS; do
+    for client in osg-afs-client osg-wn-client; do
         for rhel in el6 el7; do
-            arch=x86_64
-            dir=tarballs/${ver%.*}/$arch
-            dotest
+            for arch in i386 x86_64; do
+                dir=tarballs/${ver%.*}/$arch
+                dotest
+            done
         done
     done
-done
-
-client=osg-wn-client
-arch=i386
-rhel=el6
-for ver in $NON_UPCOMING_VERSIONS; do
-    dir=tarballs/${ver%.*}/$arch
-    dotest
 done
 ```
 
