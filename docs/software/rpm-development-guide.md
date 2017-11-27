@@ -318,7 +318,7 @@ $ for srpm in */_final_srpm_contents/*.src.rpm; do \
     rpm -q --requires -p $srpm | grep -w $OLDPACKAGE; \
   done
 ```
-
+(examine the output to avoid false matches)
 
 !!! note
     Carefully test these changes, including places where the old package may be brought in indirectly.
@@ -326,7 +326,7 @@ $ for srpm in */_final_srpm_contents/*.src.rpm; do \
 
 ### Dummying out a package
 
-In order to forcibly remove an entire package, you have to replace the package with one that does nothing.
+In order to forcibly remove an entire package with no replacement, you have to replace the package with one that does nothing.
 This is because there is no package that will "obsolete" the old package.
 
 Do the following for the main package and any subpackages it may have:
