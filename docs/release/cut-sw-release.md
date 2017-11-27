@@ -160,19 +160,6 @@ cd release-tools
 You should get 7 tarballs.
 They should all have the version number in the name.
 
--   OSG 3.3.x
-    -   32-bit (i386)
-        - osg-wn-client, el6: 23 megabytes
-    -   64-bit
-        - osg-wn-client, el6: 23 megabytes
-        - osg-wn-client, el7: 31 megabytes
--   OSG 3.4.x
-    -   64-bit
-        - osg-afs-client, el6: 23 megabytes
-        - osg-afs-client, el7: 31 megabytes
-        - osg-wn-client, el6: 23 megabytes
-        - osg-wn-client, el7: 31 megabytes
-
 ### Step 5: Briefly test the client tarballs
 
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
@@ -184,6 +171,10 @@ dotest () {
     file=$dir/$client-$ver-1.$rhel.$arch.tar.gz
     if [ -e $file ]; then
         echo "Testing $client-$ver-1.$rhel.$arch..."
+        size=$(du -m "$file" | cut -f 1)
+        if [ $size -gt $max_size ]; then
+            echo -e "\e[1;33mWARNING: $client-$ver-1.$rhel.$arch is too big. Check with release manager.\e[0m"
+        fi
         mkdir -p $rhel-$arch
         pushd $rhel-$arch
         tar xzf ../$file
@@ -192,7 +183,7 @@ dotest () {
         popd
         rm -rf $rhel-$arch
     else
-        echo -e "\e[1;31mERROR: $client-$ver-1.$rhel.$arch tarball is missing\e[0m"
+        echo -e "\e[1;31mERROR: $client-$ver-1.$rhel.$arch tarball is missing.\e[0m"
     fi
 }
 
@@ -207,6 +198,10 @@ for ver in $NON_UPCOMING_VERSIONS; do
     for client in $clients; do
         rhels="el6 el7"
         for rhel in $rhels; do
+            max_size=24
+            if [ $rhel = "el7" ]; then
+                max_size=32
+            fi
             archs="x86_64"
             if [ "$major_version" = "3.3" -a $rhel = "el6" ]; then
                 archs="i386 $archs"
