@@ -191,21 +191,35 @@ dotest () {
         $client/osgrun osg-version
         popd
         rm -rf $rhel-$arch
+    else
+        echo -e "\e[1;31mERROR: $client-$ver-1.$rhel.$arch tarball is missing\e[0m"
     fi
 }
 
 pushd /tmp
 
 for ver in $NON_UPCOMING_VERSIONS; do
-    for client in osg-afs-client osg-wn-client; do
-        for rhel in el6 el7; do
-            for arch in i386 x86_64; do
-                dir=tarballs/${ver%.*}/$arch
+    major_version="${ver%.*}"
+    clients="osg-wn-client"
+    if [ "$major_version" = "3.4" ]; then
+        clients="$clients osg-afs-client"
+    fi
+    for client in $clients; do
+        rhels="el6 el7"
+        for rhel in $rhels; do
+            archs="x86_64"
+            if [ "$major_version" = "3.3" -a $rhel = "el6" ]; then
+                archs="i386 $archs"
+            fi
+            for arch in $archs; do
+                dir=tarballs/$major_version/$arch
                 dotest
             done
         done
     done
 done
+
+popd
 ```
 
 If you have time, try some of the binaries, such as grid-proxy-init.
