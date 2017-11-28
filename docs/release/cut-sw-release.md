@@ -157,8 +157,6 @@ cd release-tools
 ./1-client-tarballs $NON_UPCOMING_VERSIONS
 ```
 
-You should get up to 8 tarballs for each version (excluding upcoming), 25-55 megs each and they should all have the version number in the name.
-
 ### Step 5: Briefly test the client tarballs
 
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
@@ -168,34 +166,52 @@ NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
 
 dotest () {
     file=$dir/$client-$ver-1.$rhel.$arch.tar.gz
-    mkdir -p $rhel-$arch
-    pushd $rhel-$arch
-    tar xzf ../$file
-    $client/osg/osg-post-install
-    $client/osgrun osg-version
-    popd
-    rm -rf $rhel-$arch
+    if [ -e $file ]; then
+        echo "Testing $client-$ver-1.$rhel.$arch..."
+        size=$(du -m "$file" | cut -f 1)
+        if [ $size -gt $max_size ]; then
+            echo -e "\e[1;33mWARNING: $client-$ver-1.$rhel.$arch is too big. Check with release manager.\e[0m"
+        fi
+        mkdir -p $rhel-$arch
+        pushd $rhel-$arch
+        tar xzf ../$file
+        $client/osg/osg-post-install
+        $client/osgrun osg-version
+        popd
+        rm -rf $rhel-$arch
+    else
+        echo -e "\e[1;31mERROR: $client-$ver-1.$rhel.$arch tarball is missing.\e[0m"
+    fi
 }
 
 pushd /tmp
 
-for client in osg-afs-client osg-wn-client; do
-    for ver in $NON_UPCOMING_VERSIONS; do
-        for rhel in el6 el7; do
-            arch=x86_64
-            dir=tarballs/${ver%.*}/$arch
-            dotest
+for ver in $NON_UPCOMING_VERSIONS; do
+    major_version="${ver%.*}"
+    clients="osg-wn-client"
+    if [ "$major_version" = "3.4" ]; then
+        clients="$clients osg-afs-client"
+    fi
+    for client in $clients; do
+        rhels="el6 el7"
+        for rhel in $rhels; do
+            max_size=24
+            if [ $rhel = "el7" ]; then
+                max_size=32
+            fi
+            archs="x86_64"
+            if [ "$major_version" = "3.3" -a $rhel = "el6" ]; then
+                archs="i386 $archs"
+            fi
+            for arch in $archs; do
+                dir=tarballs/$major_version/$arch
+                dotest
+            done
         done
     done
 done
 
-client=osg-wn-client
-arch=i386
-rhel=el6
-for ver in $NON_UPCOMING_VERSIONS; do
-    dir=tarballs/${ver%.*}/$arch
-    dotest
-done
+popd
 ```
 
 If you have time, try some of the binaries, such as grid-proxy-init.
