@@ -157,9 +157,6 @@ cd release-tools
 ./1-client-tarballs $NON_UPCOMING_VERSIONS
 ```
 
-You should get 7 tarballs.
-They should all have the version number in the name.
-
 ### Step 5: Briefly test the client tarballs
 
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
