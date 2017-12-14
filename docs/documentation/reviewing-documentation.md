@@ -17,4 +17,4 @@ Content reviews are for validating the correctness of technical steps and detail
 Editorial Review
 ----------------
 
-Editorial reviews are for ensuring docs meet our [style guidelines](/documentation/writing-documentation#style-guide); improving document layouts and readability; and proofing spelling, grammar, and punctuation.
+Editorial reviews are for ensuring docs meet our [style guidelines](/documentation/style-guide.md); improving document layouts and readability; and proofing spelling, grammar, and punctuation.
