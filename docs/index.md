@@ -3,24 +3,27 @@ OSG Technology Area
 
 Welcome to the home page of the OSG Technology Team documentation area! This is currently a work in progress as we migrate our TWiki documentation to GitHub. If you are looking for our full documentation, please visit the [TWiki](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WebHome).
 
+If you are looking for site administrator documentation, please visit the [OSG Documentation page](https://opensciencegrid.github.io/docs/).
+
 The Team
 --------
 
-| Software | Release | Technology |
-| ----------------- | -- | -- |
-| Brian Lin (manager) (90%) | Tim Theisen (manager) (50%) | Brian Bockelman (manager) (50%) |
-| Carl Edquist | Brian Lin (10%) | Derek Weitzel (75%) |
-| Derek Weitzel (25%) | Suchandra Thapa (50%) | Edgar Fajardo (50%) |
-| Edgar Fajardo (50%) | | Jeff Dost (50%) |
-| Mat Selmeci | | | Marian Zvada (25%)
-| Tim Cartwright (35%) | | |
+| Software and Release | Technology |
+| ----------------- | -- |
+| Brian Lin (software manager) | Brian Bockelman (manager) (50%) |
+| Carl Edquist | Derek Weitzel (50%) |
+| Edgar Fajardo (50%)| Edgar Fajardo (50%) |
+| Mat Selmeci | Jeff Dost (50%) |
+| Suchandra Thapa (50%) | Marian Zvada (25%) |
+| Tim Cartwright (35%) | |
+| Tim Theisen (release manager) (50%) | |
 
 Contact Us
 ----------
 
 -  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software)
--  [osg-software@opensciencegrid.org](osg-software@opensciencegrid.org) - General discussion amongst team members
--  [osg-commits@cs.wisc.edu](osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
+-  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
+-  [osg-commits@cs.wisc.edu](mailto:osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
 
 Meeting Notes
 -------------
@@ -30,6 +33,20 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [11 December 2017](meetings/2017/TechArea20171211.md)
+  * [4 December 2017](meetings/2017/TechArea20171204.md)
+  * [27 November 2017](meetings/2017/TechArea20171127.md)
+  * [20 November 2017](meetings/2017/TechArea20171120.md)
+  * [13 November 2017](meetings/2017/TechArea20171113.md)
+  * [6 November 2017](meetings/2017/TechArea20171106.md)
+  * [30 October 2017](meetings/2017/TechArea20171030.md)
+  * [23 October 2017](meetings/2017/TechArea20171023.md)
+  * [16 October 2017](meetings/2017/TechArea20171016.md)
+  * [9 October 2017](meetings/2017/TechArea20171009.md)
+  * [2 October 2017](meetings/2017/TechArea20171002.md)
+  * [25 September 2017](meetings/2017/TechArea20170925.md)
+  * [18 September 2017](meetings/2017/TechArea20170918.md)
+  * [11 September 2017](meetings/2017/TechArea20170911.md)
   * [5 September 2017](meetings/2017/TechArea20170905.md)
   * [28 August 2017](meetings/2017/TechArea20170828.md)
   * 21 August 2017 - Canceled

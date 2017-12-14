@@ -1,8 +1,9 @@
 site_name: OSG Technology Area
-site_url: https://opensciencegrid.github.io/technology
-repo_url: https://github.com/opensciencegrid/technology
-theme: readthedocs
-theme_dir: osgthedocs
+site_url: https://opensciencegrid.github.io/technology/
+repo_url: https://github.com/opensciencegrid/technology/
+theme:
+  name: readthedocs
+  custom_dir: osgthedocs
 
 extra_css:
   - css/extra.css
@@ -11,37 +12,53 @@ pages:
   - Home: 'index.md'
   - Software:
     - Development Process: 'software/development-process.md'
-    - Migrating Documents to Markdown: 'software/markdown-migration.md'
     - Koji Workflow: 'software/koji-workflow.md'
     - New Team Member: 'software/new-team-member.md'
     - Repository Management: 'software/repository-management.md'
     - CE Scale Testing: 'software/ce-test-scaling.md'
     - RPM Development Guide: 'software/rpm-development-guide.md'
+    - Using Quilt: 'software/quilt.md'
     - Upcoming to Main: 'software/upcoming-to-main.md'
     - Software Support: 'policy/software-support.md'
     - Effort Tracking: 'software/effort-tracking.md'
     - Release Planning: 'software/release-planning.md'
     - Globus Mass Update Procedure: 'software/globus-mass-update-procedure.md'
     - Git Software Development Process: 'software/git-software-development.md'
+    - OSG Build Tools: 'software/osg-build-tools.md'
     - Resurrecting Epel Packages: 'software/resurrecting-epel-packages.md'
+    - Koji Mass Rebuilds: 'software/koji-mass-rebuilds.md'
+    - Creating the VO Client Package: 'software/create-vo-client.md'
+    - PKI Overview: 'software/pki-overview.md'
+    - IPv6 Testing: 'software/ipv6-testing.md'
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
     - Release Policy: 'release/release-policy.md'
     - Release Schedule: 'release/release-schedule.md'
+    - New Release Series: 'release/new-release-series.md'
+    - Old Release Series Removal: 'release/old-release-removal.md'
+    - ITB Prerelease Testing: 'release/itb-testing.md'
+    - Empty Packages: 'release/empty-pkgs.md'
+    - Acceptance Testing: 'release/acceptance-testing.md'
   - Policy:
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
+    - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
+    - 'Flexible Release Model': 'policy/flexible-release-model.md'
   - Infrastructure:
     - Koji Restore Recipe: 'infrastructure/koji-restore-recipe.md'
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
     - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
+    - Madison ITB: 'infrastructure/madison-itb.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
+    - Reviewing Documentation: 'documentation/reviewing-documentation.md'
+    - Markdown Style Guide: 'documentation/style-guide.md'
+    - Migrating Documents to Markdown: 'documentation/markdown-migration.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
   - Historical Transitions:
@@ -66,7 +83,21 @@ pages:
   - August 7, 2017: 'meetings/2017/TechArea20170807.md'
   - August 14, 2017: 'meetings/2017/TechArea20170814.md'
   - August 28, 2017: 'meetings/2017/TechArea20170828.md'
-  - September 05, 2017: 'meetings/2017/TechArea20170905.md'
+  - September 5, 2017: 'meetings/2017/TechArea20170905.md'
+  - September 11, 2017: 'meetings/2017/TechArea20170911.md'
+  - September 18, 2017: 'meetings/2017/TechArea20170918.md'
+  - September 25, 2017: 'meetings/2017/TechArea20170925.md'
+  - October 2, 2017: 'meetings/2017/TechArea20171002.md'
+  - October 9, 2017: 'meetings/2017/TechArea20171009.md'
+  - October 16, 2017: 'meetings/2017/TechArea20171016.md'
+  - October 23, 2017: 'meetings/2017/TechArea20171023.md'
+  - October 30, 2017: 'meetings/2017/TechArea20171030.md'
+  - November 6, 2017: 'meetings/2017/TechArea20171106.md'
+  - November 13, 2017: 'meetings/2017/TechArea20171113.md'
+  - November 20, 2017: 'meetings/2017/TechArea20171120.md'
+  - November 27, 2017: 'meetings/2017/TechArea20171127.md'
+  - December 4, 2017: 'meetings/2017/TechArea20171204.md'
+  - December 11, 2017: 'meetings/2017/TechArea20171211.md'
 
 markdown_extensions:
   - admonition

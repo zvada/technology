@@ -24,7 +24,7 @@ Automatic TWiki conversion
 Choose one of the following methods for converting TWiki documents:
 
 - Using our own [docker conversion image](#using-docker) (recommended)
-- A combination of [pandoc](#using-pandoc) and mkdocs
+- Directly using pandoc and mkdocs [on your own machine](#conversion-without-docker)
 
 ### Using docker ###
 
@@ -46,17 +46,17 @@ If you cannot install the above tools locally, they are available on `osghost`. 
 3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
 
         :::console
-        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
+        user@host $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
 
 4. Create a branch for the document you plan to convert:
 
         :::console
-        [user@client ~ ] $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
+        user@host $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
 
 5. Change to the branch you just created
 
         :::console
-        [user@client ~ ] $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
+        user@host $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
 
 #### Previewing the document tree ####
 
@@ -65,7 +65,7 @@ When starting a twiki-converter docker container, it expects your local github r
 1. Create a container from the image with the following command:
 
         :::console
-        [user@client ~ ] $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 twiki
+        user@host $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 twiki
     The above command should return the container ID, which will be used in subsequent commands. 
 
     !!! note
@@ -74,7 +74,7 @@ When starting a twiki-converter docker container, it expects your local github r
 2. To find the port that your development server is lisetning on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:
 
         :::console
-        [user@client ~ ] $ docker port %RED%<CONTAINER ID>%ENDCOLOR%
+        user@host $ docker port %RED%<CONTAINER ID>%ENDCOLOR%
 
 3. Access the development server in your browser via `http://osghost.chtc.wisc.edu:<PORT>` or `localhost:<PORT>` for containers run on `osghost` or locally, respectively. `osghost` has a restrictive firewall so if you have issues accessing your container from outside of the UW-Madison campus, use an SSH tunnel to map the `osghost` port to a local port.
 
@@ -83,10 +83,10 @@ When starting a twiki-converter docker container, it expects your local github r
 The docker image contains a convenience script, `convert-twiki` for saving archives and converting them to Markdown. To run the script in a running container, run the following command:
 
 ```console
-[user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% convert-twiki %RED%<TWIKI URL>%ENDCOLOR%
+user@host $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% convert-twiki %RED%<TWIKI URL>%ENDCOLOR%
 ```
 
-Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess`, placed into the root of your local github repository. 
+Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess.md`, placed into the root of your local github repository.  If the twiki url is for a specific revision of the document, a `.rNN` will be included in the output filenames.
 
 !!! warning
     If the above command does not complete quickly, it means that Pandoc is having an issue with a specific section of the document. See [Troubleshooting conversion](#troubleshooting-conversion) for next steps.
@@ -110,18 +110,18 @@ Pandoc sometimes has issues converting documents and requires manual interventio
 2. Kill the process in the docker container:
 
         :::console
-        [user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pkill -9 pandoc
+        user@host $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pkill -9 pandoc
 
 3. Remove a section from the copy of the archive to find the problematic section (recommendation: use a binary search strategy)
 4. Run pandoc manually:
 
         :::console
-        [user@client ~ ] $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pandoc -f twiki -t markdown_github %RED%<ARCHIVE COPY>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
+        user@host $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% pandoc -f twiki -t markdown_github %RED%<ARCHIVE COPY>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
 
 5. Repeat steps 2-4 until you've narrowed down the problematic section
 6. Manually convert the offending section
 
-### Using pandoc ###
+### Conversion without Docker ###
 
 If you've already used the [docker method](#using-docker), skip to the section about [completing the conversion](#completing-the-conversion). 
 
@@ -141,17 +141,17 @@ This method requires the following:
 3. Add `opensciencegrid/technology` as the upstream remote repository for merging upstream changes:
 
         :::console
-        [user@client ~ ] $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
+        user@host $ git remote add upstream https://www.github.com/opensciencegrid/%RED%<REPOSITORY>%ENDCOLOR%.git
 
 4. Create a branch for the document you plan to convert:
 
         :::console
-        [user@client ~ ] $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
+        user@host $ git branch %RED%<BRANCH NAME>%ENDCOLOR% master
 
 5. Change to the branch you just created
 
         :::console
-        [user@client ~ ] $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
+        user@host $ git checkout %RED%<BRANCH NAME>%ENDCOLOR%
 
 #### Archiving the TWiki document ####
 
@@ -170,24 +170,6 @@ Where `<TWIKI FILE>` is the path to initial document in raw TWiki and `<MARKDOWN
 !!! note
     If you don't see output from the above command quickly, it means that Pandoc is having an issue with a specific section of the document. Stop the command (or docker container), find and temporarily remove the offending section, convert the remainder of the document with Pandoc, and manually convert the offending section.
 
-##### Using pandoc via docker ######
-
-The `pandoc` library is written in Haskell and is frequently updated, meaning it may be unavailable on your distribution of choice - or too old.  If you cannot install `pandoc` but have access to docker, you can run the following command:
-
-```bash
-docker run -v `pwd`:/source jagregory/pandoc -f twiki -t markdown_github %RED%<TWIKI FILE>%ENDCOLOR% > %RED%<MARKDOWN FILE>%ENDCOLOR%
-```
-
-For example, to do a Docker-based conversion of the document at https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance, one would do:
-
-```bash
-$ mkdir -p archive docs/projects
-$ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
-$ docker run -v `pwd`/docs/:/source jagregory/pandoc -f twiki -t markdown_github /source/archive/SHA2Compliance > docs/projects/sha2-support.md
-```
-
-We have found some cases where the Docker version of `pandoc` handles Twiki syntax better than the EPEL one; YMMV.  Testing also shows that the conversion process is only about 80% accurate and each document will require a few minutes of manual touch-up.  The above example required no formatting changes.
-
 #### Previewing your document(s) with Mkdocs ####
 
 [Mkdocs](http://www.mkdocs.org/) has a development mode that can be used to preview documents as you work on them and is available via package manager or `pip`. [Once installed](http://www.mkdocs.org/#installation), add your document(s) to the `pages` section of `mkdocs.yml` and launch the mkdocs server with the following command from the dir containing `mkdocs.yml`:
@@ -203,117 +185,7 @@ Completing the conversion
 
 Manual review of the automatically converted documents are required since the automatic conversion process isn't perfect. This section contains a list of problems commonly encountered in automatically converted documents.
 
-### Broken links ###
-
-Pandoc isn't aware of the entire TWiki structure so internal links using [WikiWords](http://twiki.org/cgi-bin/view/TWiki/WikiWord) result in broken links. If the broken link is for a document that has already been migrated to GitHub, link to it using relative paths to the markdown doc of interest. If the broken link is for a document that hasn't been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access) to see if it's targeted for archival.
-
-If the broken link is:
-
-1. For a document that has already been migrated to GitHub, update it to point at the new location.
-2. For a document that not been migrated to GitHub, consult the documentation spreadsheet (contact Brian L for access):
-    - If the link is targeted for archival, remove the link if it makes sense. If you're unsure, be sure to mention it in your final pull request
-    - If the link is not targeted for archival, link directly to the TWiki page.
-
-### Broken command blocks and file snippets ###
-
-Pandoc doesn't do a good job of converting our `<pre class=...` blocks so manual intervention is required. Command blocks and file snippets should be wrapped in three backticks (\`\`\`) followed by an optional code highlighting format:
-
-    ```python
-    # stuff
-    ```
-
-Make sure to use the TWiki document as a reference when making fixes!
-
-We use the [Pygments](http://pygments.org/) highlighting library for syntax; it knows about 100 different languages.  The Pygments website contains a live renderer if you want to see how your text will come out.  Please use the `console` language for shell sessions.
-
-#### Fixing root and user prompts ####
-
-| Find and replace...                                   | With...             |
-|:------------------------------------------------------|:--------------------|
-| `<span class="twiki-macro UCL\_PROMPT\_ROOT"></span>` | `[root@client ~] #` |
-| `<span class="twiki-macro UCL\_PROMPT"></span>`       | `[user@client ~] $` |
-
-#### Highlighting user input  ####
-
-Within command blocks and file snippets, we've used `&lt;...&gt;` to highlight areas that users would have to insert text specific to their site. For now, use desciptive, all-caps text wrapped in angle brackets to indicate user input. You may also use TWiki-style color highlighting. 
-
-```console
-[root@client ~]# condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
-```
-
-#### Ordered Lists ####
-
-Ordered lists are often broken up into multiple lists if there are command blocks/file snippets and/or additional text within one of the list items. To make sure the contents of an item are indented properly, use the following formatting:
-
-- For code blocks or file snippets, add an empty line after any regular text, then insert `(N+1)*4` spaces at the beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code block with `:::<FORMAT>`; see [this page](http://squidfunk.github.io/mkdocs-material/extensions/codehilite/) for details, including possible highlighting formats.  For an example of formatting a code section inside a list, see [the release series document](https://github.com/opensciencegrid/docs/blob/master/docs/release/release_series.md).
-- For additional text (i.e. after a code block), insert `N*4` spaces at the beginning of each line, where N is the level of the item in the list.
-
-For example:
-
-```markdown
-1. Foo
-    - Bar
-
-            :::console
-            COMMAND
-            BLOCK
-        text associated with Bar
-
-    text associated with Foo
-
-2. Baz
-
-        FILE
-        SNIPPET
-
-```
-
-There are 12 spaces and 8 spaces in front of the command block and text associated with `Bar`, respectively; 4 spaces in front of the text associated with `Foo`; and 8 spaces in front of the file snippet associated with `Baz`.  The above block is rendered below:
-
-1. Foo
-    - Bar
-
-            :::console
-            COMMAND
-            BLOCK
-        text associated with Bar
-
-    text associated with Foo
-
-2. Baz
-
-        FILE
-        SNIPPET
-
-### Notes ###
-
-To catch the user's attention for important items or pitfalls, we used `%NOTE%` TWiki macros, these can be replaced with admonition-style notes and warnings:
-
-```
-!!! note
-    things to note
-```
-
-or
-
-```
-!!! warning
-    if a user doesn't do this thing, bad stuff will happen
-```
-
-The above blocks are rendered below as an example.
-
-!!! note
-    things to note
-
-and
-
-!!! warning
-    if a user doesn't do this thing, bad stuff will happen
-
-### Obvious errors ###
-
-If you see any other obvious errors (e.g., links to gratia web), feel free to correct them while you're editing the doc *iff* the changes take less than ~15 minutes. This isn't a renovation project!
+Visit the [style guide](/documentation/writing-documentation#style-guide) to ensure that the document meets all style guidelines.
 
 Archiving Documents
 -------------------
@@ -321,15 +193,15 @@ Archiving Documents
 If the document is slated for archival (check if it says "yes" in the  "archived" column of the spreadsheet), just download the document to the `archive` folder of your local git repository:
 
 ``` console
-[user@client ~ ] $ cd technology/
-[user@client ~ ] $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > archive/%RED%<TWIKI TITLE>%ENDCOLOR%
+user@host $ cd technology/
+user@host $ curl '%RED%<TWIKI URL>%ENDCOLOR%?raw=text' | iconv -f windows-1252 > archive/%RED%<TWIKI TITLE>%ENDCOLOR%
 ```
 
 For example:
 
 ``` console
-[user@client ~ ] $ cd technology
-[user@client ~ ] $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
+user@host $ cd technology
+user@host $ curl 'https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/SHA2Compliance?raw=text' | iconv -f windows-1252 > archive/SHA2Compliance
 ```
 
 After downloading the document, continue onto the next section to walk through pull request submission.
@@ -340,13 +212,13 @@ Submitting the pull request
 1. Stage the archived raw TWiki (as well as the converted Markdown document(s) and `mkdocs.yml` if you are converting the document):
 
         :::console
-        [user@client ~ ] $ git add mkdocs.yaml archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
+        user@host $ git add mkdocs.yml archive/%RED%<TWIKI ARCHIVE>%ENDCOLOR% %RED%<PATH TO CONVERTED DOC>%ENDCOLOR%
 
 2. Commit and push your changes to your GitHub repo:
 
         :::console
-        [user@client ~ ] $ git commit -m "%RED%<COMMIT MSG>%ENDCOLOR%"
-        [user@client ~ ] $ git push origin %RED%<BRANCH NAME>%ENDCOLOR%
+        user@host $ git commit -m "%RED%<COMMIT MSG>%ENDCOLOR%"
+        user@host $ git push origin %RED%<BRANCH NAME>%ENDCOLOR%
 
 3. Open your browser and navigate to your GitHub fork
 4. Submit a pull request containing with the following body:
@@ -372,14 +244,14 @@ After the pull request is merged, replace the contents of TWiki document with th
 
 ```
 <div style="border: 1px solid black; margin: 1em 0; padding: 1em; background-color: #FFDDDD; font-weight: 600;">
-This document has been migrated to !GitHub (<LINK TO GITHUB DOCUMENT>). If you wish to see the old TWiki document, click the latest revision 'rNN' in the footer below.
+This document has been migrated to !GitHub (<LINK TO GITHUB DOCUMENT>). If you wish to see the old TWiki document, use the TWiki history below.
 
 Background:
 
 At the end of year (2017), the TWiki will be retired in favor of !GitHub. You can find the various TWiki webs and their new !GitHub locations listed below:
 
    * Release3: https://opensciencegrid.github.io/docs ([[https://github.com/opensciencegrid/docs/tree/master/archive][archive]])
-   * !SoftwareTeam: https://opensciencegrid.github.io/technology ([[https://github.com/opensciencegrid/technology/tree/master/archive][archive]]
+   * !SoftwareTeam: https://opensciencegrid.github.io/technology ([[https://github.com/opensciencegrid/technology/tree/master/archive][archive]])
 </div>
 ```
 
@@ -398,9 +270,9 @@ To review pull requests, `cd` into the dir containing your git repository and ch
 
 ```console
 # Add the requester's repo as a remote if you haven't already
-[user@client ~ ] $ git remote add blin https://www.github.com/brianhlin/technology.git
-[user@client ~ ] $ git fetch --all
-[user@client ~ ] $ git checkout blin/cut-sw-release
+user@host $ git remote add blin https://www.github.com/brianhlin/technology.git
+user@host $ git fetch --all
+user@host $ git checkout blin/cut-sw-release
 ```
 
 Refresh your browser and navigate to the document in the request.

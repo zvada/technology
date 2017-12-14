@@ -215,6 +215,7 @@ dirclone () {
         koji-sign-plugin
         kojiweb
         mock
+        pki/koji
         pki/tls/certs
         pki/tls/private
         ___END___
@@ -273,7 +274,7 @@ The only change that's needed if *newdb* was renamed is to `/etc/koji-hub/hub.co
 
 #### Installing new cert/key pairs for *newkoji*
 
-You will need two cert/key pairs: one for the host, and one for the kojira service. Run `dos2unix` on all cert and key files before using them. Define the shell function `makepem`, listed below. `makepem` combines a public and private keypair to make a .pem file that the koji services use.
+You will need a cert/key pair for the new hostname. Run `dos2unix` on all cert and key files before using them. Define the shell function `makepem`, listed below. `makepem` combines a public and private keypair to make a .pem file that the Koji services use.
 
 Usage: `makepem <CERTFILE> <KEYFILE> <OUTPUT_FILE>`
 ``` bash
@@ -302,18 +303,13 @@ Place cert and key files into the following paths:
 |-------------|------------------------|
 | host cert   | `/root/hostcert.pem`   |
 | host key    | `/root/hostkey.pem`    |
-| kojira cert | `/root/kojiracert.pem` |
-| kojira key  | `/root/kojirakey.pem`  |
 
 Then use `makepem` to combine the certs and put them in the proper locations.
 
 ``` console
 [root@newkoji]# makepem /root/hostcert.pem /root/hostkey.pem \
    /etc/pki/tls/private/kojiweb.pem
-[root@newkoji]# makepem /root/kojiracert.pem /root/kojirakey.pem \
-   /etc/pki/tls/private/kojira.pem
 [root@newkoji]# chown apache:apache /etc/pki/tls/private/kojiweb.pem
-[root@newkoji]# chown root:root /etc/pki/tls/private/kojira.pem
 ```
 
 In addition, copy the host cert and key into the locations HTTPD expects it them.

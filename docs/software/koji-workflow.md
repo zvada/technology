@@ -51,8 +51,8 @@ Further reading
 ---------------
 
 -   Official Koji documentation: <https://docs.pagure.org/koji/>
--   Fedora's koji documentation: <http://fedoraproject.org/wiki/Koji>
--   Fedora's "Using Koji" page: <http://fedoraproject.org/wiki/Using_the_Koji_build_system> Note that some instructions there may not apply to OSG's Koji. For the most part though, they are useful.
+-   Fedora's koji documentation: <https://fedoraproject.org/wiki/Koji>
+-   Fedora's "Using Koji" page: <https://fedoraproject.org/wiki/Using_the_Koji_build_system> Note that some instructions there may not apply to OSG's Koji. For the most part though, they are useful.
 
 Using Koji
 ==========
@@ -85,7 +85,11 @@ Both pieces of software are available from the osg repositories. `osg-build` may
 Obtaining a login
 -----------------
 
-You will be using your grid certificate to log in. Email osg-software the DN of your certificate, and we will set up a koji account with the appropriate permissions. If you are switching certificate providers, you will need to email osg-software with your new DN. You will also need to clear your browser cookies and cache for `https://koji.chtc.wisc.edu` before trying to use the koji web interface again.
+You will be using your grid certificate to log in. Email a Koji admin the DN of your certificate, and we will set up a Koji account with the appropriate permissions.
+
+If you are switching certificate providers, you will need to email a Koji admin with your new DN. You will also need to clear your browser cookies and cache for `https://koji.chtc.wisc.edu` before trying to use the Koji web interface again. If your CN has changed, you will not be able to use your old certificate.
+
+Current Koji admins are Mat Selmeci and Carl Edquist.
 
 Configuring certificate authentication
 --------------------------------------
@@ -177,6 +181,12 @@ Once a package has been built, it is added to a tag. We then must turn the tag i
         !!! note
             if you submit build task B while the build repository task is open, it will not start until the build task has finished.
 
+- Other errors
+
+    -   `package <PACKAGE NAME> not in list for tag <TAG>`<br/>
+        This happens when the name of the directory your package is in does not match the name of the package.
+        You must rename one or the other and commit your changes before trying again.
+
 Promoting Builds from Development -> Testing
 --------------------------------------------
 
@@ -208,4 +218,4 @@ If you want to promote a specific version:
 
  For `osg-promote`, you may omit the `.osg34.el6` or `.osg34.el7`; the script will add the appropriate disttag on.
 
-See [OSG Building Tools](SoftwareTeam.OSGBuildTools) for full details on `osg-promote`.
+See [OSG Building Tools](osg-build-tools) for full details on `osg-promote`.

@@ -30,11 +30,12 @@ The release manager often needs a tentative list of packages to be released. Thi
 
 For each release (excluding upcoming), update the version number in the osg-version RPM's spec file and build it in koji:
 
-```console
+```bash
 # If building for the latest release out of trunk
-[user@client ~] $ osg-build koji osg-version
+osg-build koji osg-version
 # If building for an older release out of a branch:
-[user@client ~] $ osg-build koji --repo=<MAJOR VERSION> osg-version
+MAJOR_VERSION=<MAJOR VERSION>
+osg-build koji --repo=$MAJOR_VERSION osg-version
 ```
 
 Where `<MAJOR VERSION>` is of the format `x.y` (e.g. `3.2`).
@@ -43,10 +44,11 @@ Where `<MAJOR VERSION>` is of the format `x.y` (e.g. `3.2`).
 
 Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
-```console
-[user@client ~] $ git clone https://github.com/opensciencegrid/release-tools.git
-[user@client ~] $ cd release-tools
-[user@client ~] $ 0-generate-pkg-list <VERSION(S)>
+```bash
+VERSIONS=<VERSION(S)>
+git clone https://github.com/opensciencegrid/release-tools.git
+cd release-tools
+0-generate-pkg-list $VERSIONS
 ```
 
 Day 1: Verify Pre-Release and Generate Tarballs
@@ -58,8 +60,9 @@ This section is to be performed 1-2 days before the release (as designated by th
 
 Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated `release-list` in git). To do this, run the `1-verify-prerelease` script from git:
 
-```console
-[user@client ~] $ 1-verify-prerelease <VERSION(S)>
+```bash
+VERSIONS=<VERSION(S)>
+1-verify-prerelease $VERSIONS
 ```
 
 If there are any discrepancies consult the release manager. You may have to tag or untag packages with the `osg-koji` tool.
@@ -74,10 +77,10 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 1.  Ensure that you meet the [pre-requisites](https://github.com/opensciencegrid/vm-test-runs) for submitting VM universe test runs
 2.  Prepare the test suite by running:
 
-        [user@client ~] $ osg-run-tests 'Testing OSG pre-release'
+        osg-run-tests 'Testing OSG pre-release'
 
 3.  `cd` into the directory specified in the output of the previous command
-4.  `cd` into `parameters.d` and remove all files within it except for `osg33-el6.yaml` and `osg33-el7.yaml`
+4.  `cd` into `parameters.d` and remove all files within it except for `osg33.yaml` and `osg34.yaml`
 5.  Edit `osg33.yaml` so that it reads:
 
         platforms:
@@ -96,6 +99,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
           - label: All (java)
             selinux: True
             osg_java: True
+            rng: True
             packages:
               - osg-tested-internal
               
@@ -137,57 +141,77 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 
 To avoid 404 errors when retrieving packages, it's necessary to regenerate the build repositories. Run the following script from a machine with your koji-registered user certificate:
 
-```console
-[user@client ~] $ 1-regen-repos <NON-UPCOMING VERSION(S)>
+```bash
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+1-regen-repos $NON_UPCOMING_VERSIONS
 ```
 
 ### Step 4: Create the client tarballs
 
-Create the client tarballs as root on an EL6 fermicloud machine using the relevant script from git:
+Create the client tarballs as root on an EL7 fermicloud machine using the relevant script from git:
 
-```console
-[root@client ~] $ git clone https://github.com/opensciencegrid/release-tools.git
-[root@client ~] $ cd release-tools
-[root@client ~] $ 1-client-tarballs <NON-UPCOMING VERSION(S)>
+```bash
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+git clone https://github.com/opensciencegrid/release-tools.git
+cd release-tools
+./1-client-tarballs $NON_UPCOMING_VERSIONS
 ```
-
-You should get up to 8 tarballs for each version (excluding upcoming), 25-55 megs each and they should all have the version number in the name.
 
 ### Step 5: Briefly test the client tarballs
 
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
 
 ```bash
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+
 dotest () {
     file=$dir/$client-$ver-1.$rhel.$arch.tar.gz
-    mkdir -p $rhel-$arch
-    pushd $rhel-$arch
-    tar xzf ../$file
-    $client/osg/osg-post-install
-    $client/osgrun osg-version
-    popd
-    rm -rf $rhel-$arch
+    if [ -e $file ]; then
+        echo "Testing $client-$ver-1.$rhel.$arch..."
+        size=$(du -m "$file" | cut -f 1)
+        if [ $size -gt $max_size ]; then
+            echo -e "\e[1;33mWARNING: $client-$ver-1.$rhel.$arch is too big. Check with release manager.\e[0m"
+        fi
+        mkdir -p $rhel-$arch
+        pushd $rhel-$arch
+        tar xzf ../$file
+        $client/osg/osg-post-install
+        $client/osgrun osg-version
+        popd
+        rm -rf $rhel-$arch
+    else
+        echo -e "\e[1;31mERROR: $client-$ver-1.$rhel.$arch tarball is missing.\e[0m"
+    fi
 }
 
 pushd /tmp
 
-for client in osg-afs-client osg-wn-client; do
-    for ver in <NON-UPCOMING VERSION(S)>; do
-        for rhel in el6 el7; do
-            arch=x86_64
-            dir=tarballs/${ver%.*}/$arch
-            dotest
+for ver in $NON_UPCOMING_VERSIONS; do
+    major_version="${ver%.*}"
+    clients="osg-wn-client"
+    if [ "$major_version" = "3.4" ]; then
+        clients="$clients osg-afs-client"
+    fi
+    for client in $clients; do
+        rhels="el6 el7"
+        for rhel in $rhels; do
+            max_size=24
+            if [ $rhel = "el7" ]; then
+                max_size=32
+            fi
+            archs="x86_64"
+            if [ "$major_version" = "3.3" -a $rhel = "el6" ]; then
+                archs="i386 $archs"
+            fi
+            for arch in $archs; do
+                dir=tarballs/$major_version/$arch
+                dotest
+            done
         done
     done
 done
 
-client=osg-wn-client
-arch=i386
-rhel=el6
-for ver in <NON-UPCOMING VERSION(S)>; do
-    dir=tarballs/${ver%.*}/$arch
-    dotest
-done
+popd
 ```
 
 If you have time, try some of the binaries, such as grid-proxy-init.
@@ -200,7 +224,8 @@ If you have time, try some of the binaries, such as grid-proxy-init.
 The UW keeps an install of the tarball client in `/p/vdt/workspace/tarball-client` on the UW's AFS. To update it, run the following commands:
 
 ```bash
-for ver in <NON-UPCOMING VERSION(S)>; do
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+for ver in $NON_UPCOMING_VERSIONS; do
     /p/vdt/workspace/tarball-client/afs-install-tarball-client $ver
 done
 ```
@@ -219,8 +244,9 @@ Day 2: Pushing the Release
 
 This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
 
-```console
-[user@client ~] $ 2-create-release <VERSION(S)>
+```bash
+VERSIONS=<VERSION(S)>
+2-create-release <VERSION(S)>
 ```
 
 1.  `*.txt` files are also created and it should be verified that they've been moved to /p/vdt/public/html/release-info/ on UW's AFS.
@@ -233,7 +259,8 @@ Ask Tim Theisen, Brian Lin, or someone with privileges on the `grid.iu.edu` repo
 #### On a CS machine
 
 ```bash
-for ver in <NON-UPCOMING VERSION(S)>; do
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+for ver in $NON_UPCOMING_VERSIONS; do
     major_ver=`sed 's/.[0-9]*$//' <<< $ver`
     cd /p/vdt/public/html/tarball-client
     ssh jump.grid.iu.edu mkdir /tmp/$ver/
@@ -244,7 +271,8 @@ done
 #### On jump.grid.iu.edu
 
 ```bash
-for ver in <NON-UPCOMING VERSION(S)>; do
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+for ver in $NON_UPCOMING_VERSIONS; do
     scp -pr /tmp/$ver repo1:/tmp/
     scp -pr /tmp/$ver repo2:/tmp/
     rm -rf /tmp/$ver
@@ -255,18 +283,19 @@ done
 
 You can ssh to repo1 and repo2 from jump.grid.iu.edu; you will need to do this procedure on both systems.
 
-```console
+```bash
 sudo su -
 ```
 
 ```bash
-for ver in <NON-UPCOMING VERSION(S)>; do
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+for ver in $NON_UPCOMING_VERSIONS; do
     major_ver=`sed 's/.[0-9]*$//' <<< $ver`
     mv /tmp/$ver /usr/local/repo/tarball-install/$major_ver/
     rm -f /usr/local/repo/tarball-install/$major_ver/*latest*
 done
 /root/mk-sims.sh
-for ver in <NON-UPCOMING VERSION(S)>; do
+for ver in $NON_UPCOMING_VERSIONS; do
     major_ver=`sed 's/.[0-9]*$//' <<< $ver`
     ls -l /usr/local/repo/tarball-install/$major_ver/*latest* # verify the symlinks are correct
 done
@@ -280,9 +309,10 @@ done
 Get the uploader script from Git and run it with `osgrun` from the UW AFS install of the tarball client you made earlier. On a UW CSL machine:
 
 ```bash
+NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
 cd /tmp
 git clone --depth 1 file:///p/vdt/workspace/git/repo/tarball-client.git
-for ver in <NON-UPCOMING VERSION(S)>; do
+for ver in $NON_UPCOMING_VERSIONS; do
     /p/vdt/workspace/tarball-client/current/sys/osgrun /tmp/tarball-client/upload-tarballs-to-oasis $ver
 done
 ```
@@ -293,8 +323,8 @@ The script will automatically ssh you to oasis-login.opensciencegrid.org and giv
 
 To keep space usage down, remove tarball client installations and symlinks under `/p/vdt/workspace/tarball-client` on UW's AFS that are more than 2 months old. The following command will remove them:
 
-```console
-[user@client ~] $ find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -ls -exec rm -rf {} \;
+```bash
+find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -ls -exec rm -rf {} \;
 ```
 
 ### Step 5: Update the Docker WN client
@@ -303,7 +333,7 @@ Update the GitHub repo at [opensciencegrid/docker-osg-wn](https://github.com/ope
 
 Instructions for using the script:
 
-```console
+```bash
 git clone git@github.com:opensciencegrid/docker-osg-wn-scripts.git
 git clone git@github.com:opensciencegrid/docker-osg-wn.git
 docker-osg-wn-scripts/update-all docker-osg-wn

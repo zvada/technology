@@ -16,5 +16,5 @@ Accounts, Group Memberships, Certificates, Etc.
 6. Jira ticket system
     - Send email to <goc@opensciencegrid.org> and request access to JIRA
 7. Access to Koji
-    - Send email to Mat with DN of grid certificate
+    - Send email to Mat or Carl with DN of grid certificate
 
