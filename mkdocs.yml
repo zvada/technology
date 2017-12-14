@@ -12,7 +12,6 @@ pages:
   - Home: 'index.md'
   - Software:
     - Development Process: 'software/development-process.md'
-    - Migrating Documents to Markdown: 'software/markdown-migration.md'
     - Koji Workflow: 'software/koji-workflow.md'
     - New Team Member: 'software/new-team-member.md'
     - Repository Management: 'software/repository-management.md'
@@ -57,6 +56,9 @@ pages:
     - Madison ITB: 'infrastructure/madison-itb.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
+    - Reviewing Documentation: 'documentation/reviewing-documentation.md'
+    - Markdown Style Guide: 'documentation/style-guide.md'
+    - Migrating Documents to Markdown: 'documentation/markdown-migration.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
   - Historical Transitions:
