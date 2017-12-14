@@ -17,7 +17,7 @@ Use the following conventions for headers:
 Links
 -----
 
-Use site-relative (`/software/development-process.md`) instead of document-relative (`../software/development-process.md`) links. This will allow us to easily search for links and move documents around in the future.
+Use site-relative (`/software/development-process`) instead of document-relative (`../software/development-process.md`) links. This will allow us to easily search for links and move documents around in the future.
 
 ### Section links ###
 
