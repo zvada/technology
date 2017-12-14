@@ -10,7 +10,8 @@ Use the following conventions for headers:
 
 1. The title should be the only level 1 heading
 1. Level 1 headings should use the `====` format
-1. Level 2 sub-headings should use the `----` format
+1. Level 2 headings should use the `----` format
+1. Other heading levels should use the appropriate number of `#`
 1. Use Title Case for level 1 and level 2 headings. Only capitalize the first word for all other headings.
 
 Links
