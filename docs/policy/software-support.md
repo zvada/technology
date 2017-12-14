@@ -24,7 +24,7 @@ Please note: being on triage duty does *not* mean that you must personally solve
 
 Note that the software pseudo-user has an email address that is a mailing list: <osg-software-support-stream@opensciencegrid.org>. If you find it convenient, you can sign up for the mailing list to see all the incoming tickets. Alain recommends you do this during your triage duty, but you do not need to stay subscribed when you are not on triage duty.
 
-All the currently opened tickets assigned to the software team can be seen here: [GOC Open Tickets](https://ticket.grid.iu.edu/goc/list/open)
+All the currently opened tickets assigned to the software team can be seen here: [GOC Open Tickets](https://ticket.opensciencegrid.org/goc/list/open)
 
 ### Flow of tickets
 
@@ -39,7 +39,7 @@ Note that if you follow the above, we will end up with three assignees to each t
     2.  Software Support (Triage)
     3.  The Software team member who will handle the ticket
 
-    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://twiki.grid.iu.edu/bin/view/Documentation/Release3/#Software_Guides_Troubleshooting).
+    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](/docs).
 
 ### Updating the triage calendar ###
 
