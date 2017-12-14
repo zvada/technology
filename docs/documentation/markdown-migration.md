@@ -28,7 +28,10 @@ Choose one of the following methods for converting TWiki documents:
 
 ### Using docker ###
 
-The twiki-converter docker image can be used to preview the document tree via a [mkdocs](http://www.mkdocs.org/#getting-started) development server, archive TWiki documents, and convert documents to Markdown via [pandoc](http://pandoc.org/). The image is available on `osghost`, otherwise, follow the instructions [here](https://github.com/brianhlin/docker-twiki-converter) to build it locally. 
+The twiki-converter docker image can be used to preview the document tree via a [mkdocs](http://www.mkdocs.org/#getting-started) development server, archive TWiki documents, and convert documents to Markdown via [pandoc](http://pandoc.org/). The image is available on `osghost`, otherwise, it is availble on [dockerhub](https://hub.docker.com/r/opensciencegrid/docker-twiki-converter/).
+
+        :::console
+        user@host $ docker pull opensciencegrid/docker-twiki-converter
 
 #### Requirements ####
 
@@ -65,7 +68,7 @@ When starting a twiki-converter docker container, it expects your local github r
 1. Create a container from the image with the following command:
 
         :::console
-        user@host $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 twiki
+        user@host $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 opensciencegrid/docker-twiki-converter
     The above command should return the container ID, which will be used in subsequent commands. 
 
     !!! note
