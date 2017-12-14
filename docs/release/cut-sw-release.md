@@ -4,7 +4,7 @@
 How to Cut a Software Release
 =============================
 
-This document details the process for releasing new OSG Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found [here](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/ReleasePolicy).
+This document details the process for releasing new OSG Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found [here](/release/release-policy.md).
 
 Due to the length of time that this process takes, it is recommended to do the release over three or more days to allow for errors to be corrected and tests to be run.
 
@@ -377,5 +377,4 @@ The following instructions are meant for the release manager (or interim release
 2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
 3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.grid.iu.edu/goc/other)
 4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
-5.  The release manager updates the recent/scheduled release tables on the Software/Release [homepage](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WebHome)
 
