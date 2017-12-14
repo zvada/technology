@@ -10,9 +10,13 @@ Content Review
 
 Content reviews are for validating the correctness of technical steps and details. To perform a content review, follow the instructions of the document to a tee as if you were an OSG neophyte. Things to note and/or fix:
 
-* Incorrect or out of date instructions
-* Steps that may be particularly conducive to software or default configuration as a solution
-* Lack of clarity or any other confusion you may have
+- After completing the instructions in the document:
+    - Does the document inform you how to use the product?
+    - Does the document tell you how to verify that the product is functioning?
+    - Does the product work?
+- Incorrect or out of date instructions
+- Steps that may be particularly conducive to software or default configuration as a solution
+- Lack of clarity or any other confusion you may have
 
 Editorial Review
 ----------------
