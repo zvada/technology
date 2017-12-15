@@ -130,7 +130,7 @@ Prerequisites for *newkoji*: an EL 6 host with an SSH server set up and accessib
         :::console
         [root@newkoji]# rpm -Uvh \
             https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm \
-            https://repo.grid.iu.edu/osg/3.4/osg-3.4-el6-release-latest.rpm
+            https://repo.opensciencegrid.org/osg/3.4/osg-3.4-el6-release-latest.rpm
         [root@newkoji]# yum install -y yum-plugin-priorities
 
 1.  Edit `/etc/yum.repos.d/osg-*development.repo`:

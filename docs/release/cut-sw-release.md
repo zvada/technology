@@ -254,7 +254,7 @@ VERSIONS=<VERSION(S)>
 
 ### Step 2: Upload the client tarballs
 
-Ask Tim Theisen, Brian Lin, or someone with privileges on the `grid.iu.edu` repo servers to upload the tarballs with the following procedure:
+Ask Tim Theisen, Brian Lin, or someone with privileges on the `opensciencegrid.org` repo servers to upload the tarballs with the following procedure:
 
 #### On a CS machine
 
@@ -375,6 +375,6 @@ The following instructions are meant for the release manager (or interim release
          We welcome feedback on this release
 
 2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
-3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.grid.iu.edu/goc/other)
+3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
 4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
 
