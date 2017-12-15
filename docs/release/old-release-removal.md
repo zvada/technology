@@ -30,7 +30,7 @@ These tasks should be completed in order.
     release series is going away.  See the [template email](#template-email)
     below.
 
-2.  Remove the series from the mash configs on the repo.grid.iu.edu machines.
+2.  Remove the series from the mash configs on the repo.opensciencegrid.org machines.
 
 3.  Remove the appropriate mirrorlist directories from `/usr/local/mirror/osg`.
 

@@ -231,7 +231,7 @@ To see the list of users, go to the [Koji web site](https://koji.chtc.wisc.edu/k
 
 Certs and keys are stored in `/p/condor/home/certificates/...`
 
-To obtain renewed certificates, use [the OSG PKI commandline clients](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGPKICommandlineClients) or the web interface at <https://oim.grid.iu.edu/oim/certificaterequesthost>.
+To obtain renewed certificates, use [the OSG PKI commandline clients](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGPKICommandlineClients) or the web interface at <https://oim.opensciencegrid.org/oim/certificaterequesthost>.
 
 The following cert files are necessary:
 

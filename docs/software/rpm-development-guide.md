@@ -234,7 +234,7 @@ Developers may use `rpmbuild` and `mock` for faster iterative development before
 
 ### OSG Software Repository
 
-OSG Operations maintains the Yum repositories that contain our source and binary RPMs at `https://repo.grid.iu.edu/osg/` and are mirrored at other institutions as well.
+OSG Operations maintains the Yum repositories that contain our source and binary RPMs at `https://repo.opensciencegrid.org/osg/` and are mirrored at other institutions as well.
 
 #### Release Levels
 

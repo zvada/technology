@@ -50,7 +50,7 @@ CVMFS
         root@host # yum update
         root@host # yum install epel-release
         root@host # yum install yum-plugin-priorities
-        root@host # rpm -Uvh <https://repo.grid.iu.edu/osg/3.3/osg-3.3-el7-release-latest.rpm>
+        root@host # rpm -Uvh <https://repo.opensciencegrid.org/osg/3.3/osg-3.3-el7-release-latest.rpm>
         root@host # yum install cvmfs cvmfs-server
 
 8. Configure web server and start it up. Edit `/etc/httpd/conf.d/cvmfs.conf`:
@@ -117,7 +117,7 @@ CVMFS
         root@host # yum update
         root@host # yum install epel-release
         root@host # yum install yum-plugin-priorities
-        root@host # rpm -Uvh <https://repo.grid.iu.edu/osg/3.3/osg-3.3-el7-release-latest.rpm>
+        root@host # rpm -Uvh <https://repo.opensciencegrid.org/osg/3.3/osg-3.3-el7-release-latest.rpm>
         root@host # yum install cvmfs
 
 2. Upload a copy of the CVMFS repository's public key and place in `/etc/cvmfs/keys` directory.
@@ -167,7 +167,7 @@ CVMFS
     -   yum update
     -   yum install epel-release
     -   yum install yum-plugin-priorities
-    -   rpm -Uvh <https://repo.grid.iu.edu/osg/3.3/osg-3.3-el7-release-latest.rpm>
+    -   rpm -Uvh <https://repo.opensciencegrid.org/osg/3.3/osg-3.3-el7-release-latest.rpm>
     -   yum install osg-oasis 
 2. Verify latest versions of cvmfs, cvmfs-config-osg, and cvmfs-x509-helper have been installed. 
 3. Edit fuse configuration.
@@ -303,7 +303,7 @@ RSV
 Testing a fresh installation:
 
 1.  make sure the yum repositories required by OSG is installed on your host
-    -   rpm -Uvh <http://repo.grid.iu.edu/osg/3.2/osg-3.2-el6-release-latest.rpm> OR rpm -Uvh <http://repo.grid.iu.edu/osg/3.2/osg-3.2-el5-release-latest.rpm>
+    -   rpm -Uvh <http://repo.opensciencegrid.org/osg/3.2/osg-3.2-el6-release-latest.rpm> OR rpm -Uvh <http://repo.opensciencegrid.org/osg/3.2/osg-3.2-el5-release-latest.rpm>
     -   also make sure epel repo is set up. 
 2. install the rpm
     -   yum --enablerepo=osg-testing install rsv 
@@ -475,7 +475,7 @@ user@host $ voms-proxy-init -voms mis
 Enter GRID pass phrase:
 Your identity: /DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=People/CN=Edgar Mauricio Fajardo Hernandez 2020
 Creating temporary proxy ........................... Done
-Contacting  voms.grid.iu.edu:15001 [/DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=Services/CN=http/voms.grid.iu.edu] "mis" Done
+Contacting  voms.opensciencegrid.org:15001 [/DC=com/DC=DigiCert-Grid/O=Open Science Grid/OU=Services/CN=http/voms.opensciencegrid.org] "mis" Done
 Creating proxy ............................................... Done
 user@host $ xrdcp vomsxrdtest root://fermicloud024.fnal.gov:1094//tmp/
 [0B/0B][100%][==================================================][0B/s]  
