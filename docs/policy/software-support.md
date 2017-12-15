@@ -39,7 +39,7 @@ Note that if you follow the above, we will end up with three assignees to each t
     2.  Software Support (Triage)
     3.  The Software team member who will handle the ticket
 
-    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](/docs).
+    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://opensciencegrid.github.io/docs/).
 
 ### Updating the triage calendar ###
 

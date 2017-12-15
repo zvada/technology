@@ -4,7 +4,7 @@ How to Run Scalability Tests on a CE
 Introduction
 ------------
 
-This document is intended as a general overview of the process for scalability testing of an OSG CE (Compute Element). All examples are for testing an [HTCondor-CE](/docs/compute-element/install-htcondor-ce), but they should be applicable for other CE software.
+This document is intended as a general overview of the process for scalability testing of an OSG CE (Compute Element). All examples are for testing an [HTCondor-CE](http://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/), but they should be applicable for other CE software.
 
 The focus of testing a CE is on the number of concurrent running jobs the CE can sustain as well as the ramp-up rate when many jobs are queued.
 

@@ -9,7 +9,7 @@ attempting to achieve with the mirroring service.
 This is not a service-level agreement but rather a statement of responsibilities.
 
 !!! note
-    To actually understand the technical procedure for mirroring a repository, [see the following page](docs/data/external-oasis-repos).  This document solely covers the policy aspects.
+    To actually understand the technical procedure for mirroring a repository, [see the following page](https://opensciencegrid.github.io/docs/data/external-oasis-repos).  This document solely covers the policy aspects.
 
 Introduction
 ------------
