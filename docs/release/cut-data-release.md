@@ -83,7 +83,7 @@ cd docker-osg-wn
 
 ### Step 3: Verify the VO Package and/or CA certificates
 
-Wait for the CA certificates to be propagated to the web server on `repo.grid.iu.edu`. The repository is checked every 10 minutes for update CA certificates. Then, run the following command to update the VO Package and/or CA certificates in the tarball installations and verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
+Wait for the CA certificates to be propagated to the web server on `repo.opensciencegrid.org`. The repository is checked every 10 minutes for update CA certificates. Then, run the following command to update the VO Package and/or CA certificates in the tarball installations and verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
 
 ```bash
 /p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
@@ -123,7 +123,7 @@ The following instructions are meant for the release manager (or interim release
          We welcome feedback on this release
 
 2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
-3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.grid.iu.edu/goc/other)
+3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
 4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
 5.  The release manager updates the recent/scheduled release tables on the Software/Release [homepage](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WebHome)
 

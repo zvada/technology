@@ -78,7 +78,7 @@ When the *osg-prerelease* repository has been updated and verified, all of the c
 
 1.  Record the complete set of packages in the new release repository.
 2.  Update the [Release Notes](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/ReleaseNotes). Note that each release has a separate page to describe the release, and it's linked from the main page. The individual page lists the changes at a high level (i.e. Updated package X to version Y) and the complete set of RPMs that changed.
-3.  Create a ticket on ticket.grid.iu.edu with a release announcement. Operations will distribute it to the right places.
+3.  Create a ticket on ticket.opensciencegrid.org with a release announcement. Operations will distribute it to the right places.
 
 In addition, we will make another Koji tag/yum repository called *osg-release-VERSION*. All of the latest packages in osg-release will be tagged to be in this repository, and the tag will be locked. This will give us a reproducible way to install any given OSG Software release.
 

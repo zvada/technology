@@ -98,7 +98,8 @@ pages:
     - November 27, 2017: 'meetings/2017/TechArea20171127.md'
     - December 4, 2017: 'meetings/2017/TechArea20171204.md'
     - December 11, 2017: 'meetings/2017/TechArea20171211.md'
-  
+    - December 18, 2017: 'meetings/2017/TechArea20171218.md'
+
 markdown_extensions:
   - admonition
   - codehilite

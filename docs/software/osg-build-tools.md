@@ -26,7 +26,7 @@ This is the primary tool used in building source and binary RPMs.
 
 #### koji
 
-Prebuilds the final source package, then builds it remotely using the Koji instance hosted at UW-Madison. <https://koji.chtc.wisc.edu> By default, the resulting RPMs will end up in the osg-minefield repositories based on the most recent OSG major version (e.g. 3.4). You may specify a different set of repos with `--repo`, described later. RPMs from the osg-minefield repositories are regularly pulled to the osg-development repositories hosted by the GOC at <http://repo.grid.iu.edu> Unless you specify otherwise (by passing `--el6`, `--el7` or specifying a different koji tag/target), the package will be built for both el6 and el7. This is the method used to build final versions of packages you expect to ship.
+Prebuilds the final source package, then builds it remotely using the Koji instance hosted at UW-Madison. <https://koji.chtc.wisc.edu> By default, the resulting RPMs will end up in the osg-minefield repositories based on the most recent OSG major version (e.g. 3.4). You may specify a different set of repos with `--repo`, described later. RPMs from the osg-minefield repositories are regularly pulled to the osg-development repositories hosted by the GOC at <http://repo.opensciencegrid.org> Unless you specify otherwise (by passing `--el6`, `--el7` or specifying a different koji tag/target), the package will be built for both el6 and el7. This is the method used to build final versions of packages you expect to ship.
 
 #### lint
 
