@@ -99,6 +99,7 @@ pages:
     - December 4, 2017: 'meetings/2017/TechArea20171204.md'
     - December 11, 2017: 'meetings/2017/TechArea20171211.md'
     - December 18, 2017: 'meetings/2017/TechArea20171218.md'
+    - January 2, 2018: 'meetings/2018/TechArea20180102.md'
 
 markdown_extensions:
   - admonition
