@@ -64,8 +64,8 @@ language for shell sessions.
 
 ### Root and user prompts ###
 
-When specifying instructions for the command-line, indicate to users whether the commands can be run as root (`root@host
-# `) or as an unprivileged user (`user@host $ `).
+When specifying instructions for the command-line, indicate to users whether the commands can be run as root 
+(`root@host # `) or as an unprivileged user (`user@host $ `).
 
 For example:
 
