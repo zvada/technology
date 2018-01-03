@@ -143,3 +143,5 @@ and
 
 !!! warning
     if a user doesn't do this thing, bad stuff will happen
+
+For a full list of admonition styles, see the documentation [here](https://squidfunk.github.io/mkdocs-material/extensions/admonition/).
