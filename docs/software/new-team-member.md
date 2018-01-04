@@ -10,7 +10,7 @@ Accounts, Group Memberships, Certificates, Etc.
 3. Read/write access to the UW Subversion repository;
     - Send email to Mat or Tim C
 4. Grid certificate
-    - <https://twiki.opensciencegrid.org/bin/view/Documentation/CertificateGetWeb> 
+    - <https://oim.opensciencegrid.org/oim/certificate>
 5. Access to FermiCloud
     - <http://fclweb.fnal.gov/>
 6. Jira ticket system

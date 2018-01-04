@@ -41,7 +41,7 @@ Previous Releases
     -   HTCondor-CE with PBS
     -   osg-configure emits an ERROR if squid defaults are not changed ("UNAVAILABLE" is a valid change)
 -   **OSG 3.2**
-    -   Initial release ([how to create](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SP021_NewVersions))
+    -   Initial release ([how to create](https://github.com/opensciencegrid/technology/blob/master/archive/SP021_NewVersions))
     -   HDFS 2.0.0 (already done in Upcoming)
     -   HTCondor 8.0.4
     -   glideinWMS 3.2.0
