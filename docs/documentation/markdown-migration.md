@@ -75,7 +75,7 @@ When starting a twiki-converter docker container, it expects your local github r
     !!! note
         If the docker container exits immediately, remove the `-d` option for details. If you see permission denied errors, you may need to disable SELinux or put it in permissive mode.
 
-2. To find the port that your development server is lisetning on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:
+2. To find the port that your development server is listening on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:
 
         :::console
         user@host $ docker port %RED%<CONTAINER ID>%ENDCOLOR%
