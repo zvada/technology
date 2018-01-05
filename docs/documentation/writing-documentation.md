@@ -69,6 +69,7 @@ Contributing Documentation
 
 To contribute a new document:
 
+1. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the GitHub repository that you'd like to contribue to
 1. Name the document. Document file names should be lowercase, `-` delimited, and concise but descriptive, e.g. `markdown-migration.md` or `cutting-release.md`
 1. Place it in the relevant sub-folder of the `docs/` directory. If you are unsure of the appropriate location, note that in the description of the pull request.
 1. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
