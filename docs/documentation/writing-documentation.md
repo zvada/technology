@@ -67,12 +67,14 @@ Tips for Writing Procedural Instructions
 Contributing Documentation
 --------------------------
 
-To contribute a new document:
+We use the GitHub pull request model for accepting document contributions. To contribute to the OSG documentation, follow these steps:
 
-1. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the GitHub repository that you'd like to contribue to
-1. Name the document. Document file names should be lowercase, `-` delimited, and concise but descriptive, e.g. `markdown-migration.md` or `cutting-release.md`
-1. Place it in the relevant sub-folder of the `docs/` directory. If you are unsure of the appropriate location, note that in the description of the pull request.
-1. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
+1. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the GitHub repository and choose one of the following:
+    - If you are making changes to an existing document, make changes in your local clone and push them to your fork.
+    - If you are contributing a new document:
+        1. Name the document. Document file names should be lowercase, `-` delimited, and concise but descriptive, e.g. `markdown-migration.md` or `cutting-release.md`
+        1. Place the document in the relevant sub-folder of the `docs/` directory. If you are unsure of the appropriate location, note that in the description of the pull request.
+        1. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
 1. Submit your changes as a pull request to the [appropriate upstream repository](#contributing-documntation)
 
 ### Deploying ITB documentation ###
