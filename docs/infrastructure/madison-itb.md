@@ -11,28 +11,28 @@ pre em { color: red; font-weight: normal; font-style: normal; }
 
 All physical hosts are located in 3370A in the VDT rack.
 
-| Host                                         | Purpose                 | OS     | Arch       | CPU Model            | CPUs    | RAM   | Storage              | Notes                       |
-|:---------------------------------------------|:------------------------|:-------|:-----------|:---------------------|:--------|:------|:---------------------|:----------------------------|
-| itb-data1                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
-| itb-data2                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
-| itb-data3                                    | worker node             | SL 7.4 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
-| itb-data4                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
-| itb-data5                                    | worker node             | SL 6.9 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
-| itb-data6                                    | worker node             | SL 7.4 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | ???                  | planned as XRootD data node |
-| itb-host-1                                   | KVM host                | SL 7.4 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 1 TB × 4 (HW RAID 5) |                             |
-|  ·  itb-ce1                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  itb-ce2                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  itb-cm                                   | HTCondor CM             | SL 7.4 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  <span class="old">itb-glidein</span>     | GlideinWMS VO frontend? | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="old">itb-gums-rsv</span>    | GUMS, RSV               | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="off">itb-hdfs-name1</span>  | — (so far)              | SL ?   | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  <span class="old">itb-hdfs-name2</span>  | — (so far)              | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="old">itb-se-hdfs</span>     | — (so far)              | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="old">itb-se-xrootd</span>   | — (so far)              | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  itb-submit                               | HTCondor submit         | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  <span class="off">itb-xrootd</span>      | — (so far)              | SL ?   | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-| itb-host-2                                   | worker node             | SL 6.9 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
-| itb-host-3                                   | worker node             | SL 7.4 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
+| Host                                         | Purpose                 | OS     | CPU Model            | CPUs    | RAM   | Storage              | Notes                       |
+|:---------------------------------------------|:------------------------|:-------|:---------------------|:--------|:------|:---------------------|:----------------------------|
+| itb-data1                                    | worker node             | SL 6.9 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
+| itb-data2                                    | worker node             | SL 6.9 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
+| itb-data3                                    | worker node             | SL 7.4 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
+| itb-data4                                    | worker node             | SL 6.9 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
+| itb-data5                                    | worker node             | SL 6.9 | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
+| itb-data6                                    | worker node             | SL 7.4 | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | ???                  | planned as XRootD data node |
+| itb-host-1                                   | KVM host                | SL 7.4 | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 1 TB × 4 (HW RAID 5) |                             |
+|  ·  itb-ce1                                  | HTCondor-CE             | SL 6.9 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  itb-ce2                                  | HTCondor-CE             | SL 6.9 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  itb-cm                                   | HTCondor CM             | SL 7.4 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  <span class="old">itb-glidein</span>     | GlideinWMS VO frontend? | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="old">itb-gums-rsv</span>    | GUMS, RSV               | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="off">itb-hdfs-name1</span>  | — (so far)              | SL ?   | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  <span class="old">itb-hdfs-name2</span>  | — (so far)              | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="old">itb-se-hdfs</span>     | — (so far)              | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="old">itb-se-xrootd</span>   | — (so far)              | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  itb-submit                               | HTCondor submit         | SL 6.9 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  <span class="off">itb-xrootd</span>      | — (so far)              | SL ?   | VM                   | 4       | 6 GB  | 192 GB               |                             |
+| itb-host-2                                   | worker node             | SL 6.9 | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
+| itb-host-3                                   | worker node             | SL 7.4 | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
 
 (Data last updated 2017-10-13 by Tim C. <span class="old">Red</span> indicates a host that has yet to be rebuilt; <span class="off">Blue</span> is rebuilt but currently off.)
 
