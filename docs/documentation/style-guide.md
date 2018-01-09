@@ -7,6 +7,7 @@ Meta
 ----
 
 Wherever possible, prose should be limited to 120 characters wide.
+In addition, using one line for each sentence is recommended since it makes update diffs easier to review.
 
 Headers
 -------
