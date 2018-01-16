@@ -33,6 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * 15 January 2018 (Canceled - MLK day)
   * [8 January 2018](meetings/2018/TechArea20180108.md)
   * [2 January 2018](meetings/2018/TechArea20180102.md)
   * [18 December 2017](meetings/2017/TechArea20171218.md)
