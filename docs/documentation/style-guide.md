@@ -77,6 +77,10 @@ user@host $ whoami
 osguser
 ```
 
+It can provide helpful context to use a more specific hostname in the prompt than `host`.
+For example, if you're writing a doc for setting up a Storage Element and a command is run as root on the SE, use `root@se # `.
+Or if you're testing the SE from the client side and the command is run as a normal user on a client, use `user@client $ `.
+
 ### Highlighting user input  ###
 
 Use descriptive, all-caps text wrapped in angle brackets to to highlight areas that users would have to insert text
