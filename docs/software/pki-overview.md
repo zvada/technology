@@ -32,37 +32,37 @@ Upon successful request, `osg-gridadmin-cert-request` sends an approval of the c
 
 At this point, `osg-gridadmin-cert-request` sends a retrieval request and OIM sends the certificate(s) back to the client.
 
-![osg-gridadmin-cert-request](../images/osg-gridadmin-cert-request.png)
+![osg-gridadmin-cert-request](/img/osg-gridadmin-cert-request.png)
 
 ### osg-cert-request
 
 `osg-cert-request` is a tool for non-Grid Admin users to request host certificates, one at a time. The user can provide their own CSR or a hostname, for which a CSR is generated and forwarded to OIM with the rest of the request. OIM responds with the `Request ID#`, creates a ticket, and sends e-mails to the user and the Grid Admins of the requested domain + VO.
 
-![osg-cert-request](../images/osg-cert-request.png)
+![osg-cert-request](/img/osg-cert-request.png)
 
 ### osg-cert-retrieve
 
 `osg-cert-retrieve` is used to retrieve host certificates associated with a specific `Request ID#` that have been issued (i.e. approved certificate request) by a Grid Admin. OIM responds to the retrieval request with the certificate(s) of the specified `Request ID#`.
 
-![osg-cert-retrieve](../images/osg-cert-retrieve.png)
+![osg-cert-retrieve](/img/osg-cert-retrieve.png)
 
 ### osg-cert-revoke
 
 `osg-cert-revoke` is a tool for Grid Admins to revoke user or host certificates. With either a `Request ID#` or certificate serial number, the tool obtains the user's SSL credentials and sends the revocation request to OIM. OIM authenticates the user's request and if authorized, sends a revocation request to CILogon. If CILogon has successfully received the request, a successful response is forwarded to OIM, which is then forwarded back to the client tool. Revocation requests themselves are handled manually by CILogon CA administrators within one business day.
 
-![osg-cert-revoke](../images/osg-cert-revoke.png)
+![osg-cert-revoke](/img/osg-cert-revoke.png)
 
 ### osg-user-cert-renew
 
 `osg-user-cert-renew` is used to expiring certificates. The user provides either the certificate serial number or `Request ID#` and the password that's used to encrypt their new private key. The tool combines those inputs with the user's SSL credentials to generate the renewal request that is sent to OIM, which is forwarded onto CILogon as a user cert request. If successful, OIM responds with the `Request ID#` and `osg-user-cert-renew` sends a retrieval request to OIM. If the retrieval request succeeds, OIM responds with requested certificate.
 
-![osg-user-cert-renew](../images/osg-user-cert-renew.png)
+![osg-user-cert-renew](/img/osg-user-cert-renew.png)
 
 ### osg-user-cert-revoke
 
 `osg-user-cert-revoke` is a simple wrapper that calls `osg-cert-revoke --user`.
 
-![osg-user-cert-revoke](../images/osg-user-cert-revoke.png)
+![osg-user-cert-revoke](/img/osg-user-cert-revoke.png)
 
 Resources
 ---------
