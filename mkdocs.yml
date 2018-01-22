@@ -64,6 +64,7 @@ pages:
   - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - Meetings:
+    - January 22, 2018: 'meetings/2018/TechArea20180122.md'
     - January 8, 2018: 'meetings/2018/TechArea20180108.md'
     - January 2, 2018: 'meetings/2018/TechArea20180102.md'
     - December 18, 2017: 'meetings/2017/TechArea20171218.md'
