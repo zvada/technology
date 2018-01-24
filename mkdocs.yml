@@ -4,6 +4,7 @@ repo_url: https://github.com/opensciencegrid/technology/
 theme:
   name: material
   custom_dir: osgthedocs
+  favicon: img/favicon.ico
 
 extra_css:
   - css/extra.css
