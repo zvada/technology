@@ -9,16 +9,18 @@ Meta
 Wherever possible, prose should be limited to 120 characters wide.
 In addition, using one line for each sentence is recommended since it makes update diffs easier to review.
 
-Headers
--------
+Headings
+--------
 
-Use the following conventions for headers:
+Use the following conventions for headings:
 
-1. The title should be the only level 1 heading
-1. Level 1 headings should use the `====` format
-1. Level 2 headings should use the `----` format
-1. Other heading levels should use the appropriate number of `#`
-1. Use Title Case for level 1 and level 2 headings. Only capitalize the first word for all other headings.
+- The title should be the only level 1 heading
+- Level 1 headings should use the `====` format
+- Level 2 headings should use the `----` format
+- Use Title Case for level 1 and level 2 headings. Only capitalize the first word for all other headings.
+- Other heading levels should use the appropriate number of `#`
+- Go no deeper than of level 5 headings
+- Spin-off a new document or re-organize the existing document if you find that you regularly need level 5 headings.
 
 Links
 -----
