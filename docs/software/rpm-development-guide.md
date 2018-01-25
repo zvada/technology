@@ -182,7 +182,7 @@ where:
 !!! note
     `<NAME>` is optional; if not present, OSG-Build will use the last component of the URL, without the `.git` suffix.
 
-    The tarball will be called `<NAME>-<VERSION>.tar.gz` where `<VERSION>` is `<TAG>` without the `v` prefix.
+    The tarball will be called `<NAME>-<VERSION>.tar.gz` where `<VERSION>` is `<TAG>` without the `v` prefix (if there is one).
 
 !!! example
     The reference file for `osg-build`'s repo is named `osg.github.source` and contains:
