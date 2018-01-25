@@ -67,6 +67,11 @@ You must make sure that any new upstream source files are cached on the VDT webs
 -   If you have access to a UW–Madison CSL machine, you can scp the source files directly into the AFS locations using that machine
 -   If you do not have such access, write to the osg-software list to find someone who will post the files for you
 
+#### Git Hosted Upstream Files
+
+As of OSG-Build 1.11.2, it is possible to pull sources and spec files from a remote Git repo instead of our source cache.
+See the [upstream dir info](#upstream) for more information.
+
 ### Revision Control System
 
 All packages that the OSG Software Team releases are checked into our revision control system (currently Subversion but with the option to change at a later date).
@@ -143,16 +148,58 @@ where:
 | `<DESCRIPTION>` | Descriptive label of the source of the referenced file | `developer`, `epel`, `emi` |
 | `<TYPE>`        | Type of referenced file                                | `tarball`, `srpm`          |
 
-The contents of the file match the upstream source cache path defined above, without the prefix component:
+and contain references to cached files, Git repos, and comments.
+which start with `#` and continue until the end of the line.
+It is useful to add the source of the upstream file into a comment.
+
+###### Cached files
+
+To reference files in the upstream source cache, use the upstream source cache path defined above, without the prefix component:
 
 > `<PACKAGE>/<VERSION>/<FILE>`
 
-In addition, the `.source` files may contain comments, which start with `#` and continue until the end of the line. It is useful to add the source of the upstream file into a comment.
+!!! example
+    The reference file for `globus-common`'s source tarball is named `epel.srpm.source` and contains:
 
-For example, the reference file for `globus-common`'s source tarball is named `epel.srpm.source` and might contain:
+        globus-common/16.4/globus-common-16.4-1.el6.src.rpm
+        # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
 
-    globus-common/16.4/globus-common-16.4-1.el6.src.rpm
-    # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
+###### Git repos (OSG-Build 1.11.2+)
+
+To reference tags in Git repos, use the following syntax (all on one line):
+
+> `type=git url=<URL> name=<NAME> tag=<TAG> hash=<HASH>`
+
+where:
+
+| Symbol   | Definition                       | Example                                            |
+|:---------|:---------------------------------|:---------------------------------------------------|
+| `<URL>`  | Location of the Git repo         | `https://github.com/opensciencegrid/osg-build.git` |
+| `<NAME>` | Name of the software (optional)  | `osg-build`                                        |
+| `<TAG>`  | Git tag to use                   | `v1.11.2`                                          |
+| `<HASH>` | Full 40-char Git hash of the tag | `5bcf48c442d21b1e8c93a468d884f84122f7cc9e`         |
+
+!!! note
+    `<NAME>` is optional; if not present, OSG-Build will use the last component of the URL, without the `.git` suffix.
+
+    The tarball will be called `<NAME>-<VERSION>.tar.gz` where `<VERSION>` is `<TAG>` without the `v` prefix.
+
+!!! example
+    The reference file for `osg-build`'s repo is named `osg.github.source` and contains:
+
+        type=git url=https://github.com/opensciencegrid/osg-build.git name=osg-build tag=v1.11.2 hash=5bcf48c442d21b1e8c93a468d884f84122f7cc9e
+
+    This results in a tarball named `osg-build-1.11.2.tar.gz`.
+
+In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will be used as the spec file for the build
+(unless overridden in the `osg` directory).
+
+OSG-Build 1.11.2 or later is required to use this feature.
+
+!!! warning
+    OSG software policy requires that all Git repos used for building software have mirrors at the UW.
+    Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
+    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
 ##### osg
 
