@@ -166,6 +166,11 @@ To reference files in the upstream source cache, use the upstream source cache p
 
 ###### Git repos (OSG-Build 1.11.2+)
 
+!!! warning
+    OSG software policy requires that all Git repos used for building software have mirrors at the UW.
+    Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
+    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
+
 To reference tags in Git repos, use the following syntax (all on one line):
 
 > `type=git url=<URL> name=<NAME> tag=<TAG> hash=<HASH>`
@@ -195,11 +200,6 @@ In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will
 (unless overridden in the `osg` directory).
 
 OSG-Build 1.11.2 or later is required to use this feature.
-
-!!! warning
-    OSG software policy requires that all Git repos used for building software have mirrors at the UW.
-    Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
-    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
 ##### osg
 
