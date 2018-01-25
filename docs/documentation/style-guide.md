@@ -9,10 +9,10 @@ Meta
 Wherever possible, prose should be limited to 120 characters wide.
 In addition, using one line for each sentence is recommended since it makes update diffs easier to review.
 
-Headers
--------
+Headings
+--------
 
-Use the following conventions for headers:
+Use the following conventions for headings:
 
 - The title should be the only level 1 heading
 - Level 1 headings should use the `====` format
