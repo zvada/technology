@@ -94,6 +94,6 @@ Timeline
 - June 2017 (completed): OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.  Sites begin transition
   to validating VOMS extensions.
 - Summer 2017 (completed): As necessary, VOs are given access to a hosted `comanage` instance.
-- Winter 2017: First VOs begin to retire VOMS-Admin.
+- March 2017: First VOs begin to retire VOMS-Admin.
 - May 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.
 
