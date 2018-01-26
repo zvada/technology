@@ -29,5 +29,5 @@ Timeline
   Release [load balanced GridFTP](https://opensciencegrid.github.io/docs/data/load-balanced-gridftp)
   documentation
 - June 2017 (completed): OSG 3.4.0 is released without BeStMan
-- December 2018: Security-only support for OSG 3.3 series and BeStMan is provided
+- December 2018 (completed): Security-only support for OSG 3.3 series and BeStMan is provided
 - May 2018: Support is dropped for OSG 3.3 series; no further support for BeStMan is provided.
