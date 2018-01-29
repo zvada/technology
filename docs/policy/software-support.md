@@ -79,7 +79,7 @@ If someone emails you directly for support, you have the choice of when to move 
 -   If there's a chance that you might need help from others, turn it into a ticket.
 -   If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into a ticket.
 
-## GOC ticket vs. JIRA
+## GOC vs JIRA
 
 JIRA is for tracking our work.
 It's meant for internal usage, not for user support.
