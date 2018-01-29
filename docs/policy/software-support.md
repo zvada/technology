@@ -81,9 +81,19 @@ If someone emails you directly for support, you have the choice of when to move 
 
 ## GOC ticket vs. JIRA
 
-GOC Ticket is for user support. This is where we helping users debug, understand their problems, etc.
+JIRA is for tracking our work.
+It's meant for internal usage, not for user support.
+In general, users should not ask for support via JIRA.
+A single user support ticket might result in zero, one, or multiple JIRA tickets.
 
-JIRA is for tracking our work. It's meant for internal usage, not for user support.
+GOC tickets are for user support.
+This is where we help users debug, understand their problems, etc.
 
-In general, users should not ask for support via JIRA. A single user support ticket might result in zero, one, or multiple JIRA tickets. The user ticket may be closed even though the related JIRA tickets are open. ("Hi, this is a bug that we can't fix for the next six months, but I've made an internal bug report you can see at ...")
+If actionable software team tasks arise from a GOC ticket, JIRA ticket(s) should be created to track that work. 
+Resultant JIRA tickets should:
 
+- Include a link to the original GOC ticket, a description of the problem, and a proposed solution to the problem.
+- Add the original reporter as a watcher if they have a JIRA account.
+
+When all the relevant JIRA tickets are created, ask the user if they would be ok with tracking the issue via JIRA. 
+If they say yes, close the GOC ticket.
