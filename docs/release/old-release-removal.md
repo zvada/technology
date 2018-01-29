@@ -32,7 +32,7 @@ These tasks should be completed in order.
 
 2.  Remove the series from the mash configs on the repo.opensciencegrid.org machines:
 
-    - Add the koji tags for the old series to the `osg-tags.excluded` file:
+    - Add the koji tags for the old series to the `/usr/local/osg-tags.excluded` file:
     ```
     # cd /usr/local
     # fgrep osg-3.1 osg-tags
