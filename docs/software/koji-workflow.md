@@ -207,6 +207,16 @@ If you want to promote a specific version:
 
 See [OSG Building Tools](osg-build-tools) for full details on `osg-promote`.
 
+### Creating custom koji areas
+
+Occasionally you may want to make builds of a package (or packages) which you
+do not yet want to go into the main development repos.  In this case, you can
+create a set of custom koji tags and build targets for these builds.  We have
+a script in our
+[osg-next-tools](https://github.com/opensciencegrid/osg-next-tools/) repo
+called
+[new-koji-area](https://github.com/opensciencegrid/osg-next-tools/blob/master/koji/new-koji-area)
+that facilitates this set up.
 
 Further reading
 ---------------
