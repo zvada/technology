@@ -61,6 +61,7 @@ pages:
     - Writing Documentation: 'documentation/writing-documentation.md'
     - Reviewing Documentation: 'documentation/reviewing-documentation.md'
     - Markdown Style Guide: 'documentation/style-guide.md'
+    - Creating a New Area: 'documentation/new-doc-area.md'
     - Migrating Documents to Markdown: 'documentation/markdown-migration.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
