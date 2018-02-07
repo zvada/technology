@@ -16,6 +16,9 @@ Setup Instructions for New Team Members
 7. Access to Koji
     - Send email to Mat or Carl with DN of grid certificate
 8. Sign up for mailing lists
-    - osg-software
-    - osg-general
-    - osg-sites
+    - osg-software@opensciencegrid.org
+    - osg-general@opensciencegrid.org
+    - osg-sites@opensciencegrid.org
+    - osg-commits@cs.wisc.edu
+9. GitHub team membership
+    - <https://github.com/orgs/opensciencegrid/teams/software-and-release/members>
