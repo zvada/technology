@@ -368,7 +368,7 @@ cd docker-osg-wn
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
-1.  The release manager writes the release announcement and send it out. Here is a sample, replace `<HIGHLIGHTED TEXT>` with the appropriate values:
+1.  The release manager writes the release announcement and send it out. Here is a sample, replace `<BRACKETED TEXT>` with the appropriate values:
 
          Subject: Announcing OSG Software version <VERSION(S)>
          

@@ -29,6 +29,8 @@ The release manager often needs a tentative list of packages to be released. Thi
 ```bash
 VERSIONS='<VERSION(S)>'
 REVISION=<REVISION>
+```
+```bash
 git clone https://github.com/opensciencegrid/release-tools.git
 cd release-tools
 0-generate-pkg-list -d $REVISION $VERSIONS
@@ -43,6 +45,8 @@ Compare the list of packages already in pre-release to the final list for the re
 
 ```bash
 VERSIONS='<VERSION(S)>'
+```
+```bash
 1-verify-prerelease $VERSIONS
 ```
 
@@ -51,7 +55,9 @@ If there are any discrepancies consult the release manager. You may have to tag 
 Day 2: Pushing the Release
 --------------------------
 
-For the second phase of the release, try to complete it earlier in the day rather than later. The GOC would like to send out the release announcement prior to 3 p.m. Eastern time.
+!!! warning
+    Operations would like to send out the release announcement prior to 3 PM Eastern time.
+    Do not start this process after 2 PM Eastern time unless you check with Operations (specifically Kyle Gross) first.
 
 ### Step 1: Push from pre-release to release
 
@@ -60,6 +66,8 @@ This script moves the packages into release, clones releases into new version-sp
 ```bash
 VERSIONS='VERSION(S)>'
 REVISION=<REVISION>
+```
+```bash
 2-create-release -d $REVISION $VERSIONS
 ```
 
