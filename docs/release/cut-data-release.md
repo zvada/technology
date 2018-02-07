@@ -94,33 +94,33 @@ Wait for the CA certificates to be propagated to the web server on `repo.opensci
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
-1.  The release manager writes the release announcement and send it out. Here is a sample, replace `<HIGHLIGHTED TEXT>` with the appropriate values:
+1.  The release manager writes the release announcement and send it out.
+    Here is a sample, replace `<BRACKETED TEXT>` with the appropriate values.
+    If you are only updating certificates or only updated the VO package, delete the corresponding text:
 
-         Subject: Announcing OSG Software version <VERSION(S)>
-         
-         We are pleased to announce OSG Software version <VERSION(S)>!
-         
-         This is the new OSG Software distributed via RPMs for:
-         
-         * Scientific Linux 6 and 7
-         * CentOS 6 and 7
-         * Red Hat Enterprise Linux 6 and 7
-         
-         This release affects the <SET OF METAPACKAGES (client, compute element, etc...)>. Changes include:
-         
-         * Major change 1
-         * Major change 2
-         * Major change 3
-         
-         Release notes and pointers to more documentation can be found at:
-         
-         <LINK TO RELEASE NOTES>
-         
-         Need help? Let us know:
-         
-         https://www.opensciencegrid.org/bin/view/Documentation/Release3/HelpProcedure
-         
-         We welcome feedback on this release
+        :::text
+        Subject: Announcing OSG CA Cetificate and VO Package Updates
+
+        We are pleased to announce a data release for the OSG Software Stack.
+        Data releases do not contain any software changes.
+
+        This release contains updated CA Certificates based on IGTF <IGTF VERSION>:
+        - <CHANGE 1>
+        - <CHANGE 2>
+
+        This release also contains VO Package v<VO PACKAGE VERSION>:
+        - <CHANGE 1>
+        - <CHANGE 2>
+
+        Release notes and pointers to more documentation can be found at:
+
+        <LINK(S) TO RELEASE NOTES>
+
+        Need help? Let us know:
+
+        http://opensciencegrid.github.io/docs/common/help/
+
+        We welcome feedback on this release!
 
 2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
 3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
