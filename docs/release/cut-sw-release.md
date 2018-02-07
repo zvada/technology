@@ -237,8 +237,9 @@ Wait for clearance. The OSG Release Coordinator (in consultation with the Softwa
 Day 2: Pushing the Release
 --------------------------
 
-!!! note
-    For the second phase of the release, try to complete it earlier in the day rather than later. The GOC would like to send out the release announcement prior to 3 p.m. Eastern time.
+!!! warning
+    Operations would like to send out the release announcement prior to 3 PM Eastern time.
+    Do not start this process after 2 PM Eastern time unless you check with Operations (specifically Kyle Gross) first.
 
 ### Step 1: Push from pre-release to release
 
