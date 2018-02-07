@@ -352,7 +352,7 @@ The following instructions are meant for the release manager (or interim release
          
          We are pleased to announce OSG Software version <VERSION(S)>!
          
-         This is the new OSG Software distributed via RPMs for:
+         This is the OSG Software distributed via RPMs for:
          
          * Scientific Linux 6 and 7
          * CentOS 6 and 7
@@ -370,7 +370,7 @@ The following instructions are meant for the release manager (or interim release
          
          Need help? Let us know:
          
-         https://www.opensciencegrid.org/bin/view/Documentation/Release3/HelpProcedure
+         https://opensciencegrid.github.io/docs/common/help/
          
          We welcome feedback on this release
 
