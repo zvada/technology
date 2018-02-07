@@ -45,7 +45,9 @@ Where `<MAJOR VERSION>` is of the format `x.y` (e.g. `3.2`).
 Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
 ```bash
-VERSIONS=<VERSION(S)>
+VERSIONS="<VERSION(S)>"
+```
+```bash
 git clone https://github.com/opensciencegrid/release-tools.git
 cd release-tools
 0-generate-pkg-list $VERSIONS
@@ -61,7 +63,9 @@ This section is to be performed 1-2 days before the release (as designated by th
 Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated `release-list` in git). To do this, run the `1-verify-prerelease` script from git:
 
 ```bash
-VERSIONS=<VERSION(S)>
+VERSIONS="<VERSION(S)>"
+```
+```bash
 1-verify-prerelease $VERSIONS
 ```
 
@@ -142,7 +146,9 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 To avoid 404 errors when retrieving packages, it's necessary to regenerate the build repositories. Run the following script from a machine with your koji-registered user certificate:
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 1-regen-repos $NON_UPCOMING_VERSIONS
 ```
 
@@ -151,7 +157,9 @@ NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
 Create the client tarballs as root on an EL7 fermicloud machine using the relevant script from git:
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 git clone https://github.com/opensciencegrid/release-tools.git
 cd release-tools
 ./1-client-tarballs $NON_UPCOMING_VERSIONS
@@ -162,8 +170,9 @@ cd release-tools
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
-
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 dotest () {
     file=$dir/$client-$ver-1.$rhel.$arch.tar.gz
     if [ -e $file ]; then
@@ -216,7 +225,7 @@ popd
 
 If you have time, try some of the binaries, such as grid-proxy-init.
 
-!!! note
+!!! todo
     We need to automate this and have it run on the proper architectures and version of RHEL.
 
 ### Step 6: Update the UW AFS installation of the tarball client
@@ -224,7 +233,9 @@ If you have time, try some of the binaries, such as grid-proxy-init.
 The UW keeps an install of the tarball client in `/p/vdt/workspace/tarball-client` on the UW's AFS. To update it, run the following commands:
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 for ver in $NON_UPCOMING_VERSIONS; do
     /p/vdt/workspace/tarball-client/afs-install-tarball-client $ver
 done
@@ -246,8 +257,10 @@ Day 2: Pushing the Release
 This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
 
 ```bash
-VERSIONS=<VERSION(S)>
-2-create-release <VERSION(S)>
+VERSIONS="<VERSION(S)>"
+```
+```bash
+2-create-release $VERSIONS
 ```
 
 1.  `*.txt` files are also created and it should be verified that they've been moved to /p/vdt/public/html/release-info/ on UW's AFS.
@@ -260,7 +273,9 @@ Ask Tim Theisen, Brian Lin, or someone with privileges on the `opensciencegrid.o
 #### On a CS machine
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 for ver in $NON_UPCOMING_VERSIONS; do
     major_ver=`sed 's/.[0-9]*$//' <<< $ver`
     cd /p/vdt/public/html/tarball-client
@@ -272,7 +287,9 @@ done
 #### On jump.grid.iu.edu
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 for ver in $NON_UPCOMING_VERSIONS; do
     scp -pr /tmp/$ver repo1:/tmp/
     scp -pr /tmp/$ver repo2:/tmp/
@@ -289,7 +306,9 @@ sudo su -
 ```
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 for ver in $NON_UPCOMING_VERSIONS; do
     major_ver=`sed 's/.[0-9]*$//' <<< $ver`
     mv /tmp/$ver /usr/local/repo/tarball-install/$major_ver/
@@ -310,7 +329,9 @@ done
 Get the uploader script from Git and run it with `osgrun` from the UW AFS install of the tarball client you made earlier. On a UW CSL machine:
 
 ```bash
-NON_UPCOMING_VERSIONS=<NON-UPCOMING VERSION(S)>
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
 cd /tmp
 git clone --depth 1 file:///p/vdt/workspace/git/repo/tarball-client.git
 for ver in $NON_UPCOMING_VERSIONS; do
