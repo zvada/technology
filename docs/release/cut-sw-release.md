@@ -398,5 +398,6 @@ The following instructions are meant for the release manager (or interim release
 
 2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
 3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
-4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
+4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
+    Also set the Fix Versions field to the appropriate value(s) and uncheck the box that reads "Send mail for this update"
 
