@@ -60,9 +60,10 @@ The `osghost` machine has Ansible 2.3.1.0 installed via RPM.  Use other hosts an
 **Note:**
 
 - For critical passwords, see Tim C. or other knowledgeable Madison OSG staff in person
-- All commands below are meant to be run from the `osgitb` directory from Git
+- All commands below are meant to be run from the top directory of your `osgitb` Git repo (e.g. on `osghost`,
+  not on the target machine)
 
-To run Ansible for the first time on a new machine (using the `root` password when prompted):
+To run Ansible for the first time for a new machine (using the `root` password for the target machine when prompted):
 
     :::console
     ansible-playbook secure.yml -i inventory -u root -k --ask-vault-pass -f 20 -l HOST-PATTERN
@@ -72,7 +73,7 @@ The `HOST-PATTERN` can be a glob-like pattern or a regular expression that match
 Ansible documentation for details.
 
 After initial successful runs of both playbooks, subsequent runs should replace the `-u root -k` part with `-bK` to use
-your own login and `sudo`.  For example:
+your own login and `sudo` *on the target machine*.  For example:
 
     :::console
     ansible-playbook secure.yml -i inventory -bK --ask-vault-pass -f 20 -l HOST-PATTERN
@@ -92,13 +93,16 @@ If you have your own playbook to manage personal configuration, run it as follow
 1. Ask Mat to get new certificates — be sure to think about `http`, `rsv`, and other service certificates
 2. Wait for Mat to tell you that the new certificates are in `/p/condor/home/certificates`
 3. `scp -p` the certificate(s) (`*cert.pem*` and `*key.pem`) to your home directory on `osghost` or whatever machine you use for Ansible
+   Note that if you are renewing a certificate, only the `*cert.pem` will be updated and the `*key.pem` will remain the same.
 4. Find the corresponding certificate location(s) in the Ansible `roles/certs/files` directory
 5. `cp -p` the certificate files over the top of the existing Ansible ones (or create new, equivalent paths)
 6. Run `ansible-vault encrypt FILE(S)` to encrypt the files — get the Ansible vault password from Tim C. if you need it
+   Note that only the `*key.pem` files need to be encrypted, as the `*cert.pem` files are meant to be public.
+   If the (unencrypted) `*key.pem` file is not getting updated, there is no need to re-encrypt a new copy.
 7. Verify permissions, contents (you can `cat` the encrypted files), etc.
 8. Apply the files with something like `ansible-playbook secure.yml -i inventory -bK -f 20 -t certs`
 9. Commit changes (now or after applying)
-10. Push changes to origin
+10. Push changes to origin (`gitolite@git.chtc.wisc.edu:osgitb`)
 
 #### Doing yum updates
 
