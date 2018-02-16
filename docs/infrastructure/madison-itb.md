@@ -60,7 +60,7 @@ The `osghost` machine has Ansible 2.3.1.0 installed via RPM.  Use other hosts an
 **Note:**
 
 - For critical passwords, see Tim C. or other knowledgeable Madison OSG staff in person
-- All commands below are meant to be run from the top directory of your `osgitb` Git repo (on, eg, `osghost`,
+- All commands below are meant to be run from the top directory of your `osgitb` Git repo (e.g. on `osghost`,
   not on the target machine)
 
 To run Ansible for the first time for a new machine (using the `root` password for the target machine when prompted):
