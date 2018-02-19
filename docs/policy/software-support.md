@@ -1,9 +1,8 @@
 Software Team Support
 =====================
 
-# Managing OSG Software Tickets
-
-## Incoming tickets (Operations staff)
+Incoming tickets (Operations staff)
+-----------------------------------
 
 When a ticket arrives at the GOC and the Operations staff member decides that the ticket should be assigned to the Software Team, the operations staff member will do two things:
 
@@ -11,7 +10,8 @@ When a ticket arrives at the GOC and the Operations staff member decides that th
 2.  The "Next Action" field will be set to "SOFTWARE TRIAGE".
 3.  The Software pseudo-user has an email list as its "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
 
-## Triage duty (Technology Area staff)
+Triage duty (Technology Area staff)
+-----------------------------------
 
 All OSG Technology Area Team members who are at least 50% on the will share triage duty (except Brian Bockelman). Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:
 
@@ -84,7 +84,8 @@ To subscribe to this calendar in your calendar program, use the iCal URL: `https
 
 <iframe src="https://www.google.com/calendar/embed?height=600&showPrint=0&wkst=1&bgcolor=%23FFFFFF&src=h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com&color=%232F6309&ctz=America%2FChicago" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-## Handling tickets
+Handling tickets
+----------------
 
 -   We need to take good care of our users. We are in a small community. Please be friendly and patient even when the user is frustrated or lacking in knowledge.
 -   Always sign your ticket with your full name, so people know who is responding.
@@ -95,7 +96,8 @@ To subscribe to this calendar in your calendar program, use the iCal URL: `https
     -   Is there a way to improve our documentation?
     -   Can you extend our troubleshooting documents to help people track this down more quickly? Consider the troubleshooting documents to be as much for us as for our users.
 
-## Direct email vs. support
+Direct E-mail vs. Support
+-------------------------
 
 If someone emails you directly for support, you have the choice of when to move it to a ticket. The recommended criteria are:
 
@@ -105,7 +107,8 @@ If someone emails you directly for support, you have the choice of when to move 
 -   If there's a chance that you might need help from others, turn it into a ticket.
 -   If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into a ticket.
 
-## GOC vs JIRA
+GOC vs JIRA
+-----------
 
 JIRA is for tracking our work.
 It's meant for internal usage, not for user support.
