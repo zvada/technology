@@ -41,6 +41,32 @@ Note that if you follow the above, we will end up with three assignees to each t
 
     Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://opensciencegrid.github.io/docs/).
 
+### LCMAPS VOMS Transition ###
+
+This section contains the process for helping sites transition from edg-mkgridmap or GUMS to the LCMAPS VOMS plugin as
+part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
+
+1. Ask if the site is using edg-mkgridmap or GUMS. If they're using GUMS, find out what GUMS clients they have at their 
+   site. Possibilities include:
+
+    - HTCondor-CE
+    - GridFTP
+    - XRootD: if an ATLAS site, they use vomsxrd/xrootd-voms-plugin
+    - dCache: if an ATLAS site, encourage them to consult US-ATLAS mailing lists
+    - BeStMan: encourage the site to transition to GridFTP, as they cannot retire GUMS until BeStMan doesn't depend on it.
+      If CMS/ATLAS, encourage them to consult their US-ATLAS/US-CMS mailing lists for assistance.
+
+1. Ask them to follow the relevant instructions for their authorization solution 
+
+    - [edg-mkgridmap](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
+    - [GUMS](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
+
+1. After they've completed the above instructions, verify that they're still getting pilots:
+
+    1. Add factory ops to the ticket under `OSG Support Centers`
+    1. Verify that the site's [pilot numbers](http://gfactory-1.t2.ucsd.edu/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
+       are non-zero.
+
 ### Updating the triage calendar ###
 
 The calendar is hosted on Tim Cartwright’s Google Calendar account. If you need privileges to edit, ask Brian L. To update
