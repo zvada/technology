@@ -72,7 +72,7 @@ to an equivalent call to `voms-proxy-fake`:
 ```
 voms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \
                 -hostkey /etc/grid-security/voms/vomskey.pem \
-                -fqan /hcc/Role=pilot \
+                -fqan /hcc/Role=pilot/Capability=NULL \
                 -voms hcc -uri hcc-voms.unl.edu:15000
 ```
 
