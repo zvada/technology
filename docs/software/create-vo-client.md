@@ -37,7 +37,7 @@ To make the tarball:
          wget --recursive --no-host-directories --cut-dirs=3 -A "*.lsc" http://repo.opensciencegrid.org/pacman/tarballs/vo-package/vomsdir
 
 -   In a separate directory, unpack the *old* vo-client tarball (from the upstream source cache)
--   diff the two directories, and compare the changes to the changelog posted at <https://twiki.opensciencegrid.org/bin/view/Operations/PackageV44> (replace '44' with the current version)
+-   diff the two directories, and compare the changes to the expected changes listed in the JIRA ticket for this VO Client package release
 
 <!-- -->
 
@@ -89,7 +89,7 @@ There are two files that need to be maintained:
 RPM building
 ------------
 
-After installing the [osg-build tools](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/VDTRPMBuildBox), check out a clean copy from svn, then:
+After installing the [osg-build tools](osg-build-tools), check out a clean copy from svn, then:
 
 -   `osg-build prebuild .`
 -   Once there are no errors, run `osg-build koji . --scratch` This can be done without making any permanent change.
