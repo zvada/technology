@@ -6,7 +6,7 @@ This document contains instructions for creating a new OSG documentation area vi
 1. Create a new repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new) (referred to as `<REPO NAME>` in the rest of this document)
 
     1. Check the box marked `Initialize this repository with a README`
-    1. Once created, add the `documentation` tag
+    1. Once created, add the `documentation` topic by clicking on the "Add topics" button
 
 1. Clone the repository and `cd` into the directory:
 
@@ -64,7 +64,7 @@ This section describes creating an ITB repository for a documentation area creat
    The ITB repository will be referred to as `<ITB REPO NAME>` in the rest of this document.
 
     1. Check the box marked `Initialize this repository with a README`
-    1. Once created, add the `documentation` tag
+    1. Once created, add the `documentation` topic by clicking on the "Add topics" button
 
 1. Clone the repository and `cd` into the directory:
 
