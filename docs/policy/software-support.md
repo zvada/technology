@@ -20,7 +20,8 @@ All OSG Technology Area Team members who are at least 50% on the will share tria
 -   If you cannot handle an incoming ticket, collect initial details (versions, logs, etc...), and assign the ticket to the most appropriate software team member. Where appropriate, include people from other teams (i.e. security, operations, glidein...) Leave the "software" user assigned to the ticket.
 -   Look at assigned tickets. For tickets that are not being handled in a timely fashion, please remind the person that owns the ticket, or, if the ticket is waiting on the user, remind the user.
 
-Please note: being on triage duty does *not* mean that you must personally solve all new tickets. It means that you handle the easy tickets and assign the other tickets appropriately.
+!!! note
+    Being on triage duty does *not* mean that you must personally solve all new tickets. It means that you handle the easy tickets and assign the other tickets appropriately.
 
 Note that the software pseudo-user has an email address that is a mailing list: <osg-software-support-stream@opensciencegrid.org>. If you find it convenient, you can sign up for the mailing list to see all the incoming tickets. Alain recommends you do this during your triage duty, but you do not need to stay subscribed when you are not on triage duty.
 
@@ -37,9 +38,11 @@ Note that if you follow the above, we will end up with three assignees to each t
 5.  **ASSIGNMENT \#3:** The person on triage duty assigns it to the right person from the software team. We now have three assignees:
     1.  GOC member
     2.  Software Support (Triage)
-    3.  The Software team member who will handle the ticket
+    3.  The Technology team member who is responsible for guiding a ticket until it is resolved
 
-    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://opensciencegrid.github.io/docs/).
+    To avoid any confusion around ticket ownership, assign only one Technology team member per ticket.
+    If the expertise of another Technology team member is needed on the ticket, add them to the CC list.
+    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
 
 ### LCMAPS VOMS Transition ###
 
