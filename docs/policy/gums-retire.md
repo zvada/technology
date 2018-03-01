@@ -39,7 +39,7 @@ document. The intended solution will revolve around mapping local user accounts 
 with any site for which this solution does not work.
 
 LCMAPS VOMS plugin installation and configuration documentation can be
-found [here](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/InstallLcmapsVoms).
+found [here](https://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication).
 
 Timeline
 --------
@@ -47,8 +47,6 @@ Timeline
 - April 2017 (completed): `lcmaps-plugins-voms` shipped and supported by OSG.
 - May 2017 (completed): `osg-configure` and documentation necessary for using `lcmaps-plugins-voms` is shipped.
 - June 2017 (completed): OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.
-- July 2017: OSG 3.4 CEs can be configured with 3.3 GUMS hosts
-  ([SOFTWARE-2482](https://jira.opensciencegrid.org/browse/SOFTWARE-2482))
-- September 2017?: Complete transition for sites using default GUMS configurations
-- December 2017?: Complete transition for sites not using pool accounts
+- July 2017 (completed): OSG 3.4 CEs can be configured with 3.3 GUMS hosts
+- March 2018: Complete transition for sites not using pool accounts
 - May 2018: Support is dropped for OSG 3.3 series; no further support for GUMS is provided.

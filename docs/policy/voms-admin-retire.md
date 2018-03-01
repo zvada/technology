@@ -55,7 +55,7 @@ needed. _Note_: In parallel to the VOMS-Admin transition, OSG Software plans to 
 There is no need to complete one transition before the other.
 
 Sites using `edg-mkgridmap` will need to use its replacement, `lcmaps-plugins-voms` (this
-process is documented [here](https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/OSGReleaseSeries#Migrating_from_edg_mkgridmap_to)).
+process is documented [here](https://opensciencegrid.github.io/docs/release/release_series/#migrating-from-edg-mkgridmap-to-lcmaps-voms-plugin.md)).
 
 VO Transition Plans
 -------------------
@@ -72,7 +72,7 @@ to an equivalent call to `voms-proxy-fake`:
 ```
 voms-proxy-fake -hostcert /etc/grid-security/voms/vomscert.pem \
                 -hostkey /etc/grid-security/voms/vomskey.pem \
-                -fqan /hcc/Role=pilot \
+                -fqan /hcc/Role=pilot/Capability=NULL \
                 -voms hcc -uri hcc-voms.unl.edu:15000
 ```
 
@@ -94,6 +94,6 @@ Timeline
 - June 2017 (completed): OSG 3.4.0 is released without VOMS-Admin, `edg-mkgridmap`, or GUMS.  Sites begin transition
   to validating VOMS extensions.
 - Summer 2017 (completed): As necessary, VOs are given access to a hosted `comanage` instance.
-- Winter 2017: First VOs begin to retire VOMS-Admin.
+- March 2017: First VOs begin to retire VOMS-Admin.
 - May 2018: Support is dropped for OSG 3.3 series; no further support for VOMS-Admin or GUMS is provided.
 

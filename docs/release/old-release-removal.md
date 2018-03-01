@@ -30,11 +30,35 @@ These tasks should be completed in order.
     release series is going away.  See the [template email](#template-email)
     below.
 
-2.  Remove the series from the mash configs on the repo.grid.iu.edu machines.
+2.  Remove the series from the mash configs on the repo.opensciencegrid.org machines:
 
-3.  Remove the appropriate mirrorlist directories from `/usr/local/mirror/osg`.
+    - Add the koji tags for the old series to the `/usr/local/osg-tags.excluded` file:
+    ```
+    # cd /usr/local
+    # fgrep osg-3.1 osg-tags
+    osg-3.1-el5-contrib
+    osg-3.1-el5-development
+    osg-3.1-el5-release
+    osg-3.1-el5-testing
+    osg-3.1-el6-contrib
+    osg-3.1-el6-development
+    osg-3.1-el6-release
+    osg-3.1-el6-testing
+    # fgrep osg-3.1 osg-tags >> osg-tags.exclude
+    ```
+    - Re-run `update_mashfiles.sh` to update the mash config files:
+    ```
+    # ./update_mashfiles.sh
+    ```
 
-4.  Remove the appropriate repo directories from `/usr/local/repo/osg`.
+3.  Remove the appropriate repo directories from `/usr/local/repo/osg`.
+    ```
+    # rm -rf repo*/osg/3.1/
+    ```
+4.  Reclaim space from any cached rpms in the mash cache which are no longer linked elsewhere:
+    ```
+    # find mash/cache/ -name \*.rpm -type f -links 1 -delete
+    ```
 
 5.  Wait for mash to run and verify that the repos are no longer getting
     updated:

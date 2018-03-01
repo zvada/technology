@@ -75,7 +75,7 @@ On your development machine:
 7. Update the epelrescue RPMs table below
 
 Removing resurrected RPMs
-=========================
+-------------------------
 
 In case the RPM appeared back in EPEL, or we no longer need it, here's how to remove it from the epelrescue tags so we're not overriding the EPEL version:
 
@@ -89,8 +89,7 @@ In case the RPM appeared back in EPEL, or we no longer need it, here's how to re
         :::console
         [user@client ~] $ osg-koji untag-pkg %RED%<OUR_KOJI_TAG> <BUILD>%ENDCOLOR%
 
-Why you should not use block-pkg
---------------------------------
+### Why you should not use block-pkg
 
 EPEL removes their packages by using 'koji block-pkg', which leaves the package and the builds in the tag, but prevents it from appearing in the repos. We cannot do that, because blocks are inherited and this will mess up our build repos. This is what happened in one case:
 
@@ -101,12 +100,12 @@ EPEL removes their packages by using 'koji block-pkg', which leaves the package 
 5. I unblocked the rpmdevtools, and just untagged the build instead, regenerated our build repos, and we could build again.
 
 Policy for epelrescue tags
-==========================
+--------------------------
 
 <https://jira.opensciencegrid.org/browse/SOFTWARE-2046>
 
 Table of epelrescue RPMs
-========================
+------------------------
 
 | Package                                             | Distro version | Date added | Reason added                     | Date removed |
 |:----------------------------------------------------|:---------------|:-----------|:---------------------------------|:-------------|
@@ -116,8 +115,7 @@ Table of epelrescue RPMs
 | python-requests-1.1.0-4.el6                         | 6              | 2015-09-23 | Dep of osg-build (via mock)      | 2015-10-14   |
 | python-urllib3-1.5-7.el6                            | 6              | 2015-09-23 | Dep of osg-build (via mock)      | 2015-10-14   |
 
-Finding out if a package is still needed in epelrescue
-------------------------------------------------------
+### Finding out if a package is still needed in epelrescue
 
 Set `$pkg` to the name of a package to test (e.g. `python-six`), and `$rhel` set to the RHEL version you're testing for (e.g. `5`, `6`, or `7`).
 

@@ -6,7 +6,7 @@ This document attempts to record everything there is to know about repository ma
 Public repositories
 -------------------
 
-We host four public-facing repositories at [repo.grid.iu.edu](http://repo.grid.iu.edu/):
+We host four public-facing repositories at [repo.opensciencegrid.org](http://repo.opensciencegrid.org/):
 
 -   **development**: This repository is the bleeding edge. Installing from this repository may cause the host to stop functioning, and we will not assist in undoing any damage.
 

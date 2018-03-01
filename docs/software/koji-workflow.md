@@ -47,18 +47,10 @@ The results of a buildArch task. Their metadata are recorded in the Koji databas
 **Repository**  
 A yum repository created from the contents of a tag at a specific point in time. By default, the yum repository will contain all successful, non-blocked builds in the tag, plus all RPMs in the external repositories for the tag.
 
-Further reading
----------------
-
--   Official Koji documentation: <https://docs.pagure.org/koji/>
--   Fedora's koji documentation: <https://fedoraproject.org/wiki/Koji>
--   Fedora's "Using Koji" page: <https://fedoraproject.org/wiki/Using_the_Koji_build_system> Note that some instructions there may not apply to OSG's Koji. For the most part though, they are useful.
-
 Using Koji
-==========
+----------
 
-Required Software
------------------
+### Required Software
 
 Using Koji requires:
 
@@ -67,7 +59,7 @@ Using Koji requires:
 
 Both pieces of software are available from the osg repositories. `osg-build` may also be obtained from GitHub by cloning out `https://github.com/opensciencegrid/osg-build`
 
-### Special instructions for UW-Madison CSL machines:
+#### Special instructions for UW-Madison CSL machines:
 
 -   Clone the osg-build GitHub repo:
 
@@ -82,8 +74,7 @@ Both pieces of software are available from the osg repositories. `osg-build` may
 
     to set up the koji configuration and certificates in `~/.osg-koji`
 
-Obtaining a login
------------------
+### Obtaining a login
 
 You will be using your grid certificate to log in. Email a Koji admin the DN of your certificate, and we will set up a Koji account with the appropriate permissions.
 
@@ -91,8 +82,7 @@ If you are switching certificate providers, you will need to email a Koji admin 
 
 Current Koji admins are Mat Selmeci and Carl Edquist.
 
-Configuring certificate authentication
---------------------------------------
+### Configuring certificate authentication
 
 You must also configure certificate authentication for the command-line tools on your build host:
 
@@ -105,8 +95,7 @@ You must also configure certificate authentication for the command-line tools on
 
 After this, you will also be able to run koji commands manually by using the `osg-koji` wrapper script. You might need to rerun `osg-koji setup` if you renew or change your cert.
 
-Creating a new build
---------------------
+### Creating a new build
 
 We create a new build in Koji from the package's directory in OSG Software subversion.
 
@@ -124,10 +113,9 @@ Each invocation of osg-build will ask for the password once or twice; if you get
 
 When you do a non-scratch build, it will build with the *osg-el6* and *osg-el7* targets. This will assign your build the *osg-3.4-el6-development* and *osg-3.4-el7-development* tags (and your package will be assigned the *osg-el6* and *osg-el7* tags). If successful, your build will end up in the Koji *osg-minefield* yum repos and will eventually show up in the *osg-development* yum repos. This is a high latency process.
 
-Build task Results
-------------------
+### Build task Results
 
-### How to find build results
+#### How to find build results
 
 The most recent build results are always shown on the home page of Koji:
 
@@ -143,7 +131,7 @@ And the lcmaps-1.6.6-1.1.osg33.el6 build is here:
 
 <https://koji.chtc.wisc.edu/koji/buildinfo?buildID=7427>
 
-### Trying our your build
+#### Trying our your build
 
 Because it takes a while for your build to get into one of the regular repositories, it's simplest to download your RPM directly (see the previous section on How to find build results), and install it with:
 
@@ -151,7 +139,7 @@ Because it takes a while for your build to get into one of the regular repositor
 [root@host]# yum localinstall <RPM>
 ```
 
-### How to get the resulting RPM into a repository
+#### How to get the resulting RPM into a repository
 
 Once a package has been built, it is added to a tag. We then must turn the tag into a yum repository. This is normally done automatically and you do not need to deal with it yourself. Three notes:
 
@@ -165,7 +153,7 @@ Once a package has been built, it is added to a tag. We then must turn the tag i
 -   Repositories are created on external hosts with the `mash` tool. These are usually triggered by cron jobs, but may be run by hand too. Documentation for running mash is on the TODO list.
     -   You can create your own personal repository using `mash`.
 
-### Debugging build issues
+#### Debugging build issues
 
 -   Failed build tasks can be seen from the Koji homepage. The logs from the tasks are included. Relevant logs include:
 
@@ -187,14 +175,13 @@ Once a package has been built, it is added to a tag. We then must turn the tag i
         This happens when the name of the directory your package is in does not match the name of the package.
         You must rename one or the other and commit your changes before trying again.
 
-Promoting Builds from Development -> Testing
---------------------------------------------
+### Promoting Builds from Development -> Testing
 
 Software contributors can promote any package to testing. Members of the security team can promote ca-cert packages to testing.
 
 To promote from development to testing:
 
-### Using *osg-promote*
+#### Using *osg-promote*
 
 If you want to promote the latest version:
 
@@ -219,3 +206,21 @@ If you want to promote a specific version:
  For `osg-promote`, you may omit the `.osg34.el6` or `.osg34.el7`; the script will add the appropriate disttag on.
 
 See [OSG Building Tools](osg-build-tools) for full details on `osg-promote`.
+
+### Creating custom koji areas
+
+Occasionally you may want to make builds of a package (or packages) which you
+do not yet want to go into the main development repos.  In this case, you can
+create a set of custom koji tags and build targets for these builds.  We have
+a script in our
+[osg-next-tools](https://github.com/opensciencegrid/osg-next-tools/) repo
+called
+[new-koji-area](https://github.com/opensciencegrid/osg-next-tools/blob/master/koji/new-koji-area)
+that facilitates this set up.
+
+Further reading
+---------------
+
+-   Official Koji documentation: <https://docs.pagure.org/koji/>
+-   Fedora's koji documentation: <https://fedoraproject.org/wiki/Koji>
+-   Fedora's "Using Koji" page: <https://fedoraproject.org/wiki/Using_the_Koji_build_system> Note that some instructions there may not apply to OSG's Koji. For the most part though, they are useful.

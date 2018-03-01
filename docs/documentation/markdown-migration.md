@@ -28,7 +28,11 @@ Choose one of the following methods for converting TWiki documents:
 
 ### Using docker ###
 
-The twiki-converter docker image can be used to preview the document tree via a [mkdocs](http://www.mkdocs.org/#getting-started) development server, archive TWiki documents, and convert documents to Markdown via [pandoc](http://pandoc.org/). The image is available on `osghost`, otherwise, follow the instructions [here](https://github.com/brianhlin/docker-twiki-converter) to build it locally. 
+The twiki-converter docker image can be used to preview the document tree via a [mkdocs](http://www.mkdocs.org/#getting-started) development server, archive TWiki documents, and convert documents to Markdown via [pandoc](http://pandoc.org/). The image is available on `osghost`, otherwise, it is availble on [dockerhub](https://hub.docker.com/r/opensciencegrid/docker-twiki-converter/).
+
+```console
+user@host $ docker pull opensciencegrid/docker-twiki-converter
+```
 
 #### Requirements ####
 
@@ -65,13 +69,13 @@ When starting a twiki-converter docker container, it expects your local github r
 1. Create a container from the image with the following command:
 
         :::console
-        user@host $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 twiki
+        user@host $ docker run -d -v %RED%<PATH TO LOCAL GITHUB REPO>%ENDCOLOR%:/source -p 8000 opensciencegrid/docker-twiki-converter
     The above command should return the container ID, which will be used in subsequent commands. 
 
     !!! note
         If the docker container exits immediately, remove the `-d` option for details. If you see permission denied errors, you may need to disable SELinux or put it in permissive mode.
 
-2. To find the port that your development server is lisetning on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:
+2. To find the port that your development server is listening on, use the container ID (you should only need the first few chars of the ID) returned from the previous command:
 
         :::console
         user@host $ docker port %RED%<CONTAINER ID>%ENDCOLOR%
@@ -86,7 +90,7 @@ The docker image contains a convenience script, `convert-twiki` for saving archi
 user@host $ docker exec %RED%<CONTAINER ID>%ENDCOLOR% convert-twiki %RED%<TWIKI URL>%ENDCOLOR%
 ```
 
-Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. [https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess). This will result in an archive of the twiki doc, `archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess.md`, placed into the root of your local github repository.  If the twiki url is for a specific revision of the document, a `.rNN` will be included in the output filenames.
+Where %RED%<CONTAINER ID>%ENDCOLOR% is the docker container ID and %RED%<TWIKI URL>%ENDCOLOR% is the link to the TWiki document that you want to convert, e.g. https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/SoftwareDevelopmentProcess . This will result in an archive of the twiki doc, `archive/SoftwareDevelopmentProcess`, in your local repo and a converted copy, `SoftwareDevelopmentProcess.md`, placed into the root of your local github repository.  If the twiki url is for a specific revision of the document, a `.rNN` will be included in the output filenames.
 
 !!! warning
     If the above command does not complete quickly, it means that Pandoc is having an issue with a specific section of the document. See [Troubleshooting conversion](#troubleshooting-conversion) for next steps.

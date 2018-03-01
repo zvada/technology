@@ -133,7 +133,7 @@ Testing in mixed mode
 
 To test IPv6 in mixed mode, you can use the `ntop` tool to monitor traffic over IPv6. `ntop` is installed on all the test machines and you can access the web interface at *hostname:3000*. To see a table that displays network traffic between your VM and another host by going to *All Protocols* -> *Traffic* and looking at the IPv6 column.
 
-![NTP-web](../images/ipv6-testing.png)
+![NTP-web](/img/ipv6-testing.png)
 
 ### Enforcing communication over IPv6
 

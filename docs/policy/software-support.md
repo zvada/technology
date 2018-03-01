@@ -1,9 +1,8 @@
 Software Team Support
 =====================
 
-# Managing OSG Software Tickets
-
-## Incoming tickets (Operations staff)
+Incoming tickets (Operations staff)
+-----------------------------------
 
 When a ticket arrives at the GOC and the Operations staff member decides that the ticket should be assigned to the Software Team, the operations staff member will do two things:
 
@@ -11,7 +10,8 @@ When a ticket arrives at the GOC and the Operations staff member decides that th
 2.  The "Next Action" field will be set to "SOFTWARE TRIAGE".
 3.  The Software pseudo-user has an email list as its "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
 
-## Triage duty (Technology Area staff)
+Triage duty (Technology Area staff)
+-----------------------------------
 
 All OSG Technology Area Team members who are at least 50% on the will share triage duty (except Brian Bockelman). Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:
 
@@ -20,11 +20,12 @@ All OSG Technology Area Team members who are at least 50% on the will share tria
 -   If you cannot handle an incoming ticket, collect initial details (versions, logs, etc...), and assign the ticket to the most appropriate software team member. Where appropriate, include people from other teams (i.e. security, operations, glidein...) Leave the "software" user assigned to the ticket.
 -   Look at assigned tickets. For tickets that are not being handled in a timely fashion, please remind the person that owns the ticket, or, if the ticket is waiting on the user, remind the user.
 
-Please note: being on triage duty does *not* mean that you must personally solve all new tickets. It means that you handle the easy tickets and assign the other tickets appropriately.
+!!! note
+    Being on triage duty does *not* mean that you must personally solve all new tickets. It means that you handle the easy tickets and assign the other tickets appropriately.
 
 Note that the software pseudo-user has an email address that is a mailing list: <osg-software-support-stream@opensciencegrid.org>. If you find it convenient, you can sign up for the mailing list to see all the incoming tickets. Alain recommends you do this during your triage duty, but you do not need to stay subscribed when you are not on triage duty.
 
-All the currently opened tickets assigned to the software team can be seen here: [GOC Open Tickets](https://ticket.grid.iu.edu/goc/list/open)
+All the currently opened tickets assigned to the software team can be seen here: [GOC Open Tickets](https://ticket.opensciencegrid.org/goc/list/open)
 
 ### Flow of tickets
 
@@ -37,9 +38,37 @@ Note that if you follow the above, we will end up with three assignees to each t
 5.  **ASSIGNMENT \#3:** The person on triage duty assigns it to the right person from the software team. We now have three assignees:
     1.  GOC member
     2.  Software Support (Triage)
-    3.  The Software team member who will handle the ticket
+    3.  The Technology team member who is responsible for guiding a ticket until it is resolved
 
-    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://twiki.grid.iu.edu/bin/view/Documentation/Release3/#Software_Guides_Troubleshooting).
+    To avoid any confusion around ticket ownership, assign only one Technology team member per ticket.
+    If the expertise of another Technology team member is needed on the ticket, add them to the CC list.
+    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
+
+### LCMAPS VOMS Transition ###
+
+This section contains the process for helping sites transition from edg-mkgridmap or GUMS to the LCMAPS VOMS plugin as
+part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
+
+1. Ask if the site is using edg-mkgridmap or GUMS. If they're using GUMS, find out what GUMS clients they have at their 
+   site. Possibilities include:
+
+    - HTCondor-CE
+    - GridFTP
+    - XRootD: if an ATLAS site, they use vomsxrd/xrootd-voms-plugin
+    - dCache: if an ATLAS site, encourage them to consult US-ATLAS mailing lists
+    - BeStMan: encourage the site to transition to GridFTP, as they cannot retire GUMS until BeStMan doesn't depend on it.
+      If CMS/ATLAS, encourage them to consult their US-ATLAS/US-CMS mailing lists for assistance.
+
+1. Ask them to follow the relevant instructions for their authorization solution 
+
+    - [edg-mkgridmap](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
+    - [GUMS](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
+
+1. After they've completed the above instructions, verify that they're still getting pilots:
+
+    1. Add factory ops to the ticket under `OSG Support Centers`
+    1. Verify that the site's [pilot numbers](http://gfactory-1.t2.ucsd.edu/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
+       are non-zero.
 
 ### Updating the triage calendar ###
 
@@ -58,7 +87,8 @@ To subscribe to this calendar in your calendar program, use the iCal URL: `https
 
 <iframe src="https://www.google.com/calendar/embed?height=600&showPrint=0&wkst=1&bgcolor=%23FFFFFF&src=h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com&color=%232F6309&ctz=America%2FChicago" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-## Handling tickets
+Handling tickets
+----------------
 
 -   We need to take good care of our users. We are in a small community. Please be friendly and patient even when the user is frustrated or lacking in knowledge.
 -   Always sign your ticket with your full name, so people know who is responding.
@@ -69,7 +99,8 @@ To subscribe to this calendar in your calendar program, use the iCal URL: `https
     -   Is there a way to improve our documentation?
     -   Can you extend our troubleshooting documents to help people track this down more quickly? Consider the troubleshooting documents to be as much for us as for our users.
 
-## Direct email vs. support
+Direct E-mail vs. Support
+-------------------------
 
 If someone emails you directly for support, you have the choice of when to move it to a ticket. The recommended criteria are:
 
@@ -79,11 +110,22 @@ If someone emails you directly for support, you have the choice of when to move 
 -   If there's a chance that you might need help from others, turn it into a ticket.
 -   If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into a ticket.
 
-## GOC ticket vs. JIRA
+GOC vs JIRA
+-----------
 
-GOC Ticket is for user support. This is where we helping users debug, understand their problems, etc.
+JIRA is for tracking our work.
+It's meant for internal usage, not for user support.
+In general, users should not ask for support via JIRA.
+A single user support ticket might result in zero, one, or multiple JIRA tickets.
 
-JIRA is for tracking our work. It's meant for internal usage, not for user support.
+GOC tickets are for user support.
+This is where we help users debug, understand their problems, etc.
 
-In general, users should not ask for support via JIRA. A single user support ticket might result in zero, one, or multiple JIRA tickets. The user ticket may be closed even though the related JIRA tickets are open. ("Hi, this is a bug that we can't fix for the next six months, but I've made an internal bug report you can see at ...")
+If actionable software team tasks arise from a GOC ticket, JIRA ticket(s) should be created to track that work. 
+Resultant JIRA tickets should:
 
+- Include a link to the original GOC ticket, a description of the problem, and a proposed solution to the problem.
+- Add the original reporter as a watcher if they have a JIRA account.
+
+When all the relevant JIRA tickets are created, ask the user if they would be ok with tracking the issue via JIRA. 
+If they say yes, close the GOC ticket.

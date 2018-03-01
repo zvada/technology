@@ -11,28 +11,28 @@ pre em { color: red; font-weight: normal; font-style: normal; }
 
 All physical hosts are located in 3370A in the VDT rack.
 
-| Host                                         | Purpose                 | OS     | Arch       | CPU Model            | CPUs    | RAM   | Storage              | Notes                       |
-|:---------------------------------------------|:------------------------|:-------|:-----------|:---------------------|:--------|:------|:---------------------|:----------------------------|
-| itb-data1                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
-| itb-data2                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
-| itb-data3                                    | worker node             | SL 7.4 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
-| itb-data4                                    | worker node             | SL 6.9 | x86 64-bit | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
-| itb-data5                                    | worker node             | SL 6.9 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
-| itb-data6                                    | worker node             | SL 7.4 | x86 64-bit | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | ???                  | planned as XRootD data node |
-| itb-host-1                                   | KVM host                | SL 7.4 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 1 TB × 4 (HW RAID 5) |                             |
-|  ·  itb-ce1                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  itb-ce2                                  | HTCondor-CE             | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  itb-cm                                   | HTCondor CM             | SL 7.4 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  <span class="old">itb-glidein</span>     | GlideinWMS VO frontend? | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="old">itb-gums-rsv</span>    | GUMS, RSV               | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="off">itb-hdfs-name1</span>  | — (so far)              | SL ?   | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  <span class="old">itb-hdfs-name2</span>  | — (so far)              | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="old">itb-se-hdfs</span>     | — (so far)              | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  <span class="old">itb-se-xrootd</span>   | — (so far)              | SL 6.3 | x86 64-bit | VM                   | 3       | 6 GB  | 50 GB                |                             |
-|  ·  itb-submit                               | HTCondor submit         | SL 6.9 | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-|  ·  <span class="off">itb-xrootd</span>      | — (so far)              | SL ?   | x86 64-bit | VM                   | 4       | 6 GB  | 192 GB               |                             |
-| itb-host-2                                   | worker node             | SL 6.9 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
-| itb-host-3                                   | worker node             | SL 7.4 | x86 64-bit | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
+| Host                                         | Purpose                 | OS     | CPU Model            | CPUs    | RAM   | Storage              | Notes                       |
+|:---------------------------------------------|:------------------------|:-------|:---------------------|:--------|:------|:---------------------|:----------------------------|
+| itb-data1                                    | worker node             | SL 6.9 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
+| itb-data2                                    | worker node             | SL 6.9 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
+| itb-data3                                    | worker node             | SL 7.4 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as HDFS data node   |
+| itb-data4                                    | worker node             | SL 6.9 | Celeron G530 2.4Ghz  | 2 / 2   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
+| itb-data5                                    | worker node             | SL 6.9 | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | 750 GB × 2 (RAID?)   | planned as XRootD data node |
+| itb-data6                                    | worker node             | SL 7.4 | Xeon E3-1220 3.10GHz | 2 / 4   | 8 GB  | ???                  | planned as XRootD data node |
+| itb-host-1                                   | KVM host                | SL 7.4 | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 1 TB × 4 (HW RAID 5) |                             |
+|  ·  itb-ce1                                  | HTCondor-CE             | SL 6.9 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  itb-ce2                                  | HTCondor-CE             | SL 6.9 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  itb-cm                                   | HTCondor CM             | SL 7.4 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  <span class="old">itb-glidein</span>     | GlideinWMS VO frontend? | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="old">itb-gums-rsv</span>    | GUMS, RSV               | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="off">itb-hdfs-name1</span>  | — (so far)              | SL ?   | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  <span class="old">itb-hdfs-name2</span>  | — (so far)              | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="old">itb-se-hdfs</span>     | — (so far)              | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  <span class="old">itb-se-xrootd</span>   | — (so far)              | SL 6.3 | VM                   | 3       | 6 GB  | 50 GB                |                             |
+|  ·  itb-submit                               | HTCondor submit         | SL 6.9 | VM                   | 4       | 6 GB  | 192 GB               |                             |
+|  ·  <span class="off">itb-xrootd</span>      | — (so far)              | SL ?   | VM                   | 4       | 6 GB  | 192 GB               |                             |
+| itb-host-2                                   | worker node             | SL 6.9 | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
+| itb-host-3                                   | worker node             | SL 7.4 | Xeon E5-2450 2.10GHz | 16 / 32 | 64 GB | 352 GB in $(EXECUTE) |                             |
 
 (Data last updated 2017-10-13 by Tim C. <span class="old">Red</span> indicates a host that has yet to be rebuilt; <span class="off">Blue</span> is rebuilt but currently off.)
 
@@ -60,9 +60,10 @@ The `osghost` machine has Ansible 2.3.1.0 installed via RPM.  Use other hosts an
 **Note:**
 
 - For critical passwords, see Tim C. or other knowledgeable Madison OSG staff in person
-- All commands below are meant to be run from the `osgitb` directory from Git
+- All commands below are meant to be run from the top directory of your `osgitb` Git repo (e.g. on `osghost`,
+  not on the target machine)
 
-To run Ansible for the first time on a new machine (using the `root` password when prompted):
+To run Ansible for the first time for a new machine (using the `root` password for the target machine when prompted):
 
     :::console
     ansible-playbook secure.yml -i inventory -u root -k --ask-vault-pass -f 20 -l HOST-PATTERN
@@ -72,7 +73,7 @@ The `HOST-PATTERN` can be a glob-like pattern or a regular expression that match
 Ansible documentation for details.
 
 After initial successful runs of both playbooks, subsequent runs should replace the `-u root -k` part with `-bK` to use
-your own login and `sudo`.  For example:
+your own login and `sudo` *on the target machine*.  For example:
 
     :::console
     ansible-playbook secure.yml -i inventory -bK --ask-vault-pass -f 20 -l HOST-PATTERN
@@ -92,13 +93,16 @@ If you have your own playbook to manage personal configuration, run it as follow
 1. Ask Mat to get new certificates — be sure to think about `http`, `rsv`, and other service certificates
 2. Wait for Mat to tell you that the new certificates are in `/p/condor/home/certificates`
 3. `scp -p` the certificate(s) (`*cert.pem*` and `*key.pem`) to your home directory on `osghost` or whatever machine you use for Ansible
+   Note that if you are renewing a certificate, only the `*cert.pem` will be updated and the `*key.pem` will remain the same.
 4. Find the corresponding certificate location(s) in the Ansible `roles/certs/files` directory
 5. `cp -p` the certificate files over the top of the existing Ansible ones (or create new, equivalent paths)
 6. Run `ansible-vault encrypt FILE(S)` to encrypt the files — get the Ansible vault password from Tim C. if you need it
+   Note that only the `*key.pem` files need to be encrypted, as the `*cert.pem` files are meant to be public.
+   If the (unencrypted) `*key.pem` file is not getting updated, there is no need to re-encrypt a new copy.
 7. Verify permissions, contents (you can `cat` the encrypted files), etc.
 8. Apply the files with something like `ansible-playbook secure.yml -i inventory -bK -f 20 -t certs`
 9. Commit changes (now or after applying)
-10. Push changes to origin
+10. Push changes to origin (`gitolite@git.chtc.wisc.edu:osgitb`)
 
 #### Doing yum updates
 

@@ -1,7 +1,7 @@
 OSG Technology Area
 ===================
 
-Welcome to the home page of the OSG Technology Team documentation area! This is currently a work in progress as we migrate our TWiki documentation to GitHub. If you are looking for our full documentation, please visit the [TWiki](https://twiki.opensciencegrid.org/bin/view/SoftwareTeam/WebHome).
+Welcome to the home page of the OSG Technology Team documentation area!
 
 If you are looking for site administrator documentation, please visit the [OSG Documentation page](https://opensciencegrid.github.io/docs/).
 
@@ -33,6 +33,16 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [26 February 2018](meetings/2018/TechArea20180226.md)
+  * [19 February 2018](meetings/2018/TechArea20180219.md)
+  * [12 February 2018](meetings/2018/TechArea20180212.md)
+  * [5 February 2018](meetings/2018/TechArea20180205.md)
+  * [29 January 2018](meetings/2018/TechArea20180129.md)
+  * [22 January 2018](meetings/2018/TechArea20180122.md)
+  * 15 January 2018 (Canceled - MLK day)
+  * [8 January 2018](meetings/2018/TechArea20180108.md)
+  * [2 January 2018](meetings/2018/TechArea20180102.md)
+  * [18 December 2017](meetings/2017/TechArea20171218.md)
   * [11 December 2017](meetings/2017/TechArea20171211.md)
   * [4 December 2017](meetings/2017/TechArea20171204.md)
   * [27 November 2017](meetings/2017/TechArea20171127.md)
