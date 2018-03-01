@@ -38,9 +38,11 @@ Note that if you follow the above, we will end up with three assignees to each t
 5.  **ASSIGNMENT \#3:** The person on triage duty assigns it to the right person from the software team. We now have three assignees:
     1.  GOC member
     2.  Software Support (Triage)
-    3.  The Software team member who will handle the ticket
+    3.  The Technology team member who is responsible for guiding a ticket until it is resolved
 
-    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people. For reference, see our [troubleshooting documents](https://opensciencegrid.github.io/docs/).
+    To avoid any confusion around ticket ownership, assign only one Technology team member per ticket.
+    If the expertise of another Technology team member is needed on the ticket, add them to the CC list.
+    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
 
 ### LCMAPS VOMS Transition ###
 
