@@ -141,7 +141,11 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 !!! note
     If there are failures, consult the release-manager before proceeding.
 
-### Step 3: Regenerate the build repositories
+### Step 3: Test Pre-Release on the Madison ITB site
+
+Test the pre-release on the Madison IRB by following the [ITB pre-release testing instructions](itb-testing/).
+
+### Step 4: Regenerate the build repositories
 
 To avoid 404 errors when retrieving packages, it's necessary to regenerate the build repositories. Run the following script from a machine with your koji-registered user certificate:
 
@@ -152,7 +156,7 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 1-regen-repos $NON_UPCOMING_VERSIONS
 ```
 
-### Step 4: Create the client tarballs
+### Step 5: Create the client tarballs
 
 Create the client tarballs as root on an EL7 fermicloud machine using the relevant script from git:
 
@@ -165,7 +169,7 @@ cd release-tools
 ./1-client-tarballs $NON_UPCOMING_VERSIONS
 ```
 
-### Step 5: Briefly test the client tarballs
+### Step 6: Briefly test the client tarballs
 
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
 
@@ -228,7 +232,7 @@ If you have time, try some of the binaries, such as grid-proxy-init.
 !!! todo
     We need to automate this and have it run on the proper architectures and version of RHEL.
 
-### Step 6: Update the UW AFS installation of the tarball client
+### Step 7: Update the UW AFS installation of the tarball client
 
 The UW keeps an install of the tarball client in `/p/vdt/workspace/tarball-client` on the UW's AFS. To update it, run the following commands:
 
@@ -241,7 +245,7 @@ for ver in $NON_UPCOMING_VERSIONS; do
 done
 ```
 
-### Step 7: Wait
+### Step 8: Wait
 
 Wait for clearance. The OSG Release Coordinator (in consultation with the Software Team and any testers) need to sign off on the update before it is released. If you are releasing things over two days, this is a good place to stop for the day.
 
@@ -368,36 +372,38 @@ cd docker-osg-wn
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
-1.  The release manager writes the release announcement and send it out. Here is a sample, replace `<BRACKETED TEXT>` with the appropriate values:
+1.  The release manager writes the a release announcement for each version and sends it out.
+    The announcement should mention a handful of the most important updates.
+    Due to downstream formatting issues, each major change should end at column 76 or ealier.
+    Here is a sample, replace `<BRACKETED TEXT>` with the appropriate values:
 
-         Subject: Announcing OSG Software version <VERSION(S)>
-         
-         We are pleased to announce OSG Software version <VERSION(S)>!
-         
-         This is the OSG Software distributed via RPMs for:
-         
-         * Scientific Linux 6 and 7
-         * CentOS 6 and 7
-         * Red Hat Enterprise Linux 6 and 7
-         
-         This release affects the <SET OF METAPACKAGES (client, compute element, etc...)>. Changes include:
-         
-         * Major change 1
-         * Major change 2
-         * Major change 3
-         
-         Release notes and pointers to more documentation can be found at:
-         
-         <LINK TO RELEASE NOTES>
-         
-         Need help? Let us know:
-         
-         https://opensciencegrid.github.io/docs/common/help/
-         
-         We welcome feedback on this release
+        Subject: Announcing OSG Software version <VERSION>
+
+        We are pleased to announce OSG Software version <VERSION>!
+
+        Changes to OSG <VERSION> include:
+        - Major Change 1
+        - Major Change 2
+        - Major Change 3
+
+        Release notes and pointers to more documentation can be found at:
+
+        http://opensciencegrid.github.io/docs/release/<SERIES.VERSION>/release-<RELEASE-VERSION>/
+
+        Need help? Let us know:
+
+        http://opensciencegrid.github.io/docs/common/help/
+
+        We welcome feedback on this release!
 
 2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
 3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
 4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
     Also set the Fix Versions field to the appropriate value(s) and uncheck the box that reads "Send mail for this update"
 
+Day 3: Update the ITB
+---------------------
+
+Now that the release has had a chance to proprogate to all the mirrors, update the Madison ITB site by following
+the [yum update section](../infrastructure/madison-itb/#doing-yum-updates) of the Madison ITB document.
+Remember, it may be advisable to stop the HTCondor daemons according to the [HTCondor pre-release testing instructions](itb-testing/#installing-htcondor-prerelease).
