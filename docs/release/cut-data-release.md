@@ -56,7 +56,7 @@ If there are any discrepancies consult the release manager. You may have to tag 
 
 ### Step 2: Test the Pre-Release on the Madison ITB site
 
-Test the pre-release on the Madison IRB by following the [ITB pre-release testing instructions](itb-testing/).
+Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](itb-testing/).
 
 Day 2: Pushing the Release
 --------------------------
@@ -67,7 +67,7 @@ Day 2: Pushing the Release
 
 ### Step 1: Push from pre-release to release
 
-This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
+This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterward, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
 
 ```bash
 VERSIONS='VERSION(S)>'
@@ -114,7 +114,7 @@ The following instructions are meant for the release manager (or interim release
 
 1.  The release manager writes the a release announcement for each version and sends it out.
     The announcement should mention a handful of the most important updates.
-    Due to downstream formatting issues, each major change should end at column 76 or ealier.
+    Due to downstream formatting issues, each major change should end at column 76 or earlier.
     Here is a sample, replace `<BRACKETED TEXT>` with the appropriate values:
     If you are only updating certificates or only updated the VO package, delete the corresponding text:
 
@@ -151,7 +151,7 @@ The following instructions are meant for the release manager (or interim release
 Day 3: Update the ITB
 ---------------------
 
-Now that the release has had a chance to proprogate to all the mirrors, update the Madison ITB site by following
+Now that the release has had a chance to propogate to all the mirrors, update the Madison ITB site by following
 the [yum update section](../infrastructure/madison-itb/#doing-yum-updates) of the Madison ITB document.
 Remember, it may be advisable to stop the HTCondor daemons according to the [HTCondor pre-release testing instructions](itb-testing/#installing-htcondor-prerelease).
 
