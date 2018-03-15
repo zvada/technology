@@ -74,7 +74,7 @@ See the [upstream dir info](#upstream) for more information.
 
 ### Revision Control System
 
-All packages that the OSG Software Team releases are checked into our revision control system (currently Subversion but with the option to change at a later date).
+All packages that the OSG Software Team releases are checked into our Subversion repository.
 
 #### Subversion Access
 
