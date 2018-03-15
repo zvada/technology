@@ -67,9 +67,9 @@ You must make sure that any new upstream source files are cached on the VDT webs
 -   If you have access to a UW–Madison CSL machine, you can scp the source files directly into the AFS locations using that machine
 -   If you do not have such access, write to the osg-software list to find someone who will post the files for you
 
-#### Git Hosted Upstream Files
+#### Git/GitHub Hosted Upstream Files
 
-As of OSG-Build 1.11.2, it is possible to pull sources and spec files from a remote Git repo instead of our source cache.
+It is also possible to pull sources and spec files from remote Git or GitHub repos instead of our source cache.
 See the [upstream dir info](#upstream) for more information.
 
 ### Revision Control System
@@ -164,16 +164,17 @@ To reference files in the upstream source cache, use the upstream source cache p
         globus-common/16.4/globus-common-16.4-1.el6.src.rpm
         # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
 
-###### Git repos (OSG-Build 1.11.2+)
+###### Git repos
 
 !!! warning
     OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
-As of OSG-Build 1.12.2, you can use a shorter syntax for GitHub repos -- see below.
+!!! note
+    You can use a shorter syntax for GitHub repos -- see below.
 
-See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
+    See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
 
 To reference tags in Git repos, use the following syntax (all on one line):
 
@@ -203,16 +204,16 @@ where:
 In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will be used as the spec file for the build
 (unless overridden in the `osg` directory).
 
-OSG-Build 1.11.2 or later is required to use this feature.
 
-###### GitHub repos (OSG-Build 1.12.2+)
+###### GitHub repos
 
 !!! warning
     OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
-See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
+!!! note
+    See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
 
 To reference tags in GitHub repos, use the following syntax (all on one line):
 
@@ -240,12 +241,10 @@ where:
 In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it will be used as the spec file for the build
 (unless overridden in the `osg` directory).
 
-OSG-Build 1.12.2 or later is required to use this feature.
-
 
 ##### Advanced features for Git and GitHub repos
 
-The following features are present in OSG-Build 1.12.2 or later to make software development in Git and GitHub more convenient:
+The following features make software development in Git and GitHub more convenient:
 
 
 -   Support for RPM release numbers in Git tags:
