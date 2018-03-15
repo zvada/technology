@@ -466,7 +466,7 @@ Do the following for the main package and any subpackages it may have:
 -   Change the Summary to "Dummy package"
 -   Change the %description to:
 
-    > This is an empty package created for %RED%$%ENDCOLOR%.
+    > This is an empty package created for %RED%$REASONS%ENDCOLOR%.
     > It may safely be removed.
 
 -   Remove all Requires and Obsoletes lines
