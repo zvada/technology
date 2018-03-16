@@ -172,6 +172,9 @@ To reference files in the upstream source cache, use the upstream source cache p
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
 !!! note
+    This feature requires OSG-Build 1.11.2 or later.
+
+!!! note
     You can use a shorter syntax for GitHub repos -- see below.
 
     See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
@@ -213,6 +216,9 @@ In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
 !!! note
+    This feature requires OSG-Build 1.12.2 or later.
+
+!!! note
     See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
 
 To reference tags in GitHub repos, use the following syntax (all on one line):
@@ -243,6 +249,9 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
 
 
 ##### Advanced features for Git and GitHub repos
+
+!!! note
+    These features require OSG-Build 1.12.2 or later.
 
 The following features make software development in Git and GitHub more convenient:
 
