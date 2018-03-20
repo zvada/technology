@@ -64,10 +64,19 @@ part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
     - [edg-mkgridmap](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
     - [GUMS](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
 
-1. After they've completed the above instructions, verify that they're still getting pilots:
+1. After they've completed the above instructions, use one of the following methods (in order of preference) to verify that
+    they're getting pilots:
 
-    1. Add factory ops to the ticket under `OSG Support Centers`
-    1. Verify that the site's [pilot numbers](http://gfactory-1.t2.ucsd.edu/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
+    - Query their CE directly:
+    
+            :::console
+            $ condor_q -name <CE HOSTNAME> -pool <CE HOSTNAME>:9619
+
+        This may not work if the site has a strict firewall or do not run an HTCondor-CE.
+
+    - If they are an ATLAS-only site, ask the admin if they are receiving new pilots.
+    - Add factory ops to the ticket under `OSG Support Centers`
+    - Verify that the site's [pilot numbers](http://gfactory-1.t2.ucsd.edu/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
        are non-zero.
 
 ### Updating the triage calendar ###
