@@ -144,9 +144,11 @@ If you mess up, do `ROLLBACK; BEGIN;` and try again.
 
 Inform the user:
 
-- they can start using their new cert
 - they can no longer use their old cert
+- if they _aren't_ using a proxy for Koji auth, they must rerun `osg-koji setup` to fix their `client.crt` files
+- they must import their new cert into their browsers
 - they must clear their browser cache and cookies for koji.chtc.wisc.edu before using the web interface
+  (or else they'll get a Python stack trace when they try to connect)
 
 
 Disabling and Enabling a User

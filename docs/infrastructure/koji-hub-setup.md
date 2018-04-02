@@ -158,11 +158,8 @@ Procedures
 
 ### User cert switch
 
-The following steps need to be taken for someone replacing their user cert:
-
--   An admin should log in to the database and update the `users` table with their new CN.
--   The user should import their new cert into their browser and rerun `osg-koji setup` to fix their `client.crt`.
--   If the user gets a Python stack trace when connecting to `koji.chtc.wisc.edu` via their browser, they should clear their cookies.
+This procedure is now documented on the
+[user management page](koji-user-management#handling-user-cert-changes-renaming-a-user).
 
 ### Adding CAs for user authentication
 
@@ -225,7 +222,10 @@ Enter PEM pass phrase:
 admin
 ```
 
-To see the list of users, go to the [Koji web site](https://koji.chtc.wisc.edu/koji/users).
+To see the list of users:
+``` console
+[you@client ~]$ koji search user "*"
+```
 
 ### Renewing host and service certs
 
