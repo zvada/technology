@@ -33,6 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [9 April 2018](meetings/2018/TechArea20180409.md)
   * [2 April 2018](meetings/2018/TechArea20180402.md)
   * 26 March 2018 (Canceled)
   * 19 March 2018 (Canceled - OSG All Hands)
