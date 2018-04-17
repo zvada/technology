@@ -56,6 +56,7 @@ pages:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
     - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
+    - Koji User Management: 'infrastructure/koji-user-management.md'
     - Madison ITB: 'infrastructure/madison-itb.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
