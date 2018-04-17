@@ -115,7 +115,7 @@ The important permissions are:
   Should be given sparingly.
 
 The `grant-permission` command can also be used to create new permissions; doing so is beyond the scope of this document.
-For further permission details, see the [policy writing doc](https://opensciencegrid.github.io/technology/infrastructure/koji-policy-writing/)
+For further permission details, see the [policy writing doc](/infrastructure/koji-policy-writing/)
 and `/etc/koji-hub/hub.conf` on koji.chtc.wisc.edu.
 
 
@@ -160,8 +160,6 @@ To disable a user, use the command:
 ``` console
 $ osg-koji disable-user "<USERNAME>"
 ```
-If you are feeling extra paranoid, use `osg-koji revoke-permission` to remove all their permissions.
-
 To enable a user, use the command:
 ``` console
 $ osg-koji enable-user "<USERNAME>"
