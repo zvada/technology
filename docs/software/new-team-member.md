@@ -7,8 +7,9 @@ Setup Instructions for New Team Members
     - Send email to Tim C with top 3 requested usernames
 1. Read/write access to the UW Subversion repository;
     - Send email to Mat or Tim C
-1. Grid certificate
-    - <https://oim.opensciencegrid.org/oim/certificate>
+1. User certificate
+    - Obtain a user certificate here: <https://oim.opensciencegrid.org/oim/certificate>
+    - Import the certificate into your browser of choice
 1. Access to FermiCloud
     - <http://fclweb.fnal.gov/>
 1. [Register](https://ggus.eu/?mode=register) for a GGUS account with the following information:
