@@ -46,7 +46,7 @@ If unsure, ask them for the output of:
 $ openssl x509 -in <CERTFILE> -noout -issuer
 ```
 If the CA is not one of the above ones, you will have to add the CA.
-Get permission to do this from the Software Manager, then follow the procedure on the [koji-hub setup page](https://opensciencegrid.github.io/technology/infrastructure/koji-hub-setup/#adding-cas-for-user-authentication).
+Get permission to do this from the Software Manager, then follow the procedure on the [koji-hub setup page](/infrastructure/koji-hub-setup/#adding-cas-for-user-authentication).
 
 
 The user's Koji username will be the _first_ Common Name (CN) of their certificate subject.
