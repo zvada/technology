@@ -44,6 +44,7 @@ pages:
     - Empty Packages: 'release/empty-pkgs.md'
     - Acceptance Testing: 'release/acceptance-testing.md'
   - Policy:
+    - 'Service Changes 2018': 'policy/service-changes-2018.md'
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
