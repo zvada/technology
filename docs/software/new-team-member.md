@@ -23,7 +23,7 @@ Setup Instructions for New Team Members
 1. Jira ticket system
     - Send email to <goc@opensciencegrid.org> and request access to JIRA
 1. Access to Koji
-    - Send email to Mat or Carl with DN of grid certificate
+    - Follow the instructions on the [Koji user management page](/infrastructure/koji-user-management)
 1. Sign up for mailing lists
     - osg-software@opensciencegrid.org
     - osg-general@opensciencegrid.org
