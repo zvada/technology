@@ -11,6 +11,14 @@ Setup Instructions for New Team Members
     - <https://oim.opensciencegrid.org/oim/certificate>
 1. Access to FermiCloud
     - <http://fclweb.fnal.gov/>
+1. [Register](https://ggus.eu/?mode=register) for a GGUS account with the following information:
+    - Your certificate's subject DN
+    - Select `none` from the "Virtual Organization" drop-down
+    - Select `yes` for "Do you want to have support access?" and answer "Why?" with the following:
+
+            Yes, I need to comment on tickets as a member of the OSG Software & Release Team
+            (https://opensciencegrid.github.io/technology/#the-team)
+
 1. Jira ticket system
     - Send email to <goc@opensciencegrid.org> and request access to JIRA
 1. Access to Koji
