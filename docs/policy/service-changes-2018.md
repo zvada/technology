@@ -4,21 +4,21 @@ Service Changes 2018
 As you may have heard, the Open Science Grid (OSG) is undergoing some changes to its fabric of services.
 Some services will be retired, most services will be migrated with little planned effect on sites,
 and some services will be migrated with greater effect on sites.
-This document is intended to guide OSG Site Administrators through these changes.
+This document is intended to guide OSG site administrators through these changes.
 The following sections list various OSG services and whether or not site administrator action is required.
 
 !!! note
-    There will be announcements prior to retirement or migration of any OSG service.
+    There will be individual announcements prior to retirement or migration of any OSG service.
 
-The OSG Technology team will be holding [office hours](#office-hours) for any questions or comments about these service 
-changes.
+The OSG Technology team will be holding office hours for any questions or comments about these service 
+changes; see the [end of the page](#office-hours) for details.
 
 OSG CA
 ------
 
 The OSG CA service offers certificate request, renewal, and revocation through the [OIM](#myosg-and-oim) web interface, 
-the OIM REST API, and the `osg-pki-tools`.
-This service will be retired but since the OSG CA will remain in the OSG CA distribution,
+the OIM REST API, and the `osg-pki-tools` command-line tool.
+This service will be retired but, because the OSG CA files will remain in the list of CAs distributed by the OSG,
 your OSG-issued certificates will be valid until they expire.
 Therefore, to extend the window for transitioning to any new CA service, we have the following recommendations:
 
@@ -45,7 +45,7 @@ In the future, we will use the following CA certificate services:
 
 New processes for requesting host, service, and user certificates against the aforementioned CAs are forthcoming.
 
-The exact date for the retiremnt of the OSG CA service will be announced.
+The exact date for the retirement of the OSG CA service will be announced.
 If you experience any problems with the OSG CA service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
@@ -85,8 +85,8 @@ VOMS Admin Server
 
 The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
 for members of the OSG VO and can respond to queries for a list of VO members.
-The [retirement ofVOMS Admin Server](/policy/voms-admin-retire) has been planned for quite some time so the OSG VOMS 
-servers will be retired.
+The [retirement of VOMS Admin Server](/policy/voms-admin-retire) (and therefore VOMS servers), has been planned for quite
+some time so the OSG VOMS servers will be retired.
 
 !!! info "Action item"
     If your site accepts OSG jobs, transition your hosts to 
@@ -107,7 +107,7 @@ If you run a service that queries MyOSG:
 [OIM](https://oim.opensciencegrid.org/oim/home) serves as the database for the information used by MyOSG with a web
 interface for data updates.
 The OIM web interface will be retired but we will migrate its data to a series of YAML files held in a GitHub repository.
-After OIM is retired, updates to the aforementioned data can be requested via e-mail or pull-request.
+After OIM is retired, updates to the aforementioned data can be requested via email or pull request.
 Documentation forthcoming.
 
 !!! note
@@ -122,7 +122,7 @@ RSV
 ---
 
 The [central RSV service](https://my.opensciencegrid.org/rgcurrentstatus/index?summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&current_status_attrs_shownc=on&gip_status_attrs_showtestresults=on&downtime_attrs_showpast=&account_type=cumulative_hours&ce_account_type=gip_vo&se_account_type=vo_transfer_volume&bdiitree_type=total_jobs&bdii_object=service&bdii_server=is-osg&start_type=7daysago&start_date=04%2F19%2F2018&end_type=now&end_date=04%2F19%2F2018&all_resources=on&gridtype=on&gridtype_1=on&active_value=1&disable_value=1)
-is a monitoring tool that displays every site service in the OSG.
+is a monitoring tool that displays every service status information about OSG sites that elect to provide it.
 It will be retired since there is no longer a need to monitor OSG site status as a whole.
 If you would like to monitor your OSG services, you can access the status page of your local
 [RSV](https://opensciencegrid.github.io/docs/monitoring/install-rsv/) instance.
@@ -135,7 +135,7 @@ If you would like to monitor your OSG services, you can access the status page o
         root@server # rsv-control --disable --host <YOUR RSV HOST> gratia-consumer
         root@server # rsv-control --off --host <YOUR RSV HOST> gratia-consumer
 
-The exact date for retiremnt will be announced.
+The exact date for retirement of the central RSV service will be announced.
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
@@ -150,7 +150,11 @@ If you experience any problems with GRACC accounting, please contact us at
 OASIS and CVMFS
 ---------------
 
-The physical hosting location of the Stratum-0 will be moved but we do not plan any other changes.
+The OASIS (OSG Application and Software Installation Service) is a service used to distribute common applications and
+software to OSG sites via CVMFS.
+The OSG hosts the CVMFS Stratum-0 that acts as the data origin server.
+The physical hosting location of the CVMFS Stratum-0 will be moved but we do not plan any other changes and do not expect
+this to affect sites.
 The exact date for moving the hosting location will be announced.
 If you experience any problems with OASIS or CVMFS, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
@@ -158,8 +162,9 @@ If you experience any problems with OASIS or CVMFS, please contact us at
 Collector
 ---------
 
-The physical hosting location of the [central Collector](http://collector.opensciencegrid.org/) will be moved but we do
-not for plan any other changes. 
+The [central Collector](http://collector.opensciencegrid.org/)
+The physical hosting location of the central Collector will be moved but we do not for plan any other changes and do not
+expect this to affect sites. 
 The exact date for moving the hosting location will be announced. If you experience any problems with the central 
 Collector, please contact us at [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
