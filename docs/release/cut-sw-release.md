@@ -258,7 +258,8 @@ Day 2: Pushing the Release
 
 ### Step 1: Push from pre-release to release
 
-This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterward, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
+This script moves the packages into release, clones releases into new version-specific release repos,
+locks the repos and regenerates them.
 
 ```bash
 VERSIONS="<VERSION(S)>"
@@ -406,4 +407,5 @@ Day 3: Update the ITB
 
 Now that the release has had a chance to propogate to all the mirrors, update the Madison ITB site by following
 the [yum update section](/infrastructure/madison-itb/#doing-yum-updates) of the Madison ITB document.
-Remember, it may be advisable to stop the HTCondor daemons according to the [HTCondor pre-release testing instructions](/release/itb-testing/#installing-htcondor-prerelease).
+Remember to stop the HTCondor and HTCondor-CE daemons according to the [HTCondor pre-release testing instructions](/release/itb-testing/#installing-htcondor-prerelease).
+Those daemons will need to be restarted after the upgraode.
