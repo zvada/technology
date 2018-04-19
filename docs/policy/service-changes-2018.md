@@ -162,7 +162,8 @@ If you experience any problems with OASIS or CVMFS, please contact us at
 Collector
 ---------
 
-The [central Collector](http://collector.opensciencegrid.org/)
+The [central Collector](http://collector.opensciencegrid.org/) is a central database service that provides details about
+pilot jobs currently running in the OSG.
 The physical hosting location of the central Collector will be moved but we do not for plan any other changes and do not
 expect this to affect sites. 
 The exact date for moving the hosting location will be announced. If you experience any problems with the central 
