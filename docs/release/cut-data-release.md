@@ -1,10 +1,10 @@
 !!! note
-    If you are performing a software release, please follow the instructions [here](cut-sw-release)
+    If you are performing a software release, please follow the instructions [here](/release/cut-sw-release/)
 
 How to Cut a Data Release
 =========================
 
-This document details the process for releasing new OSG Data Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found [here](/release/release-policy.md).
+This document details the process for releasing new OSG Data Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found [here](/release/release-policy/).
 
 Due to the length of time that this process takes, it is recommended to do the release over three or more days to allow for errors to be corrected and tests to be run.
 
@@ -56,7 +56,7 @@ If there are any discrepancies consult the release manager. You may have to tag 
 
 ### Step 2: Test the Pre-Release on the Madison ITB site
 
-Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](itb-testing/).
+Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](/release/itb-testing/).
 
 Day 2: Pushing the Release
 --------------------------
@@ -152,6 +152,6 @@ Day 3: Update the ITB
 ---------------------
 
 Now that the release has had a chance to propogate to all the mirrors, update the Madison ITB site by following
-the [yum update section](../infrastructure/madison-itb/#doing-yum-updates) of the Madison ITB document.
-Remember, it may be advisable to stop the HTCondor daemons according to the [HTCondor pre-release testing instructions](itb-testing/#installing-htcondor-prerelease).
+the [yum update section](/infrastructure/madison-itb/#doing-yum-updates) of the Madison ITB document.
+Remember, it may be advisable to stop the HTCondor daemons according to the [HTCondor pre-release testing instructions](/release/itb-testing/#installing-htcondor-prerelease).
 
