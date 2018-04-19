@@ -144,6 +144,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 ### Step 3: Test Pre-Release on the Madison ITB site
 
 Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](/release/itb-testing/).
+If you not local to Madison, consult the release manager for the designated person to do this testing.
 
 ### Step 4: Regenerate the build repositories
 
@@ -408,5 +409,6 @@ Day 3: Update the ITB
 
 Now that the release has had a chance to propogate to all the mirrors, update the Madison ITB site by following
 the [yum update section](/infrastructure/madison-itb/#doing-yum-updates) of the Madison ITB document.
+If you are not local to Madison, consult the release manager for the designated person to do the update.
 Remember to stop the HTCondor and HTCondor-CE daemons according to the [HTCondor pre-release testing instructions](/release/itb-testing/#installing-htcondor-prerelease).
 Those daemons will need to be restarted after the upgraode.
