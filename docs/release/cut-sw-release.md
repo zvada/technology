@@ -209,9 +209,9 @@ for ver in $NON_UPCOMING_VERSIONS; do
     for client in $clients; do
         rhels="el6 el7"
         for rhel in $rhels; do
-            max_size=24
+            max_size=28
             if [ $rhel = "el7" ]; then
-                max_size=32
+                max_size=33
             fi
             archs="x86_64"
             if [ "$major_version" = "3.3" -a $rhel = "el6" ]; then
