@@ -189,7 +189,8 @@ dotest () {
         pushd $rhel-$arch
         tar xzf ../$file
         $client/osg/osg-post-install
-        $client/osgrun osg-version
+        $client/osgrun osg-ca-manage setupCA --url osg
+        $client/osgrun osg-update-vos
         popd
         rm -rf $rhel-$arch
     else
