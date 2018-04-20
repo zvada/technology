@@ -13,7 +13,7 @@ action is required.
 
 We understand sites will have many questions regarding this transition.
 The OSG Technology team will be holding office hours for any questions or comments about these service 
-changes; see the [end of the page](#office-hours) for details.
+changes; see the [Office Hours section](#office-hours) for details.
 
 Site Checklist Summary
 ----------------------
@@ -23,11 +23,14 @@ provide a short outline of the steps sites are recommended to take:
 
 1. Review all site configuration (yum repositories, CVMFS configurations) to ensure they are the latest from the
    OSG.  In particular, replace all references to `grid.iu.edu` with equivalent `opensciencegrid.org` entries.
-2. Renew all local host certificates within the OSG CA prior to May 1.  A list of affected hosts at your sites
+1. Renew all local host certificates within the OSG CA prior to May 1.  A list of affected hosts at your sites
    can be provided by OSG support upon request.
-3. LHC sites should verify local admins have a GGUS accounts and are familiar with its web interface.
-4. Sites at institutions with an [InCommon CA subscription](https://incommon.org/certificates/subscribers.html)
-   should determine their local procedure for obtaining certificates.
+1. LHC sites should verify local admins have a GGUS accounts and are familiar with its web interface.
+1. Sites at institutions with an [InCommon CA subscription](https://incommon.org/certificates/subscribers.html)
+   should determine their local procedure for obtaining certificates.
+1. Sites should transition to the
+   [LCMAPS VOMS authentication method](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/)
+   if they have not done so already.
 
 Office Hours
 ------------
@@ -83,10 +86,12 @@ Therefore, to extend the window for transitioning to any new CA service, we have
 
 In the future, we will use the following CA certificate services:
 
-- [InCommon](https://www.incommon.org/) and [Let’s Encrypt](https://letsencrypt.org/) for host and service certificates
-- [CILogon Basic](https://cilogon.org/) for non-LHC user certificates.
-  LHC users should continue to request their user certificates from CERN.
-- [Let's Encrypt](https://letsencrypt.org) for web-based use cases.
+| For...                        | We plan to use the following Certificate Authorities...                             |
+|-------------------------------|-------------------------------------------------------------------------------------|
+| Host and Service Certificates | [InCommon](https://www.incommon.org/) and [Let’s Encrypt](https://letsencrypt.org/) |
+| User Certificates             | [CILogon Basic](https://cilogon.org/) for non-LHC users                             |
+|                               | LHC users should continue to request their user certificates from CERN.             |
+| Web-Based services            | [Let's Encrypt](https://letsencrypt.org)                                            |
 
 New processes for requesting host, service, and user certificates against the aforementioned CAs are forthcoming.
 
@@ -164,11 +169,11 @@ OASIS and CVMFS
 The OASIS (OSG Application and Software Installation Service) is a service used to distribute common applications and
 software to OSG sites via CVMFS.
 The OSG hosts a CVMFS Stratum-0 for keysigning, a repository server, and a CVMFS Stratum-1.
-The physical hosting location of these services0 will be moved to Nebraska but we do not plan any other changes and do not expect
+The physical hosting location of these services will be moved to Nebraska but we do not plan any other changes and do not expect
 this to affect sites.
 The exact date for moving the hosting location will be announced.
 If you experience any problems with OASIS or CVMFS, please contact us at
-[help@openscience
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
 VOMS Admin Server
 -----------------
@@ -203,7 +208,6 @@ If you would like to monitor your OSG services, you can access the status page o
 The exact date for retirement of the central RSV service will be announced.
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
-grid.org](mailto:help@opensciencegrid.org).
 
 Collector
 ---------
