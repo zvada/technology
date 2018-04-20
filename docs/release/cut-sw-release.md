@@ -321,7 +321,11 @@ for ver in $NON_UPCOMING_VERSIONS; do
 done
 ```
 
-Ask Tim Theisen, Brian Lin, or someone with privileges on the `opensciencegrid.org` repo servers to upload the tarballs with the following procedure:
+Upload the tarballs with the following procedure:
+
+!!! note
+    If you do not have access to the tarball repository at UNL (osgcollab@hcc-osg-software.unl.edu),
+    please forward your public SSH key to Derek Weitzel.
 
 #### On a CS machine
 
@@ -341,7 +345,7 @@ for ver in $NON_UPCOMING_VERSIONS; do
     major_ver="${ver%.*}"
     ssh osgcollab@hcc-osg-software.unl.edu "cd /usr/local/repo/tarball-install; ls -l $major_ver/*latest*"
 done
-# verify the symlinks are correct
+# verify the "latest" symlinks point to the version(s) just installed
 ```
 
 ### Step 3: Install the tarballs into OASIS
