@@ -57,10 +57,9 @@ We can also be contacted at the usual locations:
    send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
 
 Service-specific details
-========================
+------------------------
 
-OSG CA
-------
+### OSG CA ###
 
 The OSG CA service offers certificate request, renewal, and revocation through the [OIM](#myosg-and-oim) web interface, 
 the OIM REST API, and the `osg-pki-tools` command-line tool.
@@ -100,8 +99,7 @@ If you experience any problems with the OSG CA service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
 
-Software Repository
--------------------
+### Software Repository ###
 
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
 The physical hosting location of this service will be changing; no other changes are planned.
@@ -130,8 +128,7 @@ The exact date for moving the physical hosting location will be announced.
 If you experience any problems with the OSG Software repository, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
-MyOSG and OIM
--------------
+### MyOSG and OIM ###
 
 The [MyOSG](https://my.opensciencegrid.org/about) service provides web and REST interfaces to access information about
 OSG site topology, projects, and VOs.
@@ -155,16 +152,14 @@ The exact dates for retiring the MyOSG and OIM web interfaces will be announced.
 If you experience any problems with the OSG Software repository, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
-GRACC Accounting and WLCG Accounting
-------------------------------------
+### GRACC Accounting and WLCG Accounting ###
 
 No changes are planned for the [GRACC accounting](https://gracc.opensciencegrid.org/dashboard/db/gracc-home?orgId=1)
 service at this time.  The integration of OSG with WLCG accounting should see no interruption.
 If you experience any problems with GRACC accounting, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
-OASIS and CVMFS
----------------
+### OASIS and CVMFS ###
 
 The OASIS (OSG Application and Software Installation Service) is a service used to distribute common applications and
 software to OSG sites via CVMFS.
@@ -175,8 +170,7 @@ The exact date for moving the hosting location will be announced.
 If you experience any problems with OASIS or CVMFS, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
-VOMS Admin Server
------------------
+### VOMS Admin Server ###
 
 The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
 for members of the OSG VO and can respond to queries for a list of VO members.
@@ -188,8 +182,7 @@ the OSG VOMS servers will be retired as previously planned.
     [LCMAPS VOMS authentication](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/).
 
 
-RSV
----
+### RSV ###
 
 The [central RSV service](https://my.opensciencegrid.org/rgcurrentstatus/index?summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&current_status_attrs_shownc=on&gip_status_attrs_showtestresults=on&downtime_attrs_showpast=&account_type=cumulative_hours&ce_account_type=gip_vo&se_account_type=vo_transfer_volume&bdiitree_type=total_jobs&bdii_object=service&bdii_server=is-osg&start_type=7daysago&start_date=04%2F19%2F2018&end_type=now&end_date=04%2F19%2F2018&all_resources=on&gridtype=on&gridtype_1=on&active_value=1&disable_value=1)
 is a monitoring tool that displays every service status information about OSG sites that elect to provide it.
@@ -209,8 +202,7 @@ The exact date for retirement of the central RSV service will be announced.
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
-Collector
----------
+### Collector ###
 
 The [central Collector](http://collector.opensciencegrid.org/) is a central database service that provides details about
 pilot jobs currently running in the OSG.
