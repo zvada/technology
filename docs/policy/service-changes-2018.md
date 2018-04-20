@@ -1,25 +1,68 @@
-Service Changes 2018
-====================
+Service Migrations - Spring 2018
+================================
 
-As you may have heard, the Open Science Grid (OSG) is undergoing some changes to its fabric of services.
-Some services will be retired, most services will be migrated with little planned effect on sites,
-and some services will be migrated with greater effect on sites.
-This document is intended to guide OSG site administrators through these changes.
-The following sections list various OSG services and whether or not site administrator action is required.
+The Open Science Grid (OSG) is transitioning effort from Indiana, requiring a redistribution of support and services.
+Some services will be retired, most services will be migrated to other locations (with minimal expected sites impact),
+and some services will be migrated that will result in significant impact on sites.
+
+This document is intended to guide OSG site administrators through these changes, highlighting where the site administrator
+action is required.
 
 !!! note
-    There will be individual announcements prior to retirement or migration of any OSG service.
+    Specific service migrations will be announced prior to retirement or migration.
 
+We understand sites will have many questions regarding this transition.
 The OSG Technology team will be holding office hours for any questions or comments about these service 
 changes; see the [end of the page](#office-hours) for details.
+
+Site Checklist Summary
+----------------------
+
+The remainder of the document provides a service-by-service overview of site impacts.  In this section, we
+provide a short outline of the steps sites are recommended to take:
+
+1. Review all site configuration (yum repositories, CVMFS configurations) to ensure they are the latest from the
+   OSG.  In particular, replace all references to `grid.iu.edu` with equivalent `opensciencegrid.org` entries.
+2. Renew all local host certificates within the OSG CA prior to May 1.  A list of affected hosts at your sites
+   can be provided by OSG support upon request.
+3. LHC sites should verify local admins have a GGUS accounts and are familiar with its web interface.
+4. Sites at institutions with an [InCommon CA subscription](https://incommon.org/certificates/subscribers.html)
+   should determine their local procedure for obtaining certificates.
+
+Office Hours
+------------
+
+If you have questions or concerns that are not addressed in this document, please join us for our office hours!
+
+**Where:**
+
+* <https://unl.zoom.us/j/277958559>
+* Or Telephone: US: +1 408 638 0968  or +1 646 876 9923  or +1 669 900 6833
+  Meeting ID: 277 958 559
+
+**When:**
+
+* Mondays, 4-5 PM CST
+* Tuesdays, 1-3 PM CST
+* Thursdays, 10-11 AM CST
+
+We can also be contacted at the usual locations:
+
+-  [help@opensciencegrid.org](mailto:help@opensciencegrid.org)
+-  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
+-  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software) - if you can't create an account, 
+   send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
+
+Service-specific details
+========================
 
 OSG CA
 ------
 
 The OSG CA service offers certificate request, renewal, and revocation through the [OIM](#myosg-and-oim) web interface, 
 the OIM REST API, and the `osg-pki-tools` command-line tool.
-This service will be retired but, because the OSG CA files will remain in the list of CAs distributed by the OSG,
-your OSG-issued certificates will be valid until they expire.
+This service will be retired by May 31 but the OSG CA certificate will remain in the IGTF distribution, so
+your certificates remain valid until they expire.
 Therefore, to extend the window for transitioning to any new CA service, we have the following recommendations:
 
 !!! info "Action item(s)"
@@ -35,17 +78,19 @@ Therefore, to extend the window for transitioning to any new CA service, we have
         * BeStMan
         * VOMS Admin Server
 
-    1. If you are able to, renew your [user certificate](https://oim.opensciencegrid.org/oim/certificateuser)
+    1. Renew your [user certificate](https://oim.opensciencegrid.org/oim/certificateuser).  LHC sites should take the
+       opportunity to switch users to the CERN CA.
 
 In the future, we will use the following CA certificate services:
 
 - [InCommon](https://www.incommon.org/) and [Let’s Encrypt](https://letsencrypt.org/) for host and service certificates
 - [CILogon Basic](https://cilogon.org/) for non-LHC user certificates.
   LHC users should continue to request their user certificates from CERN.
+- [Let's Encrypt](https://letsencrypt.org) for web-based use cases.
 
 New processes for requesting host, service, and user certificates against the aforementioned CAs are forthcoming.
 
-The exact date for the retirement of the OSG CA service will be announced.
+The exact date for the retirement of the OSG CA service will be announced, but will be around the end of May.
 If you experience any problems with the OSG CA service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
@@ -54,7 +99,7 @@ Software Repository
 -------------------
 
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
-The physical hosting location of this service will be changing but no other changes are planned.
+The physical hosting location of this service will be changing; no other changes are planned.
 To ensure a smooth transition at your site, verify that the OSG repository files are up to date on all of your OSG hosts:
 
 !!! info "Action item"
@@ -79,18 +124,6 @@ To ensure a smooth transition at your site, verify that the OSG repository files
 The exact date for moving the physical hosting location will be announced.
 If you experience any problems with the OSG Software repository, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
-
-VOMS Admin Server
------------------
-
-The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
-for members of the OSG VO and can respond to queries for a list of VO members.
-The [retirement of VOMS Admin Server](/policy/voms-admin-retire) (and therefore VOMS servers), has been planned for quite
-some time so the OSG VOMS servers will be retired.
-
-!!! info "Action item"
-    If your site accepts OSG jobs, transition your hosts to 
-    [LCMAPS VOMS authentication](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/).
 
 MyOSG and OIM
 -------------
@@ -117,6 +150,38 @@ The exact dates for retiring the MyOSG and OIM web interfaces will be announced.
 If you experience any problems with the OSG Software repository, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
+GRACC Accounting and WLCG Accounting
+------------------------------------
+
+No changes are planned for the [GRACC accounting](https://gracc.opensciencegrid.org/dashboard/db/gracc-home?orgId=1)
+service at this time.  The integration of OSG with WLCG accounting should see no interruption.
+If you experience any problems with GRACC accounting, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+
+OASIS and CVMFS
+---------------
+
+The OASIS (OSG Application and Software Installation Service) is a service used to distribute common applications and
+software to OSG sites via CVMFS.
+The OSG hosts a CVMFS Stratum-0 for keysigning, a repository server, and a CVMFS Stratum-1.
+The physical hosting location of these services0 will be moved to Nebraska but we do not plan any other changes and do not expect
+this to affect sites.
+The exact date for moving the hosting location will be announced.
+If you experience any problems with OASIS or CVMFS, please contact us at
+[help@openscience
+
+VOMS Admin Server
+-----------------
+
+The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
+for members of the OSG VO and can respond to queries for a list of VO members.
+The [deprecation of VOMS Admin Server](/policy/voms-admin-retire) software (and therefore VOMS servers), started 10 months ago;
+the OSG VOMS servers will be retired as previously planned.
+
+!!! info "Action item"
+    If your site accepts OSG jobs, transition your hosts to 
+    [LCMAPS VOMS authentication](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/).
+
 
 RSV
 ---
@@ -138,26 +203,7 @@ If you would like to monitor your OSG services, you can access the status page o
 The exact date for retirement of the central RSV service will be announced.
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
-
-GRACC Accounting
-----------------
-
-No changes are planned for the [GRACC accounting](https://gracc.opensciencegrid.org/dashboard/db/gracc-home?orgId=1)
-service at this time.
-If you experience any problems with GRACC accounting, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
-
-OASIS and CVMFS
----------------
-
-The OASIS (OSG Application and Software Installation Service) is a service used to distribute common applications and
-software to OSG sites via CVMFS.
-The OSG hosts the CVMFS Stratum-0 that acts as the data origin server.
-The physical hosting location of the CVMFS Stratum-0 will be moved but we do not plan any other changes and do not expect
-this to affect sites.
-The exact date for moving the hosting location will be announced.
-If you experience any problems with OASIS or CVMFS, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+grid.org](mailto:help@opensciencegrid.org).
 
 Collector
 ---------
@@ -169,26 +215,3 @@ expect this to affect sites.
 The exact date for moving the hosting location will be announced. If you experience any problems with the central 
 Collector, please contact us at [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
-Office Hours
-------------
-
-If you have questions or concerns that are not addressed in this document, please join us for our office hours!
-
-**Where:**
-
-* <https://unl.zoom.us/j/277958559>
-* Or Telephone: US: +1 408 638 0968  or +1 646 876 9923  or +1 669 900 6833
-  Meeting ID: 277 958 559
-
-**When:**
-
-* Mondays, 4-5 PM CST
-* Tuesdays, 1-3 PM CST
-* Thursdays, 10-11 AM CST
-
-We can also be contacted at the usual locations:
-
--  [help@opensciencegrid.org](mailto:help@opensciencegrid.org)
--  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
--  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software) - if you can't create an account, 
-   send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
