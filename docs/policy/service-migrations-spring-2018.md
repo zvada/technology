@@ -45,9 +45,9 @@ If you have questions or concerns that are not addressed in this document, pleas
 
 **When:**
 
-* Mondays, 4-5 PM CST
-* Tuesdays, 1-3 PM CST
-* Thursdays, 10-11 AM CST
+* Mondays, 4-5 PM CDT
+* Tuesdays, 1-3 PM CDT
+* Thursdays, 10-11 AM CDT
 
 We can also be contacted at the usual locations:
 
