@@ -44,6 +44,7 @@ pages:
     - Empty Packages: 'release/empty-pkgs.md'
     - Acceptance Testing: 'release/acceptance-testing.md'
   - Policy:
+    - 'Service Migrations - Spring 2018': 'policy/service-migrations-spring-2018.md'
     - 'GUMS Retirement': 'policy/gums-retire.md'
     - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
     - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
@@ -56,6 +57,7 @@ pages:
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
     - Koji Infrastructure Overview: 'infrastructure/koji-inf-overview.md'
     - Koji Policy Writing: 'infrastructure/koji-policy-writing.md'
+    - Koji User Management: 'infrastructure/koji-user-management.md'
     - Madison ITB: 'infrastructure/madison-itb.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
@@ -68,6 +70,12 @@ pages:
   - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
   - Meetings:
+    - April 23, 2018: 'meetings/2018/TechArea20180423.md'
+    - April 16, 2018: 'meetings/2018/TechArea20180416.md'
+    - April 9, 2018: 'meetings/2018/TechArea20180409.md'
+    - April 2, 2018: 'meetings/2018/TechArea20180402.md'
+    - March 12, 2018: 'meetings/2018/TechArea20180312.md'
+    - March 5, 2018: 'meetings/2018/TechArea20180305.md'
     - February 26, 2018: 'meetings/2018/TechArea20180226.md'
     - February 19, 2018: 'meetings/2018/TechArea20180219.md'
     - February 12, 2018: 'meetings/2018/TechArea20180212.md'

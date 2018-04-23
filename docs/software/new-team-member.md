@@ -3,22 +3,33 @@ Setup Instructions for New Team Members
 
 1. Computing account at FNAL
     -   To get this, follow the instructions at <https://fermi.service-now.com/kb_view.do?sysparm_article=KB0010797>
-2. ssh access to a UW CompSci account, including AFS access
+1. ssh access to a UW CompSci account, including AFS access
     - Send email to Tim C with top 3 requested usernames
-3. Read/write access to the UW Subversion repository;
+1. Read/write access to the UW Subversion repository;
     - Send email to Mat or Tim C
-4. Grid certificate
-    - <https://oim.opensciencegrid.org/oim/certificate>
-5. Access to FermiCloud
+1. User certificate
+    - Obtain a user certificate here: <https://oim.opensciencegrid.org/oim/certificate>
+    - Import the certificate into your browser of choice
+1. Access to FermiCloud
     - <http://fclweb.fnal.gov/>
-6. Jira ticket system
+1. [Register](https://ggus.eu/?mode=register) for a GGUS account with the following information:
+    - Your certificate's subject DN
+    - Select `none` from the "Virtual Organization" drop-down
+    - Select `yes` for "Do you want to have support access?" and answer "Why?" with the following:
+
+            Yes, I need to comment on tickets as a member of the OSG Software & Release Team
+            (https://opensciencegrid.github.io/technology/#the-team)
+
+1. Jira ticket system
     - Send email to <goc@opensciencegrid.org> and request access to JIRA
-7. Access to Koji
-    - Send email to Mat or Carl with DN of grid certificate
-8. Sign up for mailing lists
+1. Access to Koji
+    - Follow the instructions on the [Koji user management page](/infrastructure/koji-user-management)
+1. Sign up for mailing lists
     - osg-software@opensciencegrid.org
     - osg-general@opensciencegrid.org
     - osg-sites@opensciencegrid.org
     - osg-commits@cs.wisc.edu
-9. GitHub team membership
+1. GitHub team membership
     - <https://github.com/orgs/opensciencegrid/teams/software-and-release/members>
+1. UNL repository access
+    - Send SSH public key to Tim T, Derek, or Brian L to gain access to the UNL repository (osgcollab@hcc-osg-software.unl.edu)

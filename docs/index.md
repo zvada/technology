@@ -21,8 +21,8 @@ The Team
 Contact Us
 ----------
 
--  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software)
 -  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
+-  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software) - if you can't create an account, send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
 -  [osg-commits@cs.wisc.edu](mailto:osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
 
 Meeting Notes
@@ -33,6 +33,14 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [23 April 2018](meetings/2018/TechArea20180423.md)
+  * [16 April 2018](meetings/2018/TechArea20180416.md)
+  * [9 April 2018](meetings/2018/TechArea20180409.md)
+  * [2 April 2018](meetings/2018/TechArea20180402.md)
+  * 26 March 2018 (Canceled)
+  * 19 March 2018 (Canceled - OSG All Hands)
+  * [12 March 2018](meetings/2018/TechArea20180312.md)
+  * [5 March 2018](meetings/2018/TechArea20180305.md)
   * [26 February 2018](meetings/2018/TechArea20180226.md)
   * [19 February 2018](meetings/2018/TechArea20180219.md)
   * [12 February 2018](meetings/2018/TechArea20180212.md)

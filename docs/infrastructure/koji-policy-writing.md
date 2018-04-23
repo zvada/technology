@@ -156,7 +156,7 @@ These are the permissions that people can be given in koji:
 -   `win-admin`
 -   `appliance`
 
-As far as I can tell, additional permissions have to be manually added into the 'permissions' table in postgres.
+Additional permissions can be added with `grant-permission --new`, see below.
 
 The following permissions are checked by name in the koji command-line utility (i.e. policies are not used):
 
@@ -176,11 +176,12 @@ I haven't found out where some of the other permissions are used.
 
 ### Adding permissions
 
-Go into postgres and run
+You can give someone a permission that doesn't exist by doing:
 
-    insert into permissions values ((select nextval('permissions_id_seq')), 'NAME');
+    osg-koji grant-permission --new <PERMISSION> "<USER>"
 
-where NAME is the name of the permission you want to create. You may now grant people that permission and use that name in policies.
+Doing so creates the permission as a side effect.
+I'm not aware of a way to create the permission without granting it, other than with database hackery.
 
 ### Where policies are used and what policy data is passed on:
 

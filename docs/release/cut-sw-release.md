@@ -15,6 +15,7 @@ Requirements
 -   An account on UW CS machines (e.g. `library`, `ingwe`) to access UW's AFS
 -   `release-tools` scripts in your `PATH` ([GitHub](https://github.com/opensciencegrid/release-tools))
 -   `osg-build` scripts in your `PATH` (installed via OSG yum repos or [source](https://github.com/opensciencegrid/osg-build))
+-   Access to the tarball repository at UNL (osgcollab@hcc-osg-software.unl.edu)
 
 Pick the Version Number
 -----------------------
@@ -284,7 +285,7 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 ```
 ```bash
 for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver=`sed 's/.[0-9]*$//' <<< $ver`
+    major_ver="${ver%.*}"
     cd /p/vdt/public/html/tarball-client
     ssh jump.grid.iu.edu mkdir /tmp/$ver/
     scp -p $major_ver/*/osg-wn-client-$ver*gz jump.grid.iu.edu:/tmp/$ver/
@@ -317,15 +318,38 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 ```
 ```bash
 for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver=`sed 's/.[0-9]*$//' <<< $ver`
+    major_ver="${ver%.*}"
     mv /tmp/$ver /usr/local/repo/tarball-install/$major_ver/
     rm -f /usr/local/repo/tarball-install/$major_ver/*latest*
 done
 /root/mk-sims.sh
 for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver=`sed 's/.[0-9]*$//' <<< $ver`
+    major_ver="${ver%.*}"
     ls -l /usr/local/repo/tarball-install/$major_ver/*latest* # verify the symlinks are correct
 done
+```
+
+Upload the tarballs with the following procedure:
+
+#### On a CS machine
+
+```bash
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
+pushd /p/vdt/public/html/tarball-client
+for ver in $NON_UPCOMING_VERSIONS; do
+    major_ver="${ver%.*}"
+    ssh osgcollab@hcc-osg-software.unl.edu mkdir -p /usr/local/repo/tarball-install/$major_ver/$ver
+    scp -p $major_ver/*/osg-wn-client-$ver*gz osgcollab@hcc-osg-software.unl.edu:/usr/local/repo/tarball-install/$major_ver/$ver
+done
+popd
+ssh osgcollab@hcc-osg-software.unl.edu bin/mk-sims.sh
+for ver in $NON_UPCOMING_VERSIONS; do
+    major_ver="${ver%.*}"
+    ssh osgcollab@hcc-osg-software.unl.edu "cd /usr/local/repo/tarball-install; ls -l $major_ver/*latest*"
+done
+# verify the "latest" symlinks point to the version(s) just installed
 ```
 
 ### Step 3: Install the tarballs into OASIS
