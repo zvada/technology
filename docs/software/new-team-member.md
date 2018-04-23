@@ -31,3 +31,5 @@ Setup Instructions for New Team Members
     - osg-commits@cs.wisc.edu
 1. GitHub team membership
     - <https://github.com/orgs/opensciencegrid/teams/software-and-release/members>
+1. UNL repository access
+    - Send SSH public key to Tim T, Derek, or Brian L to gain access to the UNL repository (osgcollab@hcc-osg-software.unl.edu)
