@@ -15,6 +15,7 @@ Requirements
 -   An account on UW CS machines (e.g. `library`, `ingwe`) to access UW's AFS
 -   `release-tools` scripts in your `PATH` ([GitHub](https://github.com/opensciencegrid/release-tools))
 -   `osg-build` scripts in your `PATH` (installed via OSG yum repos or [source](https://github.com/opensciencegrid/osg-build))
+-   Access to the tarball repository at UNL (osgcollab@hcc-osg-software.unl.edu)
 
 Pick the Version Number
 -----------------------
@@ -322,10 +323,6 @@ done
 ```
 
 Upload the tarballs with the following procedure:
-
-!!! note
-    If you do not have access to the tarball repository at UNL (osgcollab@hcc-osg-software.unl.edu),
-    please forward your public SSH key to Derek Weitzel.
 
 #### On a CS machine
 
