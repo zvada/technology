@@ -67,14 +67,14 @@ You must make sure that any new upstream source files are cached on the VDT webs
 -   If you have access to a UW–Madison CSL machine, you can scp the source files directly into the AFS locations using that machine
 -   If you do not have such access, write to the osg-software list to find someone who will post the files for you
 
-#### Git Hosted Upstream Files
+#### Git/GitHub Hosted Upstream Files
 
-As of OSG-Build 1.11.2, it is possible to pull sources and spec files from a remote Git repo instead of our source cache.
+It is also possible to pull sources and spec files from remote Git or GitHub repos instead of our source cache.
 See the [upstream dir info](#upstream) for more information.
 
 ### Revision Control System
 
-All packages that the OSG Software Team releases are checked into our revision control system (currently Subversion but with the option to change at a later date).
+All packages that the OSG Software Team releases are checked into our Subversion repository.
 
 #### Subversion Access
 
@@ -164,12 +164,20 @@ To reference files in the upstream source cache, use the upstream source cache p
         globus-common/16.4/globus-common-16.4-1.el6.src.rpm
         # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
 
-###### Git repos (OSG-Build 1.11.2+)
+###### Git repos
 
 !!! warning
-    OSG software policy requires that all Git repos used for building software have mirrors at the UW.
+    OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
+
+!!! note
+    This feature requires OSG-Build 1.11.2 or later.
+
+!!! note
+    You can use a shorter syntax for GitHub repos -- see below.
+
+    See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
 
 To reference tags in Git repos, use the following syntax (all on one line):
 
@@ -199,7 +207,93 @@ where:
 In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will be used as the spec file for the build
 (unless overridden in the `osg` directory).
 
-OSG-Build 1.11.2 or later is required to use this feature.
+
+###### GitHub repos
+
+!!! warning
+    OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
+    Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
+    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
+
+!!! note
+    This feature requires OSG-Build 1.12.2 or later.
+
+!!! note
+    See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
+
+To reference tags in GitHub repos, use the following syntax (all on one line):
+
+> `type=github repo=<OWNER>/<PROJECT> tag=<TAG> hash=<HASH>`
+
+where:
+
+| Symbol      | Definition                       | Example                                    |
+|:------------|:---------------------------------|:-------------------------------------------|
+| `<OWNER>`   | Owner of the GitHub repo         | `opensciencegrid`                          |
+| `<PROJECT>` | Name of the project              | `osg-build`                                |
+| `<TAG>`     | Git tag to use                   | `v1.12.2`                                  |
+| `<HASH>`    | Full 40-char Git hash of the tag | `cff50ffe812282552cedae81f3809d3cf7087a3e` |
+
+!!! note
+    The tarball will be called `<PROJECT>-<VERSION>.tar.gz` where `<VERSION>` is `<TAG>` without the `v` prefix (if there is one).
+
+!!! example
+    You can refer to the 1.12.2 release of osg-build with this line:
+
+        type=github repo=opensciencegrid/osg-build tag=v1.12.2 hash=cff50ffe812282552cedae81f3809d3cf7087a3e
+
+    This results in a tarball named `osg-build-1.12.2.tar.gz`.
+
+In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it will be used as the spec file for the build
+(unless overridden in the `osg` directory).
+
+
+##### Advanced features for Git and GitHub repos
+
+!!! note
+    These features require OSG-Build 1.12.2 or later.
+
+The following features make software development in Git and GitHub more convenient:
+
+
+-   Support for RPM release numbers in Git tags:
+
+    If the tag for the software contains a dash, as in `v1.12.2-1`,
+    it is assumed that the text after the dash is the RPM release instead of the software version.
+    The RPM release is not included in the tarball.
+    That is, the project `osg-build` with the tag `v1.12.2-1` will result in a tarball named `osg-build-1.12.1.tar.gz`,
+    not `osg-build-1.12.1-1.tar.gz`.
+
+-   Can specify tarball name in the .source file:
+
+    The new `tarball` attribute allows you to specify the name of the tarball and directory that the repo contents will be put into.
+    The syntax is `tarball=<NAME>.tar.gz`.
+    The extension must be `.tar.gz`, no other archive formats are supported.
+    The directory inside the tarball will then be `<NAME>/`.
+
+-   Can specify hash and tarball instead of tag (scratch and local builds only):
+
+    For local builds (rpmbuild and mock tasks) and Koji scratch builds,
+    you can omit the `tag` attribute and use only the hash to determine what to check out.
+    You *must* specify the `tarball` attribute in this case.
+    Non-scratch Koji builds will still require a tag.
+
+-   Can ignore hash mismatch (scratch and local builds only):
+
+    For local builds (rpmbuild and mock tasks) and Koji scratch builds, a hash mismatch will result in a warning.
+    Non-scratch Koji builds will still consider it an error.
+
+-   Can use a branch as the tag:
+
+    The `tag` attribute can refer to a branch instead of a tag, e.g. `tag=master`.
+
+Combining the last two features can really speed up package development.
+For example, you can use this to make scratch builds of the current master:
+
+    type=github repo=<OWNER>/<PROJECT> tarball=<PROJECT>-<VERSION>.tar.gz tag=master hash=0
+
+This might also be useful as part of a continuous integration scheme (e.g. Travis-CI).
+
 
 ##### osg
 
@@ -381,7 +475,7 @@ Do the following for the main package and any subpackages it may have:
 -   Change the Summary to "Dummy package"
 -   Change the %description to:
 
-    > This is an empty package created for %RED%$%ENDCOLOR%.
+    > This is an empty package created for %RED%$REASONS%ENDCOLOR%.
     > It may safely be removed.
 
 -   Remove all Requires and Obsoletes lines
