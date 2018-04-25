@@ -101,6 +101,9 @@ If you experience any problems with the OSG CA service, please contact us at
 
 ### Software Repository ###
 
+!!! note
+    Migration of the software repository is planned for May 1, 2018.
+
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
 The physical hosting location of this service will be changing; no other changes are planned.
 To ensure a smooth transition at your site, verify that the OSG repository files are up to date on all of your OSG hosts:
@@ -124,7 +127,6 @@ To ensure a smooth transition at your site, verify that the OSG repository files
 
         Replace all instances of `grid.iu.edu` with `opensciencegrid.org`.
 
-The exact date for moving the physical hosting location will be announced.
 If you experience any problems with the OSG Software repository, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
