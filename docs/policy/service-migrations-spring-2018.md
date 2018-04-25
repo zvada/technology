@@ -159,6 +159,25 @@ service at this time.  The integration of OSG with WLCG accounting should see no
 If you experience any problems with GRACC accounting, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
+### Ticket ###
+
+The Footprints ticketing system at <https://ticket.opensciencegrid.org> is used to track support and security issues as
+well as certificate and membership requests.
+This service will be retired in favor of two different ticketing systems, depending on the VOs you support at your site:
+
+| If your site primarily supports... | Submit new tickets to...                         |
+|------------------------------------|--------------------------------------------------|
+| Non-LHC VOs                        | [Freshdesk](https://support.opensciencegrid.org) |
+| LHC VOs                            | [GGUS](https://ggus.eu)                          |
+
+Throughout this migration, [help@opensciencegrid.org](mailto:help@opensciencegrid.org) will be available for all
+support requests or inquiries.
+We do not expect this migration to require site administator action.
+
+The exact date for retirement of the Footprints ticketing system will be announced.
+If you experience any problems with ticketing, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+
 ### OASIS and CVMFS ###
 
 The OASIS (OSG Application and Software Installation Service) is a service used to distribute common applications and
