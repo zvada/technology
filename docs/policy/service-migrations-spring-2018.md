@@ -195,8 +195,8 @@ If you would like to monitor your OSG services, you can access the status page o
     which uploads status data to the central RSV service:
 
         :::console
-        root@server # rsv-control --disable --host <YOUR RSV HOST> gratia-consumer
-        root@server # rsv-control --off --host <YOUR RSV HOST> gratia-consumer
+        root@server # rsv-control --disable gratia-consumer
+        root@server # rsv-control --off gratia-consumer
 
 The exact date for retirement of the central RSV service will be announced.
 If you experience any problems with the central RSV service, please contact us at
