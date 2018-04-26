@@ -170,14 +170,14 @@ This service will be retired in favor of two different ticketing systems, depend
 
 | If your site primarily supports... | Submit new tickets to...                         |
 |------------------------------------|--------------------------------------------------|
-| Non-LHC VOs                        | [Freshdesk](https://support.opensciencegrid.org) |
 | LHC VOs                            | [GGUS](https://ggus.eu)                          |
+| Anyone else                        | [Freshdesk](https://support.opensciencegrid.org) |
 
 Throughout this migration, [help@opensciencegrid.org](mailto:help@opensciencegrid.org) will be available for all
 support requests or inquiries.
 We do not expect this migration to require site administator action.
 
-The exact date for retirement of the Footprints ticketing system will be announced.
+The retirement of the Footprints ticketing system will occur no later than May 31, 2018. The exact date will be announced.
 If you experience any problems with ticketing, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
