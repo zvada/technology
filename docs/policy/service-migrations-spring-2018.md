@@ -94,8 +94,9 @@ In the future, we will use the following CA certificate services:
 
 !!! note
     The semantics of Let's Encrypt certificates are different from those of previous CAs.
-    Please see <https://opensciencegrid.github.io/security/LetsEncryptOSGCAbundle/> for the security and
-    setup implications of switching to a Let's Encrypt host or service certificate.
+    Please see
+    [the security team's position on Let's Encrypt](https://opensciencegrid.github.io/security/LetsEncryptOSGCAbundle/)
+    for the security and setup implications of switching to a Let's Encrypt host or service certificate.
 
 New processes for requesting host, service, and user certificates against the aforementioned CAs are forthcoming.
 
