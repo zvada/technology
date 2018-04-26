@@ -101,6 +101,10 @@ If you experience any problems with the OSG CA service, please contact us at
 
 ### Software Repository ###
 
+!!! note
+    Migration of the software repository is planned for May 1, 2018.
+    Retirement of the old host, `repo.grid.iu.edu`, will be annnounced but will occur no earlier than May 15, 2018.
+
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
 The physical hosting location of this service will be changing; no other changes are planned.
 To ensure a smooth transition at your site, verify that the OSG repository files are up to date on all of your OSG hosts:
@@ -124,7 +128,6 @@ To ensure a smooth transition at your site, verify that the OSG repository files
 
         Replace all instances of `grid.iu.edu` with `opensciencegrid.org`.
 
-The exact date for moving the physical hosting location will be announced.
 If you experience any problems with the OSG Software repository, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
@@ -157,6 +160,25 @@ If you experience any problems with the OSG Software repository, please contact 
 No changes are planned for the [GRACC accounting](https://gracc.opensciencegrid.org/dashboard/db/gracc-home?orgId=1)
 service at this time.  The integration of OSG with WLCG accounting should see no interruption.
 If you experience any problems with GRACC accounting, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+
+### Ticket ###
+
+The Footprints ticketing system at <https://ticket.opensciencegrid.org> is used to track support and security issues as
+well as certificate and membership requests.
+This service will be retired in favor of two different ticketing systems, depending on the VOs you support at your site:
+
+| If your site primarily supports... | Submit new tickets to...                         |
+|------------------------------------|--------------------------------------------------|
+| LHC VOs                            | [GGUS](https://ggus.eu)                          |
+| Anyone else                        | [Freshdesk](https://support.opensciencegrid.org) |
+
+Throughout this migration, [help@opensciencegrid.org](mailto:help@opensciencegrid.org) will be available for all
+support requests or inquiries.
+We do not expect this migration to require site administator action.
+
+The retirement of the Footprints ticketing system will occur no later than May 31, 2018. The exact date will be announced.
+If you experience any problems with ticketing, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
 ### OASIS and CVMFS ###
