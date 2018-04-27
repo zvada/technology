@@ -100,7 +100,7 @@ cd docker-osg-wn
 
 Wait for the [CA certificates](https://repo.opensciencegrid.org/cadist/) to be updated.
 It may take a while for the updates to reach the mirror used to update the web site.
-The repository is checked every 10 minutes for updated CA certificates.
+The repository is checked hourly for updated CA certificates.
 Once the web page is updated, run the following command to update the VO Package and/or CA certificates in the tarball installations and
 verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
 
