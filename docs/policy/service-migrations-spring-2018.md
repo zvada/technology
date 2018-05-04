@@ -199,6 +199,9 @@ If you experience any problems with OASIS or CVMFS, please contact us at
 
 ### VOMS Admin Server ###
 
+!!! note
+    Retirement of the OSG VOMS service is planned for May 23, 2018.
+
 The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
 for members of the OSG VO and can respond to queries for a list of VO members.
 The [deprecation of VOMS Admin Server](/policy/voms-admin-retire) software (and therefore VOMS servers), started 10 months ago;
