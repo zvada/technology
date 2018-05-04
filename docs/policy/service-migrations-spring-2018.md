@@ -227,9 +227,16 @@ If you would like to monitor your OSG services, you can access the status page o
     Before the retirement, you will need to disable the `gratia-consumer` on your local RSV host,
     which uploads status data to the central RSV service:
 
-        :::console
-        root@server # rsv-control --disable gratia-consumer
-        root@server # rsv-control --off gratia-consumer
+    - **If you are on OSG 3.4**, update the `rsv` and `osg-configure` packages:
+
+            :::console
+            root@rsv-host # yum update rsv osg-configure --enablerepo=osg-testing
+
+    - **If you are on OSG 3.3**, run the following commands:
+
+            :::console
+            root@rsv-host # rsv-control --disable gratia-consumer
+            root@rsv-host # rsv-control --off gratia-consumer
 
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
