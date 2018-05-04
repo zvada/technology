@@ -211,6 +211,9 @@ the OSG VOMS servers will be retired as previously planned.
 
 ### RSV ###
 
+!!! note
+    Retirement of the central RSV service is planned for May 15, 2018.
+
 The [central RSV service](https://my.opensciencegrid.org/rgcurrentstatus/index?summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&current_status_attrs_shownc=on&gip_status_attrs_showtestresults=on&downtime_attrs_showpast=&account_type=cumulative_hours&ce_account_type=gip_vo&se_account_type=vo_transfer_volume&bdiitree_type=total_jobs&bdii_object=service&bdii_server=is-osg&start_type=7daysago&start_date=04%2F19%2F2018&end_type=now&end_date=04%2F19%2F2018&all_resources=on&gridtype=on&gridtype_1=on&active_value=1&disable_value=1)
 is a monitoring tool that displays every service status information about OSG sites that elect to provide it.
 It will be retired since there is no longer a need to monitor OSG site status as a whole.
@@ -225,7 +228,6 @@ If you would like to monitor your OSG services, you can access the status page o
         root@server # rsv-control --disable gratia-consumer
         root@server # rsv-control --off gratia-consumer
 
-The exact date for retirement of the central RSV service will be announced.
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
