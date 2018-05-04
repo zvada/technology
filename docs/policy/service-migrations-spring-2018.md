@@ -45,8 +45,7 @@ If you have questions or concerns that are not addressed in this document, pleas
 
 **When:**
 
-* Mondays, 4-5 PM CDT
-* Tuesdays, 1-3 PM CDT
+* Tuesdays, 2-3 PM CDT
 * Thursdays, 10-11 AM CDT
 
 We can also be contacted at the usual locations:
@@ -200,6 +199,9 @@ If you experience any problems with OASIS or CVMFS, please contact us at
 
 ### VOMS Admin Server ###
 
+!!! note
+    Retirement of the OSG VOMS service is planned for May 23, 2018.
+
 The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
 for members of the OSG VO and can respond to queries for a list of VO members.
 The [deprecation of VOMS Admin Server](/policy/voms-admin-retire) software (and therefore VOMS servers), started 10 months ago;
@@ -211,6 +213,9 @@ the OSG VOMS servers will be retired as previously planned.
 
 
 ### RSV ###
+
+!!! note
+    Retirement of the central RSV service is planned for May 15, 2018.
 
 The [central RSV service](https://my.opensciencegrid.org/rgcurrentstatus/index?summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&current_status_attrs_shownc=on&gip_status_attrs_showtestresults=on&downtime_attrs_showpast=&account_type=cumulative_hours&ce_account_type=gip_vo&se_account_type=vo_transfer_volume&bdiitree_type=total_jobs&bdii_object=service&bdii_server=is-osg&start_type=7daysago&start_date=04%2F19%2F2018&end_type=now&end_date=04%2F19%2F2018&all_resources=on&gridtype=on&gridtype_1=on&active_value=1&disable_value=1)
 is a monitoring tool that displays every service status information about OSG sites that elect to provide it.
@@ -226,7 +231,6 @@ If you would like to monitor your OSG services, you can access the status page o
         root@server # rsv-control --disable gratia-consumer
         root@server # rsv-control --off gratia-consumer
 
-The exact date for retirement of the central RSV service will be announced.
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
@@ -239,3 +243,12 @@ expect this to affect sites.
 The exact date for moving the hosting location will be announced. If you experience any problems with the central 
 Collector, please contact us at [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
+### Homepage ###
+
+!!! note
+    Migration of the OSG homepage is planned for May 15, 2018.
+
+The [OSG homepage](https://opensciencegrid.org) is a Wordpress instance that will be moved to a static site.
+You can preview the new website at <https://opensciencegrid.github.io>.
+If you experience any problems with the homepage, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
