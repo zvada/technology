@@ -238,3 +238,12 @@ expect this to affect sites.
 The exact date for moving the hosting location will be announced. If you experience any problems with the central 
 Collector, please contact us at [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
+### Homepage ###
+
+!!! note
+    Migration of the OSG homepage is planned for May 15, 2018.
+
+The [OSG homepage](https://opensciencegrid.org) is a Wordpress instance that will be moved to a static site.
+You can preview the new website at <https://opensciencegrid.github.io>.
+If you experience any problems with the homepage, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
