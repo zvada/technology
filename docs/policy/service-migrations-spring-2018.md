@@ -238,6 +238,8 @@ If you would like to monitor your OSG services, you can access the status page o
             root@rsv-host # rsv-control --disable gratia-consumer
             root@rsv-host # rsv-control --off gratia-consumer
 
+        And set `enable_gratia = False` in `/etc/osg/config.d/30-rsv.ini`.
+
 If you experience any problems with the central RSV service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
