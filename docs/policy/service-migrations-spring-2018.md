@@ -230,7 +230,7 @@ If you would like to monitor your OSG services, you can access the status page o
     - **If you are on OSG 3.4**, update the `rsv` and `osg-configure` packages:
 
             :::console
-            root@rsv-host # yum update rsv osg-configure --enablerepo=osg-testing
+            root@rsv-host # yum update rsv\* osg-configure --enablerepo=osg-testing
 
     - **If you are on OSG 3.3**, run the following commands:
 
