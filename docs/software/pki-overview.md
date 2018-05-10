@@ -12,7 +12,7 @@ Overview
 
 ### Clients
 
-OIM provides a [REST API](http://confluence.grid.iu.edu/display/CENTRAL/OIM+Rest+API+Guide) that users can interact with through the [web interface](http://oim.opensciencegrid.org), the [ITB web interface](http://oim-itb.grid.iu.edu), or the [OSG PKI tools](https://github.com/opensciencegrid/osg-pki-tools) (henceforth referred to as *clients*). Clients are responsible for sending properly formatted calls to the API and handling the responses.
+OIM provides a [REST API](http://confluence.grid.iu.edu/display/CENTRAL/OIM+Rest+API+Guide) that users can interact with through the [web interface](http://oim.opensciencegrid.org), the former ITB web interface, or the [OSG PKI tools](https://github.com/opensciencegrid/osg-pki-tools) (henceforth referred to as *clients*). Clients are responsible for sending properly formatted calls to the API and handling the responses.
 
 If the client sends an improperly formatted call (i.e. a bug), OIM should return a failure response.
 
