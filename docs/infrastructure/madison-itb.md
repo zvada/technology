@@ -100,7 +100,7 @@ If you have your own playbook to manage personal configuration, run it as follow
    Note that only the `*key.pem` files need to be encrypted, as the `*cert.pem` files are meant to be public.
    If the (unencrypted) `*key.pem` file is not getting updated, there is no need to re-encrypt a new copy.
 7. Verify permissions, contents (you can `cat` the encrypted files), etc.
-8. Apply the files with something like `ansible-playbook secure.yml -i inventory -bK -f 20 -t certs`
+8. Apply the files with something like `ansible-playbook secure.yml -i inventory -bK -f 20 -t certs --ask-vault-pass`
 9. Commit changes (now or after applying)
 10. Push changes to origin (`gitolite@git.chtc.wisc.edu:osgitb`)
 
