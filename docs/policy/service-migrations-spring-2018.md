@@ -108,7 +108,7 @@ If you experience any problems with the OSG CA service, please contact us at
 
 !!! note
     Migration of the software repository is planned for May 1, 2018.
-    Retirement of the old host, `repo.grid.iu.edu`, will be annnounced but will occur no earlier than May 15, 2018.
+    Retirement of the old host, `repo.grid.iu.edu`, will be annnounced but will occur no earlier than May 23, 2018.
 
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
 The physical hosting location of this service will be changing; no other changes are planned.
