@@ -51,7 +51,7 @@ code highlighting format:
     # stuff
     ```
 
-For command blocks and file snippets that inside of a list should use the appropriate number of spaces before three
+Command blocks and file snippets inside of a list should use the appropriate number of spaces before three
 colons followed by an optional code highlighting format:
 
 ```
