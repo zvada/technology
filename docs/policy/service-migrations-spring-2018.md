@@ -35,6 +35,10 @@ provide a short outline of the steps sites are recommended to take:
 Office Hours
 ------------
 
+!!! note
+    Office hours are canceled on 2018-05-22 and 2018-05-24 due to [HTCondor week](https://agenda.hep.wisc.edu/event/1201/).
+    We will resume office hours on 2018-05-29.
+
 If you have questions or concerns that are not addressed in this document, please join us for our office hours!
 
 **Where:**
