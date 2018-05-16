@@ -142,6 +142,10 @@ If you experience any problems with the OSG Software repository, please contact 
 
 ### MyOSG and OIM ###
 
+!!! note
+    Migration of MyOSG and the OIM site topology, project, VO, and downtime data is planned for May 22, 2018 10AM EDT.
+    Retirement of the old host, `myosg.grid.iu.edu`, is planned for May 23, 2018 10AM EDT.
+
 The [MyOSG](https://my.opensciencegrid.org/about) service provides web and REST interfaces to access information about
 OSG site topology, projects, and VOs.
 The MyOSG web interface will be retired but we will continue to offer the same REST interface.
