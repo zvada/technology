@@ -111,8 +111,8 @@ If you experience any problems with the OSG CA service, please contact us at
 ### Software Repository ###
 
 !!! note
-    Migration of the software repository is planned for May 1, 2018.
-    Retirement of the old host, `repo.grid.iu.edu`, will be annnounced but will occur no earlier than May 23, 2018.
+    Migration of the software repository occurred on May 1, 2018.
+    Retirement of the old host, `repo.grid.iu.edu`, is planned for May 23, 2018 10AM EDT.
 
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
 The physical hosting location of this service will be changing; no other changes are planned.
@@ -142,8 +142,12 @@ If you experience any problems with the OSG Software repository, please contact 
 
 ### MyOSG and OIM ###
 
+!!! note
+    Migration of MyOSG and the OIM site topology, project, VO, and downtime data is planned for May 22, 2018 10AM EDT.
+    Retirement of the old host, `myosg.grid.iu.edu`, is planned for May 23, 2018 10AM EDT.
+
 The [MyOSG](https://my.opensciencegrid.org/about) service provides web and REST interfaces to access information about
-OSG site topology, projects, and VOs.
+OSG resource topology, projects, and VOs.
 The MyOSG web interface will be retired but we will continue to offer the same REST interface.
 If you run a service that queries MyOSG:
 
@@ -219,7 +223,7 @@ the OSG VOMS servers will be retired as previously planned.
 ### RSV ###
 
 !!! note
-    Retirement of the central RSV service is planned for May 15, 2018.
+    Retirement of the central RSV service occurred on May 15, 2018.
 
 The [central RSV service](https://my.opensciencegrid.org/rgcurrentstatus/index?summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&current_status_attrs_shownc=on&gip_status_attrs_showtestresults=on&downtime_attrs_showpast=&account_type=cumulative_hours&ce_account_type=gip_vo&se_account_type=vo_transfer_volume&bdiitree_type=total_jobs&bdii_object=service&bdii_server=is-osg&start_type=7daysago&start_date=04%2F19%2F2018&end_type=now&end_date=04%2F19%2F2018&all_resources=on&gridtype=on&gridtype_1=on&active_value=1&disable_value=1)
 is a monitoring tool that displays every service status information about OSG sites that elect to provide it.
@@ -259,7 +263,7 @@ Collector, please contact us at [help@opensciencegrid.org](mailto:help@openscien
 ### Homepage ###
 
 !!! note
-    Migration of the OSG homepage is planned for May 15, 2018.
+    Migration of the OSG homepage occurred on May 15, 2018.
 
 The [OSG homepage](https://opensciencegrid.org) is a Wordpress instance that will be moved to a static site.
 You can preview the new website at <https://opensciencegrid.github.io>.
