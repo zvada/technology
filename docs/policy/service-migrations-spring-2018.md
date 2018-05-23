@@ -64,6 +64,9 @@ Service-specific details
 
 ### OSG CA ###
 
+!!! note
+    Retirement of the OSG CA service is planned for May 31, 2018 11:59PM EDT.
+
 The OSG CA service offers certificate request, renewal, and revocation through the [OIM](#myosg-and-oim) web interface, 
 the OIM REST API, and the `osg-pki-tools` command-line tool.
 This service will be retired by May 31 but the OSG CA certificate will remain in the IGTF distribution, so
@@ -103,7 +106,6 @@ In the future, we will use the following CA certificate services:
 
 New processes for requesting host, service, and user certificates against the aforementioned CAs are forthcoming.
 
-The exact date for the retirement of the OSG CA service will be announced, but will be around the end of May.
 If you experience any problems with the OSG CA service, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
@@ -112,7 +114,7 @@ If you experience any problems with the OSG CA service, please contact us at
 
 !!! note
     Migration of the software repository occurred on May 1, 2018.
-    Retirement of the old host, `repo.grid.iu.edu`, is planned for May 23, 2018 10AM EDT.
+    Retirement of the old host, `repo.grid.iu.edu`, occurred on May 23, 2018 10AM EDT.
 
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
 The physical hosting location of this service will be changing; no other changes are planned.
@@ -143,8 +145,9 @@ If you experience any problems with the OSG Software repository, please contact 
 ### MyOSG and OIM ###
 
 !!! note
-    Migration of MyOSG and the OIM site topology, project, VO, and downtime data is planned for May 22, 2018 10AM EDT.
-    Retirement of the old host, `myosg.grid.iu.edu`, is planned for May 23, 2018 10AM EDT.
+    Migration of MyOSG and the OIM site topology, project, VO, and downtime data is planned for May 24, 2018 10AM EDT.
+    Retirement of the old MyOSG host, `myosg.grid.iu.edu`, is planned for May 30, 2018 10AM EDT.
+    Retirement of OIM is planned for May 31, 2018 11:59PM EDT.
 
 The [MyOSG](https://my.opensciencegrid.org/about) service provides web and REST interfaces to access information about
 OSG resource topology, projects, and VOs.
@@ -164,7 +167,6 @@ Documentation forthcoming.
 !!! note
     Please see the [OSG CA](#osg-ca) section for information regarding the OIM certificate service.
 
-The exact dates for retiring the MyOSG and OIM web interfaces will be announced.
 If you experience any problems with the OSG Software repository, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
@@ -188,7 +190,7 @@ This service will be retired in favor of two different ticketing systems, depend
 
 Throughout this migration, [help@opensciencegrid.org](mailto:help@opensciencegrid.org) will be available for all
 support requests or inquiries.
-We do not expect this migration to require site administator action.
+We do not expect this migration to require site administrator action.
 
 The retirement of the Footprints ticketing system will occur no later than May 31, 2018. The exact date will be announced.
 If you experience any problems with ticketing, please contact us at
@@ -201,14 +203,13 @@ software to OSG sites via CVMFS.
 The OSG hosts a CVMFS Stratum-0 for keysigning, a repository server, and a CVMFS Stratum-1.
 The physical hosting location of these services will be moved to Nebraska but we do not plan any other changes and do not expect
 this to affect sites.
-The exact date for moving the hosting location will be announced.
 If you experience any problems with OASIS or CVMFS, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
 ### VOMS Admin Server ###
 
 !!! note
-    Retirement of the OSG VOMS service is planned for May 23, 2018.
+    Retirement of the OSG VOMS service occurred on May 23, 2018.
 
 The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
 for members of the OSG VO and can respond to queries for a list of VO members.
@@ -253,12 +254,23 @@ If you experience any problems with the central RSV service, please contact us a
 
 ### Collector ###
 
+!!! note
+    Migration of the central collector occurred on May 21, 2018.
+    Retirement of the old central collector occurred on May 23, 2018.
+
 The [central Collector](http://collector.opensciencegrid.org/) is a central database service that provides details about
 pilot jobs currently running in the OSG.
 The physical hosting location of the central Collector will be moved but we do not for plan any other changes and do not
 expect this to affect sites. 
-The exact date for moving the hosting location will be announced. If you experience any problems with the central 
-Collector, please contact us at [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+If you experience any problems with the central Collector, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+
+!!! info "Action item"
+    After the transition, run the following command on your HTCondor-CE to report to the migrated collector:
+
+    ```
+    root@htcondor-ce-host # condor_ce_reconfig
+    ```
 
 ### Homepage ###
 
