@@ -39,7 +39,7 @@ The OSG Software team supports multiple release series, independent but in paral
 
 Current definitions:
 
-- maintenance: OSG 3.3 ( **branches/osg-3.3** )
+- maintenance: None
 - current: OSG 3.4 ( **trunk** )
 
 <!--
