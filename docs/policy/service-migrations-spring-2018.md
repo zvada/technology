@@ -254,12 +254,23 @@ If you experience any problems with the central RSV service, please contact us a
 
 ### Collector ###
 
+!!! note
+    Migration of the central collector occurred on May 21, 2018.
+    Retirement of the old central collector occurred on May 23, 2018.
+
 The [central Collector](http://collector.opensciencegrid.org/) is a central database service that provides details about
 pilot jobs currently running in the OSG.
 The physical hosting location of the central Collector will be moved but we do not for plan any other changes and do not
 expect this to affect sites. 
-The exact date for moving the hosting location will be announced. If you experience any problems with the central 
-Collector, please contact us at [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+If you experience any problems with the central Collector, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+
+!!! info "Action item"
+    After the transition, run the following command on your HTCondor-CE to report to the migrated collector:
+
+    ```
+    root@htcondor-ce-host # condor_ce_reconfig
+    ```
 
 ### Homepage ###
 
