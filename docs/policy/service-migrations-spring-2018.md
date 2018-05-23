@@ -179,6 +179,9 @@ If you experience any problems with GRACC accounting, please contact us at
 
 ### Ticket ###
 
+!!! note
+    Retirement of the Footprints ticketing system is scheduled for May 31, 2018 11:59PM EDT
+
 The Footprints ticketing system at <https://ticket.opensciencegrid.org> is used to track support and security issues as
 well as certificate and membership requests.
 This service will be retired in favor of two different ticketing systems, depending on the VOs you support at your site:
@@ -192,7 +195,6 @@ Throughout this migration, [help@opensciencegrid.org](mailto:help@opensciencegri
 support requests or inquiries.
 We do not expect this migration to require site administrator action.
 
-The retirement of the Footprints ticketing system will occur no later than May 31, 2018. The exact date will be announced.
 If you experience any problems with ticketing, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
