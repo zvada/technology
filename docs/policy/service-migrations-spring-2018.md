@@ -149,8 +149,7 @@ If you experience any problems with the OSG Software repository, please contact 
     Retirement of the old MyOSG host, `myosg.grid.iu.edu`, is planned for May 30, 2018 10AM EDT.
     Retirement of OIM is planned for May 31, 2018 11:59PM EDT.
 
-The [MyOSG](https://my.opensciencegrid.org/about) service provides web and REST interfaces to access information about
-OSG resource topology, projects, and VOs.
+The MyOSG service provides web and REST interfaces to access information about OSG resource topology, projects, and VOs.
 The MyOSG web interface will be retired but we will continue to offer the same REST interface.
 If you run a service that queries MyOSG:
 
@@ -228,8 +227,8 @@ the OSG VOMS servers will be retired as previously planned.
 !!! note
     Retirement of the central RSV service occurred on May 15, 2018.
 
-The [central RSV service](https://my.opensciencegrid.org/rgcurrentstatus/index?summary_attrs_showservice=on&summary_attrs_showrsvstatus=on&summary_attrs_showfqdn=on&current_status_attrs_shownc=on&gip_status_attrs_showtestresults=on&downtime_attrs_showpast=&account_type=cumulative_hours&ce_account_type=gip_vo&se_account_type=vo_transfer_volume&bdiitree_type=total_jobs&bdii_object=service&bdii_server=is-osg&start_type=7daysago&start_date=04%2F19%2F2018&end_type=now&end_date=04%2F19%2F2018&all_resources=on&gridtype=on&gridtype_1=on&active_value=1&disable_value=1)
-is a monitoring tool that displays every service status information about OSG sites that elect to provide it.
+The central RSV service is a monitoring tool that displays every service status information about OSG sites that elect
+to provide it.
 It will be retired since there is no longer a need to monitor OSG site status as a whole.
 If you would like to monitor your OSG services, you can access the status page of your local
 [RSV](https://opensciencegrid.github.io/docs/monitoring/install-rsv/) instance.
