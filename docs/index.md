@@ -33,7 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
-  * 29 May 2018 - Memorial Day
+  * [29 May 2018](meetings/2018/TechArea20180529.md) - Memorial Day
   * 21 May 2018 (Canceled - HTCondor Week)
   * [14 May 2018](meetings/2018/TechArea20180514.md)
   * [7 May 2018](meetings/2018/TechArea20180507.md)
