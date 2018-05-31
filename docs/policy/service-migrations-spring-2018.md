@@ -140,9 +140,9 @@ If you experience any problems with the OSG Software repository, please contact 
 ### MyOSG and OIM ###
 
 !!! note
-    Migration of MyOSG and the OIM site topology, project, VO, and downtime data occurred on May 24, 2018 10AM EDT.
-    Retirement of the old MyOSG host, `myosg.grid.iu.edu`, is planned for May 30, 2018 10AM EDT.
-    Retirement of OIM is planned for May 31, 2018 11:59PM EDT.
+    The MyOSG and the OIM site topology, project, VO, and downtime data migrations occurred on May 24, 2018 10AM EDT.
+    The old MyOSG host, `myosg.grid.iu.edu`, was retired on May 30, 2018 10AM EDT.
+    The OIM retirement is scheduled for May 31, 2018 11:59PM EDT.
 
 The MyOSG service provides web and REST interfaces to access information about OSG resource topology, projects, and VOs.
 The MyOSG web interface will be retired but we will continue to offer the same REST interface.
