@@ -60,7 +60,7 @@ Service-specific details
 ### OSG CA ###
 
 !!! note
-    Retirement of the OSG CA service is planned for May 31, 2018 11:59PM EDT.
+    The OSG CA service retirement is scheduled for May 31, 2018 11:59PM EDT.
 
 The OSG CA service offers certificate request, renewal, and revocation through the [OIM](#myosg-and-oim) web interface, 
 the OIM REST API, and the `osg-pki-tools` command-line tool.
@@ -108,8 +108,8 @@ If you experience any problems with the OSG CA service, please contact us at
 ### Software Repository ###
 
 !!! note
-    Migration of the software repository occurred on May 1, 2018.
-    Retirement of the old host, `repo.grid.iu.edu`, occurred on May 23, 2018 10AM EDT.
+    The software repository was migrated on May 1, 2018.
+    The old host, `repo.grid.iu.edu`, was retired on May 23, 2018 10AM EDT.
 
 The OSG Software repository includes the YUM repositories, client tarballs, and CA tarballs.
 The physical hosting location of this service will be changing; no other changes are planned.
@@ -174,7 +174,7 @@ If you experience any problems with GRACC accounting, please contact us at
 ### Ticket ###
 
 !!! note
-    Retirement of the Footprints ticketing system is scheduled for May 31, 2018 11:59PM EDT
+    The Footprints ticketing system retirement is scheduled for May 31, 2018 11:59PM EDT
 
 The Footprints ticketing system at <https://ticket.opensciencegrid.org> is used to track support and security issues as
 well as certificate and membership requests.
@@ -205,7 +205,7 @@ If you experience any problems with OASIS or CVMFS, please contact us at
 ### VOMS Admin Server ###
 
 !!! note
-    Retirement of the OSG VOMS service occurred on May 23, 2018.
+    The OSG VOMS service was retired on May 23, 2018.
 
 The [OSG VOMS](https://voms.opensciencegrid.org:8443/voms/osg/user/home.action) service is used to sign VOMS attributes
 for members of the OSG VO and can respond to queries for a list of VO members.
@@ -220,7 +220,7 @@ the OSG VOMS servers will be retired as previously planned.
 ### RSV ###
 
 !!! note
-    Retirement of the central RSV service occurred on May 15, 2018.
+    The central RSV service was retired on May 15, 2018.
 
 The central RSV service is a monitoring tool that displays every service status information about OSG sites that elect
 to provide it.
@@ -251,8 +251,8 @@ If you experience any problems with the central RSV service, please contact us a
 ### Collector ###
 
 !!! note
-    Migration of the central collector occurred on May 21, 2018.
-    Retirement of the old central collector occurred on May 23, 2018.
+    The central collector was migrated on May 21, 2018.
+    The old central collector was retired on May 23, 2018.
 
 The [central Collector](http://collector.opensciencegrid.org/) is a central database service that provides details about
 pilot jobs currently running in the OSG.
@@ -271,7 +271,7 @@ If you experience any problems with the central Collector, please contact us at
 ### Homepage ###
 
 !!! note
-    Migration of the OSG homepage occurred on May 15, 2018.
+    The OSG homepage was migrated on May 15, 2018.
 
 The [OSG homepage](https://opensciencegrid.org) is a Wordpress instance that will be moved to a static site.
 You can preview the new website at <https://opensciencegrid.github.io>.
