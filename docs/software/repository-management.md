@@ -16,7 +16,7 @@ We host four public-facing repositories at [repo.opensciencegrid.org](http://rep
 
 -   **contrib**: RPMs contributed from outside the OSG.
 
-These repos are updated by the `mash` script running on `repo1.grid.iu.edu` and `repo2.grid.iu.edu`.
+These repos are updated by the `mash` script running on `repo.opensciencegrid.org`.
 
 Internal repositories
 ---------------------

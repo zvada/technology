@@ -17,25 +17,25 @@ This section contains suggested layouts of externally-facing, site administrator
 
 All documents should start with an introduction that explains **what** the document contains, **what** the product does, and **why** someone may want to use it. In the past, document introductions were included in `About this...` sections due to the layout of the table of contents. Since the table of contents is included in the sidebar, introductions should go directly below the title header.
 
-The [HTCondor-CE installation guide](http://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/#installing-and-maintaining-htcondor-ce) is an example that meet all of the above criteria.
+The [HTCondor-CE installation guide](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-and-maintaining-htcondor-ce) is an example that meet all of the above criteria.
 
 ### Installation guides ###
 
 In addition to the introduction above, installation documents should have the following sections:
 
-- **Before Starting:** This section should contain information for any prepatory work that the site administrator should do or consider before proceeding with the installation ([example](http://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/#before-starting)).
-- **Installation:** The ([example](http://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/#installing-htcondor-ce))
+- **Before Starting:** This section should contain information for any prepatory work that the site administrator should do or consider before proceeding with the installation ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#before-starting)).
+- **Installation:** The ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-htcondor-ce))
 - **Validation:** How does the user make sure their installation is functional?
-- **Help:** Often just a link to the relevant [help document](http://opensciencegrid.github.io/docs/common/help/) as well as contact information for specific support groups, if applicable.
+- **Help:** Often just a link to the relevant [help document](http://www.opensciencegrid.org/docs/common/help/) as well as contact information for specific support groups, if applicable.
 
 Optionally, the following sections should be included as necessary.
 
 - **Overview:** if the introduction becomes large and unwieldy, extract the details of **what** the product does into an overview section
-- **Configuration:** required configuration steps ([example](http://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/#configuring-htcondor-ce)) as well as a sub-section for optional configurations. For long optional configuration sections, consider creating a list of contents at the top of the sub-section ([example](http://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/#optional-configuration)).
+- **Configuration:** required configuration steps ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#configuring-htcondor-ce)) as well as a sub-section for optional configurations. For long optional configuration sections, consider creating a list of contents at the top of the sub-section ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#optional-configuration)).
 - **Troubleshooting:** common issues that users encounter and their fixes
-- **Reference:** Details about configuration and log files, unix users, certificates, networking, links to relevant upstream documentation, etc. ([example](https://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/#reference))
+- **Reference:** Details about configuration and log files, unix users, certificates, networking, links to relevant upstream documentation, etc. ([example](https://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#reference))
 
-If any of the sections become too large, consider separating them out and linking to the new documents ([example](http://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/#troubleshooting-htcondor-ce)).
+If any of the sections become too large, consider separating them out and linking to the new documents ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#troubleshooting-htcondor-ce)).
 
 Tips for Writing Procedural Instructions
 ----------------------------------------
@@ -79,7 +79,7 @@ We use the GitHub pull request model for accepting document contributions. To co
 
 ### Deploying ITB documentation ###
 
-If you are a member of the OSG software and release team, you can preview large changes to the [ITB docs](https://opensciencegrid.github.io/docs-itb/) by pushing a branch that starts with an `itb.` prefix to the `opensciencegrid/docs` repo. For example:
+If you are a member of the OSG software and release team, you can preview large changes to the [ITB docs](https://www.opensciencegrid.org/docs-itb/) by pushing a branch that starts with an `itb.` prefix to the `opensciencegrid/docs` repo. For example:
 
 ``` console
 $ git remote add upstream https://github.com/opensciencegrid/docs.git

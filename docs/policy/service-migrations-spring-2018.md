@@ -29,7 +29,7 @@ provide a short outline of the steps sites are recommended to take:
 1. Sites at institutions with an [InCommon CA subscription](https://incommon.org/certificates/subscribers.html)
    should determine their local procedure for obtaining certificates.
 1. Sites should transition to the
-   [LCMAPS VOMS authentication method](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/)
+   [LCMAPS VOMS authentication method](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/)
    if they have not done so already.
 
 Office Hours
@@ -60,7 +60,7 @@ Service-specific details
 ### OSG CA ###
 
 !!! note
-    The OSG CA service retirement is scheduled for May 31, 2018 11:59PM EDT.
+    The OSG CA service was retired on May 31, 2018 11:59PM EDT.
 
 The OSG CA service offers certificate request, renewal, and revocation through the [OIM](#myosg-and-oim) web interface, 
 the OIM REST API, and the `osg-pki-tools` command-line tool.
@@ -96,7 +96,7 @@ In the future, we will use the following CA certificate services:
 !!! note
     The semantics of Let's Encrypt certificates are different from those of previous CAs.
     Please see
-    [the security team's position on Let's Encrypt](https://opensciencegrid.github.io/security/LetsEncryptOSGCAbundle/)
+    [the security team's position on Let's Encrypt](https://www.opensciencegrid.org/security/LetsEncryptOSGCAbundle/)
     for the security and setup implications of switching to a Let's Encrypt host or service certificate.
 
 New processes for requesting host, service, and user certificates against the aforementioned CAs are forthcoming.
@@ -142,14 +142,14 @@ If you experience any problems with the OSG Software repository, please contact 
 !!! note
     The MyOSG and the OIM site topology, project, VO, and downtime data migrations occurred on May 24, 2018 10AM EDT.
     The old MyOSG host, `myosg.grid.iu.edu`, was retired on May 30, 2018 10AM EDT.
-    The OIM retirement is scheduled for May 31, 2018 11:59PM EDT.
+    OIM was retired on May 31, 2018 11:59PM EDT.
 
 The MyOSG service provides web and REST interfaces to access information about OSG resource topology, projects, and VOs.
 The MyOSG web interface will be retired but we will continue to offer the same REST interface.
 If you run a service that queries MyOSG:
 
 !!! info "Action items"
-    - Ensure that the services use <https://my.opensciencegrid.org> instead of <https://myosg.grid.iu.edu>
+    - Ensure that the services use <https://my.opensciencegrid.org> instead of `https://myosg.grid.iu.edu`
     - Let us know what queries you’re making and why you’re making them
 
 [OIM](https://oim.opensciencegrid.org/oim/home) serves as the database for the information used by MyOSG with a web
@@ -174,7 +174,7 @@ If you experience any problems with GRACC accounting, please contact us at
 ### Ticket ###
 
 !!! note
-    The Footprints ticketing system retirement is scheduled for May 31, 2018 11:59PM EDT
+    The Footprints ticketing system was retired on May 31, 2018 11:59PM EDT
 
 The Footprints ticketing system at <https://ticket.opensciencegrid.org> is used to track support and security issues as
 well as certificate and membership requests.
@@ -214,7 +214,7 @@ the OSG VOMS servers will be retired as previously planned.
 
 !!! info "Action item"
     If your site accepts OSG jobs, transition your hosts to 
-    [LCMAPS VOMS authentication](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/).
+    [LCMAPS VOMS authentication](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/).
 
 
 ### RSV ###
@@ -226,7 +226,7 @@ The central RSV service is a monitoring tool that displays every service status 
 to provide it.
 It will be retired since there is no longer a need to monitor OSG site status as a whole.
 If you would like to monitor your OSG services, you can access the status page of your local
-[RSV](https://opensciencegrid.github.io/docs/monitoring/install-rsv/) instance.
+[RSV](https://www.opensciencegrid.org/docs/monitoring/install-rsv/) instance.
 
 !!! info "Action item"
     Before the retirement, you will need to disable the `gratia-consumer` on your local RSV host,
@@ -274,6 +274,6 @@ If you experience any problems with the central Collector, please contact us at
     The OSG homepage was migrated on May 15, 2018.
 
 The [OSG homepage](https://opensciencegrid.org) is a Wordpress instance that will be moved to a static site.
-You can preview the new website at <https://opensciencegrid.github.io>.
+You can preview the new website at <https://www.opensciencegrid.org>.
 If you experience any problems with the homepage, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).

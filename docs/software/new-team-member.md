@@ -18,7 +18,7 @@ Setup Instructions for New Team Members
     - Select `yes` for "Do you want to have support access?" and answer "Why?" with the following:
 
             Yes, I need to comment on tickets as a member of the OSG Software & Release Team
-            (https://opensciencegrid.github.io/technology/#the-team)
+            (https://www.opensciencegrid.org/technology/#the-team)
 
 1. Jira ticket system
     - Send email to <goc@opensciencegrid.org> and request access to JIRA

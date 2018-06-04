@@ -52,7 +52,7 @@ This document contains instructions for creating a new OSG documentation area vi
 
         git push origin master
 
-    Your documents should be shortly available at `https://opensciencegrid.github.io/<REPO NAME>`
+    Your documents should be shortly available at `https://www.opensciencegrid.org/<REPO NAME>`
 
 Creating an ITB Area
 --------------------
@@ -106,4 +106,4 @@ This section describes creating an ITB repository for a documentation area creat
 
         git push origin master
 
-    Your documents should be shortly available at `https://opensciencegrid.github.io/<REPO NAME>`
+    Your documents should be shortly available at `https://www.opensciencegrid.org/<REPO NAME>`

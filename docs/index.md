@@ -3,7 +3,7 @@ OSG Technology Area
 
 Welcome to the home page of the OSG Technology Team documentation area!
 
-If you are looking for site administrator documentation, please visit the [OSG Documentation page](https://opensciencegrid.github.io/docs/).
+If you are looking for site administrator documentation, please visit the [OSG Documentation page](https://www.opensciencegrid.org/docs/).
 
 The Team
 --------
