@@ -190,9 +190,9 @@ CVMFS
 ### Additional Documentation ###
 
 -   [CERN's CVMFS Documentation](https://cvmfs.readthedocs.io/en/stable/)
--   [OSG's CVMFS Replica Server](https://opensciencegrid.github.io/docs/other/install-cvmfs-stratum1/)
--   [OSG's CVMFS Client Documentation](https://opensciencegrid.github.io/docs/worker-node/install-cvmfs/)
--   [OSG's OASIS Documentation](https://opensciencegrid.github.io/docs/data/external-oasis-repos/)
+-   [OSG's CVMFS Replica Server](https://www.opensciencegrid.org/docs/other/install-cvmfs-stratum1/)
+-   [OSG's CVMFS Client Documentation](https://www.opensciencegrid.org/docs/worker-node/install-cvmfs/)
+-   [OSG's OASIS Documentation](https://www.opensciencegrid.org/docs/data/external-oasis-repos/)
 
 -   [bash_pi.sh](bash_pi.sh): A bash script that uses a simple Monte Carlo method to estimate the value of Pi
 
@@ -221,7 +221,7 @@ GSI OpenSSH
 To test a fresh installation:
 
 1.  Spin up two VM's and set up the EPEL/OSG repos on both of them.
-2.  Choose one of the VM's, it will be the server VM. Consult these [instructions](https://opensciencegrid.github.io/docs/other/gsissh/) to set up the server.
+2.  Choose one of the VM's, it will be the server VM. Consult these [instructions](https://www.opensciencegrid.org/docs/other/gsissh/) to set up the server.
 3.  From the other VM (client):
     1.   Install the necessary packages:
     
@@ -269,7 +269,7 @@ The CE Collector is a stripped-down version of HTCondor-CE that contains mostly 
 1.  Install `osg-htcondor-ce-condor` (replace condor with the batch system of your choice)
 2.  Ensure osg-configure >= 1.0.60-2 is installed
 3.  Configure your CE using osg-configure
-    1.  You should use the [HTCondor-CE Install Docs](https://opensciencegrid.github.io/docs/compute-element/install-htcondor-ce/) as a reference, although you can skip several of the steps
+    1.  You should use the [HTCondor-CE Install Docs](https://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/) as a reference, although you can skip several of the steps
     2.  You can skip setting up Squid: set `enabled` to `True` and `location` to `UNAVAILABLE` in `01-squid.ini`
     3.  Set `htcondor_gateway_enabled` to `True` in `10-gateway.ini`
     4.  You probably don't need GUMS, but if you want it, use the Fermi GUMS server (set `gums_host` to `gums.fnal.gov` and `authorization_method` to `xacml` in 10-misc.ini)
@@ -444,7 +444,7 @@ XRootD VOMS Testing
 
 This section is intended for OSG Software/Release teams to gather information on testing vomsxrd/xrootd-voms-plugin package. Original plugin named [vomsxrd](http://gganis.github.io/vomsxrd/), similar to lcmaps that extracts information for authorization within xrootd of a proxy's voms extension.
 
-You need an [xrootd server installation](https://opensciencegrid.github.io/docs/data/install-xrootd/)
+You need an [xrootd server installation](https://www.opensciencegrid.org/docs/data/install-xrootd/)
 
 In the xrootd server yum install the following packages:
 

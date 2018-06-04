@@ -61,8 +61,8 @@ part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
 
 1. Ask them to follow the relevant instructions for their authorization solution 
 
-    - [edg-mkgridmap](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
-    - [GUMS](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
+    - [edg-mkgridmap](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
+    - [GUMS](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
 
 1. After they've completed the above instructions, use one of the following methods (in order of preference) to verify 
    LCMAPS VOMS mappings:

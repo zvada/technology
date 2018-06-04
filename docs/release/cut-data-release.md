@@ -137,11 +137,11 @@ The following instructions are meant for the release manager (or interim release
 
         Release notes and pointers to more documentation can be found at:
 
-        http://opensciencegrid.github.io/docs/release/<SERIES.VERSION>/release-<RELEASE-VERSION>/
+        http://www.opensciencegrid.org/docs/release/<SERIES.VERSION>/release-<RELEASE-VERSION>/
 
         Need help? Let us know:
 
-        http://opensciencegrid.github.io/docs/common/help/
+        http://www.opensciencegrid.org/docs/common/help/
 
         We welcome feedback on this release!
 
