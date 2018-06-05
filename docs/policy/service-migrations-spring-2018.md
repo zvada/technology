@@ -12,8 +12,8 @@ action is required.
     Specific service migrations will be announced prior to retirement or migration.
 
 We understand sites will have many questions regarding this transition.
-The OSG Technology team will be holding office hours for any questions or comments about these service 
-changes; see the [Office Hours section](#office-hours) for details.
+If you have questions or concerns that are not addressed in this document, see the [Getting Help section](#getting-help)
+for details.
 
 Site Checklist Summary
 ----------------------
@@ -32,22 +32,10 @@ provide a short outline of the steps sites are recommended to take:
    [LCMAPS VOMS authentication method](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/)
    if they have not done so already.
 
-Office Hours
+Getting Help
 ------------
 
-If you have questions or concerns that are not addressed in this document, please join us for our office hours!
-
-**Where:**
-
-* <https://unl.zoom.us/j/277958559>
-* Or Telephone: US: +1 408 638 0968  or +1 646 876 9923  or +1 669 900 6833
-  Meeting ID: 277 958 559
-
-**When:**
-
-Tuesdays, 2-3 PM CDT
-
-We can also be contacted at the usual locations:
+If you have questions or concerns that are not addressed in this document, please contact us at the usual locations:
 
 -  [help@opensciencegrid.org](mailto:help@opensciencegrid.org)
 -  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
