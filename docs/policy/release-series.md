@@ -8,6 +8,10 @@ OSG software releases are organized into __release series__, with the intent tha
 
 OSG supports at most two concurrent release series, __current__ and __previous__, where the goal is to begin a new release series about every 18 months. Once a new series starts, OSG will support the previous series for at least 12 months and will announce its end-of-life date at least 6 months in advance. During the first 6 months of a series, OSG will endeavor to apply backward-compatible changes to the previous series as well; afterward, OSG will apply only critical bug and security fixes. When support ends for a release series, it means that OSG no longer updates the software, fixes issues, or troubleshoots installations for releases within the series. The plan is to maintain interoperability between supported series, but there is no guarantee that unsupported series will continue to function in OSG.
 
+Files for release series older than current or previous will be removed from the OSG software repositories no earlier
+than when support ends for the previous release.
+For example, files for OSG 3.2 will be removed no earlier than when support ends for OSG 3.3 in May 2018.
+
 OSG Operations will handle deviations from this policy, in consultation with OSG Technology and stakeholders.
 
 Life-cycle Dates
