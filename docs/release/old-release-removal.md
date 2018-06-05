@@ -6,9 +6,9 @@ we will remove older OSG Software release series.  This will result in packages
 from those series becoming unavailable, so we will remove a release series when
 its packages are no longer needed.
 
-We will remove a release series when the _following_ series is completely out
-of support.  For example, OSG 3.1 will be removed when OSG 3.2 is out of
-support, and OSG 3.2 will be removed when OSG 3.3 is out of support.
+We will remove a release series no earlier than when the _following_ series is completely out of support.
+For example, OSG 3.1 will be removed when OSG 3.2 is out of support, and OSG 3.2 will be removed when OSG 3.3 is out of
+support.
 
 
 Tasks
