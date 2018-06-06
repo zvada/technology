@@ -276,9 +276,7 @@ VERSIONS="<VERSION(S)>"
 
 ### Step 2: Upload the client tarballs
 
-Upload the tarballs with the following procedure:
-
-#### On a CS machine
+Upload the tarballs to the repository with the following procedure from a UW CS machine (e.g., `ingwe`):
 
 ```bash
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
