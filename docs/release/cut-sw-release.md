@@ -276,59 +276,6 @@ VERSIONS="<VERSION(S)>"
 
 ### Step 2: Upload the client tarballs
 
-Ask Tim Theisen, Brian Lin, or someone with privileges on the `opensciencegrid.org` repo servers to upload the tarballs with the following procedure:
-
-#### On a CS machine
-
-```bash
-NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
-```
-```bash
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver="${ver%.*}"
-    cd /p/vdt/public/html/tarball-client
-    ssh jump.grid.iu.edu mkdir /tmp/$ver/
-    scp -p $major_ver/*/osg-wn-client-$ver*gz jump.grid.iu.edu:/tmp/$ver/
-done
-```
-
-#### On jump.grid.iu.edu
-
-```bash
-NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
-```
-```bash
-for ver in $NON_UPCOMING_VERSIONS; do
-    scp -pr /tmp/$ver repo1:/tmp/
-    scp -pr /tmp/$ver repo2:/tmp/
-    rm -rf /tmp/$ver
-done
-```
-
-#### On repo1/repo2 (as root)
-
-You can ssh to repo1 and repo2 from jump.grid.iu.edu; you will need to do this procedure on both systems.
-
-```bash
-sudo su -
-```
-
-```bash
-NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
-```
-```bash
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver="${ver%.*}"
-    mv /tmp/$ver /usr/local/repo/tarball-install/$major_ver/
-    rm -f /usr/local/repo/tarball-install/$major_ver/*latest*
-done
-/root/mk-sims.sh
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver="${ver%.*}"
-    ls -l /usr/local/repo/tarball-install/$major_ver/*latest* # verify the symlinks are correct
-done
-```
-
 Upload the tarballs with the following procedure:
 
 #### On a CS machine
