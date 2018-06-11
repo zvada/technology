@@ -82,60 +82,10 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 1.  Ensure that you meet the [pre-requisites](https://github.com/opensciencegrid/vm-test-runs) for submitting VM universe test runs
 2.  Prepare the test suite by running:
 
-        osg-run-tests 'Testing OSG pre-release'
+        osg-run-tests -P 'Testing OSG pre-release'
 
 3.  `cd` into the directory specified in the output of the previous command
-4.  `cd` into `parameters.d` and remove all files within it except for `osg33.yaml` and `osg34.yaml`
-5.  Edit `osg33.yaml` so that it reads:
-
-        platforms:
-          - centos_6_x86_64
-          - rhel_6_x86_64
-          - sl_6_x86_64
-          - centos_7_x86_64
-          - rhel_7_x86_64
-          - sl_7_x86_64
-        
-        sources:
-          - opensciencegrid:master; 3.3; osg-prerelease
-          - opensciencegrid:master; 3.3; osg > osg-prerelease
-        
-        package_sets:
-          - label: All (java)
-            selinux: True
-            osg_java: True
-            rng: True
-            packages:
-              - osg-tested-internal
-              
-6.  Edit `osg34.yaml` so that it reads:
-
-        platforms:
-          - centos_6_x86_64
-          - rhel_6_x86_64
-          - sl_6_x86_64
-          - centos_7_x86_64
-          - rhel_7_x86_64
-          - sl_7_x86_64
-        
-        sources:
-          - opensciencegrid:master; 3.4; osg-prerelease
-          - opensciencegrid:master; 3.4; osg > osg-prerelease
-          - opensciencegrid:master; 3.3; osg > 3.4/osg-prerelease
-          - opensciencegrid:master; 3.4; osg-prerelease, osg-upcoming-prerelease, osg-upcoming
-          - opensciencegrid:master; 3.4; osg > osg-prerelease, osg-upcoming-prerelease, osg-upcoming
-
-        package_sets:
-          - label: All
-            selinux: True
-            osg_java: False
-            packages:
-              - osg-tested-internal
-              
-    If you are not releasing packages into `upcoming`, delete the `upcoming`-related lines in the `sources` section.
-
-7.  `cd` back into the root directory of the test run (e.g. `cd ..`)
-8.  Submit the DAG:
+4.  Submit the DAG:
 
         condor_submit_dag master-run.dag
 
