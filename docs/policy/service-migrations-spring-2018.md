@@ -25,6 +25,21 @@ If you have questions or concerns that are not addressed in this document, pleas
 -  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software) - if you can't create an account, 
    send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
 
+Support Changes
+---------------
+
+The Footprints ticketing system at <https://ticket.opensciencegrid.org> was used to track support and security issues as
+well as certificate and membership requests.
+This service was retired in favor of two different ticketing systems, depending on the VOs you support at your site:
+
+| If your site primarily supports... | Submit new tickets to...                         |
+|------------------------------------|--------------------------------------------------|
+| LHC VOs                            | [GGUS](https://ggus.eu)                          |
+| Anyone else                        | [Freshdesk](https://support.opensciencegrid.org) |
+
+If you experience any problems with ticketing, please contact us at
+[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+
 Service-specific details
 ------------------------
 
@@ -140,27 +155,6 @@ If you experience any problems with the OSG Software repository, please contact 
 No changes are planned for the [GRACC accounting](https://gracc.opensciencegrid.org/dashboard/db/gracc-home?orgId=1)
 service at this time.  The integration of OSG with WLCG accounting should see no interruption.
 If you experience any problems with GRACC accounting, please contact us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
-
-### Ticket ###
-
-!!! note
-    The Footprints ticketing system was retired on May 31, 2018 11:59PM EDT
-
-The Footprints ticketing system at <https://ticket.opensciencegrid.org> is used to track support and security issues as
-well as certificate and membership requests.
-This service will be retired in favor of two different ticketing systems, depending on the VOs you support at your site:
-
-| If your site primarily supports... | Submit new tickets to...                         |
-|------------------------------------|--------------------------------------------------|
-| LHC VOs                            | [GGUS](https://ggus.eu)                          |
-| Anyone else                        | [Freshdesk](https://support.opensciencegrid.org) |
-
-Throughout this migration, [help@opensciencegrid.org](mailto:help@opensciencegrid.org) will be available for all
-support requests or inquiries.
-We do not expect this migration to require site administrator action.
-
-If you experience any problems with ticketing, please contact us at
 [help@opensciencegrid.org](mailto:help@opensciencegrid.org).
 
 ### OASIS and CVMFS ###
