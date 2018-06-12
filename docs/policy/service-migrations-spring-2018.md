@@ -15,23 +15,6 @@ We understand sites will have many questions regarding this transition.
 If you have questions or concerns that are not addressed in this document, see the [Getting Help section](#getting-help)
 for details.
 
-Site Checklist Summary
-----------------------
-
-The remainder of the document provides a service-by-service overview of site impacts.  In this section, we
-provide a short outline of the steps sites are recommended to take:
-
-1. Review all site configuration (yum repositories, CVMFS configurations) to ensure they are the latest from the
-   OSG.  In particular, replace all references to `grid.iu.edu` with equivalent `opensciencegrid.org` entries.
-1. Renew all local host certificates within the OSG CA prior to May 1.  A list of affected hosts at your sites
-   can be provided by OSG support upon request.
-1. LHC sites should verify local admins have a GGUS accounts and are familiar with its web interface.
-1. Sites at institutions with an [InCommon CA subscription](https://incommon.org/certificates/subscribers.html)
-   should determine their local procedure for obtaining certificates.
-1. Sites should transition to the
-   [LCMAPS VOMS authentication method](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/)
-   if they have not done so already.
-
 Getting Help
 ------------
 
