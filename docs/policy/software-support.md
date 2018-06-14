@@ -61,14 +61,26 @@ part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
 
 1. Ask them to follow the relevant instructions for their authorization solution 
 
-    - [edg-mkgridmap](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
-    - [GUMS](http://opensciencegrid.github.io/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
+    - [edg-mkgridmap](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
+    - [GUMS](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
 
-1. After they've completed the above instructions, verify that they're still getting pilots:
+1. After they've completed the above instructions, use one of the following methods (in order of preference) to verify 
+   LCMAPS VOMS mappings:
 
-    1. Add factory ops to the ticket under `OSG Support Centers`
-    1. Verify that the site's [pilot numbers](http://gfactory-1.t2.ucsd.edu/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
+    - If the host is a CE, verify that they are still receiving pilots:
+
+        - Query their CE directly:
+
+                :::console
+                $ condor_q -name <CE HOSTNAME> -pool <CE HOSTNAME>:9619
+
+            This may not work if the site has a strict firewall or do not run an HTCondor-CE.
+
+        - Add factory ops or the relevant ATLAS (T2 vs T3) support center to the ticket under `OSG Support Centers`
+        - For non-ATLAS sites, verify that the site's [pilot numbers](http://gfactory-1.t2.ucsd.edu/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
        are non-zero.
+
+    - If the host is a GridFTP server, verify file transfer with their VO support center.
 
 ### Updating the triage calendar ###
 

@@ -15,5 +15,5 @@ Over the next weeks and months, we will be in contact with our stakeholder VOs, 
 
 Please reach out to [goc@opensciencegrid.org](mailto:goc@opensciencegrid.org) with your questions, comments, and concerns.
 
-A copy of this statement can be found at [https://opensciencegrid.github.io/technology/policy/globus-toolkit](https://opensciencegrid.github.io/technology/policy/globus-toolkit).
+A copy of this statement can be found at [https://www.opensciencegrid.org/technology/policy/globus-toolkit](https://www.opensciencegrid.org/technology/policy/globus-toolkit).
 

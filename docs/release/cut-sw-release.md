@@ -1,10 +1,10 @@
 !!! note
-    If you are performing a data release, please follow the instructions [here](cut-data-release)
+    If you are performing a data release, please follow the instructions [here](/release/cut-data-release/)
 
 How to Cut a Software Release
 =============================
 
-This document details the process for releasing new OSG Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found [here](/release/release-policy.md).
+This document details the process for releasing new OSG Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found [here](/release/release-policy/).
 
 Due to the length of time that this process takes, it is recommended to do the release over three or more days to allow for errors to be corrected and tests to be run.
 
@@ -15,6 +15,7 @@ Requirements
 -   An account on UW CS machines (e.g. `library`, `ingwe`) to access UW's AFS
 -   `release-tools` scripts in your `PATH` ([GitHub](https://github.com/opensciencegrid/release-tools))
 -   `osg-build` scripts in your `PATH` (installed via OSG yum repos or [source](https://github.com/opensciencegrid/osg-build))
+-   Access to the tarball repository at UNL (osgcollab@hcc-osg-software.unl.edu)
 
 Pick the Version Number
 -----------------------
@@ -81,67 +82,22 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 1.  Ensure that you meet the [pre-requisites](https://github.com/opensciencegrid/vm-test-runs) for submitting VM universe test runs
 2.  Prepare the test suite by running:
 
-        osg-run-tests 'Testing OSG pre-release'
+        osg-run-tests -P 'Testing OSG pre-release'
 
 3.  `cd` into the directory specified in the output of the previous command
-4.  `cd` into `parameters.d` and remove all files within it except for `osg33.yaml` and `osg34.yaml`
-5.  Edit `osg33.yaml` so that it reads:
-
-        platforms:
-          - centos_6_x86_64
-          - rhel_6_x86_64
-          - sl_6_x86_64
-          - centos_7_x86_64
-          - rhel_7_x86_64
-          - sl_7_x86_64
-        
-        sources:
-          - opensciencegrid:master; 3.3; osg-prerelease
-          - opensciencegrid:master; 3.3; osg > osg-prerelease
-        
-        package_sets:
-          - label: All (java)
-            selinux: True
-            osg_java: True
-            rng: True
-            packages:
-              - osg-tested-internal
-              
-6.  Edit `osg34.yaml` so that it reads:
-
-        platforms:
-          - centos_6_x86_64
-          - rhel_6_x86_64
-          - sl_6_x86_64
-          - centos_7_x86_64
-          - rhel_7_x86_64
-          - sl_7_x86_64
-        
-        sources:
-          - opensciencegrid:master; 3.4; osg-prerelease
-          - opensciencegrid:master; 3.4; osg > osg-prerelease
-          - opensciencegrid:master; 3.3; osg > 3.4/osg-prerelease
-          - opensciencegrid:master; 3.4; osg-prerelease, osg-upcoming-prerelease, osg-upcoming
-          - opensciencegrid:master; 3.4; osg > osg-prerelease, osg-upcoming-prerelease, osg-upcoming
-
-        package_sets:
-          - label: All
-            selinux: True
-            osg_java: False
-            packages:
-              - osg-tested-internal
-              
-    If you are not releasing packages into `upcoming`, delete the `upcoming`-related lines in the `sources` section.
-
-7.  `cd` back into the root directory of the test run (e.g. `cd ..`)
-8.  Submit the DAG:
+4.  Submit the DAG:
 
         condor_submit_dag master-run.dag
 
 !!! note
     If there are failures, consult the release-manager before proceeding.
 
-### Step 3: Regenerate the build repositories
+### Step 3: Test Pre-Release on the Madison ITB site
+
+Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](/release/itb-testing/).
+If you not local to Madison, consult the release manager for the designated person to do this testing.
+
+### Step 4: Regenerate the build repositories
 
 To avoid 404 errors when retrieving packages, it's necessary to regenerate the build repositories. Run the following script from a machine with your koji-registered user certificate:
 
@@ -152,7 +108,7 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 1-regen-repos $NON_UPCOMING_VERSIONS
 ```
 
-### Step 4: Create the client tarballs
+### Step 5: Create the client tarballs
 
 Create the client tarballs as root on an EL7 fermicloud machine using the relevant script from git:
 
@@ -165,7 +121,7 @@ cd release-tools
 ./1-client-tarballs $NON_UPCOMING_VERSIONS
 ```
 
-### Step 5: Briefly test the client tarballs
+### Step 6: Briefly test the client tarballs
 
 As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
 
@@ -185,7 +141,8 @@ dotest () {
         pushd $rhel-$arch
         tar xzf ../$file
         $client/osg/osg-post-install
-        $client/osgrun osg-version
+        $client/osgrun osg-ca-manage setupCA --url osg
+        $client/osgrun osg-update-vos
         popd
         rm -rf $rhel-$arch
     else
@@ -204,9 +161,9 @@ for ver in $NON_UPCOMING_VERSIONS; do
     for client in $clients; do
         rhels="el6 el7"
         for rhel in $rhels; do
-            max_size=24
+            max_size=28
             if [ $rhel = "el7" ]; then
-                max_size=32
+                max_size=33
             fi
             archs="x86_64"
             if [ "$major_version" = "3.3" -a $rhel = "el6" ]; then
@@ -228,7 +185,7 @@ If you have time, try some of the binaries, such as grid-proxy-init.
 !!! todo
     We need to automate this and have it run on the proper architectures and version of RHEL.
 
-### Step 6: Update the UW AFS installation of the tarball client
+### Step 7: Update the UW AFS installation of the tarball client
 
 The UW keeps an install of the tarball client in `/p/vdt/workspace/tarball-client` on the UW's AFS. To update it, run the following commands:
 
@@ -241,7 +198,7 @@ for ver in $NON_UPCOMING_VERSIONS; do
 done
 ```
 
-### Step 7: Wait
+### Step 8: Wait
 
 Wait for clearance. The OSG Release Coordinator (in consultation with the Software Team and any testers) need to sign off on the update before it is released. If you are releasing things over two days, this is a good place to stop for the day.
 
@@ -254,7 +211,8 @@ Day 2: Pushing the Release
 
 ### Step 1: Push from pre-release to release
 
-This script moves the packages into release, clones releases into new version-specific release repos, locks the repos and regenerates them. Afterwards, it produces `*release-note*` files that should be used to update the release note pages. Clone it from the github repo and run the script:
+This script moves the packages into release, clones releases into new version-specific release repos,
+locks the repos and regenerates them.
 
 ```bash
 VERSIONS="<VERSION(S)>"
@@ -268,57 +226,25 @@ VERSIONS="<VERSION(S)>"
 
 ### Step 2: Upload the client tarballs
 
-Ask Tim Theisen, Brian Lin, or someone with privileges on the `opensciencegrid.org` repo servers to upload the tarballs with the following procedure:
-
-#### On a CS machine
+Upload the tarballs to the repository with the following procedure from a UW CS machine (e.g., `ingwe`):
 
 ```bash
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 ```
 ```bash
+pushd /p/vdt/public/html/tarball-client
 for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver=`sed 's/.[0-9]*$//' <<< $ver`
-    cd /p/vdt/public/html/tarball-client
-    ssh jump.grid.iu.edu mkdir /tmp/$ver/
-    scp -p $major_ver/*/osg-wn-client-$ver*gz jump.grid.iu.edu:/tmp/$ver/
+    major_ver="${ver%.*}"
+    ssh osgcollab@hcc-osg-software.unl.edu mkdir -p /usr/local/repo/tarball-install/$major_ver/$ver
+    scp -p $major_ver/*/osg-wn-client-$ver*gz osgcollab@hcc-osg-software.unl.edu:/usr/local/repo/tarball-install/$major_ver/$ver
 done
-```
-
-#### On jump.grid.iu.edu
-
-```bash
-NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
-```
-```bash
+popd
+ssh osgcollab@hcc-osg-software.unl.edu bin/mk-sims.sh
 for ver in $NON_UPCOMING_VERSIONS; do
-    scp -pr /tmp/$ver repo1:/tmp/
-    scp -pr /tmp/$ver repo2:/tmp/
-    rm -rf /tmp/$ver
+    major_ver="${ver%.*}"
+    ssh osgcollab@hcc-osg-software.unl.edu "cd /usr/local/repo/tarball-install; ls -l $major_ver/*latest*"
 done
-```
-
-#### On repo1/repo2 (as root)
-
-You can ssh to repo1 and repo2 from jump.grid.iu.edu; you will need to do this procedure on both systems.
-
-```bash
-sudo su -
-```
-
-```bash
-NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
-```
-```bash
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver=`sed 's/.[0-9]*$//' <<< $ver`
-    mv /tmp/$ver /usr/local/repo/tarball-install/$major_ver/
-    rm -f /usr/local/repo/tarball-install/$major_ver/*latest*
-done
-/root/mk-sims.sh
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver=`sed 's/.[0-9]*$//' <<< $ver`
-    ls -l /usr/local/repo/tarball-install/$major_ver/*latest* # verify the symlinks are correct
-done
+# verify the "latest" symlinks point to the version(s) just installed
 ```
 
 ### Step 3: Install the tarballs into OASIS
@@ -368,36 +294,40 @@ cd docker-osg-wn
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
-1.  The release manager writes the release announcement and send it out. Here is a sample, replace `<BRACKETED TEXT>` with the appropriate values:
+1.  The release manager writes the a release announcement for each version and sends it out.
+    The announcement should mention a handful of the most important updates.
+    Due to downstream formatting issues, each major change should end at column 76 or earlier.
+    Here is a sample, replace `<BRACKETED TEXT>` with the appropriate values:
 
-         Subject: Announcing OSG Software version <VERSION(S)>
-         
-         We are pleased to announce OSG Software version <VERSION(S)>!
-         
-         This is the OSG Software distributed via RPMs for:
-         
-         * Scientific Linux 6 and 7
-         * CentOS 6 and 7
-         * Red Hat Enterprise Linux 6 and 7
-         
-         This release affects the <SET OF METAPACKAGES (client, compute element, etc...)>. Changes include:
-         
-         * Major change 1
-         * Major change 2
-         * Major change 3
-         
-         Release notes and pointers to more documentation can be found at:
-         
-         <LINK TO RELEASE NOTES>
-         
-         Need help? Let us know:
-         
-         https://opensciencegrid.github.io/docs/common/help/
-         
-         We welcome feedback on this release
+        Subject: Announcing OSG Software version <VERSION>
+
+        We are pleased to announce OSG Software version <VERSION>!
+
+        Changes to OSG <VERSION> include:
+        - Major Change 1
+        - Major Change 2
+        - Major Change 3
+
+        Release notes and pointers to more documentation can be found at:
+
+        http://www.opensciencegrid.org/docs/release/<SERIES.VERSION>/release-<RELEASE-VERSION>/
+
+        Need help? Let us know:
+
+        http://www.opensciencegrid.org/docs/common/help/
+
+        We welcome feedback on this release!
 
 2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
 3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
 4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
     Also set the Fix Versions field to the appropriate value(s) and uncheck the box that reads "Send mail for this update"
 
+Day 3: Update the ITB
+---------------------
+
+Now that the release has had a chance to propogate to all the mirrors, update the Madison ITB site by following
+the [yum update section](/infrastructure/madison-itb/#doing-yum-updates) of the Madison ITB document.
+If you are not local to Madison, consult the release manager for the designated person to do the update.
+Remember to stop the HTCondor and HTCondor-CE daemons according to the [HTCondor pre-release testing instructions](/release/itb-testing/#installing-htcondor-prerelease).
+Those daemons will need to be restarted after the upgraode.

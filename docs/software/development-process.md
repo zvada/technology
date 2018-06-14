@@ -39,7 +39,7 @@ The OSG Software team supports multiple release series, independent but in paral
 
 Current definitions:
 
-- maintenance: OSG 3.3 ( **branches/osg-3.3** )
+- maintenance: None
 - current: OSG 3.4 ( **trunk** )
 
 <!--
@@ -61,7 +61,8 @@ Procedure:
 10. Perform the standard 4 tests for the **maintenance** series (see below)
 11. As needed (or directed by the Software manager), perform the cross-series tests (see below)
 
-**Note:** Do not change the RPM Release number in the **maintenance** branch before rebuilding; the %dist tag will differ automatically, and hence the **maintenance** and **current** NVRs will not conflict.
+!!! note
+    Do not change the RPM Release number in the **maintenance** branch before rebuilding; the `%dist` tag will differ automatically, and hence the **maintenance** and **current** NVRs will not conflict.
 
 <!--
 1. Make changes to the *trunk*

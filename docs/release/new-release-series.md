@@ -118,8 +118,7 @@ Do on the month of the 3.4.0 release
 - Update mash (coordinate with steige)
     - On repo-itb
     - On repo1/repo2
-- Update documentation at
-    <https://opensciencegrid.github.io/technology/software/development-process/>
+- Update documentation [here](/software/development-process)
 - Update osg-test / vmu-test-runs
     -   They're only going to test from minefield (and eventurally testing) until the release
 
@@ -163,6 +162,6 @@ Do sometime after the 3.4.0 release
 
 -   Update the default promotion route aliases in `osg-promote`
 
--   Update documentation again to reflect that 3.4 is now the _main_ branch and 3.3 is the _maintenance_ branch:
-    <https://opensciencegrid.github.io/technology/software/development-process/>
+-   Update [documentation](/software/development-process) again to reflect that 3.4 is now the _main_ branch and 3.3 is
+    the _maintenance_ branch:
 

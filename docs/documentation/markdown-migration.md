@@ -254,8 +254,8 @@ Background:
 
 At the end of year (2017), the TWiki will be retired in favor of !GitHub. You can find the various TWiki webs and their new !GitHub locations listed below:
 
-   * Release3: https://opensciencegrid.github.io/docs ([[https://github.com/opensciencegrid/docs/tree/master/archive][archive]])
-   * !SoftwareTeam: https://opensciencegrid.github.io/technology ([[https://github.com/opensciencegrid/technology/tree/master/archive][archive]])
+   * Release3: https://www.opensciencegrid.org/docs ([[https://github.com/opensciencegrid/docs/tree/master/archive][archive]])
+   * !SoftwareTeam: https://www.opensciencegrid.org/technology ([[https://github.com/opensciencegrid/technology/tree/master/archive][archive]])
 </div>
 ```
 
