@@ -33,6 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [18 June 2018](meetings/2018/TechArea20180618.md)
   * [11 June 2018](meetings/2018/TechArea20180611.md)
   * [4 June 2018](meetings/2018/TechArea20180604.md)
   * [29 May 2018](meetings/2018/TechArea20180529.md) - Memorial Day
