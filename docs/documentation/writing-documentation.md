@@ -1,12 +1,135 @@
-Writing OSG Software Documentation
-==================================
+Writing OSG Documentation
+=========================
 
-OSG software documentation is written in [markdown](https://en.wikipedia.org/wiki/Markdown), built using [MkDocs](http://www.mkdocs.org/), and served via [GitHub Pages](https://pages.github.com/). To contribute documentation, submit a pull request to the relevant github repository:
+Some OSG pages are written in [markdown](https://en.wikipedia.org/wiki/Markdown), built using [MkDocs](http://www.mkdocs.org/), and served via [GitHub Pages](https://pages.github.com/).
+To [contribute content](#contributing-content), submit a pull request to the relevant github repository:
 
 - [Site administrator documentation](https://github.com/opensciencegrid/docs/)
-- [Internal OSG Technology Area documentation](https://github.com/opensciencegrid/technology/).
+- [Internal Technology Area documentation](https://github.com/opensciencegrid/technology/).
+- [Networking documentation](https://github.com/opensciencegrid/networking)
+- [Security documentation](https://github.com/opensciencegrid/security)
+- [Operations documentation](https://github.com/opensciencegrid/operations)
+- [Production meeting notes](https://github.com/opensciencegrid/production)
+- [Management pages](https://github.com/opensciencegrid/management)
+- [Outreach pages](https://github.com/opensciencegrid/outreach)
+    - [User School 2017 pages](https://github.com/opensciencegrid/user-school-2017)
+    - [User School 2018 pages](https://github.com/opensciencegrid/user-school-2018)
 
-This document contains instructions, recommendations, and guidelines for writing OSG Software documentatation.
+This document contains instructions, recommendations, and guidelines for writing OSG content.
+
+Contributing Content
+--------------------
+
+To contribute content to one of the above OSG areas, make sure you and the machine you'll be working on meet the
+following requirements:
+
+- Have a [Github account](https://github.com/join)
+- Installations of the following tools and languages:
+    - [git](https://git-scm.com/)
+    - [Python](https://www.python.org/)
+    - [pip](https://pip.pypa.io/en/stable/installing/) (comes by default with Python 2 >= 2.7.9 or Python 3 >= 3.4)
+
+### Preparing the git repository ###
+
+Before making any content changes, you will need to prepare a local git clone and set up a Python virtual environment:
+
+1. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the GitHub repository that you'd like to contribute to
+1. `cd` into the directory containing the local clone of your Github fork
+1. Run the following command to update the contents of the `ci` directory:
+
+        :::console
+        $ git submodule update --init --recursive
+
+1. Add the upstream Github repository as a [remote](https://help.github.com/articles/adding-a-remote/).
+   For example, if you are working on the User School 2018 pages:
+
+        :::console
+        $ git remote add upstream https://github.com/opensciencegrid/user-school-2018
+
+1. Install the `virtualenv` package:
+
+        :::console
+        $ pip install --user virtualenv
+
+1. Set up your Python virtual environment:
+
+        :::console
+        $ virtualenv env
+        $ env/bin/pip install -r ci/pip-requirements.txt
+
+### Previewing the pages ###
+
+To preview the pages, start a MkDocs development server viewable in your browser that will automatically detect any
+content changes that you make.
+
+1. `cd` into the directory containing the local clone of your GitHub fork
+
+1. Start a MkDocs development server to preview your changes:
+
+        :::console
+        $ env/bin/mkdocs serve
+
+    To preview your changes visit `localhost:8000` in the browser of your choice.
+    The server can be stopped with `Ctrl-C`.
+
+### Making content changes ###
+
+To contribute content to the OSG, follow these steps to submit a pull request with your desired changes:
+
+1. `cd` into the directory containing the local clone of your Github fork
+1. Create a branch based on the `master` branch of the `upstream` repository:
+
+        :::console
+        $ git fetch --all
+        $ git checkout -b %RED%<BRANCH NAME>%ENDCOLOR% upstream/master
+
+    Replacing `<BRANCH NAME>` with a name of your choice.
+
+1. Make your changes:
+
+    - If you are making changes to an existing document, make changes in your local clone and push them to your fork.
+    - If you are contributing a new page:
+        1. Name the page. Page file names should be lowercase, `-` delimited, and concise but descriptive,
+           e.g. `markdown-migration.md` or `cutting-release.md`
+        1. Place the page in the relevant sub-folder of the `docs/` directory.
+           If you are unsure of the appropriate location, note that in the description of the pull request.
+        1. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/),
+           e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
+
+1. If you haven't already, start a Mkdocs development server to [preview your changes](#previewing-the-pages).
+
+1. Continue making changes until you are satisfied with the preview, then stage your changes in git:
+
+        :::console
+        $ git add %RED%<YOUR FILE> <YOUR 2nd FILE>...<YOUR Nth FILE%ENDCOLOR%
+
+    Adding each file that contains changes that you'd wish to make.
+    If you are adding a new page, one of the files should be `mkdocs.yml`.
+
+1. Commit your changes and push them to your Github fork:
+
+        :::console
+        $ git commit -m "%RED%<DESCRIPTIVE COMMIT MESSAGE>%ENDCOLOR%"
+        $ git push origin
+
+1. From your Github fork, [submit a pull request](https://help.github.com/articles/creating-a-pull-request/)
+
+### Deploying content to the ITB (advanced) ###
+
+If you are a member of the OSG software and release team, you can preview large changes to the
+[ITB docs](https://www.opensciencegrid.org/docs-itb/) or [ITB technology](https://www.opensciencegrid.org/technology-itb/)
+by pushing a branch that starts with an `itb.` prefix to the `opensciencegrid/docs` repo.
+For example:
+
+``` console
+$ git remote add upstream https://github.com/opensciencegrid/docs.git
+$ git checkout new_docs
+$ git push upstream new_docs:itb.new_docs
+```
+
+!!! note
+    Since there is only one ITB docs area, simultaneous new commits to different `itb.*` branches will overwrite each other's changes. To re-deploy your changes, find your [Travis-CI build](https://travis-ci.org/opensciencegrid/docs/branches) and restart it **BUT** coordinate with the author of the other commits to avoid conflicts.
+
 
 Document Layout
 ---------------
@@ -63,29 +186,3 @@ Tips for Writing Procedural Instructions
 - Put supplemental information about the **whole** procedure in one or more paragraphs after the numbered steps
 
 - Avoid pronouns when writing technical articles or documentation e.g., `install foo` rather than `install it`.
-
-Contributing Documentation
---------------------------
-
-We use the GitHub pull request model for accepting document contributions. To contribute to the OSG documentation, follow these steps:
-
-1. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the GitHub repository and choose one of the following:
-    - If you are making changes to an existing document, make changes in your local clone and push them to your fork.
-    - If you are contributing a new document:
-        1. Name the document. Document file names should be lowercase, `-` delimited, and concise but descriptive, e.g. `markdown-migration.md` or `cutting-release.md`
-        1. Place the document in the relevant sub-folder of the `docs/` directory. If you are unsure of the appropriate location, note that in the description of the pull request.
-        1. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/), e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
-1. Submit your changes as a pull request to the [appropriate upstream repository](#contributing-documntation)
-
-### Deploying ITB documentation ###
-
-If you are a member of the OSG software and release team, you can preview large changes to the [ITB docs](https://www.opensciencegrid.org/docs-itb/) by pushing a branch that starts with an `itb.` prefix to the `opensciencegrid/docs` repo. For example:
-
-``` console
-$ git remote add upstream https://github.com/opensciencegrid/docs.git
-$ git checkout new_docs
-$ git push upstream new_docs:itb.new_docs
-```
-
-!!! note
-    Since there is only one ITB docs area, simultaneous new commits to different `itb.*` branches will overwrite each other's changes. To re-deploy your changes, find your [Travis-CI build](https://travis-ci.org/opensciencegrid/docs/branches) and restart it **BUT** coordinate with the author of the other commits to avoid conflicts.
