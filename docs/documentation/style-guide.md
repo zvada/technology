@@ -55,7 +55,7 @@ Command blocks and file snippets inside of a list should use the appropriate num
 colons followed by an optional code highlighting format:
 
 ```
-::: console
+:::console
 # stuff
 ```
 
