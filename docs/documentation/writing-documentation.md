@@ -1,7 +1,8 @@
 Writing OSG Documentation
 =========================
 
-Some OSG pages are written in [markdown](https://en.wikipedia.org/wiki/Markdown), built using [MkDocs](http://www.mkdocs.org/), and served via [GitHub Pages](https://pages.github.com/).
+Many OSG pages are written in [markdown](https://en.wikipedia.org/wiki/Markdown), built using
+[MkDocs](http://www.mkdocs.org/), and served via [GitHub Pages](https://pages.github.com/).
 To [contribute content](#contributing-content), submit a pull request to the relevant github repository:
 
 - [Site administrator documentation](https://github.com/opensciencegrid/docs/)
@@ -134,31 +135,47 @@ $ git push upstream new_docs:itb.new_docs
 Document Layout
 ---------------
 
-This section contains suggested layouts of externally-facing, site administrator documentation. The introduction is the only layout requirement for documents except for installation guides.
+This section contains suggested layouts of externally-facing, [site administrator documentation](https://github.com/opensciencegrid/docs/).
+The introduction is the only layout requirement for documents except for installation guides.
 
 ### Introductions ###
 
-All documents should start with an introduction that explains **what** the document contains, **what** the product does, and **why** someone may want to use it. In the past, document introductions were included in `About this...` sections due to the layout of the table of contents. Since the table of contents is included in the sidebar, introductions should go directly below the title header.
+All documents should start with an introduction that explains **what** the document contains, **what** the product does,
+and **why** someone may want to use it.
+In the past, document introductions were included in `About this...` sections due to the layout of the table of contents.
+Since the table of contents is included in the sidebar, introductions should go directly below the title header.
 
-The [HTCondor-CE installation guide](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-and-maintaining-htcondor-ce) is an example that meet all of the above criteria.
+The [HTCondor-CE installation guide](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-and-maintaining-htcondor-ce)
+is an example that meet all of the above criteria.
 
 ### Installation guides ###
 
 In addition to the introduction above, installation documents should have the following sections:
 
-- **Before Starting:** This section should contain information for any prepatory work that the site administrator should do or consider before proceeding with the installation ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#before-starting)).
-- **Installation:** The ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-htcondor-ce))
+- **Before Starting:** This section should contain information for any prepatory work that the site administrator should
+  do or consider before proceeding with the installation
+  ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#before-starting)).
+- **Installation:** Procedural instructions that tell the user how to install the software
+  ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-htcondor-ce))
 - **Validation:** How does the user make sure their installation is functional?
-- **Help:** Often just a link to the relevant [help document](http://www.opensciencegrid.org/docs/common/help/) as well as contact information for specific support groups, if applicable.
+- **Help:** Often just a link to the relevant [help document](http://www.opensciencegrid.org/docs/common/help/) as well
+  as contact information for specific support groups, if applicable.
 
 Optionally, the following sections should be included as necessary.
 
-- **Overview:** if the introduction becomes large and unwieldy, extract the details of **what** the product does into an overview section
-- **Configuration:** required configuration steps ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#configuring-htcondor-ce)) as well as a sub-section for optional configurations. For long optional configuration sections, consider creating a list of contents at the top of the sub-section ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#optional-configuration)).
+- **Overview:** if the introduction becomes large and unwieldy, extract the details of **what** the product does into an
+  overview section
+- **Configuration:** required configuration steps ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#configuring-htcondor-ce))
+  as well as a sub-section for optional configurations.
+  For long optional configuration sections, consider creating alist of contents at the top of the sub-section
+  ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#optional-configuration)).
 - **Troubleshooting:** common issues that users encounter and their fixes
-- **Reference:** Details about configuration and log files, unix users, certificates, networking, links to relevant upstream documentation, etc. ([example](https://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#reference))
+- **Reference:** Details about configuration and log files, unix users, certificates, networking, links to relevant
+  upstream documentation, etc.
+  ([example](https://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#reference))
 
-If any of the sections become too large, consider separating them out and linking to the new documents ([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#troubleshooting-htcondor-ce)).
+If any of the sections become too large, consider separating them out and linking to the new documents
+([example](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#troubleshooting-htcondor-ce)).
 
 Tips for Writing Procedural Instructions
 ----------------------------------------
@@ -174,7 +191,8 @@ Tips for Writing Procedural Instructions
 - Each step should begin with a single-line instruction in plain English, in command form; e.g.:
     3. Make sure that the Frobnosticator configuration file is world-writable
 
-- If the means of carrying out the instruction is unclear or complex, include clarification, ideally in the form of a working example; e.g.:
+- If the means of carrying out the instruction is unclear or complex, include clarification, ideally in the form of a
+  working example; e.g.:
   ```
   chmod a+x /usr/share/frobnosticator/frob.conf
   ```
