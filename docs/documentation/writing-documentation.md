@@ -60,8 +60,8 @@ Before making any content changes, you will need to prepare a local git clone an
 
 ### Previewing the pages ###
 
-To preview the pages, start a MkDocs development server viewable in your browser that will automatically detect any
-content changes that you make.
+To preview the pages, start a MkDocs development server.
+The development server will automatically detect any content changes and make them viewable in your browser.
 
 1. `cd` into the directory containing the local clone of your GitHub fork
 
