@@ -21,8 +21,11 @@ This document contains instructions, recommendations, and guidelines for writing
 Contributing Content
 --------------------
 
-To contribute content to one of the above OSG areas, make sure you and the machine you'll be working on meet the
-following requirements:
+To contribute minor content changes (e.g., fixing typos, changing a couple of sentences), we recommend using the
+[GitHub web interface](https://help.github.com/articles/editing-files-in-your-repository/) to submit a pull request.
+
+To contribute major content changes to one of the above OSG areas, make sure you and the machine you'll be working on
+meet the following requirements:
 
 - Have a [Github account](https://github.com/join)
 - Installations of the following tools and languages:
