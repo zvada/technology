@@ -204,3 +204,6 @@ Tips for Writing Procedural Instructions
 - Put supplemental information about the **whole** procedure in one or more paragraphs after the numbered steps
 
 - Avoid pronouns when writing technical articles or documentation e.g., `install foo` rather than `install it`.
+
+- Avoid superfluous statements like `you will want`, `you want`, `you should` e.g., `install foo` rather than
+  `you will want to install foo`.
