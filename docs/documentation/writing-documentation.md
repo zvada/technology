@@ -108,7 +108,7 @@ To contribute content to the OSG, follow these steps to submit a pull request wi
 1. Continue making changes until you are satisfied with the preview, then stage your changes in git:
 
         :::console
-        $ git add %RED%<YOUR FILE> <YOUR 2nd FILE>...<YOUR Nth FILE%ENDCOLOR%
+        $ git add %RED%<YOUR FILE> <YOUR 2nd FILE>...<YOUR Nth FILE>%ENDCOLOR%
 
     Adding each file that contains changes that you'd wish to make.
     If you are adding a new page, one of the files should be `mkdocs.yml`.
