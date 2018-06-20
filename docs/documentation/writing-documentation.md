@@ -86,16 +86,19 @@ To contribute content to the OSG, follow these steps to submit a pull request wi
 
     Replacing `<BRANCH NAME>` with a name of your choice.
 
-1. Make your changes:
+1. Make your changes in the `docs/` directory of your local clone, following the [style guide](/documentation/style-guide):
 
-    - If you are making changes to an existing document, make changes in your local clone and push them to your fork.
-    - If you are contributing a new page:
+    - **If you are making changes to an existing page:**
+        1. Open `mkdocs.yml` and find the location of the file relative to the `docs/` directory
+        1. Make your changes to that file and move onto the next step
+    - **If you are contributing a new page:**
         1. Name the page. Page file names should be lowercase, `-` delimited, and concise but descriptive,
            e.g. `markdown-migration.md` or `cutting-release.md`
         1. Place the page in the relevant sub-folder of the `docs/` directory.
            If you are unsure of the appropriate location, note that in the description of the pull request.
         1. Add the document to the `pages:` section of `mkdocs.yml` in [title case](http://titlecase.com/),
            e.g. `- Migrating Documents to Markdown: 'software/markdown-migration.md'`
+        1. If you are writing site administrator documentation, following the [suggested document layout](#document-layout)
 
 1. If you haven't already, start a Mkdocs development server to [preview your changes](#previewing-the-pages).
 
