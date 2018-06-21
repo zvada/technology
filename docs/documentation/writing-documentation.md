@@ -81,13 +81,20 @@ The development server will automatically detect any content changes and make th
 To contribute content to the OSG, follow these steps to submit a pull request with your desired changes:
 
 1. `cd` into the directory containing the local clone of your Github fork
-1. Create a branch based on the `master` branch of the `upstream` repository:
+1. Create a branch based on a branch from the `upstream` repository:
 
         :::console
         $ git fetch --all
-        $ git checkout -b %RED%<BRANCH NAME>%ENDCOLOR% upstream/master
+        $ git checkout -b %RED%<BRANCH NAME>%ENDCOLOR% upstream/%RED%<UPSTREAM BRANCH NAME>%ENDCOLOR%
 
-    Replacing `<BRANCH NAME>` with a name of your choice.
+    Replace `<BRANCH NAME>` with a name of your choice and `<UPSTREAM BRANCH NAME>` with a branch name from the
+    `upstream` repository.
+    For example, instructors for the 2018 User School should use the `materials` branch:
+
+        :::console
+        $ git checkout -b example_branch_name upstream/materials
+
+    If you do not know which `upstream` branch to use, pick `master`.
 
 1. Make your changes in the `docs/` directory of your local clone, following the [style guide](/documentation/style-guide):
 
