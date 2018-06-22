@@ -71,7 +71,7 @@ The development server will automatically detect any content changes and make th
 1. Start a MkDocs development server to preview your changes:
 
         :::console
-        $ env/bin/mkdocs serve
+        $ PYTHONPATH=src env/bin/mkdocs serve
 
     To preview your changes visit `localhost:8000` in the browser of your choice.
     The server can be stopped with `Ctrl-C`.
