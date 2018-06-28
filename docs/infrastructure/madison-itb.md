@@ -81,6 +81,12 @@ your own login and `sudo` *on the target machine*.  For example:
 
 Omit the `-l` option to apply configuration to all hosts.
 
+If you want to run only a single role from a playbook, use the `-t` option with the corresponding tag name.
+For example, to run the iptables tag/role:
+
+    :::console
+    ansible-playbook secure.yml -i inventory -bK --ask-vault-pass -f 20 -l HOST-PATTERN -t iptables
+
 If you have your own playbook to manage personal configuration, run it as follows:
 
     :::console
