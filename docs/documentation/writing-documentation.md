@@ -31,7 +31,12 @@ meet the following requirements:
 - Installations of the following tools and languages:
     - [git](https://git-scm.com/)
     - [Python](https://www.python.org/)
-    - [pip](https://pip.pypa.io/en/stable/installing/) (comes by default with Python 2 >= 2.7.9 or Python 3 >= 3.4)
+    - [pip](https://pip.pypa.io/en/stable/installing/) (usually comes by default with Python 2 >= 2.7.9 or Python 3 >= 3.4)
+
+!!!note
+    On macOS, the OS-distributed Python does not come with pip.
+    You should install the most recent Python release from <https://www.python.org/downloads/mac-osx/>.
+    If you install Python 3, the command will be called `pip3` -- adjust instructions below appropriately.
 
 ### Preparing the git repository ###
 
