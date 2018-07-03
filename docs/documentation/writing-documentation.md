@@ -35,8 +35,12 @@ meet the following requirements:
 
 !!!note
     On macOS, the OS-distributed Python does not come with pip.
-    You should install the most recent Python release from <https://www.python.org/downloads/mac-osx/>.
-    If you install Python 3, the command will be called `pip3` -- adjust instructions below appropriately.
+    Run the following to install it:
+
+        :::console
+        $ sudo easy_install pip
+
+    pip will be installed in `/usr/local/bin/`, so you will need `/usr/local/bin` in your PATH.
 
 ### Preparing the git repository ###
 
