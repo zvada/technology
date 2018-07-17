@@ -31,7 +31,16 @@ meet the following requirements:
 - Installations of the following tools and languages:
     - [git](https://git-scm.com/)
     - [Python](https://www.python.org/)
-    - [pip](https://pip.pypa.io/en/stable/installing/) (comes by default with Python 2 >= 2.7.9 or Python 3 >= 3.4)
+    - [pip](https://pip.pypa.io/en/stable/installing/) (usually comes by default with Python 2 >= 2.7.9 or Python 3 >= 3.4)
+
+!!!note
+    On macOS, the OS-distributed Python does not come with pip.
+    Run the following to install it:
+
+        :::console
+        $ sudo easy_install pip
+
+    pip will be installed in `/usr/local/bin/`, so you will need `/usr/local/bin` in your PATH.
 
 ### Preparing the git repository ###
 
