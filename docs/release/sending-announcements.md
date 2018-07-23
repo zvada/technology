@@ -80,7 +80,7 @@ Use the osg-notify tool to send the announcement. Here are the options that you 
     -   `--oim-contact-type administrative' - `administrative` for release announcement, `security` for security announcements
 
 !!! note
-    Security announcement must be signed.
+    Security announcements must be signed.
         -   `--sign` - GPG sign the message
         -   `--sign-id KeyID` - The ID of the Key used for singing
 
