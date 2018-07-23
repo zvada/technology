@@ -62,9 +62,9 @@ cd topology
 PYTHONPATH=src python bin/osg-topology --cert publicCert.pem --key privateKey.pem list-resource-contacts
 ```
 
-        !!! note
-            -   If the contacts include email addresses, this is working properly
-            -   If you type your password incorrectly, the authentication will silently fail and you won't get email addresses
+!!! note
+    -   If the contacts include email addresses, this is working properly
+    -   If you type your password incorrectly, the authentication will silently fail and you won't get email addresses
 
 ## Sending the announcement
 
