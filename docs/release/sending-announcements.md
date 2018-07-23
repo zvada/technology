@@ -35,32 +35,32 @@ To send announcements, the following conditions must be met.
     -   Common
         -   git clone [https://github.com/opensciencegrid/topology.git](https://github.com/opensciencegrid/topology.git)
 3.  Disable any HTTP proxies
-    -   Look in the environment for the following environment variable and unset them if present.
-        -   HTTP_PROXY, HTTPS_PROXY, http_proxy, https_proxy.
+    -   Look in the environment for the following environment variables and unset them if present.
+        -   `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, `https_proxy`
 4.  Ensure that the machine can send email.
     -   A fermicloud VM will need additional configuration to send email. Firewall rules prevent sending email directly.
         -   Update postfix to relay through FermiLab's official mail server
 
-            ```bash
-            echo "transport_maps = hash:/etc/postfix/transport" >> /etc/postfix/main.cf
-            ```
+``` bash
+echo "transport_maps = hash:/etc/postfix/transport" >> /etc/postfix/main.cf
+```
 
-            ```bash
-            echo "*   smtp:smtp.fnal.gov" >> /etc/postfix/transport
-            ```
+``` bash
+echo "*   smtp:smtp.fnal.gov" >> /etc/postfix/transport
+```
 
-            ```bash
-            postmap hash:/etc/postfix/transport
-            postfix reload
-            ```
+``` bash
+postmap hash:/etc/postfix/transport
+postfix reload
+```
 
 5.  Ensure that you can lookup contacts in the topology database
     -   Use the `osg-topology` tool to list the contacts
 
-        ```bash
-        cd topology
-        PYTHONPATH=src python bin/osg-topology --cert publicCert.pem --key privateKey.pem list-resource-contacts
-        ```
+``` bash
+cd topology
+PYTHONPATH=src python bin/osg-topology --cert publicCert.pem --key privateKey.pem list-resource-contacts
+```
 
         !!! note
             -   If the contacts include email addresses, this is working properly
@@ -88,7 +88,7 @@ Use the osg-notify tool to send the announcement. Here are the options that you 
         -   `--sign-id KeyID` - The ID of the Key used for singing
 
 For release announcements use the following command:
-```bash
+``` bash
 PYTHONPATH=src python bin/osg-notify --cert your-cert.pem --key your-key.pem --no-sign --type production --message message-file --subject 'Your fine subject' --recipients "osg-general@opensciencegrid.org osg-operations@opensciencegrid.org osg-sites@opensciencegrid.org vdt-discuss@opensciencegrid.org" --oim-recipients resources --oim-contact-type administrative
 ```
 
