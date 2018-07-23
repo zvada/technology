@@ -58,24 +58,26 @@ To send announcements, the following conditions must be met.
         ``` bash
         cd topology
         PYTHONPATH=src python bin/osg-topology --cert publicCert.pem --key privateKey.pem list-resource-contacts
+        ```
 
         !!! note
         -   If the contacts include email addresses, this is working properly
-        -   If you type your password incorrecly, the authentication will silently fail and you won't get email addresses
+        -   If you type your password incorrectly, the authentication will silently fail and you won't get email addresses
 
-## Sending the annoucement
+## Sending the announcement
 
-Use the osg-notify tool to send the announcment. Here are the options that you need.
+Use the osg-notify tool to send the announcement. Here are the options that you need.
+
     -   `--dry-run` - Use this option until you are ready to actually send the message
     -   `--cert file` - File that contains your OSG User Certificate
-    -   `--key file` - File that contains your Private Key for your OSG User Cerficiate
-    -   `--no-sign` - Don't GPG sign the messaage (release only)
+    -   `--key file` - File that contains your Private Key for your OSG User Certificate
+    -   `--no-sign` - Don't GPG sign the message (release only)
     -   `--type production` - Not a test message
     -   `--message file` - File containing your message
     -   `--subject "The Subject" - The subject of your message
-    -   `--recipents "me@me.com you@you.com" - Recipients, must have at least one
+    -   `--recipients "me@me.com you@you.com" - Recipients, must have at least one
     -   `--oim-recipients resources` - Select contact associated with resources
-    -   `--oim-contact-type administrative' - `administrative` for release announcemnt, `security` for security announcements
+    -   `--oim-contact-type administrative' - `administrative` for release announcement, `security` for security announcements
 
 !!! note
 Security announcement must be signed.
