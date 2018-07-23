@@ -61,8 +61,8 @@ To send announcements, the following conditions must be met.
         ```
 
         !!! note
-        -   If the contacts include email addresses, this is working properly
-        -   If you type your password incorrectly, the authentication will silently fail and you won't get email addresses
+            -   If the contacts include email addresses, this is working properly
+            -   If you type your password incorrectly, the authentication will silently fail and you won't get email addresses
 
 ## Sending the announcement
 
@@ -80,9 +80,9 @@ Use the osg-notify tool to send the announcement. Here are the options that you 
     -   `--oim-contact-type administrative' - `administrative` for release announcement, `security` for security announcements
 
 !!! note
-Security announcement must be signed.
-    -   `--sign` - GPG sign the message
-    -   `--sign-id KeyID` - The ID of the Key used for singing
+    Security announcement must be signed.
+        -   `--sign` - GPG sign the message
+        -   `--sign-id KeyID` - The ID of the Key used for singing
 
 For release announcements use the following command:
 ``` bash
