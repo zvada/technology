@@ -33,6 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [23 July 2018](meetings/2018/TechArea20180723.md)
   * [16 July 2018](meetings/2018/TechArea20180716.md)
   * 9 July 2018 (Canceled - OSG User School)
   * [2 July 2018](meetings/2018/TechArea20180702.md)
