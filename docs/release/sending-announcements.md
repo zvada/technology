@@ -53,8 +53,10 @@ To send announcements, the following conditions must be met.
             postmap hash:/etc/postfix/transport
             postfix reload
             ```
+
 5.  Ensure that you can lookup contacts in the topology database
     -   Use the `osg-topology` tool to list the contacts
+
         ``` bash
         cd topology
         PYTHONPATH=src python bin/osg-topology --cert publicCert.pem --key privateKey.pem list-resource-contacts
@@ -81,6 +83,7 @@ Use the osg-notify tool to send the announcement. Here are the options that you 
 
 !!! note
     Security announcements must be signed.
+
         -   `--sign` - GPG sign the message
         -   `--sign-id KeyID` - The ID of the Key used for singing
 
