@@ -41,15 +41,15 @@ To send announcements, the following conditions must be met.
     -   A fermicloud VM will need additional configuration to send email. Firewall rules prevent sending email directly.
         -   Update postfix to relay through FermiLab's official mail server
 
-            ``` bash
+            ```bash
             echo "transport_maps = hash:/etc/postfix/transport" >> /etc/postfix/main.cf
             ```
 
-            ``` bash
+            ```bash
             echo "*   smtp:smtp.fnal.gov" >> /etc/postfix/transport
             ```
 
-            ``` bash
+            ```bash
             postmap hash:/etc/postfix/transport
             postfix reload
             ```
@@ -57,7 +57,7 @@ To send announcements, the following conditions must be met.
 5.  Ensure that you can lookup contacts in the topology database
     -   Use the `osg-topology` tool to list the contacts
 
-        ``` bash
+        ```bash
         cd topology
         PYTHONPATH=src python bin/osg-topology --cert publicCert.pem --key privateKey.pem list-resource-contacts
         ```
@@ -88,7 +88,7 @@ Use the osg-notify tool to send the announcement. Here are the options that you 
         -   `--sign-id KeyID` - The ID of the Key used for singing
 
 For release announcements use the following command:
-``` bash
+```bash
 PYTHONPATH=src python bin/osg-notify --cert your-cert.pem --key your-key.pem --no-sign --type production --message message-file --subject 'Your fine subject' --recipients "osg-general@opensciencegrid.org osg-operations@opensciencegrid.org osg-sites@opensciencegrid.org vdt-discuss@opensciencegrid.org" --oim-recipients resources --oim-contact-type administrative
 ```
 
