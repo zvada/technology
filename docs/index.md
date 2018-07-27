@@ -22,6 +22,7 @@ Contact Us
 ----------
 
 -  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
+   ([subscribe](https://listserv.fnal.gov/scripts/wa.exe?A0=osg-software))
 -  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software) - if you can't create an account, send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
 -  [osg-commits@cs.wisc.edu](mailto:osg-commits@cs.wisc.edu) - Broadcast of all source code repo commits
 
