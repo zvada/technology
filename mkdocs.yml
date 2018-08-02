@@ -41,7 +41,6 @@ pages:
     - ITB Prerelease Testing: 'release/itb-testing.md'
     - Empty Packages: 'release/empty-pkgs.md'
     - Acceptance Testing: 'release/acceptance-testing.md'
-    - Sending Announcements: 'release/sending-announcements.md'
   - Policy:
     - 'Service Migrations - Spring 2018': 'policy/service-migrations-spring-2018.md'
     - 'GUMS Retirement': 'policy/gums-retire.md'
