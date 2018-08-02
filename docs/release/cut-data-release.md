@@ -61,10 +61,6 @@ Test the pre-release on the Madison ITB by following the [ITB pre-release testin
 Day 2: Pushing the Release
 --------------------------
 
-!!! warning
-    Operations would like to send out the release announcement prior to 3 PM Eastern time.
-    Do not start this process after 2 PM Eastern time unless you check with Operations (specifically Kyle Gross) first.
-
 ### Step 1: Push from pre-release to release
 
 This script moves the packages into release, clones releases into new version-specific release repos,
