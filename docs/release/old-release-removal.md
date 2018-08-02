@@ -123,7 +123,7 @@ Template Email
 >
 >   Any sites running OSG &lt;3.X&gt; should upgrade to the current release series,
 >   OSG &lt;3.Y&gt;.  If you need assistance upgrading, please contact us at
->   goc@opensciencegrid.org.
+>   help@opensciencegrid.org.
 
 If we're dropping support for a distro (e.g. EL 5 when we drop OSG 3.2), add
 the following after the first paragraph:

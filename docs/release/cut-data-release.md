@@ -145,9 +145,21 @@ The following instructions are meant for the release manager (or interim release
 
         We welcome feedback on this release!
 
-2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
-3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
-4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
+2.  The release manager uses the [osg-notify tool](https://opensciencegrid.org/operations/services/sending-announcements/) to send the release announcement.
+
+For release announcements use the following command:
+
+```console
+PYTHONPATH=src python bin/osg-notify --cert your-cert.pem --key your-key.pem \
+    --no-sign --type production --message message-file
+    --subject '<EMAIL SUBJECT>' \
+    --recipients "osg-general@opensciencegrid.org osg-operations@opensciencegrid.org osg-sites@opensciencegrid.org vdt-discuss@opensciencegrid.org" \
+    --oim-recipients resources --oim-contact-type administrative
+```
+
+Replacing `<EMAIL SUBJECT>` with an appropriate subject for your announcement.
+
+3.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
 
 Day 3: Update the ITB
 ---------------------

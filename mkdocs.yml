@@ -36,7 +36,6 @@ pages:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
     - Release Policy: 'release/release-policy.md'
-    - Release Schedule: 'release/release-schedule.md'
     - New Release Series: 'release/new-release-series.md'
     - Old Release Series Removal: 'release/old-release-removal.md'
     - ITB Prerelease Testing: 'release/itb-testing.md'
