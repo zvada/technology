@@ -129,55 +129,7 @@ As an **unprivileged user**, extract each tarball into a separate directory. Mak
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 ```
 ```bash
-dotest () {
-    file=$dir/$client-$ver-1.$rhel.$arch.tar.gz
-    if [ -e $file ]; then
-        echo "Testing $client-$ver-1.$rhel.$arch..."
-        size=$(du -m "$file" | cut -f 1)
-        if [ $size -gt $max_size ]; then
-            echo -e "\e[1;33mWARNING: $client-$ver-1.$rhel.$arch is too big. Check with release manager.\e[0m"
-        fi
-        mkdir -p $rhel-$arch
-        pushd $rhel-$arch
-        tar xzf ../$file
-        $client/osg/osg-post-install
-        $client/osgrun osg-ca-manage setupCA --url osg
-        $client/osgrun osg-update-vos
-        popd
-        rm -rf $rhel-$arch
-    else
-        echo -e "\e[1;31mERROR: $client-$ver-1.$rhel.$arch tarball is missing.\e[0m"
-    fi
-}
-
-pushd /tmp
-
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_version="${ver%.*}"
-    clients="osg-wn-client"
-    if [ "$major_version" = "3.4" ]; then
-        clients="$clients osg-afs-client"
-    fi
-    for client in $clients; do
-        rhels="el6 el7"
-        for rhel in $rhels; do
-            max_size=28
-            if [ $rhel = "el7" ]; then
-                max_size=33
-            fi
-            archs="x86_64"
-            if [ "$major_version" = "3.3" -a $rhel = "el6" ]; then
-                archs="i386 $archs"
-            fi
-            for arch in $archs; do
-                dir=tarballs/$major_version/$arch
-                dotest
-            done
-        done
-    done
-done
-
-popd
+./1-verify-tarballs $NON_UPCOMING_VERSIONS
 ```
 
 If you have time, try some of the binaries, such as grid-proxy-init.
@@ -204,10 +156,6 @@ Wait for clearance. The OSG Release Coordinator (in consultation with the Softwa
 
 Day 2: Pushing the Release
 --------------------------
-
-!!! warning
-    Operations would like to send out the release announcement prior to 3 PM Eastern time.
-    Do not start this process after 2 PM Eastern time unless you check with Operations (specifically Kyle Gross) first.
 
 ### Step 1: Push from pre-release to release
 
@@ -318,9 +266,18 @@ The following instructions are meant for the release manager (or interim release
 
         We welcome feedback on this release!
 
-2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
-3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
-4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
+2.  The release manager uses the [osg-notify tool](https://opensciencegrid.org/operations/services/sending-announcements/)
+    on `submit-1.chtc.wisc.edu` to send the release announcement using the following command:
+
+        PYTHONPATH=src python bin/osg-notify --cert your-cert.pem --key your-key.pem \
+            --no-sign --type production --message message-file
+            --subject '<EMAIL SUBJECT>' \
+            --recipients "osg-general@opensciencegrid.org osg-operations@opensciencegrid.org osg-sites@opensciencegrid.org vdt-discuss@opensciencegrid.org" \
+            --oim-recipients resources --oim-contact-type administrative
+
+    Replace `<EMAIL SUBJECT>` with an appropriate subject for your announcement.
+
+3.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
     Also set the Fix Versions field to the appropriate value(s) and uncheck the box that reads "Send mail for this update"
 
 Day 3: Update the ITB

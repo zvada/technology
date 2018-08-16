@@ -61,10 +61,6 @@ Test the pre-release on the Madison ITB by following the [ITB pre-release testin
 Day 2: Pushing the Release
 --------------------------
 
-!!! warning
-    Operations would like to send out the release announcement prior to 3 PM Eastern time.
-    Do not start this process after 2 PM Eastern time unless you check with Operations (specifically Kyle Gross) first.
-
 ### Step 1: Push from pre-release to release
 
 This script moves the packages into release, clones releases into new version-specific release repos,
@@ -145,9 +141,18 @@ The following instructions are meant for the release manager (or interim release
 
         We welcome feedback on this release!
 
-2.  The release manager emails the announcement to `vdt-discuss@opensciencegrid.org`
-3.  The release manager asks the GOC to distribute the announcement by [opening a ticket](https://ticket.opensciencegrid.org/goc/other)
-4.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
+2.  The release manager uses the [osg-notify tool](https://opensciencegrid.org/operations/services/sending-announcements/)
+    on `submit-1.chtc.wisc.edu` to send the release announcement using the following command:
+
+        PYTHONPATH=src python bin/osg-notify --cert your-cert.pem --key your-key.pem \
+            --no-sign --type production --message message-file
+            --subject '<EMAIL SUBJECT>' \
+            --recipients "osg-general@opensciencegrid.org osg-operations@opensciencegrid.org osg-sites@opensciencegrid.org vdt-discuss@opensciencegrid.org" \
+            --oim-recipients resources --oim-contact-type administrative
+
+    Replace `<EMAIL SUBJECT>` with an appropriate subject for your announcement.
+
+3.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
 
 Day 3: Update the ITB
 ---------------------
