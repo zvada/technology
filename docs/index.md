@@ -34,6 +34,8 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * 3 September 2018 (Canceled - Labor Day)
+  * [27 August 2018](meetings/2018/TechArea20180827.md)
   * [20 August 2018](meetings/2018/TechArea20180820.md)
   * [13 August 2018](meetings/2018/TechArea20180813.md)
   * [6 August 2018](meetings/2018/TechArea20180806.md)
