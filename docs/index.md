@@ -15,7 +15,7 @@ The Team
 | Edgar Fajardo (50%)| Edgar Fajardo (50%) |
 | Mat Selmeci | Jeff Dost (50%) |
 | Suchandra Thapa (50%) | Marian Zvada (25%) |
-| Tim Cartwright (35%) | |
+| Tim Cartwright (5%) | |
 | Tim Theisen (release manager) (50%) | |
 
 Contact Us
