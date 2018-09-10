@@ -33,3 +33,4 @@ Setup Instructions for New Team Members
     - <https://github.com/orgs/opensciencegrid/teams/software-and-release/members>
 1. UNL repository access
     - Send SSH public key to Tim T, Derek, or Brian L to gain access to the UNL repository (osgcollab@hcc-osg-software.unl.edu)
+1. If > 50% S&R, add them to the [triage schedule](https://github.com/opensciencegrid/osg-triage-assignments/blob/master/rotation.txt)
