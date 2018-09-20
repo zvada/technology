@@ -155,12 +155,16 @@ Disabling and Enabling a User
 -----------------------------
 
 Users cannot be deleted, but they can be disabled.
+We also put `(disabled)` in their username to let us easily distinguish between enabled and disabled users.
 
 To disable a user, use the command:
 ``` console
 $ osg-koji disable-user "<USERNAME>"
 ```
-To enable a user, use the command:
+Follow the rename procedure above to change their name from `<USERNAME>` to `<USERNAME> (disabled)`.
+
+To enable a user, follow the rename procedure above to change their name from `<USERNAME> (disabled)` to `<USERNAME>`.
+Then, use the command:
 ``` console
 $ osg-koji enable-user "<USERNAME>"
 ```
