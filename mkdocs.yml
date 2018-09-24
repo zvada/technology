@@ -105,6 +105,7 @@ pages:
 markdown_extensions:
   - admonition
   - codehilite
-  - toc(permalink=true)
+  - toc
+# - toc(permalink=true)
   - osg_markdown.colors
 
