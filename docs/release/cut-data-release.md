@@ -47,9 +47,10 @@ Compare the list of packages already in pre-release to the final list for the re
 
 ```bash
 VERSIONS='<VERSION(S)>'
+REVISION=<REVISION>
 ```
 ```bash
-1-verify-prerelease $VERSIONS
+1-verify-prerelease -d $REVISION $VERSIONS
 ```
 
 If there are any discrepancies consult the release manager. You may have to tag packages with the `osg-koji` tool.
