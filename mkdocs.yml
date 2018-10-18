@@ -109,6 +109,7 @@ markdown_extensions:
   - admonition
   - codehilite
   - toc
-# - toc(permalink=true)
+  - toc:
+      permalink: True
   - osg_markdown.colors
 
