@@ -25,12 +25,14 @@ Use the following conventions for headings:
 Links
 -----
 
-Use site-relative (`/software/development-process`) instead of document-relative (`../software/development-process.md`)
-links. This will allow us to easily search for links and move documents around in the future.
-
 !!! danger "Avoid document relative links"
     Document-relative links to other pages have changed in MkDocs 1.0.0 in a backwards-incompatible way.
     Please convert any document-relative links to site-relative links before updating the `doc-ci-scripts` submodule.
+
+- Links to internal pages should not have the `.md` extension
+- Use site-relative (`/software/development-process`) instead of document-relative (`../software/development-process`)
+  links.
+  This will allow us to easily search for links and move documents around in the future.
 
 ### Section links ###
 
