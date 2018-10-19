@@ -25,8 +25,14 @@ Use the following conventions for headings:
 Links
 -----
 
-Use site-relative (`/software/development-process`) instead of document-relative (`../software/development-process.md`)
-links. This will allow us to easily search for links and move documents around in the future.
+!!! danger "Avoid document relative links"
+    Document-relative links to other pages have changed in MkDocs 1.0.0 in a backwards-incompatible way.
+    Please convert any document-relative links to site-relative links before updating the `doc-ci-scripts` submodule.
+
+- Links to internal pages should not have the `.md` extension
+- Use site-relative (`/software/development-process`) instead of document-relative (`../software/development-process`)
+  links.
+  This will allow us to easily search for links and move documents around in the future.
 
 ### Section links ###
 
@@ -104,7 +110,7 @@ When constructing lists, use the following guidelines:
       beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code
       block with `:::<FORMAT>`; see [this page](http://squidfunk.github.io/mkdocs-material/extensions/codehilite/) for
       details, including possible highlighting formats.  For an example of formatting a code section inside a list, see
-      [the release series document](https://github.com/opensciencegrid/docs/blob/master/docs/release/release_series.md).
+      [the release series document](https://github.com/opensciencegrid/docs/blob/master/docs/release/release_series).
     - For additional text (i.e. after a code block), insert `N*4` spaces at the beginning of each line, where N is the
       level of the item in the list.
 

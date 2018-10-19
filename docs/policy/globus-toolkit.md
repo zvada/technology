@@ -3,7 +3,7 @@ OSG Support of the Globus Toolkit
 =================================
 6 June 2017
 
-Many in the OSG community have heard the news about the [end of support for the open-source Globus Toolkit](https://github.com/globus/globus-toolkit/blob/globus_6_branch/support-changes.md).
+Many in the OSG community have heard the news about the [end of support for the open-source Globus Toolkit](https://github.com/globus/globus-toolkit/blob/globus_6_branch/support-changes).
 
 What does this imply for the OSG Software stack?  Not much: OSG support for the Globus Toolkit (e.g., GridFTP and GSI) will continue for as long as stakeholders need it. Period.
 

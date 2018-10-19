@@ -159,7 +159,7 @@ Procedures
 ### User cert switch
 
 This procedure is now documented on the
-[user management page](koji-user-management#handling-user-cert-changes-renaming-a-user).
+[user management page](/infrastructure/koji-user-management#handling-user-cert-changes-renaming-a-user).
 
 ### Adding CAs for user authentication
 
@@ -231,7 +231,7 @@ To see the list of users:
 
 Certs and keys are stored in `/p/condor/home/certificates/...`
 
-To obtain renewed certificates, use [the OSG PKI commandline clients](https://opensciencegrid.github.io/docs/security/certificate-management/#osg-pki-command-line-clients.md) or the web interface at <https://oim.opensciencegrid.org/oim/certificaterequesthost>.
+To obtain renewed certificates, use [the OSG PKI commandline clients](https://opensciencegrid.github.io/docs/security/certificate-management/#osg-pki-command-line-clients) or the web interface at <https://oim.opensciencegrid.org/oim/certificaterequesthost>.
 
 The following cert files are necessary:
 

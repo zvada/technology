@@ -1,7 +1,7 @@
 Software Release Policy
 =======================
 
-This document doesn't talk about technical details of how to do a release. [The release process is discussed elsewhere](../release/cut-sw-release/).
+This document doesn't talk about technical details of how to do a release. [The release process is discussed elsewhere](/release/cut-sw-release/).
 
 Software Repositories
 ---------------------
@@ -107,5 +107,5 @@ Updates to these packages come from the Security Team and Operations Team, respe
 They still move through the usual process for release, and the Software and Release Managers decide when these packages should be promoted to the next repository level.
 However, the actual releases of these packages do not increment the version number of the software stack.
 
-[The release process for data packages is discussed here.](../release/cut-data-release/)
+[The release process for data packages is discussed here.](/release/cut-data-release/)
 
