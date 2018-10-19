@@ -269,7 +269,10 @@ The following instructions are meant for the release manager (or interim release
 2.  The release manager uses the [osg-notify tool](https://opensciencegrid.org/operations/services/sending-announcements/)
     on `submit-1.chtc.wisc.edu` to send the release announcement using the following command:
 
-        PYTHONPATH=src python bin/osg-notify --cert your-cert.pem --key your-key.pem \
+        :::console
+        $ cd topology
+        $ git pull
+        $ python bin/osg-notify --cert your-cert.pem --key your-key.pem \
             --no-sign --type production --message message-file \
             --subject '<EMAIL SUBJECT>' \
             --recipients "osg-general@opensciencegrid.org osg-operations@opensciencegrid.org osg-sites@opensciencegrid.org vdt-discuss@opensciencegrid.org" \
