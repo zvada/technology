@@ -34,6 +34,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [22 October 2018](/meetings/2018/TechArea20181022)
   * [15 October 2018](/meetings/2018/TechArea20181015)
   * [8 October 2018](/meetings/2018/TechArea20181008)
   * [1 October 2018](/meetings/2018/TechArea20181001)
