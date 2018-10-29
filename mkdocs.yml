@@ -62,11 +62,11 @@ pages:
     - Reviewing Documentation: 'documentation/reviewing-documentation.md'
     - Markdown Style Guide: 'documentation/style-guide.md'
     - Creating a New Area: 'documentation/new-doc-area.md'
-    - Migrating Documents to Markdown: 'documentation/markdown-migration.md'
   - Historical Information:
     - Koji Initial Install: 'infrastructure/koji-initial-install.md'
   - Historical Transitions:
     - 'SHA-2 Support': 'projects/sha2-support.md'
+    - Migrating Documents to Markdown: 'documentation/markdown-migration.md'
   - Meetings:
     - October 29, 2018: 'meetings/2018/TechArea20181029.md'
     - October 22, 2018: 'meetings/2018/TechArea20181022.md'
