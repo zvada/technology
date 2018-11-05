@@ -15,7 +15,7 @@ Requirements
 -   An account on UW CS machines (e.g. `library`, `ingwe`) to access UW's AFS
 -   `release-tools` scripts in your `PATH` ([GitHub](https://github.com/opensciencegrid/release-tools))
 -   `osg-build` scripts in your `PATH` (installed via OSG yum repos or [source](https://github.com/opensciencegrid/osg-build))
--   Access to the tarball repository at UNL (osgcollab@hcc-osg-software.unl.edu)
+-   Access to the tarball repository at UNL (osgcollab@repo.opensciencegrid.org)
 
 Pick the Version Number
 -----------------------
@@ -183,14 +183,14 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 pushd /p/vdt/public/html/tarball-client
 for ver in $NON_UPCOMING_VERSIONS; do
     major_ver="${ver%.*}"
-    ssh osgcollab@hcc-osg-software.unl.edu mkdir -p /usr/local/repo/tarball-install/$major_ver/$ver
-    scp -p $major_ver/*/osg-wn-client-$ver*gz osgcollab@hcc-osg-software.unl.edu:/usr/local/repo/tarball-install/$major_ver/$ver
+    ssh osgcollab@repo.opensciencegrid.org mkdir -p /usr/local/repo/tarball-install/$major_ver/$ver
+    scp -p $major_ver/*/osg-wn-client-$ver*gz osgcollab@repo.opensciencegrid.org:/usr/local/repo/tarball-install/$major_ver/$ver
 done
 popd
-ssh osgcollab@hcc-osg-software.unl.edu bin/mk-sims.sh
+ssh osgcollab@repo.opensciencegrid.org bin/mk-sims.sh
 for ver in $NON_UPCOMING_VERSIONS; do
     major_ver="${ver%.*}"
-    ssh osgcollab@hcc-osg-software.unl.edu "cd /usr/local/repo/tarball-install; ls -l $major_ver/*latest*"
+    ssh osgcollab@repo.opensciencegrid.org "cd /usr/local/repo/tarball-install; ls -l $major_ver/*latest*"
 done
 # verify the "latest" symlinks point to the version(s) just installed
 ```
