@@ -6,8 +6,10 @@ This document contains markdown conventions that are used in OSG Software docume
 Meta
 ----
 
-Wherever possible, prose should be limited to 120 characters wide.
-In addition, using one line for each sentence is recommended since it makes update diffs easier to review.
+- Run a spellchecker to catch any obvious spelling mistakes.
+- Use official capitalizations when referring to titles (i.e., HTTPS, HTCondor)
+- Wherever possible, prose should be limited to 120 characters wide but do not break links up between lines.
+  In addition, using one line for each sentence is recommended since it makes update diffs easier to review.
 
 Headings
 --------
