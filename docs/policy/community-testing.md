@@ -19,7 +19,7 @@ The community has a vested interest in ensuring that the software operates prope
 We will adopt a more formal testing policy which should require less effort from the release manager.
 
 - Promotion: The software is ready to test when the release is promoted to osg-testing repository.
-- Notification: Interested parties are informed of the software promotion (via some method (email, web page, etc)).
+- Notification: Interested parties are informed of the software promotion (via some method such as email or a web page).
 - Feedback: Testers can up/down vote and review software that they have tested. (Method TBD)
 - Release: After the software has met the release requirements, it is released.
     - Major Packages
