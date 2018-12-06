@@ -30,7 +30,7 @@ We will adopt a more formal testing policy which should require less effort from
         - Spent at least 7 calendar days in the osg-testing repository
         - No down votes
     - Timing
-        - Releases are scheuled by the Release Manager
+        - Releases are scheduled by the Release Manager
         - Releases will generally occur Monday - Thursday
         - Releases will generally not occur the day before an non-working day
 
