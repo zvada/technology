@@ -165,7 +165,8 @@ The introduction is the only layout requirement for documents except for install
 All documents should start with an introduction that explains **what** the document contains, **what** the product does,
 and **why** someone may want to use it.
 In the past, document introductions were included in `About this...` sections due to the layout of the table of contents.
-Since the table of contents is included in the sidebar, introductions should go directly below the title header.
+Since the table of contents is included in the sidebar this is unnecessary and introduction content should go directly
+below the title heading without any second-level headings.
 
 The [HTCondor-CE installation guide](http://www.opensciencegrid.org/docs/compute-element/install-htcondor-ce/#installing-and-maintaining-htcondor-ce)
 is an example that meet all of the above criteria.
