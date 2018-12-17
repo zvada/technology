@@ -33,6 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [17 December 2018](/meetings/2018/TechArea20181217)
   * [10 December 2018](/meetings/2018/TechArea20181210)
   * [3 December 2018](/meetings/2018/TechArea20181203)
   * [26 November 2018](/meetings/2018/TechArea20181126)
