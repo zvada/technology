@@ -444,7 +444,7 @@ XRootD VOMS Testing
 
 This section is intended for OSG Software/Release teams to gather information on testing vomsxrd/xrootd-voms-plugin package. Original plugin named [vomsxrd](http://gganis.github.io/vomsxrd/), similar to lcmaps that extracts information for authorization within xrootd of a proxy's voms extension.
 
-You need an [xrootd server installation](https://www.opensciencegrid.org/docs/data/install-xrootd/)
+You need an [xrootd server installation](https://www.opensciencegrid.org/docs/data/xrootd/install-storage-element/)
 
 In the xrootd server yum install the following packages:
 
