@@ -35,6 +35,7 @@ Links
 - Use site-relative (`/software/development-process`) instead of document-relative (`../software/development-process`)
   links.
   This will allow us to easily search for links and move documents around in the future.
+- Links to the homepage need to be of the form `[link text](/)`
 
 ### Section links ###
 
