@@ -33,6 +33,9 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [7 January 2019](/meetings/2019/TechArea20190107)
+  * 31 December 2018 (Canceled - New Year's Eve)
+  * 24 December 2018 (Canceled - Christmas Eve)
   * [17 December 2018](/meetings/2018/TechArea20181217)
   * [10 December 2018](/meetings/2018/TechArea20181210)
   * [3 December 2018](/meetings/2018/TechArea20181203)
