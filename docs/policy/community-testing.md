@@ -7,7 +7,7 @@ Introduction
 In the past, the OSG utilized internal staff for the bulk of software testing.
 Interested external administrators also provided testing when their specialized installation was required.
 
-More recently, we've been employing an ad hoc community testing program.
+More recently, we have been employing an ad hoc community testing program.
 The release manager is responsible for notifying interested parties and coordinating their testing.
 Often, the person that reported an issue was asked to verify that the issue was resolved.
 
