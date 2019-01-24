@@ -166,13 +166,24 @@ locks the repos and regenerates them.
 VERSIONS="<VERSION(S)>"
 ```
 ```bash
-2-create-release $VERSIONS
+2-push-release $VERSIONS
 ```
 
-1.  `*.txt` files are also created and it should be verified that they've been moved to /p/vdt/public/html/release-info/ on UW's AFS.
+### Step 2: Generate the release notes
+
+This script generates the release notes and updates the release information in AFS.
+
+```bash
+VERSIONS="<VERSION(S)>"
+```
+```bash
+2-make-notes $VERSIONS
+```
+
+1.  `*.txt` files are created and it should be verified that they've been moved to /p/vdt/public/html/release-info/ on UW's AFS.
 2.  For each release version, use the `*release-note*` files to update the relevant sections of the release note pages.
 
-### Step 2: Upload the client tarballs
+### Step 3: Upload the client tarballs
 
 Upload the tarballs to the repository with the following procedure from a UW CS machine (e.g., `ingwe`):
 
@@ -195,7 +206,7 @@ done
 # verify the "latest" symlinks point to the version(s) just installed
 ```
 
-### Step 3: Install the tarballs into OASIS
+### Step 4: Install the tarballs into OASIS
 
 !!! note
     You must be an OASIS manager of the `mis` VO to do these steps. Known managers as of 2014-07-22: Mat, Tim C, Tim T, Brian L. 
@@ -215,7 +226,7 @@ done
 
 The script will automatically ssh you to oasis-login.opensciencegrid.org and give you instructions to complete the process.
 
-### Step 4: Remove old UW AFS installations of the tarball client
+### Step 5: Remove old UW AFS installations of the tarball client
 
 To keep space usage down, remove tarball client installations and symlinks under `/p/vdt/workspace/tarball-client` on UW's AFS that are more than 2 months old. The following command will remove them:
 
@@ -223,7 +234,7 @@ To keep space usage down, remove tarball client installations and symlinks under
 find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -ls -exec rm -rf {} \;
 ```
 
-### Step 5: Update the Docker WN client
+### Step 6: Update the Docker WN client
 
 Update the GitHub repo at [opensciencegrid/docker-osg-wn](https://github.com/opensciencegrid/docker-osg-wn) using the `update-all` script found in [opensciencegrid/docker-osg-wn-scripts](https://github.com/opensciencegrid/docker-osg-wn-scripts). This requires push access to the `opensciencegrid/docker-osg-wn` repo.
 
@@ -238,7 +249,7 @@ cd docker-osg-wn
 # that 'update-all' should have printed
 ```
 
-### Step 6: Announce the release
+### Step 7: Announce the release
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
