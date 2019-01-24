@@ -72,13 +72,25 @@ VERSIONS='VERSION(S)>'
 REVISION=<REVISION>
 ```
 ```bash
-2-create-release -d $REVISION $VERSIONS
+2-push-release -d $REVISION $VERSIONS
 ```
 
-1.  `*.txt` files are also created and it should be verified that they've been moved to `/p/vdt/public/html/release-info/` on UW's AFS.
+### Step 2: Generate the release notes
+
+This script generates the release notes and updates the release information in AFS.
+
+```bash
+VERSIONS='VERSION(S)>'
+REVISION=<REVISION>
+```
+```bash
+2-make-notes -d $REVISION $VERSIONS
+```
+
+1.  `*.txt` files are created and it should be verified that they've been moved to /p/vdt/public/html/release-info/ on UW's AFS.
 2.  For each release version, use the `*release-note*` files to update the relevant sections of the release note pages.
 
-### Step 2: Update the Docker WN client
+### Step 3: Update the Docker WN client
 
 Update the GitHub repo at [opensciencegrid/docker-osg-wn](https://github.com/opensciencegrid/docker-osg-wn) using the `update-all` script found in [opensciencegrid/docker-osg-wn-scripts](https://github.com/opensciencegrid/docker-osg-wn-scripts). This requires push access to the `opensciencegrid/docker-osg-wn` repo.
 
@@ -93,7 +105,7 @@ cd docker-osg-wn
 # that 'update-all' should have printed
 ```
 
-### Step 3: Verify the VO Package and/or CA certificates
+### Step 4: Verify the VO Package and/or CA certificates
 
 Wait for the [CA certificates](https://repo.opensciencegrid.org/cadist/) to be updated.
 It may take a while for the updates to reach the mirror used to update the web site.
@@ -106,7 +118,7 @@ verify that the version of the VO Package and/or CA certificates match the versi
 /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
 ```
 
-### Step 4: Announce the release
+### Step 5: Announce the release
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
