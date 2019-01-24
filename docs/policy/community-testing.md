@@ -45,5 +45,5 @@ Interested parties will test the software a provide feedback by replying to the 
 The release manager will periodically review the postings in the Google group and
 mark tickets `Ready to Release` when they meet the release requirements.
 
-Package are designated `major` or `minor` at the descretion of the release manager
+Package are designated `major` or `minor` at the discretion of the release manager
 with input from the Software and Operation teams.
