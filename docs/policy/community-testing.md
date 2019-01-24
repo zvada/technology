@@ -1,9 +1,6 @@
 OSG Community Software Testing
 ==============================
 
-Introduction
-------------
-
 In the past, the OSG utilized internal staff for the bulk of software testing.
 Interested external administrators also provided testing when their specialized installation was required.
 
