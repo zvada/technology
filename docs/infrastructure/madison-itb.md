@@ -130,10 +130,20 @@ If you have your own playbook to manage personal configuration, run it as follow
         :::console
         ansible [ HOST | GROUP ] -i inventory -bK -f 20 -m command -a 'yum --assumeyes update' [ -l LIMITS ]
 
+1. Check if anything needs restarting:
+
+        :::console
+        ansible [ HOST | GROUP ] -i inventory -bK -f 20 -m command -a 'needs-restarting'
+
 1. If needed (and if unsure, ask a sysadmin), reboot machines:
 
         :::console
         ansible [ HOST | GROUP ] -i inventory -bK -f 20 -m command -a '/sbin/shutdown -r +1' [ -l LIMITS ]
+
+1. Check if machines are up, running, and synchronized to the time servers
+
+        :::console
+        ansible [ HOST | GROUP ] -i inventory -f 20 -m command -a '/usr/sbin/ntpq -p'
 
 #### Updating HTCondor from Upcoming
 
