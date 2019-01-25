@@ -89,17 +89,28 @@ Once the tarball is created:
     the `vo-client/<NN>/` directory.
 
 
-RPM spec file maintenance
+RPM Spec File Maintenance
 -------------------------
 
 The OSG RPM spec file is [maintained in Subversion](/software/rpm-development-guide#revision-control-system).
 
-The VO Client package is located in `native/redhat/trunk/vo-client`
+The VO Client package is located in `native/redhat/trunk/vo-client`; that is,
+[here](https://vdt.cs.wisc.edu/svn/native/redhat/trunk/vo-client/).
 
 There are two files that need to be maintained:
 
--   `osg/vo-client.spec` - This is the RPM spec file proper. One needs to update the version (and/or the release number) every time a new RPM is created.
--   `upstream/release_tarball.source` - This file contains the relative path of the tarball within the [upstream source cache](/software/rpm-development-guide#upstream-source-cache). Since the tarball file name will change with every new RPM version, this file has to be changed accordingly.
+-   `osg/vo-client.spec`
+
+    -   The `Version:` field should be updated to match the `<NN>` number for the release
+    -   A `%changelog` entry should be added for the new release, mentioning any changes and their associated tickets
+
+-   `upstream/release_tarball.source`
+
+    -   Update the relative path for the new tarball within the
+        [upstream source cache](/software/rpm-development-guide#upstream-source-cache).
+        Typically this will be `vo-client/<NN>/vo-client-<NN>-osg.tar.gz`.
+
+
 
 RPM building
 ------------
