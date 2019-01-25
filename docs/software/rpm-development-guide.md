@@ -259,7 +259,7 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
 1. Build the version that will go through the normal software cycle
 
 !!! note
-    Packaging only changes should be handled with a `v<version>-<release>` e.g. `v3.4.23-2`
+    Packaging-only changes should be tagged with a release number of the format `v<version>-<release>`, e.g. `v3.4.23-2`
 
 ##### Advanced features for Git and GitHub repos
 
