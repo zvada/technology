@@ -156,12 +156,13 @@ To publish the new release on GitHub:
 -   Click the "Publish release" button
 
 
-Promotion to testing and release:
+Promotion to Testing and Release:
 ---------------------------------
 
 ### Policies
 
 Read [Release Policy](/release/release-policy).
 
-These should be synchronized internally with other GOC update activities.
+Note that the `vo-client` package frequently is part of a separate `-data` release; it does not necessarily have to
+wait for the main release cycle.
 
