@@ -1,108 +1,166 @@
-Creating the VO Client package
+Creating the VO Client Package
 ==============================
 
 Overview
 --------
 
-The VO Client package is just a conversion of the tarball created by GOC into the RPM format.
+This document will explain the step-by-step procedures for creating and releasing the VO Client Package.
+
+The VO Client Package sources can be found here:
+<https://github.com/opensciencegrid/osg-vo-config>
+
+When upstream changes have been made and are ready for a new VO Client Package release, these sources will be used to
+prepare a release tarball, which will in turn be used for the RPMs.
 
 In order to build the RPM, one needs:
 
 -   The tarball containing the:
-    -   `vomses` file
     -   `edg-mkgridmap.conf` file
     -   `gums.config.template` file
-    -   `vomsdir` directory tree, containing the lsc files.
--   The RPM spec file
+    -   `grid-vorolemap` file (generated)
+    -   `voms-mapfile-default` file (generated)
+    -   `vomses` file
+    -   `vomsdir` directory tree, containing the .lsc files.
+-   The RPM spec file, [maintained](#rpm-spec-file-maintenance) in the OSG packaging area.
 
-Making the tarball
+
+JIRA Ticket for the Release
+---------------------------
+
+There should be an associated JIRA ticket with a summary line of the form "Release VO Package 85".
+(Throughout this document, this release number will be referred to as `<NN>`.)
+
+The JIRA ticket should contain the details of the changes expected in the new VO Client Package release, which you
+should verify before proceeding.
+You can verify this with your favorite git tool (eg, `git diff` or `gitk`), or just view the changes directly on GitHub:
+
+-   <https://github.com/opensciencegrid/osg-vo-config/compare/release-84...master>
+
+Here, `release-84` is the _previous_ release tag, which you are comparing to the latest changes in `master`.
+To use GitHub to view the comparison, you need to specify whatever is the most recent _previous_ release tag.
+
+Alternatively, you can proceed to [make the tarball](#making-the-tarball), and compare the result to the previous
+`vo-client` tarball (from the upstream source cache) before [publishing the new release](#publishing-the-new-release).
+
+However you choose to do it, the point is to verify that the changes going into the release match what is expected in
+the JIRA ticket before publishing a new release.
+
+
+Updates to the GUMS Template
+----------------------------
+
+Most commonly, VO Client Package releases do not involve changes to the `gums.config.template` file, though on occasion
+it needs to be updated.
+Before proceeding, any changes to `gums.config.template` related to this release should be committed to git and pushed
+to the upstream repo on GitHub.
+
+The procedure for updating `gums.config.template` is outside the scope of this document, but the main important point is
+that any updates to this file should be done with the GUMS web interface rather than editing its xml contents by hand.
+
+
+Making the Tarball
 ------------------
+
+The process to make a new tarball has been mostly scripted.
 
 To make the tarball:
 
--   start with a clean directory
--   copy in the `vomses`, `gums.template`, and `edg-mkgridmap.conf` files and rename the edg-mkgridmap file:
+-   Start with a clean checkout of the latest `master` branch of the `osg-vo-config`
+    [source repo](https://github.com/opensciencegrid/osg-vo-config).
 
-<!-- -->
+    This checked out commit should be the one intended to be tagged for the new release.
+-   Run the `mk-vo-client-tarball` script with the new release number `<NN>`:
 
-          wget http://repo.opensciencgrid.org/pacman/tarballs/vo-package/vomses
-          wget http://repo.opensciencegrid.org/pacman/tarballs/vo-package/edg-mkgridmap.osg
-          mv edg-mkgridmap.osg edg-mkgridmap.conf
-          wget http://repo.opensciencegrid.org/pacman/tarballs/vo-package/gums.template # TODO UNSURE
+        $ ./bin/mk-vo-client-tarball <NN>
 
--   Create the vomsdir directory by downloading the .lsc files
+    For example:
 
-<!-- -->
+        $ ./bin/mk-vo-client-tarball 85
 
-         wget --recursive --no-host-directories --cut-dirs=3 -A "*.lsc" http://repo.opensciencegrid.org/pacman/tarballs/vo-package/vomsdir
+    This will create a file `vo-client-<NN>-osg.tar.gz` in the current directory.
 
--   In a separate directory, unpack the *old* vo-client tarball (from the upstream source cache)
--   diff the two directories, and compare the changes to the expected changes listed in the JIRA ticket for this VO Client package release
 
-<!-- -->
+Once the tarball is created:
 
--   Follow the instructions in the attached [gums-template-conversion.txt](gums-template-conversion.txt) file to convert it from GUMS 1.1 (1.2?) format to GUMS 1.3 format. Name the result `gums.config.template`. See also the [Automated GUMS Conversion](#automated-gums-conversion) section below for a scripted version of this step.
--   Move the files into a subdirectory to include in the tarball:
+-   If you have not already verified the changes expected in the JIRA ticket, compare the contents of the new tarball
+    with the previous version in the [upstream source cache](/software/rpm-development-guide#upstream-source-cache).
 
-<!-- -->
+-   Upload the tarball into the [upstream source cache](/software/rpm-development-guide#upstream-source-cache), under
+    the `vo-client/<NN>/` directory.
 
-          VERSION=44  # set appropriately
-          mkdir vo-client-$VERSION
-          mv vomses gums.config.template edg-mkgridmap.conf vomsdir vo-client-$VERSION/
-          tar -czf vo-client-$VERSION-osg.tar.gz vo-client-$VERSION/
 
-Upload the tarball into the [upstream source cache](/software/rpm-development-guide#upstream-source-cache), in the `vo-client/VERSION/` directory.
-
-Automated GUMS Conversion
--------------------------
-
-The above [instructions](gums-template-conversion.txt) outline a procedure for converting the osg gums.config template from GUMS 1.1 format to 1.3 format. Because setting up a GUMS instance for this can be time consuming and tricky to get right, a script was written to automate the procedure on a Fermi VM. The script lives in svn under: `$SVN/software/tools/convert-osg-gums-template-for-vo-client.sh` .
-
-To use it:
-
--   Create a new Fermi VM (el5 or el6)
--   Copy the script and the new `gums.template` to be converted to the /root homedir on the VM.
--   Log into the VM as root, make sure the script is executable, and run against the gums template:
-
-<!-- -->
-
-          $ ssh root@el6-vo-client
-          # wget https://vdt.cs.wisc.edu/svn/software/tools/convert-osg-gums-template-for-vo-client.sh
-          # chmod +x convert-osg-gums-template-for-vo-client.sh
-          # ./convert-osg-gums-template-for-vo-client.sh gums.template
-
--   It takes a little while to install and set up gums and related packages, but if it succeeds, you should see a message that says "User group has been saved.", and a file `gums.config.template` should be written in the current directory.
--   The newly converted `gums.config.template` should be compared to the old version of that file (from the previous vo-client package) to ensure that the only the differences are the changes for this release. (I have had to manually strip the extra test account stuff.) The 'meld' program is a nice graphical diff tool that I use for comparing them.
-
-RPM spec file maintenance
+RPM Spec File Maintenance
 -------------------------
 
 The OSG RPM spec file is [maintained in Subversion](/software/rpm-development-guide#revision-control-system).
 
-The VO Client package is located in `native/redhat/trunk/vo-client`
+The VO Client package is located in `native/redhat/trunk/vo-client`; that is,
+[here](https://vdt.cs.wisc.edu/svn/native/redhat/trunk/vo-client/).
 
 There are two files that need to be maintained:
 
--   `osg/vo-client.spec` - This is the RPM spec file proper. One needs to update the version (and/or the release number) every time a new RPM is created.
--   `upstream/release_tarball.source` - This file contains the relative path of the tarball within the [upstream source cache](/software/rpm-development-guide#upstream-source-cache). Since the tarball file name will change with every new RPM version, this file has to be changed accordingly.
+-   `osg/vo-client.spec`
 
-RPM building
+    -   The `Version:` field should be updated to match the `<NN>` number for the release
+    -   A `%changelog` entry should be added for the new release, mentioning any changes and their associated tickets
+
+-   `upstream/release_tarball.source`
+
+    -   Update the relative path for the new tarball within the
+        [upstream source cache](/software/rpm-development-guide#upstream-source-cache).
+        Typically this will be `vo-client/<NN>/vo-client-<NN>-osg.tar.gz`.
+
+
+RPM Building
 ------------
 
-After installing the [osg-build tools](/software/osg-build-tools), check out a clean copy from svn, then:
+After installing the [osg-build tools](/software/osg-build-tools), check out a clean copy of the `vo-client` packaging
+directory from svn, then:
 
 -   `osg-build prebuild .`
--   Once there are no errors, run `osg-build koji . --scratch` This can be done without making any permanent change.
--   Once that builds successfully, run `osg-build koji .` This is permanent, unlike when you ran with `--scratch`. You cannot rebuild this version of the RPM again - you must bump the release number and edit the changelog.
+-   Once there are no errors, run `osg-build koji . --scratch`.
+    (This can be done without making any permanent change.)
+-   Once that builds successfully, run `osg-build koji .`
+    (This is permanent, unlike when you ran with `--scratch`.)
+    You cannot rebuild this version of the RPM again; to rebuild with changes, you must bump the release number and edit
+    the changelog.
 
-This will push the RPMs into the OSG development repository. Koji requires additional setup compared to rpmbuild; [see the documentation here](/software/koji-workflow).
+This will push the RPMs into the OSG development repository.
 
-Promotion to testing and release:
+!!! note
+    Koji requires additional setup compared to rpmbuild; [see the documentation here](/software/koji-workflow).
+
+
+Publishing the New Release
+--------------------------
+
+The final version of the sources in the `osg-vo-config`, which was used to create the tarball that was used in the koji
+build, needs be tagged in git with a `release-<NN>` tag (eg, `release-85`) and published as a release on GitHub.
+
+You can create and push the `release-<NN>` from your git checkout of `osg-vo-config`, OR create the tag while publishing
+the release on GitHub (recommended).
+
+To publish the new release on GitHub:
+
+-   Go to <https://github.com/opensciencegrid/osg-vo-config/releases/new>
+-   In the "Tag version" field, enter `release-<NN>` (eg, `release-85`)
+-   If you are creating this tag on GitHub, click the "Target" dropdown button, and under the "Recent Commits" tab, make
+    sure to select the commit you used when creating the tarball
+    (It should be the first one)
+-   In the "Release title" field, enter `<MONTH> <YEAR> VO Package Release <NN>`
+    (eg, `December 2018 VO Package Release 85`)
+-   In the release description, list the changes in this release and their associated ticket numbers, similar to the new
+    `%changelog` entry added in the rpm spec file
+
+    (You can view the [releases](https://github.com/opensciencegrid/osg-vo-config/releases) page for examples)
+-   Click the "Publish release" button
+
+
+Promotion to Testing and Release:
 ---------------------------------
-
-### Policies
 
 Read [Release Policy](/release/release-policy).
 
-These should be synchronized internally with other GOC update activities.
+Note that the `vo-client` package frequently is part of a separate `-data` release; it does not necessarily have to
+wait for the main release cycle.
 
