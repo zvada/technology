@@ -1,19 +1,27 @@
-Creating the VO Client package
+Creating the VO Client Package
 ==============================
 
 Overview
 --------
 
-The VO Client package is just a conversion of the tarball created by GOC into the RPM format.
+This document will explain the step-by-step procedures for creating and releasing the VO Client Package.
+
+The VO Client Package sources can be found here:
+<https://github.com/opensciencegrid/osg-vo-config>
+
+When upstream changes have been made and are ready for a new VO Client Package release, these sources will be used to
+prepare a release tarball, which will in turn be used for the RPMs.
 
 In order to build the RPM, one needs:
 
 -   The tarball containing the:
-    -   `vomses` file
     -   `edg-mkgridmap.conf` file
     -   `gums.config.template` file
-    -   `vomsdir` directory tree, containing the lsc files.
--   The RPM spec file
+    -   `grid-vorolemap` file (generated)
+    -   `voms-mapfile-default` file (generated)
+    -   `vomses` file
+    -   `vomsdir` directory tree, containing the .lsc files.
+-   The RPM spec file, [maintained](#rpm-spec-file-maintenance) in the OSG packaging area.
 
 Making the tarball
 ------------------
