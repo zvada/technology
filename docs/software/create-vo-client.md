@@ -58,43 +58,36 @@ The procedure for updating `gums.config.template` is outside the scope of this d
 that any updates to this file should be done with the GUMS web interface rather than editing its xml contents by hand.
 
 
-Making the tarball
+Making the Tarball
 ------------------
+
+The process to make a new tarball has been mostly scripted.
 
 To make the tarball:
 
--   start with a clean directory
--   copy in the `vomses`, `gums.template`, and `edg-mkgridmap.conf` files and rename the edg-mkgridmap file:
+-   Start with a clean checkout of the latest `master` branch of the `osg-vo-config`
+    (source repo)[https://github.com/opensciencegrid/osg-vo-config].
 
-<!-- -->
+    This checked out commit should be the one intended to be tagged for the new release.
+-   Run the `mk-vo-client-tarball` script with the new release number `<NN>`:
 
-          wget http://repo.opensciencgrid.org/pacman/tarballs/vo-package/vomses
-          wget http://repo.opensciencegrid.org/pacman/tarballs/vo-package/edg-mkgridmap.osg
-          mv edg-mkgridmap.osg edg-mkgridmap.conf
-          wget http://repo.opensciencegrid.org/pacman/tarballs/vo-package/gums.template # TODO UNSURE
+        $ ./bin/mk-vo-client-tarball <NN>
 
--   Create the vomsdir directory by downloading the .lsc files
+    For example:
 
-<!-- -->
+        $ ./bin/mk-vo-client-tarball 85
 
-         wget --recursive --no-host-directories --cut-dirs=3 -A "*.lsc" http://repo.opensciencegrid.org/pacman/tarballs/vo-package/vomsdir
+    This will create a file `vo-client-<NN>-osg.tar.gz` in the current directory.
 
--   In a separate directory, unpack the *old* vo-client tarball (from the upstream source cache)
--   diff the two directories, and compare the changes to the expected changes listed in the JIRA ticket for this VO Client package release
 
-<!-- -->
+Once the tarball is created:
 
--   Follow the instructions in the attached [gums-template-conversion.txt](gums-template-conversion.txt) file to convert it from GUMS 1.1 (1.2?) format to GUMS 1.3 format. Name the result `gums.config.template`. See also the [Automated GUMS Conversion](#automated-gums-conversion) section below for a scripted version of this step.
--   Move the files into a subdirectory to include in the tarball:
+-   If you have not already verified the changes expected in the JIRA ticket, compare the contents of the new tarball
+    with the previous version in the [upstream source cache](/software/rpm-development-guide#upstream-source-cache).
 
-<!-- -->
+-   Upload the tarball into the [upstream source cache](/software/rpm-development-guide#upstream-source-cache), under
+    the `vo-client/<NN>/` directory.
 
-          VERSION=44  # set appropriately
-          mkdir vo-client-$VERSION
-          mv vomses gums.config.template edg-mkgridmap.conf vomsdir vo-client-$VERSION/
-          tar -czf vo-client-$VERSION-osg.tar.gz vo-client-$VERSION/
-
-Upload the tarball into the [upstream source cache](/software/rpm-development-guide#upstream-source-cache), in the `vo-client/VERSION/` directory.
 
 Automated GUMS Conversion
 -------------------------
