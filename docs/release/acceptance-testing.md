@@ -497,7 +497,7 @@ user@host $ xrdcp vomsxrdtest root://fermicloud024.fnal.gov:1094//tmp/
 ```
 
 
-XRootD Plugins
+HDFS
 --------------
 
 ### Hadoop name node installation ###
@@ -557,21 +557,19 @@ case $NODETYPE in
 esac
 service hadoop-hdfs-$NODETYPE start
 ```
+### Edit Configuration ###
+
+1. Edit /etc/hadoop/conf/hdfs-site.xml
+    * set dfs.replication to 1   
+    * set dfs.replication.min to 1
 
 ### Hadoop data node installation ###
 
 1.  Run same script as before but with option number 2.
-1.  Install xrootd-server:
-
-        yum install xrootd-server
-
-1.  Install xrootd-plugins
-
-        yum install xrootd-cmstfc xrootd-hdfs
 
 ### GridFTP installation ###
 
-Run same as script but with option number.
+Run same as script but with option number 3.
 
 ### On the name node ###
 
@@ -581,7 +579,29 @@ Found 1 items
 -rw-r--r--   2 root root          0 2014-07-21 15:57 /test-file
 ```
 
-This means your hadoop is working.
+### On the name node ###
+
+```console
+[root@]# hadoop fs -mkdir /matyas
+[root@]# hadoop fs -chown matyas /matyas
+[root@]# hdfs dfsadmin -setSpaceQuota 123k /matyas
+```
+
+```console
+user@host $ dd if=/dev/zero of=/tmp/blob bs=4096 count=10000
+user@host $ kx509; voms-proxy-init -noregen -voms fermilab
+user@host $ globus-url-copy -vb file:///tmp/blob gsiftp://`hostname -f`/mnt/hadoop/matyas
+```
+XRootD Plugins
+--------------
+
+1.  Install xrootd-server:
+
+        yum install xrootd-server
+
+1.  Install xrootd-plugins
+
+        yum install xrootd-cmstfc xrootd-hdfs
 
 Modify the file `/etc/xrootd/xrootd-clustered.cfg` to look like this:
 
