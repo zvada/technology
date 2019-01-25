@@ -45,6 +45,19 @@ Alternatively, you can proceed to [make the tarball](#making-the-tarball), and c
 However you choose to do it, the point is to verify that the changes going into the release match what is expected in
 the JIRA ticket before publishing a new release.
 
+
+Updates to the GUMS Template
+----------------------------
+
+Most commonly, VO Client Package releases do not involve changes to the `gums.config.template` file, though on occasion
+it needs to be updated.
+Before proceeding, any changes to `gums.config.template` related to this release should be committed to git and pushed
+to the upstream repo on GitHub.
+
+The procedure for updating `gums.config.template` is outside the scope of this document, but the main important point is
+that any updates to this file should be done with the GUMS web interface rather than editing its xml contents by hand.
+
+
 Making the tarball
 ------------------
 
