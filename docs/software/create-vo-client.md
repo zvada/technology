@@ -66,7 +66,7 @@ The process to make a new tarball has been mostly scripted.
 To make the tarball:
 
 -   Start with a clean checkout of the latest `master` branch of the `osg-vo-config`
-    (source repo)[https://github.com/opensciencegrid/osg-vo-config].
+    [source repo](https://github.com/opensciencegrid/osg-vo-config).
 
     This checked out commit should be the one intended to be tagged for the new release.
 -   Run the `mk-vo-client-tarball` script with the new release number `<NN>`:
