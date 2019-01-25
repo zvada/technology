@@ -111,17 +111,26 @@ There are two files that need to be maintained:
         Typically this will be `vo-client/<NN>/vo-client-<NN>-osg.tar.gz`.
 
 
-
-RPM building
+RPM Building
 ------------
 
-After installing the [osg-build tools](/software/osg-build-tools), check out a clean copy from svn, then:
+After installing the [osg-build tools](/software/osg-build-tools), check out a clean copy of the `vo-client` packaging
+directory from svn, then:
 
 -   `osg-build prebuild .`
--   Once there are no errors, run `osg-build koji . --scratch` This can be done without making any permanent change.
--   Once that builds successfully, run `osg-build koji .` This is permanent, unlike when you ran with `--scratch`. You cannot rebuild this version of the RPM again - you must bump the release number and edit the changelog.
+-   Once there are no errors, run `osg-build koji . --scratch`.
+    (This can be done without making any permanent change.)
+-   Once that builds successfully, run `osg-build koji .`
+    (This is permanent, unlike when you ran with `--scratch`.)
+    You cannot rebuild this version of the RPM again; to rebuild with changes, you must bump the release number and edit
+    the changelog.
 
-This will push the RPMs into the OSG development repository. Koji requires additional setup compared to rpmbuild; [see the documentation here](/software/koji-workflow).
+This will push the RPMs into the OSG development repository.
+
+!!! note
+    Koji requires additional setup compared to rpmbuild; [see the documentation here](/software/koji-workflow).
+
+
 
 Promotion to testing and release:
 ---------------------------------
