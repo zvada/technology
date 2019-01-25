@@ -247,11 +247,11 @@ where:
 In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it will be used as the spec file for the build
 (unless overridden in the `osg` directory).
 
-##### Typycal workflow when building out of Git and GitHub repos
+##### Typical workflow when building out of GitHub repos
 
 1. Fork the repository that you would like to build for
-1. In your fork, tag the commit yoy would like to try building
-1. In the upstream/osg.github.source, change the repo to point at your fork and tag
+1. In your fork, tag the commit you would like to try building
+1. In the `upstream/osg.github.source`, change the repo to point at your fork and tag
 1. Attempt a scratch build
 1. If the build fails, remove the tag and repeat steps 2-4
 1. Submit a PR to merge changes upstream
@@ -259,7 +259,7 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
 1. Build the version that will go through the normal software cycle
 
 !!! note
-    Packaging only changes can be handled with a `v<version>-<release>` tag
+    Packaging only changes should be handled with a `v<version>-<release>` e.g. `v3.4.23-2`
 
 ##### Advanced features for Git and GitHub repos
 
