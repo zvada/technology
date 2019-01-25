@@ -89,27 +89,6 @@ Once the tarball is created:
     the `vo-client/<NN>/` directory.
 
 
-Automated GUMS Conversion
--------------------------
-
-The above [instructions](gums-template-conversion.txt) outline a procedure for converting the osg gums.config template from GUMS 1.1 format to 1.3 format. Because setting up a GUMS instance for this can be time consuming and tricky to get right, a script was written to automate the procedure on a Fermi VM. The script lives in svn under: `$SVN/software/tools/convert-osg-gums-template-for-vo-client.sh` .
-
-To use it:
-
--   Create a new Fermi VM (el5 or el6)
--   Copy the script and the new `gums.template` to be converted to the /root homedir on the VM.
--   Log into the VM as root, make sure the script is executable, and run against the gums template:
-
-<!-- -->
-
-          $ ssh root@el6-vo-client
-          # wget https://vdt.cs.wisc.edu/svn/software/tools/convert-osg-gums-template-for-vo-client.sh
-          # chmod +x convert-osg-gums-template-for-vo-client.sh
-          # ./convert-osg-gums-template-for-vo-client.sh gums.template
-
--   It takes a little while to install and set up gums and related packages, but if it succeeds, you should see a message that says "User group has been saved.", and a file `gums.config.template` should be written in the current directory.
--   The newly converted `gums.config.template` should be compared to the old version of that file (from the previous vo-client package) to ensure that the only the differences are the changes for this release. (I have had to manually strip the extra test account stuff.) The 'meld' program is a nice graphical diff tool that I use for comparing them.
-
 RPM spec file maintenance
 -------------------------
 
