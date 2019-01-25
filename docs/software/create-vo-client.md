@@ -23,6 +23,28 @@ In order to build the RPM, one needs:
     -   `vomsdir` directory tree, containing the .lsc files.
 -   The RPM spec file, [maintained](#rpm-spec-file-maintenance) in the OSG packaging area.
 
+
+JIRA Ticket for the Release
+---------------------------
+
+There should be an associated JIRA ticket with a summary line of the form "Release VO Package 85".
+(Throughout this document, this release number will be referred to as `<NN>`.)
+
+The JIRA ticket should contain the details of the changes expected in the new VO Client Package release, which you
+should verify before proceeding.
+You can verify this with your favorite git tool (eg, `git diff` or `gitk`), or just view the changes directly on GitHub:
+
+-   <https://github.com/opensciencegrid/osg-vo-config/compare/release-84...master>
+
+Here, `release-84` is the _previous_ release tag, which you are comparing to the latest changes in `master`.
+To use GitHub to view the comparison, you need to specify whatever is the most recent _previous_ release tag.
+
+Alternatively, you can proceed to [make the tarball](#making-the-tarball), and compare the result to the previous
+`vo-client` tarball (from the upstream source cache) before [publishing the new release](#publishing-the-new-release).
+
+However you choose to do it, the point is to verify that the changes going into the release match what is expected in
+the JIRA ticket before publishing a new release.
+
 Making the tarball
 ------------------
 
