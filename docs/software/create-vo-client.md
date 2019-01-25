@@ -131,6 +131,30 @@ This will push the RPMs into the OSG development repository.
     Koji requires additional setup compared to rpmbuild; [see the documentation here](/software/koji-workflow).
 
 
+Publishing the New Release
+--------------------------
+
+The final version of the sources in the `osg-vo-config`, which was used to create the tarball that was used in the koji
+build, needs be tagged in git with a `release-<NN>` tag (eg, `release-85`) and published as a release on GitHub.
+
+You can create and push the `release-<NN>` from your git checkout of `osg-vo-config`, OR create the tag while publishing
+the release on GitHub (recommended).
+
+To publish the new release on GitHub:
+
+-   Go to <https://github.com/opensciencegrid/osg-vo-config/releases/new>
+-   In the "Tag version" field, enter `release-<NN>` (eg, `release-85`)
+-   If you are creating this tag on GitHub, click the "Target" dropdown button, and under the "Recent Commits" tab, make
+    sure to select the commit you used when creating the tarball
+    (It should be the first one)
+-   In the "Release title" field, enter `<MONTH> <YEAR> VO Package Release <NN>`
+    (eg, `December 2018 VO Package Release 85`)
+-   In the release description, list the changes in this release and their associated ticket numbers, similar to the new
+    `%changelog` entry added in the rpm spec file
+
+    (You can view the [releases](https://github.com/opensciencegrid/osg-vo-config/releases) page for examples)
+-   Click the "Publish release" button
+
 
 Promotion to testing and release:
 ---------------------------------
