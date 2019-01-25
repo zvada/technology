@@ -21,7 +21,7 @@ Contributing Packages
 
 We encourage all interested parties to contribute to OSG Software, and all the infrastructure described on this page should be friendly to external contributors.
 
--   To participate in the packaging community: You must subscribe to the <osg-software@opensciencegrid.org> email list. Subscribing to an OSG email list is [described here](http://listserv.fnal.gov/users.asp#subscribe%20to%20list).
+-   To participate in the packaging community: You must subscribe to the <osg-software@opensciencegrid.org> email list. Subscribing to an OSG email list is [described here](https://listserv.fnal.gov/users.asp#subscribe%20to%20list).
 -   To create and edit packages: [Obtain access to VDT SVN](http://vdt.cs.wisc.edu/internal/svn.html).
 -   To upload new source tarballs: You must have a cs.wisc.edu account with write access to the VDT source tarball directory. Email the osg-software list and request permission.
 -   To build using the OSG's Koji build system: You must have a valid grid certificate and a Koji account. Email the osg-software list with your cert's DN and request permission.
