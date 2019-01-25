@@ -159,8 +159,6 @@ To publish the new release on GitHub:
 Promotion to Testing and Release:
 ---------------------------------
 
-### Policies
-
 Read [Release Policy](/release/release-policy).
 
 Note that the `vo-client` package frequently is part of a separate `-data` release; it does not necessarily have to
