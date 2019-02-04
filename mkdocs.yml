@@ -68,6 +68,7 @@ pages:
     - 'SHA-2 Support': 'projects/sha2-support.md'
     - Migrating Documents to Markdown: 'documentation/markdown-migration.md'
   - Meetings:
+    - February 4, 2019: 'meetings/2019/TechArea20190204.md'
     - January 28, 2019: 'meetings/2019/TechArea20190128.md'
     - January 22, 2019: 'meetings/2019/TechArea20190122.md'
     - January 14, 2019: 'meetings/2019/TechArea20190114.md'
