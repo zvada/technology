@@ -33,6 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [11 February 2019](/meetings/2019/TechArea20190211)
   * [4 February 2019](/meetings/2019/TechArea20190204)
   * [28 January 2019](/meetings/2019/TechArea20190128)
   * [22 January 2019](/meetings/2019/TechArea20190122) (MLK Jr. Day)
