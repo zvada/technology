@@ -15,9 +15,9 @@ approximately 100 CREAM-CE endpoints; we will continue to maintain the capabilit
 to access these endpoints while we assist sites in testing and enabling ARC-CE
 and/or HTCondor-CE replacement services.
 
-The HTCondor team plans to support the CREAM-CE in the 8.8.x stable release series
-and will maintain support for 8.8.x through December 2020.  CREAM-CE support will
-remain enabled at the start of the 8.9.x developer series; in early 2020, the
+The HTCondor team plans to support the CREAM-CE on EL6/7 in the 8.8.x stable release
+series and will maintain support for 8.8.x through December 2020.  CREAM-CE support
+will remain enabled at the start of the 8.9.x developer series; in early 2020, the
 HTCondor team will re-evaluate, based on community need, whether CREAM-CE support
 will be available in the next stable series.
 
