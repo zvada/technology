@@ -286,13 +286,6 @@ The following features make software development in Git and GitHub more convenie
     The extension must be `.tar.gz`, no other archive formats are supported.
     The directory inside the tarball will then be `<NAME>/`.
 
--   Can specify hash and tarball instead of tag (scratch and local builds only):
-
-    For local builds (rpmbuild and mock tasks) and Koji scratch builds,
-    you can omit the `tag` attribute and use only the hash to determine what to check out.
-    You *must* specify the `tarball` attribute in this case.
-    Non-scratch Koji builds will still require a tag.
-
 -   Can ignore hash mismatch (scratch and local builds only):
 
     For local builds (rpmbuild and mock tasks) and Koji scratch builds, a hash mismatch will result in a warning.
