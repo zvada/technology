@@ -7,12 +7,13 @@ This document doesn't talk about technical details of how to do a release.
 Software Repositories
 ---------------------
 
-The Software Team maintains five primary software repositories
+The Software Team maintains the following repositories:
 
 1.  **osg-development**: This is the "wild west", the place where software goes while it is being worked on by the
     software team.
 1.  **osg-testing**: This is where software goes when it is ready for wide-spread testing.
 1.  **osg-prerelease**: This is where software goes just before being released, for final verification.
+1.  **osg-rolling**: This is where software goes before being officially released. Intended for end-users.
 1.  **osg-release**: This is the official, production release of the software stack.
     This is the main repository for end-users.
 1.  **osg-contrib**: This is where software goes that is not officially supported by the OSG Software Team,
