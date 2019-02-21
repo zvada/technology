@@ -37,6 +37,7 @@ The following packages are considered critical to the production Open Science Gr
 - CVMFS
 - Frontier Squid
 - GlideinWMS
+- HDFS
 - HTCondor
 - HTCondor-CE
 - Singularity
