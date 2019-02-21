@@ -102,13 +102,7 @@ We expect that in most cases, this process of updating and testing the *osg-prel
 day.
 If there are urgent security updates to release, this process may be shortened.
 
-Note that, except in exceptional circumstances, we release software on Tuesdays.
-Therefore the osg-prerelease cache is probably updated and readied on a Monday (or perhaps late the previous week).
-
 ### Moving packages to osg-release
-
-Note that, except in exceptional circumstances, we release software on Tuesdays, so this process will only happen on
-Tuesdays.
 
 When the *osg-prerelease* repository has been updated and verified, all of the changed software can be moved into the
 *osg-release* repository.
@@ -138,8 +132,6 @@ In most cases, the team member in charge of the package can decide when a packag
 Contrib packages should be tested in *osg-development* first.
 
 ### Timing of releases
-
-Normally, releases happen on Tuesdays.
 
 Code freezes happen two business days in advance of the release (normally Friday).
 Specifically: RPM updates intended to be included in the next release (that is, pushed to the osg-release yum repo) must
