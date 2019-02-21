@@ -16,9 +16,9 @@ Implementation
 After the OSG Software Team builds and tests a package succesfully, it is marked "Ready for Testing" and is added to the
 appropriate Yum testing repository:
 `osg-testing` and `osg-upcoming-testing` for packages targeted for the release and the upcoming release, respectively.
-Upon addition to the relevant testing repository, we intend to notify OSG site administrators that the package is
-available for testing with a description of changes compared to previously released versions and provide a forum by
-which interested users can provide feedback.
+Upon addition to the relevant testing repository, we intend to notify OSG site administrators that the package, or a
+logically connected group of packages, is available for testing with a description of changes compared to previously
+released versions and provide a forum by which interested users can provide feedback.
 
 The Software and Release team will classify packages as either ["major"](#major-packages) or "minor"; where major
 packages are deemed critical to the functionality of the production grid and all other packages are minor.
