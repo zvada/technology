@@ -154,15 +154,19 @@ It is useful to add the source of the upstream file into a comment.
 
 ###### Cached files
 
-To reference files in the upstream source cache, use the upstream source cache path defined above, without the prefix component:
+To reference files in the upstream source cache, use the upstream source cache path defined above,
+without the prefix component, followed by the sha1sum of the file:
 
-> `<PACKAGE>/<VERSION>/<FILE>`
+> `<PACKAGE>/<VERSION>/<FILE> sha1sum=<SHA1SUM>`
 
 !!! example
     The reference file for `globus-common`'s source tarball is named `epel.srpm.source` and contains:
 
-        globus-common/16.4/globus-common-16.4-1.el6.src.rpm
+        globus-common/16.4/globus-common-16.4-1.el6.src.rpm sha1sum=134478c56c2437c335c20636831f794b66290bec
         # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
+
+!!! note
+    The sha1sum can be obtained by running the `sha1sum` command with the source file as an argument.
 
 ###### Git repos
 
