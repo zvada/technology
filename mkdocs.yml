@@ -51,6 +51,7 @@ pages:
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
     - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
     - 'Flexible Release Model': 'policy/flexible-release-model.md'
+      #    - 'Community Testing Policy': 'policy/community-testing.md'
   - Infrastructure:
     - Koji Restore Recipe: 'infrastructure/koji-restore-recipe.md'
     - Koji-Hub Setup: 'infrastructure/koji-hub-setup.md'
