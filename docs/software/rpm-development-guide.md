@@ -170,7 +170,7 @@ $ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
 ```
 
 !!! note
-    This feature requires OSG-Build 1.14.1 or later.
+    This feature requires OSG-Build 1.14.0 or later.
 
 !!! example
     The reference file for `globus-common`'s source tarball is named `epel.srpm.source` and contains:
