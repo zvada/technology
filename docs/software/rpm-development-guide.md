@@ -60,6 +60,11 @@ The authoritative cache is the VDT webserver, which is fully backed up. The Koji
 
 Upstream source files are referenced from within the revision control system; see below for details.
 
+You will need to know the SHA1 checksum of any files you use from the cache.  Do get it, do:
+```console
+$ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
+```
+
 #### Contributing Upstream Files
 
 You must make sure that any new upstream source files are cached on the VDT webserver before building the package via Koji. You have two options:
@@ -159,14 +164,20 @@ without the prefix component, followed by the sha1sum of the file:
 
 > `<PACKAGE>/<VERSION>/<FILE> sha1sum=<SHA1SUM>`
 
+Obtain the sha1sum by running the `sha1sum` command with the source file as an argument, i.e.
+```console
+$ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
+```
+
+!!! note
+    This feature requires OSG-Build 1.14.0 or later.
+
 !!! example
     The reference file for `globus-common`'s source tarball is named `epel.srpm.source` and contains:
 
         globus-common/16.4/globus-common-16.4-1.el6.src.rpm sha1sum=134478c56c2437c335c20636831f794b66290bec
         # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
 
-!!! note
-    The sha1sum can be obtained by running the `sha1sum` command with the source file as an argument.
 
 ###### Git repos
 
@@ -174,9 +185,6 @@ without the prefix component, followed by the sha1sum of the file:
     OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
-
-!!! note
-    This feature requires OSG-Build 1.11.2 or later.
 
 !!! note
     You can use a shorter syntax for GitHub repos -- see below.
@@ -218,9 +226,6 @@ In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will
     OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
-
-!!! note
-    This feature requires OSG-Build 1.12.2 or later.
 
 !!! note
     See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
@@ -268,9 +273,6 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
     Packaging-only changes should be tagged with a release number of the format `v<version>-<release>`, e.g. `v3.4.23-2`
 
 ##### Advanced features for Git and GitHub repos
-
-!!! note
-    These features require OSG-Build 1.12.2 or later.
 
 The following features make software development in Git and GitHub more convenient:
 
