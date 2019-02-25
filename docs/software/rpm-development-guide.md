@@ -60,6 +60,11 @@ The authoritative cache is the VDT webserver, which is fully backed up. The Koji
 
 Upstream source files are referenced from within the revision control system; see below for details.
 
+You will need to know the SHA1 checksum of any files you use from the cache.  Do get it, do:
+```console
+$ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
+```
+
 #### Contributing Upstream Files
 
 You must make sure that any new upstream source files are cached on the VDT webserver before building the package via Koji. You have two options:
@@ -159,14 +164,20 @@ without the prefix component, followed by the sha1sum of the file:
 
 > `<PACKAGE>/<VERSION>/<FILE> sha1sum=<SHA1SUM>`
 
+Obtain the sha1sum by running the `sha1sum` command with the source file as an argument, i.e.
+```console
+$ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
+```
+
+!!! note
+    This feature requires OSG-Build 1.14.2 or later.
+
 !!! example
     The reference file for `globus-common`'s source tarball is named `epel.srpm.source` and contains:
 
         globus-common/16.4/globus-common-16.4-1.el6.src.rpm sha1sum=134478c56c2437c335c20636831f794b66290bec
         # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
 
-!!! note
-    The sha1sum can be obtained by running the `sha1sum` command with the source file as an argument.
 
 ###### Git repos
 
