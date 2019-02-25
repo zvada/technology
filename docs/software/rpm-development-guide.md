@@ -187,9 +187,6 @@ $ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
 !!! note
-    This feature requires OSG-Build 1.11.2 or later.
-
-!!! note
     You can use a shorter syntax for GitHub repos -- see below.
 
     See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
@@ -229,9 +226,6 @@ In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will
     OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
-
-!!! note
-    This feature requires OSG-Build 1.12.2 or later.
 
 !!! note
     See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
@@ -279,9 +273,6 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
     Packaging-only changes should be tagged with a release number of the format `v<version>-<release>`, e.g. `v3.4.23-2`
 
 ##### Advanced features for Git and GitHub repos
-
-!!! note
-    These features require OSG-Build 1.12.2 or later.
 
 The following features make software development in Git and GitHub more convenient:
 
