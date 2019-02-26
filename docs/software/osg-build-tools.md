@@ -6,7 +6,7 @@ This page documents the tools used for RPM development for the OSG Software Stac
 
 The tools are distributed in the `osg-build` RPM in our repositories, but can also be used from a Git clone of [opensciencegrid/osg-build on GitHub](https://github.com/opensciencegrid/osg-build).
 
-This page is up-to-date as of `osg-build` version 1.10.1.
+This page is up-to-date as of `osg-build` version 1.14.1.
 
 The tools
 ---------
@@ -229,7 +229,7 @@ Selects the repositories (osg-3.3, upcoming, etc.) to build packages for. Curren
 | Repository            | Description                                                    |
 |-----------------------|----------------------------------------------------------------|
 | osg                   | OSG Software development repos for trunk (this is the default) |
-| osg-3.3 (or just 3.3) | OSG Software development repos for 3.2 branch                  |
+| osg-3.3 (or just 3.3) | OSG Software development repos for 3.3 branch                  |
 | upcoming              | OSG Software development repos for upcoming branch             |
 | internal              | OSG Software internal branch                                   |
 | hcc                   | Holland Computing Center (Nebraska) testing repos              |
