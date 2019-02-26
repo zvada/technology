@@ -13,7 +13,7 @@ The Software Team maintains the following repositories:
     software team.
 1.  **osg-testing**: This is where software goes when it is ready for wide-spread testing.
 1.  **osg-prerelease**: This is where software goes just before being released, for final verification.
-1.  **osg-rolling**: This is where software goes before being officially released. Intended for end-users.
+1.  **osg-rolling**: This is where software goes before being included in a point release. Intended for end-users.
 1.  **osg-release**: This is the official, production release of the software stack.
     This is the main repository for end-users.
 1.  **osg-contrib**: This is where software goes that is not officially supported by the OSG Software Team,
@@ -86,7 +86,7 @@ When we are ready to make a production release, we first move the correct subset
 This should be done after checking with the OSG Release Manager to verify that it's okay to release the software.
 The intention of *osg-prerelease* is to do a final verification that we have the correct set of packages for release and
 that they really work together.
-The intention of *osg-rolling* is to make thoroughly tested software available to users before an official release.
+The intention of *osg-rolling* is to make thoroughly tested software available to users before its first point release.
 This is important because the *osg-testing* repository might contain a mix of packages that are ready for release with
 packages that are not ready for release.
 When moving packages to *osg-prerelease* and *osg-rolling*, the team member doing the release will:
