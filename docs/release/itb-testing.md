@@ -83,7 +83,7 @@ Use this section to install new versions of all OSG software from a prerelease r
    package versions.
 
 1. Make sure that software is generally up-to-date on the hosts&nbsp;— see
-   [the MadisonITB page](/infrastructure/madison-itb) for more details
+   [the Madison ITB Site doc](https://docs.google.com/document/d/11Njz9YMWg67f_TMzcrbdD7anZRIsf9-wiXx-inWhO4U/edit#bookmark=id.4d34og8) for more details
 
     It may be desirable to update only non-OSG software at this stage, in which case one could simply disable the OSG
     repositories by adding command-line options to the `yum update` commands.
