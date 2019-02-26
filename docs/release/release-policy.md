@@ -50,7 +50,7 @@ The version number is communicated in two ways:
     The RPM itself has the version number in it. It also provide a program that reports the version, and a text file
     that contains the version number.
 
-The version number will be of the form X.Y.Z. As of this writing, version numbers are 3.0.Z, where Z indicates a minor
+The version number will be of the form X.Y.Z. As of this writing, version numbers are 3.4.Z, where Z indicates a minor
 revision.
 
 Progression of repositories
