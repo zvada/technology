@@ -26,7 +26,7 @@ After users have been notified of changes, minor packages will be marked eligibl
 negative feedback after 7 calendar days.
 In addition to the above requirements, major packages must also receive positive feedback and be approved by the Release
 Manager.
-If any package receives negative feedback, the package will be removed from the relevant testing repository.
+If a package receives negative feedback, the offending package will be removed from the relevant testing repository.
 
 Major Packages
 --------------
