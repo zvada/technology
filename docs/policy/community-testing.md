@@ -19,6 +19,7 @@ appropriate Yum testing repository:
 Upon addition to the relevant testing repository, we intend to notify OSG site administrators that the package, or a
 logically connected group of packages, is available for testing with a description of changes compared to previously
 released versions and provide a forum by which interested users can provide feedback.
+Additionally, any packages that are considered release candidates by their upstream authors will be noted as such.
 
 The Software and Release team will classify packages as either ["major"](#major-packages) or "minor"; where major
 packages are deemed critical to the functionality of the production grid and all other packages are minor.
@@ -26,7 +27,7 @@ After users have been notified of changes, minor packages will be marked eligibl
 negative feedback after 7 calendar days.
 In addition to the above requirements, major packages must also receive positive feedback and be approved by the Release
 Manager.
-If any package receives negative feedback, the package will be removed from the relevant testing repository.
+If a package receives negative feedback, the offending package will be removed from the relevant testing repository.
 
 Major Packages
 --------------
