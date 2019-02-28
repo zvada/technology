@@ -3,7 +3,7 @@ OSG Community Software Testing
 
 20 February 2019
 
-The community of OSG resource providers has a vested interested in the quality and stability of the OSG software stack.
+The community of OSG resource providers has a vested interest in the quality and stability of the OSG software stack.
 We would like to notify our stakeholders of software updates as soon as they are designated as "Ready for Testing" by
 the Software Team.
 Direct engagement with the entire community would allow for feedback from a broader array of interested parties.
