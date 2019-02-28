@@ -11,7 +11,8 @@ The Software Team maintains the following repositories:
 
 1.  **osg-development**: This is the "wild west", the place where software goes while it is being worked on by the
     software team.
-1.  **osg-testing**: This is where software goes when it is ready for wide-spread testing.
+1.  **osg-testing**: This is where software goes when it is ready for wide-spread testing, including upstream release
+    candidates
 1.  **osg-prerelease**: This is where software goes just before being released, for final verification.
 1.  **osg-rolling**: This is where software goes before being included in a point release. Intended for end-users.
 1.  **osg-release**: This is the official, production release of the software stack.
@@ -75,8 +76,7 @@ In cases where there is uncertainty, discuss it with the Software Manager.
 ### Moving packages to osg-testing
 
 A package may be moved from *osg-development* to *osg-testing* when the individual maintainer of that package decides
-that it is ready for widespread testing and when the package is eventually intended for a production release, and when
-approved by the OSG Software Manager.
+that it is ready for widespread testing and when approved by the OSG Software Manager.
 Approval is needed because this is when we first make packages available to people outside of the OSG Software Team.
 
 ### Moving packages to osg-prerelease and osg-rolling; Readying the release
