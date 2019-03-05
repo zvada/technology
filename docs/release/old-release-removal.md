@@ -133,6 +133,7 @@ If we're dropping support for a distro (e.g. EL 5 when we drop OSG 3.2), add
 the following after the first paragraph:
 
 ```
-Note that OSG <3.X> was the last release to support Enterprise Linux <Z>
-distributions.
+Note that OSG <3.X> was the last release that supported Enterprise Linux <Z>
+distributions.  If you believe that you still need support for this operating
+system series, please contact us at help@opensciencegrid.org.
 ```
