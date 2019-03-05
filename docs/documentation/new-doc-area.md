@@ -6,11 +6,11 @@ This document contains instructions for creating a new OSG documentation area vi
 1. Create a new repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new) (referred to as `<REPO NAME>` in the rest of this document)
 
     1. Check the box marked `Initialize this repository with a README`
-    1. Once created, add the `mkdocs` topic by clicking on the "Add topics" button
+    1. Once created, add the `mkdocs` topic by clicking on the "Manage topics" link
 
 1. Clone the repository and `cd` into the directory:
 
-        git clone git@github.com:opensciencegrid/<REPO NAME>
+        git clone https://github.com/opensciencegrid/<REPO NAME>.git
         cd <REPO NAME>
 
 1. Create a `gh-pages` branch in the GitHub repository:
@@ -37,7 +37,7 @@ This document contains instructions for creating a new OSG documentation area vi
 
             travis encrypt-file deploy-key
 
-    1. Add and commit your files:
+    1. Stage and commit your files:
 
             git add LICENSE mkdocs.yml docs deploy-key.enc
             git commit -m "Prepare the repository for Travis-CI deployment"
