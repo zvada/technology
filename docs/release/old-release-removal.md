@@ -120,7 +120,7 @@ On <DAYNAME, MONTH DAY>, the OSG will be removing the OSG <3.X> release
 series from our repositories.  This includes both RPMs and tarballs hosted
 on repo.opensciencegrid.org.
 
-All support for OSG <3.X> was discontinued at the end of <MONTH YEAR>.
+As a reminder, support for OSG <3.X> ended after <MONTH YEAR>.
 
 If your site is running OSG <3.X>, you should upgrade to the current release
 series, OSG 3.Y.  See our upgrade documentation [1] for instructions.  If you
