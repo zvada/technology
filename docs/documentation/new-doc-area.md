@@ -1,7 +1,7 @@
 Creating a New Area
 ===================
 
-This document contains instructions for creating a new OSG documentation area via [GitHub Pages](https://pages.github.com/) and deploying it automatically with [Travis-CI](https://travis-ci.org/). Before starting, make sure that you have the `git` and `gem` tools installed.
+This document contains instructions for creating a new top-level OSG website via [GitHub Pages](https://pages.github.com/) and deploying it automatically with [Travis-CI](https://travis-ci.org/). Before starting, make sure that you have the `git` and `gem` tools installed.
 
 1. Create a new repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new) (referred to as `<REPO NAME>` in the rest of this document)
 
