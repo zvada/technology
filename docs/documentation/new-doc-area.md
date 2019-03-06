@@ -26,8 +26,6 @@ This document contains instructions for creating a new top-level OSG website via
 
         wget https://creativecommons.org/licenses/by/4.0/legalcode.txt > LICENSE
 
-1. Follow [these instructions](https://github.com/opensciencegrid/doc-ci-scripts#travis-ci-documentation-scripts) to add the `doc-ci-scripts` sub-module
-1. Create `mkdocs.yml` and a `docs` directory
 1. Create and encrypt the repository deploy key
 
     1. Generate the repository deploy key:
@@ -53,6 +51,9 @@ This document contains instructions for creating a new top-level OSG website via
     1. Add `deploy-key.pub` to your repository's list of [deploy keys](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys).
        Make sure to check `Allow write access`.
 
+1. Follow [these instructions](https://github.com/opensciencegrid/doc-ci-scripts#travis-ci-documentation-scripts) to add
+   the `doc-ci-scripts` sub-module
+1. Create `mkdocs.yml` and a `docs` directory
 1. Push local changes to the GitHub repository:
 
         git push origin master
