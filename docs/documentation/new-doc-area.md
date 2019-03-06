@@ -11,7 +11,7 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
 
     1. Check the box marked `Initialize this repository with a README`
 
-1. Identify the repository as using mkdocs
+1. Identify the repository as using mkdocs:
 
     1. On the repository home page (i.e., `https://github.com/opensciencegrid/<REPO NAME>`), click the “Manage topics”
        link
@@ -84,7 +84,13 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
           - toc:
               permalink: True
 
-1: Create a `docs` directory containing an `index.md` that will be your home page.
+1. Create a `docs` directory containing an `index.md` that will be your home page.
+
+1. Stage and commit these changes:
+
+        git add mkdocs.yml docs/index.md
+        git commit -m "Staging initial web page contents"
+
 1. Push local changes to the GitHub repository:
 
         git push origin master
