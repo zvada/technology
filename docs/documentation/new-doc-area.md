@@ -6,7 +6,12 @@ This document contains instructions for creating a new OSG documentation area vi
 1. Create a new repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new) (referred to as `<REPO NAME>` in the rest of this document)
 
     1. Check the box marked `Initialize this repository with a README`
-    1. Once created, add the `mkdocs` topic by clicking on the "Manage topics" link
+
+1. Identify the repository as using mkdocs
+
+    1. On the repository home page (i.e., https://github.com/opensciencegrid/<REPO NAME>), click the “Manage topics” link
+    1. Search for `mkdocs` and select `mkdocs`
+    1. Click the “Done” button
 
 1. Clone the repository and `cd` into the directory:
 
