@@ -115,6 +115,8 @@ need, and download them from Koji.
 Template Email
 --------------
 
+>   Subject: OSG 3.X Retirement
+
 >   On &lt;DAYNAME, MONTH DAY&gt;, the OSG will be removing the OSG &lt;3.X&gt; release
 >   series from our repositories.  This includes both RPMs and tarballs hosted
 >   on repo.opensciencegrid.org.
