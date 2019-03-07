@@ -116,6 +116,10 @@ Template Email
 --------------
 
 ```
+Subject: OSG 3.X packages will be removed from the repositories YYYY-MM-DD
+```
+
+```
 On <DAYNAME, MONTH DAY>, the OSG will be removing the OSG <3.X> release
 series from our repositories.  This includes both RPMs and tarballs hosted
 on repo.opensciencegrid.org.
