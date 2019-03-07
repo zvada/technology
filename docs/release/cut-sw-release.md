@@ -249,7 +249,12 @@ cd docker-osg-wn
 # that 'update-all' should have printed
 ```
 
-### Step 7: Announce the release
+### Step 7: Merge any pending documentation
+
+For each documentation ticket in this release, merge the pull requests mentioned in the description or comments.
+
+
+### Step 8: Announce the release
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
@@ -297,8 +302,8 @@ The following instructions are meant for the release manager (or interim release
 Day 3: Update the ITB
 ---------------------
 
-Now that the release has had a chance to propogate to all the mirrors, update the Madison ITB site by following
+Now that the release has had a chance to propagate to all the mirrors, update the Madison ITB site by following
 the [yum update section](https://docs.google.com/document/d/11Njz9YMWg67f_TMzcrbdD7anZRIsf9-wiXx-inWhO4U/edit#bookmark=id.4d34og8) of the Madison ITB document.
 If you are not local to Madison, consult the release manager for the designated person to do the update.
 Remember to stop the HTCondor and HTCondor-CE daemons according to the [HTCondor pre-release testing instructions](/release/itb-testing/#installing-htcondor-prerelease).
-Those daemons will need to be restarted after the upgraode.
+Those daemons will need to be restarted after the upgrade.
