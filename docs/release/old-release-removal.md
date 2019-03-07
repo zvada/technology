@@ -115,20 +115,29 @@ need, and download them from Koji.
 Template Email
 --------------
 
->   Subject: OSG 3.X Retirement
+```
+Subject: OSG 3.X Retirement
+```
 
->   On &lt;DAYNAME, MONTH DAY&gt;, the OSG will be removing the OSG &lt;3.X&gt; release
->   series from our repositories.  This includes both RPMs and tarballs hosted
->   on repo.opensciencegrid.org.
->
->   All support for OSG &lt;3.X&gt; had been discontinued at the end of &lt;MONTH YEAR&gt;.
->
->   Any sites running OSG &lt;3.X&gt; should upgrade to the current release series,
->   OSG &lt;3.Y&gt;.  If you need assistance upgrading, please contact us at
->   help@opensciencegrid.org.
+```
+On <DAYNAME, MONTH DAY>, the OSG will be removing the OSG <3.X> release
+series from our repositories.  This includes both RPMs and tarballs hosted
+on repo.opensciencegrid.org.
+
+As a reminder, support for OSG <3.X> ended after <MONTH YEAR>.
+
+If your site is running OSG <3.X>, you should upgrade to the current release
+series, OSG 3.Y.  See our upgrade documentation [1] for instructions.  If you
+need assistance upgrading, please contact us at help@opensciencegrid.org.
+
+[1] https://opensciencegrid.org/docs/release/release_series/#updating-from-osg-31-32-33-to-34
+```
 
 If we're dropping support for a distro (e.g. EL 5 when we drop OSG 3.2), add
 the following after the first paragraph:
 
->   Note that OSG &lt;3.X&gt; was the last release to support Enterprise Linux &lt;Z&gt;
->   distributions.
+```
+Note that OSG <3.X> was the last release that supported Enterprise Linux <Z>
+distributions.  If you believe that you still need support for this operating
+system series, please contact us at help@opensciencegrid.org.
+```
