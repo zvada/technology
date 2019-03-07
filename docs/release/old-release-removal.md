@@ -116,7 +116,7 @@ Template Email
 --------------
 
 ```
-Subject: OSG 3.X Retirement
+Subject: OSG 3.X packages will be removed from the repositories YYYY-MM-DD
 ```
 
 ```
