@@ -1,13 +1,13 @@
 Software Release Policy
 =======================
 
-This document doesn't talk about technical details of how to do a release.
-[The release process is discussed elsewhere](/release/cut-sw-release/).
+This document contains information about the OSG Software Yum repositories and their policies.
+For details regarding the technical process for an OSG release, see [this document](/release/cut-sw-release/).
 
-Software Repositories
----------------------
+Yum Repositories
+----------------
 
-The Software Team maintains the following repositories:
+The Software Team maintains the following Yum repositories:
 
 1.  **osg-development**: This is the "wild west", the place where software goes while it is being worked on by the
     software team.
