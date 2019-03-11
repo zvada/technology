@@ -54,7 +54,7 @@ The version number is communicated in two ways:
 The version number will be of the form X.Y.Z. As of this writing, version numbers are 3.4.Z, where Z indicates a minor
 revision.
 
-Progression of repositories
+Progression of Repositories
 ---------------------------
 
 This figure shows the progression of repositories that packages will go through:
@@ -63,7 +63,7 @@ This figure shows the progression of repositories that packages will go through:
                       \
                        -> osg-contrib
 
-Release policies
+Release Policies
 ----------------
 
 ### Adding packages to osg-development
@@ -146,7 +146,7 @@ CA Certificates and VO Client packages
 
 Packages that contain only data are not part of the usual release cycle.
 Currently, these are the CA certificate packages and the VO Client packages.
-Updates to these packages come from the Security Team and Operations Team, respectively.
+Updates to these packages come from the Security Team and Software Team, respectively.
 They still move through the usual process for release, and the Software and Release Managers decide when these packages
 should be promoted to the next repository level.
 However, the actual releases of these packages do not increment the version number of the software stack.
