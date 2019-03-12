@@ -51,6 +51,7 @@ pages:
     - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
     - 'Flexible Release Model': 'policy/flexible-release-model.md'
     - Software Release Policy: 'policy/software-release.md'
+    - Container Release Policy: 'policy/container-release.md'
     - 'Community Testing': 'policy/community-testing.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
