@@ -23,18 +23,15 @@ EPEL, and [OSG release](/policy/software-releases#yum-repositories) Yum reposito
 Tags
 ----
 
-OSG Software container images will be automatically tagged with the timestamp of their build.
-Additionally, container images will have the following tags describing their suitability for production:
+OSG Software container images will be automatically tagged with the timestamp of their build to provide rollback options
+in case of issues.
+Additionally, container images may have the following tags describing their suitability for production:
 
-| Tag Name      | Description                                                                          |
-|---------------|--------------------------------------------------------------------------------------|
-| `development` | Images that build successfully and pass automated tests                              |
-| `testing`     | Images that pass acceptance testing by trusted operators                             |
-| `stable`      | Images that have show promise in initial production, approved by the Release Manager |
+| Tag Name | Description                                                                 |
+|----------|-----------------------------------------------------------------------------|
+| `fast`   | Images that build successfully and pass automated tests                     |
+| `slow`   | `fast` images that pass acceptance testing; approved by the Release Manager |
 
-The progression of an image build through the above tags is reflected below:
-
-    timestamp/development -> testing -> stable
 
 ### Cleanup  ###
 
@@ -44,4 +41,4 @@ Previous timestamp tags will be removed after new builds are created for a new
 Announcements
 -------------
 
-Container images that have been tagged as **stable** will be noted in the OSG release notes and announcements.
+Container images that have been tagged as **slow** will be noted in the OSG release notes and announcements.
