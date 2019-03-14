@@ -51,7 +51,7 @@ pages:
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
     - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
     - 'Flexible Release Model': 'policy/flexible-release-model.md'
-      #    - 'Community Testing Policy': 'policy/community-testing.md'
+    - 'Community Testing': 'policy/community-testing.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
     - Reviewing Documentation: 'documentation/reviewing-documentation.md'
