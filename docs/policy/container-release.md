@@ -35,8 +35,8 @@ Additionally, container images may have the following tags describing their suit
 
 ### Cleanup  ###
 
-Previous timestamp tags will be removed after new builds are created for a new
-[OSG release series](/policy/release-series).
+Weekly timestamped image tags will be kept for three months.
+After three months, monthly timestamped image tags will be kept up to one year.
 
 Announcements
 -------------
