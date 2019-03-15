@@ -393,7 +393,11 @@ OSG Operations maintains the Yum repositories that contain our source and binary
 
 #### Release Levels
 
-Every package is classified into a release level based on the amount of testing it has undergone and our confidence in its stability. When a package is first built, it goes into the lowest level (`osg-development`). The members of the OSG Software and Release teams may promote packages through the release levels, as per our [Release Policy page](/release/release-policy).
+Every package is classified into a release level based on the amount of testing it has undergone and our confidence in
+its stability.
+When a package is first built, it goes into the lowest level (`osg-development`).
+The members of the OSG Software and Release teams may promote packages through the release levels, as per our
+[Release Policy page](/policy/software-release).
 
 Packaging Conventions
 ---------------------
