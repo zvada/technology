@@ -80,6 +80,10 @@ The latter command would typically be run on the VO's glideinWMS frontend host, 
 currently on the VOMS-Admin server to be kept on the frontend host.  The frontend's account may also need access
 to the certificate.
 
+!!! info
+    To update your GlideinWMS Frontend to use the new proxy generation command, see
+    [this documentation](https://opensciencegrid.org/docs/other/install-gwms-frontend/#proxy-configuration) for details.
+
 We plan to transition more complex VOs - those using VOMS-Admin to track membership in a VO - to `comanage`.  It is
 not clear there are any such VOs that need support from OSG.  If there are, a hosted version of `comanage` is expected
 to be available in summer 2017 from the CILogon 2.0 project.  If you feel your VO is affected, please contact the
