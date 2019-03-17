@@ -4,7 +4,9 @@
 How to Cut a Software Release
 =============================
 
-This document details the process for releasing new OSG Release version(s). This document does NOT discuss the policy for deciding what goes into a release, which can be found [here](/release/release-policy/).
+This document details the process for releasing new OSG Release version(s).
+This document does NOT discuss the policy for deciding what goes into a release, which can be found
+[here](/policy/software-release).
 
 Due to the length of time that this process takes, it is recommended to do the release over three or more days to allow for errors to be corrected and tests to be run.
 

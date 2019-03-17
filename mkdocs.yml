@@ -35,7 +35,6 @@ pages:
   - Release:
     - How to Cut a Release: 'release/cut-sw-release.md'
     - How to Cut a Data Release: 'release/cut-data-release.md'
-    - Release Policy: 'release/release-policy.md'
     - New Release Series: 'release/new-release-series.md'
     - Old Release Series Removal: 'release/old-release-removal.md'
     - ITB Prerelease Testing: 'release/itb-testing.md'
@@ -51,6 +50,8 @@ pages:
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
     - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
     - 'Flexible Release Model': 'policy/flexible-release-model.md'
+    - Software Release Policy: 'policy/software-release.md'
+    # - Container Release Policy: 'policy/container-release.md'
     - 'Community Testing': 'policy/community-testing.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
