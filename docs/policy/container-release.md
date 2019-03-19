@@ -23,20 +23,20 @@ installed from `osg-development`.
 Tags
 ----
 
-OSG Software container images will be automatically tagged with the timestamp of their build to provide rollback options
-in case of issues.
-Additionally, container images may have the following tags describing their suitability for production:
+OSG Software container images will be tagged with at least one of the following tags:
 
-| Tag Name | Description                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| `fast`   | Images that build successfully and pass automated tests                     |
-| `slow`   | `fast` images that pass acceptance testing; approved by the Release Manager |
-
+| Tag       | Description                                                                                                                                                     |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `fast`    | Images that build successfully and pass automated tests. Intended for users that need the latest fixes and features.                                            |
+| timestamp | Each `fast` image  is also tagged with a timestamp reflecting their build date and time. Intended for rollback in case of issues with the current `fast` image. |
+| `slow`    | `fast` images that pass acceptance testing; approved by the Release Manager. Intended for stable production use.                                                |
 
 ### Cleanup  ###
 
-Weekly timestamped image tags will be kept for three months.
-After three months, monthly timestamped image tags will be kept up to one year.
+Images with only a timestamp tag will be untagged according to the following policy:
+
+- Weekly timestamped image tags will be kept for at least three months
+- After three months, monthly timestamped image tags will be kept for at least one year
 
 Announcements
 -------------
