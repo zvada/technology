@@ -33,6 +33,7 @@ Meeting Notes
 
 ### Recent Notes ###
 
+  * [8 April 2019](/meetings/2019/TechArea20190408)
   * [1 April 2019](/meetings/2019/TechArea20190401)
   * [25 March 2019](/meetings/2019/TechArea20190325)
   * 18 March 2019 (Canceled - HOW 2019)
