@@ -1,7 +1,7 @@
 Container Release Policy
 ========================
 
-12 March 2019
+17 April 2019
 
 Container images are an increasingly popular tool for shortening the software development lifecycle, allowing for speedy
 deployment of new software versions or additional instances of a service.
@@ -25,11 +25,11 @@ Tags
 
 OSG Software container images will be tagged with at least one of the following tags:
 
-| Tag       | Description                                                                                                                                                     |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `fast`    | Images that build successfully and pass automated tests. Intended for users that need the latest fixes and features.                                            |
-| timestamp | Each `fast` image  is also tagged with a timestamp reflecting their build date and time. Intended for rollback in case of issues with the current `fast` image. |
-| `slow`    | `fast` images that pass acceptance testing; approved by the Release Manager. Intended for stable production use.                                                |
+| Tag       | Description                                                                                                                                                       |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `fresh`   | Images that build successfully and pass automated tests. Intended for users that need the latest fixes and features.                                              |
+| timestamp | Each `fresh` image  is also tagged with a timestamp reflecting their build date and time. Intended for rollback in case of issues with the current `fresh` image. |
+| `stable`  | `fresh` images that pass acceptance testing; approved by the Release Manager. Intended for stable production use.                                                 |
 
 ### Cleanup  ###
 
