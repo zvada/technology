@@ -41,4 +41,4 @@ Images with only a timestamp tag will be untagged according to the following pol
 Announcements
 -------------
 
-Container images that have been tagged as **slow** will be noted in the OSG release notes and announcements.
+Container images that have been tagged as **stable** will be noted in the OSG release notes and announcements.
