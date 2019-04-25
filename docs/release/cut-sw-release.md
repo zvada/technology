@@ -14,7 +14,7 @@ Requirements
 ------------
 
 -   User certificate registered with OSG's koji with build and release team privileges
--   An account on UW CS machines (e.g. `library`, `ingwe`) to access UW's AFS
+-   An account on UW CS machines (e.g. `moria`) to access UW's AFS
 -   `release-tools` scripts in your `PATH` ([GitHub](https://github.com/opensciencegrid/release-tools))
 -   `osg-build` scripts in your `PATH` (installed via OSG yum repos or [source](https://github.com/opensciencegrid/osg-build))
 -   Access to the tarball repository at UNL (osgcollab@repo.opensciencegrid.org)
