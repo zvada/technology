@@ -235,7 +235,9 @@ To remove them, first check the list:
 ```bash
 find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -ls {} +
 ```
-Then if the output looks reasonable, remove them:
+Then if the output looks reasonable
+(contains at least one installation, but does not contain recent installations),
+remove them:
 ```bash
 find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -exec rm -rf {} +
 ```
