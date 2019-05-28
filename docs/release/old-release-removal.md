@@ -141,3 +141,12 @@ Note that OSG <3.X> was the last release that supported Enterprise Linux <Z>
 distributions.  If you believe that you still need support for this operating
 system series, please contact us at help@opensciencegrid.org.
 ```
+
+Since we're dropping support for i386 (32-bit) when we drop OSG 3.3, add the
+following after the first paragraph:
+
+```
+Note that OSG 3.3 was the last release that contained 32-bit packages.  If
+you believe that you still need support for this architecture, please
+contacts us at help@opensciencegrid.org.
+```
