@@ -193,16 +193,17 @@ $ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
 
 To reference tags in Git repos, use the following syntax (all on one line):
 
-> `type=git url=<URL> name=<NAME> tag=<TAG> hash=<HASH>`
+> `type=github repo=<URL> name=<NAME> tag=<TAG> tarball=<TARBALL> hash=<HASH>`
 
 where:
 
-| Symbol   | Definition                       | Example                                            |
-|:---------|:---------------------------------|:---------------------------------------------------|
-| `<URL>`  | Location of the Git repo         | `https://github.com/opensciencegrid/osg-build.git` |
-| `<NAME>` | Name of the software (optional)  | `osg-build`                                        |
-| `<TAG>`  | Git tag to use                   | `v1.11.2`                                          |
-| `<HASH>` | Full 40-char Git hash of the tag | `5bcf48c442d21b1e8c93a468d884f84122f7cc9e`         |
+| Symbol       | Definition                       | Example                                            |
+|:-------------|:---------------------------------|:---------------------------------------------------|
+| `<URL>`      | Location of the Git repo         | `https://github.com/opensciencegrid/osg-build.git` |
+| `<NAME>`     | Name of the software (optional)  | `osg-build`                                        |
+| `<TAG>`      | Git tag to use                   | `v1.11.2`                                          |
+| `<TARBALL>`  | Name of the tarball(optional)    | `osg-build-1.11.2.tar.gz`                          |
+| `<HASH>`     | Full 40-char Git hash of the tag | `5bcf48c442d21b1e8c93a468d884f84122f7cc9e`         |
 
 !!! note
     `<NAME>` is optional; if not present, OSG-Build will use the last component of the URL, without the `.git` suffix.
@@ -212,7 +213,7 @@ where:
 !!! example
     The reference file for `osg-build`'s repo is named `osg.github.source` and contains:
 
-        type=git url=https://github.com/opensciencegrid/osg-build.git name=osg-build tag=v1.11.2 hash=5bcf48c442d21b1e8c93a468d884f84122f7cc9e
+        type=github repo=opensciencegrid/osg-build.git name=osg-build tag=v1.11.2 hash=5bcf48c442d21b1e8c93a468d884f84122f7cc9e
 
     This results in a tarball named `osg-build-1.11.2.tar.gz`.
 
