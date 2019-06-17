@@ -31,9 +31,5 @@ Meetings
 **When:** Every Monday, 11:00 a.m. (U.S. Central)
 **Where:** +1 719-284-5267, PIN #57363; [Uber Conference](https://www.uberconference.com/osgblin)
 
-### Archived notes ###
-
-- Meeting note archives older than January 1, 2018 and oler than February 27, 2017 can be found
-  [here](https://github.com/opensciencegrid/technology/tree/master/docs/meetings/2017)
-- Meeting note archives older than February 27, 2017 can be found
-  [here](https://github.com/opensciencegrid/technology/tree/master/docs/meetings).
+Meeting note archives can be found directly in the
+[GitHub repository](https://github.com/opensciencegrid/technology/tree/master/docs/meetings).
