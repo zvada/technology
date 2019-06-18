@@ -33,6 +33,39 @@ If you are unsure about which version number to increment in a software update, 
 Build Procedures
 ----------------
 
+### Verifying builds through Travis-CI
+
+Automatic build verification can be performed for each commit pushed to a GitHub repository with Travis CI.
+To enable this feature, the GitHub repository must meet the following criteria:
+
+1. Contains an `rpm/<REPO NAME>.spec` file that describes the RPM
+1. Enabled in [Travis CI](https://travis-ci.com/getting_started).
+   Repositories that are part of the `opensciencegrid` GitHub organization require special permission to enable.
+   Consult Brian or Mat.
+1. Contains `.travis.yml` file with the following contents:
+
+        :::yaml
+        sudo: required
+        env:
+          - REPO_NAME=${TRAVIS_REPO_SLUG#*/}
+
+        git:
+          depth: false
+          quiet: true
+
+        services:
+          - docker
+
+        before_install:
+          - sudo apt-get update
+          - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
+          - sudo service docker restart
+          - sleep 5
+          - sudo docker pull opensciencegrid/osg-build
+
+        script:
+          - docker run -v $(pwd):/$REPO_NAME -e REPO_NAME=$REPO_NAME --cap-add=SYS_ADMIN opensciencegrid/osg-build build-from-github
+
 ### Building packages for multiple OSG release series
 
 The OSG Software team supports multiple release series, independent but in parallel to a large degree. In many cases, a single package is the same across release series, and therefore we want to build the package once and share it among the series. The procedure below suggests a way to accomplish this task.
