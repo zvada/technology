@@ -102,7 +102,7 @@ use [hl_lines="N"](https://squidfunk.github.io/mkdocs-material/extensions/codehi
 where `N` can indicate multiple line numbers:
 
 ~~~console
-``` hl_lines="1 3"
+```console hl_lines="1 3"
 root@condor-ce # yum install htcondor-ce
 # this is a comment
 root@condor-ce # condor_ce_trace -d <CE HOSTNAME>
@@ -113,7 +113,7 @@ Similarly, you may also specify `:::console hl_lines="N"` for indented command b
 language supported by [Pygments](http://pygments.org/languages/).
 The above block is rendered below:
 
-``` hl_lines="1 3"
+```console hl_lines="1 3"
 root@condor-ce # yum install htcondor-ce
 # this is a comment
 root@condor-ce # condor_ce_trace -d <CE HOSTNAME>
