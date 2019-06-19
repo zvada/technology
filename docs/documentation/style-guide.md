@@ -95,10 +95,28 @@ Or if you're testing the SE from the client side and the command is run as a nor
 ### Highlighting user input  ###
 
 Use descriptive, all-caps text wrapped in angle brackets to to highlight areas that users would have to insert text
-specific to their site. You may also use TWiki-style color highlighting. For example:
+specific to their site, e.g. `<REMOTE SSH HOSTNAME>`.
+The same text should be cited verbatim in surrounding prose with further explanation with examples of appropriate values.
+For additional visual highlighting,
+use [hl_lines="N"](https://squidfunk.github.io/mkdocs-material/extensions/codehilite/#highlighting-specific-lines),
+where `N` can indicate multiple line numbers:
 
-```console
-root@host # condor_ce_trace -d %RED%<CE HOSTNAME>%ENDCOLOR%
+~~~console
+``` hl_lines="1 3"
+root@condor-ce # yum install htcondor-ce
+# this is a comment
+root@condor-ce # condor_ce_trace -d <CE HOSTNAME>
+````
+~~~
+
+Similarly, you may also specify `:::console hl_lines="N"` for indented command blocks, replacing `console` with any
+language supported by [Pygments](http://pygments.org/languages/).
+The above block is rendered below:
+
+``` hl_lines="1 3"
+root@condor-ce # yum install htcondor-ce
+# this is a comment
+root@condor-ce # condor_ce_trace -d <CE HOSTNAME>
 ```
 
 Lists
