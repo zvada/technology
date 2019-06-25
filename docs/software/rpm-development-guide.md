@@ -179,47 +179,6 @@ $ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
         # Downloaded from 'http://dl.fedoraproject.org/pub/epel/6/SRPMS/globus-common-16.4-1.el6.src.rpm'
 
 
-###### Git repos
-
-!!! warning
-    OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
-    Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
-    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
-
-!!! note
-    You can use a shorter syntax for GitHub repos -- see below.
-
-    See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
-
-To reference tags in Git repos, use the following syntax (all on one line):
-
-> `type=git url=<URL> name=<NAME> tag=<TAG> hash=<HASH>`
-
-where:
-
-| Symbol   | Definition                       | Example                                            |
-|:---------|:---------------------------------|:---------------------------------------------------|
-| `<URL>`  | Location of the Git repo         | `https://github.com/opensciencegrid/osg-build.git` |
-| `<NAME>` | Name of the software (optional)  | `osg-build`                                        |
-| `<TAG>`  | Git tag to use                   | `v1.11.2`                                          |
-| `<HASH>` | Full 40-char Git hash of the tag | `5bcf48c442d21b1e8c93a468d884f84122f7cc9e`         |
-
-!!! note
-    `<NAME>` is optional; if not present, OSG-Build will use the last component of the URL, without the `.git` suffix.
-
-    The tarball will be called `<NAME>-<VERSION>.tar.gz` where `<VERSION>` is `<TAG>` without the `v` prefix (if there is one).
-
-!!! example
-    The reference file for `osg-build`'s repo is named `osg.github.source` and contains:
-
-        type=git url=https://github.com/opensciencegrid/osg-build.git name=osg-build tag=v1.11.2 hash=5bcf48c442d21b1e8c93a468d884f84122f7cc9e
-
-    This results in a tarball named `osg-build-1.11.2.tar.gz`.
-
-In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will be used as the spec file for the build
-(unless overridden in the `osg` directory).
-
-
 ###### GitHub repos
 
 !!! warning
@@ -255,6 +214,48 @@ where:
 
 In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it will be used as the spec file for the build
 (unless overridden in the `osg` directory).
+
+
+###### Git repos
+
+!!! warning
+    OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
+    Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
+    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
+
+!!! note
+    You can use a shorter syntax for GitHub repos -- see above.
+
+    See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
+
+To reference tags in Git repos, use the following syntax (all on one line):
+
+> `type=git url=<URL> name=<NAME> tag=<TAG> hash=<HASH>`
+
+where:
+
+| Symbol   | Definition                       | Example                                            |
+|:---------|:---------------------------------|:---------------------------------------------------|
+| `<URL>`  | Location of the Git repo         | `https://github.com/opensciencegrid/osg-build.git` |
+| `<NAME>` | Name of the software (optional)  | `osg-build`                                        |
+| `<TAG>`  | Git tag to use                   | `v1.11.2`                                          |
+| `<HASH>` | Full 40-char Git hash of the tag | `5bcf48c442d21b1e8c93a468d884f84122f7cc9e`         |
+
+!!! note
+    `<NAME>` is optional; if not present, OSG-Build will use the last component of the URL, without the `.git` suffix.
+
+    The tarball will be called `<NAME>-<VERSION>.tar.gz` where `<VERSION>` is `<TAG>` without the `v` prefix (if there is one).
+
+!!! example
+    The reference file for `osg-build`'s repo is named `osg.github.source` and contains:
+
+        type=git url=https://github.com/opensciencegrid/osg-build.git name=osg-build tag=v1.11.2 hash=5bcf48c442d21b1e8c93a468d884f84122f7cc9e
+
+    This results in a tarball named `osg-build-1.11.2.tar.gz`.
+
+In addition, if the repository contains a file called `rpm/<NAME>.spec`, it will be used as the spec file for the build
+(unless overridden in the `osg` directory).
+
 
 ##### Typical workflow when building out of GitHub repos
 
