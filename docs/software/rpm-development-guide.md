@@ -224,7 +224,7 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
     If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
 
 !!! note
-    You can use a shorter syntax for GitHub repos -- see below.
+    You can use a shorter syntax for GitHub repos -- see above.
 
     See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
 
