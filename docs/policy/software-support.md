@@ -77,7 +77,7 @@ part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
             This may not work if the site has a strict firewall or do not run an HTCondor-CE.
 
         - Add factory ops or the relevant ATLAS (T2 vs T3) support center to the ticket under `OSG Support Centers`
-        - For non-ATLAS sites, verify that the site's [pilot numbers](http://gfactory-1.t2.ucsd.edu/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
+        - For non-ATLAS sites, verify that the site's [pilot numbers](http://gfactory-2.opensciencegrid.org/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
        are non-zero.
 
     - If the host is a GridFTP server, verify file transfer with their VO support center.
