@@ -81,8 +81,6 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
           - admonition
           - codehilite
           - toc(permalink=true)
-          - toc:
-              permalink: True
 
 1. Create a `docs` directory containing an `index.md` that will be your home page.
 
