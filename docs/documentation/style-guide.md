@@ -194,11 +194,13 @@ or
 
 The above blocks are rendered below as an example.
 
-!!! note things to note
+!!! note
+    things to note
 
 and
 
-!!! warning if a user doesn't do this thing, bad stuff will happen
+!!! warning
+    if a user doesn't do this thing, bad stuff will happen
 
 For a full list of admonition styles, see the documentation
 [here](https://squidfunk.github.io/mkdocs-material/extensions/admonition/).
