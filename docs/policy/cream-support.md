@@ -2,7 +2,7 @@ OSG/HTCondor CREAM-CE Support
 ==============================
 
 
-The CREAM working group has [recently announced](#Reference) official support for the
+The CREAM working group has [recently announced](#reference) official support for the
 CREAM-CE will cease in December 2020.  With this email, we are soliciting
 feedback on OSG and HTCondor’s transition plan.  OSG and HTCondor remain committed
 to supporting VOs who need to access to CREAM-CE based resources throughout the
