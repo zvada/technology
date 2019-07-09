@@ -79,10 +79,8 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
 
         markdown_extensions:
           - admonition
-          - codehilite
+          - codehilite(guess_lang=false)
           - toc(permalink=true)
-          - toc:
-              permalink: True
 
 1. Create a `docs` directory containing an `index.md` that will be your home page.
 
