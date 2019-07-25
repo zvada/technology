@@ -173,8 +173,7 @@ Once a package has been built, it is added to a tag. We then must turn the tag i
             Regenerate each repo that failed with 404 errors:
 
                 :::console
-                $ osg-koji regen-repo osg-3.4-el6-build
-                $ osg-koji regen-repo osg-3.4-el7-build
+                $ osg-koji regen-repo <BUILD TAG>
 
     -   `build.log`  
         The output of the rpmbuild executable. If your package fails to compile, the reason will show up here.
