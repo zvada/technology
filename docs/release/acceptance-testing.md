@@ -225,7 +225,8 @@ GSI OpenSSH
 To test a fresh installation:
 
 1.  Spin up two VM's and set up the EPEL/OSG repos on both of them.
-2.  Choose one of the VM's, it will be the server VM. Consult these [instructions](https://www.opensciencegrid.org/docs/other/gsissh/) to set up the server.
+2.  Choose one of the VM's, it will be the server VM. The hostname of this machine will be referenced below as the `<SERVER HOSTNAME>`
+    Consult these [instructions](https://www.opensciencegrid.org/docs/other/gsissh/) to set up the server.
 3.  From the other VM (client):
     1.   Install the necessary packages:
     
@@ -236,17 +237,17 @@ To test a fresh installation:
     1.   Connect to the server:
     
             :::console
-            user@host $ gsissh -p 2222 %RED%<server hostname>%ENDCOLOR%
+            user@host $ gsissh -p 2222 <SERVER HOSTNAME>
 
     1.   Copy a test file to the server:
     
             :::console
-            user@host $ gsiscp -p 2222 testfile %RED%<server hostname>%ENDCOLOR%:/tmp
+            user@host $ gsiscp -p 2222 testfile <SERVER HOSTNAME>:/tmp
 
     1.   Connect to the server via SFTP and grab files:
     
             :::console
-            user@host $ gsisftp -P 2222 %RED%<server hostname>%ENDCOLOR%
+            user@host $ gsisftp -P 2222 <SERVER HOSTNAME>
             user@host $ cd /tmp
             user@host $ get testfile
 

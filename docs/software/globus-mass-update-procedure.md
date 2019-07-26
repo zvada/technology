@@ -32,13 +32,14 @@ or to split up N and V-R in a comma-separated way (which you can feed into a Goo
 
 Create a separate SVN branch and populate it with all the packages you will update. (Get the list from the doc created above).
 
-``` console
+``` console hl_lines="3"
 [you@uw]$ svn mkdir file:///p/vdt/workspace/svn/native/redhat/branches/globus
 ### From a checkout, in native/redhat
-[you@uw]$ for x in %RED%<PACKAGES>%ENDCOLOR%; do \
+[you@uw]$ for x in <PACKAGES>; do \
      svn copy $x branches/globus/${x#trunk/}; \
    done
 ```
+Change `<PACKAGES>` for the list of package names from generated in the above section ([Docs](#docs)))
 
 ### Koji (Mat/Carl)
 
@@ -104,10 +105,11 @@ A useful alias:
 
 1.  Run:
 
-        :::console
-        [you@uw]$ osg-import-srpm "%RED%<URL>%ENDCOLOR%"
-        [you@uw]$ osg-build-globus --scratch %RED%<PKG>%ENDCOLOR%
-
+        :::console hl_lines="1 2"
+        [you@uw]$ osg-import-srpm <URL>
+        [you@uw]$ osg-build-globus --scratch <PKG>
+    Change `<URL>` for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/6/SRPMS/Packages/g/globus-authz-4.2-1.el6.src.rpm
+    and `<PKG>`> for the name of the package e.g. `globus-authz`
 
 2.  Commit - use a message like "Update to 3.12-1 from EPEL (SOFTWARE-2197)"
 
@@ -118,19 +120,22 @@ A useful alias:
 1.  Run:
 
         :::console
-        [you@uw]$ osg-import-srpm --diff3 "%RED%<URL>%ENDCOLOR%"
+        [you@uw]$ osg-import-srpm --diff3 <URL>
+    Change `<URL>` for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/6/SRPMS/Packages/g/globus-authz-4.2-1.el6.src.rpm
 
 2.  Fix merge conflicts in the spec file. If not already there, put a .1 after the Release number to mark the changes as ours.
 3.  Run:
 
         :::console
-        [you@uw]$ osg-build quilt %RED%<PKG>%ENDCOLOR%
+        [you@uw]$ osg-build quilt <PKG>
+    Change `<PKG>`> for the name of the package e.g. `globus-authz`
 
 4.  Fix patches if necessary.
 5.  Run:
 
         :::console
-        [you@uw>]$ osg-build-globus --scratch %RED%<PKG>%ENDCOLOR%
+        [you@uw>]$ osg-build-globus --scratch <PKG>
+    Change `<PKG>`> for the name of the package e.g. `globus-authz`
 
 6.  Commit - use a message like "Update to 8.29-1 from EPEL and merge OSG changes (SOFTWARE-2197)"
 
@@ -181,5 +186,6 @@ This requires a Koji administrator. Koji admins as of August 2017 are Mat Selmec
 
 1.  Merge from `trunk` to `branches/globus` first, to pick up any globus changes that may have happened in trunk.
 2.  Merge from `branches/globus` to `trunk`.
-3.  Move `branches/globus` to `tags/globus-%RED%<DATE>%ENDCOLOR%`.
+3.  Move `branches/globus` to `tags/globus-<DATE>`.
 
+    Where `<DATE>` is the current date in the following format: YYYY-MM-DD, e.g. 2016-08-29

@@ -14,27 +14,28 @@ For more information on IPv6, consult [Wikipedia](http://en.wikipedia.org/wiki/I
 
 ### Enabling IPV6
 
-1. Determine the public IPv6 address of your host (highlighted in %RED%red<span class="twiki-macro ENDCOLOR">): 
+1. Determine the public IPv6 address of your host. In the example below that would be `2001:400:2410:29::182`:
 
-        :::console
-        user@host $ nslookup -type=aaaa <hostname>
+        :::console hl_lines="1 6"
+        user@host $ nslookup -type=aaaa <HOSTNAME>
         Server:     132.239.0.252      
         Address:    132.239.0.252#53      
         
         Non-authoritative answer:
-        ipv6vm001.fnal.gov  has AAAA address %RED%2001:400:2410:29::182%ENDCOLOR%
+        ipv6vm001.fnal.gov  has AAAA address 2001:400:2410:29::182
 
-    Replacing `<hostname>` with your machine's hostname.
+    Replacing `<HOSTNAME>` with your machine's hostname.
 
 1. Ask your network administrator for your IPv6 default gateway
 1. Modify `/etc/sysconfig/network-scripts/ifcfg-eth0` and be sure these lines exist, and : 
 
+        :::console hl_lines="3"
         IPV6INIT=yes
         IPV6_AUTOCONF=no
-        IPV6ADDR="%RED%IPv6 address%ENDCOLOR%"
+        IPV6ADDR=<IPV6 ADDRESS>"
         IPV6_DEFAULTGW="The IPV6 Default Gateway"
 
-    Replacing %RED%IPv6 address%ENDCOLOR% with the address found in step 1.
+    Replace `<IPV6 ADDRESS>` with the address found in step 1.
 
 1. Restart the network devices:
 
