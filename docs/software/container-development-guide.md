@@ -50,7 +50,7 @@ For images that already exist in DockerHub
 
 1. `docker logout`
 1. `docker pull opensciencegrid/<IMAGE NAME>:<TAG>` or `docker pull opensciencegrid/<IMAGE NAME>@sha256:<IMAGE DIGEST>`
-1. `docker tag stable opensciencegrid/<IMAGE NAME>:<TAG>`
+1. `docker tag opensciencegrid/<IMAGE NAME>:<TAG> stable`
 1. `docker login`
 1. `docker push opensciencegrid/<IMAGE NAME>:<TAG>`
 
