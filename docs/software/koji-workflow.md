@@ -160,6 +160,21 @@ Once a package has been built, it is added to a tag. We then must turn the tag i
     -   `root.log`  
         This is the log of mock trying to create an appropriate build root for your RPM. This will invoke yum twice: once to create a generic build root, once for all the dependencies in your BuildRequires. All RPMs in your build root will be logged here. If mock is unable to create the build root, the reason will show up here.
 
+        -   404 Errors
+
+            If you see `Error downloading packages` and `HTTP Error 404 - Not Found` errors in your `root.log`,
+            this commonly indicates that an rpm repo mirror was updated and our build repo is out-of-date.
+            This can be fixed by regenerating the relevant build repos for your builds.
+
+            This is usually something like `osg-3.4-el7-build` or `osg-upcoming-el7-build`;
+            but you can find the exact build tag by clicking the Build Target link for the koji task,
+            and whatever is listed for the Build Tag is the name of the repo to regen.
+
+            Regenerate each repo that failed with 404 errors:
+
+                :::console
+                $ osg-koji regen-repo <BUILD TAG>
+
     -   `build.log`  
         The output of the rpmbuild executable. If your package fails to compile, the reason will show up here.
 
