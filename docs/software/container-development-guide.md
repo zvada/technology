@@ -46,11 +46,19 @@ Managing Tags in DockerHub
 
 ### Adding tags ###
 
+https://dille.name/blog/2018/09/20/how-to-tag-docker-images-without-pulling-them/
+
 For images that already exist in DockerHub
 
 1. `docker logout`
-1. `docker pull opensciencegrid/<IMAGE NAME>:<TAG>` or `docker pull opensciencegrid/<IMAGE NAME>@sha256:<IMAGE DIGEST>`
-1. `docker tag opensciencegrid/<IMAGE NAME>:<TAG> stable`
+1.  Pull the docker image and tag it:
+    - If you know the tag name:
+        1. `docker pull opensciencegrid/<IMAGE NAME>:<TAG>`
+        1. `docker tag opensciencegrid/<IMAGE NAME>:<TAG> opensciencegrid/<IMAGE NAME>:stable`
+    - If you only know the digest:
+        1. `docker pull opensciencegrid/<IMAGE NAME>@sha256:<IMAGE DIGEST>`
+        1. Get the image ID: `docker images opensciencegrid/<IMAGE _NAME>`
+        1. `docker tag <IMAGE ID> opensciencegrid/<IMAGE NAME>:stable`
 1. `docker login`
 1. `docker push opensciencegrid/<IMAGE NAME>:<TAG>`
 
