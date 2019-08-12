@@ -42,7 +42,7 @@ The following packages are considered critical to the production Open Science Gr
 - HTCondor
 - HTCondor-CE
 - Singularity
-- StashCache
+- XCache
 - XRootD
 
 This list is maintained by the Release Manager with input from OSG stakeholders, the Software Manager, and the
