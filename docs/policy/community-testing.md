@@ -23,6 +23,8 @@ Additionally, any packages that are considered release candidates by their upstr
 
 The Software and Release team will classify packages as either ["major"](#major-packages) or "minor"; where major
 packages are deemed critical to the functionality of the production grid and all other packages are minor.
+For major packages, we will notify site administrators as soon as they are eligible for testing;
+minor packages eligible for testing will be collected and announced in a weekly digest.
 After users have been notified of changes, minor packages will be marked eligible for release if they have not received
 negative feedback after 7 calendar days.
 In addition to the above requirements, major packages must also receive positive feedback and be approved by the Release
@@ -47,3 +49,9 @@ The following packages are considered critical to the production Open Science Gr
 
 This list is maintained by the Release Manager with input from OSG stakeholders, the Software Manager, and the
 Operations Manager.
+
+Version History
+---------------
+
+- **2019-08-12**: Add notification frequency details
+- **2019-02-20**: Initial policy
