@@ -92,9 +92,9 @@ To contribute content to the OSG, follow these steps to submit a pull request wi
 1. `cd` into the directory containing the local clone of your Github fork
 1. Create a branch based on a branch from the `upstream` repository:
 
-        :::console
+        :::console hl_lines="2"
         $ git fetch --all
-        $ git checkout -b %RED%<BRANCH NAME>%ENDCOLOR% upstream/%RED%<UPSTREAM BRANCH NAME>%ENDCOLOR%
+        $ git checkout -b <BRANCH NAME> upstream/<UPSTREAM BRANCH NAME>
 
     Replace `<BRANCH NAME>` with a name of your choice and `<UPSTREAM BRANCH NAME>` with a branch name from the
     `upstream` repository.
@@ -124,16 +124,18 @@ To contribute content to the OSG, follow these steps to submit a pull request wi
 1. Continue making changes until you are satisfied with the preview, then stage your changes in git:
 
         :::console
-        $ git add %RED%<YOUR FILE> <YOUR 2nd FILE>...<YOUR Nth FILE>%ENDCOLOR%
+        $ git add <YOUR FILE> <YOUR 2nd FILE>...<YOUR Nth FILE>
 
-    Adding each file that contains changes that you'd wish to make.
+    Where `<YOUR * FILE>` is any file that contains changes that you'd wish to make.
     If you are adding a new page, one of the files should be `mkdocs.yml`.
 
 1. Commit your changes and push them to your Github fork:
 
-        :::console
-        $ git commit -m "%RED%<DESCRIPTIVE COMMIT MESSAGE>%ENDCOLOR%"
+        :::console hl_lines="1"
+        $ git commit -m "<DESCRIPTIVE COMMIT MESSAGE>"
         $ git push origin
+    Where `<DESCRIPTIVE COMMIT MESSAGE>` is a meaningful short text that identifies the changes applied, it is a good
+    practice, to concatenate the ticket number associated e.g. "Removing color macros (SOFTWARE-3739)"
 
 1. From your Github fork, [submit a pull request](https://help.github.com/articles/creating-a-pull-request/)
 

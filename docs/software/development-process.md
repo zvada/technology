@@ -190,10 +190,10 @@ All of the tests mentioned above.
 
 ### Running the tests in VM Universe
 
-In the case that the package you're testing is covered by osg-tested-internal, you can run the full set of tests in a manual VM universe test run. Make sure you meet the [pre-requisites](https://github.com/opensciencegrid/vm-test-runs) required to submit VM Universe jobs on `osghost.chtc.wisc.edu`. After that's done, you can prepare the test suite by running:
+In the case that the package you're testing is covered by osg-tested-internal, you can run the full set of tests in a manual VM universe test run. Make sure you meet the [pre-requisites](https://github.com/opensciencegrid/vm-test-runs) required to submit VM Universe jobs on `osghost.chtc.wisc.edu`. After that's done, prepare the test suite with a comment describing the test run. For example, if you were testing a new `htcondor-ce` package:
 
 ``` console
-osg-run-tests 'Testing %RED%<change x>%ENDCOLOR%'
+osg-run-tests 'Testing htcondor-ce-3.2.1-1'
 ```
 
 After you `cd` into the directory specified in the output of the previous command, you will need to edit the `*.yaml` files in `parameters.d` to reflect the tests that you will want to run i.e. clean installs, upgrade installs and upgrade installs between OSG versions.
@@ -230,7 +230,7 @@ Developers must obtain permission from the OSG Software manager to promote a pac
 
 For example (hypothetical promotion request for HTCondor-CE):
 
-> May I promote `htcondor-ce-2.3.4-2.osg3*.el*`? I ran a complete set of automated tests %RED%<LINK THE PRECEDING TEXT OR SEPARATELY HERE\>%ENDCOLOR%; the HTCondor-CE tests ran and passed in all cases. There were some spurious failures of RSV in the All condition for RHEL 6, but this is a known failure case that is independent of HTCondor-CE. I also did a few spot checks manually (one VM each for SL 6 and SL 7), and in each case setting `use_frobnosticator = true` in the configuration resulted in the expected behavior as defined in the description field above. The `built-against-pkgs` tool shows that I built against all the latest HTCondor and BLAHP builds, see below. %RED%<JIRA-formatted table comes after\>%ENDCOLOR%
+> May I promote `htcondor-ce-2.3.4-2.osg3*.el*`? I ran a complete set of automated tests <LINK THE PRECEDING TEXT OR SEPARATELY HERE\>; the HTCondor-CE tests ran and passed in all cases. There were some spurious failures of RSV in the All condition for RHEL 6, but this is a known failure case that is independent of HTCondor-CE. I also did a few spot checks manually (one VM each for SL 6 and SL 7), and in each case setting `use_frobnosticator = true` in the configuration resulted in the expected behavior as defined in the description field above. The `built-against-pkgs` tool shows that I built against all the latest HTCondor and BLAHP builds, see below. <JIRA-formatted table comes after\>
 
 ### Promoting
 

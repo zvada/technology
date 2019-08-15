@@ -494,8 +494,10 @@ Do the following for the main package and any subpackages it may have:
 -   Change the Summary to "Dummy package"
 -   Change the %description to:
 
-    > This is an empty package created for %RED%$REASONS%ENDCOLOR%.
+    > This is an empty package created for $REASONS
     > It may safely be removed.
+
+    Where `$REASONS` is a description of why you need this dummy package
 
 -   Remove all Requires and Obsoletes lines
 -   Do not remove Provides lines

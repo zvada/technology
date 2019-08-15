@@ -23,20 +23,23 @@ The instructions below will create an SSH public/private key pair with the priva
 
 #### Generating the key
 
-Use `ssh-keygen` to generate the SSH keypair. For *EMAIL\_ADDRESS*, use the email address associated with your GitHub account.
+Use `ssh-keygen` to generate the SSH keypair. For `<EMAIL_ADDRESS>`, use the email address associated with your GitHub account.
 
 ``` console
-[user@client ~ ] $ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_github -C %RED%<EMAIL_ADDRESS>%ENDCOLOR%
+[user@client ~ ] $ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_github -C <EMAIL_ADDRESS>
 ```
 
 #### Configuring SSH to use the key for GitHub
 
 Make sure SSH uses the new key by default to access GitHub. Create or edit `~/.ssh/config` and append the following lines:
 
-``` file
+``` file hl_lines="2"
 Host github.com
-IdentityFile %RED%<YOUR_HOME_DIR>%ENDCOLOR%/.ssh/id_github
+IdentityFile <YOUR_HOME_DIR>/.ssh/id_github
 ```
+
+Where <YOUR_HOME_DIR> is the output of the command:
+```echo $HOME```
 
 ### Adding the SSH public key to GitHub
 
@@ -68,7 +71,12 @@ If you've never contributed to this project on GitHub before, do the following s
 2. Make a clone of your forked repo on your local machine.
 
         :::console
-        [user@client ~ ] $ git clone <git@github.com>:%RED%<USERNAME/PROJECT>%ENDCOLOR%
+        [user@client ~ ] $ git clone git@github.com:<USERNAME/PROJECT>
+    Where `<USERNAME>` is your github username and `<PROJECT>` is the name of the project you want to contribute to,
+    e.g. in order to clone my local fork of the `openscience/technology` repository: 
+
+        :::console
+        [user@client ~ ] $ git clone https://github.com/ddavila0/technology.git
 
     !!! note
         If you get a "Permission denied" error, your public key may not be set up with GitHub -- please see the "Getting shell access to GitHub" section above.
@@ -77,15 +85,15 @@ If you've never contributed to this project on GitHub before, do the following s
 
 Once you have your local repo, do the following:
 
-1. Create a branch to hold changes that are related to the issue you are working on. Give the branch a name that will remind you of its purpose, such as `sw2345-pathchange`
+1. Create a branch to hold changes that are related to the issue you are working on. Give the `<BRANCH>` a name that will remind you of its purpose, such as `sw2345-pathchange`
 
         :::console
-        [user@client ~ ] $ git checkout -b %RED%<BRANCH>%ENDCOLOR%
+        [user@client ~ ] $ git checkout -b <BRANCH>
 
 2. Make your commits to this branch, then push the branch to your repo on GitHub.
 
     	:::console
-    	[user@client ~ ] $ git push origin %RED%<BRANCH>%ENDCOLOR%
+        [user@client ~ ] $ git push origin <BRANCH>
 
 3. Select your branch in the GitHub web interface, then create a "pull request" against the original repo. Add a good description of your change into the message for the pull request. Enter a JIRA ticket number in the message to automatically link the pull request to the JIRA ticket.
 4. Request a review from the drop down menu on the right and wait for your pull request to be reviewed by a software team member.
@@ -103,7 +111,8 @@ A release of a software is created from your local clone of a software project. 
 1. If you haven't already, add the OSG repo as a "remote" to your repo:
       
         :::console
-        [user@client ~ ] $ git remote add upstream git@github.com:opensciencegrid/%RED%<PROJECT>%ENDCOLOR%
+        [user@client ~ ] $ git remote add upstream git@github.com:opensciencegrid/<PROJECT>
+    Where `<PROJECT>` is the name of the project you are going to release, e.g. <PROJECT> for `openscience/technology` repository it would be `technology.git`
 
 2. Fetch changes from the OSG repo:
 
@@ -119,7 +128,7 @@ A release of a software is created from your local clone of a software project. 
 
 4. Once this is done, release the software as you usually do. This process varies from one project to another, but often it involves running `make upstream` or similar. Check your project's `README` file for instructions.
 5. **Test your software.**
-6. Tag the commit that you made the release from. Git release tags are conventionally called `VERSION`, where *VERSION* is the version of the software you are releasing. So if you're releasing version 1.3.0, you would create the tag `v1.3.0`.
+6. Tag the commit that you made the release from. Git release tags are conventionally called `VERSION`, where *VERSION* is the version of the software you are releasing. So if you're releasing version 1.3.0, you would create the `<TAG>` `v1.3.0`.
 
     !!! note
          Once a tag has been pushed to the OSG repo, it should not be changed. Be sure the commit you want to tag is the final one you made the release from.
@@ -127,14 +136,14 @@ A release of a software is created from your local clone of a software project. 
      1. Create the tag in your local repo:
 
             :::console
-            [user@client ~ ] $ git tag %RED%<TAG>%ENDCOLOR%
+            [user@client ~ ] $ git tag <TAG>
 
      2. Push the tag to your own GitHub repo:
 
             :::console
-            [user@client ~ ] $ git push origin %RED%<TAG>%ENDCOLOR%
+            [user@client ~ ] $ git push origin <TAG>
 
      3. Push the tag to the OSG repo:
       
             :::console
-            [user@client ~ ] $ git push upstream %RED%<TAG>%ENDCOLOR%
+            [user@client ~ ] $ git push upstream <TAG>

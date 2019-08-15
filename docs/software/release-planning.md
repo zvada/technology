@@ -12,19 +12,19 @@ OSG 3.4 (May 2017)
 
 | Package(s)        | Change in osg-release                     | Notes                                                                                                                                       |
 |:------------------|:------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
-| BeStMan2          | %RED%Drop%ENDCOLOR% | [Retirement policy](/policy/bestman2-retire) |
-| edg-mkgridmap     | %RED%Drop%ENDCOLOR% | [SOFTWARE-2600](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
-| frontier-squid    | %MAROON%Modify%ENDCOLOR%  | Version 3                                                                                                                                   |
-| glexec            | %RED%Drop%ENDCOLOR% | [SOFTWARE-2620](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
-| GRAM              | %RED%Drop%ENDCOLOR% | [SOFTWARE-2530](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
-| GUMS              | %RED%Drop%ENDCOLOR% | [Retirement policy](/policy/gums-retire), [SOFTWARE-2600](https://jira.opensciencegrid.org/browse/SOFTWARE-2600) |
-| jglobus           | %RED%Drop%ENDCOLOR% | [SOFTWARE-2606](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
-| netlogger         | %RED%Drop%ENDCOLOR% |                                                                                                                                             |
-| osg-ce            | %MAROON%Modify%ENDCOLOR%  | Drop [GridFTP](https://jira.opensciencegrid.org/browse/SOFTWARE-2623), [gums-client](https://jira.opensciencegrid.org/browse/SOFTWARE-2482) |
-| osg-info-services | %RED%Drop%ENDCOLOR% |                                                                                                                                             |
-| osg-version       | %RED%Drop%ENDCOLOR% |                                                                                                                                             |
-| singularity       | %GREEN%Add%ENDCOLOR% |                                                                                                                                             |
-| voms-admin-server | %RED%Drop%ENDCOLOR% | [Retirement policy](/policy/voms-admin-retire) |
+| BeStMan2          | Drop | [Retirement policy](/policy/bestman2-retire) |
+| edg-mkgridmap     | Drop | [SOFTWARE-2600](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
+| frontier-squid    | Modify  | Version 3                                                                                                                                   |
+| glexec            | Drop | [SOFTWARE-2620](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
+| GRAM              | Drop | [SOFTWARE-2530](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
+| GUMS              | Drop | [Retirement policy](/policy/gums-retire), [SOFTWARE-2600](https://jira.opensciencegrid.org/browse/SOFTWARE-2600) |
+| jglobus           | Drop | [SOFTWARE-2606](https://jira.opensciencegrid.org/browse/SOFTWARE-2600)                                                                      |
+| netlogger         | Drop |                                                                                                                                             |
+| osg-ce            | Modify  | Drop [GridFTP](https://jira.opensciencegrid.org/browse/SOFTWARE-2623), [gums-client](https://jira.opensciencegrid.org/browse/SOFTWARE-2482) |
+| osg-info-services | Drop |                                                                                                                                             |
+| osg-version       | Drop |                                                                                                                                             |
+| singularity       | Add |                                                                                                                                             |
+| voms-admin-server | Drop | [Retirement policy](/policy/voms-admin-retire) |
 
 Track OSG 3.4 updates through its [JIRA epic](https://jira.opensciencegrid.org/browse/SOFTWARE-2329).
 

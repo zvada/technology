@@ -29,9 +29,13 @@ Will tell you if you're an admin or not. Current Koji admins are the Madison tea
     1. Use the links in the web interface
     2. Use the koji command-line interface against the Fedora koji:
         1.  Download `fedora-koji.conf`, attached to this page
-        2.  Run `koji --noauth -c fedora-koji.conf download-build --debuginfo %RED%<BUILD_NVR>%ENDCOLOR%`
+        2.  Run `koji --noauth -c fedora-koji.conf download-build --debuginfo <PACKAGE_NVR>`
         3.  Delete RPMs for architectures we do not care about (see list above)
-    3. Dig around in <https://kojipkgs.fedoraproject.org/packages/>
+
+        `<PACKAGE_NVR>` is the Name-Version-Release information about the build, which was determined in the step 1 above
+
+     3. Dig around in <https://kojipkgs.fedoraproject.org/packages/>
+
 
 On your development machine:
 
@@ -42,25 +46,29 @@ On your development machine:
 
     should be empty
 
-    If not, %RED%STOP%ENDCOLOR% and sign them using the OSG RPM key -- talk to Mat
+    If not, **STOP** and sign them using the OSG RPM key -- talk to Mat
 
 2. Import the RPMs themselves into the Koji system
 
 
         :::console
-        [user@client ~] $ osg-koji import %RED%<RPM_DIRECTORY>%ENDCOLOR%/*.rpm
+        [user@client ~] $ osg-koji import <RPM_DIRECTORY>/*.rpm
 
+    Where `<RPM_DIRECTORY>` is the directory where you have downloaded the rpms.
     They will not be in any tags at this point
 
 3. Add the package to the whitelist for our koji tag:
 
         :::console      
-        [user@client ~] $ osg-koji add-pkg %RED%<OUR_KOJI_TAG>%ENDCOLOR% %RED%<PACKAGE>%ENDCOLOR% --owner="%RED%<YOUR_KOJI_USERNAME>%ENDCOLOR%"
+        [user@client ~] $ osg-koji add-pkg <OUR_KOJI_TAG> <PACKAGE> --owner="<YOUR_KOJI_USERNAME>"
+    Where `<OUR_KOJI_TAG>` is one of those listed in the table at the top of this page, an example of `<PACKAGE>` is:
+    `cvmfs-config-osg-2.4-1.osg34.el6` and `<YOUR_KOJI_USERNAME>` is the username you use to interact with the Koji
+    system
 
 4. Actually tag the builds:
 
         :::console 
-        [user@client ~] $ osg-koji tag-pkg %RED%<OUR_KOJI_TAG> <BUILD>%ENDCOLOR%
+        [user@client ~] $ osg-koji tag-pkg <OUR_KOJI_TAG> <PACKAGE>
 
 5. Check the Tasks tab in Koji to see if kojira has started regening the repos -- it might take a few minutes to kick in.
      
@@ -82,12 +90,14 @@ In case the RPM appeared back in EPEL, or we no longer need it, here's how to re
 1. Find out the NVR of the build:
 
         :::console
-        [user@client ~] $ osg-koji list-tagged %RED%<OUR_KOJI_TAG> <PACKAGE>%ENDCOLOR%
+        [user@client ~] $ osg-koji list-tagged <OUR_KOJI_TAG> <PACKAGE>
+    Where `<OUR_KOJI_TAG>` is one of those listed in the table at the top of this page and an example of `<PACKAGE>` is:
+    `cvmfs-config-osg-2.4-1.osg34.el6`
 
 2.  Untag the packages:
     
         :::console
-        [user@client ~] $ osg-koji untag-pkg %RED%<OUR_KOJI_TAG> <BUILD>%ENDCOLOR%
+        [user@client ~] $ osg-koji untag-pkg <OUR_KOJI_TAG> <PACKAGE>
 
 ### Why you should not use block-pkg
 
