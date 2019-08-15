@@ -73,7 +73,10 @@ If you've never contributed to this project on GitHub before, do the following s
         :::console
         [user@client ~ ] $ git clone git@github.com:<USERNAME/PROJECT>
     Where `<USERNAME>` is your github username and `<PROJECT>` is the name of the project you want to contribute to,
-    e.g. in order to clone my local fork of the `openscience/technology` repository: ```git clone https://github.com/ddavila0/technology.git```
+    e.g. in order to clone my local fork of the `openscience/technology` repository: 
+
+        :::console
+        [user@client ~ ] $ git clone https://github.com/ddavila0/technology.git
 
     !!! note
         If you get a "Permission denied" error, your public key may not be set up with GitHub -- please see the "Getting shell access to GitHub" section above.
