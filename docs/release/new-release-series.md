@@ -115,19 +115,19 @@ Do on the month of the 3.4.0 release
 -   Mass rebuild
     -   Don't forget to update the `empty` and `contrib` tags with the appropriate packages;
         **remove the `empty*` packages from the development tags after they've been tagged into the `empty` tags**
-- Update mash (coordinate with steige)
+- Update mash
     - On repo-itb
-    - On repo1/repo2
+    - On repo
 - Update documentation [here](/software/development-process)
 - Update osg-test / vmu-test-runs
     -   They're only going to test from minefield (and eventurally testing) until the release
+- Drop the `osg-3.4-elX-bootstrap` koji tags (after the successful mass rebuild only)
 
 
 Do immediately after the 3.4.0 release
 --------------------------------------
 
 - Update tag inheritance on the `upcoming-build` tags to inherit from `3.4-devel` instead of `3.3-devel`
-- Drop the `osg-3.4-elX-bootstrap` koji tags
 
 Do sometime after the 3.4.0 release
 -----------------------------------
