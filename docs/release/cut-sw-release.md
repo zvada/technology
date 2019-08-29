@@ -29,7 +29,7 @@ Day 0: Generate Preliminary Release List
 
 The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release.
 
-### Step 1: Update the osg-version RPM
+### Step 1: Update the osg-version RPM (3.4 only)
 
 For each release (excluding upcoming), update the version number in the osg-version RPM's spec file and build it in koji:
 
@@ -43,7 +43,7 @@ osg-build koji --repo=$MAJOR_VERSION osg-version
 
 Where `<MAJOR VERSION>` is of the format `x.y` (e.g. `3.2`).
 
-### Step 2: Promote osg-version and generate the release list
+### Step 2: Promote osg-version (3.4 only) and generate the release list
 
 Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
@@ -72,10 +72,11 @@ VERSIONS="<VERSION(S)>"
 1-verify-prerelease $VERSIONS
 ```
 
-If there are any discrepancies consult the release manager. You may have to tag or untag packages with the `osg-koji` tool.
+If there are any discrepancies, consult the release manager. You may have to tag or untag packages with the `osg-koji` tool.
 
 !!! note
-    Please verify that the `osg-version` RPM is in your set of packages for the release! Also verify that if there is a new version of the `osg-tested-internal` RPM, then it is included in the release as well!
+    Verify that if there is a new version of the `osg-tested-internal` RPM, then it is included in the release as well!
+    For 3.4 releases, also verify that the `osg-version` RPM is in your set of packages for the release!
 
 ### Step 2: Test Pre-Release in VM Universe
 
