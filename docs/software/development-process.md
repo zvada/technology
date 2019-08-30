@@ -86,11 +86,11 @@ The procedure below suggests a way to accomplish this task.
 
 Current definitions:
 
-- maintenance: None
-- current: OSG 3.4 ( **trunk** )
+- maintenance: OSG 3.4 ( **trunk** )
+- current: OSG 3.5 ( **branches/osg-3.5** )
 
 <!--
-- future: OSG 3.5 ( *branches/osg-3.5* )
+- future: OSG 3.6 ( *branches/osg-3.6* )
 -->
 
 Procedure:
@@ -104,7 +104,7 @@ Procedure:
 6.  Merge the relevant commits from **trunk** into the **maintenance** branch (see below for tips)
 7.  Optionally, make and test a scratch build from the **maintenance** branch
 8.  Commit the merge
-9.  Make an official build from the **maintenance** branch (e.g.: `osg-build koji --repo=3.3 <PACKAGE>`)
+9.  Make an official build from the **maintenance** branch (e.g.: `osg-build koji --repo=3.4 <PACKAGE>`)
 10. Perform the standard 4 tests for the **maintenance** series (see below)
 11. As needed (or directed by the Software manager), perform the cross-series tests (see below)
 
@@ -121,15 +121,15 @@ Procedure:
 6. Merge the relevant commits from the *trunk* into the *future* branch (see below for tips)
 7. Optionally, make and test a scratch build from the *future* branch
 8. Commit the merge
-9. Make an official build from the *future* branch (e.g.: `osg-build koji --repo=3.4 <PACKAGE>`)
+9. Make an official build from the *future* branch (e.g.: `osg-build koji --repo=3.6 <PACKAGE>`)
 10. Perform install tests for the *future* series (see below)
 11. As needed (or directed by the Software manager), perform the cross-series tests (see below)
 -->
 
 ### Merging changes from one release series to another
 
-These instructions assume that you are merging from `trunk` to `branches/osg-3.3`.
-They also assume that the current directory you are in is a checkout of `branches/osg-3.3`.
+These instructions assume that you are merging from `trunk` to `branches/osg-3.5`.
+They also assume that the current directory you are in is a checkout of `branches/osg-3.5`.
 I will use `$pkg` to refer to the name of your package.
 
 First, you will need the commit numbers for your changes:
@@ -200,18 +200,17 @@ If you have questions, check with the Software Manager to determine the amount o
 
 ### The "Cross-Series" test, defined
 
-The cross-series test may need to be run for packages that have been built for multiple release series of the OSG software stack (i.e. 3.3 and 3.4):
+The cross-series test may need to be run for packages that have been built for multiple release series of the OSG software stack (i.e. 3.4 and 3.5):
 
--   On el6, install from the 3.3 repositories, then update from the 3.4 repositories
--   On el7, install from the 3.3 repositories, then update from the 3.4 repositories
+-   On el7, install from the 3.4 repositories, then update from the 3.5 repositories
 
-Viewed another way, this test is similar to the update installs, above, except from 3.3-release to 3.4-development.
+Viewed another way, this test is similar to the update installs, above, except from 3.4-release to 3.5-development.
 
 ### The "Long Tail" tests, defined
 
-These tests may need to be run when updating a package that's also in the old, unsupported (3.2) branch. They will consist of:
+These tests may need to be run when updating a package that's also in the old, unsupported (3.3) branch. They will consist of:
 
--   Install from 3.2-release and update to 3.4-development (on el6 only)
+-   Install from 3.3-release and update to 3.5-development (on el7 only)
 
 ### The "full set of tests", defined
 
