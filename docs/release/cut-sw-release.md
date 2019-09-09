@@ -234,7 +234,7 @@ The script will automatically ssh you to oasis-login.opensciencegrid.org and giv
 To keep space usage down, remove tarball client installations and symlinks under `/p/vdt/workspace/tarball-client` on UW's AFS that are more than 2 months old.
 To remove them, first check the list:
 ```bash
-find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -ls {} +
+find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -ls
 ```
 Then if the output looks reasonable
 (contains at least one installation, but does not contain recent installations),
