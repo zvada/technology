@@ -194,19 +194,7 @@ Upload the tarballs to the repository with the following procedure from a UW CS 
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 ```
 ```bash
-pushd /p/vdt/public/html/tarball-client
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver="${ver%.*}"
-    ssh osgcollab@repo.opensciencegrid.org mkdir -p /usr/local/repo/tarball-install/$major_ver/$ver
-    scp -p $major_ver/*/osg-wn-client-$ver*gz osgcollab@repo.opensciencegrid.org:/usr/local/repo/tarball-install/$major_ver/$ver
-done
-popd
-ssh osgcollab@repo.opensciencegrid.org bin/mk-sims.sh
-for ver in $NON_UPCOMING_VERSIONS; do
-    major_ver="${ver%.*}"
-    ssh osgcollab@repo.opensciencegrid.org "cd /usr/local/repo/tarball-install; ls -l $major_ver/*latest*"
-done
-# verify the "latest" symlinks point to the version(s) just installed
+./2-upload-tarballs $NON_UPCOMING_VERSIONS
 ```
 
 ### Step 4: Install the tarballs into OASIS
