@@ -1,7 +1,7 @@
 OSG Community Software Testing
 ==============================
 
-12 August 2019
+8 October 2019
 
 The community of OSG resource providers has a vested interest in the quality and stability of the OSG software stack.
 We would like to notify our stakeholders of software updates as soon as they are designated as "Ready for Testing" by
@@ -50,8 +50,19 @@ The following packages are considered critical to the production Open Science Gr
 This list is maintained by the Release Manager with input from OSG stakeholders, the Software Manager, and the
 Operations Manager.
 
+Exceptions
+----------
+
+If an expedient release is required, the OSG Software Team may forego the community testing policy outlined above.
+Common exceptions to the policy include releases that contain one or more of the following:
+
+- Security updates
+- CA or VO data updates
+- Updates that address installation or upgrade issues
+
 Version History
 ---------------
 
+- **2019-10-08**: Add policy exceptions
 - **2019-08-12**: Add notification frequency details
 - **2019-02-20**: Initial policy
