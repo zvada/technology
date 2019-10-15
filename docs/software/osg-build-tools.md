@@ -25,7 +25,7 @@ This is the primary tool used in building source and binary RPMs.
 
 ##### koji
 
-Prebuilds the final source package, then builds it remotely using the Koji instance hosted at UW-Madison. <https://koji.chtc.wisc.edu> By default, the resulting RPMs will end up in the osg-minefield repositories based on the most recent OSG major version (e.g. 3.4). You may specify a different set of repos with `--repo`, described later. RPMs from the osg-minefield repositories are regularly pulled to the osg-development repositories hosted by the GOC at <http://repo.opensciencegrid.org> Unless you specify otherwise (by passing `--el6`, `--el7` or specifying a different koji tag/target), the package will be built for both el6 and el7. This is the method used to build final versions of packages you expect to ship.
+Prebuilds the final source package, then builds it remotely using the Koji instance hosted at UW-Madison. <https://koji.opensciencegrid.org> By default, the resulting RPMs will end up in the osg-minefield repositories based on the most recent OSG major version (e.g. 3.4). You may specify a different set of repos with `--repo`, described later. RPMs from the osg-minefield repositories are regularly pulled to the osg-development repositories hosted by the GOC at <http://repo.opensciencegrid.org> Unless you specify otherwise (by passing `--el6`, `--el7` or specifying a different koji tag/target), the package will be built for both el6 and el7. This is the method used to build final versions of packages you expect to ship.
 
 ##### lint
 
@@ -204,7 +204,7 @@ Specifies the method osg-build will use to interface with Koji. This can be `she
 
 ##### --wait, --no-wait, --nowait
 
-Wait for koji tasks to finish. Bad for running multiple builds in a single command, since you will have to type in your passphrase for the first one, wait for it to complete, then type in your passphrase for the second one, wait for it to complete, etc. If you want to wait for multiple tasks to finish, use the `koji watch-task` command or look at the website <https://koji.chtc.wisc.edu>.
+Wait for koji tasks to finish. Bad for running multiple builds in a single command, since you will have to type in your passphrase for the first one, wait for it to complete, then type in your passphrase for the second one, wait for it to complete, etc. If you want to wait for multiple tasks to finish, use the `koji watch-task` command or look at the website <https://koji.opensciencegrid.org>.
 
 `--wait` used to be the default until `osg-build-1.1.3`
 
@@ -373,7 +373,7 @@ Run `osg-build prepare <PACKAGEDIR>`. Look inside the `_build_results` directory
 
 -   If you have all the build dependencies of the package installed, run `osg-build rpmbuild <PACKAGEDIR>`. The resulting RPMs will be in the `_build_results` directory.
 -   If you do not have all the build dependencies installed, or want to make sure you specified all of the necessary ones and the package builds from a clean environment, run `osg-build mock --mock-config-from-koji osg-3.4-el6-build <PACKAGEDIR>`. The resulting RPMs will be in the `_build_results` directory.
--   If you do not have mock installed, or want to exactly replicate the build environment in Koji, run `osg-build koji --scratch <PACKAGEDIR>`. You may download the resulting RPMs from kojiweb <https://koji.chtc.wisc.edu/koji> or pass `--getfiles` to `osg-build koji` and they will get downloaded to the `_build_results` directory.
+-   If you do not have mock installed, or want to exactly replicate the build environment in Koji, run `osg-build koji --scratch <PACKAGEDIR>`. You may download the resulting RPMs from kojiweb <https://koji.opensciencegrid.org/koji> or pass `--getfiles` to `osg-build koji` and they will get downloaded to the `_build_results` directory.
 
 #### Check for potential errors in a package
 
@@ -383,7 +383,7 @@ Run `osg-build lint <PACKAGEDIR>`.
 
 1.  `svn commit` your changes in `branches/upcoming`.
 2.  Type `osg-build koji --repo=upcoming <PACKAGEDIR>`
-3.  Wait for the `osg-upcoming-minefield` repos to be regenerated containing the new version of your package. You can run `osg-koji wait-repo osg-upcoming-el<X>-development --build=<PACKAGENAME-VERSION-RELEASE>` and wait for that process to finish (substitute `6` or `7` for *X*). Or, you can just check kojiweb <https://koji.chtc.wisc.edu/koji/tasks>.
+3.  Wait for the `osg-upcoming-minefield` repos to be regenerated containing the new version of your package. You can run `osg-koji wait-repo osg-upcoming-el<X>-development --build=<PACKAGENAME-VERSION-RELEASE>` and wait for that process to finish (substitute `6` or `7` for *X*). Or, you can just check kojiweb <https://koji.opensciencegrid.org/koji/tasks>.
 4.  On your test machine, make sure the `osg-upcoming-minefield` repo is enabled (edit `/etc/yum.repos.d/osg-upcoming-minefield.repo` or `/etc/yum.repos.d/osg-el6-upcoming-minefield.repo`). Clean your cache (`yum clean all; yum clean expire-cache`).
 5.  Install your software, see if it works.
 

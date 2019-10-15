@@ -1,7 +1,7 @@
 Koji Workflow
 =============
 
-This covers the basics of using and understanding the [OSG Koji](https://koji.chtc.wisc.edu/koji) instance. It is meant primarily for OSG Software team members who need to interact with the service.
+This covers the basics of using and understanding the [OSG Koji](https://koji.opensciencegrid.org/koji) instance. It is meant primarily for OSG Software team members who need to interact with the service.
 
 Terminology
 -----------
@@ -78,7 +78,7 @@ Both pieces of software are available from the osg repositories. `osg-build` may
 
 You will be using your grid certificate to log in. Email a Koji admin the DN of your certificate, and we will set up a Koji account with the appropriate permissions.
 
-If you are switching certificate providers, you will need to email a Koji admin with your new DN. You will also need to clear your browser cookies and cache for `https://koji.chtc.wisc.edu` before trying to use the Koji web interface again. If your CN has changed, you will not be able to use your old certificate.
+If you are switching certificate providers, you will need to email a Koji admin with your new DN. You will also need to clear your browser cookies and cache for `https://koji.opensciencegrid.org` before trying to use the Koji web interface again. If your CN has changed, you will not be able to use your old certificate.
 
 Current Koji admins are Mat Selmeci and Carl Edquist.
 
@@ -119,17 +119,17 @@ When you do a non-scratch build, it will build with the *osg-el6* and *osg-el7* 
 
 The most recent build results are always shown on the home page of Koji:
 
-<https://koji.chtc.wisc.edu/koji/index>
+<https://koji.opensciencegrid.org/koji/index>
 
 Clicking on a build result brings you to the build information page. A successful build will result in the build page having build logs, RPMs, and a SRPM.
 
 If your build isn't in the recent list, you can use the search box in the upper-right-hand corner. Type the exact package name (or use a wildcard), and it will bring up a list of all builds for that package. You can find your build from there. For example, the "lcmaps" package page is here:
 
-<https://koji.chtc.wisc.edu/koji/packageinfo?packageID=56>
+<https://koji.opensciencegrid.org/koji/packageinfo?packageID=56>
 
 And the lcmaps-1.6.6-1.1.osg33.el6 build is here:
 
-<https://koji.chtc.wisc.edu/koji/buildinfo?buildID=7427>
+<https://koji.opensciencegrid.org/koji/buildinfo?buildID=7427>
 
 #### Trying our your build
 
