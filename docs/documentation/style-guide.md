@@ -110,7 +110,7 @@ root@condor-ce # condor_ce_trace -d <CE HOSTNAME>
 ~~~
 
 Similarly, you may also specify `:::console hl_lines="N"` for indented command blocks, replacing `console` with any
-language supported by [Pygments](http://pygments.org/languages/).
+language supported by [Pygments](http://pygments.org/languages.html).
 The above block is rendered below:
 
 ```console hl_lines="1 3"
