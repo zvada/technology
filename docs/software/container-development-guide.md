@@ -1,12 +1,8 @@
 Container Development Guide
 ===========================
 
-1. `osgsoftware` DockerHub user account/password needs to be added to encrypted Travis variables
-
 Creating a New Container Image
 ------------------------------
-
-
 
 1. Create a Git repository whose name is prefixed with `docker-`, e.g. `docker-frontier-squid`
 1. Create a `README.md` file describing the software provided by the image
@@ -33,7 +29,7 @@ Pushing Images to DockerHub
 
 1. Create a Docker Hub repo in the OSG organization.
    Give the OSG Software Docker Hub account write access.
-1. Copy over `.travis.yml` and `travis/` from a previous docker build.
+1. Copy over `.travis.yml` and `travis/` from a previous docker build (e.g., <https://github.com/opensciencegrid/docker-frontier-squid>).
    Update the `docker_repos` in `build_docker.sh` to the name of the Docker Hub repo
 1. Add the OSG Software Docker Hub account credentials to the Travis CI repository as secure variables `DOCKER_USERNAME` and `DOCKER_PASSWORD`.
    Ensure that `Display value in build log` remains unset. Escape any special characters with `\`.
@@ -46,21 +42,22 @@ Managing Tags in DockerHub
 
 ### Adding tags ###
 
-https://dille.name/blog/2018/09/20/how-to-tag-docker-images-without-pulling-them/
+Images that have passed acceptance testing should be tagged as `stable`:
 
-For images that already exist in DockerHub
+1. Install the `jq` utility
+1. Get the SHA256 repo digest of the image that the user has tested
+1. Go to the Docker Hub repo (e.g., <https://hub.docker.com/r/opensciencegrid/frontier-squid/tags>) and find the
+   `<TIMESTAMP TAG>` (e.g., `20191118-1706`) corresponding to the digest in the previous step
+1. Add your Docker Hub user/pass to a file with `600` permissions:
 
-1. `docker logout`
-1.  Pull the docker image and tag it:
-    - If you know the tag name:
-        1. `docker pull opensciencegrid/<IMAGE NAME>:<TAG>`
-        1. `docker tag opensciencegrid/<IMAGE NAME>:<TAG> opensciencegrid/<IMAGE NAME>:stable`
-    - If you only know the digest:
-        1. `docker pull opensciencegrid/<IMAGE NAME>@sha256:<IMAGE DIGEST>`
-        1. Get the image ID: `docker images opensciencegrid/<IMAGE _NAME>`
-        1. `docker tag <IMAGE ID> opensciencegrid/<IMAGE NAME>:stable`
-1. `docker login`
-1. `docker push opensciencegrid/<IMAGE NAME>:<TAG>`
+        export user=<dockerhub username>
+        export pass=<dockerhub password>
+
+1. Run the Docker container image tagging command:
+
+        ./dockerhub-tag-fresh-to-stable.sh <IMAGE NAME> <TIMESTAMP TAG>
+
+1. Clean up your Docker Hub user/pass file
 
 ### Removing tags ###
 
