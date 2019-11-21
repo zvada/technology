@@ -111,7 +111,7 @@ As described by our Community Software Testing Policy,
 Major components of the OSG software stack and need positive feedback and
 the approval of the release manager before being marked "Ready for Release".
 
-Feedback the about community testing process is also desired.
+Feedback about the community testing process is also desired.
 ```
 
 Version History
