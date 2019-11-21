@@ -161,3 +161,22 @@ Do sometime after the 3.X.0 release
 -   Update [documentation](/software/development-process) again to reflect that `3.X` is now the _main_ branch and
     `3.OLD` is the _maintenance_ branch
 
+
+Notes on lessons learned
+------------------------
+
+Since the `upcoming` repos are not tied to an upcoming relative to `3.OLD` or `3.X`, the meaning of the `upcoming` repo
+changes when the new OSG series is released.
+Users which have the `upcoming` repo enabled before the cutover to `3.X` will find that a yum update will pull down
+packages relative to the _new_ `upcoming`, relative to `3.X`, instead of the old upcoming, which was relative to
+`3.OLD`.
+
+This may catch them by surprise, as it happens whether or not they update their `osg-release` package to the new `3.X`
+version.
+
+If it is not their intention to update to packages in the _new_ `upcoming`, users should disable their `upcoming` yum
+repo by the time of the new OSG series cutover, and the continuation of their old `upcoming` packages will effectively
+be the main `osg` repo for the new `3.X` series, after they have updated their `osg-release` package (usually by
+installing `osg-3.X-elY-release-latest.rpm`).
+
+
