@@ -41,6 +41,7 @@ pages:
     - Empty Packages: 'release/empty-pkgs.md'
     - Acceptance Testing: 'release/acceptance-testing.md'
   - Policy:
+    - Campus Cyberinfrastructure: 'policy/campus-cyberinfrastructure.md'
     - CREAM-CE Support: 'policy/cream-support.md'
     - 'Service Migrations - Spring 2018': 'policy/service-migrations-spring-2018.md'
     - 'GUMS Retirement': 'policy/gums-retire.md'
