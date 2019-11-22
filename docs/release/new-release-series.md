@@ -19,7 +19,7 @@ Do first, anytime before the month of the release
         <https://github.com/opensciencegrid/osg-next-tools/blob/master/koji/create-new-koji-osg3X-tags-etc>
 
         In particular, update `SERIES` as appropriate, and include any applicable enterprise linux versions to the
-        `EL` loop (eg, `el7 el8`.
+        `EL` loop (eg, `el7 el8`)
     -   Note that, at first, upcoming-build will continue to inherit from 3.OLD-devel
 
 -   Add Koji package signing
