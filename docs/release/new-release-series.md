@@ -59,7 +59,7 @@ Do afterward, anytime before the month of the release
         1.  Bump the revision in the `buildsys-macros` spec file and edit the `%changelog`.
             **Again, you will need a version of osg-build with 3.X support.**
 
-        Do the following steps for all EL versions relevant to the new series; eg, for EL 7:
+        Do the following steps for all EL versions relevant to the new series; e.g., for EL 7:
 
         3.  Set `dver` to 7. Commit
 
@@ -178,4 +178,3 @@ If it is not their intention to update to packages in the _new_ `upcoming`, user
 repo by the time of the new OSG series cutover, and the continuation of their old `upcoming` packages will effectively
 be the main `osg` repo for the new `3.X` series, after they have updated their `osg-release` package (usually by
 installing `osg-3.X-elY-release-latest.rpm`).
-
