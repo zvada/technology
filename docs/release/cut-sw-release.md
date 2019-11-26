@@ -211,7 +211,7 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 cd /tmp
 git clone --depth 1 file:///p/vdt/workspace/git/repo/tarball-client.git
 for ver in $NON_UPCOMING_VERSIONS; do
-    /p/vdt/workspace/tarball-client/current/sys/osgrun /tmp/tarball-client/upload-tarballs-to-oasis $ver
+    /p/vdt/workspace/tarball-client/current/sys/osgrun bash -x /tmp/tarball-client/upload-tarballs-to-oasis $ver
 done
 ```
 
