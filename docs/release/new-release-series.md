@@ -102,6 +102,9 @@ Do afterward, anytime before the month of the release
 
         (btw, xargs -a doesn't work on a Mac)
 
+-   In order to make testing easier, build the new `osg-release` and `osg-release-itb` packages and promote them all
+    the way to release, so that all the 3.X repos exist and have at least one rpm in them.
+
 
 Do on the month of the 3.X.0 release
 ------------------------------------
