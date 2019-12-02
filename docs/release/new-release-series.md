@@ -117,6 +117,8 @@ Do on the month of the 3.X.0 release
 - Update osg-test / vmu-test-runs
     -   They're only going to test from minefield (and eventurally testing) until the release
 - Drop the `osg-3.X-elY-bootstrap` koji tags (after the successful mass rebuild only)
+- Update [docker-software-base](https://github.com/opensciencegrid/docker-software-base)
+  and any container images that are based on it
 
 
 Do immediately after the 3.X.0 release
