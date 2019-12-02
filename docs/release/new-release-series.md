@@ -1,12 +1,6 @@
 How to Prepare a New Release Series
 ===================================
 
-!!!info
-    The information was taken from
-    [SOFTWARE-2622](https://jira.opensciencegrid.org/browse/SOFTWARE-2622)
-    and
-    [Matyas's notes for the OSG 3.4 release](http://pages.cs.wisc.edu/~matyas/notes/main/closed-2016/osg34.html).
-
 Throughout this document, we will refer to the new release series as `3.X`, and the previous release series as `3.OLD`.
 For example, if we are creating OSG 3.6, then `3.X` refers to `3.6`, and `3.OLD` refers to `3.5`.
 
