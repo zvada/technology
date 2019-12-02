@@ -1,7 +1,7 @@
 How to Prepare a New Release Series
 ===================================
 
-!!! warning
+!!!info
     The information was taken from
     [SOFTWARE-2622](https://jira.opensciencegrid.org/browse/SOFTWARE-2622)
     and
