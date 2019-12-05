@@ -1,14 +1,6 @@
 Software Team Support
 =====================
 
-Incoming tickets (Operations staff)
------------------------------------
-
-When a ticket arrives at the GOC and the Operations staff member decides that the ticket should be assigned to the Software Team, the operations staff member will do two things:
-
-1.  The ticket will be assigned to a pseudo-user called "Software".
-2.  The "Next Action" field will be set to "SOFTWARE TRIAGE".
-3.  The Software pseudo-user has an email list as its "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
 
 Triage duty (Technology Area staff)
 -----------------------------------
