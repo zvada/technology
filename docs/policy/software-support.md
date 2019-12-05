@@ -44,44 +44,6 @@ Note that if you follow the above, we will end up with three assignees to each t
     If the expertise of another Technology team member is needed on the ticket, add them to the CC list.
     Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
 
-### LCMAPS VOMS Transition ###
-
-This section contains the process for helping sites transition from edg-mkgridmap or GUMS to the LCMAPS VOMS plugin as
-part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
-
-1. Ask if the site is using edg-mkgridmap or GUMS. If they're using GUMS, find out what GUMS clients they have at their 
-   site. Possibilities include:
-
-    - HTCondor-CE
-    - GridFTP
-    - XRootD: if an ATLAS site, they use vomsxrd/xrootd-voms-plugin
-    - dCache: if an ATLAS site, encourage them to consult US-ATLAS mailing lists
-    - BeStMan: encourage the site to transition to GridFTP, as they cannot retire GUMS until BeStMan doesn't depend on it.
-      If CMS/ATLAS, encourage them to consult their US-ATLAS/US-CMS mailing lists for assistance.
-
-1. Ask them to follow the relevant instructions for their authorization solution 
-
-    - [edg-mkgridmap](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
-    - [GUMS](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
-
-1. After they've completed the above instructions, use one of the following methods (in order of preference) to verify 
-   LCMAPS VOMS mappings:
-
-    - If the host is a CE, verify that they are still receiving pilots:
-
-        - Query their CE directly:
-
-                :::console
-                $ condor_q -name <CE HOSTNAME> -pool <CE HOSTNAME>:9619
-
-            This may not work if the site has a strict firewall or do not run an HTCondor-CE.
-
-        - Add factory ops or the relevant ATLAS (T2 vs T3) support center to the ticket under `OSG Support Centers`
-        - For non-ATLAS sites, verify that the site's [pilot numbers](http://gfactory-2.opensciencegrid.org/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
-       are non-zero.
-
-    - If the host is a GridFTP server, verify file transfer with their VO support center.
-
 ### Updating the triage calendar ###
 
 The calendar is hosted on Tim Cartwright’s Google Calendar account. If you need privileges to edit, ask Brian L. To update
