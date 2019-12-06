@@ -15,19 +15,19 @@ When providing support for our users, remember the following:
     If it's easy for you, include a signature at the bottom of your response.
 -   If you need to collect information about a problematic host, ask users to run `osg-system-profiler`.
     It can shorten the number of times you ask for information because it collects quite a bit for you.
--   If you run across a problem that has a chance of being hit by other users, consider:
+-   If you run across a problem that has a chance of being hit by other users:
     -   Is there a bug we should fix in the software?
         Or something we could improve in the software?
     -   Is there a way to improve our documentation?
     -   Can you extend our troubleshooting documents to help people track this down more quickly?
         Consider the troubleshooting documents to be as much for us as for our users.
-    -   Noting it during the support discussion during the weekly OSG Technology meeting
+    -   Is this something that other Technology Team members should be aware of?
+        Note it during the support discussion during the weekly OSG Technology meeting, or email the Technology Team if
+        it seems more urgent.
 
 Triage Duty
 -----------
 
-During normal work hours, the OSG Technology Team splits responsibilities for managing incoming OSG Software support
-requests based upon a [weekly rotation](https://github.com/opensciencegrid/osg-triage-assignments/blob/master/rotation.txt).
 The OSG uses [Freshdesk](#freshdesk) to track support issues so you will need a Freshworks account with agent privileges
 (contact the OSG Software Team Manager for access).
 
@@ -35,6 +35,8 @@ The OSG uses [Freshdesk](#freshdesk) to track support issues so you will need a 
     Don't enter your credentials directly into the [login page](https://support.opensciencegrid.org/support/login)!
     Click the agent login link instead so that you don't have to enter your credentials twice.
 
+During normal work hours, the OSG Technology Team splits responsibilities for managing incoming OSG Software support
+requests based upon a [weekly rotation](https://github.com/opensciencegrid/osg-triage-assignments/blob/master/rotation.txt).
 If you are on triage duty, your responsibilities are as follows:
 
 -   **Watch for new software tickets:** review the
