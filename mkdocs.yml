@@ -43,10 +43,6 @@ pages:
   - Policy:
     - Campus Cyberinfrastructure: 'policy/campus-cyberinfrastructure.md'
     - CREAM-CE Support: 'policy/cream-support.md'
-    - 'Service Migrations - Spring 2018': 'policy/service-migrations-spring-2018.md'
-    - 'GUMS Retirement': 'policy/gums-retire.md'
-    - 'BeStMan2 Retirement': 'policy/bestman2-retire.md'
-    - 'VOMS Admin Retirement': 'policy/voms-admin-retire.md'
     - 'Release Series Support': 'policy/release-series.md'
     - 'Globus Toolkit Support': 'policy/globus-toolkit.md'
     - 'OASIS Repository Mirroring': 'policy/external-oasis-repos.md'
@@ -60,7 +56,11 @@ pages:
     - Markdown Style Guide: 'documentation/style-guide.md'
     - Creating a New Area: 'documentation/new-doc-area.md'
   - Historical Transitions:
-    - 'SHA-2 Support': 'projects/sha2-support.md'
+    - Service Migrations - Spring 2018: 'policy/service-migrations-spring-2018.md'
+    - GUMS Retirement: 'policy/gums-retire.md'
+    - BeStMan2 Retirement: 'policy/bestman2-retire.md'
+    - VOMS Admin Retirement: 'policy/voms-admin-retire.md'
+    - SHA-2 Support: 'projects/sha2-support.md'
     - Migrating Documents to Markdown: 'documentation/markdown-migration.md'
   - Meetings:
     - December, 2 2019: 'meetings/2019/TechArea20191202.md'
