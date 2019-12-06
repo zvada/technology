@@ -1,143 +1,151 @@
-Software Team Support
-=====================
+Software Support
+================
 
-Incoming tickets (Operations staff)
------------------------------------
+This document describes how OSG Technology Team members should support the OSG Software Stack, including triage duty
+responsibilities and when to transition from direct support inquiries to a ticketing system such as Freshdesk or JIRA.
 
-When a ticket arrives at the GOC and the Operations staff member decides that the ticket should be assigned to the Software Team, the operations staff member will do two things:
+Considerations
+--------------
 
-1.  The ticket will be assigned to a pseudo-user called "Software".
-2.  The "Next Action" field will be set to "SOFTWARE TRIAGE".
-3.  The Software pseudo-user has an email list as its "personal" email address. This is: <osg-software-support-stream@opensciencegrid.org>.
+When providing support for our users, remember the following:
 
-Triage duty (Technology Area staff)
------------------------------------
+-   We are a small community and we need to take good care of our users.
+    Please be friendly and patient even when the user is frustrated or lacking in knowledge.
+-   Always sign your ticket with your full name, so people know who is responding.
+    If it's easy for you, include a signature at the bottom of your response.
+-   If you need to collect information about a problematic host, ask users to run `osg-system-profiler`.
+    It can shorten the number of times you ask for information because it collects quite a bit for you.
+-   If you run across a problem that has a chance of being hit by other users:
+    -   Is there a bug we should fix in the software?
+        Or something we could improve in the software?
+    -   Is there a way to improve our documentation?
+    -   Can you extend our troubleshooting documents to help people track this down more quickly?
+        Consider the troubleshooting documents to be as much for us as for our users.
+    -   Is this something that other Technology Team members should be aware of?
+        Note it during the support discussion during the weekly OSG Technology meeting, or email the Technology Team if
+        it seems more urgent.
 
-All OSG Technology Area Team members who are at least 50% on the will share triage duty (except Brian Bockelman). Each week (Monday through Friday), during normal work hours, there will be one person on triage duty. If you are on triage duty, this means:
+Triage Duty
+-----------
 
--   Watch the software incoming tickets. **If a ticket has not been assigned to a software team member, you assign it appropriately.** You are responsible for assigning all incoming tickets that haven't been assigned. This includes tickets that have arrived over the weekend or were not handled by the previous person on triage duty.
--   If you can handle an incoming ticket, assign it to yourself and handle it. Leave the "software" user assigned to the ticket. Many tickets are common problems that most team members should be able to solve.
--   If you cannot handle an incoming ticket, collect initial details (versions, logs, etc...), and assign the ticket to the most appropriate software team member. Where appropriate, include people from other teams (i.e. security, operations, glidein...) Leave the "software" user assigned to the ticket.
--   Look at assigned tickets. For tickets that are not being handled in a timely fashion, please remind the person that owns the ticket, or, if the ticket is waiting on the user, remind the user.
+The OSG uses [Freshdesk](#freshdesk) to track support issues so you will need a Freshworks account with agent privileges
+(contact the OSG Software Team Manager for access).
 
-!!! note
-    Being on triage duty does *not* mean that you must personally solve all new tickets. It means that you handle the easy tickets and assign the other tickets appropriately.
+!!!tip "Logging in as an agent"
+    Don't enter your credentials directly into the [login page](https://support.opensciencegrid.org/support/login)!
+    Click the agent login link instead so that you don't have to enter your credentials twice.
 
-Note that the software pseudo-user has an email address that is a mailing list: <osg-software-support-stream@opensciencegrid.org>. If you find it convenient, you can sign up for the mailing list to see all the incoming tickets. Alain recommends you do this during your triage duty, but you do not need to stay subscribed when you are not on triage duty.
+During normal work hours, the OSG Technology Team splits responsibilities for managing incoming OSG Software support
+requests based upon a [weekly rotation](https://github.com/opensciencegrid/osg-triage-assignments/blob/master/rotation.txt).
+If you are on triage duty, your responsibilities are as follows:
 
-All the currently opened tickets assigned to the software team can be seen here: [GOC Open Tickets](https://ticket.opensciencegrid.org/goc/list/open)
+-   **Watch for new software tickets:** review the
+    [Unresolved Software Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000319518) and
+    [All Unassigned Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000322056) filters at least twice
+    daily for new OSG Software-related tickets.
+    For any such unassigned tickets, assign it as follows:
+    -   *If you can handle an incoming ticket,* assign it to yourself.
+        Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
+    -   *If you cannot handle an incoming ticket,* collect initial details such as relevant versions, logs, etc., and
+        assign the ticket to the most appropriate Technology Team member.
+        Where appropriate, CC people from other OSG teams, sites, or VOs.
+-   **Review assigned software tickets.**
+    For tickets that are not being handled in a timely fashion (pay special attention to `OVERDUE` and `Customer
+    Responded` tickets):
+    -   *If the ticket is pending and the assignee has not responded in > 2 business days,*
+        notify the ticket assignee via private note that they need to revisit the ticket.
+    -   *If the ticket is waiting on the customer or a third party and they have not responded in > 1 week,*
+        reply to the ticket asking if they've had the time to review the Technology Team's latest response(s).
+    -   *If the ticket is waiting on the customer and they have not responded in > 2 weeks,* close the ticket and let
+        the customer know that they can re-open it by responding whenever they're ready to tackle the issue again.
+-   **Re-assign non-software tickets:**
+    Tickets that have been mistakenly assigned to the Software group should be re-assigned to the appropriate group.
+-  **Merge duplicate tickets:**
+   Responses to a ticket sometimes results in creation of a new ticket; these new tickets should be merged into the
+   original ticket.
+   See [this documentation](<https://support.freshdesk.com/support/solutions/articles/80180-merging-two-or-more-tickets-together>).
+-   **Clean up spam:**
+    Mark the ticket as spam and block the user.
+    See [this documentation](<https://support.freshdesk.com/support/solutions/articles/217539-spam-and-trash>).
 
-### Flow of tickets
-
-Note that if you follow the above, we will end up with three assignees to each ticket. This is the overall flow:
-
-1.  A ticket arrives at the GOC, either via the ticket creator, or created by Operations in response to an email.
-2.  **ASSIGNMENT \#1:** The ticket is assigned to an Operations member. They're in charge of ushering the ticket through its whole lifetime, though for software tickets they won't do a whole lot on the technical work. Note that some software tickets may not be assigned to us, because they might assign them to the VO support center. This is good.
-3.  **ASSIGNMENT \#2:** The Operations member looks at the ticket and decides it's a software ticket. (They might do some upfront work if they can.) They then assign it to "Software Support (Triage)". We now have two people assigned to the ticket.
-4.  When assigned to "Software Support (Triage)", all changes to the ticket are sent to <osg-software-support-stream@opensciencegrid.org>, so we leave this pseudo-person on the ticket. Watching the email to this mailing list is a nice (but optional) way for you to see what's happening when you're on triage duty.
-5.  **ASSIGNMENT \#3:** The person on triage duty assigns it to the right person from the software team. We now have three assignees:
-    1.  GOC member
-    2.  Software Support (Triage)
-    3.  The Technology team member who is responsible for guiding a ticket until it is resolved
-
-    To avoid any confusion around ticket ownership, assign only one Technology team member per ticket.
-    If the expertise of another Technology team member is needed on the ticket, add them to the CC list.
-    Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
-
-### LCMAPS VOMS Transition ###
-
-This section contains the process for helping sites transition from edg-mkgridmap or GUMS to the LCMAPS VOMS plugin as
-part of the [VOMS Admin Server retirement](/policy/voms-admin-retire).
-
-1. Ask if the site is using edg-mkgridmap or GUMS. If they're using GUMS, find out what GUMS clients they have at their 
-   site. Possibilities include:
-
-    - HTCondor-CE
-    - GridFTP
-    - XRootD: if an ATLAS site, they use vomsxrd/xrootd-voms-plugin
-    - dCache: if an ATLAS site, encourage them to consult US-ATLAS mailing lists
-    - BeStMan: encourage the site to transition to GridFTP, as they cannot retire GUMS until BeStMan doesn't depend on it.
-      If CMS/ATLAS, encourage them to consult their US-ATLAS/US-CMS mailing lists for assistance.
-
-1. Ask them to follow the relevant instructions for their authorization solution 
-
-    - [edg-mkgridmap](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-edg-mkgridmap)
-    - [GUMS](http://www.opensciencegrid.org/docs/security/lcmaps-voms-authentication/#migrating-from-gums)
-
-1. After they've completed the above instructions, use one of the following methods (in order of preference) to verify 
-   LCMAPS VOMS mappings:
-
-    - If the host is a CE, verify that they are still receiving pilots:
-
-        - Query their CE directly:
-
-                :::console
-                $ condor_q -name <CE HOSTNAME> -pool <CE HOSTNAME>:9619
-
-            This may not work if the site has a strict firewall or do not run an HTCondor-CE.
-
-        - Add factory ops or the relevant ATLAS (T2 vs T3) support center to the ticket under `OSG Support Centers`
-        - For non-ATLAS sites, verify that the site's [pilot numbers](http://gfactory-2.opensciencegrid.org/factory/monitor/factoryStatus.html?entry=OSG_US_UConn_gluskap&frontend=OSG_Flock_frontend&infoGroup=running&elements=StatusRunning,ClientGlideRunning,ClientGlideIdle,&rra=0&wi)
-       are non-zero.
-
-    - If the host is a GridFTP server, verify file transfer with their VO support center.
+!!!question
+    If you have questions concerning a ticket, consult the OSG Software Team Manager and/or the `#software` channel in
+    the OSG Slack.
 
 ### Updating the triage calendar ###
 
-The calendar is hosted on Tim Cartwright’s Google Calendar account. If you need privileges to edit, ask Brian L. To update
+The current triage duty schedule can be found in the OSG Software calendar, hosted on Tim Cartwright’s Google account.
+If you need privileges to edit the calendar, ask the OSG Software Team Manager.
+To update the triage duty schedule:
 
-1.  Update checkout ([GitHub](https://github.com/opensciencegrid/osg-triage-assignments))
-2.  Generate next rotation:
+1.  Clone the [git repo](https://github.com/opensciencegrid/osg-triage-assignments)
+1.  Generate next rotation:
 
         ./triage.py --generateNextRotation > rotation.txt
-3.  Check and update assignments according to team member outages
-4.  Load triage assignments into Google Calendar:
+
+1.  Check and update assignments according to team member outages
+1.  Load triage assignments into Google Calendar:
 
         ./triage.py --load rotation.txt
 
-To subscribe to this calendar in your calendar program, use the iCal URL: `https://www.google.com/calendar/ical/h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com/public/basic.ics`
+To subscribe to this calendar in your calendar program, use the iCal URL:
+`https://www.google.com/calendar/ical/h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com/public/basic.ics`
 
 <iframe src="https://www.google.com/calendar/embed?height=600&showPrint=0&wkst=1&bgcolor=%23FFFFFF&src=h5t4mns6omp49db1e4qtqrrf4g%40group.calendar.google.com&color=%232F6309&ctz=America%2FChicago" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-Handling tickets
-----------------
+Ticket Systems
+--------------
 
--   We need to take good care of our users. We are in a small community. Please be friendly and patient even when the user is frustrated or lacking in knowledge.
--   Always sign your ticket with your full name, so people know who is responding.
--   If it's easy for you, include a signature at the bottom of your response.
--   Remember that you can tell people to use the `osg-system-profiler` to collect information. It can shorten the number of times you ask for information because it collects quite a bit for you.
--   If you run across a problem that has a chance of being hit by other users, consider:
-    -   Is there a bug we should fix in the software? Or something we could improve in the software?
-    -   Is there a way to improve our documentation?
-    -   Can you extend our troubleshooting documents to help people track this down more quickly? Consider the troubleshooting documents to be as much for us as for our users.
+The OSG Technology Team uses the [Freshdesk](https://support.opensciencegrid.org/) and
+[JIRA](https://jira.opensciencegrid.org) ticketing systems to track support and all other work, respectively.
+This section describes the differences between the two as well as some OSG Technology Freshdesk conventions.
 
-Direct E-mail vs. Support
--------------------------
+### Direct Email ###
 
-If someone emails you directly for support, you have the choice of when to move it to a ticket. The recommended criteria are:
+Sometimes users may email you directly with support inquiries.
+If someone emails you directly for support, you have the choice of when to move it to a ticket.
+The recommended criteria are:
 
 -   If it's easy to handle and you can definitely do it yourself, leave it in email.
 -   If there's a chance that you can't do it in a timely fashion, turn it into a ticket.
 -   If there's a chance that you might lose track of the email, turn it into a ticket.
 -   If there's a chance that you might need help from others, turn it into a ticket.
--   If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into a ticket.
+-   If it's an unusual topic and other people would benefit from seeing the ticket (now or in the future), turn it into
+    a ticket.
 
-GOC vs JIRA
------------
+### Freshdesk ###
 
-JIRA is for tracking our work.
-It's meant for internal usage, not for user support.
+!!!info "Freshdesk access"
+    The OSG uses [Freshdesk](#freshdesk) to track support issues so you will need a Freshworks account with agent
+    privileges (contact the OSG Software Team Manager for access).
+
+Freshdesk tickets are for user support, i.e. this is where we help users debug, understand their problems, etc.
+When replying to or otherwise updating a Freshdesk ticket, there are a few things to note:
+
+-   Freshdesk auto-populates the contact's name when replying through the web interface, e.g. `Hi Brian`.
+    Ensure that the name is correct, especially if there are multiple parties involved in a single ticket.
+    If the auto-populated name looks incorrect, e.g. `Hi blin.wisc`, fix the contact's First and Last name fields.
+-   Make sure to set the state of the ticket, which is helpful for those on triage:
+
+    | **State**              | **Description**                                                             |
+    |------------------------|-----------------------------------------------------------------------------|
+    | Pending                | Assignee is responsible for next actions                                    |
+    | Waiting on Customer    | Assignee needs the reporter to respond                                      |
+    | Waiting on Third Party | Assignee needs a response from a CC                                         |
+    | Closed                 | Support is complete or the user is unresponsive. [See above](#triage-duty). |
+    | Open                   | Ticket has not yet been assigned (initial ticket state)                     |
+    | Resolved               | **DO NOT USE**. Similar to `Closed` but sends a user survey.                |
+
+If actionable Technology Team tasks arise from a Freshdesk ticket, [JIRA](#jira) ticket(s) should be created to track
+that work.
+Resultant JIRA tickets should include a link to the original Freshdesk ticket, a description of the problem or feature
+request, and a proposed solution or implementation.
+
+After the relevant JIRA tickets have been created, ask the user if they would be ok with tracking the issue via JIRA. 
+If they say yes, close the Freshdesk ticket.
+
+### JIRA ###
+
+JIRA is for tracking our work and it's meant for internal usage, not for user support.
 In general, users should not ask for support via JIRA.
 A single user support ticket might result in zero, one, or multiple JIRA tickets.
-
-GOC tickets are for user support.
-This is where we help users debug, understand their problems, etc.
-
-If actionable software team tasks arise from a GOC ticket, JIRA ticket(s) should be created to track that work. 
-Resultant JIRA tickets should:
-
-- Include a link to the original GOC ticket, a description of the problem, and a proposed solution to the problem.
-- Add the original reporter as a watcher if they have a JIRA account.
-
-When all the relevant JIRA tickets are created, ask the user if they would be ok with tracking the issue via JIRA. 
-If they say yes, close the GOC ticket.
