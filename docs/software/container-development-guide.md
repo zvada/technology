@@ -13,12 +13,11 @@ Creating a New Container Image
 
         LABEL maintainer OSG Software <help@opensciencegrid.org>
         
-        RUN yum clean all && \
-            yum update -y 
+        RUN \
+            yum update -y && yum clean all && rm -rf /var/cache/yum/*
 
-        RUN yum install -y <PACKAGE> --enablerepo=osg-development
+        RUN yum install -y <PACKAGE> --enablerepo=osg-development && yum clean all && rm -rf /var/cache/yum/*
 
-        RUN yum clean all --enablerepo=* && rm -rf /var/cache/yum/
 
     Replacing `<PACKAGE>` with the name of the RPM you'd like to provide in this container image
 
@@ -44,7 +43,10 @@ Managing Tags in DockerHub
 
 Images that have passed acceptance testing should be tagged as `stable`:
 
-1. Install the `jq` utility
+1. Install the `jq` utility:
+
+        yum install jq
+        
 1. Get the SHA256 repo digest of the image that the user has tested
 1. Go to the Docker Hub repo (e.g., <https://hub.docker.com/r/opensciencegrid/frontier-squid/tags>) and find the
    `<TIMESTAMP TAG>` (e.g., `20191118-1706`) corresponding to the digest in the previous step
