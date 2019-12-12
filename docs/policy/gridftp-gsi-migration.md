@@ -15,7 +15,7 @@ shouldered by the OSG.
 For example, we currently use the GridFTP and GSI implementations in the Grid Community Toolkit (GCT).
 While the OSG contributes to the GCT (a fork of the abandoned Globus Toolkit) to sustain operations, the long-term plan
 is to migrate our community off these approaches.
-The Globus Toolkit (is a stark reminder of how niche the current ecosystem is: even the original reference
+The end of the Globus Toolkit is a stark reminder of how niche the current ecosystem is: even the original reference
 implementation was abandoned.
 
 Thus, OSG has the opportunity and motivation to evolve toward a data transfer protocol and security techniques that
@@ -58,12 +58,12 @@ That said, there are a number of options to disentangle the two if the pace of e
 ### What role does LCMAPS play with SciTokens? ###
 
 LCMAPS only works with GSI.
-The model for SciTokens is sufficiently more simple for sites that the full complexity of LCMAPS is a bit overkill.
+The model for SciTokens is sufficiently more simple for sites that the full complexity of LCMAPS is not needed.
 
 ### What does a SciTokens transition for GlideinWMS mean for European sites? ###
 
 The only piece that involves European sites is the factory to CE relationship:
-given HTCondor-CE is covered, we need to focus on ARC-CE.
+given HTCondor-CE 4.0 already supports SciTokens, we have begun to engage with the ARC-CE team.
 
 ### What are the T1s going to do? No SRM? How does tape work with XRootD and HTTPS? ###
 
