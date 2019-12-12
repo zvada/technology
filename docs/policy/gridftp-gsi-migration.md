@@ -46,14 +46,11 @@ Frequently Asked Questions
 
 ### How does SciTokens interoperate with other token technologies in the WLCG? ###
 
-We have been very active with the WLCG AuthZ working group and the WLCG JWT profile incorporates many core pieces of
-SciTokens -- enough that we feel confident in saying that we will support the relevant parts of WLCG JWT in the
-SciTokens client library for existing adopters.
+The `scitokens-cpp` library used by OSG can transparently use both WLCG JSON Web Tokens (JWTs) and SciTokens.
 
 ### Will a US-LHC migration from GridFTP to XRootD require the same migration for WLCG? ###
 
-Europe has been an enthusiastic partner in doing this switch.
-That said, there are a number of options to disentangle the two if the pace of evolution turns out to be very different.
+No but we have been working to ensure that we coordinate our activities through the WLCG DOMA group.
 
 ### What role does LCMAPS play with SciTokens? ###
 
