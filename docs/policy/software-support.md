@@ -56,8 +56,9 @@ If you are on triage duty, your responsibilities are as follows:
         notify the ticket assignee via private note that they need to revisit the ticket.
     -   *If the ticket is waiting on the customer or a third party and they have not responded in > 1 week,*
         reply to the ticket asking if they've had the time to review the Technology Team's latest response(s).
-    -   *If the ticket is waiting on the customer and they have not responded in > 2 weeks,* close the ticket and let
-        the customer know that they can re-open it by responding whenever they're ready to tackle the issue again.
+    -   *If the ticket was opened by the customer, is waiting on the customer and they have not responded in > 2 weeks,*
+        close the ticket and let the customer know that they can re-open it by responding whenever they're ready to
+        tackle the issue again.
 -   **Re-assign non-software tickets:**
     Tickets that have been mistakenly assigned to the Software group should be re-assigned to the appropriate group.
 -  **Merge duplicate tickets:**
