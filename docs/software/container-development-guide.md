@@ -59,7 +59,7 @@ Images that have passed acceptance testing should be tagged as `stable`:
         export user=<dockerhub username>
         export pass=<dockerhub password>
 
-1. Run the Docker container image tagging command:
+1. Run the Docker container image tagging command from [release-tools](https://github.com/opensciencegrid/release-tools/):
 
         ./dockerhub-tag-fresh-to-stable.sh <IMAGE NAME> <TIMESTAMP TAG>
 
