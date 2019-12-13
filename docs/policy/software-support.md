@@ -68,6 +68,10 @@ If you are on triage duty, your responsibilities are as follows:
 -   **Clean up spam:**
     Mark the ticket as spam and block the user.
     See [this documentation](<https://support.freshdesk.com/support/solutions/articles/217539-spam-and-trash>).
+-   **Clean up automated replies:**
+    announcements are often sent with `Reply-to: help@opensciencegrid.org` so automated replies (e.g. Out of Office,
+    mailing list moderation) will generate tickets.
+    These tickets can be closed.
 
 !!!question
     If you have questions concerning a ticket, consult the OSG Software Team Manager and/or the `#software` channel in
