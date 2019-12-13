@@ -27,7 +27,7 @@ Pushing Images to DockerHub
 ### Using Travis-CI ###
 
 1. Create a Docker Hub repo in the OSG organization.
-   Give the OSG Software Docker Hub account write access.
+1. Go to the permissions tab and give the `robots` team `Read & Write` access
 1. Copy over `.travis.yml` and `travis/` from a previous docker build (e.g., <https://github.com/opensciencegrid/docker-frontier-squid>).
    Update the `docker_repos` in `build_docker.sh` to the name of the Docker Hub repo
 1. Add the OSG Software Docker Hub account credentials to the Travis CI repository as secure variables `DOCKER_USERNAME` and `DOCKER_PASSWORD`.
