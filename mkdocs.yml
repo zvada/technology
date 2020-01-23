@@ -52,6 +52,7 @@ pages:
     - Software Release Policy: 'policy/software-release.md'
     - Container Release Policy: 'policy/container-release.md'
     - 'Community Testing': 'policy/community-testing.md'
+    - COManage Registration Instructions: 'policy/comanage-instructions.md'
   - Documentation:
     - Writing Documentation: 'documentation/writing-documentation.md'
     - Reviewing Documentation: 'documentation/reviewing-documentation.md'
