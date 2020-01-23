@@ -36,7 +36,7 @@ For users
 1.  Wait for approval from a COManage Admin.
     You will get an email from <registry@cilogon.org> saying "Petition for <NAME> changed status
     from Pending Approval to Approved".
-    Ignore the links in the email.
+    You may ignore the links in the email.
 
 1.  To verify your access, go to
     https://registry.cilogon.org/registry/users/login
@@ -71,6 +71,6 @@ For COManage admins:
     Approved".
 
     The first link will give them "Permission Denied";
-    the second link will take them to the notification page, which they can "acknowledge".
-    This doesn't do anything useful.
+    the second link will take them to the notification page, which they can "acknowledge",
+    but that doesn't do anything useful.
 
