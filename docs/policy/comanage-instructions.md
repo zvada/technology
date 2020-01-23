@@ -3,14 +3,14 @@ COManage Registration Instructions
 
 This page provides step-by-step instructions for registering with COManage and becoming a part of
 the OSG group.
-There are separate instructions for users and COManage admins.
+There are separate instructions for registering and approving registrations.
 
 Our initial users will be OSG staff, but as the system becomes more fleshed out, OASIS managers
 and site admins will also be getting registered.
 
 
-For users
----------
+Registering for the OSG COManage
+--------------------------------
 
 1.  Go to https://registry.cilogon.org/registry/co_petitions/start/coef:64
 
@@ -49,8 +49,8 @@ For users
     In this case, contact <help@opensciencegrid.org> for assistance.
 
 
-For COManage admins:
---------------------
+Approving registrations (for COManage admins only)
+--------------------------------------------------
 
 1.  Check for an email from <registry@cilogon.org> saying "Petition for <NAME> changed status from
     Confirmed to Pending Approval".
