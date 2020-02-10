@@ -40,7 +40,7 @@ Creating a New Container Image
 1. Copy over `.travis.yml` and `travis/` from a previous docker build (e.g., <https://github.com/opensciencegrid/docker-frontier-squid>).
    Update the `docker_repos` in `build_docker.sh` to the name of the Docker Hub repo
 1. Set the `+x` bit on `travis/build_docker.sh`
-1. Send the `opensciencegrid` GitHub repoository URL to the Software Manager and ask them to do the following:
+1. Send the `opensciencegrid` GitHub repository URL to the Software Manager and ask them to do the following:
     1. Enable the repository in Travis-CI
     1. Add the OSG Software Docker Hub account credentials to the Travis CI repository as secure variables
        `DOCKER_USERNAME` and `DOCKER_PASSWORD`.
@@ -64,7 +64,7 @@ If the Travis-CI build completes successfully, you should shortly see new `fresh
 DockerHub repository.
 
 !!! note "Automatic weekly rebuilds"
-    If the repo's Travis-CI is configured as above, container images will automatically rebuilds, and therefore pick up
+    If the repo's Travis-CI is configured as above, container images will automatically rebuild, and therefore pick up
     new packages available in minefield once per week.
 
 Managing Tags in DockerHub
