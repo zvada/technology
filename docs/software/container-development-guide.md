@@ -48,7 +48,24 @@ Creating a New Container Image
        Escape any special characters with `\`.
     1. Enable weekly cron builds from `master` and set `Always run`
 
-### Built-in integration ###
+Triggering Container Image Builds
+---------------------------------
+
+To build a new version of an [existing container image](#creating-a-new-container-image), e.g. for a new RPM version of
+software in the container, you can kick off a new build in one of two ways:
+
+- **If there are no changes necessary to the container packaging:** go to the repository's latest Travis-CI build off of
+  `master`, e.g. <https://travis-ci.org/opensciencegrid/docker-xcache>, and click "Restart build"
+- **If changes need to be made to the container packaging:** submit a pull request with your changes to the relevant
+  GitHub repository and request that another team member review it.
+  Once merged into `master`, a Travis-CI build should start automatically.
+
+If the Travis-CI build completes successfully, you should shortly see new `fresh` and timestamp tags appear in the
+DockerHub repository.
+
+!!! note "Automatic weekly rebuilds"
+    If the repo's Travis-CI is configured as above, container images will automatically rebuilds, and therefore pick up
+    new packages available in minefield once per week.
 
 Managing Tags in DockerHub
 --------------------------
