@@ -17,7 +17,7 @@ Creating a New Container Image
             yum clean all && \
             rm -rf /var/cache/yum/*
 
-        RUN yum install -y <PACKAGE> --enablerepo=osg-development && \
+        RUN yum install -y <PACKAGE> --enablerepo=osg-minefield && \
             yum clean all && \
             rm -rf /var/cache/yum/*
 
