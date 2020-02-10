@@ -1,8 +1,17 @@
 Container Development Guide
 ===========================
 
+This document contains instructions for OSG Technology Team members, including:
+
+- How to to develop container images that adhere to our [container release policy](/policy/container-release)
+- How to build a new version of an existing image
+- How to manage tags for images in the [OSG DockerHub organization](https://hub.docker.com/r/opensciencegrid/)
+- Tips for container image development
+
 Creating a New Container Image
 ------------------------------
+
+### Prepare the GitHub repository ###
 
 1. Create a Git repository whose name is prefixed with `docker-`, e.g. `docker-frontier-squid`
 1. Create a `README.md` file describing the software provided by the image
@@ -24,10 +33,7 @@ Creating a New Container Image
 
     Replacing `<PACKAGE>` with the name of the RPM you'd like to provide in this container image
 
-Pushing Images to DockerHub
----------------------------
-
-### Using Travis-CI ###
+### Prepare the DockerHub repository ###
 
 1. Create a Docker Hub repo in the OSG organization.
 1. Go to the permissions tab and give the `robots` team `Read & Write` access
