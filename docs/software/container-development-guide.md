@@ -13,10 +13,13 @@ Creating a New Container Image
 
         LABEL maintainer OSG Software <help@opensciencegrid.org>
         
-        RUN \
-            yum update -y && yum clean all && rm -rf /var/cache/yum/*
+        RUN yum update -y && \
+            yum clean all && \
+            rm -rf /var/cache/yum/*
 
-        RUN yum install -y <PACKAGE> --enablerepo=osg-development && yum clean all && rm -rf /var/cache/yum/*
+        RUN yum install -y <PACKAGE> --enablerepo=osg-development && \
+            yum clean all && \
+            rm -rf /var/cache/yum/*
 
 
     Replacing `<PACKAGE>` with the name of the RPM you'd like to provide in this container image
