@@ -2,7 +2,7 @@ Approving COManage Registrations
 ================================
 
 OSG is using a new identity management system called COManage.
-This system will be used for managing access to OSG staff-internal monitoring webpages at UNL
+Initially, this system will be used for managing access to OSG staff-internal monitoring webpages at UNL,
 and managing access for OASIS logins.
 
 User registrations must be manually approved by a COManage admin.
@@ -25,7 +25,7 @@ Follow the instructions below to approve a user registration.
 
 1.  Verify that the application is legitimate.
 
-1.  Click "Approve".
+1.  Click the "Approve" button.
     You should see "Petition Approved" and "Petition Finalized" on top.
     The Status should now be "Finalized".
 

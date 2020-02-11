@@ -2,7 +2,7 @@ Registering for the OSG COManage
 ================================
 
 OSG is using a new identity management system called COManage.
-This system will be used for managing access to OSG staff-internal monitoring webpages at UNL
+Initially, this system will be used for managing access to OSG staff-internal monitoring webpages at UNL,
 and managing access for OASIS logins.
 
 Follow the instructions below to register with COManage and join the OSG group.
@@ -20,19 +20,20 @@ Follow the instructions below to register with COManage and join the OSG group.
 1.  Log in with your institutional credentials.
     You should reach the "OSG Registration: Self Signup With Approval" page.
 
-1.  Click "BEGIN".
+1.  Click the "BEGIN" button.
 
 1.  Enter your name and email address in the form fields;
     defaults might be filled in from what your institution provided,
     but you are permitted to change them.
+    In particular, your email address does not have to match your login identity.
 
-1.  Click "SUBMIT".
+1.  Click the "SUBMIT" button.
 
 1.  Check for an email from <registry@cilogon.org> asking you to verify your OSG registration.
     Follow the link in the email.
     You should see an "Invitation to OSG" page.
 
-1.  Click "Accept".
+1.  Click the "Accept" button.
     You should see a message on top saying "Petition Confirmed".
 
 1.  Wait for approval from a COManage Admin.
