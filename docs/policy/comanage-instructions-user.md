@@ -1,7 +1,19 @@
 Registering for the OSG COManage
---------------------------------
+================================
 
-1.  Go to https://registry.cilogon.org/registry/co_petitions/start/coef:64
+OSG is using a new identity management system called COManage.
+This system will be used for managing access to OSG staff-internal monitoring webpages at UNL
+and managing access for OASIS logins.
+
+Follow the instructions below to register with COManage and join the OSG group.
+
+!!! note
+    This page is for users who want to register with COManage.
+    If you are a COManage Admin and want to approve a user registration,
+    go to the [Approving COManage Registrations](/policy/comanage-instructions-admin) page instead.
+
+
+1.  Go to <https://registry.cilogon.org/registry/co_petitions/start/coef:64>
 
 1.  Search for your institution and select it.
 
@@ -11,7 +23,8 @@ Registering for the OSG COManage
 1.  Click "BEGIN".
 
 1.  Enter your name and email address in the form fields;
-    they might already be filled in from what your institution provided.
+    defaults might be filled in from what your institution provided,
+    but you are permitted to change them.
 
 1.  Click "SUBMIT".
 
@@ -25,15 +38,17 @@ Registering for the OSG COManage
 1.  Wait for approval from a COManage Admin.
     You will get an email from <registry@cilogon.org> saying "Petition for <NAME> changed status
     from Pending Approval to Approved".
-    You may ignore the links in the email.
+    Ignore the links in the email.
 
 1.  To verify your access, go to
-    https://registry.cilogon.org/registry/users/login
-    If your registration was successful, you should see a page saying "Welcome to OSG. Please
-    select an action from the menus."
-    The menus are on the left.
-    If you click "Groups", you will get links to see your group memberships.
+    <https://registry.cilogon.org/registry/users/login>.
 
-    If your registration was unsuccessful, you will be at the "Self Signup With Approval" page.
-    In this case, contact <help@opensciencegrid.org> for assistance.
+    If you see a page saying "Welcome to OSG. Please select an action from the menus.",
+    then your registration was successful.
+
+    Otherwise, if you see the "Self Signup With Approval" page, then your registration was unsuccessful;
+    contact <help@opensciencegrid.org> for assistance.
+
+1.  The menus are on the left.
+    Click "Groups" to expand the section and see links to your group memberships.
 
