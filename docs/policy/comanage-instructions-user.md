@@ -50,6 +50,3 @@ Follow the instructions below to register with COManage and join the OSG group.
     Otherwise, if you see the "Self Signup With Approval" page, then your registration was unsuccessful;
     contact <help@opensciencegrid.org> for assistance.
 
-1.  The menus are on the left.
-    Click "Groups" to expand the section and see links to your group memberships.
-
