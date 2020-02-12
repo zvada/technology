@@ -103,7 +103,6 @@ Making Slim Containers
 
 Here are some resources for creating slim, efficient containers:
 
+- <https://developers.redhat.com/blog/2016/03/09/more-about-docker-images-size/>
 - <https://github.com/opensciencegrid/topology/pull/399>
 - <https://docs.docker.com/develop/develop-images/multistage-build/>
-- <https://medium.com/travis-on-docker/multi-stage-docker-builds-for-creating-tiny-go-images-e0e1867efe5a>
-- <https://medium.com/travis-on-docker/triple-stage-docker-builds-with-go-and-angular-1b7d2006cb88>
