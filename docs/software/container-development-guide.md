@@ -63,7 +63,7 @@ software in the container, you can kick off a new build in one of two ways:
 If the Travis-CI build completes successfully, you should shortly see new `fresh` and timestamp tags appear in the
 DockerHub repository.
 
-!!! note "Automatic weekly rebuilds"
+!!! info "Automatic weekly rebuilds"
     If the repo's Travis-CI is configured as above, container images will automatically rebuild, and therefore pick up
     new packages available in minefield once per week.
 
