@@ -94,7 +94,9 @@ Images that have passed acceptance testing should be tagged as `stable`:
 
 ### Removing tags ###
 
-Via the web interface, requires write permissions
+Run the Docker container image pruning command from [release-tools](https://github.com/opensciencegrid/release-tools/):
+
+    ./dockerhub-prune-tags.py <IMAGE NAME>
 
 Making Slim Containers
 ----------------------
