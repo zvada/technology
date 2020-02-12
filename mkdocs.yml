@@ -19,6 +19,7 @@ pages:
       - Upcoming to Main: 'software/upcoming-to-main.md'
       - Koji Workflow: 'software/koji-workflow.md'
       - Creating the VO Client Package: 'software/create-vo-client.md'
+      - Container Development Guide: 'software/container-development-guide.md'
       - Repository Management: 'software/repository-management.md'
       - Globus Mass Update Procedure: 'software/globus-mass-update-procedure.md'
       - Resurrecting Epel Packages: 'software/resurrecting-epel-packages.md'
