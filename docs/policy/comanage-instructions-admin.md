@@ -24,6 +24,9 @@ Follow the instructions below to approve a user registration.
     The Status should be "Pending Approval".
 
 1.  Verify that the application is legitimate.
+    Ask someone affiliated with the site, VO, or the sponsor of a project to verify the applicant's affiliation.
+    In the future, applicants will be asked to provide the contact information of such a person --
+    similar to our existing [contact registration process](https://opensciencegrid.org/docs/common/registration/).
 
 1.  Click the "Approve" button.
     You should see "Petition Approved" and "Petition Finalized" on top.
