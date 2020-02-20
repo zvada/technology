@@ -49,6 +49,11 @@ If you are on triage duty, your responsibilities are as follows:
     -   *If you cannot handle an incoming ticket,* collect initial details such as relevant versions, logs, etc., and
         assign the ticket to the most appropriate Technology Team member.
         Where appropriate, CC people from other OSG teams, sites, or VOs.
+
+    !!! important "New sites interested in joining the OSG"
+        For support requests inquiring about joining the OSG, assign the ticket to the Software Team manager and add the
+        Research Facilitation lead as a watcher.
+
 -   **Review assigned software tickets.**
     For tickets that are not being handled in a timely fashion (pay special attention to `OVERDUE` and `Customer
     Responded` tickets):
