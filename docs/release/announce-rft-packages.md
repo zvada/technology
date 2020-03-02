@@ -42,6 +42,10 @@ OSG 3.4 Only:
     -   Minor Package n.v.r
     -   Minor Package n.v.r
 
+To install any of these packages, run the following command:
+
+    # yum install --enablerepo=osg-testing <PACKAGE NAME>
+
 JIRA Ticket Summary: https://opensciencegrid.atlassian.net/issues/?filter=12355
 
 Please test this software and send end positive or negative feedback to
