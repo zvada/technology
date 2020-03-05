@@ -280,18 +280,17 @@ The following instructions are meant for the release manager (or interim release
         We welcome feedback on this release!
 
 2.  The release manager uses the [osg-notify tool](https://opensciencegrid.org/operations/services/sending-announcements/)
-    on `submit-1.chtc.wisc.edu` to send the release announcement using the following command:
+    on `osg-sw-submit.chtc.wisc.edu` to send the release announcement using the following command:
 
         :::console
-        $ cd topology
-        $ git pull
-        $ python bin/osg-notify --cert your-cert.pem --key your-key.pem \
-            --no-sign --type production --message message-file \
+        $ osg-notify --cert your-cert.pem --key your-key.pem \
+            --no-sign --type production --message <PATH TO MESSAGE FILE> \
             --subject '<EMAIL SUBJECT>' \
             --recipients "osg-general@opensciencegrid.org osg-operations@opensciencegrid.org osg-sites@opensciencegrid.org vdt-discuss@opensciencegrid.org" \
             --oim-recipients resources --oim-contact-type administrative
 
-    Replace `<EMAIL SUBJECT>` with an appropriate subject for your announcement.
+    Replacing `<EMAIL SUBJECT>` with an appropriate subject for your announcement and `<PATH TO MESSAGE FILE>` with the
+    path to the file containing your message in plain text.
 
 3.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
     Also set the Fix Versions field to the appropriate value(s) and uncheck the box that reads "Send mail for this update"
