@@ -48,7 +48,7 @@ Additional Materials
 If you are interested in learning more about the OSG and what it means to share resources via the OSG services, consider
 reviewing the following slides that were presented at the recent CC\* PI meeting:
 
-- [Introduction to OSG and OSG Participants](https://drive.google.com/file/d/12SvIOxXjlo4f2oJx9V9Oqbbu-oGXuJfa/view?usp=sharing)
+- [Introduction to OSG and OSG Participants](https://drive.google.com/file/d/1GZz9GKYJvrwizaCrGutHnkyiJpCGiaDr/view?usp=sharing)
 - [How Resources are Shared and Used via OSG](https://drive.google.com/open?id=1_1N2LrsJr8A8wICk3FMVimOdUPbHhXLz)
 - [Hosted CE options/process and implementation](https://docs.google.com/presentation/d/1YPdkslUT0r50W5dYqUm4Wlhv_nhhxIEhINhOwdSol1I/edit?usp=sharing)
 - [Using and Facilitating the Use of OSG Resources](https://drive.google.com/file/d/19AatZvqa_gss-lPtagK3lqSA85GrqFMJ/view?usp=sharing)
