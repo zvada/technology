@@ -38,7 +38,9 @@ user@host $ docker pull opensciencegrid/docker-twiki-converter
 
 To perform a document migration using docker, you will need the following tools and accounts:
 
-- [Fork](https://help.github.com/articles/fork-a-repo/) and [clone](https://help.github.com/articles/cloning-a-repository/) the repository that you chose in the [above section](#choosing-the-git-repository)
+- [Fork](https://help.github.com/articles/fork-a-repo/) and
+  [clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) the
+  repository that you chose in the [above section](#choosing-the-git-repository)
 - A host with a running docker service
 - `sudo` or membership in the `docker` group
 
