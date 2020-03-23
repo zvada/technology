@@ -8,7 +8,7 @@ Principles
 
 The principles below guide the design and implementation of the technical details that follow.
 
--   Packages should adhere to community standards (e.g., [Fedora Packaging Guidelines](http://fedoraproject.org/wiki/PackagingGuidelines)) when possible, and significant deviations must be documented
+-   Packages should adhere to community standards (e.g., [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/) when possible, and significant deviations must be documented
 -   Every released package must be reproducible from data stored in our system
 -   Source code for software should be clearly separable from the packaging of that software
 -   Upstream source files (which should not be modified) should be clearly separated from files owned by the OSG Software Team
@@ -403,7 +403,7 @@ The members of the OSG Software and Release teams may promote packages through t
 Packaging Conventions
 ---------------------
 
-In addition to adhering to the [Fedora Packaging Guidelines](http://fedoraproject.org/wiki/PackagingGuidelines) (FPG), we have a few rules and guidelines of our own:
+In addition to adhering to the [Fedora Packaging Guidelines](https://docs.fedoraproject.org/en-US/packaging-guidelines/) (FPG), we have a few rules and guidelines of our own:
 
 -   When we pass-through an RPM and make any changes to it (so it has an updated package number), we construct the version-release as follows:
     -   The version of the original RPM remains unchanged
