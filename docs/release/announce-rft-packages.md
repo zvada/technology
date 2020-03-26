@@ -7,7 +7,7 @@ for testing.
 Create the Announcement
 -----------------------
 
-### Step 1: Identify the packages that are `Ready for Testing`
+### Step 1: Identify the packages that are "Ready for Testing"
 
 Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
@@ -27,9 +27,10 @@ cd release-tools
 ### Step 2: Populate the Announcement Template
 
 Place packages into the appropriate section depending on release series and importance of the package.
+The major packages are listed in the [community testing policy](/policy/community-testing).
 Omit any packages that do not need to tested by the community such `osg-version` and internal tools.
 
-### Step 3: Send the `Ready for Testing` Announcement
+### Step 3: Send the "Ready for Testing" Announcement
 
 The announcement goes to:
 
