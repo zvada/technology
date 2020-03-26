@@ -47,53 +47,137 @@ The results of a buildArch task. Their metadata are recorded in the Koji databas
 **Repository**  
 A yum repository created from the contents of a tag at a specific point in time. By default, the yum repository will contain all successful, non-blocked builds in the tag, plus all RPMs in the external repositories for the tag.
 
+
+Obtaining Access
+----------------
+
+Building OSG packages in Koji requires these privileges:
+
+- access to the OSG subversion repository at https://vdt.cs.wisc.edu/svn
+- access to a login node at UW Comp Sci such as `moria.cs.wisc.edu`
+- access to the Koji service via a grid user certificate
+
+See the [user certificates document](https://opensciencegrid.org/docs/security/user-certs/)
+for information about how to get a user certificate.
+
+Open a Freshdesk ticket with the subject "Requesting access to Koji" with the following information:
+- top 3 username choices for the login node and SVN
+  (8 characters max, no punctuation)
+- the DN of your user certificate
+
+Assign the ticket to the Software team.
+
+
+Initial Setup
+-------------
+
+You will be using the [OSG Build Tools](/software/osg-build-tools) to interact with Koji.
+You can use them on either your own machine or on your UW Comp Sci login node such as `moria`.
+
+
+### Setting up on moria
+
+Perform the following to set up the build tools on `moria`:
+
+1.  Clone the osg-build git repo
+
+        :::console
+        you@moria$ git clone https://github.com/opensciencegrid/osg-build $HOME/osg-build
+
+1.  Set your `$PATH`:
+
+        :::console
+        you@moria$ export PATH=$PATH:$HOME/osg-build
+        you@moria$ export PATH=$PATH:/p/vdt/workspace/quilt/bin
+        you@moria$ export PATH=$PATH:/p/vdt/workspace/tarball-client/stable/sys
+
+1.  Copy your user certificate and key into `$HOME/.globus/usercert.pem` and `$HOME/.globus/userkey.pem`.
+    Make sure `userkey.pem` is only readable by yourself.
+
+1.  (Optional) Load your certificate into your browser.
+    This will allow you to make some changes using the [Koji web interface](https://koji.opensciencegrid.org/koji).
+
+1.  Set up the OSG Koji config
+
+        :::console
+        you@moria$ osg-koji setup
+
+    Answer "yes" to all questions.
+
+
+### Setting up on your own host
+
+This requires an Enterprise Linux 6 or 7 host.
+
+1.  Install the [OSG YUM repositories](https://opensciencegrid.org/docs/common/yum/)
+
+1.  If using OSG 3.5 or newer, enable the `devops` repository.
+
+1.  Install osg-build and its dependencies:
+
+        :::console
+        you@host$ sudo yum install osg-build
+
+1.  Install a program for getting grid certificates
+
+        :::console
+        you@host$ sudo yum install globus-proxy-utils
+
+    !!! note
+        If you already have `voms-clients-cpp` or `voms-clients-java` installed,
+        you can use `voms-proxy-init -rfc` instead of `grid-proxy-init`,
+        and don't need to install `globus-proxy-utils`.
+
+1.  (Optional) If you want to do mock builds (these are local builds in a chroot), add yourself to the `mock` user group:
+
+        :::console
+        you@host$ sudo usermod -a -G mock $USER
+
+1.  Copy your user certificate and key into `$HOME/.globus/usercert.pem` and `$HOME/.globus/userkey.pem`.
+    Make sure `userkey.pem` is only readable by yourself.
+
+    !!! note
+        If you are using a certificate from SAML or Kerberos credentials, such as with `cigetcert` or `kx509`,
+        skip this step.
+
+1.  (Optional) Load your certificate into your browser.
+    This will allow you to make some changes using the [Koji web interface](https://koji.opensciencegrid.org/koji).
+
+1.  Set up the OSG Koji config
+
+        :::console
+        you@moria$ osg-koji setup
+
+    Answer "yes" to all questions.
+
+
+Logging In to Koji
+------------------
+
+To use the OSG Build tools and the Koji command-line client, you will need to log in to Koji first.
+This involves getting a grid proxy certificate.
+Do one of the following:
+
+-   **On moria**<br>
+    Run `osgrun grid-proxy-init` and type your grid certificate password.
+    If you cannot find `osgrun`, ensure you have `/p/vdt/workspace/tarball-client/stable/sys` in your `$PATH`.
+
+-   **On your local machine**<br>
+    Run `grid-proxy-init` (if using `globus-proxy-utils`) or `voms-proxy-init -rfc` (if using `voms-clients`)
+    and type your grid certificate password.
+
+-   **On your local machine using SAML or Kerberos-based credentials**<br>
+    Run `cigetcert` or `kx509` and perform whatever identification challenges you are asked.
+
+
+To verify your login access and permissions, run:
+```console
+you@host$ osg-koji list-permissions --mine
+```
+
+
 Using Koji
 ----------
-
-### Required Software
-
-Using Koji requires:
-
--   `osg-build` version 1.6.3 or later.
--   `koji` 1.6.0-2.osg or later. **Note** that you want a koji build from osg; the output of `rpm -q koji` should end in ".osg".
-
-Both pieces of software are available from the osg repositories. `osg-build` may also be obtained from GitHub by cloning out `https://github.com/opensciencegrid/osg-build`
-
-#### Special instructions for UW-Madison CSL machines:
-
--   Clone the osg-build GitHub repo:
-
-        :::console
-        [you@host]$ git clone https://github.com/opensciencegrid/osg-build
-
--   Add this directory to your `$PATH`
--   Run
-
-        :::console
-        [you@host]$ osg-koji setup
-
-    to set up the koji configuration and certificates in `~/.osg-koji`
-
-### Obtaining a login
-
-You will be using your grid certificate to log in. Email a Koji admin the DN of your certificate, and we will set up a Koji account with the appropriate permissions.
-
-If you are switching certificate providers, you will need to email a Koji admin with your new DN. You will also need to clear your browser cookies and cache for `https://koji.opensciencegrid.org` before trying to use the Koji web interface again. If your CN has changed, you will not be able to use your old certificate.
-
-Current Koji admins are Mat Selmeci and Carl Edquist.
-
-### Configuring certificate authentication
-
-You must also configure certificate authentication for the command-line tools on your build host:
-
--   Run
-
-        :::console
-        [you@host]$ osg-koji setup
-
-    to set up the appropriate configuration and certificates in `~/.osg-koji`
-
-After this, you will also be able to run koji commands manually by using the `osg-koji` wrapper script. You might need to rerun `osg-koji setup` if you renew or change your cert.
 
 ### Creating a new build
 
@@ -108,8 +192,6 @@ To do a build, execute the following command from within the OSG Software subver
 ```
 
 To do a scratch build, simply add the `--scratch` command line flag.
-
-Each invocation of osg-build will ask for the password once or twice; if you get asked more like 20 times, then you may not be running the OSG-patched version of Koji; try switching to the one from the osg-development repository.
 
 When you do a non-scratch build, it will build with the *osg-el6* and *osg-el7* targets. This will assign your build the *osg-3.4-el6-development* and *osg-3.4-el7-development* tags (and your package will be assigned the *osg-el6* and *osg-el7* tags). If successful, your build will end up in the Koji *osg-minefield* yum repos and will eventually show up in the *osg-development* yum repos. This is a high latency process.
 
@@ -197,6 +279,8 @@ Software contributors can promote any package to testing. Members of the securit
 To promote from development to testing:
 
 #### Using *osg-promote*
+
+Before using `osg-promote`, [log in to Koji as above](#logging-in-to-koji).
 
 If you want to promote the latest version:
 
