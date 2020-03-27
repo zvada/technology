@@ -27,9 +27,7 @@ Completing a Review
 
 Upon completion of the review:
 
-1.  Update (or add) the review date in the
-    [metadata](https://squidfunk.github.io/mkdocs-material/extensions/metadata/#redirecting-to-another-page) at the top
-    of the document:
+1.  Update (or add) the review date in the metadata at the top of the document:
 
         DateReviewed: YYYY-MM-DD
 
