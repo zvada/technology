@@ -1,21 +1,15 @@
-Review OSG Software Documentation
-=================================
+DateReviewed: 2020-03-27
+
+Reviewing Software Documentation
+================================
 
 To maintain quality documentation, we regularly review our documentation for clarity and correctness.
-We differentiate between two types of reviews, content and editorial, which you can think of as for correctness and
-clarity, respectively.
-If you are reviewing a document as part of the release process, perform a content review.
 
-After completing a review, update the appropriate columns in the
-[document tracking spreadsheet](https://docs.google.com/spreadsheets/d/1b3_9WqjUVlszu_tM23ehaOPQVAKb5OSRvmtuLx0u8Go/edit?usp=sharing).
-Speak to Brian Lin for write access.
+Performing a Review
+-------------------
 
-Content Review
---------------
-
-Content reviews are for validating the correctness of technical steps and details.
-To perform a content review, follow the instructions of the document to a tee as if you were an OSG neophyte.
-Things to note and/or fix:
+When reviewing a document, follow the instructions of the document to a tee as if you were completely new to the OSG.
+Some common things to note and/or fix:
 
 - After completing the instructions in the document:
     - Does the document inform you how to use the product?
@@ -25,10 +19,18 @@ Things to note and/or fix:
 - Steps that may be particularly conducive to software or default configuration as a solution
 - Lack of clarity or any other confusion you may have
 
-Editorial Review
-----------------
+Additionally, ensure that the document meets our [style](/documentation/style-guide) and
+[layout](/documentation/writing-documentation#document-layout) guidelines, as well as correct spelling and grammar.
 
-Editorial reviews are for ensuring docs meet our [style](/documentation/style-guide) and
-[layout](/documentation/writing-documentation#document-layout) guidelines;
-improving readability;
-and proofing spelling, grammar, and punctuation.
+Completing a Review
+-------------------
+
+Upon completion of the review:
+
+1.  Update (or add) the review date in the
+    [metadata](https://squidfunk.github.io/mkdocs-material/extensions/metadata/#redirecting-to-another-page) at the top
+    of the document:
+
+        DateReviewed: YYYY-MM-DD
+
+1.  Submit a pull request with the above change and any other improvements from the review
