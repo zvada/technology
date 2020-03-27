@@ -1,14 +1,21 @@
 Review OSG Software Documentation
 =================================
 
-To maintain quality documentation, we must regularly review our documentation for clarity and correctness. We differentiate between two types of reviews, content and editorial, which you can think of as for correctness and clarity, respectively. If you are reviewing a document as part of the release process, perform a content review.
+To maintain quality documentation, we regularly review our documentation for clarity and correctness.
+We differentiate between two types of reviews, content and editorial, which you can think of as for correctness and
+clarity, respectively.
+If you are reviewing a document as part of the release process, perform a content review.
 
-After completing a review, update the appropriate columns in the [document tracking spreadsheet](https://docs.google.com/spreadsheets/d/1b3_9WqjUVlszu_tM23ehaOPQVAKb5OSRvmtuLx0u8Go/edit?usp=sharing). Speak to Brian Lin for write access.
+After completing a review, update the appropriate columns in the
+[document tracking spreadsheet](https://docs.google.com/spreadsheets/d/1b3_9WqjUVlszu_tM23ehaOPQVAKb5OSRvmtuLx0u8Go/edit?usp=sharing).
+Speak to Brian Lin for write access.
 
 Content Review
 --------------
 
-Content reviews are for validating the correctness of technical steps and details. To perform a content review, follow the instructions of the document to a tee as if you were an OSG neophyte. Things to note and/or fix:
+Content reviews are for validating the correctness of technical steps and details.
+To perform a content review, follow the instructions of the document to a tee as if you were an OSG neophyte.
+Things to note and/or fix:
 
 - After completing the instructions in the document:
     - Does the document inform you how to use the product?
@@ -21,4 +28,7 @@ Content reviews are for validating the correctness of technical steps and detail
 Editorial Review
 ----------------
 
-Editorial reviews are for ensuring docs meet our [style](/documentation/style-guide) and [layout](/documentation/writing-documentation#document-layout) guidelines; improving readability; and proofing spelling, grammar, and punctuation.
+Editorial reviews are for ensuring docs meet our [style](/documentation/style-guide) and
+[layout](/documentation/writing-documentation#document-layout) guidelines;
+improving readability;
+and proofing spelling, grammar, and punctuation.
