@@ -120,7 +120,30 @@ verify that the version of the VO Package and/or CA certificates match the versi
 /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
 ```
 
-### Step 5: Announce the release
+### Step 5: Make release note pages
+
+1.  Copy the release note page from the latest data release of each series and put the new version number in the
+    file name. Edit the release number and date.
+
+2.  Insert the package and RPM lists generated in Step 2 above.
+
+3.  For the list of changes, make an entry for each package. (VO Package v??, and/or CA certificates based on IGTF 1.??)
+    Under each package, list the VOs or CAs affected. Usually, you can just paste this from their release announcement.
+    (At the time of writing, CA certificate and VO updates are the only packages that go into a data only release.)
+
+4.  Spell check the release note pages.
+
+5.  Add the new pages to the release series table in `docs/release/notes.md`. List the major packages that are
+    mentioned in the release announcement.
+
+6.  Locally serve up the web pages and ensure that the formatting looks good and the links work as expected.
+
+7.  Make a pull request, get it approved, and merged.
+
+8.  When the web page is available, you can announce the release.
+
+
+### Step 6: Announce the release
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 

@@ -251,7 +251,34 @@ cd docker-osg-wn
 For each documentation ticket in this release, merge the pull requests mentioned in the description or comments.
 
 
-### Step 8: Announce the release
+### Step 8: Make release note pages
+
+1.  Copy the release note page from the latest software release of each series and put the new version number in the
+    file name. Edit the release number and date.
+
+2.  Insert the package and RPM lists generated in Step 2 above.
+
+3.  For the list of changes, make an entry for each package that contains short descriptive text that would inform
+    a system administrator whether or not this change is of concern to them. Also, link in any release announcement
+    web page that is available for the software. Look a prior releases of the same software for hints on where to
+    find such a page.
+
+4.  Examine the known issues and remove any that were resolved with this release. Of course, add any new ones that
+    have come up.
+
+5.  Spell check the release note pages.
+
+6.  Add the new pages to the release series table in `docs/release/notes.md`. List the major packages that are
+    mentioned in the release announcement.
+
+7.  Locally serve up the web pages and ensure that the formatting looks good and the links work as expected.
+
+8.  Make a pull request, get it approved, and merged.
+
+9.  When the web page is available, you can announce the release.
+
+
+### Step 9: Announce the release
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
