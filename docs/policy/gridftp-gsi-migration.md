@@ -39,7 +39,7 @@ Detailed migration plans can be found [in this document](https://docs.google.com
 | Aug 2019  | Beginning of OSG 3.5 release series (last release series depending on GCT)                             | &#9989;       |
 | Aug 2019  | Including HTCondor 8.9.2 in the ‘upcoming’ repository (first HTCondor version with SciTokens support). | &#9989;       |
 | Oct 2019  | OSG no longer carries OSG-specific patches for the GCT.  All patches are upstreamed or retired.        | &#9989;       |
-| Jan 2020  | **DELAYED, expected completion Mar 2020:** "GSI free" site demo. Show, at proof-of-concept / prototype level, all components without use of GCT.  | &#10060;      |
+| Mar 2020  | "GSI free" site demo. Show, at proof-of-concept / prototype level, all components without use of GCT.  | &#9989;       |
 | July 2020 | All GCT-free components are in OSG-Upcoming.                                                           |               |
 | Jan 2021  | OSG series 3.6, without GCT dependencies, is released.                                                 |               |
 | Jan 2022  | End of support for OSG 3.5.                                                                            |               |
@@ -83,5 +83,6 @@ Yes.
 Version History
 ---------------
 
+- **2020-03-30**: Completed GSI-free site demonstration
 - **2020-03-17**: Highlighted delay in Jan 2020 milestone and new expected completion date of Mar 2020
 - **2020-03-16**: Updated completed items on the overall timeline; added link for detailed document
