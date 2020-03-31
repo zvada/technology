@@ -43,7 +43,7 @@ Creating a New Container Image
 1. Send the `opensciencegrid` GitHub repository URL to the Software Manager and ask them to do the following:
     1. Enable the repository in Travis-CI
     1. Add the OSG Software Docker Hub account credentials to the Travis CI repository as secure variables
-       `DOCKER_USERNAME` and `DOCKER_PASSWORD`.
+       `DOCKER_USERNAME` and `DOCKER_PASSWORD` only available to the `master` branch.
        Ensure that `Display value in build log` remains unset.
        Escape any special characters with `\`.
     1. Enable weekly cron builds from `master` and set `Always run`
