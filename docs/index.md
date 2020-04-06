@@ -30,7 +30,7 @@ Meetings
 --------
 
 **When:** Every Monday, 11:00 a.m. (U.S. Central)
-**Where:** +1 971-292-4623, PIN #57363; [Uber Conference](https://www.uberconference.com/osgblin)
+**Where:** +1 312-626-6799, PIN: 718 161 330, <https://cern.zoom.us/j/718161330> (password sent separately)
 
 Meeting note archives can be found directly in the
 [GitHub repository](https://github.com/opensciencegrid/technology/tree/master/docs/meetings).
