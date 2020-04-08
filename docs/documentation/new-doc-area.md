@@ -73,6 +73,8 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
         site_name: <TITLE OF YOUR SITE>
         site_url: https://opensciencegrid.org/<REPO NAME>
         repo_name: https://github.com/opensciencegrid/<REPO NAME>
+        theme:
+          name: material
 
         pages:
           - Home: 'index.md'
@@ -81,6 +83,7 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
           - admonition
           - codehilite:
               guess_lang: False
+          - meta
           - toc:
               permalink: True
 
