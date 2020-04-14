@@ -36,7 +36,7 @@ Creating a New Container Image
 ### Prepare the DockerHub repository ###
 
 1. Create a Docker Hub repo in the OSG organization.
-1. Go to the permissions tab and give the `robots` team `Read & Write` access
+1. Go to the permissions tab and give the `robots` and `technology` teams `Read & Write` access
 1. Copy over `.travis.yml` and `travis/` from a previous docker build (e.g., <https://github.com/opensciencegrid/docker-frontier-squid>).
    Update the `docker_repos` in `build_docker.sh` to the name of the Docker Hub repo
 1. Set the `+x` bit on `travis/build_docker.sh`
