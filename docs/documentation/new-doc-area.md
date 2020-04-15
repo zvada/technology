@@ -48,7 +48,7 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
 
     1. Enable the repository in Travis:
 
-            travis enable opensciencegrid/<REPO NAME>
+            travis enable -r opensciencegrid/<REPO NAME>
 
     1. Encrypt the deploy key:
 
