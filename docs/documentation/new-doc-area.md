@@ -50,7 +50,7 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
 
             travis enable -r opensciencegrid/<REPO NAME>
 
-    1. Encrypt the deploy key:
+    1. Encrypt the deploy key and temporarily save the output (you will need the hashes later for `.travis.env`):
 
             travis encrypt-file deploy-key
 
