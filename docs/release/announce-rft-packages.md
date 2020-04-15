@@ -47,7 +47,7 @@ on `osg-sw-submit.chtc.wisc.edu` to send the release announcement using the foll
         --no-sign --type production --message <PATH TO MESSAGE FILE> \
         --subject 'OSG Packages Available for Testing' \
         --recipients "osg-sites@opensciencegrid.org cms-t2@fnal.gov usatlas-t2-l@lists.bnl.gov" \
-        --oim-recipients resources --oim-contact-type administrative
+        --oim-recipients resources --oim-recipients vos --oim-contact-type administrative
 
 Announcement Template
 ---------------------
