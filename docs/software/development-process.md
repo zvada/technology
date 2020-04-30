@@ -59,7 +59,7 @@ To enable this feature, the GitHub repository must meet the following criteria:
         sudo: required
         env:
           - REPO_NAME=${TRAVIS_REPO_SLUG#*/}
-          - KOJI_BUILD_TAG=<KOJI BUILD TAG>
+            KOJI_BUILD_TAG=<KOJI BUILD TAG>
 
         git:
           depth: false
