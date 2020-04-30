@@ -53,7 +53,7 @@ To enable this feature, the GitHub repository must meet the following criteria:
 1. Enabled in [Travis CI](https://travis-ci.com/getting_started).
    Repositories that are part of the `opensciencegrid` GitHub organization require special permission to enable.
    Consult Brian or Mat.
-1. Contains `.travis.yml` file with the following contents, with `<KOJI_BUILD_TAG>` replaced by one of the tags from [this list](https://koji.chtc.wisc.edu/koji/search?match=glob&type=tag&terms=*el%3F-build):
+1. Contains `.travis.yml` file with the following contents, with `<KOJI_BUILD_TAG>` replaced by one of the tags from [this list](https://koji.opensciencegrid.org/koji/search?match=glob&type=tag&terms=*el%3F-build):
 
         :::yaml
         sudo: required
