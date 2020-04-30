@@ -53,12 +53,13 @@ To enable this feature, the GitHub repository must meet the following criteria:
 1. Enabled in [Travis CI](https://travis-ci.com/getting_started).
    Repositories that are part of the `opensciencegrid` GitHub organization require special permission to enable.
    Consult Brian or Mat.
-1. Contains `.travis.yml` file with the following contents:
+1. Contains `.travis.yml` file with the following contents, with `<KOJI_BUILD_TAG>` replaced by one of the tags from [this list](https://koji.chtc.wisc.edu/koji/search?match=glob&type=tag&terms=*el%3F-build):
 
         :::yaml
         sudo: required
         env:
           - REPO_NAME=${TRAVIS_REPO_SLUG#*/}
+          - KOJI_BUILD_TAG=<KOJI BUILD TAG>
 
         git:
           depth: false
@@ -75,7 +76,7 @@ To enable this feature, the GitHub repository must meet the following criteria:
           - sudo docker pull opensciencegrid/osg-build
 
         script:
-          - docker run -v $(pwd):/$REPO_NAME -e REPO_NAME=$REPO_NAME --cap-add=SYS_ADMIN opensciencegrid/osg-build build-from-github
+          - docker run -v $(pwd):/$REPO_NAME -e REPO_NAME=$REPO_NAME -e KOJI_BUILD_TAG=$KOJI_BUILD_TAG --cap-add=SYS_ADMIN opensciencegrid/osg-build build-from-github
 
 ### Building packages for multiple OSG release series
 
