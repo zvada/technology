@@ -151,10 +151,10 @@ This requires an Enterprise Linux 6 or 7 host.
     Answer "yes" to all questions.
 
 
-Logging In to Koji
-------------------
+Authenticating to Koji
+----------------------
 
-To use the OSG Build tools and the Koji command-line client, you will need to log in to Koji first.
+To use the OSG Build tools and the Koji command-line client, you will need to make sure you can authenticate to Koji.
 This involves getting a grid proxy certificate.
 Do one of the following:
 
@@ -174,6 +174,7 @@ To verify your login access and permissions, run:
 ```console
 you@host$ osg-koji list-permissions --mine
 ```
+You should see a list of your permissions if successful, or an error message if unsuccessful.
 
 
 Using Koji
