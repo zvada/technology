@@ -78,9 +78,9 @@ Images that have passed acceptance testing should be tagged as `stable`:
 
         yum install jq
         
-1. Get the SHA256 repo digest of the image that the user has tested
-1. Go to the Docker Hub repo (e.g., <https://hub.docker.com/r/opensciencegrid/frontier-squid/tags>) and find the
-   `<TIMESTAMP TAG>` (e.g., `20191118-1706`) corresponding to the digest in the previous step
+1. Get the sha256 repo digest of the image that the user has tested.
+   All you need is the part that starts with `sha256:...` (aka the `<DIGEST>`).
+
 1. (Optional) If you are tagging multiple images, you can enter your Docker Hub username and password into environment
    variables, to avoid having to re-type them.
    Otherwise the script will prompt for them.
@@ -91,7 +91,7 @@ Images that have passed acceptance testing should be tagged as `stable`:
 
 1. Run the Docker container image tagging command from [release-tools](https://github.com/opensciencegrid/release-tools/):
 
-        ./dockerhub-tag-fresh-to-stable.sh <IMAGE NAME> <TIMESTAMP TAG>
+        ./dockerhub-tag-fresh-to-stable.sh <IMAGE NAME> <DIGEST>
 
 ### Removing tags ###
 
