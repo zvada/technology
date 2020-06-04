@@ -281,7 +281,7 @@ To promote from development to testing:
 
 #### Using *osg-promote*
 
-Before using `osg-promote`, [log in to Koji as above](#logging-in-to-koji).
+Before using `osg-promote`, [authenticate to Koji as above](#authenticating-to-koji).
 
 If you want to promote the latest version:
 
