@@ -131,7 +131,7 @@ When constructing lists, use the following guidelines:
       beginning of each line, where N is the level of the item in the list. To apply code highlighting, start the code
       block with `:::<FORMAT>`; see [this page](http://squidfunk.github.io/mkdocs-material/extensions/codehilite/) for
       details, including possible highlighting formats.  For an example of formatting a code section inside a list, see
-      [the release series document](https://github.com/opensciencegrid/docs/blob/master/docs/release/release_series).
+      [the release series document](https://github.com/opensciencegrid/docs/blame/fd631cfa594b0726e021584dc12d9cf2a3a69206/docs/release/release_series.md#L110-L118).
     - For additional text (i.e. after a code block), insert `N*4` spaces at the beginning of each line, where N is the
       level of the item in the list.
 
