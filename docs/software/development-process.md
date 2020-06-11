@@ -266,7 +266,7 @@ Below are some tips for writing a good promotion request:
     -   Summarize your tests and findings
     -   If there were failures, explain why they are not important to the promotion request
 -   If there are critical build dependencies that we typically check, include reports from the `built-against-pkgs` tool
-    -   Note: This step is really just for known, specific cases, like the {HTCondor, HTCondor-CE, BLAHP} set and the {BeStMan, GUMS, VOMS Admin, etc.} Java set
+    -   Note: This step is really just for known, specific cases, like the {HTCondor, BLAHP} set
     -   Occasionally, the OSG Software manager will request the tool to be run for other cases
 -   If other packages depend on the to-be-promoted package, explain whether the dependent packages must be rebuilt or, if not, why not
 
@@ -290,4 +290,6 @@ Follow these steps to request promotion, promote a package, and note the promoti
 3.  Use [osg-promote](/software/osg-build-tools#osg-promote) to promote the package(s) from development to testing
 4.  Comment on the associated JIRA ticket(s) with osg-promote's JIRA-formatted output (or at least the build NVRs) and,
     if you know, suggestions for acceptance testing
+1.  Update the JIRA ticket description with a bulleted list describing changes in the promoted version(s) compared to
+    the currently released version(s)
 5.  Mark each associated JIRA ticket as “Ready For Testing”
