@@ -290,4 +290,6 @@ Follow these steps to request promotion, promote a package, and note the promoti
 3.  Use [osg-promote](/software/osg-build-tools#osg-promote) to promote the package(s) from development to testing
 4.  Comment on the associated JIRA ticket(s) with osg-promote's JIRA-formatted output (or at least the build NVRs) and,
     if you know, suggestions for acceptance testing
+1.  Update the JIRA ticket description with a bulleted list describing changes in the promoted version(s) compared to
+    the currently released version(s)
 5.  Mark each associated JIRA ticket as “Ready For Testing”
