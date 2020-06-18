@@ -2,7 +2,7 @@ Setup Instructions for New Team Members
 =======================================
 
 1. Computing account at FNAL
-    -   To get this, follow the instructions at <https://fermi.service-now.com/kb_view.do?sysparm_article=KB0010797>
+    -   To get this, follow the instructions [here](https://fermi.servicenowservices.com/kb_view.do?sysparm_article=KB0010797).
 1. ssh access to a UW CompSci account, including AFS access
     - Send email to Tim C with top 3 requested usernames
 1. Read/write access to the UW Subversion repository;
