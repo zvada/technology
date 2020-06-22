@@ -27,7 +27,7 @@ Completing a Review
 
 Upon completion of the review:
 
-1.  Update (or add) the review date in the metadata at the top of the document:
+1.  Update (or add) the review date in the metadata at the top of the document above the `h1`:
 
         DateReviewed: YYYY-MM-DD
 
