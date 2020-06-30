@@ -120,9 +120,9 @@ cd release-tools
 ```
 
 !!! note
-    Enter a@a.a for your upload accost at first. The script will build the tarballs but not upload them.
+    Enter a@a.a for your upload account at first. The script will build the tarballs but not upload them.
     Test them in next step and then rerun the script and enter the proper account information.
-    The script will pick up where is left of and upload the tarballs.
+    The script will pick up where it left off and upload the tarballs.
 
 ### Step 6: Briefly test the client tarballs
 
