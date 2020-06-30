@@ -247,12 +247,26 @@ cd docker-osg-wn
 # that 'update-all' should have printed
 ```
 
-### Step 7: Merge any pending documentation
+### Step 7: Verify the VO Package and/or CA certificates
+
+If this release contains either the `vo-client` or `osg-ca-certs` package, verify that the CA web site has been updated.
+Wait for the [CA certificates](https://repo.opensciencegrid.org/cadist/) to be updated.
+It may take a while for the updates to reach the mirror used to update the web site.
+The repository is checked hourly for updated CA certificates.
+Once the web page is updated, run the following command to update the VO Package and/or CA certificates in the tarball installations and
+verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
+
+```bash
+/p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
+/p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
+```
+
+### Step 8: Merge any pending documentation
 
 For each documentation ticket in this release, merge the pull requests mentioned in the description or comments.
 
 
-### Step 8: Make release note pages
+### Step 9: Make release note pages
 
 1.  Copy the release note page from the latest software release of each series and put the new version number in the
     file name. Edit the release number and date.
