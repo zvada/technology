@@ -31,17 +31,12 @@ The release manager often needs a tentative list of packages to be released. Thi
 
 ### Step 1: Update the osg-version RPM (3.4 only)
 
-For each release (excluding upcoming), update the version number in the osg-version RPM's spec file and build it in koji:
+For each 3.4 release, update the version number in the osg-version RPM's spec file and build it in koji:
 
 ```bash
-# If building for the latest release out of trunk
-osg-build koji osg-version
-# If building for an older release out of a branch:
-MAJOR_VERSION=<MAJOR VERSION>
-osg-build koji --repo=$MAJOR_VERSION osg-version
+# Build OSG 3.4's osg-version package
+osg-build koji --repo=3.4 osg-version
 ```
-
-Where `<MAJOR VERSION>` is of the format `x.y` (e.g. `3.2`).
 
 ### Step 2: Promote osg-version (3.4 only) and generate the release list
 
@@ -80,7 +75,7 @@ If there are any discrepancies, consult the release manager. You may have to tag
 
 ### Step 2: Test Pre-Release in VM Universe
 
-To test pre-release, you will be kicking off a manual VM universe test run from `osghost.chtc.wisc.edu`.
+To test pre-release, you will be kicking off a manual VM universe test run from `osg-sw-submit.chtc.wisc.edu`.
 
 1.  Ensure that you meet the [pre-requisites](https://github.com/opensciencegrid/vm-test-runs) for submitting VM universe test runs
 2.  Prepare the test suite by running:
@@ -90,7 +85,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 3.  `cd` into the directory specified in the output of the previous command
 4.  Submit the DAG:
 
-        condor_submit_dag master-run.dag
+        ./master-run.sh
 
 !!! note
     If there are failures, consult the release-manager before proceeding.
@@ -124,9 +119,15 @@ cd release-tools
 ./1-client-tarballs $NON_UPCOMING_VERSIONS
 ```
 
+!!! note
+    Enter a@a.a for your upload accost at first. The script will build the tarballs but not upload them.
+    Test them in next step and then rerun the script and enter the proper account information.
+    The script will pick up where is left of and upload the tarballs.
+
 ### Step 6: Briefly test the client tarballs
 
-As an **unprivileged user**, extract each tarball into a separate directory. Make sure osg-post-install works. Make sure `osgrun osg-version` works by running the following tests, replacing `<NON-UPCOMING VERSION(S)` with the appropriate version numbers:
+Copy 1-verify-tarballs into /tmp.
+As an **unprivileged user**, run the script:
 
 ```bash
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
@@ -188,7 +189,7 @@ VERSIONS="<VERSION(S)>"
 
 ### Step 3: Upload the client tarballs
 
-Upload the tarballs to the repository with the following procedure from a UW CS machine (e.g., `ingwe`):
+Upload the tarballs to the repository with the following procedure from a UW CS machine (e.g., `moria`):
 
 ```bash
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
@@ -211,7 +212,7 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 cd /tmp
 git clone --depth 1 file:///p/vdt/workspace/git/repo/tarball-client.git
 for ver in $NON_UPCOMING_VERSIONS; do
-    /p/vdt/workspace/tarball-client/current/sys/osgrun bash -x /tmp/tarball-client/upload-tarballs-to-oasis $ver
+    /p/vdt/workspace/tarball-client/current/sys/osgrun /tmp/tarball-client/upload-tarballs-to-oasis $ver
 done
 ```
 
@@ -246,12 +247,26 @@ cd docker-osg-wn
 # that 'update-all' should have printed
 ```
 
-### Step 7: Merge any pending documentation
+### Step 7: Verify the VO Package and/or CA certificates
+
+If this release contains either the `vo-client` or `osg-ca-certs` package, verify that the CA web site has been updated.
+Wait for the [CA certificates](https://repo.opensciencegrid.org/cadist/) to be updated.
+It may take a while for the updates to reach the mirror used to update the web site.
+The repository is checked hourly for updated CA certificates.
+Once the web page is updated, run the following command to update the VO Package and/or CA certificates in the tarball installations and
+verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
+
+```bash
+/p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
+/p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
+```
+
+### Step 8: Merge any pending documentation
 
 For each documentation ticket in this release, merge the pull requests mentioned in the description or comments.
 
 
-### Step 8: Make release note pages
+### Step 9: Make release note pages
 
 1.  Copy the release note page from the latest software release of each series and put the new version number in the
     file name. Edit the release number and date.
