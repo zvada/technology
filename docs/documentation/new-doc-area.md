@@ -44,15 +44,15 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
 
     1. Login using your GitHub credentials:
 
-            travis login
+            travis login --com
 
     1. Enable the repository in Travis:
 
-            travis enable -r opensciencegrid/<REPO NAME>
+            travis enable --com -r opensciencegrid/<REPO NAME>
 
     1. Encrypt the deploy key and temporarily save the output (you will need the hashes later for `.travis.env`):
 
-            travis encrypt-file deploy-key
+            travis encrypt-file --com deploy-key
 
     1. Stage and commit your files:
 
