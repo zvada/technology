@@ -6,7 +6,7 @@ and deploying it automatically with [Travis-CI](https://travis-ci.org/).
 This document assumes that you are an administrator of the `opensciencegrid` GitHub organization.
 Before starting, make sure that you have the `git` and `gem` tools installed.
 
-1. Create a new repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new)
+1. Create a new public repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new)
    (referred to as `<REPO NAME>` in the rest of this document)
 
     1. Check the box marked `Initialize this repository with a README`
