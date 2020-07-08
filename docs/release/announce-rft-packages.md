@@ -64,27 +64,27 @@ Several packages are available for testing for tentative release next week.
 
 OSG 3.5 Only:
 -   Major Components*
-    -   Major Component n.v. - <DESCRIPTION>
-    -   Major Component n.v. - <DESCRIPTION>
+    -   <Major Component Name and Version (NV)> - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
 -   Minor Components
-    -   Minor Component n.v.
-    -   Minor Component n.v.
+    -   <Minor Component NV>
+    -   <Minor Component NV>
 
 Both OSG 3.5 and 3.4:
 -   Major Components*
-    -   Major Component n.v. - <DESCRIPTION>
-    -   Major Component n.v. - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
 -   Minor Components
-    -   Minor Component n.v. - <DESCRIPTION>
-    -   Minor Component n.v. - <DESCRIPTION>
+    -   <Minor Component NV> - <DESCRIPTION>
+    -   <Minor Component NV> - <DESCRIPTION>
 
 OSG 3.4 Only:
 -   Major Components*
-    -   Major Component n.v. - <DESCRIPTION>
-    -   Major Component n.v. - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
 -   Minor Components
-    -   Minor Component n.v.
-    -   Minor Component n.v.
+    -   <Minor Component NV>
+    -   <Minor Component NV>
 
 To install any of these packages, run the following command:
 
