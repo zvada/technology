@@ -8,8 +8,9 @@ Meta
 
 - Run a spellchecker to catch any obvious spelling mistakes.
 - Use official capitalizations when referring to titles (i.e., HTTPS, HTCondor)
-- Wherever possible, prose should be limited to 120 characters wide but do not break links up between lines.
-  In addition, using one line for each sentence is recommended since it makes update diffs easier to review.
+- Start each new sentence on a new line.
+  Lines should not exceed 120 characters, except in the case of [link text](#links),
+  but may be split at earlier points (e.g. punctuation).
 
 Headings
 --------
