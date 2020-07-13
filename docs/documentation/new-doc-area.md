@@ -6,17 +6,17 @@ and deploying it automatically with [Travis-CI](https://travis-ci.org/).
 This document assumes that you are an administrator of the `opensciencegrid` GitHub organization.
 Before starting, make sure that you have the `git` and `gem` tools installed.
 
-1. Create a new repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new)
+1. Create a new public repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new)
    (referred to as `<REPO NAME>` in the rest of this document)
 
     1. Check the box marked `Initialize this repository with a README`
 
 1. Identify the repository as using mkdocs:
 
-    1. On the repository home page (i.e., `https://github.com/opensciencegrid/<REPO NAME>`), click the “Manage topics”
-       link
-    1. Search for `mkdocs` and select `mkdocs`
-    1. Click the “Done” button
+    1. On the repository home page (i.e., `https://github.com/opensciencegrid/<REPO NAME>`), click the gear button in
+       the top right (next to "About")
+    1. In the topics field, add `mkdocs`
+    1. Click the “Save Changes” button
 
 1. Clone the repository and `cd` into the directory:
 
