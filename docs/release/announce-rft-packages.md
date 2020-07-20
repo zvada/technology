@@ -26,9 +26,11 @@ cd release-tools
 
 ### Step 2: Populate the Announcement Template
 
-Place packages into the appropriate section depending on release series and importance of the package.
-The major packages are listed in the [community testing policy](/policy/community-testing).
-Omit any packages that do not need to tested by the community such `osg-version` and internal tools.
+Find the software components that the packages in the list correspond to.
+For example, `htcondor-ce-4.4.0-1.osg35.el7` should be listed as "HTCondor-CE 4.4.0".
+Place software components into the appropriate section depending on release series and importance of the software.
+The major software components are listed in the [community testing policy](/policy/community-testing).
+Omit any software that does not need to tested by the community such `osg-version` and internal tools.
 
 ### Step 3: Send the "Ready for Testing" Announcement
 
@@ -54,33 +56,35 @@ Announcement Template
 
 The following email template is filled out to announce that packages are ready for testing.
 Text between `<ANGLE BRACKETS>` should be replaced and sections without packages to be tested should be omitted.
+Omit release numbers unless they are relevant (e.g. for a packaging-only change).
+Each major component should have a line about what's new.
 
 ```
 Several packages are available for testing for tentative release next week.
 
 OSG 3.5 Only:
 -   Major Components*
-    -   Major Package n.v.r (Comment, Security, etc.)
-    -   Major Package n.v.r
+    -   <Major Component Name and Version (NV)> - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
 -   Minor Components
-    -   Minor Package n.v.r
-    -   Minor Package n.v.r
+    -   <Minor Component NV>
+    -   <Minor Component NV>
 
 Both OSG 3.5 and 3.4:
 -   Major Components*
-    -   Major Package n.v.r (Comment, Security, etc.)
-    -   Major Package n.v.r
+    -   <Major Component NV> - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
 -   Minor Components
-    -   Minor Package n.v.r
-    -   Minor Package n.v.r
+    -   <Minor Component NV>
+    -   <Minor Component NV>
 
 OSG 3.4 Only:
 -   Major Components*
-    -   Major Package n.v.r (Comment, Security, etc.)
-    -   Major Package n.v.r
+    -   <Major Component NV> - <DESCRIPTION>
+    -   <Major Component NV> - <DESCRIPTION>
 -   Minor Components
-    -   Minor Package n.v.r
-    -   Minor Package n.v.r
+    -   <Minor Component NV>
+    -   <Minor Component NV>
 
 To install any of these packages, run the following command:
 
