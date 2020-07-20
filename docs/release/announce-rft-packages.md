@@ -75,8 +75,8 @@ Both OSG 3.5 and 3.4:
     -   <Major Component NV> - <DESCRIPTION>
     -   <Major Component NV> - <DESCRIPTION>
 -   Minor Components
-    -   <Minor Component NV> - <DESCRIPTION>
-    -   <Minor Component NV> - <DESCRIPTION>
+    -   <Minor Component NV>
+    -   <Minor Component NV>
 
 OSG 3.4 Only:
 -   Major Components*
