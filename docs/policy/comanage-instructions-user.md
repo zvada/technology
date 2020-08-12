@@ -1,46 +1,41 @@
-Registering for the OSG COManage
-================================
+DateReviewed: 2020-08-12
 
-OSG is using a new identity management system called COManage.
-Initially, this system will be used for managing access to OSG staff-internal monitoring webpages at UNL,
-and managing access for OASIS logins.
+Registering with the OSG
+========================
 
-Follow the instructions below to register with COManage and join the OSG group.
-
-!!! note
-    This page is for users who want to register with COManage.
-    If you are a COManage Admin and want to approve a user registration,
+!!! note "COManage administrators"
+    This page is for users who want to register with the OSG.
+    If you are a COManage Admin and need to approve a user registration,
     go to the [Approving COManage Registrations](/policy/comanage-instructions-admin) page instead.
 
+OSG uses the [COManage](https://www.internet2.edu/products-services/trust-identity/comanage/) identity management system
+to register OSG contacts.
+COManage is backed by the [InCommon federation](https://www.incommon.org/federation/), meaning that users can register
+with the OSG using their institutional identities with familiar single-sign on forms.
 
-1.  Go to <https://registry.cilogon.org/registry/co_petitions/start/coef:64>
+Submitting a Registration Petition
+----------------------------------
 
-1.  Search for your institution and select it.
+Beging the OSG registration process using your institutional credentials at the following link:
 
-1.  Log in with your institutional credentials.
-    You should reach the "OSG Registration: Self Signup With Approval" page.
+<https://registry.cilogon.org/registry/co_petitions/start/coef:64>
 
-1.  Click the "BEGIN" button.
+!!! tip "Overriding name and email"
+    In most cases, your institution will provide defaults for your name and email address.
+    If you prefer, you may override these values.
 
-1.  Enter your name and email address in the form fields;
-    defaults might be filled in from what your institution provided,
-    but you are permitted to change them.
-    In particular, your email address does not have to match your login identity.
+Verifying Your Email Address
+----------------------------
 
-1.  Click the "SUBMIT" button.
+After submitting your registration petition, you will receive an email from <registry@cilogon.org> to verify your email
+address.
+Follow the link in the email and click on the "Accept" button to complete the verification.
 
-Verify Your Email Address
--------------------------
-
-After submitting your registration, you should receive an email from <registry@cilogon.org> asking you to verify your OSG
-registration.
-Follow the link in the email and click on the "Accept" button to verify your email address.
-
-Wait for Approval
------------------
+Waiting for Approval
+--------------------
 
 After verifying your email address, your registration must be approved by OSG staff.
-Once your registration has been approved, you will receive an email verifying your completed OSG registration.
+Once your registration has been approved, you will receive an email confirming your OSG registration.
 
 Getting Help
 ------------
