@@ -18,7 +18,7 @@ Submitting a Registration Petition
 
 Beging the OSG registration process using your institutional credentials at the following link:
 
-<https://registry.cilogon.org/registry/co_petitions/start/coef:64>
+<https://opensciencegrid.org/register>
 
 !!! tip "Overriding name and email"
     In most cases, your institution will provide defaults for your name and email address.
