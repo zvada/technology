@@ -29,24 +29,21 @@ Follow the instructions below to register with COManage and join the OSG group.
 
 1.  Click the "SUBMIT" button.
 
-1.  Check for an email from <registry@cilogon.org> asking you to verify your OSG registration.
-    Follow the link in the email.
-    You should see an "Invitation to OSG" page.
+Verify Your Email Address
+-------------------------
 
-1.  Click the "Accept" button.
-    You should see a message on top saying "Petition Confirmed".
+After submitting your registration, you should receive an email from <registry@cilogon.org> asking you to verify your OSG
+registration.
+Follow the link in the email and click on the "Accept" button to verify your email address.
 
-1.  Wait for approval from a COManage Admin.
-    You will get an email from <registry@cilogon.org> saying "Petition for <NAME> changed status
-    from Pending Approval to Approved".
-    Ignore the links in the email.
+Wait for Approval
+-----------------
 
-1.  To verify your access, go to
-    <https://registry.cilogon.org/registry/users/login>.
+After verifying your email address, your registration must be approved by OSG staff.
+Once your registration has been approved, you will receive an email verifying your completed OSG registration.
 
-    If you see a page saying "Welcome to OSG. Please select an action from the menus.",
-    then your registration was successful.
+Getting Help
+------------
 
-    Otherwise, if you see the "Self Signup With Approval" page, then your registration was unsuccessful;
-    contact <help@opensciencegrid.org> for assistance.
-
+For assistance with the OSG contact registration process, please use
+[this page](https://opensciencegrid.org/docs/common/help/).
