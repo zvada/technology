@@ -16,7 +16,8 @@ with the OSG using their institutional identities with familiar single-sign on f
 Submitting a Registration Petition
 ----------------------------------
 
-Beging the OSG registration process using your institutional credentials at the following link:
+Begin the OSG registration process using your institutional credentials at the following link
+(you will be redirected to the OSG COManage self-signup form):
 
 <https://opensciencegrid.org/register>
 
@@ -27,7 +28,7 @@ Beging the OSG registration process using your institutional credentials at the 
 Verifying Your Email Address
 ----------------------------
 
-After submitting your registration petition, you will receive an email from <registry@cilogon.org> to verify your email
+After submitting your registration application, you will receive an email from <registry@cilogon.org> to verify your email
 address.
 Follow the link in the email and click on the "Accept" button to complete the verification.
 
