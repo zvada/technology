@@ -11,7 +11,7 @@ Registering with the OSG
 OSG uses the [COManage](https://www.internet2.edu/products-services/trust-identity/comanage/) identity management system
 to register OSG contacts.
 COManage is backed by the [InCommon federation](https://www.incommon.org/federation/), meaning that users can register
-with the OSG using their institutional identities with familiar single-sign on forms.
+with the OSG using their institutional identities with familiar single sign-on forms.
 
 Submitting an Application
 -------------------------
