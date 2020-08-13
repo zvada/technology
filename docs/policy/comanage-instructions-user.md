@@ -13,30 +13,46 @@ to register OSG contacts.
 COManage is backed by the [InCommon federation](https://www.incommon.org/federation/), meaning that users can register
 with the OSG using their institutional identities with familiar single-sign on forms.
 
-Submitting a Registration Petition
-----------------------------------
+Submitting an Application
+-------------------------
 
-Begin the OSG registration process using your institutional credentials at the following link
-(you will be redirected to the OSG COManage self-signup form):
+To register with the OSG, submit an appplication using the self-signup process:
 
-<https://opensciencegrid.org/register>
+1.  Go to <https://opensciencegrid.org/register>
 
-!!! tip "Overriding name and email"
+1.  You will be presented with a CILogon Single-Sign On page.
+    Select your insitution and sign in with your insitutional credentials:
+
+    ![comanage-sso](/img/comanage/comanage-sso.png)
+
+1.  After you have signed in, you will be presented with the self-signup form.
+    Click the "BEGIN" button:
+
+    ![comanage-landing-page](/img/comanage/comanage-landing-page.png)
+
+1.  Enter your name and email address.
     In most cases, your institution will provide defaults for your name and email address.
     If you prefer, you may override these values.
+    Click the "SUBMIT" button:
+
+    ![comanage-enrollment-form](/img/comanage/comanage-enrollment-form.png)
 
 Verifying Your Email Address
 ----------------------------
 
 After submitting your registration application, you will receive an email from <registry@cilogon.org> to verify your email
 address.
-Follow the link in the email and click on the "Accept" button to complete the verification.
+Follow the link in the email and click the "Accept" button to complete the verification:
+
+![comanage-verify-email](/img/comanage/comanage-email-verification-form.png)
 
 Waiting for Approval
 --------------------
 
 After verifying your email address, your registration must be approved by OSG staff.
-Once your registration has been approved, you will receive an email confirming your OSG registration.
+Once your registration has been approved, you will receive an email confirming your OSG registration:
+
+![comanage-verified-email](/img/comanage/comanage-verified-email.png)
 
 Getting Help
 ------------
