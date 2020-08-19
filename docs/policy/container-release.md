@@ -33,7 +33,7 @@ OSG Software container images will be tagged with at least one of the following 
 
 ### Cleanup  ###
 
-The OSG removes images based on the [Docker Hub image retention policy](https://www.docker.com/pricing/retentionfaq).
+The OSG will keep images based on the [Docker Hub image retention policy](https://www.docker.com/pricing/retentionfaq).
 In summary, container images that have not been pulled or updated in 6 months will be removed.
 
 
