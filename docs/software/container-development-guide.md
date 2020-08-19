@@ -63,7 +63,7 @@ New Containers Using GitHub Actions (preferred)
    and add the new GitHub repo name to the `dispatch-repo:` list (under `jobs:` `dispatch:` `strategy:` `matrix:`).
 1. Make a Pull Request for your change.
 
-#### Prepare the DockerHub repository (GitHub Actions) ####
+#### Prepare the Docker Hub repository ####
 
 1. Create a Docker Hub repo in the OSG organization.
    The name should generally match the GitHub repo name, without the `docker-` prefix.
