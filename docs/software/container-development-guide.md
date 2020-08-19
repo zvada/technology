@@ -9,8 +9,8 @@ This document contains instructions for OSG Technology Team members, including:
 - Tips for container image development
 
 
-New Containers Using GitHub Actions
------------------------------------
+New Containers Using GitHub Actions (preferred)
+-----------------------------------------------
 
 ### Creating a new container image ###
 
