@@ -12,7 +12,7 @@ This document contains instructions for OSG Technology Team members, including:
 New Containers Using GitHub Actions
 -----------------------------------
 
-### Creating a new container image (GitHub Actions) ###
+### Creating a new container image ###
 
 #### Prepare the GitHub repository (GitHub Actions) ####
 
