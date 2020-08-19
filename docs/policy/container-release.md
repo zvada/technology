@@ -33,12 +33,16 @@ OSG Software container images will be tagged with at least one of the following 
 
 ### Cleanup  ###
 
-Images with only a timestamp tag will be untagged according to the following policy:
+The OSG will keep images based on the [Docker Hub image retention policy](https://www.docker.com/pricing/retentionfaq).
+In summary, container images that have not been pulled or updated in 6 months will be removed.
 
-- Weekly timestamped image tags will be kept for at least three months
-- After three months, monthly timestamped image tags will be kept for at least one year
 
 Announcements
 -------------
 
 Container images that have been tagged as **stable** will be noted in the OSG release notes and announcements.
+
+Change Log
+----------
+
+- **14 August 2020:** Updated cleanup policy to match Docker Hub image retention policy.
