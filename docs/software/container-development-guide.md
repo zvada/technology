@@ -56,18 +56,18 @@ New Containers Using GitHub Actions (preferred)
    (The osg-bot user needs this permission in order to trigger automatic builds.)
 1. Ask the Software Manager to set up `DOCKER_USERNAME` and `DOCKER_PASSWORD` secrets for this new repo.
 
+#### Prepare the Docker Hub repository ####
+
+1. Create a Docker Hub repo in the OSG organization.
+   The name should generally match the GitHub repo name, without the `docker-` prefix.
+1. Go to the permissions tab and give the `robots` and `technology` teams `Read & Write` access
+
 #### Set up repository dispatch from docker-software-base ####
 
 1. Edit the
    [GitHub Actions workflow for docker-software-base](https://github.com/opensciencegrid/docker-software-base/blob/master/.github/workflows/build-container.yml),
    and add the new GitHub repo name to the `dispatch-repo:` list (under `jobs:` `dispatch:` `strategy:` `matrix:`).
 1. Make a Pull Request for your change.
-
-#### Prepare the Docker Hub repository ####
-
-1. Create a Docker Hub repo in the OSG organization.
-   The name should generally match the GitHub repo name, without the `docker-` prefix.
-1. Go to the permissions tab and give the `robots` and `technology` teams `Read & Write` access
 
 #### Triggering Container Image Builds ####
 
