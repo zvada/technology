@@ -14,7 +14,7 @@ New Containers Using GitHub Actions (preferred)
 
 ### Creating a new container image ###
 
-#### Prepare the GitHub repository (GitHub Actions) ####
+#### Prepare the GitHub repository ####
 
 1. Create a Git repository in the `opensciencegrid` organization whose name is prefixed with `docker-`,
    e.g. `docker-frontier-squid`
