@@ -69,7 +69,7 @@ New Containers Using GitHub Actions (preferred)
    The name should generally match the GitHub repo name, without the `docker-` prefix.
 1. Go to the permissions tab and give the `robots` and `technology` teams `Read & Write` access
 
-#### Triggering Container Image Builds (GitHub Actions) ####
+#### Triggering Container Image Builds ####
 
 To build a new version of an [existing container image](#creating-a-new-container-image-github-actions),
 e.g. for a new RPM version of software in the container, you can kick off a new build in one of two ways:
