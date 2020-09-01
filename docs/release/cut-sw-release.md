@@ -88,15 +88,15 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
         ./master-run.sh
 
 !!! note
+    Test upcoming even though nothing will be released into upcoming. It is possible that a blahp (or some other) update in 3.X could affect upcoming.
+
+!!! note
     If there are failures, consult the release-manager before proceeding.
 
 ### Step 3: Test Pre-Release on the Madison ITB site
 
 Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](/release/itb-testing/).
 If you not local to Madison, consult the release manager for the designated person to do this testing.
-
-!!! note
-    Test upcoming even though nothing will be release into upcoming. It is possible that a blahp (or some other) update in 3.X could affect upcoming.
 
 ### Step 4: Regenerate the build repositories
 
