@@ -1,5 +1,5 @@
 site_name: OSG Technology Area
-site_url: https://opensciencegrid.github.io/technology/
+site_url: https://opensciencegrid.org/technology/
 repo_url: https://github.com/opensciencegrid/technology/
 theme:
   name: material
