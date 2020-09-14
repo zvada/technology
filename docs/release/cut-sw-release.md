@@ -1,5 +1,5 @@
 !!! note
-    If you are performing a data release, please follow the instructions [here](/release/cut-data-release/)
+    If you are performing a data release, please follow the instructions [here](cut-data-release.md)
 
 How to Cut a Software Release
 =============================
