@@ -3,18 +3,10 @@ Writing OSG Documentation
 
 Many OSG pages are written in [markdown](https://en.wikipedia.org/wiki/Markdown), built using
 [MkDocs](http://www.mkdocs.org/), and served via [GitHub Pages](https://pages.github.com/).
-To [contribute content](#contributing-content), submit a pull request to the relevant github repository:
+To [contribute content](#contributing-content), submit a pull request to the relevant GitHub repository,
+which are tagged with "mkdocs".
 
-- [Site administrator documentation](https://github.com/opensciencegrid/docs/)
-- [Internal Technology Area documentation](https://github.com/opensciencegrid/technology/).
-- [Networking documentation](https://github.com/opensciencegrid/networking)
-- [Security documentation](https://github.com/opensciencegrid/security)
-- [Operations documentation](https://github.com/opensciencegrid/operations)
-- [Production meeting notes](https://github.com/opensciencegrid/production)
-- [Management pages](https://github.com/opensciencegrid/management)
-- [Outreach pages](https://github.com/opensciencegrid/outreach)
-    - [User School 2017 pages](https://github.com/opensciencegrid/user-school-2017)
-    - [User School 2018 pages](https://github.com/opensciencegrid/user-school-2018)
+- [List of documentation repos](https://github.com/search?p=1&q=topic%3Amkdocs+org%3Aopensciencegrid&type=Repositories)
 
 This document contains instructions, recommendations, and guidelines for writing OSG content.
 
