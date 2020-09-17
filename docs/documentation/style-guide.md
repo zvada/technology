@@ -42,6 +42,10 @@ Links
 
 - Links to the area's homepage (e.g. https://opensciencegrid.org/technology/) need to be of the form `[link text](/)`
 
+- Links to other areas (like from https://opensciencegrid.org/technology/ to
+  https://opensciencegrid.org/operations/) need to be absolute links (i.e. include the domain name)
+
+
 ### Section links ###
 
 To link sections within a page, lowercase the entire section name and replace spaces with dashes. If there are multiple
