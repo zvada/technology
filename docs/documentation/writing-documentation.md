@@ -176,7 +176,7 @@ Before upgrading, you must fix the following incompatibilities:
 
 Once these are done, use the following procedure to update:
 
-1. Create an itb branch from master, e.g.
+1. In the repository you are updating, create an itb branch from master, e.g.
    `git checkout -b itb.mkdocsv1 master`
 
 2. cd into the `ci` directory in the root of your repository
