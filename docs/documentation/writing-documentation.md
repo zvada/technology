@@ -170,7 +170,7 @@ Before upgrading, you must fix the following incompatibilities:
   The section contents are identical; only the name is changing.
 
 - Update all of the links in the documents as follows:
-  - Ensure links do not end in `.md`
+  - Ensure links end in `.md`
   - Ensure links are document-relative, not site-relative (e.g. `../software/development-process`
     instead of `/software/development-process`
 
