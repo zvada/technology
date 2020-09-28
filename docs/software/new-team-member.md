@@ -8,7 +8,7 @@ Setup Instructions for New Team Members
 1. Read/write access to the UW Subversion repository;
     - Send email to Mat or Tim C
 1. User certificate
-    - Obtain a user certificate here: <https://oim.opensciencegrid.org/oim/certificate>
+    - Obtain a user certificate here: <https://cilogon.org>
     - Import the certificate into your browser of choice
 1. Access to FermiCloud
     - <https://cdcvs.fnal.gov/redmine/projects/fcl/wiki>
