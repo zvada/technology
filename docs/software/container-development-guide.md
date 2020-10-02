@@ -163,11 +163,11 @@ Images that have passed acceptance testing should be tagged as `stable`:
 1. Get the sha256 repo digest of the image that the user has tested.
    All you need is the part that starts with `sha256:...` (aka the `<DIGEST>`).
    
-   A Kubernetes user can get the digest by from the "Image" and "Image ID" lines obtained by running:
+   A Kubernetes user can get the digest from the "Image ID" line obtained by running:
    
          kubectl describe pod <POD>
    
-   A Docker user can get the digest from running:
+   A Docker user can get the digest by running:
    
          docker image inspect <IMAGE NAME>:<TAG> | jq '.[0].Id'
 
