@@ -24,7 +24,7 @@ If you have questions or concerns that are not addressed in this document, pleas
 Support Changes
 ---------------
 
-The Footprints ticketing system at <https://ticket.opensciencegrid.org> was used to track support and security issues as
+The Footprints ticketing system at `https://ticket.opensciencegrid.org` was used to track support and security issues as
 well as certificate and membership requests.
 This service was retired in favor of two different ticketing systems, depending on the VOs you support at your site:
 
