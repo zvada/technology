@@ -54,6 +54,34 @@ Once your registration has been approved, you will receive an email confirming y
 
 ![comanage-verified-email](/img/comanage/comanage-verified-email.png)
 
+OASIS Managers: Adding an SSH Key
+---------------------------------
+
+After approval by OSG staff, [OASIS managers](https://opensciencegrid.org/docs/data/update-oasis/) must upload a public
+SSH key before being able to access the OASIS login host:
+
+1.  Visit <https://opensciencegrid.org/register> and login if prompted
+
+1.  Click your name in the top right to get a dropdown and click the `My Profile (OSG)` button
+
+    ![COManage profile dropdown](../img/comanage/ssh-homepage-dropdown.png)
+
+1.  On the right-side of your profile, click the `Authenticators` link:
+
+    ![COManage user profile](../img/comanage/ssh-edit-profile.png)
+
+1.  On the authenticators page, click the `Manage` button:
+
+    ![COManage authenticators](../img/comanage/ssh-authenticator-select.png)
+
+1.  On the SSH keys page, click the `Add SSH Key` link:
+
+    ![COManage SSH keys](../img/comanage/ssh-key-list.png)
+
+1.  Finally, upload your public SSH key from your computer:
+
+    ![COManage upload SSH key](../img/comanage/ssh-add-key.png)
+
 Getting Help
 ------------
 
