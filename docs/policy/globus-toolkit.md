@@ -28,6 +28,3 @@ their requirements and timelines with regard to GridFTP and GSI.
 
 Please reach out to [goc@opensciencegrid.org](mailto:goc@opensciencegrid.org) with your questions, comments, and
 concerns.
-
-A copy of this statement can be found at
-[https://www.opensciencegrid.org/technology/policy/globus-toolkit](https://www.opensciencegrid.org/technology/policy/globus-toolkit).
