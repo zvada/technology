@@ -1,5 +1,10 @@
 OSG Support of the Globus Toolkit
 =================================
+
+!!! note "Gridftp and GSI Migration Plan"
+    In December 2019, the OSG developed a plan for migrating the OSG Software stack away from GridFTP and GSI that can
+    be found [here](gridftp-gsi-migration.md).
+
 6 June 2017
 
 Many in the OSG community have heard the news about the end of support for the open-source Globus Toolkit (formerly
@@ -28,3 +33,8 @@ their requirements and timelines with regard to GridFTP and GSI.
 
 Please reach out to [goc@opensciencegrid.org](mailto:goc@opensciencegrid.org) with your questions, comments, and
 concerns.
+
+Change Log
+----------
+
+**8 October 2020** Add note linking to the GridFTP and GSI migration plan
