@@ -142,9 +142,9 @@ When replying to or otherwise updating a Freshdesk ticket, there are a few thing
     | Pending                | Assignee is responsible for next actions                                    |
     | Waiting on Customer    | Assignee needs the reporter to respond                                      |
     | Waiting on Third Party | Assignee needs a response from a CC                                         |
-    | Closed                 | Support is complete or the user is unresponsive. [See above](#triage-duty). |
+    | Resolved               | Support is complete or the user is unresponsive. [See above](#triage-duty). |
     | Open                   | Ticket has not yet been assigned (initial ticket state)                     |
-    | Resolved               | **DO NOT USE**. Similar to `Closed` but sends a user survey.                |
+    | Closed                 | **DO NOT SET MANUALLY**. Terminal ticket state that is set by Freshdesk.    |
 
 If actionable Technology Team tasks arise from a Freshdesk ticket, [JIRA](#jira) ticket(s) should be created to track
 that work.
