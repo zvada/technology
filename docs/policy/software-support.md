@@ -16,9 +16,9 @@ When providing support for our users, remember the following:
 -   If you need to collect information about a problematic host, ask users to run `osg-system-profiler`.
     It can shorten the number of times you ask for information because it collects quite a bit for you.
 -   If you run across a problem that has a chance of being hit by other users:
-    -   Is there a bug we should fix in the software?
-        Or something we could improve in the software?
-    -   Is there a way to improve our documentation?
+    -   Is there a bug we should fix in the software? Open a Jira ticket.
+    -   Is there something we could improve in the software? Notify the Software Manager.
+    -   Is there a way to improve our documentation? Notify the Software Manager.
     -   Can you extend our troubleshooting documents to help people track this down more quickly?
         Consider the troubleshooting documents to be as much for us as for our users.
     -   Is this something that other Technology Team members should be aware of?
