@@ -41,8 +41,8 @@ If you are on triage duty, your responsibilities are as follows:
 
 -   **Watch for new software tickets:** review the
     [Unresolved Software Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000319518) and
-    [All Unassigned Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000322056) filters at least twice
-    daily for new OSG Software-related tickets.
+    [All Unassigned Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000322056) filters at least three
+    times daily for new OSG Software-related tickets.
     For any such unassigned tickets, assign it as follows:
     -   *If you can handle an incoming ticket,* assign it to yourself.
         Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
