@@ -139,7 +139,7 @@ When replying to or otherwise updating a Freshdesk ticket, there are a few thing
 
     | **State**              | **Description**                                                             |
     |------------------------|-----------------------------------------------------------------------------|
-    | Pending                | Assignee is responsible for next actions                                    |
+    | Open                   | OSG staff is responsible for next actions                                   |
     | Waiting on Customer    | Assignee needs the reporter to respond                                      |
     | Waiting on Third Party | Assignee needs a response from a CC                                         |
     | Resolved               | Support is complete or the user is unresponsive. [See above](#triage-duty). |
