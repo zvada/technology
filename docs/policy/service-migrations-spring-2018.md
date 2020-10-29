@@ -24,7 +24,7 @@ If you have questions or concerns that are not addressed in this document, pleas
 Support Changes
 ---------------
 
-The Footprints ticketing system at <https://ticket.opensciencegrid.org> was used to track support and security issues as
+The Footprints ticketing system at `https://ticket.opensciencegrid.org` was used to track support and security issues as
 well as certificate and membership requests.
 This service was retired in favor of two different ticketing systems, depending on the VOs you support at your site:
 
@@ -79,7 +79,7 @@ The MyOSG service used to provide web and REST interfaces to access information 
 and VOs.
 The MyOSG web interface was retired but we continue to offer the same REST interface at <https://my.opensciencegrid.org>.
 
-[OIM](https://oim.opensciencegrid.org/oim/home) served as the database for the information used by MyOSG with a web
+OIM served as the database for the information used by MyOSG with a web
 interface for data updates.
 The OIM web interface was retired but its data was migrated to the [topology repository](https://github.com/opensciencegrid/topology/).
 Updates to the aforementioned data can be requested via email or pull request.
