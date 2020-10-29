@@ -16,10 +16,10 @@ For a typical update to an existing package, the overall development cycle is ro
 2.  In [a checkout of our packaging code](../software/rpm-development-guide.md#revision-control-system),
     update [the reference to the upstream file](../software/rpm-development-guide.md#upstream) and,
     as needed, [the RPM spec file](../software/rpm-development-guide.md#osg)
-3.  Use [osg-build](../software/osg-build-tools#osg-build) to perform a scratch build of the updated package
+3.  Use [osg-build](../software/osg-build-tools.md#osg-build) to perform a scratch build of the updated package
 4.  Verify that the build succeeded; if not, redo previous steps until success
 5.  Optionally, lightly test the new RPM(s); if there are problems, redo previous steps until success
-6.  Use [osg-build](../software/osg-build-tools#osg-build) to perform an official build of the updated package
+6.  Use [osg-build](../software/osg-build-tools.md#osg-build) to perform an official build of the updated package
     (which will go into the development repos)
 7.  Perform standard developer testing of the new RPM(s) — see below for details
 8.  Obtain permission from the Software Manager to promote the package

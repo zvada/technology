@@ -353,5 +353,5 @@ Day 3: Update the ITB
 Now that the release has had a chance to propagate to all the mirrors, update the Madison ITB site by following
 the [yum update section](https://docs.google.com/document/d/11Njz9YMWg67f_TMzcrbdD7anZRIsf9-wiXx-inWhO4U/edit#bookmark=id.4d34og8) of the Madison ITB document.
 If you are not local to Madison, consult the release manager for the designated person to do the update.
-Remember to stop the HTCondor and HTCondor-CE daemons according to the [HTCondor pre-release testing instructions](../release/itb-testing/#installing-htcondor-prerelease.md).
+Remember to stop the HTCondor and HTCondor-CE daemons according to the [HTCondor pre-release testing instructions](../release/itb-testing.md#installing-htcondor-prerelease).
 Those daemons will need to be restarted after the upgrade.
