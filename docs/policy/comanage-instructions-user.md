@@ -6,7 +6,7 @@ Registering with the OSG
 !!! note "COManage administrators"
     This page is for users who want to register with the OSG.
     If you are a COManage Admin and need to approve a user registration,
-    go to the [Approving COManage Registrations](../policy/comanage-instructions-admin) page instead.
+    go to the [Approving COManage Registrations](../policy/comanage-instructions-admin.md) page instead.
 
 OSG uses the [COManage](https://www.internet2.edu/products-services/trust-identity/comanage/) identity management system
 to register OSG contacts.

@@ -97,7 +97,7 @@ To contribute content to the OSG, follow these steps to submit a pull request wi
 
     If you do not know which `upstream` branch to use, pick `master`.
 
-1. Make your changes in the `docs/` directory of your local clone, following the [style guide](../documentation/style-guide):
+1. Make your changes in the `docs/` directory of your local clone, following the [style guide](../documentation/style-guide.md):
 
     - **If you are making changes to an existing page:**
         1. Open `mkdocs.yml` and find the location of the file relative to the `docs/` directory
