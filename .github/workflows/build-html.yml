@@ -1,0 +1,24 @@
+name: Build, test, and deploy static MkDocs pages
+on: [push, pull_request]
+
+jobs:
+  mkdocs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build MkDocs pages
+        run: |
+          docker run \
+            -v ${PWD}:/docs \
+            squidfunk/mkdocs-material:6.1.4 \
+              build \
+              --verbose \
+              --strict
+      - name: Deploy MkDocs pages
+        if: github.event_name == 'push'
+        run: |
+           docker run \
+             -v ${PWD}:/docs \
+            squidfunk/mkdocs-material:6.1.4 \
+              gh-deploy \
+              --verbose
