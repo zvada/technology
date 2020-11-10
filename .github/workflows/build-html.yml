@@ -13,6 +13,7 @@ jobs:
           repository: opensciencegrid/doc-ci-scripts
           path: doc-ci-scripts
       - name: Build MkDocs pages
+        timeout-minutes: 1
         run: |
           docker run \
             -v ${PWD}:/docs \
@@ -21,6 +22,7 @@ jobs:
               --verbose \
               --strict
       - name: Test links
+        timeout-minutes: 10
         run: |
           docker run \
             -v ${PWD}/site:/mnt \
