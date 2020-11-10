@@ -8,6 +8,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - uses: actions/checkout@v2
+        with:
+          repository: opensciencegrid/doc-ci-scripts
+          path: doc-ci-scripts
       - name: Build MkDocs pages
         run: |
           docker run \
@@ -16,6 +20,14 @@ jobs:
               build \
               --verbose \
               --strict
+      - name: Test links
+        run: |
+          docker run \
+            -v ${PWD}/site:/mnt \
+            linkchecker/linkchecker \
+              --config=doc-ci-scripts/linkchecker.config \
+              --timeout 15 \
+              /mnt/index.html
       - name: Deploy MkDocs pages
         if: github.event_name == 'push' && startsWith(github.repository, 'opensciencegrid/')
         run: |
