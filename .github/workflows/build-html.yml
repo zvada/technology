@@ -17,7 +17,7 @@ jobs:
               --verbose \
               --strict
       - name: Deploy MkDocs pages
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && startsWith(github.repository, 'opensciencegrid/')
         run: |
            docker run \
              -v ${PWD}:/docs \
