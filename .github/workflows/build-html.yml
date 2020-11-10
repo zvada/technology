@@ -13,28 +13,25 @@ jobs:
           repository: opensciencegrid/doc-ci-scripts
           path: doc-ci-scripts
       - name: Build MkDocs pages
+        uses: docker://squidfunk/mkdocs-material:6.1.4
         timeout-minutes: 1
-        run: |
-          docker run \
-            -v ${PWD}:/docs \
-            squidfunk/mkdocs-material:6.1.4 \
-              build \
-              --verbose \
-              --strict
+        with:
+          args: >-
+            build
+            --verbose
+            --strict
       - name: Test links
         timeout-minutes: 10
-        run: |
-          docker run \
-            -v ${PWD}/site:/mnt \
-            linkchecker/linkchecker \
-              --config=doc-ci-scripts/linkchecker.config \
-              --timeout 15 \
-              /mnt/index.html
+        uses: docker://linkchecker/linkchecker
+        with:
+          args: >-
+            --config=doc-ci-scripts/linkchecker.config
+            --timeout 15
+            site/index.html
       - name: Deploy MkDocs pages
         if: github.event_name == 'push' && startsWith(github.repository, 'opensciencegrid/')
-        run: |
-           docker run \
-             -v ${PWD}:/docs \
-            squidfunk/mkdocs-material:6.1.4 \
-              gh-deploy \
-              --verbose
+        uses: docker://squidfunk/mkdocs-material:6.1.4
+        with:
+          args: >-
+            gh-deploy
+            --verbose
