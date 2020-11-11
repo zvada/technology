@@ -24,6 +24,7 @@ jobs:
             --allow-hash-href
             --check-html
             --file-ignore ./site/404.html
+            --url-ignore https://fonts.gstatic.com
             ./site
       - name: Deploy MkDocs pages
         if: github.event_name == 'push' && startsWith(github.repository, 'opensciencegrid/')
