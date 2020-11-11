@@ -22,12 +22,11 @@ jobs:
             --strict
       - name: Test links
         timeout-minutes: 10
-        uses: docker://linkchecker/linkchecker
+        uses: docker://klakegg/html-proofer:3.16.0
         with:
           args: >-
-            --config=doc-ci-scripts/linkchecker.config
-            --timeout 15
-            site/index.html
+            --allow-hash-href
+            --check-html
       - name: Deploy MkDocs pages
         if: github.event_name == 'push' && startsWith(github.repository, 'opensciencegrid/')
         uses: docker://squidfunk/mkdocs-material:6.1.4
