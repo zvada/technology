@@ -8,10 +8,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: actions/checkout@v2
-        with:
-          repository: opensciencegrid/doc-ci-scripts
-          path: doc-ci-scripts
       - name: Build MkDocs pages
         uses: docker://squidfunk/mkdocs-material:6.1.4
         timeout-minutes: 1
@@ -27,6 +23,8 @@ jobs:
           args: >-
             --allow-hash-href
             --check-html
+            --file-ignore ./site/404.html
+            ./site
       - name: Deploy MkDocs pages
         if: github.event_name == 'push' && startsWith(github.repository, 'opensciencegrid/')
         uses: docker://squidfunk/mkdocs-material:6.1.4
