@@ -58,7 +58,7 @@ To verify that the VM is capable of IPv6 we will be using the `ping6` command be
         64 bytes from ipv6vm001.fnal.gov: icmp_seq=1 ttl=51 time=68.1 ms
         64 bytes from ipv6vm001.fnal.gov: icmp_seq=2 ttl=51 time=57.6 ms
 
-1. From your test VM, ping another IPv6 capable machine (a list of IPv6 machines can be found [here](#Ipv6Vms)):
+1. From your test VM, ping another IPv6 capable machine:
 
         :::console
         [efajardo@ipv6vm001 ~]# ping6 uaf-4.t2.ucsd.edu
