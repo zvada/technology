@@ -23,6 +23,7 @@ jobs:
           args: >-
             --allow-hash-href
             --check-html
+            --http-status-ignore 302
             --file-ignore ./site/404.html
             --url-ignore https://fonts.gstatic.com
             ./site
