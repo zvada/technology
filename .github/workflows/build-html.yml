@@ -1,8 +1,8 @@
-name: Build, test, and deploy static MkDocs pages
-on: [push, pull_request]
+name: Valdate static MkDocs pages
+on: pull_request
 
 jobs:
-  mkdocs:
+  validate-mkdocs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,10 +27,3 @@ jobs:
             --file-ignore ./site/404.html
             --url-ignore https://fonts.gstatic.com
             ./site
-      - name: Deploy MkDocs pages
-        if: github.event_name == 'push' && startsWith(github.repository, 'opensciencegrid/')
-        uses: docker://squidfunk/mkdocs-material:6.1.4
-        with:
-          args: >-
-            gh-deploy
-            --verbose
