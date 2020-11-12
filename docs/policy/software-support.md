@@ -16,9 +16,9 @@ When providing support for our users, remember the following:
 -   If you need to collect information about a problematic host, ask users to run `osg-system-profiler`.
     It can shorten the number of times you ask for information because it collects quite a bit for you.
 -   If you run across a problem that has a chance of being hit by other users:
-    -   Is there a bug we should fix in the software?
-        Or something we could improve in the software?
-    -   Is there a way to improve our documentation?
+    -   Is there a bug we should fix in the software? Open a Jira ticket.
+    -   Is there something we could improve in the software? Notify the Software Manager.
+    -   Is there a way to improve our documentation? Notify the Software Manager.
     -   Can you extend our troubleshooting documents to help people track this down more quickly?
         Consider the troubleshooting documents to be as much for us as for our users.
     -   Is this something that other Technology Team members should be aware of?
@@ -41,8 +41,8 @@ If you are on triage duty, your responsibilities are as follows:
 
 -   **Watch for new software tickets:** review the
     [Unresolved Software Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000319518) and
-    [All Unassigned Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000322056) filters at least twice
-    daily for new OSG Software-related tickets.
+    [All Unassigned Tickets](https://support.opensciencegrid.org/a/tickets/filters/5000322056) filters at least three
+    times daily for new OSG Software-related tickets.
     For any such unassigned tickets, assign it as follows:
     -   *If you can handle an incoming ticket,* assign it to yourself.
         Inasmuch as possible, you should strive to handle the easier tickets and not pass them off to other people.
@@ -139,12 +139,12 @@ When replying to or otherwise updating a Freshdesk ticket, there are a few thing
 
     | **State**              | **Description**                                                             |
     |------------------------|-----------------------------------------------------------------------------|
-    | Pending                | Assignee is responsible for next actions                                    |
+    | Open                   | OSG staff is responsible for next actions                                   |
     | Waiting on Customer    | Assignee needs the reporter to respond                                      |
     | Waiting on Third Party | Assignee needs a response from a CC                                         |
-    | Closed                 | Support is complete or the user is unresponsive. [See above](#triage-duty). |
+    | Resolved               | Support is complete or the user is unresponsive. [See above](#triage-duty). |
     | Open                   | Ticket has not yet been assigned (initial ticket state)                     |
-    | Resolved               | **DO NOT USE**. Similar to `Closed` but sends a user survey.                |
+    | Closed                 | **DO NOT SET MANUALLY**. Terminal ticket state that is set by Freshdesk.    |
 
 If actionable Technology Team tasks arise from a Freshdesk ticket, [JIRA](#jira) ticket(s) should be created to track
 that work.
