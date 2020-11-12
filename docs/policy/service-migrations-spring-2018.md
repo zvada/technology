@@ -17,9 +17,11 @@ Getting Help
 If you have questions or concerns that are not addressed in this document, please contact us at the usual locations:
 
 -  [help@opensciencegrid.org](mailto:help@opensciencegrid.org)
--  [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org) - General discussion amongst team members
+-  [software-discuss@opensciencegrid.org](mailto:software-discuss@opensciencegrid.org) -
+   General discussion of the OSG Software stack
+   ([subscribe](https://listserv.fnal.gov/scripts/wa.exe?SUBED1=SOFTWARE-DISCUSS&A=1))
 -  [Slack channel](https://opensciencegrid.slack.com/messages/osg-software) - if you can't create an account, 
-   send an e-mail to [osg-software@opensciencegrid.org](mailto:osg-software@opensciencegrid.org)
+   send an e-mail to [help@opensciencegrid.org](mailto:help@opensciencegrid.org)
 
 Support Changes
 ---------------

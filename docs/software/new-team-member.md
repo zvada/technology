@@ -25,9 +25,8 @@ Setup Instructions for New Team Members
 1. Access to Koji
     - Follow the instructions on the [Koji User Management doc](https://docs.google.com/document/d/1a-8vppY1J969p39ZB_2Pi6nrN-ApcyabC56Q64uqjto/edit#bookmark=id.gjdgxs)
 1. Sign up for mailing lists
-    - osg-software@opensciencegrid.org
-    - osg-general@opensciencegrid.org
-    - osg-sites@opensciencegrid.org
+    - [software-discuss@opensciencegrid.org](https://listserv.fnal.gov/scripts/wa.exe?SUBED1=SOFTWARE-DISCUSS&A=1)
+    - technology-team@opensciencegrid.org
     - osg-commits@cs.wisc.edu
 1. GitHub team membership
     - <https://github.com/orgs/opensciencegrid/teams/software-and-release/members>

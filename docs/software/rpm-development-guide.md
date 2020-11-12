@@ -21,7 +21,8 @@ Contributing Packages
 
 We encourage all interested parties to contribute to OSG Software, and all the infrastructure described on this page should be friendly to external contributors.
 
--   To participate in the packaging community: You must subscribe to the <osg-software@opensciencegrid.org> email list. Subscribing to an OSG email list is [described here](https://listserv.fnal.gov/users.asp#subscribe%20to%20list).
+-   To participate in the packaging community: You must subscribe to the
+    [software-discuss@opensciencegrid.org](https://listserv.fnal.gov/scripts/wa.exe?SUBED1=SOFTWARE-DISCUSS&A=1) email list.
 -   To create and edit packages: [Obtain access to VDT SVN](http://vdt.cs.wisc.edu/internal/svn.html).
 -   To upload new source tarballs: You must have a cs.wisc.edu account with write access to the VDT source tarball directory. Email the osg-software list and request permission.
 -   To build using the OSG's Koji build system: You must have a valid grid certificate and a Koji account. Email the osg-software list with your cert's DN and request permission.
@@ -184,7 +185,7 @@ $ sha1sum /p/vdt/public/html/upstream/<PACKAGE>/<VERSION>/<FILE>
 !!! warning
     OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
-    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
+    If you are uncertain, or have a new project that you want mirrored, send email to <technology-team@opensciencegrid.org>.
 
 !!! note
     See also [advanced features for Git and GitHub repos](#advanced-features-for-git-and-github-repos).
@@ -221,7 +222,7 @@ In addition, if the repository contains a file called `rpm/<PROJECT>.spec`, it w
 !!! warning
     OSG software policy requires that all Git and GitHub repos used for building software have mirrors at the UW.
     Many software repos under the [opensciencegrid GitHub organization](https://github.com/opensciencegrid) are already mirrored.
-    If you are uncertain, or have a new project that you want mirrored, send email to <osg-software@opensciencegrid.org>.
+    If you are uncertain, or have a new project that you want mirrored, send email to <technology-team@opensciencegrid.org>.
 
 !!! note
     You can use a shorter syntax for GitHub repos -- see above.
