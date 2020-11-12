@@ -96,10 +96,10 @@ As mentioned earlier, my recommendation is that we treat a new OSG series differ
 - pull the repodata from the relevant `*-build` repo from koji:
 
 for pre-computing, use a build repo from an existing rhel version:  
-<https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el6-build/latest/x86_64/repodata/>
+https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el6-build/latest/x86_64/repodata/
 
 for just-in-time, use the new build repo:  
-<https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el8-build/latest/x86_64/repodata/>
+https://koji.chtc.wisc.edu/mnt/koji/repos/osg-3.2-el8-build/latest/x86_64/repodata/
 
 the primary and filelists (sqlite) files can be used to get runtime requires and provides. (Note that this includes packages from the relevant external repos, also.)
 

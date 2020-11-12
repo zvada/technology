@@ -1,0 +1,17 @@
+name: Deploy static MkDocs pages
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-mkdocs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy MkDocs pages
+        if: startsWith(github.repository, 'opensciencegrid/')
+        uses: docker://squidfunk/mkdocs-material:6.1.4
+        with:
+          args: >-
+            gh-deploy
+            --verbose
