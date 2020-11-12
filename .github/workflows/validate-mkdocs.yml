@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Build MkDocs pages
         uses: docker://squidfunk/mkdocs-material:6.1.4
         timeout-minutes: 1
