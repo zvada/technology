@@ -114,7 +114,8 @@ To contribute content to the OSG, follow these steps to submit a pull request wi
                If `mkdocs.yml` contains does not contain a `nav:` section,
                add the above to the `pages:` section instead.
                This means that the repository is using an older version of MkDocs
-               and will need to be [upgraded to MkDocs v1](#upgrading-to-mkdocs-v1)
+               and will need to be
+               [transitioined to GitHub Actions](publish-osg-pages.md#transitioning-to-github-actions).
 
         1. If you are writing site administrator documentation, following the [suggested document layout](#document-layout)
 
