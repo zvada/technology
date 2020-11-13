@@ -3,18 +3,25 @@ Container Development Guide
 
 This document contains instructions for OSG Technology Team members, including:
 
-- How to to develop container images that adhere to our [container release policy](../policy/container-release.md)
+- How to to develop OSG Software container images that are automatically pushed to Docker Hub that adhere to our
+  [container release policy](../policy/container-release.md)
 - How to build a new version of an existing image
 - How to manage tags for images in the [OSG DockerHub organization](https://hub.docker.com/r/opensciencegrid/)
 - Tips for container image development
 
 
-New Containers Using GitHub Actions (preferred)
------------------------------------------------
+Creating New OSG Software Containers
+------------------------------------
 
-### Creating a new container image ###
+OSG Software service container images intended for OSG site admin use need to be automatically updated once per week to
+pick up any OS updates, as well as upon any changes to the images themselves.
+To do this, we use GitHub Actions to:
 
-#### Prepare the GitHub repository ####
+1. Build new images on commits to `master`
+1. Update the `docker-software-base` on a schedule, which triggers builds for all image repos through repository dispatch
+1. Push container images to Docker Hub.
+
+### Prepare the GitHub repository ###
 
 1. Create a Git repository in the `opensciencegrid` organization whose name is prefixed with `docker-`,
    e.g. `docker-frontier-squid`
@@ -37,16 +44,12 @@ New Containers Using GitHub Actions (preferred)
 
     Replacing `<PACKAGE>` with the name of the RPM you'd like to provide in this container image
 
-1. Copy over `.github/workflows/build-container.yml` from a previous docker build GitHub repo
-   (e.g., <https://github.com/opensciencegrid/docker-frontier-squid>) to the same path in your new git repo.
-1. Update the `if: github.repository` line in the new copy of `build-container.yml` to match the new git repo name.
-   (This should keep the `opensciencegrid/` org prefix, and the new git repo name should start with `docker-`.)
-1. Also update the `repository:` line (in `build-container.yml`) under `uses: docker/build-push-action@v1` to match the
-   corresponding DockerHub repo name.
-   (This also should keep the `opensciencegrid/` org prefix, and the repo name is generally the same as the git repo,
-   except without the `docker-` prefix.)
-1. If there are any other references to the old repo name (e.g., `checkout frontier-squid`),
-   replace these with the new repo name.
+1. Add the pre-defined OSG Software container publishing GitHub Actions workflow.
+   From the GitHub repository, perform the following steps:
+   1. Go to the `Actions` tab
+   1. Select the `Publish OSG Software container image` workflow
+      (you may have to click `Add new workflow` first if the repository has existing workflows)
+   1. Click `Start commit` then `Commit new file`
 1. Give write permissions to the "osg-bot" user for this GitHub repo, navigating to:
    1. "Settings"
    1. "Manage access"
@@ -54,22 +57,23 @@ New Containers Using GitHub Actions (preferred)
    1. Search for and select "osg-bot"
    1. Choose the "Write" role, and click the button to Add osg-bot to the repo.
    (The osg-bot user needs this permission in order to trigger automatic builds.)
-1. Ask the Software Manager to set up `DOCKER_USERNAME` and `DOCKER_PASSWORD` secrets for this new repo.
+1. Ask the Software Manager to give this repo access to the `DOCKER_USERNAME` and `DOCKER_PASSWORD` organizational secrets
 
-#### Prepare the Docker Hub repository ####
+### Prepare the Docker Hub repository ###
 
 1. Create a Docker Hub repo in the OSG organization.
    The name should generally match the GitHub repo name, without the `docker-` prefix.
 1. Go to the permissions tab and give the `robots` and `technology` teams `Read & Write` access
 
-#### Set up repository dispatch from docker-software-base ####
+### Set up repository dispatch from docker-software-base ###4
 
 1. Edit the
    [GitHub Actions workflow for docker-software-base](https://github.com/opensciencegrid/docker-software-base/blob/master/.github/workflows/build-container.yml),
    and add the new GitHub repo name to the `dispatch-repo:` list (under `jobs:` `dispatch:` `strategy:` `matrix:`).
 1. Make a Pull Request for your change.
 
-#### Triggering Container Image Builds ####
+Triggering Container Image Builds
+---------------------------------
 
 To build a new version of an [existing container image](#creating-a-new-container-image),
 e.g. for a new RPM version of software in the container, you can kick off a new build in one of two ways:
