@@ -115,7 +115,7 @@ To contribute content to the OSG, follow these steps to submit a pull request wi
                add the above to the `pages:` section instead.
                This means that the repository is using an older version of MkDocs
                and will need to be
-               [transitioined to GitHub Actions](publish-osg-pages.md#transitioning-to-github-actions).
+               [transitioned to GitHub Actions](publish-osg-pages.md#transitioning-to-github-actions).
 
         1. If you are writing site administrator documentation, following the [suggested document layout](#document-layout)
 
