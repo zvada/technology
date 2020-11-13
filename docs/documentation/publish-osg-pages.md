@@ -1,8 +1,17 @@
-Creating a New Area
-===================
+Publishing OSG Pages with MkDocs
+================================
 
-This document contains instructions for creating a new top-level OSG website via [GitHub Pages](https://pages.github.com/)
-and deploying it automatically with [Travis-CI](https://travis-ci.org/).
+The OSG uses [MkDocs](https://www.mkdocs.org/) for [site documentation](https://opensciencegrid.org/docs/) and
+team-specific web pages (e.g. <https://opensciencegrid.org/technology/>).
+This document contains instructions for creating a new OSG area through GitHub and transitioning an existing MkDocs
+GitHub repository from [Travis CI](https://travis-ci.com/) to [GitHub Actions](https://github.com/features/actions).
+
+Creating New Pages
+------------------
+
+!!! help "Need assistance?"
+    If you need any assistance with setting up your GitHub repository, please reach out to <help@opensciencegrid.org>.
+
 This document assumes that you are an administrator of the `opensciencegrid` GitHub organization.
 Before starting, make sure that you have the `git` and `gem` tools installed.
 
@@ -156,3 +165,104 @@ This section describes creating an ITB repository for a documentation area creat
         git push origin master
 
     Your documents should be shortly available at `https://www.opensciencegrid.org/<REPO NAME>`
+
+Transitioning to GitHub Actions
+-------------------------------
+
+!!! help "Need assistance?"
+    If you need any assistance with transitioning your repository to GitHub actions, please reach out to
+    <help@opensciencegrid.org>.
+
+When originally developed, OSG MkDocs repositories were set up to automatically publish web page changes through
+[Travis CI](https://travis-ci.com/).
+But in November 2020, Travis CI changed their pricing model so we are moving the automatic publishing infrastructure
+to GitHub Actions and using this opportunity to also upgrade the version of MkDocs.
+
+To ensure that your pages continue to be autmoatically published you will need to prepare your repository for the new
+version of MkDocs, disable Travis CI, and enable GitHub Actions.
+
+### Preparing the repository ###
+
+Before upgrading, you must fix the following incompatibilities:
+
+-   Rename the `pages:` section of `mkdocs.yml` to `nav:`.
+    The section contents are identical; only the name is changing.
+
+-   Update all of the [links](style-guide.md#links) in the documents as follows:
+
+    -  Ensure links end in `.md`
+    -  Ensure links are document-relative, not site-relative
+
+    For example, links should be of the form `../software/development-process.md` instead of
+    `/software/development-process`.
+
+!!! tip "Previewing your pages with Docker"
+
+    If you would like to ensure the correctness of your fixes, run the following command:
+
+        :::console
+        docker run -it -v ${PWD}/docs -p 8000:8000 squidfunk/mkdocs-material:6.1.4
+
+    After running this command, enter `localhost:8000` in your browser to preview your pages.
+    Saved changes made to `.md` files are automatically updated in your browser!
+
+### Disabling Travis CI ###
+
+After you've prepared your repository for the transition, disable Travis CI by removing related files from it.
+Perform the following actions from the command-line:
+
+1.  Clone the repository that is still using Travis CI:
+
+        :::console
+        git clone https://github.com/opensciencegrid/<GIT REPOSITORY>
+
+1.  `cd` into the directory containing the repository (should be the same as `<GIT REPOSITORY>` by default)
+
+1.  Remove all of the Travs CI related files:
+
+        :::console
+        git rm ci
+        git rm .travis.env deploy-key.enc .travis.yml
+
+1.  Commit your changes:
+
+        :::console
+        git commit -am "Disable Travis CI"
+
+1.  Push your changes (you will be prompted for your GitHub credentials):
+
+        :::console
+        git push origin master
+
+### Enabling GitHub Actions ###
+
+The new method for validating and publishing OSG pages for a MkDocs repository can be enabled entirely through the
+[GitHub web interface](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/sharing-workflows-with-your-organization#using-a-workflow-template):
+
+1.  Navigate to the `opensciencegrid` fork of the GitHub repository in your web browser,
+    e.g. <https://github.com/opensciencegrid/docs/>
+
+1.  Click on the `Actions` tab:
+
+    ![Select the 'Actions' tab from your GitHub repository](../img/mkdocs/select-actions-tab.png)
+
+1.  Find the `Publish MkDocs static HTML` workflow by the Open Science Grid and click the `Set up this workflow` button:
+
+    ![Select the 'Publish MkDocs static HTML workflow](../img/mkdocs/select-publish-action.png)
+
+1.  Click on the `Start commit` drop-down button then click `Commit new file`:
+
+    ![Commit the workflow](../img/mkdocs/commit-publish-mkdocs-action.png)
+
+1.  **(Optional)** Enable the `Validate MkDocs Static HTML` workflow to check links and markdown correctness of pull
+    requests to the repository.
+
+    1.  Navigate to the `Actions` tab as before
+
+    1.  Click on the `New Workflow` button:
+
+        ![Click the 'New workflow' button](../img/mkdocs/select-new-workflow.png)
+
+    1.  Find the `Validate MkDocs static HTML` workflow by the Open Science Grid and click `Set up this workflow`
+
+    1.  As before, click on the `Start commit` drop-down button then click `Commit new file`

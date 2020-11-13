@@ -154,59 +154,6 @@ $ git push upstream new_docs:itb.new_docs
 !!! note
     Since there is only one ITB docs area, simultaneous new commits to different `itb.*` branches will overwrite each other's changes. To re-deploy your changes, find your [Travis-CI build](https://travis-ci.org/opensciencegrid/docs/branches) and restart it **BUT** coordinate with the author of the other commits to avoid conflicts.
 
-
-Upgrading to MkDocs v1
-----------------------
-
-The version of MkDocs used to generate documentation pages is determined by the submodule of `osg-ci-scripts`
-found in the `ci` directory.
-Most current documentation areas use MkDocs 0.17.5.
-However, we are planning to upgrade each repo to use MkDocs 1.0.4 or newer,
-which contains additional functionality and bug fixes.
-
-Before upgrading, you must fix the following incompatibilities:
-
-- Change the `pages:` section of `mkdocs.yml` to a `nav:` section.
-  The section contents are identical; only the name is changing.
-
-- Update all of the links in the documents as follows:
-  - Ensure links end in `.md`
-  - Ensure links are document-relative, not site-relative (e.g. `../software/development-process`
-    instead of `/software/development-process`
-
-Once these are done, use the following procedure to update:
-
-1. In the repository you are updating, create an itb branch from master, e.g.
-   `git checkout -b itb.mkdocsv1 master`
-
-2. cd into the `ci` directory in the root of your repository
-
-3. `git fetch` to get all changes from the origin
-
-4. `git checkout mkdocs-v1` to switch to the branch
-
-5. cd into the root of your repository
-
-6. `git add ci`
-   `git commit`
-   to store your changes
-
-7. In your virtualenv, run
-   `pip install --upgrade -r ci/pip-requirements.txt`
-
-8. Run mkdocs to [preview your changes](#previewing-the-pages);
-   be sure to verify that links work as expected
-
-9. Follow the [ITB deployment instructions](#deploying-content-to-the-itb-advanced)
-   to preview the changes on the website
-
-10. Create a pull request against `master` for your change
-
-
-!!! note
-    If you require assistance with the transition, don't hesitate to email <mailto:help@opensciencegrid.org>
-
-
 Document Layout
 ---------------
 
