@@ -60,7 +60,7 @@ nav:
     - Writing Documentation: 'documentation/writing-documentation.md'
     - Reviewing Documentation: 'documentation/reviewing-documentation.md'
     - Markdown Style Guide: 'documentation/style-guide.md'
-    - Creating a New Area: 'documentation/new-doc-area.md'
+    - Publishing OSG pages: 'documentation/publish-osg-pages.md'
   - Historical Transitions:
     - Service Migrations - Spring 2018: 'policy/service-migrations-spring-2018.md'
     - GUMS Retirement: 'policy/gums-retire.md'
