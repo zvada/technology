@@ -17,17 +17,17 @@ OSG Software service container images intended for OSG site admin use need to be
 pick up any OS updates, as well as upon any changes to the images themselves.
 To do this, we use GitHub Actions to:
 
-1. Build new images on commits to `master`
-1. Update the `docker-software-base` on a schedule, which triggers builds for all image repos through repository dispatch
-1. Push container images to Docker Hub.
+1.  Build new images on commits to `master`
+1.  Update the `docker-software-base` on a schedule, which triggers builds for all image repos through repository dispatch
+1.  Push container images to Docker Hub.
 
 ### Prepare the GitHub repository ###
 
-1. Create a Git repository in the `opensciencegrid` organization whose name is prefixed with `docker-`,
-   e.g. `docker-frontier-squid`
-1. Create a `README.md` file describing the software provided by the image
-1. Create a `LICENSE` file containing the [Apache 2.0 license text](https://www.apache.org/licenses/LICENSE-2.0.txt)
-1. Create a `Dockerfile` based off of the OSG Software Base image:
+1.  Create a Git repository in the `opensciencegrid` organization whose name is prefixed with `docker-`,
+    e.g. `docker-frontier-squid`
+1.  Create a `README.md` file describing the software provided by the image
+1.  Create a `LICENSE` file containing the [Apache 2.0 license text](https://www.apache.org/licenses/LICENSE-2.0.txt)
+1.  Create a `Dockerfile` based off of the OSG Software Base image:
 
         FROM opensciencegrid/software-base:fresh
 
@@ -44,19 +44,19 @@ To do this, we use GitHub Actions to:
 
     Replacing `<PACKAGE>` with the name of the RPM you'd like to provide in this container image
 
-1. Add the pre-defined OSG Software container publishing GitHub Actions workflow.
-   From the GitHub repository, perform the following steps:
-   1. Go to the `Actions` tab
-   1. Select the `Publish OSG Software container image` workflow
-      (you may have to click `Add new workflow` first if the repository has existing workflows)
-   1. Click `Start commit` then `Commit new file`
+1.  Add the pre-defined OSG Software container publishing GitHub Actions workflow.
+    From the GitHub repository, perform the following steps:
+    1.  Go to the `Actions` tab
+    1.  Select the `Publish OSG Software container image` workflow
+        (you may have to click `Add new workflow` first if the repository has existing workflows)
+    1.  Click `Start commit` then `Commit new file`
 1. Give write permissions to the "osg-bot" user for this GitHub repo, navigating to:
-   1. "Settings"
-   1. "Manage access"
-   1. "Invite teams or people"
-   1. Search for and select "osg-bot"
-   1. Choose the "Write" role, and click the button to Add osg-bot to the repo.
-   (The osg-bot user needs this permission in order to trigger automatic builds.)
+    1.  "Settings"
+    1.  "Manage access"
+    1.  "Invite teams or people"
+    1.  Search for and select "osg-bot"
+    1.  Choose the "Write" role, and click the button to Add osg-bot to the repo.
+        (The osg-bot user needs this permission in order to trigger automatic builds.)
 1. Ask the Software Manager to give this repo access to the `DOCKER_USERNAME` and `DOCKER_PASSWORD` organizational secrets
 
 ### Prepare the Docker Hub repository ###
