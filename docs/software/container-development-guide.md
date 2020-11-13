@@ -65,7 +65,7 @@ To do this, we use GitHub Actions to:
    The name should generally match the GitHub repo name, without the `docker-` prefix.
 1. Go to the permissions tab and give the `robots` and `technology` teams `Read & Write` access
 
-### Set up repository dispatch from docker-software-base ###4
+### Set up repository dispatch from docker-software-base ###
 
 1. Edit the
    [GitHub Actions workflow for docker-software-base](https://github.com/opensciencegrid/docker-software-base/blob/master/.github/workflows/build-container.yml),
