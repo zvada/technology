@@ -138,4 +138,4 @@ root@host # xrdcp -d 1 /tmp/first_test root://[2607:f720:1700:1b30::a4]:1094//tm
 [19B/19B][100%][==================================================][0B/s] 
 ```
 
-Notice that the IPv6 address follows [RFC2732](http://www.ietf.org/rfc/rfc2732.txt).
+Notice that the IPv6 address follows [RFC2732](https://www.ietf.org/rfc/rfc2732.txt).
