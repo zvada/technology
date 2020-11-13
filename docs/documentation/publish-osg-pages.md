@@ -115,7 +115,7 @@ Before starting, make sure that you have the `git` and `gem` tools installed.
 Creating an ITB Area
 --------------------
 
-This section describes creating an ITB repository for a documentation area created in the [previous section](#creating-a-new-area)
+This section describes creating an ITB repository for a documentation area created in the [previous section](#creating-new-pages)
 
 1. Create a new repository in the [opensciencegrid organization](https://github.com/organizations/opensciencegrid/repositories/new) and name it `<REPO NAME>-itb`.
    For example, an ITB area for the `docs` repository has a repository name of `docs-itb`.
