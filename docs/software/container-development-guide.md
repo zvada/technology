@@ -80,7 +80,7 @@ To do this, we use GitHub Actions to:
 Triggering Container Image Builds
 ---------------------------------
 
-To build a new version of an [existing container image](#creating-a-new-container-image),
+To build a new version of an [existing container image](#creating-new-osg-containers),
 e.g. for a new RPM version of software in the container, you can kick off a new build in one of two ways:
 
 - **If there are no changes necessary to the container packaging:** go to the GitHub repository's latest build under
