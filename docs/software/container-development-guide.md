@@ -59,6 +59,11 @@ To do this, we use GitHub Actions to:
         (The osg-bot user needs this permission in order to trigger automatic builds.)
 1. Ask the Software Manager to give this repo access to the `DOCKER_USERNAME` and `DOCKER_PASSWORD` organizational secrets
 
+!!! note "Repository dispatch"
+    Any repository that sends dispatches to another repository (e.g. `docker-software-base`, `docker-compute-entrypoint`)
+    needs access to the `REPO_ACCESS_TOKEN` organization secret.
+    Ask the Software Manager for access.
+
 ### Prepare the Docker Hub repository ###
 
 1. Create a Docker Hub repo in the OSG organization.
