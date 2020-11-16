@@ -111,7 +111,7 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 
 ### Step 5: Create the client tarballs
 
-Create the client tarballs as root on an EL7 fermicloud machine using the relevant script from git:
+Create the OSG 3.4 client tarballs as root on an EL7 fermicloud machine using the relevant script from git:
 
 ```bash
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
@@ -127,15 +127,38 @@ cd release-tools
     Test them in next step and then rerun the script and enter the proper account information.
     The script will pick up where it left off and upload the tarballs.
 
+Create the OSG 3.5 client tarballs on dumbo.chtc.wisc.edu using the relevant script from git:
+
+```bash
+NON_UPCOMING_VERSION="<NON-UPCOMING VERSION>"
+```
+```bash
+git clone https://github.com/opensciencegrid/tarball-client.git
+cd tarball-client
+./docker-make-client-tarball --osgver 3.5 --version $NON_UPCOMING_VERSION --all
+```
+
+After testing the tarballs in the next step. Upload them to AFS.
+
+```bash
+./upload-tarballs-to-afs $NON_UPCOMING_VERSION
+```
+
 ### Step 6: Briefly test the client tarballs
 
-Copy 1-verify-tarballs into /tmp.
+Copy verification scripts into /tmp.
+
+```bash
+cp -p 1-verify-tarballs release-common.sh /tmp
+```
+
 As an **unprivileged user**, run the script:
 
 ```bash
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 ```
 ```bash
+cd /tmp
 ./1-verify-tarballs $NON_UPCOMING_VERSIONS
 ```
 
