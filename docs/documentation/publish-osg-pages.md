@@ -211,10 +211,14 @@ Before upgrading, you must fix the following incompatibilities:
 After you've prepared your repository for the transition, disable Travis CI by removing related files from it.
 Perform the following actions from the command-line:
 
-1.  Clone the repository that is still using Travis CI:
+1.  Create a fresh clone of the repository that is still using Travis CI:
 
         :::console
         git clone https://github.com/opensciencegrid/<GIT REPOSITORY>
+
+    !!! important
+        For the rest of the steps in this documentation to work, you should create a new clone of the repository using
+        the above command, even if you already have an existing copy!
 
 1.  `cd` into the directory containing the repository (should be the same as `<GIT REPOSITORY>` by default)
 
@@ -254,8 +258,11 @@ The new method for validating and publishing OSG pages for a MkDocs repository c
 
     ![Commit the workflow](../img/mkdocs/commit-publish-mkdocs-action.png)
 
-1.  **(Optional)** Enable the `Validate MkDocs Static HTML` workflow to check links and markdown correctness of pull
-    requests to the repository.
+1.  Navigate to the `Actions` tab to verify your transition.
+    If you see green check marks, your pages are now being published with GitHub Actions!
+
+1.  **(Optional)** Enable the `Validate MkDocs Static HTML` workflow to check for broken links and markdown correctness
+    of pull requests to the repository.
 
     1.  Navigate to the `Actions` tab as before
 
