@@ -22,7 +22,7 @@ These distributed-HTC (dHTC) services communicate with the site's local resource
 resources for OSG users.
 The OSG itself does not own resources, but provides software and services that enable the sharing of resources by many sites, 
 and enable users to take advantage of these from submission points (whether via an OSG-0perated submission point, like 
-[OSG Connect](https://www.osgconnect.net/), or via a 'local' one).
+[OSG Connect](https://www.osgconnect.net/), or a locally-managed one).
 
 To contribute computational resources to the OSG, the following will be needed:
 
