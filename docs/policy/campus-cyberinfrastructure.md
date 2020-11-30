@@ -52,6 +52,7 @@ To contribute computational resources to the OSG, the following will be needed:
   worker node and shared home directories on each cluster node
 - Installation of some additional packages on the local cluster, IF the site would like to maximize its ability to support
   users, including those with large per-job data, containerized software, and/or GPU jobs.
+
 (There ARE some exceptions to the above. [Contact us](mailto:support@opensciencegrid.org) to discuss them!)
 
 !!!success "Next steps"
