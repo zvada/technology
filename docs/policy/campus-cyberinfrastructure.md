@@ -12,6 +12,7 @@ Campus Cyberinfrastructure (CC\*) proposal!  Please contact us at
 
 We have significant experience working with CC\* applicants and awardees, offering letters of collaboration and 
 consulting for:
+
 - bringing the power of the OSG to YOUR researchers
 - gathering science drivers and planning local computing resources 
 - CC*-required resource sharing for the Campus Compute category\*, and other options for integrating local resources into OSG
