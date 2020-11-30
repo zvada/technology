@@ -1,11 +1,23 @@
 The OSG and NSF Campus Cyberinfrastructure
 ==========================================
 
-The NSF Campus Cyberinfrastructure (CC\*) program invests in coordinated campus-level networking and cyberinfrastructure
-improvements, innovation, integration, and engineering for science applications and distributed research projects.
+The NSF Campus Cyberinfrastructure (CC\*) program invests in coordinated campus-level cyberinfrastructure
+improvements, innovation, integration, and engineering for science applications and distributed research projects, 
+including  enhancements to campus networking and computing resources.
 
-In the most recent call for proposals ([NSF 21-528](https://www.nsf.gov/pubs/2021/nsf21528/nsf21528.htm)), joining the
-[Open Science Grid](https://www.opensciencegrid.org) (OSG) is mentioned as a potential path to sharing resources with
+The [Open Science Grid](https://www.opensciencegrid.org) (as part of the 
+[Partnership to Advance Throughput Computing (PATh)](https://path-cc.io/)), is here to help you with your 
+Campus Cyberinfrastructure (CC\*) proposal!  Please contact us at 
+[cc-star-proposals@opensciencegrid.org](mailto:cc-star-proposals@opensciencegrid.org)
+
+We have significant experience working with CC\* applicants and awardees, offering letters of collaboration and 
+consulting for:
+- bringing the power of the OSG to YOUR researchers
+- gathering science drivers and planning local computing resources 
+- CC*-required resource sharing for the Campus Compute category\*, and other options for integrating local resources into OSG
+
+\*In the most recent call for proposals ([NSF 21-528](https://www.nsf.gov/pubs/2021/nsf21528/nsf21528.htm)), joining the
+OSG is mentioned as a potential path to sharing resources with
 the wider research community:
 
 > Proposals are required to commit to a minimum of 20% shared time on the cluster and describe their approach to making 
@@ -13,8 +25,9 @@ the wider research community:
 > **One possible approach to implementing such a federated distributed computing solution is joining a multi-campus or 
 > national federated system such as the Open Science Grid.**
 
-Contributing to the OSG
------------------------
+
+Sharing Resources via the OSG
+-----------------------------
 
 The OSG consortium provides standard services and support for computational resource providers (i.e., "sites") using a
 [distributed fabric](https://map.opensciencegrid.org) of high throughput computating (HTC) technologies.
@@ -32,14 +45,14 @@ To contribute computational resources to the OSG, the following will be needed:
   [HTCondor](https://research.cs.wisc.edu/htcondor/),
   [LSF](https://www.ibm.com/us-en/marketplace/hpc-workload-management),
   [PBS Pro](https://www.pbsworks.com/PBSProduct.aspx?n=Altair-PBS-Professional&c=Overview-and-Capabilities)/[Torque](https://adaptivecomputing.com/cherry-services/torque-resource-manager/),
-  or [Slurm](https://slurm.schedmd.com/).
+  [Slurm](https://slurm.schedmd.com/), and some local cloud provisioners.
 - Outbound network connectivity from the cluster's worker nodes
-- [Temporary scratch space](https://opensciencegrid.org/docs/worker-node/using-wn/#the-worker-node-environment) on each
-  worker node
 - SSH access to your local cluster's submit node from a known IP address
-- Shared home directories on each cluster node
-- Installation of some additional packages on the local cluster, IF the site would like to maximize it's ability to support
+- [Temporary scratch space](https://opensciencegrid.org/docs/worker-node/using-wn/#the-worker-node-environment) on each
+  worker node and shared home directories on each cluster node
+- Installation of some additional packages on the local cluster, IF the site would like to maximize its ability to support
   users, including those with large per-job data, containerized software, and/or GPU jobs.
+(There ARE some exceptions to the above. [Contact us](mailto:support@opensciencegrid.org) to discuss them!)
 
 !!!success "Next steps"
     If you are interested in OSG-offered services, please [contact us](mailto:support@opensciencegrid.org) for a
@@ -48,7 +61,7 @@ To contribute computational resources to the OSG, the following will be needed:
 Additional Materials
 --------------------
 
-If you are interested in learning more about the OSG and what it means to share resources via the OSG services, consider
+If you are interested in learning more about the dHTC, OSG, and what it means to share resources via OSG services, consider
 reviewing the following presentations from our [October 2020 workshop on dHTC and OSG services for campuses](https://indico.fnal.gov/event/45998/timetable/#20201022) ([YouTube Playlist](https://www.youtube.com/playlist?list=PLBWb4iScSWcPGfjvJztz_IeHCKS7f3u1k)):
 
 - Intro to dHTC and PATh Services for Campuses ([slides](https://indico.fnal.gov/event/45998/contributions/199894/attachments/136489/169747/20201022OSGCampusWorkshop_dHTCServiceOverview_LMichael.pdf),[YouTube](https://www.youtube.com/watch?v=hYc6RaWL33g&list=PLBWb4iScSWcPGfjvJztz_IeHCKS7f3u1k&index=2&t=5s))
