@@ -44,7 +44,6 @@ The following packages are considered critical to the production Open Science Gr
 - HDFS
 - HTCondor
 - HTCondor-CE
-- Singularity
 - XCache
 - XRootD
 
