@@ -37,7 +37,7 @@ To do this, we use GitHub Actions to:
             yum clean all && \
             rm -rf /var/cache/yum/*
 
-        RUN yum install -y <PACKAGE> --enablerepo=osg-minefield && \
+        RUN yum install -y <PACKAGE> --enablerepo=osg-testing && \
             yum clean all && \
             rm -rf /var/cache/yum/*
 
