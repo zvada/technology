@@ -27,6 +27,7 @@ To do this, we use GitHub Actions to:
     e.g. `docker-frontier-squid`
 1.  Create a `README.md` file describing the software provided by the image
 1.  Create a `LICENSE` file containing the [Apache 2.0 license text](https://www.apache.org/licenses/LICENSE-2.0.txt)
+1.  Set the repository topic to `container`
 1.  Create a `Dockerfile` based off of the OSG Software Base image:
 
         FROM opensciencegrid/software-base:fresh
