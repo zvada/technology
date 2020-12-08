@@ -93,7 +93,7 @@ Per-package work
 ----------------
 
 1.  cd into branches/globus
-2.  Download packages from <http://dl.fedoraproject.org/pub/epel/6/SRPMS/>
+2.  Download packages from <http://dl.fedoraproject.org/pub/epel/7/SRPMS/>
 
 A useful alias:
 
@@ -108,7 +108,7 @@ A useful alias:
         :::console hl_lines="1 2"
         [you@uw]$ osg-import-srpm <URL>
         [you@uw]$ osg-build-globus --scratch <PKG>
-    Change `<URL>` for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/6/SRPMS/Packages/g/globus-authz-4.2-1.el6.src.rpm
+    Change `<URL>` for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/7/SRPMS/Packages/g/globus-authz-4.3-1.el7.src.rpm
     and `<PKG>`> for the name of the package e.g. `globus-authz`
 
 2.  Commit - use a message like "Update to 3.12-1 from EPEL (SOFTWARE-2197)"
@@ -121,7 +121,7 @@ A useful alias:
 
         :::console
         [you@uw]$ osg-import-srpm --diff3 <URL>
-    Change `<URL>` for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/6/SRPMS/Packages/g/globus-authz-4.2-1.el6.src.rpm
+    Change `<URL>` for the URL from where the package will be donwloaded e.g. https://dl.fedoraproject.org/pub/epel/7/SRPMS/Packages/g/globus-authz-4.3-1.el7.src.rpm
 
 2.  Fix merge conflicts in the spec file. If not already there, put a .1 after the Release number to mark the changes as ours.
 3.  Run:

@@ -458,7 +458,7 @@ Renaming or Removing Packages
 
 Occasionally we want to cause a package to be removed on update, or replaced by a package with a different name.
 
-For the most part, the [Fedora Packaging Guidelines page on renames](https://fedoraproject.org/wiki/Packaging:Guidelines#Renaming.2FReplacing_Existing_Packages) shows how to do that.
+For the most part, the [Fedora Packaging Guidelines page on renames](https://docs.fedoraproject.org/en-US/packaging-guidelines/#renaming-or-replacing-existing-packages) shows how to do that.
 The exception is that we do not have the equivalent of a `fedora-obsolete-packages` package, so in order to force the removal of an entire package (not a subpackage), we have to dummy out the package instead -- see below.
 (This should be a rare situation.)
 
