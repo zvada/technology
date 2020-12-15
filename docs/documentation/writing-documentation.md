@@ -20,47 +20,21 @@ To contribute major content changes to one of the above OSG areas, make sure you
 meet the following requirements:
 
 - Have a [Github account](https://github.com/join)
-- Installations of the following tools and languages:
+- Installations of the following tools:
+    - [Docker](https://www.docker.com/)
     - [git](https://git-scm.com/)
-    - [Python](https://www.python.org/)
-    - [pip](https://pip.pypa.io/en/stable/installing/) (usually comes by default with Python 2 >= 2.7.9 or Python 3 >= 3.4)
-
-!!!note
-    On macOS, the OS-distributed Python does not come with pip.
-    Run the following to install it:
-
-        :::console
-        $ sudo easy_install pip
-
-    pip will be installed in `/usr/local/bin/`, so you will need `/usr/local/bin` in your PATH.
 
 ### Preparing the git repository ###
 
-Before making any content changes, you will need to prepare a local git clone and set up a Python virtual environment:
+Before making any content changes, you will need to prepare a local git clone:
 
 1. [Fork and clone](https://help.github.com/articles/fork-a-repo/) the GitHub repository that you'd like to contribute to
-1. `cd` into the directory containing the local clone of your Github fork
-1. Run the following command to update the contents of the `ci` directory:
-
-        :::console
-        $ git submodule update --init --recursive
 
 1. Add the upstream Github repository as a [remote](https://help.github.com/articles/adding-a-remote/).
    For example, if you are working on the User School 2018 pages:
 
         :::console
         $ git remote add upstream https://github.com/opensciencegrid/user-school-2018
-
-1. Install the `virtualenv` package:
-
-        :::console
-        $ pip install --user virtualenv
-
-1. Set up your Python virtual environment:
-
-        :::console
-        $ virtualenv env
-        $ env/bin/pip install -r ci/pip-requirements.txt
 
 ### Previewing the pages ###
 
@@ -72,7 +46,7 @@ The development server will automatically detect any content changes and make th
 1. Start a MkDocs development server to preview your changes:
 
         :::console
-        $ PYTHONPATH=src env/bin/mkdocs serve
+        $ docker run --rm -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:6.1.4
 
     To preview your changes visit `localhost:8000` in the browser of your choice.
     The server can be stopped with `Ctrl-C`.
