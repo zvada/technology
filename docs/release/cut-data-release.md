@@ -17,6 +17,7 @@ Requirements
 -   An account on UW CS machines (e.g. `moria`) to access UW's AFS
 -   `release-tools` scripts in your `PATH` ([GitHub](https://github.com/opensciencegrid/release-tools))
 -   `osg-build` scripts in your `PATH` (installed via OSG yum repos or [source](https://github.com/opensciencegrid/osg-build))
+-   Access to the tarball repository at UNL (osgcollab@repo.opensciencegrid.org)
 
 Pick the Version and Revision Numbers
 -------------------------------------
@@ -26,7 +27,10 @@ The rest of this document makes references to `<REVISION>` and `<VERSION(S)>` , 
 Day 0: Generate Preliminary Release List
 ----------------------------------------
 
-The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release. Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
+The release manager often needs a tentative list of packages to be released.
+This is done by finding the package differences between osg-testing and the current release.
+
+Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
 ```bash
 VERSIONS='<VERSION(S)>'
@@ -38,12 +42,12 @@ cd release-tools
 0-generate-pkg-list -d $REVISION $VERSIONS
 ```
 
-Day 1: Verify Pre-Release
--------------------------
+Day 1: Verify Pre-Release and Generate Tarballs
+-----------------------------------------------
 
-This section is to be performed 1-2 days before the release (as designated by the release manager) to perform last checks of the release.
+This section is to be performed 1-2 days before the release (as designated by the release manager) to perform last checks of the release and create the client tarballs.
 
-### Step 1: Generate the release list
+### Step 1: Verify Pre-Release
 
 Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated `release-list` in git). To do this, run the `1-verify-prerelease` script from git:
 
@@ -55,11 +59,99 @@ REVISION=<REVISION>
 1-verify-prerelease -d $REVISION $VERSIONS
 ```
 
-If there are any discrepancies consult the release manager. You may have to tag packages with the `osg-koji` tool.
+If there are any discrepancies, consult the release manager. You may have to tag or untag packages with the `osg-koji` tool.
 
-### Step 2: Test the Pre-Release on the Madison ITB site
+### Step 2: Test Pre-Release in VM Universe
+
+To test pre-release, you will be kicking off a manual VM universe test run from `osg-sw-submit.chtc.wisc.edu`.
+
+1.  Ensure that you meet the [pre-requisites](https://github.com/opensciencegrid/vm-test-runs) for submitting VM universe test runs
+2.  Prepare the test suite by running:
+
+        osg-run-tests -P 'Testing OSG pre-release'
+
+3.  `cd` into the directory specified in the output of the previous command
+4.  Submit the DAG:
+
+        ./master-run.sh
+
+!!! note
+    Test upcoming even though nothing will be released into upcoming. It is possible that a blahp (or some other) update in 3.X could affect upcoming.
+
+!!! note
+    If there are failures, consult the release-manager before proceeding.
+
+### Step 3: Test the Pre-Release on the Madison ITB site
 
 Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](../release/itb-testing.md).
+If you not local to Madison, consult the release manager for the designated person to do this testing.
+
+### Step 4: Regenerate the build repositories
+
+To avoid 404 errors when retrieving packages, it's necessary to regenerate the build repositories. Run the following script from a machine with your koji-registered user certificate:
+
+```bash
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
+1-regen-repos $NON_UPCOMING_VERSIONS
+```
+
+### Step 5: Create the client tarballs
+
+Create the OSG client tarballs on dumbo.chtc.wisc.edu using the relevant script from git:
+
+```bash
+NON_UPCOMING_VERSION="<NON-UPCOMING VERSION>"
+REVISION=<REVISION>
+```
+```bash
+git clone https://github.com/opensciencegrid/tarball-client.git
+pushd tarball-client
+./docker-make-client-tarball --osgver 3.5 --version $NON_UPCOMING_VERSION --relname $REVISION --all
+popd
+```
+
+### Step 6: Briefly test the client tarballs
+
+As an **unprivileged user**, run the script:
+
+```bash
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
+./1-verify-tarballs -d $REVISION $NON_UPCOMING_VERSIONS
+```
+
+If you have time, try some of the binaries, such as grid-proxy-init.
+
+!!! todo
+    We need to automate this and have it run on the proper architectures and version of RHEL.
+
+### Step 7: Upload the tarballs to AFS
+
+After testing the tarballs in the next step. Upload them to AFS.
+
+```bash
+./upload-tarballs-to-afs -d $REVISION $NON_UPCOMING_VERSION
+```
+
+### Step 8: Update the UW AFS installation of the tarball client
+
+The UW keeps an install of the tarball client in `/p/vdt/workspace/tarball-client` on the UW's AFS. To update it, run the following commands:
+
+```bash
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
+for ver in $NON_UPCOMING_VERSIONS; do
+    /p/vdt/workspace/tarball-client/afs-install-tarball-client $ver $REVISION
+done
+```
+
+### Step 9: Wait
+
+Wait for clearance. The OSG Release Coordinator (in consultation with the Software Team and any testers) need to sign off on the update before it is released. If you are releasing things over two days, this is a good place to stop for the day.
 
 Day 2: Pushing the Release
 --------------------------
@@ -70,7 +162,7 @@ This script moves the packages into release, clones releases into new version-sp
 locks the repos and regenerates them.
 
 ```bash
-VERSIONS='VERSION(S)>'
+VERSIONS='<VERSION(S)>'
 REVISION=<REVISION>
 ```
 ```bash
@@ -82,7 +174,7 @@ REVISION=<REVISION>
 This script generates the release notes and updates the release information in AFS.
 
 ```bash
-VERSIONS='VERSION(S)>'
+VERSIONS='<VERSION(S)>'
 REVISION=<REVISION>
 ```
 ```bash
@@ -92,7 +184,52 @@ REVISION=<REVISION>
 1.  `*.txt` files are created and it should be verified that they've been moved to /p/vdt/public/html/release-info/ on UW's AFS.
 2.  For each release version, use the `*release-note*` files to update the relevant sections of the release note pages.
 
-### Step 3: Update the Docker WN client
+### Step 3: Upload the client tarballs
+
+Upload the tarballs to the repository with the following procedure from a UW CS machine (e.g., `moria`):
+
+```bash
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
+./2-upload-tarballs $NON_UPCOMING_VERSIONS
+```
+
+### Step 4: Install the tarballs into OASIS
+
+!!! note
+    You must be an OASIS manager of the `mis` VO to do these steps. Known managers as of 2014-07-22: Mat, Tim C, Tim T, Brian L. 
+
+Get the uploader script from Git and run it with `osgrun` from the UW AFS install of the tarball client you made earlier. On a UW CSL machine:
+
+```bash
+NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
+```
+```bash
+cd /tmp
+git clone --depth 1 file:///p/vdt/workspace/git/repo/tarball-client.git
+for ver in $NON_UPCOMING_VERSIONS; do
+    /p/vdt/workspace/tarball-client/current/sys/osgrun /tmp/tarball-client/upload-tarballs-to-oasis $ver $REVISION
+done
+```
+
+The script will automatically ssh you to oasis-login.opensciencegrid.org and give you instructions to complete the process.
+
+### Step 5: Remove old UW AFS installations of the tarball client
+
+To keep space usage down, remove tarball client installations and symlinks under `/p/vdt/workspace/tarball-client` on UW's AFS that are more than 2 months old.
+To remove them, first check the list:
+```bash
+find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -ls
+```
+Then if the output looks reasonable
+(contains at least one installation, but does not contain recent installations),
+remove them:
+```bash
+find /p/vdt/workspace/tarball-client -maxdepth 1 -mtime +60 -name 3\* -exec rm -rf {} +
+```
+
+### Step 6: Update the Docker WN client
 
 Update the GitHub repo at [opensciencegrid/docker-osg-wn](https://github.com/opensciencegrid/docker-osg-wn) using the `update-all` script found in [opensciencegrid/docker-osg-wn-scripts](https://github.com/opensciencegrid/docker-osg-wn-scripts). This requires push access to the `opensciencegrid/docker-osg-wn` repo.
 
@@ -107,7 +244,7 @@ cd docker-osg-wn
 # that 'update-all' should have printed
 ```
 
-### Step 4: Verify the VO Package and/or CA certificates
+### Step 7: Verify the VO Package and/or CA certificates
 
 Wait for the [CA certificates](https://repo.opensciencegrid.org/cadist/) to be updated.
 It may take a while for the updates to reach the mirror used to update the web site.
@@ -116,11 +253,10 @@ Once the web page is updated, run the following command to update the VO Package
 verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
 
 ```bash
-/p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
 /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
 ```
 
-### Step 5: Make release note pages
+### Step 8: Make release note pages
 
 1.  Copy the release note page from the latest data release of each series and put the new version number in the
     file name. Edit the release number and date.
@@ -143,7 +279,7 @@ verify that the version of the VO Package and/or CA certificates match the versi
 8.  When the web page is available, you can announce the release.
 
 
-### Step 6: Announce the release
+### Step 9: Announce the release
 
 The following instructions are meant for the release manager (or interim release manager). If you are not the release manager, let the release manager know that they can announce the release.
 
@@ -192,11 +328,11 @@ The following instructions are meant for the release manager (or interim release
     Replacing `<EMAIL SUBJECT>` with an appropriate subject for your announcement and `<PATH TO MESSAGE FILE>` with the
     path to the file containing your message in plain text.
 
-3.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function. Uncheck the box that reads "Send mail for this update"
+3.  The release manager releases the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
 
 Day 3: Update the ITB
 ---------------------
 
 Now that the release has had a chance to propagate to all the mirrors, update the Madison ITB site by following
 the [yum update section](https://docs.google.com/document/d/11Njz9YMWg67f_TMzcrbdD7anZRIsf9-wiXx-inWhO4U/edit#bookmark=id.4d34og8) of the Madison ITB document.
-
+If you are not local to Madison, consult the release manager for the designated person to do the update.

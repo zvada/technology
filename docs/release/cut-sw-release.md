@@ -27,23 +27,13 @@ The rest of this document makes references to `<VERSION(S)>` and `<NON-UPCOMING 
 Day 0: Generate Preliminary Release List
 ----------------------------------------
 
-The release manager often needs a tentative list of packages to be released. This is done by finding the package differences between osg-testing and the current release.
-
-### Step 1: Update the osg-version RPM (3.4 only)
-
-For each 3.4 release, update the version number in the osg-version RPM's spec file and build it in koji:
-
-```bash
-# Build OSG 3.4's osg-version package
-osg-build koji --repo=3.4 osg-version
-```
-
-### Step 2: Promote osg-version (3.4 only) and generate the release list
+The release manager often needs a tentative list of packages to be released.
+This is done by finding the package differences between osg-testing and the current release.
 
 Run `0-generate-pkg-list` from a machine that has your koji-registered user certificate:
 
 ```bash
-VERSIONS="<VERSION(S)>"
+VERSIONS='<VERSION(S)>'
 ```
 ```bash
 git clone https://github.com/opensciencegrid/release-tools.git
@@ -61,17 +51,13 @@ This section is to be performed 1-2 days before the release (as designated by th
 Compare the list of packages already in pre-release to the final list for the release put together by the OSG Release Coordinator (who should have updated `release-list` in git). To do this, run the `1-verify-prerelease` script from git:
 
 ```bash
-VERSIONS="<VERSION(S)>"
+VERSIONS='<VERSION(S)>'
 ```
 ```bash
 1-verify-prerelease $VERSIONS
 ```
 
 If there are any discrepancies, consult the release manager. You may have to tag or untag packages with the `osg-koji` tool.
-
-!!! note
-    Verify that if there is a new version of the `osg-tested-internal` RPM, then it is included in the release as well!
-    For 3.4 releases, also verify that the `osg-version` RPM is in your set of packages for the release!
 
 ### Step 2: Test Pre-Release in VM Universe
 
@@ -93,7 +79,7 @@ To test pre-release, you will be kicking off a manual VM universe test run from 
 !!! note
     If there are failures, consult the release-manager before proceeding.
 
-### Step 3: Test Pre-Release on the Madison ITB site
+### Step 3: Test the Pre-Release on the Madison ITB site
 
 Test the pre-release on the Madison ITB by following the [ITB pre-release testing instructions](../release/itb-testing.md).
 If you not local to Madison, consult the release manager for the designated person to do this testing.
@@ -111,46 +97,19 @@ NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 
 ### Step 5: Create the client tarballs
 
-Create the OSG 3.4 client tarballs as root on an EL7 fermicloud machine using the relevant script from git:
-
-```bash
-NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
-```
-```bash
-git clone https://github.com/opensciencegrid/release-tools.git
-cd release-tools
-./1-client-tarballs $NON_UPCOMING_VERSIONS
-```
-
-!!! note
-    Enter a@a.a for your upload account at first. The script will build the tarballs but not upload them.
-    Test them in next step and then rerun the script and enter the proper account information.
-    The script will pick up where it left off and upload the tarballs.
-
-Create the OSG 3.5 client tarballs on dumbo.chtc.wisc.edu using the relevant script from git:
+Create the OSG client tarballs on dumbo.chtc.wisc.edu using the relevant script from git:
 
 ```bash
 NON_UPCOMING_VERSION="<NON-UPCOMING VERSION>"
 ```
 ```bash
 git clone https://github.com/opensciencegrid/tarball-client.git
-cd tarball-client
+pushd tarball-client
 ./docker-make-client-tarball --osgver 3.5 --version $NON_UPCOMING_VERSION --all
-```
-
-After testing the tarballs in the next step. Upload them to AFS.
-
-```bash
-./upload-tarballs-to-afs $NON_UPCOMING_VERSION
+popd
 ```
 
 ### Step 6: Briefly test the client tarballs
-
-Copy verification scripts into /tmp.
-
-```bash
-cp -p 1-verify-tarballs release-common.sh /tmp
-```
 
 As an **unprivileged user**, run the script:
 
@@ -158,7 +117,6 @@ As an **unprivileged user**, run the script:
 NON_UPCOMING_VERSIONS="<NON-UPCOMING VERSION(S)>"
 ```
 ```bash
-cd /tmp
 ./1-verify-tarballs $NON_UPCOMING_VERSIONS
 ```
 
@@ -167,7 +125,15 @@ If you have time, try some of the binaries, such as grid-proxy-init.
 !!! todo
     We need to automate this and have it run on the proper architectures and version of RHEL.
 
-### Step 7: Update the UW AFS installation of the tarball client
+### Step 7: Upload the tarballs to AFS
+
+After testing the tarballs in the next step. Upload them to AFS.
+
+```bash
+./upload-tarballs-to-afs $NON_UPCOMING_VERSION
+```
+
+### Step 8: Update the UW AFS installation of the tarball client
 
 The UW keeps an install of the tarball client in `/p/vdt/workspace/tarball-client` on the UW's AFS. To update it, run the following commands:
 
@@ -180,7 +146,7 @@ for ver in $NON_UPCOMING_VERSIONS; do
 done
 ```
 
-### Step 8: Wait
+### Step 9: Wait
 
 Wait for clearance. The OSG Release Coordinator (in consultation with the Software Team and any testers) need to sign off on the update before it is released. If you are releasing things over two days, this is a good place to stop for the day.
 
@@ -193,7 +159,7 @@ This script moves the packages into release, clones releases into new version-sp
 locks the repos and regenerates them.
 
 ```bash
-VERSIONS="<VERSION(S)>"
+VERSIONS='<VERSION(S)>'
 ```
 ```bash
 2-push-release $VERSIONS
@@ -204,7 +170,7 @@ VERSIONS="<VERSION(S)>"
 This script generates the release notes and updates the release information in AFS.
 
 ```bash
-VERSIONS="<VERSION(S)>"
+VERSIONS='<VERSION(S)>'
 ```
 ```bash
 2-make-notes $VERSIONS
@@ -283,7 +249,6 @@ Once the web page is updated, run the following command to update the VO Package
 verify that the version of the VO Package and/or CA certificates match the version that was promoted to release.
 
 ```bash
-/p/vdt/workspace/tarball-client/current/amd64_rhel6/osgrun osg-update-data
 /p/vdt/workspace/tarball-client/current/amd64_rhel7/osgrun osg-update-data
 ```
 
@@ -367,8 +332,7 @@ The following instructions are meant for the release manager (or interim release
     Replacing `<EMAIL SUBJECT>` with an appropriate subject for your announcement and `<PATH TO MESSAGE FILE>` with the
     path to the file containing your message in plain text.
 
-3.  The release manager closes the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
-    Also set the Fix Versions field to the appropriate value(s) and uncheck the box that reads "Send mail for this update"
+3.  The release manager releases the tickets marked 'Ready for Release' in the release's JIRA filter using the 'bulk change' function.
 
 Day 3: Update the ITB
 ---------------------
