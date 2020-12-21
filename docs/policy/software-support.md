@@ -51,8 +51,8 @@ If you are on triage duty, your responsibilities are as follows:
         Where appropriate, CC people from other OSG teams, sites, or VOs.
 
     !!! important "New sites interested in joining the OSG"
-        For support requests inquiring about joining the OSG, assign the ticket to the Research Faciliation lead and add
-        the Software Team manager as a watcher.
+        For support requests inquiring about joining the OSG, assign the ticket to the Operations group and the Research
+        Faciliation lead.
 
 -   **Review assigned software tickets.**
     For tickets that are not being handled in a timely fashion (pay special attention to `OVERDUE` and `Customer
