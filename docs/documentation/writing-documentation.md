@@ -205,3 +205,6 @@ Tips for Writing Procedural Instructions
 
 - Avoid superfluous statements like `you will want`, `you want`, `you should` e.g., `install foo` rather than
   `you will want to install foo`.
+  
+- Use the imperative form in step-by-step instructions, e.g. `install package foo` rather than
+  `the package foo should be installed`
