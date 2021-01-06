@@ -67,7 +67,7 @@ To do this, we use GitHub Actions to:
 
 ### Prepare the Docker Hub repository ###
 
-1. Create a Docker Hub repo in the OSG organization.
+1. Ask the Software Manager to create a Docker Hub repo in the OSG organization.
    The name should generally match the GitHub repo name, without the `docker-` prefix.
 1. Go to the permissions tab and give the `robots` and `technology` teams `Read & Write` access
 
